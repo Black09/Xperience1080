@@ -1,0 +1,163 @@
+<includes>
+	<include name="ContextMenuBackgroundVars">
+		<posx>0</posx>
+		<texture>-</texture>
+		<aspectratio aligny="center">stretch</aspectratio>
+		<visible>false</visible>
+	</include>
+	
+	<include name="ContextMenuGroupListVars">
+		<posx>0</posx>
+		<posy>0</posy>
+		<itemgap>0</itemgap>
+		<scrolltime>0</scrolltime>
+	</include>
+	
+	<include name="ContextMenuButtonVars">
+		<height>60</height>
+		<align>center</align>
+		<aligny>top</aligny>
+		<font>Font-Condensed-S34</font>
+		<focusedcolor>eewhite</focusedcolor>
+		<textoffsetx>20</textoffsetx>
+		<textoffsety>4</textoffsety>
+	</include>
+	
+	<include name="ContextMenuDefault">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>380</width>
+			<height>660</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>380</width>
+			<height min="0" max="660">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>380</width>
+			<textcolor>aawhite</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuFileManager">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>380</width>
+			<height>600</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>380</width>
+			<height min="0" max="600">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>380</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuPosterView">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>374</width>
+			<height>420</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>374</width>
+			<height min="0" max="420">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>374</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/options/buttons/default-fo.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+		<control type="group">
+			<visible>Control.IsVisible(1008)</visible>
+			<control type="image">
+				<posx>167</posx>
+				<posy>-55</posy>
+				<width>40</width>
+				<height>40</height>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+				<texture>dialogs/contextmenu/up.png</texture>
+			</control>
+			<control type="image">
+				<posx>167</posx>
+				<posy>435</posy>
+				<width>40</width>
+				<height>40</height>
+				<colordiffuse>CCFFFFFF</colordiffuse>
+				<texture>dialogs/contextmenu/down.png</texture>
+			</control>
+		</control>
+	</include>
+	
+	<include name="ContextMenuCoverView">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>444</width>
+			<height>360</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<width>444</width>
+			<height min="0" max="360">auto</height>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>444</width>
+			<textcolor>FF484848</textcolor>
+			<texturefocus border="45,2,45,2">dialogs/options/buttons/default-fo.png</texturefocus>
+			<include>ContextMenuButtonVars</include>
+		</control>
+	</include>
+	
+	<include name="ContextMenuAddonInfo">
+		<control type="image" id="999">
+			<description>background image</description>
+			<width>401</width>
+			<height>0</height>
+			<include>ContextMenuBackgroundVars</include>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<posy>-240</posy>
+			<width>444</width>
+			<height min="0" max="271">auto</height>
+			<align>top</align>
+			<itemgap>-21</itemgap>
+			<include>ContextMenuGroupListVars</include>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<width>401</width>
+			<texturefocus border="20">dialogs/addon-info/button.png</texturefocus>
+			<height>71</height>
+			<align>left</align>
+			<aligny>top</aligny>
+			<font>Font-Condensed-S30</font>
+			<textcolor>ABFFFFFF</textcolor>
+			<focusedcolor>eewhite</focusedcolor>
+			<textoffsetx>30</textoffsetx>
+			<textoffsety>14</textoffsety>
+		</control>
+	</include>
+</includes>

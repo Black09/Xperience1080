@@ -1,0 +1,201 @@
+<window id="120">
+	<defaultcontrol>3</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+		<control type="group">
+			<include>NowPlayingFullscreen</include>
+			<animation type="Conditional" condition="Window.Next(musicplaylist)">
+				<effect type="zoom" start="100" end="90" time="300" center="960,540" tween="back" easing="inout" />
+				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>918</posy>
+				<width>1920</width>
+				<height>162</height>
+				<texture>osd/music/osdback.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<posx>0</posx>
+				<posy>950</posy>
+				<control type="togglebutton" id="12">
+					<description>Shuffle</description>
+					<posx>550</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/shuffle_off-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/shuffle_off-nofo.png</texturenofocus>
+					<usealttexture>Playlist.IsRandom</usealttexture>
+					<alttexturefocus>osd/fullscreen/buttons/shuffle_on-fo.png</alttexturefocus>
+					<alttexturenofocus>osd/fullscreen/buttons/shuffle_on-nofo.png</alttexturenofocus>
+					<onclick>PlayerControl(random)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>7</onleft>
+					<onright>10</onright>
+				</control>
+				<control type="button" id="10">
+					<description>Repeat</description>
+					<posx>640</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>-</texturefocus>
+					<texturenofocus>-</texturenofocus>
+					<onclick>PlayerControl(repeat)</onclick>
+					<onleft>12</onleft>
+					<onright>1</onright>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<animation effect="fade" start="100" end="50" time="150" tween="sine" easing="inout" condition="!VideoPlayer.HasMenu">Conditional</animation>
+				</control>
+				<control type="button" id="1">
+					<description>Skip Back</description>
+					<posx>730</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/previous-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/previous-nofo.png</texturenofocus>
+					<onclick>playercontrol(previous)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>10</onleft>
+					<onright>2</onright>
+				</control>
+				<control type="togglebutton" id="2">
+					<description>Rewind</description>
+					<posx>820</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/rewind-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/rewind-nofo.png</texturenofocus>
+					<usealttexture>Player.Rewinding</usealttexture>
+					<alttexturefocus>osd/fullscreen/buttons/rewind-on-fo.png</alttexturefocus>
+					<alttexturenofocus>osd/fullscreen/buttons/rewind-on-nofo.png</alttexturenofocus>
+					<onclick>playercontrol(rewind)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>1</onleft>
+					<onright>3</onright>
+				</control>
+				<control type="togglebutton" id="3">
+					<description>Play / Pause</description>
+					<posx>910</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/pause-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/pause-nofo.png</texturenofocus>
+					<usealttexture>Player.Paused | Player.Forwarding | Player.Rewinding</usealttexture>
+					<alttexturefocus>osd/fullscreen/buttons/play-fo.png</alttexturefocus>
+					<alttexturenofocus>osd/fullscreen/buttons/play-nofo.png</alttexturenofocus>
+					<onclick>playercontrol(play)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>2</onleft>
+					<onright>4</onright>
+				</control>
+				<control type="button" id="4">
+					<description>Stop</description>
+					<posx>1000</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/stop-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/stop-nofo.png</texturenofocus>
+					<onclick>playercontrol(stop)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>3</onleft>
+					<onright>5</onright>
+				</control>
+				<control type="togglebutton" id="5">
+					<description>Forward</description>
+					<posx>1090</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/fast-forward-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/fast-forward-nofo.png</texturenofocus>
+					<usealttexture>Player.Forwarding</usealttexture>
+					<alttexturefocus>osd/fullscreen/buttons/fast-forward-on-fo.png</alttexturefocus>
+					<alttexturenofocus>osd/fullscreen/buttons/fast-forward-on-nofo.png</alttexturenofocus>
+					<onclick>playercontrol(forward)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>4</onleft>
+					<onright>6</onright>
+				</control>
+				<control type="button" id="6">
+					<description>Skip Forward</description>
+					<posx>1180</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/next-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/next-nofo.png</texturenofocus>
+					<onclick>playercontrol(next)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>5</onleft>
+					<onright>7</onright>
+				</control>
+				<control type="button" id="7">
+					<description>Playlist</description>
+					<posx>1270</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/playlists-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/playlists-nofo.png</texturenofocus>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<onleft>6</onleft>
+					<onright>12</onright>
+					<onup>20</onup>
+					<ondown>-</ondown>
+				</control>
+			</control>
+			<control type="group">
+				<posx>640</posx>
+				<posy>950</posy>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat-nofo.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat-fo.png</texture>
+					<visible>!Playlist.IsRepeat + !Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat_one-nofo.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat_one-fo.png</texture>
+					<visible>Playlist.IsRepeatOne</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat_all-nofo.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>!Control.HasFocus(10)</visible>
+				</control>
+				<control type="image">
+					<width>100</width>
+					<height>100</height>
+					<texture>osd/fullscreen/buttons/repeat_all-fo.png</texture>
+					<visible>Playlist.IsRepeat</visible>
+					<visible>Control.HasFocus(10)</visible>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

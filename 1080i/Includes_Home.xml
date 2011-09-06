@@ -1,0 +1,571 @@
+<includes>
+	<!--Home shutdown-favs Buttons-->
+	<include name="shutdown-favs">
+		<control type="group">
+			<description>Home Buttons</description>
+			<control type="button" id="21">
+				<description>Shutdown Button</description>
+				<posx>72</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<onup>20</onup>
+				<ondown>20</ondown>
+				<onleft>22</onleft>
+				<onright>22</onright>
+				<texturefocus>buttons/shutdown_fo.png</texturefocus>
+				<texturenofocus>buttons/shutdown_nofo.png</texturenofocus>
+				<onclick>ActivateWindow(111)</onclick>
+				<include>Animation_ShutdownButton</include>
+				<include>homebuttonsanim</include>
+			</control>
+			<control type="label">
+				<description>Shutdown Label</description>
+				<posx>157</posx>
+				<posy>988</posy>
+				<width>180</width>
+				<height>18</height>
+				<label>$LOCALIZE[41507]</label>
+				<font>Font-Condensed-S34-B</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>CC6F6F6F</shadowcolor>
+				<include>Animation_ShutdownButton</include>
+				<include>homebuttonsanim2</include>
+			</control>
+			<control type="button" id="22">
+				<description>Favourites Button</description>
+				<posx>277</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<onup>20</onup>
+				<ondown>20</ondown>
+				<onleft>21</onleft>
+				<onright>21</onright>
+				<aspect>keep</aspect>
+				<texturefocus>buttons/favourites_fo.png</texturefocus>
+				<texturenofocus>buttons/favourites_nofo.png</texturenofocus>
+				<onclick>ActivateWindow(134)</onclick>
+				<include>Animation_FavButton</include>
+				<include>homebuttonsanim3</include>
+			</control>
+			<control type="label">
+				<description>Favourites Label</description>
+				<posx>362</posx>
+				<posy>988</posy>
+				<width>180</width>
+				<height>18</height>
+				<label>$LOCALIZE[41508]</label>
+				<font>Font-Condensed-S34-B</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>CC6F6F6F</shadowcolor>
+				<include>Animation_FavButton</include>
+				<include>homebuttonsanim4</include>
+			</control>
+		</control>
+	</include>
+
+	<include name="Animation_RecentlyFade">
+		<animation type="Conditional" condition="Control.HasFocus(82)">
+			<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="400" /> 
+		</animation>
+	</include>
+	
+	<include name="Animation_RecentlyFadeIcon">
+		<animation type="Visible">
+			<effect type="fade" start="0" end="100" time="0" delay="400" />
+		</animation>
+		<animation type="Hidden">
+			<effect type="fade" start="100" end="0" time="0" delay="0" /> 
+		</animation>
+	</include>
+		
+	<include name="HomeWraplistAnimation">
+		
+		<control type="image" id="80">
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" delay="1010" time="0" />
+			</animation>
+		</control>
+	
+		<control type="group">
+			<include>ShutdownFavAnimation</include>
+			<posx>-100</posx>
+			<animation effect="fade" start="0" end="100" time="0" reversible="false">Visible</animation>
+			<visible>Window.Next(Home) | Window.Next(programs) | Window.Next(pictures) | Window.Next(filemanager) | Window.Next(settings) | Window.Next(music) | Window.Next(systeminfo) | Window.Next(screencalibration) | Window.Next(picturessettings) | Window.Next(programssettings) | Window.Next(weathersettings) | Window.Next(musicsettings) | Window.Next(systemsettings) | Window.Next(videossettings) | Window.Next(networksettings) | Window.Next(appearancesettings) | Window.Next(scripts) | Window.Next(videos) | Window.Next(videoplaylist) | Window.Next(LoginScreen) | Window.Next(profiles) | Window.Next(addonbrowser) | Window.Next(filebrowser) | Window.Next(ProfileSettings) | Window.Next(LockSettings) | Window.Next(smartplaylisteditor) | Window.Next(smartplaylistrule) | Window.Next(musicplaylist) | Window.Next(musicfiles) | Window.Next(musiclibrary) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(karaoke) | Window.Next(weather) | Window.Next(1111) | !Control.IsVisible(80)</visible>
+			<control type="group">
+				<animation type="Conditional" condition="true">
+					<effect type="zoom" start="100" end="80" time="0" center="7,680" />
+				</animation>
+				<animation type="WindowOpen" reversible="true">
+					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+					<effect type="slide" start="522" end="0" delay="350" tween="cubic" easing="out" time="500" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="slide" start="0" end="522" tween="sine" easing="in" time="250" />
+					<effect type="fade" delay="200" start="100" end="0" time="100" />
+				</animation>
+				<control type="group">
+					<posx>-358</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(-1).ActualIcon]</texture>
+					</control>
+					<control type="label">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<font>Font-Condensed-S50-B</font>
+						<align>right</align>
+						<posx>642</posx>
+						<posy>380</posy>
+						<width>500</width>
+						<height>50</height>
+						<textcolor>BCFFFFFF</textcolor>
+						<shadowcolor>FF000000</shadowcolor>
+						<include>Animation_RecentlyFade</include>
+						<label>$INFO[Container(20).ListItemNoWrap(-1).Label]</label>
+					</control>
+					<visible>!IsEmpty(Container(20).ListItemNoWrap(-1).Label)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<animation type="Conditional" condition="true">
+					<effect type="zoom" start="100" end="80" time="0" center="2095,680" />
+				</animation>
+				<animation type="Windowopen" reversible="true">
+					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+					<effect type="slide" start="-1566" end="0" delay="350" tween="cubic" easing="out" time="660" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="slide" start="0" end="-1566" tween="sine" easing="in" time="250" />
+					<effect type="fade" delay="200" start="100" end="0" time="100" />
+				</animation>
+				<control type="group">
+					<posx>1730</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(3).ActualIcon]</texture>
+					</control>
+					<control type="label">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<font>Font-Condensed-S50-B</font>
+						<align>right</align>
+						<posx>642</posx>
+						<posy>380</posy>
+						<width>500</width>
+						<height>50</height>
+						<textcolor>BCFFFFFF</textcolor>
+						<shadowcolor>FF000000</shadowcolor>
+						<include>Animation_RecentlyFade</include>
+						<label>$INFO[Container(20).ListItemNoWrap(3).Label]</label>
+					</control>
+					<visible>!IsEmpty(Container(20).ListItemNoWrap(3).Label)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<animation type="Conditional" condition="true">
+					<effect type="zoom" start="100" end="80" time="0" center="1573,680" />
+				</animation>
+				<animation type="Windowopen" reversible="true">
+					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+					<effect type="slide" start="-1044" end="0" delay="350" tween="cubic" easing="out" time="600" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="slide" start="0" end="-1044" tween="sine" easing="in" time="250" />
+					<effect type="fade" delay="200" start="100" end="0" time="100" />
+				</animation>
+				<control type="group">
+					<posx>1208</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(2).ActualIcon]</texture>
+					</control>
+					<control type="label">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<font>Font-Condensed-S50-B</font>
+						<align>right</align>
+						<posx>642</posx>
+						<posy>380</posy>
+						<width>500</width>
+						<height>50</height>
+						<textcolor>BCFFFFFF</textcolor>
+						<shadowcolor>FF000000</shadowcolor>
+						<include>Animation_RecentlyFade</include>
+						<label>$INFO[Container(20).ListItemNoWrap(2).Label]</label>
+					</control>
+					<visible>!IsEmpty(Container(20).ListItemNoWrap(2).Label)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<animation type="Conditional" condition="true">
+					<effect type="zoom" start="100" end="80" time="0" center="1051,680" />
+				</animation>
+				<animation type="Windowopen" reversible="true">
+					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+					<effect type="slide" start="-522" end="0" delay="350" tween="cubic" easing="out" time="500" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="slide" start="0" end="-522" tween="sine" easing="in" time="250" />
+					<effect type="fade" delay="200" start="100" end="0" time="100" />
+				</animation>
+				<control type="group">
+					<posx>686</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(1).ActualIcon]</texture>
+					</control>
+					<control type="label">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<font>Font-Condensed-S50-B</font>
+						<align>right</align>
+						<posx>642</posx>
+						<posy>380</posy>
+						<width>500</width>
+						<height>50</height>
+						<textcolor>BCFFFFFF</textcolor>
+						<shadowcolor>FF000000</shadowcolor>
+						<include>Animation_RecentlyFade</include>
+						<label>$INFO[Container(20).ListItemNoWrap(1).Label]</label>
+					</control>
+					<visible>!IsEmpty(Container(20).ListItemNoWrap(1).Label)</visible>
+				</control>
+			</control>
+			<control type="group">
+				<animation type="Windowopen" reversible="true">
+					<effect type="zoom" start="200" end="100" center="529,680" tween="sine" easing="out" time="350" /> 
+					<effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" />
+				</animation>
+				<animation type="WindowClose" reversible="true">
+					<effect type="zoom" start="100" end="200" center="529,680" tween="sine" delay="250" easing="out" time="350" /> 
+					<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
+				</animation>
+				<posx>164</posx>
+				<posy>404</posy>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>730</width>
+					<height>610</height>
+					<texture>windows/home/panel_menu.png</texture>
+				</control>
+				<control type="image">
+					<posx>48</posx>
+					<posy>23</posy>
+					<width>633</width>
+					<height>437</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItem(0).ActualIcon]</texture>
+				</control>
+				<control type="label">
+					<font>Font-Condensed-S50-B</font>
+					<align>right</align>
+					<posx>642</posx>
+					<posy>380</posy>
+					<width>500</width>
+					<height>50</height>
+					<textcolor>BCFFFFFF</textcolor>
+					<shadowcolor>99000000</shadowcolor>
+					<include>Animation_RecentlyFade</include>
+					<label>$INFO[Container(20).ListItem(0).Label]</label>
+				</control>
+			</control>
+		</control>
+	</include>
+	
+	<!-- Home Buttons -->
+	<include name="HomeWraplist">	
+		<control type="fixedlist" id="20">
+			<description>Home Container</description>
+			<posx>-458</posx>
+			<posy>-1500</posy>
+			<width>2550</width>
+			<height>1080</height>
+			<onup>SetFocus(23)</onup>
+			<ondown>SetFocus(21)</ondown>
+			<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
+			<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Right)</onright>
+			<orientation>horizontal</orientation>
+			<focusposition>1</focusposition>
+			<scrolltime tween="cubic" easing="out">500</scrolltime>
+			<preloaditems>2</preloaditems>
+			<viewtype>list</viewtype>
+			<include>ShutdownFavAnimation</include>
+			<include>listEndAnimation</include>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="0" />
+				<effect type="slide" start="0,0" end="0,1500" delay="1010" time="0" />
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="fade" start="100" end="0" time="0" />
+			</animation>
+			<itemlayout width="522" height="610">
+				<control type="group">
+					<animation type="Conditional" condition="true">
+						<effect type="zoom" start="100" end="80" time="0" center="365,680" />
+					</animation>
+					<posx>0</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
+					</control>
+					<control type="group">
+						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+						<control type="label">
+							<font>Font-Condensed-S50-B</font>
+							<align>right</align>
+							<posx>-120r</posx>
+							<posy>380</posy>
+							<width>500</width>
+							<height>50</height>
+							<textcolor>BCFFFFFF</textcolor>
+							<shadowcolor>FF000000</shadowcolor>
+							<info>ListItem.Label</info>
+						</control>
+					</control>
+				</control>
+			</itemlayout>
+			<focusedlayout width="522" height="610">
+				<control type="group">
+					<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+						<effect type="zoom" start="80" end="100" time="350" tween="sine" easing="out" center="365,680" />
+					</animation>
+					<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+						<effect type="zoom" start="100" end="80" time="250" tween="sine" easing="out" center="365,680" />
+					</animation>
+					<posx>0</posx>
+					<posy>404</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>730</width>
+						<height>610</height>
+						<texture>windows/home/panel_menu.png</texture>
+					</control>
+					<control type="image">
+						<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+							<effect type="fade" start="60" end="100" time="350" tween="sine" easing="out" />
+						</animation>
+						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+							<effect type="fade" start="100" end="60" time="250" tween="sine" easing="out" />
+						</animation>
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[ListItem.ActualIcon]</texture>
+						<include>Animation_RecentlyFadeIcon</include>
+						<visible>!Control.HasFocus(82)</visible>
+					</control>
+					<control type="group">
+						<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+							<effect type="fade" start="45" end="100" time="350" tween="sine" easing="out" />
+						</animation>
+						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+							<effect type="fade" start="100" end="45" time="250" tween="sine" easing="out" />
+						</animation>
+						<control type="label">
+							<font>Font-Condensed-S50-B</font>
+							<align>right</align>
+							<posx>-120r</posx>
+							<posy>380</posy>
+							<width>500</width>
+							<height>50</height>
+							<textcolor>BCFFFFFF</textcolor>
+							<shadowcolor>99000000</shadowcolor>
+							<include>Animation_RecentlyFade</include>
+							<info>ListItem.Label</info>
+						</control>
+					</control>
+					<control type="image">
+						<posx>350</posx>
+						<posy>60</posy>
+						<width>29</width>
+						<height>14</height>
+						<texture>osd/recently-added/arrow.png</texture>
+						<animation type="Conditional" condition="!Control.HasFocus(82) + [Container(20).HasFocus(1) | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)]" pulse="true">
+						  	<effect type="fade" start="5" end="60" time="700" tween="sine" easing="inout" />
+							<effect type="slide" start="0,0" end="0,6" tween="sine" easing="inout" time="700" />
+						</animation>
+						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+							<effect type="fade" start="100" end="0" time="0" />
+						</animation>
+						<visible>!Control.HasFocus(82) + ![Container(20).OnNext | Container(20).OnPrevious] + [Container(20).HasFocus(1) | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)] + !Control.HasFocus(23)</visible>
+					</control>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="0">
+					<label>$INFO[System.DVDLabel]</label>
+					<onclick>XBMC.PlayDVD()</onclick>
+					<icon>panel_menu_dvd.png</icon>
+					<visible>System.HasMediaDVD</visible>
+				</item>
+				<item id="1">
+					<label>$LOCALIZE[41506]</label>
+					<onclick>ActivateWindow(4)</onclick>
+					<icon>panel_menu_settings.png</icon>
+					<property name="single">$INFO[Skin.String(HomeSettingsSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeSettingsMultiImage)]</property>
+				</item>
+				<item id="2">
+					<label>$LOCALIZE[41500]</label>
+					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://1/2/)])</onclick>
+					<onclick>ActivateWindow(videos,movietitles,return)</onclick>
+					<icon>panel_menu_movies.png</icon>
+					<visible>!Skin.HasSetting(HomeMovies)</visible>
+					<property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
+				</item>
+				<item id="3">
+					<label>$LOCALIZE[41501]</label>
+					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
+					<onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
+					<icon>panel_menu_tvshows.png</icon>
+					<visible>!Skin.HasSetting(HomeTVShows)</visible>
+					<property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
+				</item>
+				<item id="4">
+					<label>$LOCALIZE[41513]</label>
+					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-sources://video/)])</onclick>
+					<onclick>ActivateWindow(videos,files,return)</onclick>
+					<icon>panel_menu_videos.png</icon>
+					<visible>Skin.HasSetting(HomeVideoFiles)</visible>
+					<property name="single">$INFO[Skin.String(HomeVideoFilesSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeVideoFilesMultiImage)]</property>
+				</item>
+				<item id="5">
+					<label>$LOCALIZE[41449]</label>
+					<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
+					<onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
+					<icon>panel_menu_apple.png</icon>
+					<visible>Skin.HasSetting(HomeTrailers)</visible>
+					<property name="single">$INFO[Skin.String(HomeTrailersSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeTrailersMultiImage)]</property>
+				</item>
+				<item id="6">
+					<label>$LOCALIZE[41502]</label>
+					<onclick>ActivateWindow(musiclibrary)</onclick>
+					<icon>panel_menu_music.png</icon>
+					<visible>!Skin.HasSetting(HomeMusic)</visible>
+					<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
+				</item>
+				<item id="7">
+					<label>$LOCALIZE[41514]</label>
+					<onclick>ActivateWindow(musicfiles)</onclick>
+					<icon>panel_menu_musicfiles.png</icon>
+					<visible>Skin.HasSetting(HomeMusicFiles)</visible>
+					<property name="single">$INFO[Skin.String(HomeMusicFilesSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeMusicFilesMultiImage)]</property>
+				</item>				
+				<item id="8">
+					<label>$LOCALIZE[41503]</label>
+					<onclick>ActivateWindow(pictures)</onclick>
+					<icon>panel_menu_pictures.png</icon>
+					<visible>!Skin.HasSetting(HomePictures)</visible>
+					<property name="single">$INFO[Skin.String(HomePicturesSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomePicturesMultiImage)]</property>
+				</item>				
+				<item id="9">
+					<label>$LOCALIZE[41504]</label>
+					<onclick>ActivateWindow(programs)</onclick>
+					<icon>panel_menu_programs.png</icon>
+					<visible>!Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
+					<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
+				</item>
+				<item id="10">
+					<label>$LOCALIZE[41510]</label>
+					<onclick>ActivateWindow(programs)</onclick>
+					<icon>panel_menu_games.png</icon>
+					<visible>Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
+					<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
+				</item>				
+				<item id="11">
+					<label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
+					<onclick>ActivateWindow(weather)</onclick>
+					<icon>panel_menu_weather.png</icon>
+					<visible>!Skin.HasSetting(HomeWeather)</visible>
+					<property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeWeatherMultiImage)]</property>
+				</item>
+				<item id="12">
+					<label>$LOCALIZE[41523]</label>
+					<onclick>ActivateWindow(addonbrowser)</onclick>
+					<icon>panel_menu_addons.png</icon>
+					<visible>Skin.HasSetting(HomeAddons)</visible>
+					<property name="single">$INFO[Skin.String(HomeAddonsSingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(HomeAddonsMultiImage)]</property>
+				</item>							
+			</content>
+		</control>
+	</include>
+</includes>

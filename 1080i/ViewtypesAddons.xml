@@ -1,0 +1,201 @@
+<includes>
+
+<!-- ========= -->
+<!-- List (50) -->
+<!-- ========= -->
+	<include name="Viewtype-AddonList">
+
+		<control type="group">
+			<visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+			<include>CommonViewAnimations</include>
+			<include>OptionsShutdownAnimation</include>
+			
+			<control type="image">
+				<description>Back Panel</description>
+				<posx>248</posx>
+				<posy>28</posy>
+				<width>1425</width>
+				<height>114</height>
+				<texture border="200,0,0,200">views/thumb/panels/top-shadow.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="400" tween="sine" easing="inout" delay="400" />
+				</animation>
+			</control>
+			
+			<!-- List Header -->
+			<control type="group">
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+					<effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+				</animation>
+				<include>ListHeader</include>
+			</control>
+			
+			<control type="image">
+				<description>Back Panel</description>
+				<include>FullscreenDimensions</include>
+				<texture>views/thumb/panels/back.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+
+			<include>ScrollLetterDefault</include>
+
+			<control type="list" id="50">
+				<posx>248</posx>
+				<posy>154</posy>
+				<height>735</height>
+				<width>1425</width>
+				<pagecontrol>70</pagecontrol>
+				<onleft>9010</onleft>
+				<onright>70</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<viewtype label="List">List</viewtype>
+				<scrolltime tween="cubic" easing="out">500</scrolltime>
+				<preloaditems>2</preloaditems>
+				<animation effect="fade" time="300" start="100" end="5" tween="sine" easing="out" condition="Window.IsActive(contextmenu)">Conditional</animation>
+				<itemlayout height="105">
+					<control type="label">
+						<posx>125</posx>
+						<posy>0</posy>
+						<width>1260</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>bbwhite</textcolor>
+						<scroll>false</scroll>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="label">
+						<posx>35</posx>
+						<posy>0</posy>
+						<width>1350</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>bbwhite</textcolor>
+						<scroll>false</scroll>
+						<visible>IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="label">
+						<posx>1385</posx>
+						<posy>0</posy>
+						<width>1260</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>bbwhite</textcolor>
+						<scroll>false</scroll>
+					</control>
+					<control type="image">
+						<posx>23</posx>
+						<posy>10</posy>
+						<width>85</width>
+						<height>85</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+						<colordiffuse>bbwhite</colordiffuse>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>-1</posy>
+						<width>1425</width>
+						<height>2</height>
+						<aspect>keepaspect</aspect>
+						<texture>views/thumb/other/list_line.png</texture>
+					</control>
+				</itemlayout>
+				<focusedlayout height="105">
+					<control type="image">
+						<posx>0</posx>
+						<posy>-10</posy>
+						<width>1425</width>
+						<height>125</height>
+						<texture>views/thumb/other/list_fo-slim.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<include>defaultfocusanim2</include>
+						<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>125</posx>
+						<posy>0</posy>
+						<width>1260</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<scroll>false</scroll>
+						<include>defaultfocusanim</include>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="label">
+						<posx>35</posx>
+						<posy>0</posy>
+						<width>1350</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>left</align>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>white</textcolor>
+						<scroll>false</scroll>
+						<include>defaultfocusanim</include>
+						<visible>IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="label">
+						<posx>1385</posx>
+						<posy>0</posy>
+						<width>1260</width>
+						<height>100</height>
+						<font>Font-Condensed-S34-B</font>
+						<align>right</align>
+						<label>$INFO[ListItem.Label2]</label>
+						<textcolor>white</textcolor>
+						<scroll>false</scroll>
+						<include>defaultfocusanim</include>
+					</control>
+					<control type="image">
+						<posx>23</posx>
+						<posy>10</posy>
+						<width>85</width>
+						<height>85</height>
+						<texture>$INFO[ListItem.Icon]</texture>
+						<aspectratio>keep</aspectratio>
+						<include>defaultfocusanim</include>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>-1</posy>
+						<width>1425</width>
+						<height>2</height>
+						<aspect>keepaspect</aspect>
+						<texture>views/thumb/other/list_line.png</texture>
+					</control>
+				</focusedlayout>
+			</control>
+
+			<!--Scrollbar-->
+			<control type="scrollbar" id="70">
+				<description>Scrollbar</description>
+				<posx>1649</posx>
+				<posy>164</posy>
+				<width>11</width>
+				<height>715</height>
+				<onleft>50</onleft>
+				<onright>9111</onright>
+				<texturesliderbar border="0,6,0,6">views/other/scrollbar.png</texturesliderbar>
+				<texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
+				<orientation>vertical</orientation>
+				<showonepage>false</showonepage>
+				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
+				<visible>Control.IsVisible(50)</visible>
+			</control>
+		</control>
+	</include>
+</includes>

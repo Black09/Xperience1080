@@ -1,0 +1,14 @@
+<window id="106">
+	<defaultcontrol always="true">996</defaultcontrol>
+	<include>OpenCloseAnimationContext</include>
+	<animation effect="slide" start="0,0" end="-635,-124" time="0" condition="stringcompare(Container.ViewMode,PosterView)">Conditional</animation>
+	<animation effect="slide" start="0,0" end="-590,-123" time="0" condition="stringcompare(Container.ViewMode,CoverView)">Conditional</animation>
+	<animation effect="slide" end="0,256" time="0" condition="Window.IsVisible(LockSettings)">Conditional</animation>
+	<controls>
+		<include condition="!Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !Window.IsVisible(addoninformation)">ContextMenuDefault</include>
+		<include condition="Window.IsVisible(filemanager) | Window.IsVisible(LockSettings) | Window.IsVisible(musicplaylisteditor)">ContextMenuFileManager</include>
+		<include condition="stringcompare(Container.ViewMode,PosterView)">ContextMenuPosterView</include>
+		<include condition="stringcompare(Container.ViewMode,CoverView)">ContextMenuCoverView</include>
+		<include condition="Window.IsVisible(addoninformation)">ContextMenuAddonInfo</include>
+	</controls>
+</window>

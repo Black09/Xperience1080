@@ -1,0 +1,345 @@
+<window id="2000">
+	<defaultcontrol always="true">3</defaultcontrol>
+	<controls>
+		<control type="group">
+			<animation type="WindowOpen" condition="Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule)" reversible="false">
+				<effect type="fade" start="0" end="100" time="0" delay="300" />
+			</animation>
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>windows/common/black_content.png</texture>
+				<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
+				<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
+				<visible>Window.IsVisible(progressdialog)</visible>
+			</control>
+			<control type="group">
+				<include>KeyboardAnimations</include>
+				
+				<control type="label" id="1">
+					<description>Heading</description>
+					<posx>473</posx>
+					<posy>218</posy>
+					<width>974</width>
+					<font>Font-Condensed-S34</font>
+					<label>-</label>
+					<textcolor>ddwhite</textcolor>
+					<align>center</align>
+				</control>
+				
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture>dialogs/select/background.png</texture>
+				</control>
+				
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture>dialogs/select/separators-small.png</texture>
+					<visible>Control.IsVisible(3)</visible>
+				</control>
+				
+				<control type="image">
+					<include>FullscreenDimensions</include>
+					<texture>dialogs/select/separators-big.png</texture>
+					<visible>Control.IsVisible(6)</visible>
+				</control>
+				
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>320</width>
+					<height>480</height>
+					<texture>$INFO[Container(3).ListItem.Icon]</texture>
+					<visible>Control.IsVisible(3)</visible>
+				</control>
+							
+				<control type="list" id="3">
+					<posx>638</posx>
+					<posy>300</posy>
+					<width>644</width>
+					<height>480</height>
+					<onleft>5</onleft>
+					<onright>61</onright>
+					<onup>3</onup>
+					<ondown>3</ondown>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<itemlayout height="60">
+						<control type="label">
+							<posx>20</posx>
+							<posy>-4</posy>
+							<width>604</width>
+							<height>60</height>
+							<info>ListItem.Label</info>
+							<font>Font-Condensed-S34</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>FF585858</textcolor>
+							<scroll>false</scroll>
+						</control>
+					</itemlayout>
+					<focusedlayout height="60">
+						<control type="group">
+							<visible>!Control.HasFocus(3)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
+							<control type="label">
+								<posx>20</posx>
+								<posy>-4</posy>
+								<width>604</width>
+								<height>60</height>
+								<info>ListItem.Label</info>
+								<font>Font-Condensed-S34</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>FF585858</textcolor>
+								<scroll>false</scroll>
+							</control>	
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(3)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
+							<control type="image">
+								<width>644</width>
+								<height>60</height>
+								<texture border="2">dialogs/content/highlight-light.png</texture>
+							</control>
+							<control type="label">
+								<posx>20</posx>
+								<posy>-4</posy>
+								<width>604</width>
+								<height>60</height>
+								<textcolor>eewhite</textcolor>
+								<info>ListItem.Label</info>
+								<font>Font-Condensed-S34</font>
+								<align>left</align>
+								<aligny>center</aligny>
+							</control>
+						</control>
+					</focusedlayout>
+				</control>
+				<control type="list" id="6">
+					<posx>638</posx>
+					<posy>300</posy>
+					<width>644</width>
+					<height>480</height>
+					<onleft>8000</onleft>
+					<onright>61</onright>
+					<onup>6</onup>
+					<ondown>6</ondown>
+					<pagecontrol>61</pagecontrol>
+					<scrolltime>0</scrolltime>
+					<itemlayout height="120">
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>120</width>
+							<height>120</height>
+							<texture fallback="defaultaddon.png">$INFO[Listitem.Icon]</texture>
+						</control>
+						<control type="label">
+							<posx>140</posx>
+							<posy>5</posy>
+							<width>484</width>
+							<height>40</height>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<font>Font-Condensed-S30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>FF585858</textcolor>
+							<scroll>false</scroll>
+						</control>
+						<control type="label">
+							<posx>140</posx>
+							<posy>39</posy>
+							<width>484</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Property(Addon.Version)]</label>
+							<font>Font-Condensed-S30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>CC585858</textcolor>
+							<scroll>false</scroll>
+						</control>
+						<control type="label">
+							<posx>140</posx>
+							<posy>71</posy>
+							<width>484</width>
+							<height>40</height>
+							<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+							<font>Font-Condensed-S30</font>
+							<align>left</align>
+							<aligny>center</aligny>
+							<textcolor>CC585858</textcolor>
+							<scroll>false</scroll>
+						</control>
+					</itemlayout>
+					<focusedlayout height="120">
+						<control type="group">
+							<visible>!Control.HasFocus(6)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(6).Scrolling | Container(6).OnScrollNext | Container(6).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(6).Scrolling | Container(6).OnScrollNext | Container(6).OnScrollPrevious]">Hidden</animation>
+							<control type="label">
+								<posx>140</posx>
+								<posy>5</posy>
+								<width>484</width>
+								<height>40</height>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>FF585858</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<posy>39</posy>
+								<width>484</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Property(Addon.Version)]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>CC585858</textcolor>
+								<scroll>false</scroll>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<posy>71</posy>
+								<width>484</width>
+								<height>40</height>
+								<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<textcolor>CC585858</textcolor>
+								<scroll>false</scroll>
+							</control>
+						</control>
+						<control type="group">
+							<visible>Control.HasFocus(6)</visible>
+							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(6).Scrolling | Container(6).OnScrollNext | Container(6).OnScrollPrevious]">Visible</animation>
+							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(6).Scrolling | Container(6).OnScrollNext | Container(6).OnScrollPrevious]">Hidden</animation>
+							<control type="image">
+								<width>644</width>
+								<height>120</height>
+								<texture border="2">dialogs/select/highlight-big.png</texture>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<posy>5</posy>
+								<width>484</width>
+								<height>40</height>
+								<textcolor>eewhite</textcolor>
+								<label>[B]$INFO[ListItem.Label][/B]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<scrollout>false</scrollout>
+								<pauseatend>200</pauseatend>
+								<scrollspeed>20</scrollspeed>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<posy>39</posy>
+								<width>484</width>
+								<height>40</height>
+								<textcolor>CCFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(Addon.Version)]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<scrollout>false</scrollout>
+								<pauseatend>200</pauseatend>
+								<scrollspeed>20</scrollspeed>
+							</control>
+							<control type="label">
+								<posx>140</posx>
+								<posy>71</posy>
+								<width>484</width>
+								<height>40</height>
+								<textcolor>CCFFFFFF</textcolor>
+								<label>$INFO[ListItem.Property(Addon.Summary)]</label>
+								<font>Font-Condensed-S30</font>
+								<align>left</align>
+								<aligny>center</aligny>
+								<scrollout>false</scrollout>
+								<pauseatend>200</pauseatend>
+								<scrollspeed>20</scrollspeed>
+							</control>
+						</control>
+						<control type="image">
+							<posx>0</posx>
+							<posy>0</posy>
+							<width>120</width>
+							<height>120</height>
+							<texture fallback="defaultaddon.png">$INFO[Listitem.Icon]</texture>
+						</control>
+					</focusedlayout>
+				</control>
+				
+				
+				<control type="image" id="63">
+					<animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+				</control>
+				<control type="image" id="62">
+					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+					<visible>Control.HasFocus(61) | !Control.IsVisible(63)</visible>
+				</control>
+				<control type="image" id="62">
+					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+					<visible>!Control.HasFocus(61) + [Container(3).Scrolling | Container(6).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious | Container(6).OnScrollNext | Container(6).OnScrollPrevious]</visible>
+				</control>
+				<control type="scrollbar" id="61">
+					<posx>1269</posx>
+					<posy>303</posy>
+					<width>11</width>
+					<height>474</height>
+					<texturesliderbackground>-</texturesliderbackground>
+					<texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
+					<texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+					<textureslidernib>-</textureslidernib>
+					<textureslidernibfocus>-</textureslidernibfocus>
+					<onleft>3</onleft>
+					<onright>8000</onright>
+					<showonepage>false</showonepage>
+					<orientation>vertical</orientation>
+					<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(62)">Conditional</animation>
+				</control>
+	
+				<control type="group" id="8000">
+					<posx>626</posx>
+					<posy>776</posy>
+					<control type="button" id="5">
+						<description>Select</description>
+						<texturefocus>buttons/select-fo.png</texturefocus>
+						<texturenofocus>buttons/select-nf.png</texturenofocus>
+						<include>DialogButtonDimensions</include>
+						<onleft>7</onleft>
+						<onright>7</onright>
+						<onup>3</onup>
+						<ondown>3</ondown>
+						<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(5)">Conditional</animation>
+					</control>
+					<control type="button" id="7">
+						<posx>200</posx>
+						<description>Cancel</description>
+						<label>$LOCALIZE[42001]</label>
+						<texturefocus>buttons/cancel-fo.png</texturefocus>
+						<texturenofocus>buttons/cancel-nf.png</texturenofocus>
+						<include>DialogButtonDimensions</include>
+						<onclick>Action(close)</onclick>
+						<onleft>5</onleft>
+						<onright>5</onright>
+						<onup>3</onup>
+						<ondown>3</ondown>
+						<animation effect="slide" end="-200" time="0" condition="IsEmpty(Control.GetLabel(5))">Conditional</animation>
+						<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(7)">Conditional</animation>
+					</control>
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

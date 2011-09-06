@@ -1,0 +1,280 @@
+<window type="buttonMenu" id="111">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<zorder>3</zorder>
+	<onload>Dialog.Close(contextmenu)</onload>
+	<coordinates>
+		<system>1</system>
+		<posx>0</posx>
+		<posy>0</posy>
+	</coordinates>
+	<controls>
+		<include>FadeBackgroundThree</include>
+		<control type="group">
+			<include>OpenButtonMenuAnimation</include>
+			<posx>0</posx>
+			<posy>517</posy>
+			<control type="image">
+				<description>shadow image</description>
+				<posx>63</posx>
+				<posy>510</posy>
+				<height>60</height>
+				<width>442</width>
+				<texture>dialogs/shutdown/shutdown_shadow.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>!Window.IsVisible(programs) + !Window.IsVisible(pictures) + !Window.IsVisible(scripts) + ![Window.IsVisible(videos) + stringcompare(Window(home).property(previousstage),0)]</visible>
+			</control>
+			<control type="image">
+				<description>background image</description>
+				<posx>63</posx>
+				<posy>0</posy>
+				<height>540</height>
+				<width>442</width>
+				<texture>dialogs/shutdown/shutdown.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>	
+			<control type="grouplist" id="9000">
+				<posx>82</posx>
+				<posy>47</posy>
+				<width>404</width>
+				<height>399</height>
+				<itemgap>0</itemgap>
+				<align>center</align>
+				<orientation>Vertical</orientation>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<control type="togglebutton" id="1">
+					<description>Master mode button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41360]</label>
+					<altlabel>$LOCALIZE[41360]</altlabel>
+					<onclick>xbmc.mastermode</onclick>
+					<usealttexture>System.IsMaster</usealttexture>
+					<texturefocus>dialogs/options/buttons/lock-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/lock-nf.png</texturenofocus>
+					<alttexturefocus>dialogs/options/buttons/nolock-fo.png</alttexturefocus>
+					<alttexturenofocus>dialogs/options/buttons/nolock-nf.png</alttexturenofocus>
+					<visible>System.HasLocks + System.Loggedon</visible>
+				</control>
+				<control type="button" id="2">
+					<description>System Info button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41350]</label>
+					<include>GuideDialogClose</include>
+					<onclick>ActivateWindow(7)</onclick>
+					<texturefocus>dialogs/options/buttons/info-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/info-nf.png</texturenofocus>
+					<visible>System.Loggedon</visible>
+				</control>
+				<control type="button" id="3">
+					<description>FileManger button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41353]</label>
+					<include>GuideDialogClose</include>
+					<onclick>ActivateWindow(3)</onclick>
+					<texturefocus>dialogs/options/buttons/files-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/files-nf.png</texturenofocus>
+					<visible>System.Loggedon</visible>
+				</control>
+				<control type="button" id="5">
+					<description>Quit XBMC button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41352]</label>
+					<onclick>Quit</onclick>
+					<texturefocus>dialogs/options/buttons/quit-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/quit-nf.png</texturenofocus>
+				</control>
+				<control type="button" id="6">
+					<description>Restart PC button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41358]</label>
+					<onclick>Restart</onclick>
+					<texturefocus>dialogs/options/buttons/reboot-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/reboot-nf.png</texturenofocus>
+					<visible>System.CanReboot</visible>
+				</control>
+				<control type="group" id="7">
+					<height>57</height>
+					<defaultcontrol always="true">30</defaultcontrol>
+					<visible>System.CanPowerdown</visible>
+					<control type="button" id="30">
+						<description>Shutdown button</description>
+						<width>404</width>
+						<height>57</height>
+						<font>-</font>
+						<label>$LOCALIZE[41355]</label>
+						<onclick>Shutdown()</onclick>
+						<onleft>32</onleft>
+						<onright>31</onright>
+						<onup>6</onup>
+						<ondown>8</ondown>
+						<texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
+						<texturenofocus>dialogs/options/buttons/shutdown-nf.png</texturenofocus>
+					</control>
+					<control type="button" id="31">
+						<description>Custom Shutdown button</description>
+						<width>404</width>
+						<height>57</height>
+						<font>-</font>
+						<label>20150</label>
+						<onclick>AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
+						<onleft>30</onleft>
+						<onright>32</onright>
+						<onup>6</onup>
+						<ondown>8</ondown>
+						<texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
+					</control>
+					<control type="button" id="32">
+						<description>Cancel Shutdown button</description>
+						<width>404</width>
+						<height>57</height>
+						<font>-</font>
+						<label>20151</label>
+						<onclick>CancelAlarm(shutdowntimer)</onclick>
+						<onleft>31</onleft>
+						<onright>30</onright>
+						<onup>6</onup>
+						<ondown>8</ondown>
+						<visible>System.HasAlarm(shutdowntimer)</visible>
+						<texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
+					</control>
+					<!-- Arrows -->
+					<control type="image">
+						<posx>0</posx>
+						<posy>14</posy>
+						<width>30</width>
+						<height>30</height>
+						<texture>dialogs/shutdown/left.png</texture>
+						<animation type="Conditional" condition="ControlGroup(7).HasFocus()" pulse="true">
+							<effect type="fade" start="0" end="80" time="700" tween="sine" easing="inout" />
+							<effect type="slide" start="-35" end="-30" tween="sine" easing="inout" time="700" />
+						</animation>
+						<visible>ControlGroup(7).HasFocus()</visible>
+					</control>
+					<control type="image">
+						<posx>370</posx>
+						<posy>14</posy>
+						<width>30</width>
+						<height>30</height>
+						<texture>dialogs/shutdown/right.png</texture>
+						<animation type="Conditional" condition="ControlGroup(7).HasFocus()" pulse="true">
+							<effect type="fade" start="0" end="80" time="700" tween="sine" easing="inout" />
+							<effect type="slide" start="40" end="35" tween="sine" easing="inout" time="700" />
+						</animation>
+						<visible>ControlGroup(7).HasFocus()</visible>
+					</control>
+					<!-- Labels for Shutdown buttons -->
+					<control type="label" id="3100">
+						<posx>75</posx>
+						<width>300</width>
+						<height>57</height>
+						<label>-</label>
+						<textcolor>DDFFFFFF</textcolor>
+						<font>Font-Condensed-S34</font>
+						<textoffsety>3</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<scroll>true</scroll>
+						<visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33) | Control.HasFocus(34) | Control.HasFocus(35)</visible>
+					</control>
+					<control type="label">
+						<posx>75</posx>
+						<width>300</width>
+						<height>57</height>
+						<label>$LOCALIZE[41355]</label>
+						<textcolor>FF484848</textcolor>
+						<font>Font-Condensed-S34</font>
+						<textoffsety>3</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<scroll>true</scroll>
+						<visible>!Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32) + !Control.HasFocus(33) + !Control.HasFocus(34) + !Control.HasFocus(35)</visible>
+					</control>
+				</control>
+				<control type="button" id="8">
+					<description>Suspend Computer button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41356]</label>
+					<onclick>Suspend</onclick>
+					<texturefocus>dialogs/options/buttons/sushib-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/sushib-nf.png</texturenofocus>
+					<visible>System.CanSuspend</visible>
+				</control>
+				<control type="button" id="9">
+					<description>Hibernate Computer button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41357]</label>
+					<onclick>Hibernate</onclick>
+					<texturefocus>dialogs/options/buttons/sushib-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/sushib-nf.png</texturenofocus>
+					<visible>System.CanHibernate</visible>
+				</control>
+				<control type="button" id="10">
+					<description>Eject button</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41359]</label>
+					<onclick>EjectTray</onclick>
+					<texturefocus>dialogs/options/buttons/eject-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/eject-nf.png</texturenofocus>
+					<visible>System.Loggedon</visible>
+				</control>
+				<control type="button" id="11">
+					<description>Profile Log Off button (German)</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$INFO[system.profilename] $LOCALIZE[41351]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>system.logoff</onclick>
+					<texturefocus>dialogs/options/buttons/logout-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/logout-nf.png</texturenofocus>
+					<visible>System.HasLoginScreen + System.Loggedon + stringcompare(System.Language,German)</visible>
+				</control>
+				<control type="button" id="12">
+					<description>Profile Log Off button (Other Languages)</description>
+					<include>optionsbuttonsdimensions</include>
+					<label>$LOCALIZE[41351] $INFO[system.profilename]</label>
+					<onclick>dialog.close(all,true)</onclick>
+					<onclick>system.logoff</onclick>
+					<texturefocus>dialogs/options/buttons/logout-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/logout-nf.png</texturenofocus>
+					<visible>System.HasLoginScreen + System.Loggedon + !stringcompare(System.Language,German)</visible>
+				</control>
+				<control type="button" id="13">
+					<include>optionsbuttonsdimensions</include>
+					<label>Reload Skin</label>
+					<onclick>ReloadSkin()</onclick>
+					<texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
+					<texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
+				</control>
+			</control>
+            <control type="group">
+            	<control type="image">
+					<posx>72</posx>
+					<posy>433</posy>
+					<width>100</width>
+					<height>100</height>
+					<aspect>keep</aspect>
+					<texture>buttons/shutdown_nofo.png</texture>
+				</control>
+				<control type="label">
+					<posx>157</posx>
+					<posy>470</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$LOCALIZE[41507]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>66000000</textcolor>
+				</control>
+				<control type="label">
+					<posx>157</posx>
+					<posy>471</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$LOCALIZE[41507]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>ddwhite</textcolor>
+				</control>
+			</control>			
+		</control>
+	</controls>
+</window>

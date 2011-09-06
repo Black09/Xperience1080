@@ -1,0 +1,177 @@
+<window type="dialog" id="142">
+	<controls>
+		<control type="group">
+			<posy>717</posy>
+			<include>NowPlayingFullscreen</include>
+			<visible>!Window.IsActive(osdvideosettings) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(videobookmarks) + IsEmpty(Window(home).property(subtitles))</visible>
+			<animation effect="slide" end="0,-120" time="300" tween="sine" easing="inout" condition="Window.IsActive(seekbar)">Conditional</animation>
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>1920</width>
+				<height>363</height>
+				<texture>osd/fullscreen/osd-back-info.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="group">
+				<posx>1600</posx>
+				<posy>81</posy>
+				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
+				<control type="image">
+					<width>86</width>
+					<height>62</height>
+					<aspect>keepaspect</aspect>
+					<texture>flags/defs/hd.png</texture>
+					<visible>!IsEmpty(VideoPlayer.VideoResolution) + IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
+				</control>
+				<control type="image">
+					<width>86</width>
+					<height>62</height>
+					<aspect>keepaspect</aspect>
+					<texture>flags/defs/sd.png</texture>
+					<visible>!IsEmpty(VideoPlayer.VideoResolution) + !IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
+				</control>
+				<control type="image">
+					<posx>60</posx>
+					<posy>-23</posy>
+					<width>105</width>
+					<height>105</height>
+					<aspect>keepaspect</aspect>
+					<texture>views/thumb/other/star_fo.png</texture>
+				</control>
+				<control type="label">
+					<posx>192</posx>
+					<posy>7</posy>
+					<width>250</width>
+					<height>44</height>
+					<label fallback="0.0">$INFO[VideoPlayer.Rating]</label>
+					<textcolor>bbwhite</textcolor>
+					<font>Font-Condensed-S36-B</font>
+					<align>right</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label">
+					<posx>192</posx>
+					<posy>59</posy>
+					<width>250</width>
+					<height>44</height>
+					<label>$INFO[Player.Time,, / ]$INFO[Player.Duration]</label>
+					<textcolor>88FFFFFF</textcolor>
+					<font>Font-Condensed-S36</font>
+					<align>right</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+			</control>
+			<control type="group">
+				<visible>VideoPlayer.Content(movies)</visible>
+				<control type="image">
+					<posx>110</posx>
+					<posy>61</posy>
+					<width>174</width>
+					<height>241</height>
+					<texture>osd/fullscreen/cover-shadow.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>130</posx>
+					<posy>81</posy>
+					<width>134</width>
+					<height>201</height>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<posx>290</posx>
+					<posy>81</posy>
+					<width>1300</width>
+					<height>56</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<textcolor>bbwhite</textcolor>
+					<font>Font-Condensed-S50-B</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label">
+					<posx>290</posx>
+					<posy>140</posy>
+					<width>1200</width>
+					<height>44</height>
+					<label>$INFO[VideoPlayer.Genre,, • ]$INFO[VideoPlayer.Year]</label>
+					<textcolor>88FFFFFF</textcolor>
+					<font>Font-Condensed-S36</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox">
+					<posx>290</posx>
+					<posy>190</posy>
+					<width>1502</width>
+					<height>90</height>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<textcolor>aawhite</textcolor>
+					<font>Font-Condensed-S32</font>
+					<align>justify</align>
+					<autoscroll delay="11500" time="5000" repeat="7500" />
+				</control>
+			</control>
+			<control type="group">
+				<visible>VideoPlayer.Content(episodes)</visible>
+				<control type="image">
+					<posx>110</posx>
+					<posy>61</posy>
+					<width>397</width>
+					<height>241</height>
+					<texture border="30">osd/fullscreen/cover-shadow.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>130</posx>
+					<posy>81</posy>
+					<width>357</width>
+					<height>201</height>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<posx>510</posx>
+					<posy>81</posy>
+					<width>1080</width>
+					<height>56</height>
+					<label>$INFO[VideoPlayer.Episode,,. ]$INFO[VideoPlayer.Title]</label>
+					<textcolor>bbwhite</textcolor>
+					<font>Font-Condensed-S50-B</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label">
+					<posx>510</posx>
+					<posy>140</posy>
+					<width>980</width>
+					<height>44</height>
+					<label>$INFO[VideoPlayer.TVShowTitle]$INFO[VideoPlayer.Season, • $LOCALIZE[20373] ,]</label>
+					<textcolor>88FFFFFF</textcolor>
+					<font>Font-Condensed-S36</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="textbox">
+					<posx>510</posx>
+					<posy>190</posy>
+					<width>1282</width>
+					<height>90</height>
+					<label>$INFO[VideoPlayer.Plot]</label>
+					<textcolor>aawhite</textcolor>
+					<font>Font-Condensed-S32</font>
+					<align>justify</align>
+					<autoscroll delay="11500" time="5000" repeat="7500" />
+				</control>
+			</control>
+		</control>
+	</controls>
+</window>

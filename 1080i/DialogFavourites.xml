@@ -1,0 +1,261 @@
+<window type="dialog" id="134">
+	<defaultcontrol always="true">450</defaultcontrol>
+	<!--<zorder>4</zorder>-->
+	<controls>
+		<!--<control type="button" id="451">
+			<onfocus>SetFocus(450)</onfocus>
+			<visible>IntegerGreaterThan(Container(450).NumItems,0)</visible>
+		</control>
+		<control type="button" id="451">
+			<onleft>SetProperty(left,1)</onleft>
+			<onleft>RunScript(special://skin/extras/leftright.py,9103)</onleft>
+			<onright>ClearProperty(left)</onright>
+			<onright>RunScript(special://skin/extras/leftright.py,9108)</onright>
+			<visible>!IntegerGreaterThan(Container(450).NumItems,0)</visible>
+		</control>
+		<control type="group">
+			<posx>637</posx>
+			<posy>325</posy>
+			<animation type="WindowOpen" condition="IsEmpty(Window(playercontrols).property(left))" reversible="false">
+				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+				<effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+				<effect type="slide" start="-30" end="0" time="175" tween="sine" easing="out" />
+			</animation>
+			<animation type="WindowOpen" condition="!IsEmpty(Window(playercontrols).property(left))" reversible="false">
+				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+				<effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+				<effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+			</animation>
+			<animation type="WindowClose" condition="IsEmpty(Window.property(left))" reversible="false">
+				<effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+				<effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
+				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="out" />
+			</animation>
+			<animation type="WindowClose" condition="!IsEmpty(Window.property(left))" reversible="false">
+				<effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+				<effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="out" />
+			</animation>
+			<control type="label">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>750</width>
+				<height>422</height>
+				<label>$LOCALIZE[41453]</label>
+				<textcolor>44FFFFFF</textcolor>
+				<font>Font-Condensed-S42</font>
+				<align>center</align>
+				<visible>!IntegerGreaterThan(Window(favourites).property(count),0)</visible>
+			</control>
+			<control type="list" id="450">
+				<onup>450</onup>
+				<ondown>450</ondown>
+				<onleft>SetProperty(left,1)</onleft>
+				<onleft>RunScript(special://skin/extras/leftright.py,9103)</onleft>
+				<onright>ClearProperty(left)</onright>
+				<onright>RunScript(special://skin/extras/leftright.py,9108)</onright>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>750</width>
+				<height>464</height>
+				<orientation>vertical</orientation>
+				<scrolltime>250</scrolltime>
+				<itemlayout height="64" width="750">
+					<control type="image">
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>750</width>
+						<height>2</height>
+						<texture>osd/media-guide/separator.png</texture>
+					</control>
+					<control type="label">
+						<posx>30</posx>
+						<posy>17</posy>
+						<width>690</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>77white</textcolor>
+						<font>Font-Condensed-S42</font>
+						<align>left</align>
+						<scroll>no</scroll>
+					</control>
+				</itemlayout>
+				<focusedlayout height="64" width="750">
+					<control type="button">
+						<onfocus>SetProperty(count,$INFO[Container(450).NumItems])</onfocus>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>80</posy>
+						<width>750</width>
+						<height>2</height>
+						<texture>osd/media-guide/separator.png</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>750</width>
+						<height>96</height>
+						<texture>osd/media-guide/mediaguide-fo.png</texture>
+						<include>guidelistfocusanim2</include>
+					</control>
+					<control type="label">
+						<posx>30</posx>
+						<posy>17</posy>
+						<width>690</width>
+						<height>60</height>
+						<label>$INFO[ListItem.Label]</label>
+						<textcolor>eewhite</textcolor>
+						<font>Font-Condensed-S42</font>
+						<align>left</align>
+						<include>guidelistfocusanim</include>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>-->
+		<include>FadeBackgroundFavourites</include>
+		<control type="group">
+			<include>OpenButtonMenuAnimation</include>
+			<posx>267</posx>
+			<posy>357</posy>
+			<visible>!Window.IsActive(playercontrols)</visible>
+			<control type="image">
+				<description>shadow image</description>
+				<posx>5</posx>
+				<posy>665</posy>
+				<height>60</height>
+				<width>849</width>
+				<texture>dialogs/shutdown/shutdown_shadow.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="image">
+				<description>background image</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>849</width>
+				<height>730</height>
+				<texture>dialogs/content/favourites.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+			<control type="label" id="411">
+				<description>Heading</description>
+				<posx>330</posx>
+				<posy>165</posy>
+				<width>620</width>
+				<font>-</font>
+				<label>-</label>
+				<textcolor>grey</textcolor>
+				<align>center</align>
+			</control>
+			<control type="image">
+				<description>Large Icon Image</description>
+				<posx>488</posx>
+				<posy>93</posy>
+				<width>342</width>
+				<height>513</height>
+				<texture>$INFO[listitem.icon]</texture>
+				<aspectratio>keep</aspectratio>
+				<fadetime>200</fadetime>
+			</control>
+			<control type="list" id="450">
+				<posx>19</posx>
+				<posy>93</posy>
+				<width>469</width>
+				<height>513</height>
+				<onup>450</onup>
+				<onleft>9000</onleft>
+				<onright>9000</onright>
+				<ondown>450</ondown>
+				<itemlayout height="57">
+					<control type="label">
+						<posx>25</posx>
+						<posy>0</posy>
+						<width>419</width>
+						<height>57</height>
+						<info>ListItem.Label</info>
+						<font>Font-Condensed-S34</font>
+						<textoffsety>3</textoffsety>
+						<align>left</align>
+						<aligny>top</aligny>
+						<textcolor>FF484848</textcolor>
+						<scroll>false</scroll>
+					</control>
+				</itemlayout>
+				<focusedlayout height="57">
+					<control type="image">
+						<width>469</width>
+						<height>57</height>
+						<texture border="2">dialogs/content/highlight-light.png</texture>
+					</control>
+					<control type="fadelabel">
+						<posx>25</posx>
+						<posy>3</posy>
+						<width>419</width>
+						<height>57</height>
+						<textcolor>DDFFFFFF</textcolor>
+						<info>ListItem.Label</info>
+						<font>Font-Condensed-S34</font>
+						<align>left</align>
+						<scrollout>false</scrollout>
+						<pauseatend>200</pauseatend>
+						<scrollspeed>20</scrollspeed>
+					</control>
+				</focusedlayout>
+			</control>
+			<control type="group">
+				<control type="image">
+					<posx>10</posx>
+					<posy>593</posy>
+					<width>100</width>
+					<height>100</height>
+					<aspect>keep</aspect>
+					<texture>buttons/favourites_nofo.png</texture>
+				</control>
+				<control type="label">
+					<posx>95</posx>
+					<posy>630</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$LOCALIZE[41508]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>66000000</textcolor>
+				</control>
+				<control type="label">
+					<posx>95</posx>
+					<posy>631</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$LOCALIZE[41508]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>ddwhite</textcolor>
+				</control>
+				<control type="label">
+					<posx>735</posx>
+					<posy>630</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$INFO[Container(450).CurrentPage] / $INFO[Container(450).NumPages]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>66000000</textcolor>
+				</control>
+				<control type="label">
+					<posx>735</posx>
+					<posy>631</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>$INFO[Container(450).CurrentPage] / $INFO[Container(450).NumPages]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>77white</textcolor>
+				</control>
+			</control>	
+			<control type="image">
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>849</width>
+				<height>730</height>
+				<texture>dialogs/content/favoverlay.png</texture>
+				<aspectratio>stretch</aspectratio>
+			</control>
+		</control>
+	</controls>
+</window>

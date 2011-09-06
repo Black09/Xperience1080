@@ -1,0 +1,375 @@
+<window id="1111">
+	<defaultcontrol>3</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload>SetFocus(4001)</onload>
+	<controls>
+		<include>CommonSettingsItems</include>
+		<!-- Top Label -->
+		<control type="label">
+			<posx>100</posx>
+			<posy>60</posy>
+			<width>1000</width>
+			<height>65</height>
+			<font>Font-Condensed-S60</font>
+			<textcolor>ddwhite</textcolor>
+			<shadowcolor>55000000</shadowcolor>
+			<label>$LOCALIZE[41707]</label>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
+			</animation>
+		</control>
+		
+		<control type="group">
+			<include>CommonViewAnimations</include>
+			<include>OptionsShutdownAnimation</include>
+			<!-- Panel -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>windows/settings/settings-panel-categories.png</texture>
+			</control>
+			
+			<!-- SpinCtrl Focus -->
+			<control type="image">
+				<posx>357</posx>
+				<posy>170</posy>
+				<width>1210</width>
+				<height>91</height>
+				<texture>windows/settings/images/category-focus.png</texture>
+				<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
+				<animation effect="fade" end="100" tween="sine" easing="inout" time="200">Visible</animation>
+				<animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
+				<visible>ControlGroup(4001).HasFocus</visible>
+			</control>
+			
+			<control type="label">
+				<description>Category</description>
+				<posx>391</posx>
+				<posy>186</posy>
+				<height>60</height>
+				<width>400</width>
+				<align>left</align>
+				<font>Font-Condensed-S37-B</font>
+				<label>$LOCALIZE[42130]</label>
+				<textcolor>white</textcolor>
+				<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="!ControlGroup(4001).HasFocus" reversible="false">Conditional</animation>
+				<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="ControlGroup(4001).HasFocus" reversible="false">Conditional</animation>
+			</control>
+			
+			<control type="grouplist" id="4001">
+				<description>button area</description>
+				<posx>1460</posx>
+				<posy>188</posy>
+				<width>86</width>
+				<height>60</height>
+				<itemgap>0</itemgap>
+				<onleft>4001</onleft>
+				<onright>4001</onright>
+				<onup>5</onup>
+				<ondown>5</ondown>
+				<orientation>horizontal</orientation>
+				<control type="button" id="4002">
+					<width>43</width>
+					<height>60</height>
+					<texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
+					<texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
+					<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,3,4001)</onclick>
+				</control>
+				<control type="button" id="4003">
+					<width>43</width>
+					<height>60</height>
+					<texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
+					<texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
+					<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,3,4001)</onclick>
+				</control>
+			</control>
+		
+			<!-- Side Buttons -->
+			<control type="grouplist" id="3">
+				<description>Button Area</description>
+				<posx>1045</posx>
+				<posy>186</posy>
+				<width>400</width>
+				<height>60</height>
+				<itemgap>0</itemgap>
+				<onleft>3</onleft>
+				<onright>3</onright>
+				<onup>3</onup>
+				<ondown>3</ondown>
+				<scrolltime>0</scrolltime>
+				<orientation>vertical</orientation>
+				<!--<control type="button" id="31">
+					<description>General Settings</description>
+					<label>$LOCALIZE[41100]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>-->
+				<control type="button" id="32">
+					<description>Home Settings</description>
+					<label>$LOCALIZE[41130]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+				<control type="button" id="33">
+					<description>Media Settings</description>
+					<label>$LOCALIZE[41190]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+				<control type="button" id="34">
+					<description>Background Settings</description>
+					<label>$LOCALIZE[41250]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+				<control type="button" id="35">
+					<description>Add-on Settings</description>
+					<label>$LOCALIZE[41280]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+			</control>
+
+			<!-- General Settings -->
+			<!--<control type="grouplist" id="5">
+				<description>Control Area</description>
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(31)</visible>
+				<control type="radiobutton" id="1000">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<label>-/label>
+				</control>
+			</control>-->
+		
+			<!-- ============= -->	
+			<!-- Home Settings -->
+			<!-- ============= -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(32)</visible>
+				<control type="button" id="2001">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41131])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label>$LOCALIZE[41131]</label>
+				</control>
+				<control type="button" id="2002">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41132])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label>$LOCALIZE[41132]</label>
+				</control>
+				<control type="radiobutton" id="2003">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HomeGames)</selected>
+					<onclick>Skin.ToggleSetting(HomeGames)</onclick>
+					<label>$LOCALIZE[41133]</label>
+					<enable>!Skin.HasSetting(HomePrograms)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2003)">Conditional</animation>
+				</control>
+				<control type="radiobutton" id="2004">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HideHomeProfileInfo)</selected>
+					<onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
+					<label>$LOCALIZE[41134]</label>
+				</control>
+			</control>
+			
+			<!-- Media Settings -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(33)</visible>
+				<control type="radiobutton" id="3001">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HideFanart)</selected>
+					<onclick>Skin.ToggleSetting(HideFanart)</onclick>
+					<label>$LOCALIZE[41191]</label>
+				</control>
+				<control type="radiobutton" id="3002">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(unwatchedwatched)</selected>
+					<onclick>Skin.ToggleSetting(unwatchedwatched)</onclick>
+					<label>$LOCALIZE[41192]</label>
+				</control>
+				<control type="radiobutton" id="3003">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(DisableNowPlayingNotifications)</selected>
+					<onclick>Skin.ToggleSetting(DisableNowPlayingNotifications)</onclick>
+					<label>$LOCALIZE[41195]</label>
+				</control>
+				<control type="radiobutton" id="3004">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(bannerjpg)</selected>
+					<onclick>Skin.ToggleSetting(bannerjpg)</onclick>
+					<label>$LOCALIZE[41193]</label>
+				</control>
+				<control type="button" id="3005">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>
+					<label> • $LOCALIZE[41194]</label>
+					<enable>Skin.HasSetting(bannerjpg)</enable>
+				</control>
+			</control>
+			
+			<!-- Background Settings -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(34)</visible>
+				<control type="button" id="5001">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41251]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41251])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+				</control>
+				<control type="button" id="5002">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41500]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41500])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomeMovies)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5002)">Conditional</animation>
+				</control>
+				<control type="button" id="5003">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41501]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41501])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomeTVShows)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5003)">Conditional</animation>
+				</control>
+				<control type="button" id="5004">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41513]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41513])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>Skin.HasSetting(HomeVideoFiles)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5004)">Conditional</animation>
+				</control>
+				<control type="button" id="5005">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41449]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41449])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>Skin.HasSetting(HomeTrailers)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5005)">Conditional</animation>
+				</control>
+				<control type="button" id="5006">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41502]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41502])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomeMusic)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5006)">Conditional</animation>
+				</control>
+				<control type="button" id="5007">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41514]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41514])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>Skin.HasSetting(HomeMusicFiles)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5007)">Conditional</animation>
+				</control>
+				<control type="button" id="5008">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41503]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41503])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomePictures)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5008)">Conditional</animation>
+				</control>
+				<control type="button" id="5009">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41504]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41504])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomePrograms)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5009)">Conditional</animation>
+				</control>
+				<control type="button" id="5010">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41505]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41505])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>!Skin.HasSetting(HomeWeather)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5010)">Conditional</animation>
+				</control>
+				<control type="button" id="5011">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41523]</label>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41523])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<enable>Skin.HasSetting(HomeAddons)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5011)">Conditional</animation>
+				</control>
+			</control>
+			
+			<!-- Add-on Settings -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(35)</visible>
+				<control type="button" id="6001">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41281]</label>
+					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(SubtitleScript_Path))][/COLOR]</label2>
+					<onclick>Skin.SetAddon(SubtitleScript_Path,xbmc.python.subtitles)</onclick>
+				</control>
+				<control type="button" id="6002">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41282]</label>
+					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
+					<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
+				</control>
+			</control>
+		</control>
+		<include>FadeBackground</include>
+		<include>Common-Info-NoOptions</include>
+	</controls>
+</window>

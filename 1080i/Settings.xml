@@ -1,0 +1,193 @@
+<window id="4">
+	<defaultcontrol always="true">8000</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+		<include>CommonSettingsItems</include>
+		
+		<!-- Top Label -->
+		<control type="label">
+			<posx>100</posx>
+			<posy>60</posy>
+			<width>1000</width>
+			<height>65</height>
+			<font>Font-Condensed-S60</font>
+			<textcolor>ddwhite</textcolor>
+			<shadowcolor>55000000</shadowcolor>
+			<label>$LOCALIZE[41506]</label>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
+			</animation>
+		</control>
+		
+		<control type="group">
+			<include>FullscreenDimensions</include>
+			<include>CommonViewAnimations</include>
+			<include>OptionsShutdownAnimation</include>
+			<control type="image">
+				<description>Panel</description>
+				<include>FullscreenDimensions</include>
+				<texture>windows/settings/settings-panel.png</texture>
+			</control>
+
+			<!-- Big Icon -->
+			<control type="image">
+				<posx>820</posx>
+				<posy>380</posy>
+				<width>540</width>
+				<height>540</height>
+				<texture>$INFO[Container(8000).ListItem.ActualIcon]</texture>
+				<fadetime>150</fadetime>
+			</control>
+			
+			<!-- Detail Info Label -->
+			<control type="textbox">
+				<posx>650</posx>
+				<posy>199</posy>
+				<width>885</width>
+				<height>350</height>
+				<font>Font-Condensed-S34</font>
+				<textcolor>ddwhite</textcolor>
+				<shadowcolor>55000000</shadowcolor>
+				<info>Container(8000).ListItem.Label2</info>
+			</control>
+			
+			<control type="list" id="8000">
+				<posx>356</posx>
+				<posy>192</posy>
+				<width>1000</width>
+				<height>1200</height>
+				<onleft>8000</onleft>
+				<onright>8000</onright>
+				<onup>8000</onup>
+				<ondown>8000</ondown>
+				<orientation>vertical</orientation>
+				<scrolltime>0</scrolltime>
+				<itemlayout width="259" height="68">
+					<control type="label">
+						<posx>240</posx>
+						<posy>0</posy>
+						<width>240</width>
+						<height>62</height>
+						<info>ListItem.Label</info>
+						<font>Font-Condensed-S34</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>44000000</shadowcolor>
+						<align>right</align>
+						<animation effect="fade" start="100" end="65" time="0" condition="true">Conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout width="259" height="68">
+					<control type="image">
+						<posx>0</posx>
+						<posy>-10</posy>
+						<width>259</width>
+						<height>88</height>
+						<texture>windows/settings/images/left-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<animation type="Focus" condition="Container(8000).OnNext" reversible="false">
+							<effect type="slide" start="0,-68" end="0,0" time="300" tween="back" easing="out" />
+						</animation>
+						<animation type="Focus" condition="Container(8000).OnPrevious" reversible="false">
+							<effect type="slide" start="0,68" end="0,0" time="300" tween="back" easing="out" />
+						</animation>
+						<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>240</posx>
+						<posy>0</posy>
+						<width>240</width>
+						<height>62</height>
+						<info>ListItem.Label</info>
+						<font>Font-Condensed-S34</font>
+						<textcolor>white</textcolor>
+						<shadowcolor>44000000</shadowcolor>
+						<align>right</align>
+						<animation type="Focus" condition="Container(8000).OnNext | Container(8000).OnPrevious" reversible="false">
+							<effect type="fade" start="65" end="100" time="500" delay="250" tween="sine" easing="inout" />
+						</animation>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="0">
+						<label>$LOCALIZE[41706]</label>
+						<label2>$LOCALIZE[41640]</label2>
+						<onclick>ActivateWindow(appearancesettings)</onclick>
+						<thumb>windows/settings/images/appearance-small.png</thumb>
+						<icon>windows/settings/images/appearance-big.png</icon>
+					</item>	
+					<item id="1">
+						<label>$LOCALIZE[41700]</label>
+						<label2>$LOCALIZE[41641]</label2>
+						<onclick>ActivateWindow(videossettings)</onclick>
+						<thumb>windows/settings/images/videos-small.png</thumb>
+						<icon>windows/settings/images/videos-big.png</icon>
+					</item>
+					<item id="2">
+						<label>$LOCALIZE[41701]</label>
+						<label2>$LOCALIZE[41642]</label2>
+						<onclick>ActivateWindow(musicsettings)</onclick>
+						<thumb>windows/settings/images/music-small.png</thumb>
+						<icon>windows/settings/images/music-big.png</icon>
+					</item>
+					<item id="3">
+						<label>$LOCALIZE[41702]</label>
+						<label2>$LOCALIZE[41643]</label2>
+						<onclick>ActivateWindow(picturessettings)</onclick>
+						<thumb>windows/settings/images/pictures-small.png</thumb>
+						<icon>windows/settings/images/pictures-big.png</icon>
+					</item>
+					<item id="4">
+						<label>$LOCALIZE[41704]</label>
+						<label2>$LOCALIZE[41644]</label2>
+						<onclick>ActivateWindow(weathersettings)</onclick>
+						<thumb>windows/settings/images/weather-small.png</thumb>
+						<icon>windows/settings/images/weather-big.png</icon>
+					</item>
+					<item id="5">
+						<label>$LOCALIZE[41705]</label>
+						<label2>$LOCALIZE[41645]</label2>
+						<onclick>ActivateWindow(networksettings)</onclick>
+						<thumb>windows/settings/images/network-small.png</thumb>
+						<icon>windows/settings/images/network-big.png</icon>
+					</item>
+					<item id="6">
+						<label>$LOCALIZE[41703]</label>
+						<label2>$LOCALIZE[41646]</label2>
+						<onclick>ActivateWindow(profiles)</onclick>
+						<thumb>windows/settings/images/profiles-small.png</thumb>
+						<icon>windows/settings/images/profiles-big.png</icon>
+					</item>
+					<item id="7">
+						<label>$LOCALIZE[41709]</label>
+						<label2>$LOCALIZE[41647]</label2>
+						<onclick>ActivateWindow(addonbrowser)</onclick>
+						<thumb>windows/settings/images/addons-small.png</thumb>
+						<icon>windows/settings/images/addons-big.png</icon>
+					</item>
+								
+					<item id="8">
+						<label>$LOCALIZE[41707]</label>
+						<label2>$LOCALIZE[41648]</label2>
+						<onclick>ActivateWindow(1111)</onclick>
+						<thumb>windows/settings/images/skin-small.png</thumb>
+						<icon>windows/settings/images/skin-big.png</icon>
+					</item>				
+					<item id="9">
+						<label>$LOCALIZE[41708]</label>
+						<label2>$LOCALIZE[41649]</label2>
+						<onclick>ActivateWindow(systemsettings)</onclick>
+						<thumb>windows/settings/images/system-small.png</thumb>
+						<icon>windows/settings/images/system-big.png</icon>
+					</item>									
+				</content>
+			</control>
+		</control>
+		<include>FadeBackground</include>
+		<include>Common-Info-NoOptions</include>
+	</controls>
+</window>

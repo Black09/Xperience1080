@@ -1,0 +1,275 @@
+<window id="107">
+	<defaultcontrol always="true">410</defaultcontrol>
+	<zorder>10</zorder>
+	<controls>
+		<control type="label" id="401">
+			<description>Line 1</description>
+			<font>-</font>
+		</control>
+		<control type="label" id="402">
+			<description>Line 2</description>
+			<font>-</font>
+		</control>
+		<control type="group">
+			<!-- Default notification -->
+			<control type="group">
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | Player.HasAudio">Conditional</animation>
+				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+				<posx>1364</posx>
+				<posy>958</posy>
+				<visible>Control.IsVisible(410) + !Window.IsActive(fullscreenvideo)</visible>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>475</width>
+					<height>84</height>
+					<texture border="43,42,43,42">overlays/notification/back-info.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<animation type="WindowOpen" reversible="false">
+						<effect type="zoom" start="381,0,84,84" end="0,0,475,84" time="400" center="450,0" tween="back" easing="out" />
+					</animation>
+					<animation type="WindowClose" reversible="false">
+						<effect type="zoom" start="0,0,475,84" end="381,0,84,84" time="250" center="450,0" tween="back" easing="in" />
+					</animation>
+				</control>
+				<control type="label">
+					<posx>405</posx>
+					<posy>20</posy>
+					<width>365</width>
+					<height>40</height>
+					<font>Font-Condensed-S25</font>
+					<align>right</align>
+					<textcolor>eewhite</textcolor>
+					<shadowcolor>11000000</shadowcolor>
+					<label>[B]$INFO[Control.GetLabel(401)][/B]: $INFO[Control.GetLabel(402)]</label>
+					<scroll>false</scroll>
+				</control>
+				<control type="image">
+					<description>Shadow</description>
+					<posx>411</posx>
+					<posy>20</posy>
+					<width>44</width>
+					<height>44</height>
+					<aspectratio>stretch</aspectratio>
+					<texture>overlays/notification/icon-shadow.png</texture>
+				</control>
+				<control type="image" id="400">
+					<description>Icon</description>
+					<posx>411</posx>
+					<posy>20</posy>
+					<width>44</width>
+					<height>44</height>
+					<aspectratio>stretch</aspectratio>
+					<texture diffuse="overlays/notification/diff.png">overlays/notification/info.png</texture>
+					<animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image" id="403">
+					<description>Info</description>
+					<posx>411</posx>
+					<posy>20</posy>
+					<width>44</width>
+					<height>44</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/info.png</texture>
+				</control>
+				<control type="image" id="404">
+					<description>Warning</description>
+					<posx>411</posx>
+					<posy>20</posy>
+					<width>44</width>
+					<height>44</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/warning.png</texture>
+				</control>
+				<control type="image" id="405">
+					<description>Error</description>
+					<posx>411</posx>
+					<posy>20</posy>
+					<width>44</width>
+					<height>44</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/error.png</texture>
+				</control>
+			</control>
+			<!-- Video Fullscreen notification -->
+			<control type="group">
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+					<effect type="slide" start="-50" end="0" time="300" tween="sine" easing="inout" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
+					<effect type="slide" start="0" end="-50" time="200" tween="sine" easing="inout" />
+				</animation>
+				<visible>Control.IsVisible(410) + Window.IsActive(fullscreenvideo)</visible>
+				<control type="image">
+					<posx>43</posx>
+					<posy>0</posy>
+					<width>624</width>
+					<height>194</height>
+					<texture>overlays/notification/back-vf.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="label">
+					<posx>210</posx>
+					<posy>76</posy>
+					<width>380</width>
+					<height>34</height>
+					<font>Font-Condensed-S34</font>
+					<align>left</align>
+					<textcolor>aawhite</textcolor>
+					<label>$INFO[Control.GetLabel(402)]</label>
+					<scroll>false</scroll>
+				</control>
+				<control type="image" id="400">
+					<description>Icon</description>
+					<posx>112</posx>
+					<posy>68</posy>
+					<width>58</width>
+					<height>58</height>
+					<aspectratio>keep</aspectratio>
+					<texture>overlays/notification/info-vf.png</texture>
+					<animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
+				</control>
+				<control type="image" id="403">
+					<description>Info</description>
+					<posx>132</posx>
+					<posy>89</posy>
+					<width>58</width>
+					<height>58</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/info-vf.png</texture>
+				</control>
+				<control type="image" id="404">
+					<description>Warning</description>
+					<posx>132</posx>
+					<posy>89</posy>
+					<width>58</width>
+					<height>58</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/warning-vf.png</texture>
+				</control>
+				<control type="image" id="405">
+					<description>Error</description>
+					<posx>132</posx>
+					<posy>89</posy>
+					<width>58</width>
+					<height>58</height>
+					<aspectratio>keep</aspectratio>
+					<visible>false</visible>
+					<texture>overlays/notification/error-vf.png</texture>
+				</control>
+			</control>
+			<!-- Player controls notification -->
+			<control type="group">
+				<animation type="WindowOpen" reversible="false">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+					<effect type="zoom" start="200" end="100" time="300" center="960,540" tween="sine" easing="inout" />
+				</animation>
+				<animation type="WindowClose" reversible="false">
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					<effect type="zoom" start="100" end="50" time="300" center="960,540" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Visible" reversible="false">
+					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+					<effect type="zoom" start="200" end="100" time="300" center="960,540" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Hidden" reversible="false">
+					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+					<effect type="zoom" start="100" end="50" time="300" center="960,540" tween="sine" easing="inout" />
+				</animation>
+				<visible>!Control.IsVisible(410) + !Window.IsVisible(volumebar) + !Window.IsVisible(musicplaylist) + !Window.IsVisible(visualisation) + !Container.Content(Songs) + !Container.Content(Artists) + !Container.Content(Albums) + !Container.Content(Playlists)</visible>
+				<control type="image">
+					<posx>770</posx>
+					<posy>350</posy>
+					<width>380</width>
+					<height>380</height>
+					<texture>overlays/notification/back.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>875</posx>
+					<posy>446</posy>
+					<width>170</width>
+					<height>170</height>
+					<fadetime>200</fadetime>
+					<aspectratio align="center" scalediffuse="false">keepaspect</aspectratio>
+					<info>MusicPlayer.Cover</info>
+					<colordiffuse>DDFFFFFF</colordiffuse>
+				</control>
+				<control type="image">
+					<posx>850</posx>
+					<posy>421</posy>
+					<width>220</width>
+					<height>220</height>
+					<texture>overlays/notification/cover-overlay.png</texture>
+				</control>
+				<control type="image">
+					<posx>885</posx>
+					<posy>456</posy>
+					<width>150</width>
+					<height>150</height>
+					<texture>overlays/notification/$INFO[Control.GetLabel(401)].png</texture>
+				</control>
+				<control type="label">
+					<posx>830</posx>
+					<posy>390</posy>
+					<width>260</width>
+					<height>40</height>
+					<font>Font-Condensed-S25-B</font>
+					<align>center</align>
+					<textcolor>ddwhite</textcolor>
+					<shadowcolor>33000000</shadowcolor>
+					<scroll>no</scroll>
+					<label>$INFO[MusicPlayer.Title]</label>
+				</control>
+				<control type="label">
+					<posx>830</posx>
+					<posy>620</posy>
+					<width>260</width>
+					<height>40</height>
+					<font>Font-Condensed-S25</font>
+					<align>center</align>
+					<textcolor>ddwhite</textcolor>
+					<shadowcolor>33000000</shadowcolor>
+					<scroll>no</scroll>
+					<label>$INFO[MusicPlayer.Album]</label>
+				</control>
+				<control type="label">
+					<posx>830</posx>
+					<posy>649</posy>
+					<width>260</width>
+					<height>40</height>
+					<font>Font-Condensed-S25</font>
+					<align>center</align>
+					<textcolor>aawhite</textcolor>
+					<shadowcolor>33000000</shadowcolor>
+					<scroll>no</scroll>
+					<label>$INFO[MusicPlayer.Artist]</label>
+				</control>
+			</control>
+		</control>
+		<control type="button" id="410">
+			<onfocus>RunScript(special://skin/extras/scripts/setProperty.py,info,1)</onfocus>
+			<visible>!stringcompare(Control.GetLabel(401),play) + !stringcompare(Control.GetLabel(401),stop) + !stringcompare(Control.GetLabel(401),pause) + !stringcompare(Control.GetLabel(401),prev) + !stringcompare(Control.GetLabel(401),next)</visible>
+		</control>
+	</controls>
+</window>

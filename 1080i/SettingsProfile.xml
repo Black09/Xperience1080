@@ -1,0 +1,195 @@
+<window id="34">
+	<defaultcontrol always="true">2</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+		
+		<include>CommonSettingsItems</include>
+		
+		<!-- Top Label -->
+		<control type="label">
+			<posx>100</posx>
+			<posy>60</posy>
+			<width>1000</width>
+			<height>65</height>
+			<font>Font-Condensed-S60</font>
+			<textcolor>ddwhite</textcolor>
+			<shadowcolor>55000000</shadowcolor>
+			<label>$LOCALIZE[41703]</label>
+			<animation type="WindowOpen">
+				<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
+			</animation>
+			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+				<effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
+			</animation>
+		</control>
+		
+		<control type="group">
+			<include>CommonViewAnimations</include>
+			<include>OptionsShutdownAnimation</include>
+			<!-- Panel -->
+			<control type="image">
+				<include>FullscreenDimensions</include>
+				<texture>windows/settings/settings-panel-categories.png</texture>
+			</control>
+			
+			<!-- SpinCtrl Focus -->
+			<control type="image">
+				<posx>357</posx>
+				<posy>170</posy>
+				<width>1210</width>
+				<height>91</height>
+				<texture>windows/settings/images/category-focus.png</texture>
+				<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
+				<animation effect="fade" end="100" tween="sine" easing="inout" time="200">Visible</animation>
+				<animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
+				<visible>Control.HasFocus(4)</visible>
+			</control>
+	
+			<control type="radiobutton" id="4">
+				<posx>356</posx>
+				<posy>188</posy>
+				<height>60</height>
+				<width>1210</width>
+				<label>$LOCALIZE[20096]</label>
+				<align>left</align>
+				<aligny>top</aligny>
+				<textcolor>cusettings3</textcolor>
+				<focusedcolor>white</focusedcolor>
+				<disabledcolor>darkgrey</disabledcolor>
+				<texturefocus>-</texturefocus>
+				<texturenofocus>-</texturenofocus>
+				<radioposx>1087</radioposx>
+				<font>Font-Condensed-S37-B</font>
+				<onup>2</onup>
+				<ondown>2</ondown>
+				<textoffsetx>35</textoffsetx>
+				<textoffsety>5</textoffsety>
+			</control>
+			
+			<control type="list" id="2">
+				<description>Control Area</description>
+				<posx>356</posx>
+				<posy>260</posy>
+				<width>1210</width>
+				<height>610</height>
+				<onleft>-</onleft>
+				<onright>-</onright>
+				<onup>4</onup>
+				<ondown>4</ondown>
+				<orientation>vertical</orientation>
+				<itemlayout height="76">
+					<control type="image">
+						<posx>35</posx>
+						<posy>10</posy>
+						<width>56</width>
+						<height>56</height>
+						<texture background="true" fallback="DefaultProfile.png">$INFO[ListItem.Icon]</texture>
+						<visible>!IsEmpty(ListItem.Icon)</visible>
+					</control>
+					<control type="label">
+						<posx>35</posx>
+						<posy>0</posy>
+						<width>700</width>
+						<height>74</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<info>ListItem.Label</info>
+						<textcolor>96FFFFFF</textcolor>
+						<font>Font-Condensed-S30-B</font>
+						<animation effect="slide" start="0" end="80" time="0" condition="!IsEmpty(ListItem.Icon)">Conditional</animation>
+					</control>
+					<control type="label">
+						<posx>1175</posx>
+						<posy>0</posy>
+						<width>300</width>
+						<height>74</height>
+						<align>right</align>
+						<aligny>center</aligny>
+						<info>ListItem.Label2</info>
+						<textcolor>96FFFFFF</textcolor>
+						<font>Font-Condensed-S30-B</font>
+					</control>
+				</itemlayout>
+				<focusedlayout height="76">
+					<control type="group">
+						<visible>Control.HasFocus(2)</visible>
+						<control type="image">
+							<height>77</height>
+							<width>1210</width>
+							<texture>windows/settings/images/right-focus.png</texture>
+						</control>
+						<control type="image">
+							<posx>35</posx>
+							<posy>10</posy>
+							<width>56</width>
+							<height>56</height>
+							<texture background="true" fallback="DefaultProfile.png">$INFO[ListItem.Icon]</texture>
+							<visible>!IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="label">
+							<posx>35</posx>
+							<posy>0</posy>
+							<width>700</width>
+							<height>74</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<info>ListItem.Label</info>
+							<textcolor>white</textcolor>
+							<font>Font-Condensed-S30-B</font>
+							<animation effect="slide" start="0" end="80" time="0" condition="!IsEmpty(ListItem.Icon)">Conditional</animation>
+						</control>
+						<control type="label">
+							<posx>1175</posx>
+							<posy>0</posy>
+							<width>300</width>
+							<height>74</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<info>ListItem.Label2</info>
+							<textcolor>white</textcolor>
+							<font>Font-Condensed-S30-B</font>
+						</control>
+					</control>
+					<control type="group">
+						<visible>!Control.HasFocus(2)</visible>
+						<control type="image">
+							<posx>35</posx>
+							<posy>10</posy>
+							<width>56</width>
+							<height>56</height>
+							<texture background="true" fallback="DefaultProfile.png">$INFO[ListItem.Icon]</texture>
+							<visible>!IsEmpty(ListItem.Icon)</visible>
+						</control>
+						<control type="label">
+							<posx>35</posx>
+							<posy>0</posy>
+							<width>700</width>
+							<height>74</height>
+							<align>left</align>
+							<aligny>center</aligny>
+							<info>ListItem.Label</info>
+							<textcolor>96FFFFFF</textcolor>
+							<font>Font-Condensed-S30-B</font>
+							<animation effect="slide" start="0" end="80" time="0" condition="!IsEmpty(ListItem.Icon)">Conditional</animation>
+						</control>
+						<control type="label">
+							<posx>1175</posx>
+							<posy>0</posy>
+							<width>300</width>
+							<height>74</height>
+							<align>right</align>
+							<aligny>center</aligny>
+							<info>ListItem.Label2</info>
+							<textcolor>96FFFFFF</textcolor>
+							<font>Font-Condensed-S30-B</font>
+						</control>
+					</control>
+				</focusedlayout>
+			</control>
+		</control>
+		<include>FadeBackground</include>
+		<include>Common-Info-NoOptions</include>
+	</controls>
+</window>

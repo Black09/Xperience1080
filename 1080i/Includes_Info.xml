@@ -1,0 +1,283 @@
+<includes>
+
+	<include name="Common-Loading">
+		<control type="group">
+			<animation type="WindowOpen" reversible="false">
+				<effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout"/>
+			</animation>
+			<animation type="WindowClose" reversible="false">
+				<effect type="zoom" start="100" end="200" center="960,540" easing="out" tween="sine" time="300" />
+				<effect type="fade" start="100" end="0" time="250" easing="out" tween="cubic" />
+			</animation>
+			<control type="image">
+				<description>Loading Back</description>
+				<include>FullScreenDimensions</include>
+				<texture>windows/startup/loading-shadow.png</texture>
+			</control>
+			<control type="image">
+				<description>Loading Back</description>
+				<posx>849</posx>
+				<posy>429</posy>
+				<width>222</width>
+				<height>222</height>
+				<texture>windows/startup/loading-back.png</texture>
+				<animation type="Conditional" pulse="true" condition="true">
+					<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
+				</animation>
+			</control>
+			<control type="image">
+				<description>Loading</description>
+				<posx>849</posx>
+				<posy>429</posy>
+				<width>222</width>
+				<height>222</height>
+				<texture>windows/startup/loading.png</texture>
+				<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+			</control>	
+		</control>
+	</include>
+
+	<include name="Common-Clock">
+		<control type="group">
+			<animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo)" reversible="false">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+			</animation>
+			<control type="image">
+				<description>Loading Back</description>
+				<posx>173r</posx>
+				<posy>130r</posy>
+				<width>100</width>
+				<height>100</height>
+				<texture>overlays/scan/loading-back.png</texture>
+				<animation type="Conditional" pulse="true" condition="true">
+					<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
+				</animation>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+			</control>
+			<control type="image">
+				<description>Loading</description>
+				<posx>173r</posx>
+				<posy>130r</posy>
+				<width>100</width>
+				<height>100</height>
+				<texture>overlays/scan/loading.png</texture>
+				<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+			</control>
+			<control type="image">
+				<description>Loading Small Back</description>
+				<posx>173r</posx>
+				<posy>130r</posy>
+				<width>100</width>
+				<height>100</height>
+				<texture>overlays/scan/loading-small-back.png</texture>
+				<animation type="Conditional" pulse="true" condition="true">
+					<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
+				</animation>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+			</control>
+			<control type="image">
+				<description>Loading Small</description>
+				<posx>173r</posx>
+				<posy>130r</posy>
+				<width>100</width>
+				<height>100</height>
+				<texture>overlays/scan/loading-small.png</texture>
+				<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+			</control>
+			<control type="group">
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | Player.HasAudio">Conditional</animation>
+				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+				<include>visiblehidefadeinfo</include>
+				<visible>!Window.IsVisible(infodialog) | [Window.IsVisible(infodialog) + IsEmpty(Window(home).property(info))]</visible>
+				<control type="image">
+					<description>Small weather</description>
+					<posx>174r</posx>
+					<posy>950</posy>
+					<width>100</width>
+					<height>100</height>
+					<texture fallback="weather/small/na.png">weather/small/$INFO[Weather.FanartCode].png</texture>
+				</control>
+				<control type="label">
+					<description>Clock label</description>
+					<posx>160r</posx>
+					<posy>988</posy>
+					<width>180</width>
+					<height>18</height>
+					<label>[B]$INFO[System.Time][/B]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>eewhite</textcolor>
+					<shadowcolor>55000000</shadowcolor>
+					<align>right</align>
+					<scroll>No</scroll>
+				</control>
+			</control>
+			<control type="image">
+				<description>Downloading</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>overlays/scan/download.png</texture>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan)</visible>
+			</control>
+			<control type="image">
+				<description>Busy</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>overlays/scan/busy.png</texture>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(busydialog)</visible>
+			</control>
+			<control type="image">
+				<description>Mute</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>overlays/volume/muted-info.png</texture>
+				<include>visiblehidefadeinfo</include>
+				<visible>Window.IsActive(mutebug)</visible>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | Player.HasAudio">Conditional</animation>
+				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+			</control>
+		</control>
+	</include>
+	
+	<!-- Options Button -->
+	<include name="Common-Options">
+		<control type="group">
+			<description>Options Buttons</description>
+			<include>Animation_OptionsButton</include>
+			<posx>276</posx>
+			<posy>950</posy>
+			<control type="button" id="9010">
+				<description>Options Button</description>
+				<width>100</width>
+				<height>100</height>
+				<onleft>50</onleft>
+				<onright>50</onright>
+				<onup>50</onup>
+				<ondown>50</ondown>
+				<texturefocus>buttons/options_fo.png</texturefocus>
+				<texturenofocus>buttons/options_nofo.png</texturenofocus>
+				<onfocus>SetFocus(9000)</onfocus>
+				<include>homebuttonsanim3</include>
+				<visible>!Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
+			</control>
+			<control type="label">
+				<description>Options Label</description>
+				<posx>85</posx>
+				<posy>38</posy>
+				<width>180</width>
+				<height>18</height>
+				<label>$LOCALIZE[41600]</label>
+				<font>Font-Condensed-S34-B</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>55000000</shadowcolor>
+				<include>homebuttonsanim4</include>
+				<visible>!Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
+			</control>
+		</control>
+	</include>
+
+	<!-- Shutdown Label -->
+	<include name="Common-ShutdownLabel">
+		<control type="group">
+			<include>Animation_ShutdownButton</include>
+			<control type="image">
+				<posx>72</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<texture>buttons/shutdown_nofo.png</texture>
+				<include>homebuttonsanim</include>
+			</control>
+			<control type="label">
+				<posx>157</posx>
+				<posy>988</posy>
+				<width>180</width>
+				<height>18</height>
+				<label>$LOCALIZE[41507]</label>
+				<font>Font-Condensed-S34-B</font>
+				<textcolor>white</textcolor>
+				<shadowcolor>55000000</shadowcolor>
+				<include>homebuttonsanim2</include>
+			</control>
+		</control>
+	</include>
+
+	<!-- Now Playing -->
+	<include name="Common-NowPlaying">
+		<control type="group">
+			<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Control.IsVisible(1111)">Conditional</animation>
+			<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+			<control type="image">
+				<description>Now Playing - Video</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>osd/nowplaying/np-video.png</texture>
+				<include>visiblehidefadenp</include>
+				<visible>Player.HasVideo + !Player.Paused</visible>
+				<animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<description>Now Playing - Audio</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>osd/nowplaying/np-audio.png</texture>
+				<include>visiblehidefadenp</include>
+				<visible>Player.HasAudio + !Player.Paused</visible>
+				<animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
+			</control>
+			<control type="image">
+				<description>Now Playing - Paused</description>
+				<posx>174r</posx>
+				<posy>950</posy>
+				<width>100</width>
+				<height>100</height>
+				<aspect>keep</aspect>
+				<texture>osd/nowplaying/np-paused.png</texture>
+				<include>visiblehidefadenp</include>
+				<visible>Player.Paused</visible>
+			</control>
+		</control>
+	</include>
+	
+	<include name="Common-Home-Info">
+		<include>Common-Clock</include>
+		<include>Common-NowPlaying</include>
+	</include>
+	
+	<include name="Common-Info">
+		<include>Common-ShutdownLabel</include>
+		<include>Common-Options</include>
+		<include>Common-Clock</include>
+		<include>Common-NowPlaying</include>
+	</include>
+	
+	<include name="Common-Info-NoOptions">
+		<include>Common-ShutdownLabel</include>
+		<include>Common-Clock</include>
+		<include>Common-NowPlaying</include>
+	</include>
+
+</includes>
