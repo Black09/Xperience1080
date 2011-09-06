@@ -1094,7 +1094,17 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItemNoWrap(-1).Thumb]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(-1).ActualIcon,views/posterview/,]</texture>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>IsEmpty(Container(55).ListItem(-1).Thumb)</visible>
+						</control>
+						<control type="image">
+							<description>Reflection</description>
+							<posx>-32</posx>
+							<posy>458</posy>
+							<width>444</width>
+							<height>444</height>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(-1).Thumb]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						</control>
 						<control type="image">
@@ -1120,7 +1130,7 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(-1).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(-1).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<visible>IsEmpty(Container(55).ListItemNoWrap(-1).Thumb)</visible>
 						</control>
@@ -1133,6 +1143,7 @@
 							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<info>Container(55).ListItemNoWrap(-1).Thumb</info>
+							<visible>!IsEmpty(Container(55).ListItem(-1).Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1193,8 +1204,19 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItemNoWrap(4).Thumb]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(4).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>IsEmpty(Container(55).ListItem(4).Thumb)</visible>
+						</control>
+						<control type="image">
+							<description>Reflection</description>
+							<posx>-32</posx>
+							<posy>458</posy>
+							<width>444</width>
+							<height>444</height>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(4).Thumb]</texture>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(Container(55).ListItem(4).Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1219,7 +1241,7 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(4).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(4).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<visible>IsEmpty(Container(55).ListItemNoWrap(4).Thumb)</visible>
 						</control>
@@ -1232,6 +1254,7 @@
 							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<info>Container(55).ListItemNoWrap(4).Thumb</info>
+							<visible>!IsEmpty(Container(55).ListItem(4).Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1292,8 +1315,19 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItemNoWrap(3).Thumb]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(3).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>IsEmpty(Container(55).ListItem(3).Thumb)</visible>
+						</control>
+						<control type="image">
+							<description>Reflection</description>
+							<posx>-32</posx>
+							<posy>458</posy>
+							<width>444</width>
+							<height>444</height>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(3).Thumb]</texture>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(Container(55).ListItem(3).Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1318,7 +1352,7 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(3).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(3).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<visible>IsEmpty(Container(55).ListItemNoWrap(3).Thumb)</visible>
 						</control>
@@ -1331,6 +1365,7 @@
 							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<info>Container(55).ListItemNoWrap(3).Thumb</info>
+							<visible>!IsEmpty(Container(55).ListItem(3).Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1391,8 +1426,19 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItemNoWrap(2).Thumb]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(2).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>IsEmpty(Container(55).ListItem(2).Thumb)</visible>
+						</control>
+						<control type="image">
+							<description>Reflection</description>
+							<posx>-32</posx>
+							<posy>458</posy>
+							<width>444</width>
+							<height>444</height>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(2).Thumb]</texture>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(Container(55).ListItem(2).Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1417,7 +1463,7 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(2).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(2).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<visible>IsEmpty(Container(55).ListItemNoWrap(2).Thumb)</visible>
 						</control>
@@ -1430,6 +1476,7 @@
 							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<info>Container(55).ListItemNoWrap(2).Thumb</info>
+							<visible>!IsEmpty(Container(55).ListItem(2).Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1490,8 +1537,19 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItemNoWrap(1).Thumb]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(1).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>IsEmpty(Container(55).ListItem(1).Thumb)</visible>
+						</control>
+						<control type="image">
+							<description>Reflection</description>
+							<posx>-32</posx>
+							<posy>458</posy>
+							<width>444</width>
+							<height>444</height>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(1).Thumb]</texture>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(Container(55).ListItem(1).Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1516,7 +1574,7 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(1).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(1).ActualIcon,views/posterview/,]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<visible>IsEmpty(Container(55).ListItemNoWrap(1).Thumb)</visible>
 						</control>
@@ -1529,6 +1587,7 @@
 							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							<info>Container(55).ListItemNoWrap(1).Thumb</info>
+							<visible>!IsEmpty(Container(55).ListItem(1).Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1585,8 +1644,19 @@
 						<posy>458</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[Container(55).ListItem(0).Thumb]</texture>
+						<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+						<visible>IsEmpty(Container(55).ListItem(0).Thumb)</visible>
+					</control>
+					<control type="image">
+						<description>Reflection</description>
+						<posx>-32</posx>
+						<posy>458</posy>
+						<width>444</width>
+						<height>444</height>
+						<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(0).Thumb]</texture>
+						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+						<visible>!IsEmpty(Container(55).ListItem(0).Thumb)</visible>
 					</control>
 					<control type="image">
 						<posx>312</posx>
@@ -1619,7 +1689,7 @@
 						<posy>10</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</texture>
+						<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						<visible>IsEmpty(Container(55).ListItem(0).Thumb)</visible>
 					</control>
@@ -1632,6 +1702,7 @@
 						<texture background="true" diffuse="views/posterview/diffuse-square.png" />
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						<info>Container(55).ListItem(0).Thumb</info>
+						<visible>!IsEmpty(Container(55).ListItem(0).Thumb)</visible>
 					</control>
 					<control type="image">
 						<description>Overlay</description>
@@ -1701,8 +1772,19 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[ListItem.Thumb]</texture>
+								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>IsEmpty(ListItem.Thumb)</visible>
+							</control>
+							<control type="image">
+								<description>Reflection</description>
+								<posx>-32</posx>
+								<posy>458</posy>
+								<width>444</width>
+								<height>444</height>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.Thumb]</texture>
+								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<posx>312</posx>
@@ -1726,8 +1808,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -1737,6 +1820,7 @@
 								<height>444</height>
 								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.Thumb]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -1786,8 +1870,19 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="views/posterview/DefaultAlbumCover.png">$INFO[ListItem.Thumb]</texture>
+								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>IsEmpty(ListItem.Thumb)</visible>
+							</control>
+							<control type="image">
+								<description>Reflection</description>
+								<posx>-32</posx>
+								<posy>458</posy>
+								<width>444</width>
+								<height>444</height>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.Thumb]</texture>
+								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<posx>312</posx>
@@ -1819,8 +1914,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -1830,6 +1926,7 @@
 								<height>444</height>
 								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.Thumb]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -2104,6 +2201,7 @@
 							<info>ListItem.Thumb</info>
 							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2156,6 +2254,7 @@
 							<info>ListItem.Thumb</info>
 							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2383,6 +2482,7 @@
 								<info>ListItem.Thumb</info>
 								<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
