@@ -229,11 +229,25 @@
 				<control type="radiobutton" id="3005">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HideShutdownButton)</selected>
+					<onclick>Skin.ToggleSetting(HideShutdownButton)</onclick>
+					<label>$LOCALIZE[41200]</label>
+				</control>
+				<control type="radiobutton" id="3006">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HideOptionsButton)</selected>
+					<onclick>Skin.ToggleSetting(HideOptionsButton)</onclick>
+					<label>$LOCALIZE[41201]</label>
+				</control>
+				<control type="radiobutton" id="3007">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(bannerjpg)</selected>
 					<onclick>Skin.ToggleSetting(bannerjpg)</onclick>
 					<label>$LOCALIZE[41193]</label>
 				</control>
-				<control type="button" id="3006">
+				<control type="button" id="3008">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>

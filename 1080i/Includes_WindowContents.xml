@@ -33,6 +33,9 @@
 		<include>CommonContent</include>
 		<include>BackgroundFanartMusicOSD</include>
 		<control type="image">
+			<animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
+		</control>
+		<control type="image">
 			<description>Back Panel</description>
 			<include>FullscreenDimensions</include>
 			<texture background="true">views/thumb/panels/back-vignette.png</texture>
@@ -107,6 +110,9 @@
 <!-- ============== -->
 	
 	<include name="CommonContent">
+		<control type="image">
+			<animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
+		</control>
 		<control type="image">
 			<description>Custom Wallpaper Image</description>
 			<include>FullscreenDimensions</include>

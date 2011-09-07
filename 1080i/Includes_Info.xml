@@ -171,11 +171,11 @@
 				<onright>50</onright>
 				<onup>50</onup>
 				<ondown>50</ondown>
-				<texturefocus>buttons/options_fo.png</texturefocus>
+				<texturefocus>buttons/options_nofo.png</texturefocus>
 				<texturenofocus>buttons/options_nofo.png</texturenofocus>
 				<onfocus>SetFocus(9000)</onfocus>
 				<include>homebuttonsanim3</include>
-				<visible>!Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
+				<visible allowhiddenfocus="true">!Skin.HasSetting(HideOptionsButton) + !Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
 			</control>
 			<control type="label">
 				<description>Options Label</description>
@@ -188,7 +188,7 @@
 				<textcolor>white</textcolor>
 				<shadowcolor>55000000</shadowcolor>
 				<include>homebuttonsanim4</include>
-				<visible>!Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
+				<visible>!Skin.HasSetting(HideOptionsButton) + !Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
 			</control>
 		</control>
 	</include>
@@ -204,6 +204,7 @@
 				<height>100</height>
 				<texture>buttons/shutdown_nofo.png</texture>
 				<include>homebuttonsanim</include>
+				<visible>!Skin.HasSetting(HideShutdownButton)</visible>
 			</control>
 			<control type="label">
 				<posx>157</posx>
@@ -215,6 +216,7 @@
 				<textcolor>white</textcolor>
 				<shadowcolor>55000000</shadowcolor>
 				<include>homebuttonsanim2</include>
+				<visible>!Skin.HasSetting(HideShutdownButton)</visible>
 			</control>
 		</control>
 	</include>
