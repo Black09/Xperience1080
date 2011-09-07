@@ -4843,8 +4843,8 @@
 				<scrolltime tween="cubic" easing="out">500</scrolltime>
 				<orientation>vertical</orientation>
 				<viewtype label="BannerList">BannerList</viewtype>
-				<onleft>70</onleft>
-				<onright>9010</onright>
+				<onleft>9010</onleft>
+				<onright>70</onright>
 				<onup>60</onup>
 				<ondown>60</ondown>
 				<movement>3</movement>
@@ -5427,7 +5427,7 @@
 			</control>
 			<control type="scrollbar" id="70">
 				<description>Scrollbar</description>
-				<posx>540</posx>
+				<posx>1265</posx>
 				<posy>174</posy>
 				<width>11</width>
 				<height>730</height>
@@ -5435,9 +5435,11 @@
 				<texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
 				<orientation>vertical</orientation>
 				<showonepage>false</showonepage>
-				<onleft>9010</onleft>
-				<onright>60</onright>
+				<onleft>60</onleft>
+				<onright>9010</onright>
 				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
+				<animation effect="slide" start="0" end="102" time="0" condition="Container.Content(movies) | Container.Content(tvshows)">Conditional</animation>
+				<animation effect="slide" start="0" end="302" time="0" condition="Container.Content(episodes)">Conditional</animation>
 				<visible>Control.IsVisible(60)</visible>
 			</control>
 		</control>
