@@ -740,131 +740,108 @@
 	</include>
 	
 	<include name="GuideSystemInfo">
-		<!-- Profile Name -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>16</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>Benutzer:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>16</posy>
-			<width>405</width>
-			<height>60</height>
-			<label>[B]$INFO[System.ProfileName][/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<!-- IP Address -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>80</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>IP Adresse:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>80</posy>
-			<width>405</width>
-			<height>60</height>
-			<label>[B]$INFO[Network.IPAddress][/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<!-- HDD Space -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>144</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>Speicherplatz frei:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>144</posy>
-			<width>405</width>
-			<height>60</height>
-			<label>[B]$INFO[System.Freespace][/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<!-- Screen Resolution -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>208</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>Auflösung:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>208</posy>
-			<width>405</width>
-			<height>60</height>
-			<label>[B]$INFO[System.ScreenWidth]x$INFO[System.ScreenHeight] @ $INFO[System.FPS]FPS[/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<!-- Skin Info -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>336</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>Xperience Version:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>336</posy>
-			<width>405</width>
-			<height>60</height>
-			<label>[B]v0.90 BETA[/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>>
-		</control>
-		<!-- XBMC Info -->
-		<control type="label">
-			<posx>30</posx>
-			<posy>400</posy>
-			<width>330</width>
-			<height>60</height>
-			<label>XBMC Version:</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>
-		</control>
-		<control type="label">
-			<posx>285</posx>
-			<posy>400</posy>
-			<width>430</width>
-			<height>60</height>
-			<label>[B]$INFO[System.BuildVersion][/B]</label>
-			<textcolor>77white</textcolor>
-			<font>Font-Condensed-S34</font>
-			<align>left</align>>
+		<control type="list">
+			<posx>637</posx>
+			<posy>325</posy>
+			<width>750</width>
+			<height>464</height>
+			<orientation>vertical</orientation>
+			<scrolltime>0</scrolltime>
+			<itemlayout height="64" width="750">
+				<control type="image">
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>750</width>
+					<height>2</height>
+					<texture>osd/media-guide/separator.png</texture>
+				</control>
+				<control type="label">
+					<posx>30</posx>
+					<posy>17</posy>
+					<width>690</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>77white</textcolor>
+					<font>Font-Condensed-S38</font>
+					<align>left</align>
+				</control>
+				<control type="label">
+					<posx>720</posx>
+					<posy>17</posy>
+					<width>690</width>
+					<height>60</height>
+					<label>[B]$INFO[ListItem.Label2][/B]</label>
+					<textcolor>77white</textcolor>
+					<font>Font-Condensed-S38</font>
+					<align>right</align>
+				</control>
+			</itemlayout>
+			<focusedlayout height="64" width="750">
+				<control type="image">
+					<posx>0</posx>
+					<posy>80</posy>
+					<width>750</width>
+					<height>2</height>
+					<texture>osd/media-guide/separator.png</texture>
+				</control>
+				<control type="label">
+					<posx>30</posx>
+					<posy>17</posy>
+					<width>690</width>
+					<height>60</height>
+					<label>$INFO[ListItem.Label]</label>
+					<textcolor>77white</textcolor>
+					<font>Font-Condensed-S38</font>
+					<align>left</align>
+				</control>
+				<control type="label">
+					<posx>720</posx>
+					<posy>17</posy>
+					<width>690</width>
+					<height>60</height>
+					<label>[B]$INFO[ListItem.Label2][/B]</label>
+					<textcolor>77white</textcolor>
+					<font>Font-Condensed-S38</font>
+					<align>right</align>
+				</control>
+			</focusedlayout>
+			<content>
+				<item id="0">
+					<label>$LOCALIZE[41453]</label>
+					<label2>$INFO[System.ProfileName]</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="1">
+					<label>$LOCALIZE[41454]</label>
+					<label2>$INFO[Network.IPAddress]</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="2">
+					<label>$LOCALIZE[41455]</label>
+					<label2>$INFO[System.FreeMemory]</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="3">
+					<label>$LOCALIZE[41456]</label>
+					<label2>$INFO[System.ScreenWidth,,x]$INFO[System.ScreenHeight,, @ ]$INFO[System.FPS,, FPS]</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="4">
+					<label>$LOCALIZE[41457]</label>
+					<label2>$INFO[System.Uptime]</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="5">
+					<label>$LOCALIZE[41458]</label>
+					<label2>0.9.1</label2>
+					<onclick>-</onclick>
+				</item>
+				<item id="6">
+					<label>$LOCALIZE[41459]</label>
+					<label2>$INFO[System.BuildVersion]</label2>
+					<onclick>-</onclick>
+				</item>
+			</content>
 		</control>
 	</include>
 	
