@@ -127,201 +127,211 @@
 	</include>
 
 	<include name="Recent-List">
-		<control type="wraplist" id="82">
-			<visible allowhiddenfocus="true">Control.HasFocus(82)</visible>
-			<posx>112</posx>
-			<posy>427</posy>
-			<width>633</width>
-			<height>437</height>
-			<onup>82</onup>
-			<ondown>82</ondown>
-			<onleft>20</onleft>
-			<onright>20</onright>
-			<scrolltime>0</scrolltime>
-			<focusposition>0</focusposition>
-			<orientation>vertical</orientation>
-			<include>RecentAnimation</include>
-			<include>ShutdownFavAnimation</include>
-			<itemlayout height="633" width="437">
-			</itemlayout>
-			<focusedlayout height="633" width="437">
-				<control type="image">
-					<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
-					</animation>
-					<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
-					</animation>
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>633</width>
-					<height>437</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture diffuse="osd/recently-added/diffuse.png">$INFO[ListItem.thumb]</texture>
-				</control>
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>633</width>
-					<height>437</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture>osd/recently-added/overlay.png</texture>
-				</control>
-				<control type="label">
-					<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
-					</animation>
-					<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
-					</animation>
-					<textcolor>CCFFFFFF</textcolor>
-					<font>Font-Condensed-S45-B</font>
-					<align>right</align>
-					<posx>-60r</posx>
-					<posy>175</posy>
-					<width>460</width>
-					<height>437</height>
-					<info>ListItem.Label</info>
-				</control>
-				<control type="label">
-					<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
-					</animation>
-					<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
-						<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
-					</animation>
-					<colordiffuse>99FFFFFF</colordiffuse>
-					<font>Font-Condensed-S27</font>
-					<align>right</align>
-					<posx>-60r</posx>
-					<posy>134</posy>
-					<width>460</width>
-					<height>437</height>
-					<info>ListItem.Label2</info>
-				</control>
-			</focusedlayout>
-			<content>
-				<item id="1">
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestMovie.1.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
-					<visible>Container(20).HasFocus(2)</visible>
-				</item>
-				<item id="2">
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestMovie.2.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
-					<visible>Container(20).HasFocus(2)</visible>
-				</item>
-				<item id="3">
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestMovie.3.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
-					<visible>Container(20).HasFocus(2)</visible>
-				</item>
-				<item id="4">
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestMovie.4.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
-					<visible>Container(20).HasFocus(2)</visible>
-				</item>
-				<item id="5">
-					<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestMovie.5.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
-					<visible>Container(20).HasFocus(2)</visible>
-				</item>
-				<item id="6">
-					<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.1.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestEpisode.1.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
-					<visible>Container(20).HasFocus(3)</visible>
-				</item>
-				<item id="7">
-					<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.2.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestEpisode.2.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
-					<visible>Container(20).HasFocus(3)</visible>
-				</item>
-				<item id="8">
-					<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.3.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestEpisode.3.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
-					<visible>Container(20).HasFocus(3)</visible>
-				</item>
-				<item id="9">
-					<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.4.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestEpisode.4.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestEpisode.4.EpisodeTitle)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
-					<visible>Container(20).HasFocus(3)</visible>
-				</item>
-				<item id="10">
-					<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.5.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestEpisode.5.Fanart)]</thumb>
-					<label>$INFO[Window.Property(LatestEpisode.5.EpisodeTitle)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
-					<visible>Container(20).HasFocus(3)</visible>
-				</item>
-				<item id="11">
-					<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.1.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestAlbum.1.Thumb)]</thumb>
-					<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
-					<visible>Container(20).HasFocus(6)</visible>
-				</item>
-				<item id="12">
-					<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.2.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestAlbum.2.Thumb)]</thumb>
-					<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
-					<visible>Container(20).HasFocus(6)</visible>
-				</item>
-				<item id="13">
-					<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.3.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestAlbum.3.Thumb)]</thumb>
-					<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
-					<visible>Container(20).HasFocus(6)</visible>
-				</item>
-				<item id="14">
-					<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.4.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestAlbum.4.Thumb)]</thumb>
-					<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
-					<visible>Container(20).HasFocus(6)</visible>
-				</item>
-				<item id="15">
-					<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.5.Path)])</onclick>
-					<onclick>SetFocus(20)</onclick>
-					<thumb>$INFO[window.property(LatestAlbum.5.Thumb)]</thumb>
-					<label>$INFO[Window.Property(LatestAlbum.5.Title)]</label>
-					<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
-					<visible>Container(20).HasFocus(6)</visible>
-				</item>
-			</content>
+		<control type="group">
+			<posy>-1080</posy>
+			<animation type="WindowOpen" reversible="false">
+				<effect type="slide" start="0,0" end="0,1080" time="0" delay="1010" />
+				<effect type="fade" start="0" end="100" time="0" delay="1410" />
+			</animation>
+			<control type="wraplist" id="82">
+				<visible allowhiddenfocus="true">Control.HasFocus(82) | !Control.IsVisible(2083)</visible>
+				<posx>112</posx>
+				<posy>427</posy>
+				<width>633</width>
+				<height>437</height>
+				<onup>82</onup>
+				<ondown>82</ondown>
+				<onleft>20</onleft>
+				<onright>20</onright>
+				<scrolltime>0</scrolltime>
+				<focusposition>0</focusposition>
+				<orientation>vertical</orientation>
+				<include>RecentAnimation</include>
+				<include>ShutdownFavAnimation</include>
+				<itemlayout height="633" width="437">
+				</itemlayout>
+				<focusedlayout height="633" width="437">
+					<control type="image">
+						<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
+						</animation>
+						<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+						</animation>
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture background="true" diffuse="osd/recently-added/diffuse.png">$INFO[ListItem.thumb]</texture>
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>osd/recently-added/overlay.png</texture>
+					</control>
+					<control type="label">
+						<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
+						</animation>
+						<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+						</animation>
+						<textcolor>CCFFFFFF</textcolor>
+						<font>Font-Condensed-S45-B</font>
+						<align>right</align>
+						<posx>-60r</posx>
+						<posy>175</posy>
+						<width>460</width>
+						<height>437</height>
+						<info>ListItem.Label</info>
+					</control>
+					<control type="label">
+						<animation type="Focus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="0" end="100" time="250" tween="sine" easing="inout" />
+						</animation>
+						<animation type="Unfocus" condition="Container(82).OnNext | Container(82).OnPrevious">
+							<effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+						</animation>
+						<colordiffuse>99FFFFFF</colordiffuse>
+						<font>Font-Condensed-S27</font>
+						<align>right</align>
+						<posx>-60r</posx>
+						<posy>134</posy>
+						<width>460</width>
+						<height>437</height>
+						<info>ListItem.Label2</info>
+					</control>
+				</focusedlayout>
+				<content>
+					<item id="1">
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.1.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestMovie.1.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
+						<visible>Container(20).HasFocus(2)</visible>
+					</item>
+					<item id="2">
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestMovie.2.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
+						<visible>Container(20).HasFocus(2)</visible>
+					</item>
+					<item id="3">
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestMovie.3.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
+						<visible>Container(20).HasFocus(2)</visible>
+					</item>
+					<item id="4">
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestMovie.4.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
+						<visible>Container(20).HasFocus(2)</visible>
+					</item>
+					<item id="5">
+						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestMovie.5.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42140] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42141][/COLOR]</label2>
+						<visible>Container(20).HasFocus(2)</visible>
+					</item>
+					<item id="6">
+						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.1.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestEpisode.1.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
+						<visible>Container(20).HasFocus(3)</visible>
+					</item>
+					<item id="7">
+						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.2.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestEpisode.2.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
+						<visible>Container(20).HasFocus(3)</visible>
+					</item>
+					<item id="8">
+						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.3.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestEpisode.3.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
+						<visible>Container(20).HasFocus(3)</visible>
+					</item>
+					<item id="9">
+						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.4.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestEpisode.4.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestEpisode.4.EpisodeTitle)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
+						<visible>Container(20).HasFocus(3)</visible>
+					</item>
+					<item id="10">
+						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.5.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestEpisode.5.Fanart)]</thumb>
+						<label>$INFO[Window.Property(LatestEpisode.5.EpisodeTitle)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42142] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42143][/COLOR]</label2>
+						<visible>Container(20).HasFocus(3)</visible>
+					</item>
+					<item id="11">
+						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.1.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestAlbum.1.Thumb)]</thumb>
+						<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
+						<visible>Container(20).HasFocus(6)</visible>
+					</item>
+					<item id="12">
+						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.2.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestAlbum.2.Thumb)]</thumb>
+						<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
+						<visible>Container(20).HasFocus(6)</visible>
+					</item>
+					<item id="13">
+						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.3.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestAlbum.3.Thumb)]</thumb>
+						<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
+						<visible>Container(20).HasFocus(6)</visible>
+					</item>
+					<item id="14">
+						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.4.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestAlbum.4.Thumb)]</thumb>
+						<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
+						<visible>Container(20).HasFocus(6)</visible>
+					</item>
+					<item id="15">
+						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.5.Path)])</onclick>
+						<onclick>SetFocus(20)</onclick>
+						<thumb>$INFO[window.property(LatestAlbum.5.Thumb)]</thumb>
+						<label>$INFO[Window.Property(LatestAlbum.5.Title)]</label>
+						<label2>[COLOR=88FFFFFF]$LOCALIZE[42144] - [/COLOR][COLOR=FF2C9EC7]$LOCALIZE[42145][/COLOR]</label2>
+						<visible>Container(20).HasFocus(6)</visible>
+					</item>
+				</content>
+			</control>
+		</control>
+		<control type="image" id="2083">
+			<animation effect="fade" start="0" end="100" time="0" delay="1010" reversible="false">WindowOpen</animation>
 		</control>
 		<control type="image" id="2082">
 			<animation type="Visible">
