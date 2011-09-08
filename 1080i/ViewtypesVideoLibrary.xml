@@ -5023,16 +5023,26 @@
 							<align>left</align>
 							<visible>Skin.HasSetting(nohdflag) | IsEmpty(ListItem.VideoResolution)</visible>
 						</control>
+						<control type="image">
+							<description>Rating star</description>
+							<posx>220</posx>
+							<posy>108</posy>
+							<width>21</width>
+							<height>20</height>
+							<texture>views/banner/other/rating.png</texture>
+							<visible>!IsEmpty(ListItem.Rating)</visible>
+						</control>
 						<control type="label">
 							<description>Year / Runtime Label</description>
-							<posx>220</posx>
+							<posx>247</posx>
 							<posy>101</posy>
-							<width>587</width>
+							<width>557</width>
 							<font>Font-Condensed-S28</font>
-							<label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
+							<label>$INFO[ListItem.Rating,, • ]$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]</label>
 							<textcolor>FF484848</textcolor>
 							<align>left</align>
 							<scroll>false</scroll>
+							<animation effect="slide" end="-27" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
 						</control>
 						<control type="label">
 							<posx>220</posx>
@@ -5399,15 +5409,25 @@
 								<texture>$INFO[ListItem.Overlay,overlays/,/wall-fo.png]</texture>
 								<visible>Skin.HasSetting(unwatchedwatched)</visible>
 							</control>
-							<control type="label">
+							<control type="image">
+								<description>Rating star</description>
 								<posx>0</posx>
+								<posy>47</posy>
+								<width>21</width>
+								<height>20</height>
+								<texture>views/banner/other/rating.png</texture>
+								<visible>!IsEmpty(ListItem.Rating)</visible>
+							</control>
+							<control type="label">
+								<posx>27</posx>
 								<posy>40</posy>
-								<width>485</width>
-								<label fallback="$LOCALIZE[41805]: N/A">$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
+								<width>455</width>
+								<label fallback="$LOCALIZE[41805]: N/A">$INFO[ListItem.Rating,, • ]$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
 								<font>Font-Condensed-S28</font>
 								<textcolor>FF484848</textcolor>
 								<scroll>false</scroll>
 								<align>left</align>
+								<animation effect="slide" end="-27" time="0" condition="IsEmpty(ListItem.Rating">Conditional</animation>
 							</control>
 							<control type="textbox">
 								<description>Plot</description>
