@@ -3,7 +3,7 @@
 		<control type="group">
 			<posy>717</posy>
 			<include>NowPlayingFullscreen</include>
-			<visible>!Window.IsActive(osdvideosettings) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(videobookmarks) + IsEmpty(Window(home).property(subtitles))</visible>
+			<visible>!Window.IsActive(osdvideosettings) + !Window.IsActive(osdaudiosettings) + !Window.IsActive(videobookmarks) + !Window.IsActive(script-XBMC-Subtitles-main.xml)</visible>
 			<animation effect="slide" end="0,-120" time="300" tween="sine" easing="inout" condition="Window.IsActive(seekbar)">Conditional</animation>
 			<control type="image">
 				<posx>0</posx>
