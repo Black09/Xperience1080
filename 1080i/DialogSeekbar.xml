@@ -6,7 +6,7 @@
 			<include>NowPlayingFullscreen</include>
 			<visible>!Window.IsActive(sliderdialog)</visible>
 			<control type="group">
-				<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">Conditional</animation>
+				<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
 				<animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar)">Conditional</animation>
 				<include>OSDHideShowAnimation</include>
 				<visible>!Player.ShowCodec</visible>

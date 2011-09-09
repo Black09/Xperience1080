@@ -67,7 +67,7 @@
 				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
 				<effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
 			</animation>
-			<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | !IntegerGreaterThan(Player.Volume,-60)">Conditional</animation>
+			<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
 			<visible>Window.IsActive(fullscreenvideo)</visible>
 			<control type="image">
 				<posx>1570</posx>
