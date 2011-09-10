@@ -124,6 +124,16 @@
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(-1).ActualIcon]</texture>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(-1).property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(Container(20).ListItemNoWrap(-1).property(overlay))</visible>
 					</control>
 					<control type="label">
 						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
@@ -171,6 +181,16 @@
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(3).ActualIcon]</texture>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(3).property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(Container(20).ListItemNoWrap(3).property(overlay))</visible>
 					</control>
 					<control type="label">
 						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
@@ -218,6 +238,16 @@
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(2).ActualIcon]</texture>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(2).property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(Container(20).ListItemNoWrap(2).property(overlay))</visible>
 					</control>
 					<control type="label">
 						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
@@ -265,6 +295,16 @@
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(1).ActualIcon]</texture>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(1).property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(Container(20).ListItemNoWrap(1).property(overlay))</visible>
 					</control>
 					<control type="label">
 						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
@@ -306,7 +346,17 @@
 					<width>633</width>
 					<height>437</height>
 					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItem(0).ActualIcon]</texture>
+					<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[Container(20).ListItem(0).ActualIcon]</texture>
+					<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItem(0).property(diffuse))">Conditional</animation>
+				</control>
+				<control type="image">
+					<posx>48</posx>
+					<posy>23</posy>
+					<width>633</width>
+					<height>437</height>
+					<aspectratio scalediffuse="false">scale</aspectratio>
+					<texture>windows/home/panel-overlay.png</texture>
+					<visible>!IsEmpty(Container(20).ListItem(0).property(overlay))</visible>
 				</control>
 				<control type="label">
 					<font>Font-Condensed-S50-B</font>
@@ -372,6 +422,16 @@
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
 						<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(ListItem.property(overlay))</visible>
 					</control>
 					<control type="group">
 						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
@@ -418,9 +478,19 @@
 						<width>633</width>
 						<height>437</height>
 						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[ListItem.ActualIcon]</texture>
+						<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
 						<include>Animation_RecentlyFadeIcon</include>
 						<visible>!Control.HasFocus(82)</visible>
+						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
+					</control>
+					<control type="image">
+						<posx>48</posx>
+						<posy>23</posy>
+						<width>633</width>
+						<height>437</height>
+						<aspectratio scalediffuse="false">scale</aspectratio>
+						<texture>windows/home/panel-overlay.png</texture>
+						<visible>!IsEmpty(ListItem.property(overlay))</visible>
 					</control>
 					<control type="group">
 						<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
@@ -564,7 +634,81 @@
 					<visible>Skin.HasSetting(HomeAddons)</visible>
 					<property name="single">$INFO[Skin.String(HomeAddonsSingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(HomeAddonsMultiImage)]</property>
-				</item>							
+				</item>
+				<item id="13">
+					<label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel1.Type),4) + !stringcompare(Skin.String(CustomHomePanel1.Type),5) + !stringcompare(Skin.String(CustomHomePanel1.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel1.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel1)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel1.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel1.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel1.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel1.ShowOverlay)]</property>
+				</item>
+				<item id="14">
+					<label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel2.Type),4)">RunAddon($INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel2.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel2)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel2.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel2.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel2.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel2.ShowOverlay)]</property>
+				</item>
+				<item id="15">
+					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel3.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel3)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel3.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel3.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel3.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel3.ShowOverlay)]</property>
+				</item>	
+				<item id="16">
+					<label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel4.Type),4)">RunAddon($INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel4.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel4)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel4.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel4.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel4.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel4.ShowOverlay)]</property>
+				</item>	
+				<item id="17">
+					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel5.Type),4)">RunAddon($INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel5.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel5)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel5.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel5.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel5.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel5.ShowOverlay)]</property>
+				</item>	
+				<item id="18">
+					<label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
+					<onclick>SetProperty(NextStage,0)</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel6.Type),4)">RunAddon($INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
+					<icon>$INFO[Skin.String(CustomHomePanel6.Icon)]</icon>
+					<visible>Skin.HasSetting(CustomHomePanel6)</visible>
+					<property name="single">$INFO[Skin.String(CustomHomePanel6.SingleImage)]</property>
+					<property name="multi">$INFO[Skin.String(CustomHomePanel6.MultiImage)]</property>
+					<property name="diffuse">$INFO[Skin.String(CustomHomePanel6.DimIcon)]</property>
+					<property name="overlay">$INFO[Skin.String(CustomHomePanel6.ShowOverlay)]</property>
+				</item>			
 			</content>
 		</control>
 	</include>

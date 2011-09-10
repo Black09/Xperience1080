@@ -165,23 +165,32 @@
 					<onclick>ActivateWindow(3001)</onclick>
 					<label>$LOCALIZE[41132]</label>
 				</control>
-				<control type="radiobutton" id="2003">
+				<control type="button" id="2003">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41136])</onclick>
+					<onclick>ActivateWindow(3003)</onclick>
+					<label>$LOCALIZE[41136]</label>
+				</control>
+				<control type="radiobutton" id="2004">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(HomeGames)</selected>
 					<onclick>Skin.ToggleSetting(HomeGames)</onclick>
 					<label>$LOCALIZE[41133]</label>
 					<enable>!Skin.HasSetting(HomePrograms)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2003)">Conditional</animation>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2004)">Conditional</animation>
 				</control>
-				<control type="radiobutton" id="2004">
+				<control type="radiobutton" id="2005">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(HideHomeProfileInfo)</selected>
 					<onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
 					<label>$LOCALIZE[41134]</label>
 				</control>
-				<control type="radiobutton" id="2005">
+				<control type="radiobutton" id="2006">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(RecentlyAddedShowEpisodeThumb)</selected>
@@ -266,6 +275,8 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41251]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41251])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
 				</control>
@@ -275,10 +286,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41500]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41500])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomeMovies)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5002)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomeMovies)</visible>
 				</control>
 				<control type="button" id="5003">
 					<width>1210</width>
@@ -286,10 +298,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41501]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41501])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomeTVShows)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5003)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomeTVShows)</visible>
 				</control>
 				<control type="button" id="5004">
 					<width>1210</width>
@@ -297,10 +310,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41513]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41513])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>Skin.HasSetting(HomeVideoFiles)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5004)">Conditional</animation>
+					<visible>Skin.HasSetting(HomeVideoFiles)</visible>
 				</control>
 				<control type="button" id="5005">
 					<width>1210</width>
@@ -308,10 +322,10 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41449]</label>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41449])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>Skin.HasSetting(HomeTrailers)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5005)">Conditional</animation>
+					<visible>Skin.HasSetting(HomeTrailers)</visible>
 				</control>
 				<control type="button" id="5006">
 					<width>1210</width>
@@ -319,10 +333,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41502]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41502])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomeMusic)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5006)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomeMusic)</visible>
 				</control>
 				<control type="button" id="5007">
 					<width>1210</width>
@@ -330,10 +345,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41514]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41514])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>Skin.HasSetting(HomeMusicFiles)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5007)">Conditional</animation>
+					<visible>Skin.HasSetting(HomeMusicFiles)</visible>
 				</control>
 				<control type="button" id="5008">
 					<width>1210</width>
@@ -341,10 +357,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41503]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41503])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomePictures)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5008)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomePictures)</visible>
 				</control>
 				<control type="button" id="5009">
 					<width>1210</width>
@@ -352,10 +369,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41504]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41504])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomePrograms)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5009)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomePrograms)</visible>
 				</control>
 				<control type="button" id="5010">
 					<width>1210</width>
@@ -363,10 +381,11 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41505]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41505])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>!Skin.HasSetting(HomeWeather)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5010)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomeWeather)</visible>
 				</control>
 				<control type="button" id="5011">
 					<width>1210</width>
@@ -374,10 +393,83 @@
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41523]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41523])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<enable>Skin.HasSetting(HomeAddons)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5011)">Conditional</animation>
+					<visible>Skin.HasSetting(HomeAddons)</visible>
+				</control>
+				<control type="button" id="5012">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,1)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel1)</visible>
+				</control>
+				<control type="button" id="5013">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,2)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel2)</visible>
+				</control>
+				<control type="button" id="5014">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,3)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel3)</visible>
+				</control>
+				<control type="button" id="5015">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,4)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel4)</visible>
+				</control>
+				<control type="button" id="5016">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,5)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel5)</visible>
+				</control>
+				<control type="button" id="5017">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
+					<onclick>ClearProperty(Dialog)</onclick>
+					<onclick>SetProperty(CustomDialogType,6)</onclick>
+					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+					<visible>Skin.HasSetting(CustomHomePanel6)</visible>
 				</control>
 			</control>
 			
