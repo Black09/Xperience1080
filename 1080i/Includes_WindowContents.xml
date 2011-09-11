@@ -287,7 +287,7 @@
 	<include name="FadeBackgroundDialog">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_content.png</texture>
+			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" end="80" time="0" condition="Window.IsActive(filemanager)">Conditional</animation>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
@@ -296,7 +296,7 @@
 	<include name="FadeBackground">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_content.png</texture>
+			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
 			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003)</visible>
@@ -305,7 +305,7 @@
 	<include name="FadeBackgroundInfo">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">dialogs/video-info/diffuse.png</texture>
+			<texture>dialogs/video-info/diffuse.png</texture>
 			<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="out">Hidden</animation>
 			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation)</visible>
@@ -314,7 +314,7 @@
 	<include name="FadeBackgroundMovieInfo">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_content.png</texture>
+			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
 			<visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput)</visible>
@@ -323,7 +323,7 @@
 	<include name="FadeBackgroundTwo">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black2.png</texture>
+			<texture>windows/common/black2.png</texture>
 			<include>OpenCloseAnimationTwo</include>
 			<visible>ControlGroup(9000).HasFocus() + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation)</visible>
 		</control>
@@ -331,14 +331,14 @@
 	<include name="FadeBackgroundThree">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black2.png</texture>
+			<texture>windows/common/black2.png</texture>
 			<include>OpenCloseAnimationThree</include>
 		</control>
 	</include>
 	<include name="FadeBackgroundFavourites">
 		<control type="image">
 			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_favourites.png</texture>
+			<texture>windows/common/black_favourites.png</texture>
 			<include>OpenCloseAnimationTwo</include>
 			<visible>Window.IsVisible(favourites)</visible>
 		</control>
