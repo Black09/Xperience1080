@@ -17,7 +17,7 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<posx>0</posx>
+				<posx>-45</posx>
 				<posy>950</posy>
 				<control type="togglebutton" id="12">
 					<description>Shuffle</description>
@@ -32,7 +32,7 @@
 					<onclick>PlayerControl(random)</onclick>
 					<onup>20</onup>
 					<ondown>-</ondown>
-					<onleft>7</onleft>
+					<onleft>8</onleft>
 					<onright>10</onright>
 				</control>
 				<control type="button" id="10">
@@ -145,13 +145,33 @@
 					<texturenofocus>osd/fullscreen/buttons/playlists-nofo.png</texturenofocus>
 					<onclick>ActivateWindow(musicplaylist)</onclick>
 					<onleft>6</onleft>
+					<onright>8</onright>
+					<onup>20</onup>
+					<ondown>-</ondown>
+				</control>
+				<control type="togglebutton" id="8">
+					<description>Playlist</description>
+					<posx>1360</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/lyrics-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/lyrics-nofo.png</texturenofocus>
+					<alttexturefocus>osd/fullscreen/buttons/lyrics-fo.png</alttexturefocus>
+					<alttexturenofocus>osd/fullscreen/buttons/lyrics-nofo.png</alttexturenofocus>
+					<onclick>Close</onclick>
+					<onclick>XBMC.RunScript($INFO[Skin.String(LyricScript_Path)])</onclick>
+					<altclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</altclick>
+					<altclick>Close</altclick>
+					<altclick>XBMC.RunScript($INFO[Skin.String(LyricScript_Path)])</altclick>
+					<usealttexture>IsEmpty(Skin.String(LyricScript_Path))</usealttexture>
+					<onleft>7</onleft>
 					<onright>12</onright>
 					<onup>20</onup>
 					<ondown>-</ondown>
 				</control>
 			</control>
 			<control type="group">
-				<posx>640</posx>
+				<posx>595</posx>
 				<posy>950</posy>
 				<control type="image">
 					<width>100</width>

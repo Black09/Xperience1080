@@ -8,12 +8,12 @@
 	<controls>
 		<!-- Guide should not open if fullscreenvideo is visible -->
 		<control type="button" id="9100">
-			<visible>Window.IsVisible(fullscreenvideo)</visible>
+			<visible>Window.IsVisible(fullscreenvideo) | [Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)]</visible>
 			<onfocus>close</onfocus>
 			<animation effect="fade" start="0" end="100" delay="10">Focus</animation>
 		</control>
 		<control type="group">
-			<visible>!Window.IsVisible(fullscreenvideo)</visible>
+			<visible>!Window.IsVisible(fullscreenvideo) + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)]</visible>
 			<control type="group">
 				<visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
 				<posx>625</posx>
