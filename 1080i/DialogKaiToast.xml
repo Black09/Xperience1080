@@ -1,5 +1,5 @@
 <window id="107">
-	<defaultcontrol always="true">410</defaultcontrol>
+	<defaultcontrol always="true">411</defaultcontrol>
 	<zorder>10</zorder>
 	<controls>
 		<control type="label" id="401">
@@ -196,7 +196,7 @@
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 					<effect type="zoom" start="100" end="50" time="300" center="960,540" tween="sine" easing="inout" />
 				</animation>
-				<visible>!Control.IsVisible(410) + !Window.IsVisible(volumebar) + ![Window.IsVisible(musicplaylist) + Skin.HasSetting(HideNowPlayingInMusicPlaylist)] + ![Window.IsVisible(visualisation) + !Skin.HasSetting(ShowNowPlayingInVisualisation)] + ![Window.IsVisible(musiclibrary) + Skin.HasSetting(HideNowPlayingInMusicLibrary)]</visible>
+				<visible>IsEmpty(Window(videos).property(TvTunesIsAlive)) + !Control.IsVisible(410) + !Window.IsVisible(volumebar) + ![Window.IsVisible(musicplaylist) + Skin.HasSetting(HideNowPlayingInMusicPlaylist)] + ![Window.IsVisible(visualisation) + !Skin.HasSetting(ShowNowPlayingInVisualisation)] + ![Window.IsVisible(musiclibrary) + Skin.HasSetting(HideNowPlayingInMusicLibrary)]</visible>
 				<control type="image">
 					<posx>770</posx>
 					<posy>350</posy>
@@ -268,8 +268,15 @@
 			</control>
 		</control>
 		<control type="button" id="410">
+			<visible>!stringcompare(Control.GetLabel(401),play) + !stringcompare(Control.GetLabel(401),stop) + !stringcompare(Control.GetLabel(401),pause) + !stringcompare(Control.GetLabel(401),prev) + !stringcompare(Control.GetLabel(401),next)</visible>
+		</control>
+		<control type="button" id="411">
 			<onfocus>RunScript(special://skin/extras/scripts/setProperty.py,info,1)</onfocus>
 			<visible>!stringcompare(Control.GetLabel(401),play) + !stringcompare(Control.GetLabel(401),stop) + !stringcompare(Control.GetLabel(401),pause) + !stringcompare(Control.GetLabel(401),prev) + !stringcompare(Control.GetLabel(401),next)</visible>
+		</control>
+		<control type="button" id="411">
+			<onfocus>RunScript(special://skin/extras/scripts/setProperty.py,info)</onfocus>
+			<visible>stringcompare(Control.GetLabel(401),play) | stringcompare(Control.GetLabel(401),stop) | stringcompare(Control.GetLabel(401),pause) | stringcompare(Control.GetLabel(401),prev) | stringcompare(Control.GetLabel(401),next)</visible>
 		</control>
 	</controls>
 </window>

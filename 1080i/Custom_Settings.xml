@@ -233,7 +233,7 @@
 					<onclick>SetProperty(Dialog,$LOCALIZE[41196])</onclick>
 					<onclick>ActivateWindow(3001)</onclick>
 					<enable>!Skin.HasSetting(DisableNowPlayingNotifications)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(5002)">Conditional</animation>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(3004)">Conditional</animation>
 				</control>
 				<control type="radiobutton" id="3005">
 					<width>1210</width>
@@ -262,6 +262,7 @@
 					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>
 					<label> • $LOCALIZE[41194]</label>
 					<enable>Skin.HasSetting(bannerjpg)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(3008)">Conditional</animation>
 				</control>
 			</control>
 			
@@ -491,6 +492,21 @@
 					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
 					<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
 				</control>
+				<!--<control type="radiobutton" id="6003">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(EnableTVTunes)</selected>
+					<onclick>Skin.ToggleSetting(EnableTVTunes)</onclick>
+					<label>$LOCALIZE[41283]</label>
+				</control>
+				<control type="button" id="6004">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>XBMC.RunScript(script.tvtunes)</onclick>
+					<label> • $LOCALIZE[41284]</label>
+					<enable>Skin.HasSetting(EnableTVTunes)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(6004)">Conditional</animation>
+				</control>-->
 			</control>
 		</control>
 		<include>FadeBackground</include>

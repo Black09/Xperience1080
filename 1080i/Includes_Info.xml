@@ -92,7 +92,7 @@
 			</control>
 			<control type="group">
 				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
-				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | Player.HasAudio">Conditional</animation>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).property(TvTunesIsAlive))]">Conditional</animation>
 				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
 				<include>visiblehidefadeinfo</include>
 				<visible>!Window.IsVisible(infodialog) | [Window.IsVisible(infodialog) + IsEmpty(Window(home).property(info))]</visible>
@@ -150,7 +150,7 @@
 				<texture>overlays/volume/muted-info.png</texture>
 				<include>visiblehidefadeinfo</include>
 				<visible>Window.IsActive(mutebug)</visible>
-				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | Player.HasAudio">Conditional</animation>
+				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).property(TvTunesIsAlive))]">Conditional</animation>
 				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
 			</control>
 		</control>
@@ -248,7 +248,7 @@
 				<aspect>keep</aspect>
 				<texture>osd/nowplaying/np-audio.png</texture>
 				<include>visiblehidefadenp</include>
-				<visible>Player.HasAudio + !Player.Paused</visible>
+				<visible>Player.HasAudio + !Player.Paused + IsEmpty(Window(videos).property(TvTunesIsAlive))</visible>
 				<animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
 			</control>
 			<control type="image">
@@ -260,7 +260,7 @@
 				<aspect>keep</aspect>
 				<texture>osd/nowplaying/np-paused.png</texture>
 				<include>visiblehidefadenp</include>
-				<visible>Player.Paused</visible>
+				<visible>Player.Paused + IsEmpty(Window(videos).property(TvTunesIsAlive))</visible>
 			</control>
 		</control>
 	</include>
