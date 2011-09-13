@@ -3,7 +3,7 @@
 	<allowoverlay>yes</allowoverlay>
 	<views>50,52,54,55,56,60</views>
 	<onload condition="!Player.HasMedia + [Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)] + Skin.HasSetting(EnableTVTunes)">RunScript(script.tvtunes,backend=True&amp;loop=False)</onload>
-	<onload>RunScript(special://skin/extras/scripts/viewmodes/viewmodes.py,2)</onload>
+	<onload>RunScript(script.viewmodes,2)</onload>
 	<controls>
 		
 		<control type="group">

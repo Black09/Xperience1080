@@ -493,13 +493,13 @@
 
 	<include name="ViewModesScriptStage">
 		<control type="button">
-			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),0) + !Window.IsVisible(videoplaylist)">RunScript(special://skin/extras/scripts/viewmodes/viewmodes.py,1)</onfocus>
+			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),0) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
 		</control>
 	</include>
 	
 	<include name="ViewModesScriptNoStage">
 		<control type="button">
-			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),1) + !Window.IsVisible(videoplaylist)">RunScript(special://skin/extras/scripts/viewmodes/viewmodes.py,1)</onfocus>
+			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),1) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
 		</control>
 	</include>
 

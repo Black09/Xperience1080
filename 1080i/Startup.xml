@@ -6,8 +6,8 @@
 		<include>Common-Loading</include>
 		<control type="button" id="10">
 			<onfocus>SetProperty(Startup,1)</onfocus>
-			<onfocus>RunScript(special://skin/extras/scripts/viewmodes/viewmodes.py,0)</onfocus>
-			<onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(special://skin/extras/scripts/playerEvents.py)</onfocus>
+			<onfocus>RunScript(script.viewmodes,0)</onfocus>
+			<onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(script.playerevents)</onfocus>
 			<onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
 			<onfocus>SetFocus(11)</onfocus>
 		</control>
