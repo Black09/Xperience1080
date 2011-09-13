@@ -118,27 +118,30 @@
 						<scroll>false</scroll>
 						<visible>!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes)</visible>
 					</control>
-					<!-- HD Flag -->
-					<control type="image">
-						<posx>1206</posx>
-						<posy>23</posy>
-						<width>86</width>
-						<height>62</height>
-						<aspect>keepaspect</aspect>
-						<texture>flags/defs/hd.png</texture>
-						<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-						<colordiffuse>ABFFFFFF</colordiffuse>
-					</control>
-					<!-- SD Flag -->
-					<control type="image">
-						<posx>1206</posx>
-						<posy>23</posy>
-						<width>86</width>
-						<height>62</height>
-						<aspect>keepaspect</aspect>
-						<texture>flags/defs/sd.png</texture>
-						<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-						<colordiffuse>ABFFFFFF</colordiffuse>
+					<control type="group">
+						<visible>Container.Content(Movies) | Container.Content(Episodes)</visible>
+						<!-- HD Flag -->
+						<control type="image">
+							<posx>1206</posx>
+							<posy>23</posy>
+							<width>86</width>
+							<height>62</height>
+							<aspect>keepaspect</aspect>
+							<texture>flags/defs/hd.png</texture>
+							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<colordiffuse>ABFFFFFF</colordiffuse>
+						</control>
+						<!-- SD Flag -->
+						<control type="image">
+							<posx>1206</posx>
+							<posy>23</posy>
+							<width>86</width>
+							<height>62</height>
+							<aspect>keepaspect</aspect>
+							<texture>flags/defs/sd.png</texture>
+							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<colordiffuse>ABFFFFFF</colordiffuse>
+						</control>
 					</control>
 					<!-- Star -->
 					<control type="image">
@@ -400,27 +403,30 @@
 						<include>defaultfocusanim</include>
 						<visible>!Container.Content(movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes)</visible>
 					</control>
-					<!-- HD Flag -->
-					<control type="image">
-						<posx>1206</posx>
-						<posy>23</posy>
-						<width>86</width>
-						<height>62</height>
-						<aspect>keepaspect</aspect>
-						<texture>flags/defs/hd.png</texture>
-						<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-						<include>defaultfocusanim</include>
-					</control>
-					<!-- SD Flag -->
-					<control type="image">
-						<posx>1206</posx>
-						<posy>23</posy>
-						<width>86</width>
-						<height>62</height>
-						<aspect>keepaspect</aspect>
-						<texture>flags/defs/sd.png</texture>
-						<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-						<include>defaultfocusanim</include>
+					<control type="group">
+						<visible>Container.Content(movies) | Container.Content(Episodes)</visible>
+						<!-- HD Flag -->
+						<control type="image">
+							<posx>1206</posx>
+							<posy>23</posy>
+							<width>86</width>
+							<height>62</height>
+							<aspect>keepaspect</aspect>
+							<texture>flags/defs/hd.png</texture>
+							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<include>defaultfocusanim</include>
+						</control>
+						<!-- SD Flag -->
+						<control type="image">
+							<posx>1206</posx>
+							<posy>23</posy>
+							<width>86</width>
+							<height>62</height>
+							<aspect>keepaspect</aspect>
+							<texture>flags/defs/sd.png</texture>
+							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<include>defaultfocusanim</include>
+						</control>
 					</control>
 					<!-- Star -->
 					<control type="image">
