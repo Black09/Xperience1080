@@ -5044,7 +5044,7 @@
 							<visible>!IsEmpty(ListItem.Rating)</visible>
 						</control>
 						<control type="label">
-							<description>Year / Runtime Label</description>
+							<description>Rating / Year / Runtime Label</description>
 							<posx>247</posx>
 							<posy>101</posy>
 							<width>557</width>
@@ -5151,11 +5151,20 @@
 							<scroll>false</scroll>
 							<align>left</align>
 						</control>
-						<control type="label">
+						<control type="image">
+							<description>Rating star</description>
 							<posx>55</posx>
+							<posy>253</posy>
+							<width>21</width>
+							<height>20</height>
+							<texture>views/banner/other/rating.png</texture>
+							<visible>!IsEmpty(ListItem.Rating)</visible>
+						</control>
+						<control type="label">
+							<posx>82</posx>
 							<posy>246</posy>
-							<width>650</width>
-							<label>$INFO[ListItem.Genre]</label>
+							<width>620</width>
+							<label>$INFO[ListItem.Rating,, • ]$INFO[ListItem.Year,, • ]$INFO[ListItem.Genre]</label>
 							<font>Font-Condensed-S28</font>
 							<textcolor>FF484848</textcolor>
 							<scroll>false</scroll>
@@ -5237,13 +5246,22 @@
 							<scroll>false</scroll>
 							<align>left</align>
 						</control>
-						<control type="label">
-							<description>Year / Studio Label</description>
+						<control type="image">
+							<description>Rating star</description>
 							<posx>220</posx>
+							<posy>108</posy>
+							<width>21</width>
+							<height>20</height>
+							<texture>views/banner/other/rating.png</texture>
+							<visible>!IsEmpty(ListItem.Rating)</visible>
+						</control>
+						<control type="label">
+							<description>Rating / Year / Studio Label</description>
+							<posx>247</posx>
 							<posy>101</posy>
-							<width>587</width>
+							<width>557</width>
 							<font>Font-Condensed-S28</font>
-							<label>$INFO[ListItem.Year]$INFO[ListItem.Studio, • ,]</label>
+							<label>$INFO[ListItem.Rating,, • ]$INFO[ListItem.Year]$INFO[ListItem.Studio, • ,]</label>
 							<textcolor>FF484848</textcolor>
 							<align>left</align>
 							<scroll>false</scroll>
