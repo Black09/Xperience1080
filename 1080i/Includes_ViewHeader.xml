@@ -359,7 +359,18 @@
 				<animation type="Hidden" reversible="false">
 					<effect type="fade" start="100" end="0" time="200" delay="0" />
 				</animation>
-			</control>	
+			</control>
+			<control type="label">
+				<width min="50" max="75">auto</width>
+				<label>$INFO[ListItem.SortLetter,: ,]</label>
+				<font>Font-Condensed-S31</font>
+				<textcolor>bbwhite</textcolor>
+				<shadowcolor>33000000</shadowcolor>
+				<scroll>false</scroll>
+				<align>left</align>
+				<visible>Container.Scrolling</visible>
+				<include>visiblehidefadescrollinfo</include>
+			</control>
 		</control>
 		<include>WallCenterRightGroup</include>
 	</include>
