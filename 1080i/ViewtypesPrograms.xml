@@ -188,7 +188,8 @@
 				<width>11</width>
 				<height>715</height>
 				<onleft>50</onleft>
-				<onright>9111</onright>
+				<onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+				<onright condition="Skin.HasSetting(KioskMode)">50</onright>
 				<texturesliderbar border="0,6,0,6">views/other/scrollbar.png</texturesliderbar>
 				<texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
 				<orientation>vertical</orientation>

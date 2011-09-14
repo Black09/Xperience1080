@@ -1022,7 +1022,8 @@
 				<width>11</width>
 				<height>715</height>
 				<onleft>50</onleft>
-				<onright>9111</onright>
+				<onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+				<onright condition="Skin.HasSetting(KioskMode)">50</onright>
 				<texturesliderbar border="0,6,0,6">views/other/scrollbar.png</texturesliderbar>
 				<texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
 				<orientation>vertical</orientation>
@@ -2104,7 +2105,8 @@
 					<texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbarfocus>
 					<showonepage>false</showonepage>
 					<onup>55</onup>
-					<ondown>9111</ondown>
+					<ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+					<ondown condition="Skin.HasSetting(KioskMode)">55</ondown>
 					<animation effect="fade" start="30" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
 					<animation effect="slide" start="0" end="-50" time="0" condition="Container.Content(Episodes)">Conditional</animation>
 					<visible>Control.IsVisible(55)</visible>
@@ -2563,7 +2565,8 @@
 				<texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbarfocus>
 				<showonepage>false</showonepage>
 				<onup>56</onup>
-				<ondown>9111</ondown>
+				<ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+				<ondown condition="Skin.HasSetting(KioskMode)">56</ondown>
 				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
 				<visible>Control.IsVisible(56)</visible>
 			</control>
@@ -3005,7 +3008,8 @@
 				<orientation>vertical</orientation>
 				<showonepage>false</showonepage>
 				<onleft>60</onleft>
-				<onright>9010</onright>
+				<onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+				<onright condition="Skin.HasSetting(KioskMode)">60</onright>
 				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
 				<visible>Control.IsVisible(60)</visible>
 			</control>

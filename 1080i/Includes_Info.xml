@@ -174,7 +174,7 @@
 				<ondown>50</ondown>
 				<texturefocus>buttons/options_nofo.png</texturefocus>
 				<texturenofocus>buttons/options_nofo.png</texturenofocus>
-				<onfocus>SetFocus(9000)</onfocus>
+				<onfocus>SetFocus(9111)</onfocus>
 				<include>homebuttonsanim3</include>
 				<visible allowhiddenfocus="true">!Skin.HasSetting(HideOptionsButton) + !Window.IsVisible(movieinformation) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog)</visible>
 			</control>
@@ -272,7 +272,7 @@
 	
 	<include name="Common-Info">
 		<include>Common-ShutdownLabel</include>
-		<include>Common-Options</include>
+		<include condition="!Skin.HasSetting(KioskMode)">Common-Options</include>
 		<include>Common-Clock</include>
 		<include>Common-NowPlaying</include>
 	</include>

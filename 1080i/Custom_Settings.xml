@@ -103,6 +103,11 @@
 				<ondown>3</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
+				<control type="button" id="31">
+					<description>General Settings</description>
+					<label>$LOCALIZE[41100]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
 				<control type="button" id="32">
 					<description>Home Settings</description>
 					<label>$LOCALIZE[41130]</label>
@@ -122,6 +127,28 @@
 					<description>Add-on Settings</description>
 					<label>$LOCALIZE[41280]</label>
 					<include>SettingsCategoryButtonVars</include>
+				</control>
+			</control>
+			
+			<!-- =============== -->	
+			<!-- General Settings -->
+			<!-- =============== -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(31)</visible>
+				<control type="radiobutton" id="1001">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(KioskMode)</selected>
+					<onclick>Skin.ToggleSetting(KioskMode)</onclick>
+					<label>$LOCALIZE[41101]</label>
+				</control>
+				<control type="radiobutton" id="1002">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(BackgroundVideo)</selected>
+					<onclick>Skin.ToggleSetting(BackgroundVideo)</onclick>
+					<label>$LOCALIZE[41102]</label>
 				</control>
 			</control>
 		
@@ -312,7 +339,9 @@
 				</control>
 			</control>
 			
+			<!-- ============== -->	
 			<!-- Media Settings -->
+			<!-- ============== -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
 				<visible>ControlGroup(3).HasFocus(33)</visible>
@@ -361,6 +390,8 @@
 					<selected>Skin.HasSetting(HideOptionsButton)</selected>
 					<onclick>Skin.ToggleSetting(HideOptionsButton)</onclick>
 					<label>$LOCALIZE[41201]</label>
+					<enable>!Skin.HasSetting(KioskMode)</enable>
+					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(3006)">Conditional</animation>
 				</control>
 				<control type="radiobutton" id="3007">
 					<width>1210</width>
@@ -587,7 +618,9 @@
 				</control>
 			</control>
 			
+			<!-- =============== -->	
 			<!-- Add-on Settings -->
+			<!-- =============== -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
 				<visible>ControlGroup(3).HasFocus(35)</visible>
