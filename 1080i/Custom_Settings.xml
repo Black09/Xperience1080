@@ -2,6 +2,7 @@
 	<defaultcontrol>3</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>SetFocus(4001)</onload>
+	<onload condition="IsEmpty(Skin.String(music.name))">Skin.SetString(music.name,$LOCALIZE[14022])</onload>
 	<controls>
 		<include>CommonSettingsItems</include>
 		<!-- Top Label -->
@@ -102,11 +103,6 @@
 				<ondown>3</ondown>
 				<scrolltime>0</scrolltime>
 				<orientation>vertical</orientation>
-				<!--<control type="button" id="31">
-					<description>General Settings</description>
-					<label>$LOCALIZE[41100]</label>
-					<include>SettingsCategoryButtonVars</include>
-				</control>-->
 				<control type="button" id="32">
 					<description>Home Settings</description>
 					<label>$LOCALIZE[41130]</label>
@@ -128,74 +124,191 @@
 					<include>SettingsCategoryButtonVars</include>
 				</control>
 			</control>
-
-			<!-- General Settings -->
-			<!--<control type="grouplist" id="5">
-				<description>Control Area</description>
-				<include>SettingsCategoryGrouplistVars</include>
-				<visible>ControlGroup(3).HasFocus(31)</visible>
-				<control type="radiobutton" id="1000">
-					<width>1210</width>
-					<include>SettingsCategoryRadioButtonVars</include>
-					<label>-/label>
-				</control>
-			</control>-->
 		
 			<!-- ============= -->	
 			<!-- Home Settings -->
 			<!-- ============= -->
-			<control type="grouplist" id="5">
-				<include>SettingsCategoryGrouplistVars</include>
+			<control type="group" id="5">
 				<visible>ControlGroup(3).HasFocus(32)</visible>
-				<control type="button" id="2001">
-					<width>1210</width>
-					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
-					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
-					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>SetProperty(Dialog,$LOCALIZE[41131])</onclick>
-					<onclick>ActivateWindow(3001)</onclick>
-					<label>$LOCALIZE[41131]</label>
+				<control type="grouplist" id="6">
+					<ondown>7</ondown>
+					<include>SettingsCategoryGrouplistVars</include>
+					<control type="button" id="2001">
+						<width>1210</width>
+						<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+						<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+						<include>SettingsCategoryDefaultButtonVars</include>
+						<onclick>SetProperty(Dialog,$LOCALIZE[41131])</onclick>
+						<onclick>ActivateWindow(3001)</onclick>
+						<label>$LOCALIZE[41131]</label>
+					</control>
+					<control type="button" id="2002">
+						<width>1210</width>
+						<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+						<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+						<include>SettingsCategoryDefaultButtonVars</include>
+						<onclick>SetProperty(Dialog,$LOCALIZE[41132])</onclick>
+						<onclick>ActivateWindow(3001)</onclick>
+						<label>$LOCALIZE[41132]</label>
+					</control>
+					<control type="button" id="2003">
+						<width>1210</width>
+						<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+						<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+						<include>SettingsCategoryDefaultButtonVars</include>
+						<onclick>SetProperty(Dialog,$LOCALIZE[41136])</onclick>
+						<onclick>ActivateWindow(3003)</onclick>
+						<label>$LOCALIZE[41136]</label>
+					</control>
+					<control type="radiobutton" id="2004">
+						<width>1210</width>
+						<include>SettingsCategoryRadioButtonVars</include>
+						<selected>Skin.HasSetting(HomeGames)</selected>
+						<onclick>Skin.ToggleSetting(HomeGames)</onclick>
+						<label>$LOCALIZE[41133]</label>
+						<enable>!Skin.HasSetting(HomePrograms)</enable>
+						<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2004)">Conditional</animation>
+					</control>
+					<control type="radiobutton" id="2005">
+						<width>1210</width>
+						<include>SettingsCategoryRadioButtonVars</include>
+						<selected>Skin.HasSetting(HideHomeProfileInfo)</selected>
+						<onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
+						<label>$LOCALIZE[41134]</label>
+					</control>
+					<control type="radiobutton" id="2006">
+						<width>1210</width>
+						<include>SettingsCategoryRadioButtonVars</include>
+						<selected>Skin.HasSetting(RecentlyAddedShowEpisodeThumb)</selected>
+						<onclick>Skin.ToggleSetting(RecentlyAddedShowEpisodeThumb)</onclick>
+						<label>$LOCALIZE[41135]</label>
+					</control>
 				</control>
-				<control type="button" id="2002">
-					<width>1210</width>
-					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
-					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
-					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>SetProperty(Dialog,$LOCALIZE[41132])</onclick>
-					<onclick>ActivateWindow(3001)</onclick>
-					<label>$LOCALIZE[41132]</label>
+				<control type="group">
+					<posx>356</posx>
+					<posy>716</posy>
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1210</width>
+						<height>77</height>
+						<texture border="150,1,150,1">windows/settings/images/right-focus.png</texture>
+						<aspectratio>stretch</aspectratio>
+						<visible>ControlGroup(7).HasFocus</visible>
+					</control>
+					<control type="button">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1120</width>
+						<height>77</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textoffsetx>35</textoffsetx>
+						<font>Font-Condensed-S30-B</font>
+						<textcolor>96FFFFFF</textcolor>
+						<label>$LOCALIZE[41152]</label>
+						<label2>$INFO[Skin.String(music.name)]</label2>
+						<visible>!ControlGroup(7).HasFocus</visible>
+					</control>
+					<control type="button">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>1120</width>
+						<height>77</height>
+						<align>left</align>
+						<aligny>center</aligny>
+						<textoffsetx>35</textoffsetx>
+						<font>Font-Condensed-S30-B</font>
+						<textcolor>white</textcolor>
+						<label>$LOCALIZE[41152]</label>
+						<label2>$INFO[Skin.String(music.name)]</label2>
+						<visible>ControlGroup(7).HasFocus</visible>
+					</control>
 				</control>
-				<control type="button" id="2003">
-					<width>1210</width>
-					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
-					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
-					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>SetProperty(Dialog,$LOCALIZE[41136])</onclick>
-					<onclick>ActivateWindow(3003)</onclick>
-					<label>$LOCALIZE[41136]</label>
-				</control>
-				<control type="radiobutton" id="2004">
-					<width>1210</width>
-					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(HomeGames)</selected>
-					<onclick>Skin.ToggleSetting(HomeGames)</onclick>
-					<label>$LOCALIZE[41133]</label>
-					<enable>!Skin.HasSetting(HomePrograms)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2004)">Conditional</animation>
-				</control>
-				<control type="radiobutton" id="2005">
-					<width>1210</width>
-					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(HideHomeProfileInfo)</selected>
-					<onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
-					<label>$LOCALIZE[41134]</label>
-				</control>
-				<control type="radiobutton" id="2006">
-					<width>1210</width>
-					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(RecentlyAddedShowEpisodeThumb)</selected>
-					<onclick>Skin.ToggleSetting(RecentlyAddedShowEpisodeThumb)</onclick>
-					<label>$LOCALIZE[41135]</label>
+				<control type="grouplist" id="7">
+					<description>button area</description>
+					<posx>1460</posx>
+					<posy>724</posy>
+					<width>120</width>
+					<height>60</height>
+					<itemgap>0</itemgap>
+					<onleft>7</onleft>
+					<onright>7</onright>
+					<onup>2006</onup>
+					<ondown>4001</ondown>
+					<orientation>horizontal</orientation>
+					<control type="button" id="61">
+						<width>43</width>
+						<height>60</height>
+						<texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
+						<texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.SetString(music.name,$LOCALIZE[14022])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.Reset(music.path)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[136])">Skin.SetString(music.name,$LOCALIZE[1038])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[136])">Skin.SetString(music.path,plugins)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[521])">Skin.SetString(music.name,$LOCALIZE[136])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[521])">Skin.SetString(music.path,playlists)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[517])">Skin.SetString(music.name,$LOCALIZE[521])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[517])">Skin.SetString(music.path,compilations)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[359])">Skin.SetString(music.name,$LOCALIZE[517])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[359])">Skin.SetString(music.path,recentlyplayedalbums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10505])">Skin.SetString(music.name,$LOCALIZE[359])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10505])">Skin.SetString(music.path,recentlyaddedalbums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10504])">Skin.SetString(music.name,$LOCALIZE[10505])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10504])">Skin.SetString(music.path,top100albums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[652])">Skin.SetString(music.name,$LOCALIZE[10504])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[652])">Skin.SetString(music.path,top100songs)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[134])">Skin.SetString(music.name,$LOCALIZE[652])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[134])">Skin.SetString(music.path,years)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1050])">Skin.SetString(music.name,$LOCALIZE[134])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1050])">Skin.SetString(music.path,songs)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[132])">Skin.SetString(music.name,$LOCALIZE[1050])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[132])">Skin.SetString(music.path,singles)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[133])">Skin.SetString(music.name,$LOCALIZE[132])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[133])">Skin.SetString(music.path,albums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[135])">Skin.SetString(music.name,$LOCALIZE[133])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[135])">Skin.SetString(music.path,artists)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.name,$LOCALIZE[135])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.path,genres)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.SetString(music.name,$LOCALIZE[14022])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.Reset(music.path)</onclick>
+					</control>
+					<control type="button" id="62">
+						<width>43</width>
+						<height>60</height>
+						<texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
+						<texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.name,$LOCALIZE[1038])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.path,plugins)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[135])">Skin.SetString(music.name,$LOCALIZE[14022])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[135])">Skin.Reset(music.path)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[133])">Skin.SetString(music.name,$LOCALIZE[135])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[133])">Skin.SetString(music.path,genre)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[132])">Skin.SetString(music.name,$LOCALIZE[133])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[132])">Skin.SetString(music.path,artists)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1050])">Skin.SetString(music.name,$LOCALIZE[132])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1050])">Skin.SetString(music.path,albums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[134])">Skin.SetString(music.name,$LOCALIZE[1050])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[134])">Skin.SetString(music.path,singles)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[652])">Skin.SetString(music.name,$LOCALIZE[134])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[652])">Skin.SetString(music.path,songs)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10504])">Skin.SetString(music.name,$LOCALIZE[652])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10504])">Skin.SetString(music.path,years)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10505])">Skin.SetString(music.name,$LOCALIZE[10504])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[10505])">Skin.SetString(music.path,top100songs)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[359])">Skin.SetString(music.name,$LOCALIZE[10505])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[359])">Skin.SetString(music.path,top100albums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[517])">Skin.SetString(music.name,$LOCALIZE[359])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[517])">Skin.SetString(music.path,recentlyaddedalbums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[521])">Skin.SetString(music.name,$LOCALIZE[517])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[521])">Skin.SetString(music.path,recentlyplayedalbums)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[136])">Skin.SetString(music.name,$LOCALIZE[521])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[136])">Skin.SetString(music.path,compilations)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.SetString(music.name,$LOCALIZE[136])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[1038])">Skin.SetString(music.path,playlists)</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.name,$LOCALIZE[1038])</onclick>
+						<onclick condition="stringcompare(Skin.String(music.name),$LOCALIZE[14022])">Skin.SetString(music.path,plugins)</onclick>
+					</control>
 				</control>
 			</control>
 			

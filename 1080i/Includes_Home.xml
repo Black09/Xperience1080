@@ -581,7 +581,8 @@
 				</item>
 				<item id="6">
 					<label>$LOCALIZE[41502]</label>
-					<onclick>ActivateWindow(musiclibrary)</onclick>
+					<onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
+					<onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
 					<icon>panel_menu_music.png</icon>
 					<visible>!Skin.HasSetting(HomeMusic)</visible>
 					<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
