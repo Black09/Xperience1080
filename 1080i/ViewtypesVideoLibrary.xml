@@ -4932,6 +4932,17 @@
 							</control>
 							<control type="label">
 								<posx>286</posx>
+								<posy>33</posy>
+								<width>530</width>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font-Condensed-S34-B</font>
+								<textcolor>C0FFFFFF</textcolor>
+								<scroll>false</scroll>
+								<align>left</align>
+								<visible>stringcompare(ListItem.ActualIcon,DefaultFolderBack.png)</visible>
+							</control>
+							<control type="label">
+								<posx>286</posx>
 								<posy>13</posy>
 								<width>530</width>
 								<label>$INFO[ListItem.Title]</label>
@@ -4939,12 +4950,13 @@
 								<textcolor>C0FFFFFF</textcolor>
 								<scroll>false</scroll>
 								<align>left</align>
+								<visible>!stringcompare(ListItem.ActualIcon,DefaultFolderBack.png)</visible>
 							</control>
 							<control type="label">
 								<posx>240</posx>
 								<posy>53</posy>
 								<width>530</width>
-								<label fallback="$LOCALIZE[41805]: N/A">$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
+								<label>$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
 								<font>Font-Condensed-S28</font>
 								<textcolor>80FFFFFF</textcolor>
 								<scroll>false</scroll>
@@ -5422,8 +5434,8 @@
 							<control type="label">
 								<posx>0</posx>
 								<posy>0</posy>
-								<width>485</width>
-								<label>$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</label>
+								<width>480</width>
+								<label>$INFO[ListItem.Label]</label>
 								<font>Font-Condensed-S34-B</font>
 								<textcolor>FF333333</textcolor>
 								<scroll>false</scroll>
@@ -5451,7 +5463,7 @@
 								<posx>27</posx>
 								<posy>40</posy>
 								<width>455</width>
-								<label fallback="$LOCALIZE[41805]: N/A">$INFO[ListItem.Rating,, • ]$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
+								<label>$INFO[ListItem.Rating,, • ]$INFO[ListItem.date,$LOCALIZE[41805]: ,]</label>
 								<font>Font-Condensed-S28</font>
 								<textcolor>FF484848</textcolor>
 								<scroll>false</scroll>
