@@ -486,6 +486,18 @@
 			<visible>Container(100).Scrolling</visible>
 		</control>
 	</include>
+	<include name="ScrollLetterFileBrowser">
+		<control type="group">
+			<posx>275</posx>
+			<posy>440</posy>
+			<include>ScrollingEntitiesLeft</include>
+			<control type="label">
+				<include>ScrollingLabelLeft</include>
+				<label>$INFO[Container(450).ListItem.SortLetter]</label>
+			</control>
+			<visible>Container(450).Scrolling</visible>
+		</control>
+	</include>
 	
 <!-- ============= -->
 <!-- Various stuff -->
