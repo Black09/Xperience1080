@@ -644,7 +644,7 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel1.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel1)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel1.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel1.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel1.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel1.DimIcon)]</property>
@@ -658,7 +658,7 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel2.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel2)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel2.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel2.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel2.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel2.DimIcon)]</property>
@@ -672,7 +672,7 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel3.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel3)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel3.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel3.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel3.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel3.DimIcon)]</property>
@@ -686,12 +686,12 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel4.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel4)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel4.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel4.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel4.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel4.DimIcon)]</property>
 					<property name="overlay">$INFO[Skin.String(CustomHomePanel4.ShowOverlay)]</property>
-				</item>	
+				</item>
 				<item id="17">
 					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
@@ -700,7 +700,7 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel5.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel5)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel5.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel5.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel5.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel5.DimIcon)]</property>
@@ -714,7 +714,7 @@
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel6.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel6)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(CustomHomePanel6.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel6.SingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(CustomHomePanel6.MultiImage)]</property>
 					<property name="diffuse">$INFO[Skin.String(CustomHomePanel6.DimIcon)]</property>

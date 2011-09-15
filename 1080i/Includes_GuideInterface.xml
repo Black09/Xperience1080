@@ -123,30 +123,75 @@
 			<item id="2">
 				<label>$LOCALIZE[41447]</label>
 				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(musiclibrary)</onclick>
+				<onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
+				<onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
 			</item>
 			<item id="3">
 				<label>$LOCALIZE[41448]</label>
 				<include>GuideDialogClose</include>
 				<onclick>ActivateWindow(pictures)</onclick>
+				<visible>!Skin.HasSetting(Guide.Custom1) + IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
 			</item>
 			<item id="4">
+				<label>$INFO[Skin.String(Guide.Custom1.Label)]</label>
+				<include>GuideDialogClose</include>
+				<onclick>SetProperty(NextStage,0)</onclick>
+				<onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),6)">$INFO[Skin.String(Guide.Custom1.Path)]</onclick>
+				<visible>Skin.HasSetting(Guide.Custom1) + !IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
+			</item>
+			<item id="5">
 				<label>$LOCALIZE[41449]</label>
 				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
 				<include>GuideDialogClose</include>
 				<onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
+				<visible>!Skin.HasSetting(Guide.Custom2) + IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
 			</item>
-			<item id="5">
+			<item id="6">
+				<label>$INFO[Skin.String(Guide.Custom2.Label)]</label>
+				<include>GuideDialogClose</include>
+				<onclick>SetProperty(NextStage,0)</onclick>
+				<onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),6)">$INFO[Skin.String(Guide.Custom2.Path)]</onclick>
+				<visible>Skin.HasSetting(Guide.Custom2) + !IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
+			</item>
+			<item id="7">
 				<label>$LOCALIZE[41450]</label>
 				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://4/)])</onclick>
 				<include>GuideDialogClose</include>
 				<onclick>ActivateWindow(videos,RecentlyAddedMovies,return)</onclick>
+				<visible>!Skin.HasSetting(Guide.Custom3) + IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
 			</item>
-			<item id="6">
+			<item id="8">
+				<label>$INFO[Skin.String(Guide.Custom3.Label)]</label>
+				<include>GuideDialogClose</include>
+				<onclick>SetProperty(NextStage,0)</onclick>
+				<onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),6)">$INFO[Skin.String(Guide.Custom3.Path)]</onclick>
+				<visible>Skin.HasSetting(Guide.Custom3) + !IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
+			</item>
+			<item id="9">
 				<label>$LOCALIZE[41451]</label>
 				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://5/)])</onclick>
 				<include>GuideDialogClose</include>
 				<onclick>ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
+				<visible>!Skin.HasSetting(Guide.Custom4) + IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
+			</item>
+			<item id="10">
+				<label>$INFO[Skin.String(Guide.Custom4.Label)]</label>
+				<include>GuideDialogClose</include>
+				<onclick>SetProperty(NextStage,0)</onclick>
+				<onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
+				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),6)">$INFO[Skin.String(Guide.Custom4.Path)]</onclick>
+				<visible>Skin.HasSetting(Guide.Custom4) + !IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
 			</item>
 		</content>
 	</include>
@@ -1542,6 +1587,7 @@
 			<textcolor>bbwhite</textcolor>
 			<align>right</align>
 			<scroll>No</scroll>
+			<visible>!Skin.HasSetting(Guide.HideClock)</visible>
 		</control>
 		<control type="rss">
 			<posx>690</posx>
@@ -1582,6 +1628,7 @@
 			<texture diffuse="windows/logon/profile_mask.png" />
 			<fadetime>300</fadetime>
 			<aspectratio scalediffuse="false">scale</aspectratio>
+			<visible>!Skin.HasSetting(Guide.HideUserImage)</visible>
 		</control>
 	</include>
 </includes>

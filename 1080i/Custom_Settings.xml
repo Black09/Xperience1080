@@ -1,6 +1,7 @@
 <window id="1111">
 	<defaultcontrol>3</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload>SetFocus(31)</onload>
 	<onload>SetFocus(4001)</onload>
 	<onload condition="IsEmpty(Skin.String(music.name))">Skin.SetString(music.name,$LOCALIZE[14022])</onload>
 	<controls>
@@ -124,6 +125,11 @@
 					<include>SettingsCategoryButtonVars</include>
 				</control>
 				<control type="button" id="35">
+					<description>Guide menu Settings</description>
+					<label>$LOCALIZE[41460]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+				<control type="button" id="36">
 					<description>Add-on Settings</description>
 					<label>$LOCALIZE[41280]</label>
 					<include>SettingsCategoryButtonVars</include>
@@ -618,34 +624,132 @@
 				</control>
 			</control>
 			
+			<!-- =================== -->	
+			<!-- Guide menu Settings -->
+			<!-- =================== -->
+			<control type="grouplist" id="5">
+				<include>SettingsCategoryGrouplistVars</include>
+				<visible>ControlGroup(3).HasFocus(35)</visible>
+				<control type="radiobutton" id="6001">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.HideClock)</selected>
+					<onclick>Skin.ToggleSetting(Guide.HideClock)</onclick>
+					<label>$LOCALIZE[41270]</label>
+				</control>
+				<control type="radiobutton" id="6002">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.HideUserImage)</selected>
+					<onclick>Skin.ToggleSetting(Guide.HideUserImage)</onclick>
+					<label>$LOCALIZE[41271]</label>
+				</control>
+				<control type="radiobutton" id="6003">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.Custom1)</selected>
+					<onclick>Skin.Reset(Guide.Custom1.Label)</onclick>
+					<onclick>Skin.Reset(Guide.Custom1.Path)</onclick>
+					<onclick>Skin.Reset(Guide.Custom1.Type)</onclick>
+					<onclick>Skin.ToggleSetting(Guide.Custom1)</onclick>
+					<label>$LOCALIZE[41272]</label>
+				</control>
+				<control type="button" id="6004">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41272])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label> • $LOCALIZE[41276]</label>
+					<label2>$INFO[Skin.String(Guide.Custom1.Label)]</label2>
+					<visible>Skin.HasSetting(Guide.Custom1)</visible>
+				</control>
+				<control type="radiobutton" id="6005">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.Custom2)</selected>
+					<onclick>Skin.Reset(Guide.Custom2.Label)</onclick>
+					<onclick>Skin.Reset(Guide.Custom2.Path)</onclick>
+					<onclick>Skin.Reset(Guide.Custom2.Type)</onclick>
+					<onclick>Skin.ToggleSetting(Guide.Custom2)</onclick>
+					<label>$LOCALIZE[41273]</label>
+				</control>
+				<control type="button" id="6006">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41273])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label> • $LOCALIZE[41276]</label>
+					<label2>$INFO[Skin.String(Guide.Custom2.Label)]</label2>
+					<visible>Skin.HasSetting(Guide.Custom2)</visible>
+				</control>
+				<control type="radiobutton" id="6007">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.Custom3)</selected>
+					<onclick>Skin.Reset(Guide.Custom3.Label)</onclick>
+					<onclick>Skin.Reset(Guide.Custom3.Path)</onclick>
+					<onclick>Skin.Reset(Guide.Custom3.Type)</onclick>
+					<onclick>Skin.ToggleSetting(Guide.Custom3)</onclick>
+					<label>$LOCALIZE[41274]</label>
+				</control>
+				<control type="button" id="6008">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41274])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label> • $LOCALIZE[41276]</label>
+					<label2>$INFO[Skin.String(Guide.Custom3.Label)]</label2>
+					<visible>Skin.HasSetting(Guide.Custom3)</visible>
+				</control>
+				<control type="radiobutton" id="6009">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(Guide.Custom4)</selected>
+					<onclick>Skin.Reset(Guide.Custom4.Label)</onclick>
+					<onclick>Skin.Reset(Guide.Custom4.Path)</onclick>
+					<onclick>Skin.Reset(Guide.Custom4.Type)</onclick>
+					<onclick>Skin.ToggleSetting(Guide.Custom4)</onclick>
+					<label>$LOCALIZE[41275]</label>
+				</control>
+				<control type="button" id="6010">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41275])</onclick>
+					<onclick>ActivateWindow(3001)</onclick>
+					<label> • $LOCALIZE[41276]</label>
+					<label2>$INFO[Skin.String(Guide.Custom4.Label)]</label2>
+					<visible>Skin.HasSetting(Guide.Custom4)</visible>
+				</control>
+			</control>
+			
 			<!-- =============== -->	
 			<!-- Add-on Settings -->
 			<!-- =============== -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
-				<visible>ControlGroup(3).HasFocus(35)</visible>
-				<control type="button" id="6001">
+				<visible>ControlGroup(3).HasFocus(36)</visible>
+				<control type="button" id="7001">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41281]</label>
 					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(SubtitleScript_Path))][/COLOR]</label2>
 					<onclick>Skin.SetAddon(SubtitleScript_Path,xbmc.python.subtitles)</onclick>
 				</control>
-				<control type="button" id="6002">
+				<control type="button" id="7002">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<label>$LOCALIZE[41282]</label>
 					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
 					<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
 				</control>
-				<!--<control type="radiobutton" id="6003">
+				<!--<control type="radiobutton" id="7003">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(EnableTVTunes)</selected>
 					<onclick>Skin.ToggleSetting(EnableTVTunes)</onclick>
 					<label>$LOCALIZE[41283]</label>
 				</control>
-				<control type="button" id="6004">
+				<control type="button" id="7004">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.tvtunes)</onclick>
