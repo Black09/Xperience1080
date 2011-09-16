@@ -90,7 +90,8 @@
 			<include>FullscreenDimensions</include>
 			<include>Animation_FanartFade</include>
 			<fadetime>600</fadetime>
-			<texture background="true">$INFO[Container(20).ListItem.property(single)] + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</texture>
+			<texture background="true">$INFO[Container(20).ListItem.property(single)]</texture>
+			<visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
 		</control> 
 		<control type="multiimage">
 			<include>FullscreenDimensions</include>
