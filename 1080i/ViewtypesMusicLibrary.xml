@@ -1620,9 +1620,13 @@
 						<effect type="zoom" start="100" end="65" center="190,290" tween="sine" delay="200" easing="out" time="300" /> 
 						<effect type="fade" start="100" end="0" tween="cubic" easing="inout" delay="200" time="300" />
 					</animation>
-					<animation type="Visible" reversible="false">
+					<animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))" reversible="false">
 						<effect type="zoom" start="175" end="100" delay="300" center="190,290" tween="sine" easing="out" time="350" /> 
 						<effect type="fade" start="25" end="100" delay="300" tween="sine" easing="in" time="350" />
+					</animation>
+					<animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">
+						<effect type="zoom" start="175" end="100" delay="500" center="190,290" tween="sine" easing="out" time="350" /> 
+						<effect type="fade" start="25" end="100" delay="500" tween="sine" easing="in" time="350" />
 					</animation>
 					<animation type="Hidden" reversible="false">
 						<effect type="zoom" start="100" end="175" center="190,290" tween="sine" delay="100" easing="out" time="200" /> 

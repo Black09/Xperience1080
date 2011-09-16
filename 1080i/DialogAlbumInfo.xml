@@ -704,35 +704,35 @@
 					</focusedlayout>
 				</control>				
 			</control>
-			
-			<!-- Invisible Buttons -->
-			<control type="button" id="5">
-				<description>Review/Tracks</description>
-				<visible>false</visible>
-			</control>
-			
-			<control type="button" id="9334">
-				<onfocus>Action(left)</onfocus>
-				<onleft>50</onleft>
-			</control>
-			
-			<control type="button" id="50">
-				<onleft>SetFocus(9335)</onleft>
-				<visible>!IntegerGreaterThan(Container(50).NumItems,0)</visible>
-			</control>
-			
-			<control type="button" id="9334">
-				<onfocus>Action(left)</onfocus>
-				<onleft>50</onleft>
-			</control>
-			
-			<control type="button" id="9335">
-				<onfocus>SendClick(2001,5)</onfocus>
-				<onfocus>SetFocus(9333)</onfocus>
-				<animation effect="fade" start="0" end="100" time="0" delay="725">Focus</animation>
-			</control>
-			
-			<include>FadeBackgroundMovieInfo</include>
 		</control>
+		
+		<!-- Invisible Buttons -->
+		<control type="button" id="5">
+			<description>Review/Tracks</description>
+			<visible>false</visible>
+		</control>
+		
+		<control type="button" id="9334">
+			<onfocus>Action(left)</onfocus>
+			<onleft>50</onleft>
+		</control>
+		
+		<control type="button" id="50">
+			<onleft>SetFocus(9335)</onleft>
+			<visible>!IntegerGreaterThan(Container(50).NumItems,0)</visible>
+		</control>
+		
+		<control type="button" id="9334">
+			<onfocus>Action(left)</onfocus>
+			<onleft>50</onleft>
+		</control>
+		
+		<control type="button" id="9335">
+			<onfocus>SendClick(2001,5)</onfocus>
+			<onfocus>SetFocus(9333)</onfocus>
+			<animation effect="fade" start="0" end="100" time="0" delay="725">Focus</animation>
+		</control>
+		
+		<include>FadeBackgroundMovieInfo</include>
 	</controls>
 </window>
