@@ -3,8 +3,8 @@
 	<zorder>3</zorder>
 	<onload>SetFocus(91201)</onload>
 	<onload>SetFocus(9100)</onload>
-	<onload>RunScript(special://skin/extras/scripts/setProperty.py,NoAnimation,1)</onload>
-	<onunload>RunScript(special://skin/extras/scripts/setProperty.py,NoAnimation)</onunload>
+	<onload>SetProperty(NoAnimation,1,10000)</onload>
+	<onunload>ClearProperty(NoAnimation,10000)</onunload>
 	<controls>
 		<!-- Guide should not open if fullscreenvideo is visible -->
 		<control type="button" id="9100">

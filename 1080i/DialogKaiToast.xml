@@ -271,11 +271,11 @@
 			<visible>!stringcompare(Control.GetLabel(401),play) + !stringcompare(Control.GetLabel(401),stop) + !stringcompare(Control.GetLabel(401),pause) + !stringcompare(Control.GetLabel(401),prev) + !stringcompare(Control.GetLabel(401),next)</visible>
 		</control>
 		<control type="button" id="411">
-			<onfocus>RunScript(special://skin/extras/scripts/setProperty.py,info,1)</onfocus>
+			<onfocus>SetProperty(info,1,10000)</onfocus>
 			<visible>!stringcompare(Control.GetLabel(401),play) + !stringcompare(Control.GetLabel(401),stop) + !stringcompare(Control.GetLabel(401),pause) + !stringcompare(Control.GetLabel(401),prev) + !stringcompare(Control.GetLabel(401),next)</visible>
 		</control>
 		<control type="button" id="411">
-			<onfocus>RunScript(special://skin/extras/scripts/setProperty.py,info)</onfocus>
+			<onfocus>ClearProperty(info,10000)</onfocus>
 			<visible>stringcompare(Control.GetLabel(401),play) | stringcompare(Control.GetLabel(401),stop) | stringcompare(Control.GetLabel(401),pause) | stringcompare(Control.GetLabel(401),prev) | stringcompare(Control.GetLabel(401),next)</visible>
 		</control>
 	</controls>
