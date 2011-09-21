@@ -1003,5 +1003,71 @@
 				</control>
 			</control>
 		</control>
-	</include>	
+	</include>
+	
+	<include name="PictureListHeader">
+		<!-- left group -->
+		<control type="grouplist">
+			<posx>262</posx>
+			<posy>100</posy>
+			<width>1397</width>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<control type="image">
+				<description>Picture Icon</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width min="39" max="52">auto</width>
+				<height>42</height>
+				<texture>views/other/picture-icon.png</texture>
+				<animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
+			</control>
+			<control type="label">
+				<description>Picture Label</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width min="10" max="540">auto</width>
+				<font>Font-Condensed-S31</font>
+				<label>$LOCALIZE[1213]$INFO[Container.FolderName, : ,]</label>
+				<textcolor>eewhite</textcolor>
+				<shadowcolor>44000000</shadowcolor>
+				<scroll>false</scroll>
+				<visible>Window.IsVisible(pictures)</visible>
+			</control>		
+		</control>
+		<include>ListCenterRightGroup</include>
+	</include>
+	
+	<include name="PictureWallHeader">
+		<!-- left group -->
+		<control type="grouplist">
+			<posx>22</posx>
+			<posy>30</posy>
+			<width>1861</width>
+			<align>left</align>
+			<orientation>horizontal</orientation>
+			<control type="image">
+				<description>Picture Icon</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width min="39" max="52">auto</width>
+				<height>42</height>
+				<texture>views/other/picture-icon.png</texture>
+				<animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
+			</control>
+			<control type="label">
+				<description>Picture Label</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width min="10" max="1365">auto</width>
+				<font>Font-Condensed-S31</font>
+				<label>$LOCALIZE[1213]$INFO[Container.FolderName, : ,]</label>
+				<textcolor>eewhite</textcolor>
+				<shadowcolor>44000000</shadowcolor>
+				<scroll>false</scroll>
+				<visible>Window.IsVisible(pictures)</visible>
+			</control>	
+		</control>
+		<include>WallCenterRightGroup</include>
+	</include>
 </includes>
