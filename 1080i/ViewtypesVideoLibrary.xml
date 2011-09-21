@@ -4134,7 +4134,7 @@
 							<height>312</height>
 							<info>ListItem.Thumb</info>
 							<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
-							<aspectratio align="center" scalediffuse="false">keep</aspectratio>
+							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -4725,7 +4725,7 @@
 								<height>312</height>
 								<info>ListItem.Thumb</info>
 								<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
-								<aspectratio align="center" scalediffuse="false">keep</aspectratio>
+								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -5110,7 +5110,7 @@
 							<posy>49</posy>
 							<width>758</width>
 							<height>140</height>
-							<texture background="true" diffuse="views/banner/diffuse/banner.png">$INFO[ListItem.Path,,banner.jpg]</texture>
+							<texture background="true" diffuse="views/banner/diffuse/diffuse.png">$INFO[ListItem.Path,,banner.jpg]</texture>
 							<visible>!IsEmpty(ListItem.Title) + Skin.HasSetting(bannerjpg)</visible>
 						</control>
 						<control type="image">
@@ -5119,7 +5119,7 @@
 							<width>758</width>
 							<height>140</height>
 							<info>ListItem.Thumb</info>
-							<texture diffuse="views/banner/diffuse/banner.png" background="true"/>
+							<texture diffuse="views/banner/diffuse/diffuse.png" background="true"/>
 							<visible>!IsEmpty(ListItem.Title) + !Skin.HasSetting(bannerjpg)</visible>
 						</control>
 						<control type="image">
