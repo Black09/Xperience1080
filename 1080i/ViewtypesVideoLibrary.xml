@@ -4147,7 +4147,7 @@
 						</control>
 					</control>	
 				</itemlayout>
-				<focusedlayout condition="Container.Content(Movies) | Container.Content(TVShows)" width="237" height="370">
+				<focusedlayout condition="[Container.Content(Movies) | Container.Content(TVShows)] + !Skin.HasSetting(HideWallInfo)" width="237" height="370">
 					<include>ViewModesScriptNoStage</include>
 					<control type="group">
 						<posx>100</posx>
@@ -4496,7 +4496,7 @@
 						</control>
 					</control>
 				</focusedlayout>
-				<focusedlayout condition="Container.Content(Seasons)" width="237" height="370">
+				<focusedlayout condition="Container.Content(Seasons) | [[Container.Content(Movies) | Container.Content(TVShows)] + Skin.HasSetting(HideWallInfo)]" width="237" height="370">
 					<include>ViewModesScriptNoStage</include>
 					<control type="group">
 						<posx>100</posx>
@@ -4516,6 +4516,18 @@
 								<height>412</height>
 								<texture border="60">views/wall/other/under-shadow-fo.png</texture>
 								<aspectratio>stretch</aspectratio>
+								<visible>![Skin.HasSetting(unwatchedwatched) + stringcompare(ListItem.Overlay,OverlayUnWatched.png)]</visible>
+							</control>
+							<control type="image">
+								<description>Info Back</description>
+								<posx>-35</posx>
+								<posy>-16</posy>
+								<width>308</width>
+								<height>412</height>
+								<colordiffuse>FFC80B20</colordiffuse>
+								<texture border="60">views/wall/other/under-shadow-fo.png</texture>
+								<aspectratio>stretch</aspectratio>
+								<visible>Skin.HasSetting(unwatchedwatched) + stringcompare(ListItem.Overlay,OverlayUnWatched.png)</visible>
 							</control>
 						</control>
 						<control type="image">
@@ -4761,15 +4773,7 @@
 					<include>ListFlags</include>
 				</control>
 				<control type="group">
-					<visible>Container.Content(Movies) | Container.Content(Episodes) | Container.Content(TVShows)</visible>
-					<control type="image">
-						<posx>-14</posx>
-						<posy>1</posy>
-						<width>62</width>
-						<height>62</height>
-						<texture>views/wall/other/rating-nf.png</texture>
-						<animation effect="slide" end="-1800" time="0" condition="Container.Content(movies)">Conditional</animation>
-					</control>
+					<visible>[[Container.Content(Movies) | Container.Content(TVShows)] + !Skin.HasSetting(HideWallInfo)] | Container.Content(Episodes)</visible>
 					<control type="image">
 						<posx>-14</posx>
 						<posy>1</posy>
@@ -4790,6 +4794,50 @@
 						<label fallback="0.0">$INFO[Container(56).ListItem.Rating]</label>
 						<textcolor>eewhite</textcolor>
 						<align>left</align>
+					</control>
+				</control>
+				<control type="group">
+					<visible>[Container.Content(Movies) | Container.Content(TVShows)] + Skin.HasSetting(HideWallInfo)</visible>
+					<control type="image">
+						<posx>60</posx>
+						<posy>1</posy>
+						<width>62</width>
+						<height>62</height>
+						<texture>views/wall/other/rating-fo.png</texture>
+						<animation type="Visible" reversible="false">
+							<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+							<effect type="zoom" start="75" end="100" time="300" tween="sine" easing="out" center="auto" />
+						</animation>
+						<visible>!Container(56).OnNext + !Container(56).OnPrevious</visible>
+					</control>
+					<control type="label">
+						<posx>0</posx>
+						<posy>17</posy>
+						<width>150</width>
+						<font>Font-Condensed-S45-B</font>
+						<label fallback="0.0">$INFO[Container(56).ListItem.Rating]</label>
+						<textcolor>eewhite</textcolor>
+						<align>left</align>
+					</control>
+					<control type="label">
+						<posx>125</posx>
+						<posy>17</posy>
+						<width>1151</width>
+						<font>Font-Condensed-S45</font>
+						<label>[B]$INFO[Container(56).ListItem.Label][/B]</label>
+						<textcolor>eewhite</textcolor>
+						<align>left</align>
+						<visible>Container.Content(Movies)</visible>
+					</control>
+					<control type="label">
+						<posx>125</posx>
+						<posy>17</posy>
+						<width>1581</width>
+						<font>Font-Condensed-S45</font>
+						<label>[B]$INFO[Container(56).ListItem.Label][/B]</label>
+						<textcolor>eewhite</textcolor>
+						<align>left</align>
+						<visible>Container.Content(TVShows)</visible>
 					</control>
 				</control>
 				<control type="group">
