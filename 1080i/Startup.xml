@@ -7,6 +7,7 @@
 		<control type="button" id="10">
 			<onfocus>SetProperty(Startup,1)</onfocus>
 			<onfocus>RunScript(script.viewmodes,0)</onfocus>
+			<onfocus>RunScript(script.randomitems,limit=1&amp;albums=True&amp;unplayed=True&amp)</onfocus>
 			<onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(script.playerevents)</onfocus>
 			<onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
 			<onfocus>SetFocus(11)</onfocus>
