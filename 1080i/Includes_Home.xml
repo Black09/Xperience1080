@@ -382,7 +382,7 @@
 			<posy>-1500</posy>
 			<width>2550</width>
 			<height>1080</height>
-			<onup condition="[Container(20).HasFocus(2) + !Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + !Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + !Skin.HasSetting(HideSubMenuMusic)]">SetFocus(23)</onup>
+			<onup condition="Container(20).HasFocus(1) | [Container(20).HasFocus(2) + !Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + !Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + !Skin.HasSetting(HideSubMenuMusic)]">SetFocus(23)</onup>
 			<onup condition="[Container(20).HasFocus(2) + Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + Skin.HasSetting(HideSubMenuMusic)]">SetFocus(82)</onup>
 			<ondown>SetFocus(21)</ondown>
 			<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
@@ -526,7 +526,7 @@
 						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
 							<effect type="fade" start="100" end="0" time="0" />
 						</animation>
-						<visible>!Control.HasFocus(82) + ![Container(20).OnNext | Container(20).OnPrevious] + [Container(20).HasFocus(1) | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)] + !Control.HasFocus(23)</visible>
+						<visible>!Control.HasFocus(82) + ![Container(20).OnNext | Container(20).OnPrevious] + [[Container(20).HasFocus(1) + !Skin.HasSetting(HideSubMenuSettings)] | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)] + !Control.HasFocus(23)</visible>
 					</control>
 				</control>
 			</focusedlayout>
