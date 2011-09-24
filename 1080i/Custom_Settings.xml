@@ -156,6 +156,22 @@
 					<onclick>Skin.ToggleSetting(BackgroundVideo)</onclick>
 					<label>$LOCALIZE[41102]</label>
 				</control>
+				<control type="radiobutton" id="1003">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(ArtistSlideShow)</selected>
+					<onclick>Skin.ToggleSetting(ArtistSlideShow)</onclick>
+					<onclick condition="IsEmpty(Skin.String(ArtistSlideShow.CustomFolder))">Skin.SetString(ArtistSlideShow.CustomFolder,special://profile/Thumbnails/Music/Fanart/)</onclick>
+					<label>$LOCALIZE[41103]</label>
+				</control>
+				<control type="button" id="1004">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>Skin.SetPath(ArtistSlideShow.CustomFolder)</onclick>
+					<label> • $LOCALIZE[41104]</label>
+					<label2>$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</label2>
+					<visible>Skin.HasSetting(ArtistSlideShow)</visible>
+				</control>
 			</control>
 		
 			<!-- ============= -->	

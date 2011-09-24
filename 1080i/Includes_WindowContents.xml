@@ -265,8 +265,18 @@
 			<texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
 			<fadetime>500</fadetime>
 			<include>Animation_FanartFade</include>
-			<visible>![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+			<visible>!Skin.HasSetting(ArtistSlideShow)</visible>
 		</control>
+		<control type="multiimage">
+			<include>FullscreenDimensions</include>
+			<timeperimage>10000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>600</fadetime>
+			<loop>yes</loop>
+			<include>Animation_FanartFade</include>
+			<imagepath background="true">$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</imagepath>
+			<visible>Skin.HasSetting(ArtistSlideShow)</visible>
+		</control> 
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture background="true">windows/common/black_content.png</texture>
