@@ -382,7 +382,8 @@
 			<posy>-1500</posy>
 			<width>2550</width>
 			<height>1080</height>
-			<onup>SetFocus(23)</onup>
+			<onup condition="[Container(20).HasFocus(2) + !Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + !Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + !Skin.HasSetting(HideSubMenuMusic)]">SetFocus(23)</onup>
+			<onup condition="[Container(20).HasFocus(2) + Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + Skin.HasSetting(HideSubMenuMusic)]">SetFocus(82)</onup>
 			<ondown>SetFocus(21)</ondown>
 			<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
 			<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Right)</onright>
