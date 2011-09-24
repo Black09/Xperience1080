@@ -12,44 +12,60 @@
 				<height>363</height>
 				<texture>osd/fullscreen/osd-back-info.png</texture>
 				<aspectratio>stretch</aspectratio>
+				<visible>VideoPlayer.Content(Movies) | VideoPlayer.Content(Episodes)</visible>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>87</posy>
+				<width>1920</width>
+				<height>276</height>
+				<texture border="115,71,115,71">osd/fullscreen/osd-back-info.png</texture>
+				<aspectratio>stretch</aspectratio>
+				<visible>!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)</visible>
 			</control>
 			<control type="group">
 				<posx>1600</posx>
 				<posy>81</posy>
-				<visible>VideoPlayer.Content(movies) | VideoPlayer.Content(episodes)</visible>
-				<control type="image">
-					<width>86</width>
-					<height>62</height>
-					<aspect>keepaspect</aspect>
-					<texture>flags/defs/hd.png</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoResolution) + IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
+				<animation effect="slide" end="0,87" time="0" condition="!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)">Conditional</animation>
+				<control type="group">
+					<animation effect="slide" end="118" time="0" condition="IsEmpty(VideoPlayer.Rating)">Conditional</animation>
+					<control type="image">
+						<width>86</width>
+						<height>62</height>
+						<aspect>keepaspect</aspect>
+						<texture>flags/defs/hd.png</texture>
+						<visible>!IsEmpty(VideoPlayer.VideoResolution) + IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
+					</control>
+					<control type="image">
+						<width>86</width>
+						<height>62</height>
+						<aspect>keepaspect</aspect>
+						<texture>flags/defs/sd.png</texture>
+						<visible>!IsEmpty(VideoPlayer.VideoResolution) + !IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
+					</control>
 				</control>
-				<control type="image">
-					<width>86</width>
-					<height>62</height>
-					<aspect>keepaspect</aspect>
-					<texture>flags/defs/sd.png</texture>
-					<visible>!IsEmpty(VideoPlayer.VideoResolution) + !IntegerGreaterThan(VideoPlayer.VideoResolution,719)</visible>
-				</control>
-				<control type="image">
-					<posx>60</posx>
-					<posy>-23</posy>
-					<width>105</width>
-					<height>105</height>
-					<aspect>keepaspect</aspect>
-					<texture>views/thumb/other/star_fo.png</texture>
-				</control>
-				<control type="label">
-					<posx>192</posx>
-					<posy>7</posy>
-					<width>250</width>
-					<height>44</height>
-					<label fallback="0.0">$INFO[VideoPlayer.Rating]</label>
-					<textcolor>bbwhite</textcolor>
-					<font>Font-Condensed-S36-B</font>
-					<align>right</align>
-					<aligny>center</aligny>
-					<scroll>false</scroll>
+				<control type="group">
+					<visible>!IsEmpty(VideoPlayer.Rating)</visible>
+					<control type="image">
+						<posx>60</posx>
+						<posy>-23</posy>
+						<width>105</width>
+						<height>105</height>
+						<aspect>keepaspect</aspect>
+						<texture>views/thumb/other/star_fo.png</texture>
+					</control>
+					<control type="label">
+						<posx>192</posx>
+						<posy>7</posy>
+						<width>250</width>
+						<height>44</height>
+						<label>$INFO[VideoPlayer.Rating]</label>
+						<textcolor>bbwhite</textcolor>
+						<font>Font-Condensed-S36-B</font>
+						<align>right</align>
+						<aligny>center</aligny>
+						<scroll>false</scroll>
+					</control>
 				</control>
 				<control type="label">
 					<posx>192</posx>
@@ -65,7 +81,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>VideoPlayer.Content(movies)</visible>
+				<visible>VideoPlayer.Content(Movies)</visible>
 				<control type="image">
 					<posx>110</posx>
 					<posy>61</posy>
@@ -119,7 +135,7 @@
 				</control>
 			</control>
 			<control type="group">
-				<visible>VideoPlayer.Content(episodes)</visible>
+				<visible>VideoPlayer.Content(Episodes)</visible>
 				<control type="image">
 					<posx>110</posx>
 					<posy>61</posy>
@@ -134,7 +150,7 @@
 					<width>357</width>
 					<height>201</height>
 					<texture>$INFO[VideoPlayer.Cover]</texture>
-					<aspectratio>stretch</aspectratio>
+					<aspectratio>scale</aspectratio>
 				</control>
 				<control type="label">
 					<posx>510</posx>
@@ -170,6 +186,50 @@
 					<font>Font-Condensed-S32</font>
 					<align>justify</align>
 					<autoscroll delay="11500" time="5000" repeat="7500" />
+				</control>
+			</control>
+			<control type="group">
+				<visible>!VideoPlayer.Content(Movies) + !VideoPlayer.Content(Episodes)</visible>
+				<posy>87</posy>
+				<control type="image">
+					<posx>110</posx>
+					<posy>61</posy>
+					<width>243</width>
+					<height>154</height>
+					<texture border="30">osd/fullscreen/cover-shadow.png</texture>
+					<aspectratio>stretch</aspectratio>
+				</control>
+				<control type="image">
+					<posx>130</posx>
+					<posy>81</posy>
+					<width>203</width>
+					<height>114</height>
+					<texture>$INFO[VideoPlayer.Cover]</texture>
+					<aspectratio>scale</aspectratio>
+				</control>
+				<control type="label">
+					<posx>356</posx>
+					<posy>81</posy>
+					<width>1234</width>
+					<height>56</height>
+					<label>$INFO[VideoPlayer.Title]</label>
+					<textcolor>bbwhite</textcolor>
+					<font>Font-Condensed-S50-B</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
+				</control>
+				<control type="label">
+					<posx>365</posx>
+					<posy>140</posy>
+					<width>1134</width>
+					<height>44</height>
+					<label>$INFO[Player.Folderpath]</label>
+					<textcolor>88FFFFFF</textcolor>
+					<font>Font-Condensed-S36</font>
+					<align>left</align>
+					<aligny>center</aligny>
+					<scroll>false</scroll>
 				</control>
 			</control>
 		</control>
