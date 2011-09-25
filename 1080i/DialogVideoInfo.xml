@@ -1,6 +1,7 @@
 <window id="2003">
 	<defaultcontrol always="true">9333</defaultcontrol>
 	<onload>SetProperty(fanart_image,$INFO[ListItem.property(fanart_image)])</onload>
+	<onload condition="Skin.HasSetting(MovieInformation.PlayTrailer)">AlarmClock(PlayTrailer,PlayMedia($INFO[ListItem.Trailer],false,1),00:01,silent)</onload>
 	<onunload>ClearProperty(fanart_image)</onunload>
 	<allowoverlay>no</allowoverlay>
 	<controls>	
@@ -832,7 +833,7 @@
 			<ondown>Control.Move(9333,-1)</ondown>
 			<ondown>Control.Message(9333,moveup,2003)</ondown>
 			<ondown>SetFocus(9333,0)</ondown>
-			<onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
+			<onclick>PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
 			<onclick>SetFocus(1108)</onclick>
 			<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible>
 			<enable>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</enable>
@@ -852,7 +853,7 @@
 			<onup>SetFocus(9333,3)</onup>
 			<ondown>Control.Message(9333,moveup,2003)</ondown>
 			<ondown>SetFocus(9333,0)</ondown>
-			<onclick>PlayMedia($INFO[ListItem.Trailer],1,noresume)</onclick>
+			<onclick>PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
 			<onclick>SetFocus(1109)</onclick>
 			<visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible>
 			<enable>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</enable>
