@@ -281,13 +281,13 @@
 				<animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
 			</control>
 			<control type="image">
-				<description>Music Icon</description>
+				<description>Actors Icon</description>
 				<posx>0</posx>
 				<posy>0</posy>
 				<width min="39" max="52">auto</width>
 				<height>42</height>
-				<texture>views/other/music-icon.png</texture>
-				<visible>Control.IsVisible(56) + Window.IsVisible(MusicLibrary)</visible>
+				<texture>views/other/actors-icon.png</texture>
+				<visible>Control.IsVisible(56) + Container.Content(Actors)</visible>
 				<animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
 			</control>
 			<control type="label">
@@ -315,7 +315,7 @@
 				<visible>Control.IsVisible(56) + [Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]</visible>
 			</control>
 			<control type="label">
-				<description>Music Label</description>
+				<description>Actors Label</description>
 				<posx>0</posx>
 				<posy>0</posy>
 				<width min="10" max="1365">auto</width>
@@ -324,7 +324,7 @@
 				<textcolor>eewhite</textcolor>
 				<shadowcolor>44000000</shadowcolor>
 				<scroll>false</scroll>
-				<visible>Control.IsVisible(56) + Window.IsVisible(MusicLibrary)</visible>
+				<visible>Control.IsVisible(56) + Container.Content(Actors)</visible>
 			</control>
 			<control type="label">
 				<posx>0</posx>
