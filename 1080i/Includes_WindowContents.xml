@@ -145,23 +145,27 @@
 <!-- ===== -->
 
 	<include name="StageVisibility">
-		<visible>[!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(59) + !Control.IsVisible(60) + !Window.IsActive(movieinformation)] | Window.IsVisible(1111)</visible>
+		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(60) + !Window.IsActive(movieinformation) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
 	</include>
 	<include name="StageHidden">
-		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(59) | Control.IsVisible(60) | Window.IsVisible(LoginScreen) + Window.IsActive(movieinformation)</visible>
+		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(60) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
 	</include>
 	<include name="CommonStage">
 		<control type="group">
 			<include>StageVisibility</include>
-			<animation type="WindowClose" condition="Window.Next(videos) + [stringcompare(Window(Home).property(NextStage),0) | stringcompare(Window(PlayerControls).property(NextStage),0) | IsEmpty(Window(Home).property(NextStage)) | IsEmpty(Window(PlayerControls).property(NextStage))]" reversible="false">
+			<animation type="WindowClose" condition="[Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)] | [Window.Next(videos) + [stringcompare(Window(Home).property(NextStage),0) | stringcompare(Window(PlayerControls).property(NextStage),0) | IsEmpty(Window(Home).property(NextStage)) | IsEmpty(Window(PlayerControls).property(NextStage))]]" reversible="false">
 				<effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
 				<effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
 			</animation>
-			<animation type="WindowOpen" condition="!Window.IsVisible(videos) + Window.Previous(videos) + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
+			<animation type="WindowOpen" condition="Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)" reversible="false">
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
 				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
 			</animation>
-			<animation type="WindowOpen" condition="Window.IsVisible(videos) + Window.Previous(videos) + [stringcompare(Window(Home).property(NextStage),1) | stringcompare(Window(PlayerControls).property(NextStage),1)] + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
+			<animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + !Window.IsVisible(videos) + Window.Previous(videos) + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
+				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
+				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
+			</animation>
+			<animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + Window.IsVisible(videos) + Window.Previous(videos) + [stringcompare(Window(Home).property(NextStage),1) | stringcompare(Window(PlayerControls).property(NextStage),1)] + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
 				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
 			</animation>
@@ -187,7 +191,7 @@
 			</animation>
 			<control type="image">
 				<include>FullscreenDimensions</include>
-				<texture>windows/common/stage.png</texture>
+				<texture background="true" fallback="windows/common/stage.png">$INFO[Skin.String(stage.customImage)]</texture>
 			</control>
 		</control>
 	</include>
