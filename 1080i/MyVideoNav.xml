@@ -77,6 +77,15 @@
 						<texturenofocus>dialogs/options/buttons/custom-nf.png</texturenofocus>
 						<animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(20)">Conditional</animation>
 					</control>
+					<control type="button" id="98">
+						<description>Label</description>
+						<include>optionsbuttonsdimensions</include>
+						<label>42160</label>
+						<onclick>XBMC.RunScript(script.tv.show.next.aired)</onclick>
+						<texturefocus>dialogs/options/buttons/tvguide-fo.png</texturefocus>
+						<texturenofocus>dialogs/options/buttons/tvguide-nf.png</texturenofocus>
+						<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+					</control>
 					<control type="button" id="3">
 						<description>sort</description>
 						<include>optionsbuttonsdimensions</include>

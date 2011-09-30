@@ -165,11 +165,11 @@
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
 				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
 			</animation>
-			<animation type="WindowClose" condition="Window.Next(programs)|Window.Next(pictures)|Window.Next(screencalibration)|Window.Next(scripts)|Window.Next(videoplaylist)|Window.Next(musicplaylist)|Window.Next(musicfiles)|Window.Next(musiclibrary)|Window.Next(addonbrowser)|Window.Next(settings)|Window.Previous(picturessettings)|Window.Next(programssettings)|Window.Next(weathersettings)|Window.Next(musicsettings)|Window.Next(systemsettings)|Window.Next(videossettings)|Window.Next(networksettings)|Window.Next(appearancesettings)|Window.Next(profiles)|Window.Next(filemanager)|Window.Next(LoginScreen)|Window.Next(systeminfo)|Window.Next(1111)|Window.Next(visualisation)" reversible="false">
+			<animation type="WindowClose" condition="Window.Next(programs)|Window.Next(pictures)|Window.Next(screencalibration)|Window.Next(scripts)|Window.Next(videoplaylist)|Window.Next(musicplaylist)|Window.Next(musicfiles)|Window.Next(musiclibrary)|Window.Next(addonbrowser)|Window.Next(settings)|Window.Previous(picturessettings)|Window.Next(programssettings)|Window.Next(weathersettings)|Window.Next(musicsettings)|Window.Next(systemsettings)|Window.Next(videossettings)|Window.Next(networksettings)|Window.Next(appearancesettings)|Window.Next(profiles)|Window.Next(filemanager)|Window.Next(LoginScreen)|Window.Next(systeminfo)|Window.Next(1111)|Window.Next(visualisation)|Window.Next(script-NextAired-TVGuide.xml)" reversible="false">
 				<effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
 				<effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
 			</animation>
-			<animation type="WindowOpen" condition="Window.Previous(programs)|Window.Previous(pictures)|Window.Previous(screencalibration)|Window.Previous(scripts)|Window.Previous(videoplaylist)|Window.Previous(LoginScreen)|Window.Previous(musicplaylist)|Window.Previous(musicfiles)|Window.Previous(musiclibrary)|Window.Previous(addonbrowser)|Window.Previous(settings)|Window.Previous(picturessettings)|Window.Previous(programssettings)|Window.Previous(weathersettings)|Window.Previous(musicsettings)|Window.Previous(systemsettings)|Window.Previous(videossettings)|Window.Previous(networksettings)|Window.Previous(appearancesettings)|Window.Previous(profiles)|Window.Previous(startup)|Window.Previous(filemanager)|Window.Previous(LoginScreen)|Window.Previous(systeminfo)|Window.Previous(1111)|Window.Previous(visualisation)" reversible="false">
+			<animation type="WindowOpen" condition="Window.Previous(programs)|Window.Previous(pictures)|Window.Previous(screencalibration)|Window.Previous(scripts)|Window.Previous(videoplaylist)|Window.Previous(LoginScreen)|Window.Previous(musicplaylist)|Window.Previous(musicfiles)|Window.Previous(musiclibrary)|Window.Previous(addonbrowser)|Window.Previous(settings)|Window.Previous(picturessettings)|Window.Previous(programssettings)|Window.Previous(weathersettings)|Window.Previous(musicsettings)|Window.Previous(systemsettings)|Window.Previous(videossettings)|Window.Previous(networksettings)|Window.Previous(appearancesettings)|Window.Previous(profiles)|Window.Previous(startup)|Window.Previous(filemanager)|Window.Previous(LoginScreen)|Window.Previous(systeminfo)|Window.Previous(1111)|Window.Previous(visualisation)|Window.Previous(script-NextAired-TVGuide.xml)" reversible="false">
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
 				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
 			</animation>
@@ -309,6 +309,7 @@
 			<include>FullscreenDimensions</include>
 			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" end="80" time="0" condition="Window.IsActive(filemanager)">Conditional</animation>
+			<animation effect="fade" end="60" time="0" condition="Window.IsActive(script-NextAired-TVGuide.xml)">Conditional</animation>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
 		</control>

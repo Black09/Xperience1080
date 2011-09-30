@@ -204,7 +204,7 @@
 					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/3/)])</onclick>
 					<onclick>ActivateWindow(videos,tvshowyears,return)</onclick>
 				</item>
-				<item id="5">				
+				<item id="5">			
 					<label>$LOCALIZE[41921]</label>
 					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
 					<onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
@@ -213,7 +213,11 @@
 					<label>$LOCALIZE[41922]</label>
 					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/1/)])</onclick>
 					<onclick>ActivateWindow(videos,tvshowgenres,return)</onclick>
-				</item>	
+				</item>
+				<item id="7">
+					<label>$LOCALIZE[42160]</label>
+					<onclick>XBMC.RunScript(script.tv.show.next.aired)</onclick>
+				</item>
 			</content>
 		</control>
 	</include>
