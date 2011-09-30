@@ -1,5 +1,5 @@
 <window id="2003">
-	<onload>ClearProperty(TVGuide.MondayList)</onload>
+	<onload>ClearProperty(TVGuide.MondayList,Home)</onload>
 	<controls>
 		<include>CommonContent</include>
 		<control type="image">
@@ -112,7 +112,7 @@
 				<scrolltime>0</scrolltime>
 				<onup>200</onup>
 				<ondown>200</ondown>
-				<onleft>SetProperty(TVGuide.MondayList,1)</onleft>
+				<onleft>SetProperty(TVGuide.MondayList,1,Home)</onleft>
 				<onleft>9010</onleft>
 				<onright>201</onright>
 				<itemgap>0</itemgap>
@@ -300,133 +300,464 @@
 				</focusedlayout>
 			</control>
 			<control type="group">
-				<description>Additional show info</description>
+				<description>Additional show info (monday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
+				<visible>Control.HasFocus(200) | !IsEmpty(Window(home).Property(TVGuide.MondayList))</visible>
 				<control type="label">
-					<description>Episode title</description>
-					<posx>15</posx>
-					<posy>0</posy>
-					<width>415</width>
-					<height>58</height>
-					<label>$VAR[TVGuideInfoLabel]</label>
-					<textcolor>FF787878</textcolor>
-					<shadowcolor>77white</shadowcolor>
-					<font>Font-Condensed-S30-B</font>
-					<align>center</align>
-					<aligny>center</aligny>
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(200).ListItem.Label]</label>
 				</control>
 				<control type="image">
-					<posx>1</posx>
-					<posy>75</posy>
-					<width>443</width>
-					<height>250</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$VAR[TVGuideInfoFanart]</texture>
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(200).ListItem.Property(Fanart)]</texture>
 					<visible>![Control.IsVisible(2001) + !stringcompare(Control.GetLabel(2001),empty.png)]</visible>
 				</control>
 				<control type="image" id="2001">
-					<posx>1</posx>
-					<posy>75</posy>
-					<width>443</width>
-					<height>250</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true" fallback="empty.png">$VAR[TVGuideInfoThumb]</texture>
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(200).ListItem.Property(Path),,thumb.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
 					<posx>15</posx>
 					<posy>340</posy>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>0</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[21442]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNextTitle][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(NextTitle)][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>62</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[2050]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoRuntime][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoGenres][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Genres)][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>186</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[552]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNextDate][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(NextDate)][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>248</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[555]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoShortTime][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(ShortTime)][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>310</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[42161]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNetwork][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Network)][/COLOR]</label2>
 					</control>
 					<control type="button">
-						<posx>0</posx>
+						<include>TVGuideInfoButtonVars</include>
 						<posy>372</posy>
-						<width>415</width>
-						<height>60</height>
 						<label>$LOCALIZE[21875]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoCountry][/COLOR]</label2>
-						<textcolor>FF787878</textcolor>
-						<shadowcolor>77white</shadowcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<aligny>center</aligny>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (tuesday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(201)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(201).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(201).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2011) + !stringcompare(Control.GetLabel(2011),empty.png)]</visible>
+				</control>
+				<control type="image" id="2011">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(201).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (wednesday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(202)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(202).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(202).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2021) + !stringcompare(Control.GetLabel(2021),empty.png)]</visible>
+				</control>
+				<control type="image" id="2021">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(202).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (thursday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(203)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(203).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(203).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2031) + !stringcompare(Control.GetLabel(2031),empty.png)]</visible>
+				</control>
+				<control type="image" id="2031">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(203).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (friday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(204)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(204).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(204).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2041) + !stringcompare(Control.GetLabel(2041),empty.png)]</visible>
+				</control>
+				<control type="image" id="2041">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(204).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (saturday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(205)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(205).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(205).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2051) + !stringcompare(Control.GetLabel(2051),empty.png)]</visible>
+				</control>
+				<control type="image" id="2051">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(205).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Country)][/COLOR]</label2>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<description>Additional show info (sunday)</description>
+				<posx>1357</posx>
+				<posy>120</posy>
+				<visible>Control.HasFocus(206)</visible>
+				<control type="label">
+					<include>TVGuideInfoEpisodeTitleVars</include>
+					<label>$INFO[Container(206).ListItem.Label]</label>
+				</control>
+				<control type="image">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true">$INFO[Container(206).ListItem.Property(Fanart)]</texture>
+					<visible>![Control.IsVisible(2061) + !stringcompare(Control.GetLabel(2061),empty.png)]</visible>
+				</control>
+				<control type="image" id="2061">
+					<include>TVGuideInfoFanartVars</include>
+					<texture background="true" fallback="empty.png">$INFO[Container(206).ListItem.Property(Path),,thumb.jpg]</texture>
+					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
+				</control>
+				<control type="group">
+					<posx>15</posx>
+					<posy>340</posy>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>0</posy>
+						<label>$LOCALIZE[21442]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(NextTitle)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>62</posy>
+						<label>$LOCALIZE[2050]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Runtime),, $LOCALIZE[12391]][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>124</posy>
+						<label>$LOCALIZE[515]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Genres)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>186</posy>
+						<label>$LOCALIZE[552]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(NextDate)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>248</posy>
+						<label>$LOCALIZE[555]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(ShortTime)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>310</posy>
+						<label>$LOCALIZE[42161]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Network)][/COLOR]</label2>
+					</control>
+					<control type="button">
+						<include>TVGuideInfoButtonVars</include>
+						<posy>372</posy>
+						<label>$LOCALIZE[21875]</label>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Country)][/COLOR]</label2>
 					</control>
 				</control>
 			</control>
@@ -477,8 +808,8 @@
 					<label>5</label>
 					<texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
 					<texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
-					<onleft>ClearProperty(TVGuide.MondayList)</onleft>
-					<onright>ClearProperty(TVGuide.MondayList)</onright>
+					<onleft>ClearProperty(TVGuide.MondayList,Home)</onleft>
+					<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
 				</control>
 			</control>
 			<control type="group">
