@@ -102,7 +102,8 @@
 					<posy>950</posy>
 					<width>100</width>
 					<height>100</height>
-					<texture fallback="weather/small/na.png">weather/small/$INFO[Weather.FanartCode].png</texture>
+					<texture>weather/small/$INFO[Weather.FanartCode].png</texture>
+					<visible>Weather.IsFetched</visible>
 				</control>
 				<control type="label">
 					<description>Clock label</description>
@@ -116,6 +117,7 @@
 					<shadowcolor>55000000</shadowcolor>
 					<align>right</align>
 					<scroll>No</scroll>
+					<animation effect="slide" end="60" time="300" tween="sine" easing="inout" condition="!Weather.IsFetched">Conditional</animation>
 				</control>
 			</control>
 			<control type="image">
