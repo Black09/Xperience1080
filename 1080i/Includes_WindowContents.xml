@@ -435,7 +435,7 @@
 				<include>ScrollingLabelRight</include>
 				<label>$INFO[ListItem.SortLetter]</label>
 			</control>
-			<visible>Container(52).Scrolling | Container(54).Scrolling</visible>
+			<visible>[Container(52).Scrolling | Container(54).Scrolling] + !Container.Content(Seasons)</visible>
 		</control>
 	</include>
 	<include name="ScrollLetterPosterView">
@@ -447,7 +447,7 @@
 				<include>ScrollingLabelRight</include>
 				<label>$INFO[ListItem.SortLetter]</label>
 			</control>
-			<visible>Container(55).Scrolling</visible>
+			<visible>Container(55).Scrolling + !Container.Content(Seasons)</visible>
 		</control>
 	</include>
 	<include name="ScrollLetterDefault">
@@ -459,7 +459,7 @@
 				<include>ScrollingLabelRight</include>
 				<label>$INFO[ListItem.SortLetter]</label>
 			</control>
-			<visible>Container(50).Scrolling | Container(56).Scrolling</visible>
+			<visible>[Container(50).Scrolling | Container(56).Scrolling] + !Container.Content(Seasons)</visible>
 		</control>
 	</include>
 	<include name="ScrollLetterFileManager">
