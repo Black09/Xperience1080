@@ -3,7 +3,7 @@
 	<zorder>3</zorder>
 	<controls>
 		<control type="group">
-			<animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003)" reversible="false">
+			<animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003) | Window.IsVisible(DialogPeripheralSettings.xml)" reversible="false">
 				<effect type="fade" start="0" end="100" time="0" delay="300" />
 			</animation>
 			<animation type="WindowOpen" condition="Window.IsVisible(addonsettings)" reversible="false">
@@ -139,7 +139,7 @@
 								<texture>$INFO[ListItem.ActualIcon,windows/filemanager/icons/,/fo.png]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
-							<control type="fadelabel">
+							<control type="label">
 								<posx>70</posx>
 								<posy>-4</posy>
 								<width>574</width>
@@ -149,24 +149,6 @@
 								<font>Font-Condensed-S34</font>
 								<align>left</align>
 								<aligny>center</aligny>
-								<scrollout>false</scrollout>
-								<pauseatend>200</pauseatend>
-								<scrollspeed>20</scrollspeed>
-								<animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
-							</control>
-							<control type="fadelabel">
-								<posx>70</posx>
-								<posy>-4</posy>
-								<width>574</width>
-								<height>60</height>
-								<textcolor>eewhite</textcolor>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<aligny>center</aligny>
-								<scrollout>false</scrollout>
-								<pauseatend>200</pauseatend>
-								<scrollspeed>20</scrollspeed>
 								<animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
 							</control>
 						</control>
@@ -249,7 +231,7 @@
 								<texture>$INFO[ListItem.ActualIcon,windows/filemanager/icons/,/fo.png]</texture>
 								<aspectratio>keep</aspectratio>
 							</control>
-							<control type="fadelabel">
+							<control type="label">
 								<posx>70</posx>
 								<posy>-4</posy>
 								<width>574</width>
@@ -259,24 +241,6 @@
 								<font>Font-Condensed-S34</font>
 								<align>left</align>
 								<aligny>center</aligny>
-								<scrollout>false</scrollout>
-								<pauseatend>200</pauseatend>
-								<scrollspeed>20</scrollspeed>
-								<animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
-							</control>
-							<control type="fadelabel">
-								<posx>70</posx>
-								<posy>-4</posy>
-								<width>574</width>
-								<height>60</height>
-								<textcolor>eewhite</textcolor>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<aligny>center</aligny>
-								<scrollout>false</scrollout>
-								<pauseatend>200</pauseatend>
-								<scrollspeed>20</scrollspeed>
 								<animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
 							</control>
 						</control>
