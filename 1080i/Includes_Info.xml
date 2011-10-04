@@ -39,7 +39,7 @@
 
 	<include name="Common-Clock">
 		<control type="group">
-			<animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo)" reversible="false">
+			<animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo)" reversible="false">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
 			</animation>
 			<control type="image">
