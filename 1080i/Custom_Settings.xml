@@ -958,11 +958,11 @@
 					<label2>[COLOR=SettingsBlue]$INFO[system.addontitle(Skin.String(LyricScript_Path))][/COLOR]</label2>
 					<onclick>Skin.SetAddon(LyricScript_Path,xbmc.python.lyrics)</onclick>
 				</control>
-				<!--<control type="radiobutton" id="7003">
+				<control type="radiobutton" id="7003">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(EnableTVTunes)</selected>
-					<onclick>Skin.ToggleSetting(EnableTVTunes)</onclick>
+					<selected>Skin.HasSetting(TVTunes.Enabled)</selected>
+					<onclick>Skin.ToggleSetting(TVTunes.Enabled)</onclick>
 					<label>$LOCALIZE[41283]</label>
 				</control>
 				<control type="button" id="7004">
@@ -970,23 +970,21 @@
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.tvtunes)</onclick>
 					<label> • $LOCALIZE[41284]</label>
-					<enable>Skin.HasSetting(EnableTVTunes)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(6004)">Conditional</animation>
-				</control>-->
-				<control type="radiobutton" id="7004">
+					<visible>Skin.HasSetting(TVTunes.Enabled)</visible>
+				</control>
+				<control type="radiobutton" id="7005">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(EnableNextAired)</selected>
-					<onclick>Skin.ToggleSetting(EnableNextAired)</onclick>
+					<selected>Skin.HasSetting(NextAired.Enabled)</selected>
+					<onclick>Skin.ToggleSetting(NextAired.Enabled)</onclick>
 					<label>$LOCALIZE[41285]</label>
 				</control>
-				<control type="button" id="7005">
+				<control type="button" id="7006">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=landscape.jpg,poster=False,banner=False)</onclick>
 					<label> • $LOCALIZE[41286]</label>
-					<enable>Skin.HasSetting(EnableNextAired)</enable>
-					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(7005)">Conditional</animation>
+					<visible>Skin.HasSetting(NextAired.Enabled)</visible>
 				</control>
 			</control>
 		</control>

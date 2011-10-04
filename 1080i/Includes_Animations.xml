@@ -368,6 +368,35 @@
 				</animation>
 			</include>
 			
+			<include name="NextAiredInfoAnimation">
+				<animation type="WindowOpen">
+					<effect type="fade" start="0" end="100" time="500" />
+					<effect type="slide" start="0,150" end="0,0" time="500" tween="back" easing="out" />
+				</animation>
+				<animation type="Conditional" condition="Control.IsVisible(52) | Control.IsVisible(54)">
+					<effect type="slide" start="0,0" end="0,-10" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Conditional" condition="Control.IsVisible(56)">
+					<effect type="slide" start="0,0" end="0,10" time="200" tween="sine" easing="inout" />
+				</animation>
+				<animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))">
+					<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" delay="300" />
+					<effect type="slide" start="0,150" end="0,0" time="500" tween="back" easing="out" delay="300" />
+				</animation>
+				<animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))">
+					<effect type="fade" start="0" end="100" time="500" tween="sine" easing="in" delay="400" />
+					<effect type="slide" start="0,150" end="0,0" time="500" tween="back" easing="out" delay="400" />
+				</animation>
+				<animation type="Hidden">
+					<effect type="fade" start="100" end="0" time="250" delay="100" tween="sine" easing="out" />
+					<effect type="slide" start="0,0" end="0,150" time="300" tween="sine" easing="out" />
+				</animation>
+				<animation type="WindowClose">
+					<effect type="fade" start="100" end="0" time="250" delay="100" tween="sine" easing="out" />
+					<effect type="slide" start="0,0" end="0,150" time="300" tween="sine" easing="out" />
+				</animation>
+			</include>
+			
 			<include name="MusicOSDControls">
 				<animation type="WindowOpen" reversible="false">
 					<effect type="fade" start="0" end="100" time="500" />
@@ -706,6 +735,10 @@
 			<include name="piclistfocusanim3">
 				<animation effect="fade" start="75" end="100" time="800" delay="100" reversible="false" condition="Container(54).OnPrevious">focus</animation>
 				<animation effect="fade" start="75" end="100" time="800" delay="100" reversible="false" condition="Container(54).OnNext">focus</animation>
+			</include>
+			<include name="piclistfocusanim4">
+				<animation effect="fade" start="10" end="100" time="800" delay="100" reversible="false" condition="Container(54).OnPrevious">focus</animation>
+				<animation effect="fade" start="10" end="100" time="800" delay="100" reversible="false" condition="Container(54).OnNext">focus</animation>
 			</include>
 
 			<!-- ================ -->

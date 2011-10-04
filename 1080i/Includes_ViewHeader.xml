@@ -1,5 +1,14 @@
 <includes>
 
+	<!-- Variables -->
+	<variable name="BannerCoverHeaderImage">
+		<value condition="stringcompare(Container.FolderPath,musicdb://6/)">DefaultMusicRecentlyAdded.png</value>
+		<value condition="stringcompare(Container.FolderPath,musicdb://7/)">DefaultMusicRecentlyPlayed.png</value>
+		<value condition="stringcompare(Container.FolderPath,musicdb://8/)">DefaultMusicCompilations.png</value>
+		<value>DefaultMusicAlbums.png</value>
+	</variable>
+
+	<!-- Includes -->
 	<include name="ListCenterRightGroup">
 		<!-- center group -->
 		<control type="grouplist">
@@ -786,32 +795,7 @@
 					<posy>35</posy>
 					<width>85</width>
 					<height>85</height>
-					<texture>DefaultMusicAlbums.png</texture>
-					<visible>!Control.IsVisible(101010) + !Control.IsVisible(101011) + !Control.IsVisible(101012)</visible>
-				</control>
-				<control type="image" id="101010">
-					<posx>17</posx>
-					<posy>35</posy>
-					<width>85</width>
-					<height>85</height>
-					<texture>DefaultMusicRecentlyAdded.png</texture>
-					<visible>stringcompare(Container.FolderPath,musicdb://6/)</visible>
-				</control>
-				<control type="image" id="101011">
-					<posx>17</posx>
-					<posy>35</posy>
-					<width>85</width>
-					<height>85</height>
-					<texture>DefaultMusicRecentlyPlayed.png</texture>
-					<visible>stringcompare(Container.FolderPath,musicdb://7/)</visible>
-				</control>
-				<control type="image" id="101011">
-					<posx>17</posx>
-					<posy>35</posy>
-					<width>85</width>
-					<height>85</height>
-					<texture>DefaultMusicCompilations.png</texture>
-					<visible>stringcompare(Container.FolderPath,musicdb://8/)</visible>
+					<texture>$VAR[BannerCoverHeaderImage]</texture>
 				</control>
 				<control type="grouplist">
 					<posx>110</posx>

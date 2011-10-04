@@ -11,7 +11,7 @@
 	  <value condition="Control.HasFocus(206)">$INFO[Container(206).ListItem.Property(Fanart)]</value>
 	</variable>
 	
-	<!-- General includes -->
+	<!-- TVGuide includes -->
 	<include name="TVGuideDayLabel">
 		<posy>120</posy>
 		<width>175</width>
@@ -199,6 +199,93 @@
 		<font>Font-Condensed-S30</font>
 		<align>left</align>
 		<aligny>center</aligny>
+	</include>
+	
+	<!-- Next Aired info includes -->
+	<include name="NextAiredInfo">
+		<control type="group">
+			<visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+			<control type="group">
+				<posx>1745</posx>
+				<posy>24</posy>
+				<visible>[Control.IsVisible(55) | Control.IsVisible(60)] + !Window.IsActive(movieinformation) + !IsEmpty(Window(Home).Property(NextAired.Label))</visible>
+				<include>BannerListInfoAnimation</include>
+				<control type="image">
+					<posx>0</posx>
+					<posy>35</posy>
+					<width>85</width>
+					<height>85</height>
+					<texture>DefaultNextAired.png</texture>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>500</width>
+					<height>120</height>
+					<label>$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
+					<font>Font-Condensed-S36-B</font>
+					<textcolor>C0FFFFFF</textcolor>
+					<scroll>false</scroll>
+					<align>right</align>
+				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>33</posy>
+					<width>500</width>
+					<height>120</height>
+					<label>$INFO[Window(Home).Property(NextAired.AirTime),, • ]$INFO[Window(Home).Property(NextAired.NextDate)]</label>
+					<font>Font-Condensed-S28</font>
+					<textcolor>80FFFFFF</textcolor>
+					<scroll>false</scroll>
+					<align>right</align>
+				</control>
+			</control>
+			<control type="group">
+				<posx>660</posx>
+				<posy>930</posy>
+				<visible>[Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(54) | Control.IsVisible(56)] + !Window.IsActive(movieinformation) + !IsEmpty(Window(Home).Property(NextAired.Label))</visible>
+				<include>NextAiredInfoAnimation</include>
+				<control type="image">
+					<description>shadow image</description>
+					<posx>-20</posx>
+					<posy>90</posy>
+					<height>60</height>
+					<width>640</width>
+					<texture border="75,0,75,0">dialogs/shutdown/shutdown_shadow.png</texture>
+					<aspectratio>stretch</aspectratio>
+					<visible>Control.IsVisible(52) | Control.IsVisible(54)</visible>
+				</control>
+				<control type="image">
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>600</width>
+					<height>120</height>
+					<texture>overlays/nextaired/bg.png</texture>
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>25</posy>
+					<width>455</width>
+					<label>$INFO[Window(Home).Property(NextAired.NextTitle)]</label>
+					<font>Font-Condensed-S34-B</font>
+					<textcolor>FF585858</textcolor>
+					<shadowcolor>33FFFFFF</shadowcolor>
+					<align>left</align>
+					<scroll>false</scroll>
+				</control>
+				<control type="label">
+					<posx>115</posx>
+					<posy>62</posy>
+					<width>455</width>
+					<label>$INFO[Window(Home).Property(NextAired.AirTime),, • ]$INFO[Window(Home).Property(NextAired.NextDate)]</label>
+					<font>Font-Condensed-S28</font>
+					<textcolor>FF787878</textcolor>
+					<shadowcolor>33FFFFFF</shadowcolor>
+					<align>left</align>
+					<scroll>false</scroll>
+				</control>
+			</control>
+		</control>
 	</include>
 
 </includes>

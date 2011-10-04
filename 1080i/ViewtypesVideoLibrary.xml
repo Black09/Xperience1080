@@ -118,30 +118,16 @@
 						<scroll>false</scroll>
 						<visible>!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes)</visible>
 					</control>
-					<control type="group">
-						<visible>Container.Content(Movies) | Container.Content(Episodes)</visible>
-						<!-- HD Flag -->
-						<control type="image">
-							<posx>1206</posx>
-							<posy>23</posy>
-							<width>86</width>
-							<height>62</height>
-							<aspect>keepaspect</aspect>
-							<texture>flags/defs/hd.png</texture>
-							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<colordiffuse>ABFFFFFF</colordiffuse>
-						</control>
-						<!-- SD Flag -->
-						<control type="image">
-							<posx>1206</posx>
-							<posy>23</posy>
-							<width>86</width>
-							<height>62</height>
-							<aspect>keepaspect</aspect>
-							<texture>flags/defs/sd.png</texture>
-							<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<colordiffuse>ABFFFFFF</colordiffuse>
-						</control>
+					<!-- SD / HD Flag -->
+					<control type="image">
+						<posx>1206</posx>
+						<posy>23</posy>
+						<width>86</width>
+						<height>62</height>
+						<aspect>keepaspect</aspect>
+						<texture>$VAR[ListHDSDFlag]</texture>
+						<visible>[Container.Content(Movies) | Container.Content(Episodes)] + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution)</visible>
+						<colordiffuse>ABFFFFFF</colordiffuse>
 					</control>
 					<!-- Star -->
 					<control type="image">
@@ -208,22 +194,10 @@
 						<height>105</height>
 						<font>Font-Condensed-S28</font>
 						<align>left</align>
-						<label>$INFO[ListItem.year,, • ]$INFO[ListItem.duration,, $LOCALIZE[12391]]</label>
+						<label>$VAR[ListInfoYearDurationStudio]</label>
 						<textcolor>bbwhite</textcolor>
 						<scroll>false</scroll>
-						<visible>Container.Content(Movies) | Window.IsVisible(videoplaylist)</visible>
-					</control>
-					<control type="label">
-						<posx>115</posx>
-						<posy>19</posy>
-						<width>740</width>
-						<height>105</height>
-						<font>Font-Condensed-S28</font>
-						<align>left</align>
-						<label>$INFO[ListItem.Studio]</label>
-						<textcolor>bbwhite</textcolor>
-						<scroll>false</scroll>
-						<visible>Container.Content(Seasons)</visible>
+						<visible>Container.Content(Movies) | Container.Content(Seasons) | Window.IsVisible(videoplaylist)</visible>
 					</control>
 					<!-- Genre Icon -->
 					<control type="image">
@@ -1084,7 +1058,7 @@
 					<height>903</height>
 					<texture>views/list/panels/poster_overlay.png</texture>
 					<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-					<visible>!IsEmpty(Container(54).ListItem.Label)</visible>
+					<visible>!IsEmpty(Container(52).ListItem.Label)</visible>
 				</control>
 			</control>
 	
@@ -1137,7 +1111,7 @@
 					<visible>Container.Content(TVShows)</visible>
 					<orientation>horizontal</orientation>
 					<control type="label">
-						<width min="50" max="120">auto</width>
+						<width min="50" max="140">auto</width>
 						<font>Font-Condensed-S34</font>
 						<label>$LOCALIZE[41314]</label>
 						<textcolor>aawhite</textcolor>
@@ -1601,46 +1575,25 @@
 							<align>right</align>
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Star -->
+						<!-- Watched/Unwatched/Star -->
 						<control type="image">
 							<posx>715</posx>
 							<posy>0</posy>
 							<width>49</width>
 							<height>49</height>
 							<aspect>keepaspect</aspect>
-							<texture>views/list/other/star_nofo.png</texture>
-							<visible>!Skin.HasSetting(unwatchedwatched) + !IsEmpty(ListItem.Overlay)</visible>
+							<texture>$VAR[ListWatchedUnwatchedFlagSmallNoFo]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Watched/Unwatched Star -->
-						<control type="image">
-							<posx>715</posx>
-							<posy>0</posy>
-							<width>49</width>
-							<height>49</height>
-							<aspect>keepaspect</aspect>
-							<texture>overlays/$INFO[ListItem.Overlay]/list-nf.png</texture>
-							<visible>Skin.HasSetting(unwatchedwatched)</visible>
-						</control>
-						<!-- HD Flag -->
+						<!-- SD / HD Flag -->
 						<control type="image">
 							<posx>661</posx>
 							<posy>0</posy>
 							<width>54</width>
 							<height>49</height>
 							<aspect>keepaspect</aspect>
-							<texture>flags/defs/hd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<colordiffuse>77white</colordiffuse>
-						</control>
-						<!-- SD Flag -->
-						<control type="image">
-							<posx>661</posx>
-							<posy>0</posy>
-							<width>54</width>
-							<height>49</height>
-							<aspect>keepaspect</aspect>
-							<texture>flags/defs/sd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<texture>$VAR[ListHDSDFlagSmall]</texture>
+							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution)</visible>
 							<colordiffuse>77white</colordiffuse>
 						</control>
 						<control type="group">
@@ -1708,48 +1661,26 @@
 							<include>listfocusanim</include>
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Star -->
+						<!-- Watched/Unwatched/Star -->
 						<control type="image">
 							<posx>715</posx>
 							<posy>0</posy>
 							<width>49</width>
 							<height>49</height>
 							<aspect>keepaspect</aspect>
-							<texture>views/list/other/star_fo.png</texture>
+							<texture>$VAR[ListWatchedUnwatchedFlagSmallFo]</texture>
 							<include>listfocusanim3</include>
-							<visible>!Skin.HasSetting(unwatchedwatched) + !IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Watched/Unwatched Star -->
-						<control type="image">
-							<posx>715</posx>
-							<posy>0</posy>
-							<width>49</width>
-							<height>49</height>
-							<aspect>keepaspect</aspect>
-							<texture>overlays/$INFO[ListItem.Overlay]/list-fo.png</texture>
-							<include>listfocusanim3</include>
-							<visible>Skin.HasSetting(unwatchedwatched)</visible>
-						</control>
-						<!-- HD Flag -->
+						<!-- SD / HD Flag -->
 						<control type="image">
 							<posx>661</posx>
 							<posy>0</posy>
 							<width>54</width>
 							<height>49</height>
 							<aspect>keepaspect</aspect>
-							<texture>flags/defs/hd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<include>listfocusanim</include>
-						</control>
-						<!-- SD Flag -->
-						<control type="image">
-							<posx>661</posx>
-							<posy>0</posy>
-							<width>54</width>
-							<height>49</height>
-							<aspect>keepaspect</aspect>
-							<texture>flags/defs/sd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<texture>$VAR[ListHDSDFlagSmall]</texture>
+							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution)</visible>
 							<include>listfocusanim</include>
 						</control>
 						<control type="group">
@@ -2763,46 +2694,25 @@
 							<align>right</align>
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Star -->
+						<!-- Watched/Unwatched/Star -->
 						<control type="image">
 							<posx>715</posx>
 							<posy>0</posy>
 							<width>49</width>
 							<height>49</height>
 							<aspect>scale</aspect>
-							<texture>views/list/other/star_nofo.png</texture>
-							<visible>!Skin.HasSetting(unwatchedwatched) + !IsEmpty(ListItem.Overlay)</visible>
+							<texture>$VAR[ListWatchedUnwatchedFlagSmallNoFo]</texture>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Watched/Unwatched Star -->
-						<control type="image">
-							<posx>715</posx>
-							<posy>0</posy>
-							<width>49</width>
-							<height>49</height>
-							<aspect>scale</aspect>
-							<texture>overlays/$INFO[ListItem.Overlay]/list-nf.png</texture>
-							<visible>Skin.HasSetting(unwatchedwatched)</visible>
-						</control>
-						<!-- HD Flag -->
+						<!-- SD / HD Flag -->
 						<control type="image">
 							<posx>661</posx>
 							<posy>0</posy>
 							<width>54</width>
 							<height>49</height>
 							<aspect>scale</aspect>
-							<texture>flags/defs/hd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<colordiffuse>77white</colordiffuse>
-						</control>
-						<!-- SD Flag -->
-						<control type="image">
-							<posx>661</posx>
-							<posy>0</posy>
-							<width>54</width>
-							<height>49</height>
-							<aspect>scale</aspect>
-							<texture>flags/defs/sd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<texture>$VAR[ListHDSDFlagSmall]</texture>
+							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution)</visible>
 							<colordiffuse>77white</colordiffuse>
 						</control>
 						<control type="group">
@@ -2870,48 +2780,26 @@
 							<include>piclistfocusanim</include>
 							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Star -->
+						<!-- Watched/Unwatched/Star -->
 						<control type="image">
 							<posx>715</posx>
 							<posy>0</posy>
 							<width>49</width>
 							<height>49</height>
 							<aspect>scale</aspect>
-							<texture>views/list/other/star_fo.png</texture>
-							<include>piclistfocusanim</include>
-							<visible>!Skin.HasSetting(unwatchedwatched) + !IsEmpty(ListItem.Overlay)</visible>
+							<texture>$VAR[ListWatchedUnwatchedFlagSmallFo]</texture>
+							<include>piclistfocusanim4</include>
+							<visible>!IsEmpty(ListItem.Overlay)</visible>
 						</control>
-						<!-- Watched/Unwatched Star -->
-						<control type="image">
-							<posx>715</posx>
-							<posy>0</posy>
-							<width>49</width>
-							<height>49</height>
-							<aspect>scale</aspect>
-							<texture>overlays/$INFO[ListItem.Overlay]/list-fo.png</texture>
-							<include>piclistfocusanim</include>
-							<visible>Skin.HasSetting(unwatchedwatched)</visible>
-						</control>
-						<!-- HD Flag -->
+						<!-- SD / HD Flag -->
 						<control type="image">
 							<posx>661</posx>
 							<posy>0</posy>
 							<width>54</width>
 							<height>49</height>
 							<aspect>scale</aspect>
-							<texture>flags/defs/hd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-							<include>piclistfocusanim</include>
-						</control>
-						<!-- SD Flag -->
-						<control type="image">
-							<posx>661</posx>
-							<posy>0</posy>
-							<width>54</width>
-							<height>49</height>
-							<aspect>scale</aspect>
-							<texture>flags/defs/sd-small.png</texture>
-							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+							<texture>$VAR[ListHDSDFlagSmall]</texture>
+							<visible>!IsEmpty(ListItem.Icon) + !Skin.HasSetting(nohdflag) + !IsEmpty(ListItem.VideoResolution)</visible>
 							<include>piclistfocusanim</include>
 						</control>
 						<control type="group">
@@ -2938,7 +2826,6 @@
 								<include>piclistfocusanim</include>
 							</control>
 						</control>
-						
 					</focusedlayout>
 				</control>
 
@@ -3833,19 +3720,8 @@
 								<posy>575</posy>
 								<width>374</width>
 								<height>561</height>
-								<texture flipy="true" diffuse="views/posterview/diffuse-ref.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Reflection</description>
-								<posx>-32</posx>
-								<posy>575</posy>
-								<width>374</width>
-								<height>561</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<posx>242</posx>
@@ -3870,19 +3746,8 @@
 								<posy>10</posy>
 								<width>374</width>
 								<height>561</height>
-								<texture diffuse="views/posterview/diffuse.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture background="true" diffuse="views/posterview/diffuse.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Poster</description>
-								<posx>-32</posx>
-								<posy>10</posy>
-								<width>374</width>
-								<height>561</height>
-								<texture background="true" diffuse="views/posterview/diffuse.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -3930,19 +3795,8 @@
 								<posy>575</posy>
 								<width>374</width>
 								<height>561</height>
-								<texture flipy="true" diffuse="views/posterview/diffuse-ref.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Reflection</description>
-								<posx>-32</posx>
-								<posy>575</posy>
-								<width>374</width>
-								<height>561</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<posx>242</posx>
@@ -3975,19 +3829,8 @@
 								<posy>10</posy>
 								<width>374</width>
 								<height>561</height>
-								<texture diffuse="views/posterview/diffuse.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture background="true" diffuse="views/posterview/diffuse.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Poster</description>
-								<posx>-32</posx>
-								<posy>10</posy>
-								<width>374</width>
-								<height>561</height>
-								<texture background="true" diffuse="views/posterview/diffuse.png">$INFO[ListItem.Thumb]</texture>
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -4108,16 +3951,8 @@
 								<posy>0</posy>
 								<width>86</width>
 								<height>62</height>
-								<texture>flags/defs/sd.png</texture>
-								<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(Container(55).ListItem.VideoResolution) + !IntegerGreaterThan(Container(55).ListItem.VideoResolution,719)</visible>
-							</control>
-							<control type="image">
-								<posx>0</posx>
-								<posy>0</posy>
-								<width>86</width>
-								<height>62</height>
-								<texture>flags/defs/hd.png</texture>
-								<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(Container(55).ListItem.VideoResolution) + IntegerGreaterThan(Container(55).ListItem.VideoResolution,719)</visible>
+								<texture>$VAR[ListHDSDFlag]</texture>
+								<visible>!Skin.HasSetting(nohdflag) + !IsEmpty(Container(55).ListItem.VideoResolution)</visible>
 							</control>
 							<control type="label">
 								<posx>13</posx>
@@ -4152,7 +3987,7 @@
 								<posx>13</posx>
 								<posy>65</posy>
 								<width>1730</width>
-								<label>$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[41311]  ,]</label>
+								<label>$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[41311],]</label>
 								<font>Font-Condensed-S36</font>
 								<textcolor>77white</textcolor>
 								<scroll>false</scroll>
@@ -4277,20 +4112,8 @@
 							<posy>34</posy>
 							<width>208</width>
 							<height>312</height>
-							<texture diffuse="views/wall/diffuse/poster_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+							<texture diffuse="views/wall/diffuse/poster_diffuse.png">$VAR[WallPoster]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(ListItem.Thumb)</visible>
-						</control>
-						<control type="image">
-							<description>Poster</description>
-							<posx>15</posx>
-							<posy>34</posy>
-							<width>208</width>
-							<height>312</height>
-							<info>ListItem.Thumb</info>
-							<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png" />
-							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -4323,19 +4146,7 @@
 							<posy>34</posy>
 							<width>555</width>
 							<height>312</height>
-							<info>ListItem.ActualIcon</info>
-							<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
-							<aspectratio align="center" scalediffuse="false">keep</aspectratio>
-							<visible>IsEmpty(ListItem.Thumb)</visible>
-						</control>
-						<control type="image">
-							<description>Poster</description>
-							<posx>-40</posx>
-							<posy>34</posy>
-							<width>555</width>
-							<height>312</height>
-							<info>ListItem.Thumb</info>
-							<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
+							<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png">$VAR[WallPoster]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						</control>
 						<control type="image">
@@ -4419,17 +4230,8 @@
 									<width>42</width>
 									<height>28</height>
 									<aspect>keepaspect</aspect>
-									<texture>flags/defs/sd-black.png</texture>
-									<visible>!IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-								</control>
-								<control type="image">
-									<posx>243</posx>
-									<posy>53</posy>
-									<width>42</width>
-									<height>28</height>
-									<aspect>keepaspect</aspect>
-									<texture>flags/defs/hd-black.png</texture>
-									<visible>!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+									<texture>$VAR[BannerListHDSDFlag]</texture>
+									<visible>!IsEmpty(ListItem.VideoResolution) + !Skin.HasSetting(nohdflag)</visible>
 								</control>
 								<control type="label">
 									<posx>295</posx>
@@ -4574,17 +4376,8 @@
 									<width>42</width>
 									<height>28</height>
 									<aspect>keepaspect</aspect>
-									<texture>flags/defs/sd-black.png</texture>
-									<visible>!IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
-								</control>
-								<control type="image">
-									<posx>-47</posx>
-									<posy>53</posy>
-									<width>42</width>
-									<height>28</height>
-									<aspect>keepaspect</aspect>
-									<texture>flags/defs/hd-black.png</texture>
-									<visible>!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719)</visible>
+									<texture>$VAR[BannerListHDSDFlag]</texture>
+									<visible>!IsEmpty(ListItem.VideoResolution) + !Skin.HasSetting(nohdflag)</visible>
 								</control>
 								<control type="label">
 									<description>Title Label</description>
@@ -4671,20 +4464,8 @@
 								<posy>34</posy>
 								<width>208</width>
 								<height>312</height>
-								<texture diffuse="views/wall/diffuse/poster_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+								<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png">$VAR[WallPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Poster</description>
-								<posx>15</posx>
-								<posy>34</posy>
-								<width>208</width>
-								<height>312</height>
-								<info>ListItem.Thumb</info>
-								<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png" />
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -4738,20 +4519,8 @@
 							<posy>34</posy>
 							<width>208</width>
 							<height>312</height>
-							<texture diffuse="views/wall/diffuse/poster_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+							<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png">$VAR[WallPoster]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(ListItem.Thumb)</visible>
-						</control>
-						<control type="image">
-							<description>Poster</description>
-							<posx>15</posx>
-							<posy>34</posy>
-							<width>208</width>
-							<height>312</height>
-							<info>ListItem.Thumb</info>
-							<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png" />
-							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -4926,19 +4695,7 @@
 								<posy>34</posy>
 								<width>561</width>
 								<height>312</height>
-								<info>ListItem.ActualIcon</info>
-								<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
-								<aspectratio align="center" scalediffuse="false">keep</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Poster</description>
-								<posx>-43</posx>
-								<posy>34</posy>
-								<width>561</width>
-								<height>312</height>
-								<info>ListItem.Thumb</info>
-								<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png" />
+								<texture background="true" diffuse="views/wall/diffuse/episodes_diffuse.png">$VAR[WallPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 							</control>
 							<control type="image">
@@ -5134,28 +4891,28 @@
 								<textcolor>C0FFFFFF</textcolor>
 								<scroll>false</scroll>
 								<align>left</align>
+								<visible>stringcompare(ListItem.ActualIcon,DefaultFolderBack.png)</visible>
+							</control>
+							<control type="label">
+								<posx>240</posx>
+								<posy>13</posy>
+								<width>530</width>
+								<label>$INFO[ListItem.Label]</label>
+								<font>Font-Condensed-S34-B</font>
+								<textcolor>C0FFFFFF</textcolor>
+								<scroll>false</scroll>
+								<align>left</align>
+								<visible>!stringcompare(ListItem.ActualIcon,DefaultFolderBack.png)</visible>
 							</control>
 							<control type="label">
 								<posx>240</posx>
 								<posy>53</posy>
 								<width>530</width>
-								<label>$INFO[ListItem.Genre]</label>
+								<label>$VAR[BannerListInfoGenreTotalSeasons]</label>
 								<font>Font-Condensed-S28</font>
 								<textcolor>80FFFFFF</textcolor>
 								<scroll>false</scroll>
 								<align>left</align>
-								<visible>!Container.Content(Seasons)</visible>
-							</control>
-							<control type="label">
-								<posx>240</posx>
-								<posy>53</posy>
-								<width>530</width>
-								<label>$INFO[ListItem.Property(TotalEpisodes),, $LOCALIZE[20360]]</label>
-								<font>Font-Condensed-S28</font>
-								<textcolor>80FFFFFF</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-								<visible>Container.Content(Seasons)</visible>
 							</control>
 						</control>
 						<control type="group">
@@ -5262,17 +5019,8 @@
 							<width>42</width>
 							<height>28</height>
 							<aspect>keepaspect</aspect>
-							<texture>flags/defs/sd-black.png</texture>
-							<visible>!IsEmpty(ListItem.VideoResolution) + !IntegerGreaterThan(ListItem.VideoResolution,719) + !Skin.HasSetting(nohdflag)</visible>
-						</control>
-						<control type="image">
-							<posx>220</posx>
-							<posy>60</posy>
-							<width>42</width>
-							<height>28</height>
-							<aspect>keepaspect</aspect>
-							<texture>flags/defs/hd-black.png</texture>
-							<visible>!IsEmpty(ListItem.VideoResolution) + IntegerGreaterThan(ListItem.VideoResolution,719) + !Skin.HasSetting(nohdflag)</visible>
+							<texture>$VAR[BannerListHDSDFlag]</texture>
+							<visible>!IsEmpty(ListItem.VideoResolution) + !Skin.HasSetting(nohdflag)</visible>
 						</control>
 						<control type="label">
 							<posx>273</posx>
@@ -5360,17 +5108,9 @@
 							<posy>49</posy>
 							<width>758</width>
 							<height>140</height>
-							<texture background="true" diffuse="views/banner/diffuse/diffuse.png">$INFO[ListItem.Path,,banner.jpg]</texture>
-							<visible>!IsEmpty(ListItem.Title) + Skin.HasSetting(bannerjpg)</visible>
-						</control>
-						<control type="image">
-							<posx>49</posx>
-							<posy>49</posy>
-							<width>758</width>
-							<height>140</height>
-							<info>ListItem.Thumb</info>
-							<texture diffuse="views/banner/diffuse/diffuse.png" background="true"/>
-							<visible>!IsEmpty(ListItem.Title) + !Skin.HasSetting(bannerjpg)</visible>
+							<aspectratio>keep</aspectratio>
+							<texture background="true" diffuse="views/banner/diffuse/diffuse.png">$VAR[BannerListBanner]</texture>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>49</posx>
@@ -5453,19 +5193,9 @@
 							<posy>49</posy>
 							<width>156</width>
 							<height>234</height>
-							<texture diffuse="views/banner/diffuse/poster.png" scalediffuse="false">$INFO[ListItem.Path,,poster.jpg]</texture>
-							<aspectratio>stretch</aspectratio>
-							<visible>!IsEmpty(ListItem.Title) + !Skin.HasSetting(bannerjpg)</visible>
-						</control>
-						<control type="image">
-							<posx>49</posx>
-							<posy>49</posy>
-							<width>156</width>
-							<height>234</height>
-							<info>ListItem.thumb</info>
-							<texture diffuse="views/banner/diffuse/poster.png" background="true" scalediffuse="false"/>
-							<aspectratio>stretch</aspectratio>
-							<visible>!IsEmpty(ListItem.Title) + Skin.HasSetting(bannerjpg)</visible>
+							<texture background="true" diffuse="views/banner/diffuse/poster.png">$VAR[BannerListPoster]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>49</posx>
@@ -5571,10 +5301,9 @@
 							<posy>49</posy>
 							<width>156</width>
 							<height>234</height>
-							<info>ListItem.Thumb</info>
-							<texture diffuse="views/banner/diffuse/poster.png" background="true" scalediffuse="false"/>
-							<aspectratio>stretch</aspectratio>
-							<visible>!IsEmpty(ListItem.Title)</visible>
+							<texture diffuse="views/banner/diffuse/poster.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="false">scale</aspectratio>
+							<visible>!IsEmpty(ListItem.Thumb)</visible>
 						</control>
 						<control type="image">
 							<posx>49</posx>
