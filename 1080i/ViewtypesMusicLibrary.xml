@@ -1095,9 +1095,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(-1).ActualIcon,views/posterview/,]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItem(-1).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Reflection</description>
@@ -1105,8 +1105,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(-1).Thumb]</texture>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster-1]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1131,9 +1132,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(-1).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItemNoWrap(-1).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -1141,10 +1142,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+							<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster-1]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<info>Container(55).ListItemNoWrap(-1).Thumb</info>
-							<visible>!IsEmpty(Container(55).ListItem(-1).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1205,9 +1205,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(4).ActualIcon,views/posterview/,]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItem(4).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Reflection</description>
@@ -1215,9 +1215,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(4).Thumb]</texture>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster4]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(Container(55).ListItem(4).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1242,9 +1242,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(4).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItemNoWrap(4).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -1252,10 +1252,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+							<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster4]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<info>Container(55).ListItemNoWrap(4).Thumb</info>
-							<visible>!IsEmpty(Container(55).ListItem(4).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1316,9 +1315,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(3).ActualIcon,views/posterview/,]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItem(3).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Reflection</description>
@@ -1326,9 +1325,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(3).Thumb]</texture>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster3]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(Container(55).ListItem(3).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1353,9 +1352,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(3).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItemNoWrap(3).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -1363,10 +1362,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+							<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster3]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<info>Container(55).ListItemNoWrap(3).Thumb</info>
-							<visible>!IsEmpty(Container(55).ListItem(3).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1427,9 +1425,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(2).ActualIcon,views/posterview/,]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItem(2).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Reflection</description>
@@ -1437,9 +1435,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(2).Thumb]</texture>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster2]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(Container(55).ListItem(2).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1464,9 +1462,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(2).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItemNoWrap(2).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -1474,10 +1472,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+							<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster2]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<info>Container(55).ListItemNoWrap(2).Thumb</info>
-							<visible>!IsEmpty(Container(55).ListItem(2).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1538,9 +1535,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(1).ActualIcon,views/posterview/,]</texture>
+							<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItem(1).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Reflection</description>
@@ -1548,9 +1545,9 @@
 							<posy>458</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItemNoWrap(1).Thumb]</texture>
+							<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster1]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(Container(55).ListItem(1).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<posx>312</posx>
@@ -1575,9 +1572,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItemNoWrap(1).ActualIcon,views/posterview/,]</texture>
+							<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(Container(55).ListItemNoWrap(1).Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -1585,10 +1582,9 @@
 							<posy>10</posy>
 							<width>444</width>
 							<height>444</height>
-							<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+							<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster1]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<info>Container(55).ListItemNoWrap(1).Thumb</info>
-							<visible>!IsEmpty(Container(55).ListItem(1).Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Overlay</description>
@@ -1649,9 +1645,9 @@
 						<posy>458</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</texture>
+						<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-						<visible>IsEmpty(Container(55).ListItem(0).Thumb)</visible>
+						<visible>Container.Content(Genres)</visible>
 					</control>
 					<control type="image">
 						<description>Reflection</description>
@@ -1659,9 +1655,9 @@
 						<posy>458</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[Container(55).ListItem(0).Thumb]</texture>
+						<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster0]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-						<visible>!IsEmpty(Container(55).ListItem(0).Thumb)</visible>
+						<visible>!Container.Content(Genres)</visible>
 					</control>
 					<control type="image">
 						<posx>312</posx>
@@ -1694,9 +1690,9 @@
 						<posy>10</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture diffuse="views/posterview/diffuse-square.png">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</texture>
+						<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-						<visible>IsEmpty(Container(55).ListItem(0).Thumb)</visible>
+						<visible>Container.Content(Genres)</visible>
 					</control>
 					<control type="image">
 						<description>Poster</description>
@@ -1704,10 +1700,9 @@
 						<posy>10</posy>
 						<width>444</width>
 						<height>444</height>
-						<texture background="true" diffuse="views/posterview/diffuse-square.png" />
+						<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster0]</texture>
 						<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-						<info>Container(55).ListItem(0).Thumb</info>
-						<visible>!IsEmpty(Container(55).ListItem(0).Thumb)</visible>
+						<visible>!Container.Content(Genres)</visible>
 					</control>
 					<control type="image">
 						<description>Overlay</description>
@@ -1735,7 +1730,7 @@
 				<animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
 				<animation effect="fade" start="0" end="100" time="0" delay="1310" reversible="false">Visible</animation>		
 				<control type="fixedlist" id="55">
-					<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Window.IsVisible(MusicPlaylist)</visible>
+					<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Window.IsVisible(MusicPlaylist) | Container.Content(Genres)</visible>
 					<posx>-244</posx>
 					<posy>360</posy>
 					<width>2320</width>
@@ -1777,9 +1772,9 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
+								<visible>Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Reflection</description>
@@ -1787,9 +1782,9 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.Thumb]</texture>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
+								<visible>!Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<posx>312</posx>
@@ -1813,9 +1808,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
+								<visible>Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -1823,9 +1818,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.Thumb]</texture>
+								<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
+								<visible>!Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -1875,9 +1870,9 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
+								<visible>Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Reflection</description>
@@ -1885,9 +1880,9 @@
 								<posy>458</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[ListItem.Thumb]</texture>
+								<texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
+								<visible>!Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<posx>312</posx>
@@ -1919,9 +1914,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.ActualIcon,views/posterview/,]</texture>
+								<texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
+								<visible>Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -1929,9 +1924,9 @@
 								<posy>10</posy>
 								<width>444</width>
 								<height>444</height>
-								<texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[ListItem.Thumb]</texture>
+								<texture background="true" diffuse="views/posterview/diffuse-square.png">$VAR[PosterViewPoster]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
+								<visible>!Container.Content(Genres)</visible>
 							</control>
 							<control type="image">
 								<description>Overlay</description>
@@ -2036,64 +2031,25 @@
 						<visible>!Container(55).OnNext + !Container(55).OnPrevious</visible>
 						<posx>110</posx>
 						<posy>830</posy>
-						<control type="group">
-							<visible>Container.Content(Albums)</visible>
-							<control type="label">
-								<posx>12</posx>
-								<posy>15</posy>
-								<width>1730</width>
-								<label>$INFO[Container(55).ListItem.Album]</label>
-								<font>Font-Condensed-S45-B</font>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-							</control>
-							<control type="label">
-								<posx>13</posx>
-								<posy>65</posy>
-								<width>1730</width>
-								<label>$INFO[Container(55).ListItem.Year]$INFO[Container(55).ListItem.Genre, • ,]</label>
-								<font>Font-Condensed-S36</font>
-								<textcolor>77white</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-							</control>
+						<control type="label">
+							<posx>12</posx>
+							<posy>15</posy>
+							<width>1730</width>
+							<label>$VAR[CoverViewBottomInfo]</label>
+							<font>Font-Condensed-S45-B</font>
+							<textcolor>aawhite</textcolor>
+							<scroll>false</scroll>
+							<align>left</align>
 						</control>
-						<control type="group">
-							<visible>Container.Content(Artists)</visible>
-							<control type="label">
-								<posx>12</posx>
-								<posy>15</posy>
-								<width>1730</width>
-								<label>$INFO[Container(55).ListItem.Artist]</label>
-								<font>Font-Condensed-S45-B</font>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-							</control>
-						</control>
-						<control type="group">
-							<visible>[Container.Content(Songs) | Window.IsVisible(MusicPlaylist)]</visible>
-							<control type="label">
-								<posx>12</posx>
-								<posy>15</posy>
-								<width>1730</width>
-								<label>$INFO[Container(55).ListItem.Title]$INFO[ListItem.Duration, (,)]</label>
-								<font>Font-Condensed-S45-B</font>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-							</control>
-							<control type="label">
-								<posx>13</posx>
-								<posy>65</posy>
-								<width>1730</width>
-								<label>$INFO[Container(55).ListItem.Artist]</label>
-								<font>Font-Condensed-S36</font>
-								<textcolor>77white</textcolor>
-								<scroll>false</scroll>
-								<align>left</align>
-							</control>
+						<control type="label">
+							<posx>13</posx>
+							<posy>65</posy>
+							<width>1730</width>
+							<label>$VAR[CoverViewBottomInfo2]</label>
+							<font>Font-Condensed-S36</font>
+							<textcolor>77white</textcolor>
+							<scroll>false</scroll>
+							<align>left</align>
 						</control>
 					</control>
 				</control>
@@ -2159,7 +2115,7 @@
 				<aspectratio align="center" scalediffuse="false">stretch</aspectratio>
 			</control>
 			<control type="panel" id="56">
-				<visible>Container.Content(Artists) | Container.Content(Albums)</visible>
+				<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Genres)</visible>
 				<posx>-89</posx>
 				<posy>69</posy>
 				<width>2100</width>
@@ -2194,9 +2150,9 @@
 							<posy>25</posy>
 							<width>320</width>
 							<height>320</height>
-							<texture diffuse="views/wall/diffuse/square_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(ListItem.Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2204,10 +2160,9 @@
 							<posy>25</posy>
 							<width>320</width>
 							<height>320</height>
-							<info>ListItem.Thumb</info>
-							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
+							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png">$VAR[WallMusicCover]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2220,7 +2175,7 @@
 						</control>
 					</control>
 				</itemlayout>
-				<focusedlayout width="376" height="370" condition="Container.Content(Artists) | [Container.Content(Albums) + Skin.HasSetting(MusicWallNoInfo)]">
+				<focusedlayout width="376" height="370" condition="Container.Content(Artists) | [Container.Content(Albums) + Skin.HasSetting(MusicWallNoInfo)] | Container.Content(Genres)">
 					<control type="group">
 						<posx>108</posx>
 						<posy>15</posy>
@@ -2247,9 +2202,9 @@
 							<posy>25</posy>
 							<width>320</width>
 							<height>320</height>
-							<texture diffuse="views/wall/diffuse/square_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>IsEmpty(ListItem.Thumb)</visible>
+							<visible>Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2257,10 +2212,9 @@
 							<posy>25</posy>
 							<width>320</width>
 							<height>320</height>
-							<info>ListItem.Thumb</info>
-							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
+							<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png">$VAR[WallMusicCover]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-							<visible>!IsEmpty(ListItem.Thumb)</visible>
+							<visible>!Container.Content(Genres)</visible>
 						</control>
 						<control type="image">
 							<description>Poster</description>
@@ -2371,7 +2325,7 @@
 								<scroll>false</scroll>
 							</control>
 							<control type="textbox">
-								<description>Review </description>
+								<description>Review</description>
 								<posx>373</posx>
 								<posy>195</posy>
 								<width>340</width>
@@ -2456,7 +2410,7 @@
 								<scroll>false</scroll>
 							</control>
 							<control type="textbox">
-								<description>Review </description>
+								<description>Review</description>
 								<posx>-340</posx>
 								<posy>195</posy>
 								<width>340</width>
@@ -2475,20 +2429,8 @@
 								<posy>25</posy>
 								<width>320</width>
 								<height>320</height>
-								<texture diffuse="views/wall/diffuse/square_diffuse.png">$INFO[ListItem.ActualIcon,views/wall/other/,]</texture>
+								<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png">$VAR[WallMusicCover]</texture>
 								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>IsEmpty(ListItem.Thumb)</visible>
-							</control>
-							<control type="image">
-								<description>Poster</description>
-								<posx>28</posx>
-								<posy>25</posy>
-								<width>320</width>
-								<height>320</height>
-								<info>ListItem.Thumb</info>
-								<texture background="true" diffuse="views/wall/diffuse/square_diffuse.png" />
-								<aspectratio align="center" scalediffuse="false">scale</aspectratio>
-								<visible>!IsEmpty(ListItem.Thumb)</visible>
 							</control>
 							<control type="image">
 								<description>Poster</description>
@@ -2546,6 +2488,16 @@
 					<align>right</align>
 					<visible>Container.Content(Artists)</visible>
 				</control>
+				<control type="label">
+					<posx>0</posx>
+					<posy>17</posy>
+					<width>1826</width>
+					<font>Font-Condensed-S45</font>
+					<label>$INFO[Container(56).ListItem.Label]</label>
+					<textcolor>bbwhite</textcolor>
+					<align>left</align>
+					<visible>Container.Content(Genres)</visible>
+				</control>
 			</control>
 			<control type="image" id="56101">
 				<visible>Container(56).Row(0)</visible>
@@ -2557,7 +2509,6 @@
 				<animation effect="fade" start="0" end="100" time="0" delay="1" reversible="false">Visible</animation>
 				<animation effect="fade" start="100" end="0" time="1" reversible="false">Hidden</animation>
 			</control>
-			<include>ScrollLetter</include>  
 			<control type="scrollbar" id="70">
 				<description>Scrollbar</description>
 				<posx>25</posx>

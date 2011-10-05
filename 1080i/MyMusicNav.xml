@@ -167,7 +167,7 @@
 					<texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
 					<onclick>Skin.ToggleSetting(MusicWallNoInfo)</onclick>
 					<selected>Skin.HasSetting(MusicWallNoInfo)</selected>
-					<visible>Control.IsVisible(56)</visible>
+					<visible>Control.IsVisible(56) + Container.Content(Albums)</visible>
 					<textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
 					<textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
 					<radioposx>-19</radioposx>
@@ -215,7 +215,7 @@
 					<textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
 					<textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
 					<radioposx>-19</radioposx>
-					<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs)</visible>
+					<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Songs) | Container.Content(Genres)</visible>
 				</control>
 				<control type="radiobutton" id="204">
 					<description>Wall</description>
@@ -227,7 +227,7 @@
 					<textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
 					<textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
 					<radioposx>-19</radioposx>
-					<visible>Container.Content(Artists) | Container.Content(Albums)</visible>
+					<visible>Container.Content(Artists) | Container.Content(Albums) | Container.Content(Genres)</visible>
 				</control>
 				<control type="radiobutton" id="205">
 					<description>CoverList</description>
@@ -348,7 +348,6 @@
 			<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
 			<visible>!Control.HasFocus(70) + [Container(50).Scrolling | Container(50).OnScrollNext | Container(50).OnScrollPrevious] | [Container(56).Scrolling | Container(56).OnScrollNext | Container(56).OnScrollPrevious] | [Container(60).Scrolling | Container(60).OnScrollNext | Container(60).OnScrollPrevious] | [Container(55).Scrolling | Container(55).OnScrollNext | Container(55).OnScrollPrevious]]</visible>
 		</control>
-		
 		<include>FadeBackground</include>
 		<include>Common-Info</include>
 	</controls>

@@ -7,6 +7,11 @@
 		<value condition="stringcompare(Container.FolderPath,musicdb://8/)">DefaultMusicCompilations.png</value>
 		<value>DefaultMusicAlbums.png</value>
 	</variable>
+	
+	<variable name="BannerCoverHeaderImageSongs">
+		<value condition="Window.IsVisible(musicplaylist)">DefaultMusicPlaylists.png</value>
+		<value>DefaultMusicSongs.png</value>
+	</variable>
 
 	<!-- Includes -->
 	<include name="ListCenterRightGroup">
@@ -924,16 +929,7 @@
 					<posy>35</posy>
 					<width>85</width>
 					<height>85</height>
-					<texture>DefaultMusicSongs.png</texture>
-					<visible>!Window.IsVisible(musicplaylist)</visible>
-				</control>
-				<control type="image">
-					<posx>17</posx>
-					<posy>35</posy>
-					<width>85</width>
-					<height>85</height>
-					<texture>DefaultMusicPlaylists.png</texture>
-					<visible>Window.IsVisible(musicplaylist)</visible>
+					<texture>$VAR[BannerCoverHeaderImageSongs]</texture>
 				</control>
 				<control type="grouplist">
 					<posx>110</posx>
@@ -967,6 +963,66 @@
 						<width min="50" max="400">auto</width>
 						<height>120</height>
 						<label>$INFO[Container.NumItems,, $LOCALIZE[134]]</label>
+						<font>Font-Condensed-S28</font>
+						<textcolor>80FFFFFF</textcolor>
+						<scroll>false</scroll>
+						<align>left</align>
+						<visible>IntegerGreaterThan(Container.NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width min="50" max="75">auto</width>
+						<height>120</height>
+						<label>$INFO[ListItem.SortLetter,: ,]</label>
+						<font>Font-Condensed-S28</font>
+						<textcolor>80FFFFFF</textcolor>
+						<scroll>false</scroll>
+						<align>left</align>
+						<visible>Container.Scrolling</visible>
+						<include>visiblehidefadescrollinfo</include>
+					</control>
+				</control>
+			</control>
+			<control type="group">
+				<visible>Container.Content(Genres)</visible>
+				<control type="image">
+					<posx>17</posx>
+					<posy>35</posy>
+					<width>85</width>
+					<height>85</height>
+					<texture>DefaultMusicGenres.png</texture>
+				</control>
+				<control type="grouplist">
+					<posx>110</posx>
+					<posy>0</posy>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="1500">auto</width>
+						<height>120</height>
+						<label>$LOCALIZE[135]</label>
+						<font>Font-Condensed-S36-B</font>
+						<textcolor>C0FFFFFF</textcolor>
+						<scroll>false</scroll>
+						<align>left</align>
+					</control>
+				</control>
+				<control type="grouplist">
+					<posx>110</posx>
+					<posy>33</posy>
+					<orientation>horizontal</orientation>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<height>120</height>
+						<label>$INFO[Container.NumItems,, $LOCALIZE[515]]</label>
+						<font>Font-Condensed-S28</font>
+						<textcolor>80FFFFFF</textcolor>
+						<scroll>false</scroll>
+						<align>left</align>
+						<visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
+					</control>
+					<control type="label">
+						<width min="50" max="400">auto</width>
+						<height>120</height>
+						<label>$INFO[Container.NumItems,, $LOCALIZE[41922]]</label>
 						<font>Font-Condensed-S28</font>
 						<textcolor>80FFFFFF</textcolor>
 						<scroll>false</scroll>

@@ -88,6 +88,41 @@
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	
+	<variable name="PosterViewPoster-1">
+		<value condition="IsEmpty(Container(55).ListItem(-1).Thumb)">$INFO[Container(55).ListItem(-1).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(-1).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster0">
+		<value condition="IsEmpty(Container(55).ListItem(0).Thumb)">$INFO[Container(55).ListItem(0).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(0).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster1">
+		<value condition="IsEmpty(Container(55).ListItem(1).Thumb)">$INFO[Container(55).ListItem(1).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(1).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster2">
+		<value condition="IsEmpty(Container(55).ListItem(2).Thumb)">$INFO[Container(55).ListItem(2).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(2).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster3">
+		<value condition="IsEmpty(Container(55).ListItem(3).Thumb)">$INFO[Container(55).ListItem(3).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(3).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster4">
+		<value condition="IsEmpty(Container(55).ListItem(4).Thumb)">$INFO[Container(55).ListItem(4).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(4).Thumb]</value>
+	</variable>
+	
+	<variable name="PosterViewPoster5">
+		<value condition="IsEmpty(Container(55).ListItem(5).Thumb)">$INFO[Container(55).ListItem(5).ActualIcon,views/posterview/,]</value>
+		<value>$INFO[Container(55).ListItem(5).Thumb]</value>
+	</variable>
+	
 	<variable name="CoverViewBottomInfo">
 		<value condition="Container.Content(Albums)">$INFO[Container(55).ListItem.Album]</value>
 		<value condition="Container.Content(Artists)">$INFO[Container(55).ListItem.Artist]</value>
