@@ -68,6 +68,7 @@
 				<effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
 			</animation>
 			<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
+			<animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop)">Conditional</animation>
 			<visible>Window.IsActive(fullscreenvideo)</visible>
 			<control type="image">
 				<posx>1570</posx>

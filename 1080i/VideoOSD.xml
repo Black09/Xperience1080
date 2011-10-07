@@ -10,6 +10,7 @@
 				<!-- control buttons -->
 				<posx>0</posx>
 				<posy>935</posy>
+				<animation effect="slide" start="0,0" end="0,-890" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop)">Conditional</animation>
 				<control type="button" id="11">
 					<description>Audio Settings</description>
 					<posx>265</posx>
@@ -18,8 +19,8 @@
 					<texturefocus>osd/fullscreen/buttons/audio-settings-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/audio-settings-nofo.png</texturenofocus>
 					<onclick>activatewindow(124)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>9</onleft>
 					<onright>12</onright>
 				</control>
@@ -31,8 +32,8 @@
 					<texturefocus>osd/fullscreen/buttons/video-settings-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/video-settings-nofo.png</texturenofocus>
 					<onclick>activatewindow(123)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>11</onleft>
 					<onright>10</onright>
 				</control>
@@ -47,8 +48,8 @@
 					<enable>VideoPlayer.HasMenu</enable>
 					<onleft>12</onleft>
 					<onright>1</onright>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<animation effect="fade" start="100" end="50" time="150" tween="sine" easing="inout" condition="!VideoPlayer.HasMenu">Conditional</animation>
 				</control>
 				<control type="button" id="1">
@@ -59,8 +60,8 @@
 					<texturefocus>osd/fullscreen/buttons/previous-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/previous-nofo.png</texturenofocus>
 					<onclick>playercontrol(previous)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>10</onleft>
 					<onright>2</onright>
 				</control>
@@ -75,8 +76,8 @@
 					<alttexturefocus>osd/fullscreen/buttons/rewind-on-fo.png</alttexturefocus>
 					<alttexturenofocus>osd/fullscreen/buttons/rewind-on-nofo.png</alttexturenofocus>
 					<onclick>playercontrol(rewind)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>1</onleft>
 					<onright>3</onright>
 				</control>
@@ -91,8 +92,8 @@
 					<alttexturefocus>osd/fullscreen/buttons/play-fo.png</alttexturefocus>
 					<alttexturenofocus>osd/fullscreen/buttons/play-nofo.png</alttexturenofocus>
 					<onclick>playercontrol(play)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>2</onleft>
 					<onright>4</onright>
 				</control>
@@ -104,8 +105,8 @@
 					<texturefocus>osd/fullscreen/buttons/stop-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/stop-nofo.png</texturenofocus>
 					<onclick>playercontrol(stop)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>3</onleft>
 					<onright>5</onright>
 				</control>
@@ -120,8 +121,8 @@
 					<alttexturefocus>osd/fullscreen/buttons/fast-forward-on-fo.png</alttexturefocus>
 					<alttexturenofocus>osd/fullscreen/buttons/fast-forward-on-nofo.png</alttexturenofocus>
 					<onclick>playercontrol(forward)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>4</onleft>
 					<onright>6</onright>
 				</control>
@@ -133,8 +134,8 @@
 					<texturefocus>osd/fullscreen/buttons/next-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/next-nofo.png</texturenofocus>
 					<onclick>playercontrol(next)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>5</onleft>
 					<onright>7</onright>
 				</control>
@@ -155,8 +156,8 @@
 					<usealttexture>IsEmpty(Skin.String(SubtitleScript_Path))</usealttexture>
 					<onleft>6</onleft>
 					<onright>8</onright>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 				</control>
 				<control type="button" id="8">
 					<description>Info</description>
@@ -169,8 +170,8 @@
 					<onclick>SetFocus(8,2901)</onclick>
 					<onleft>7</onleft>
 					<onright>9</onright>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 				</control>
 				<control type="button" id="9">
 					<description>Bookmarks</description>
@@ -180,8 +181,8 @@
 					<texturefocus>osd/fullscreen/buttons/bookmarks-fo.png</texturefocus>
 					<texturenofocus>osd/fullscreen/buttons/bookmarks-nofo.png</texturenofocus>
 					<onclick>ActivateWindow(125)</onclick>
-					<onup>20</onup>
-					<ondown>-</ondown>
+					<onup>Skin.SetBool(VideoOSD.OnTop)</onup>
+					<ondown>Skin.Reset(VideoOSD.OnTop)</ondown>
 					<onleft>8</onleft>
 					<onright>11</onright>
 				</control>
