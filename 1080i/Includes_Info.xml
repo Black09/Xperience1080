@@ -53,7 +53,7 @@
 					<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
 				</animation>
 				<include>visiblehidefadeinfo</include>
-				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))</visible>
 			</control>
 			<control type="image">
 				<description>Loading</description>
@@ -64,7 +64,7 @@
 				<texture>overlays/scan/loading.png</texture>
 				<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
 				<include>visiblehidefadeinfo</include>
-				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))</visible>
 			</control>
 			<control type="image">
 				<description>Loading Small Back</description>
@@ -77,7 +77,7 @@
 					<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
 				</animation>
 				<include>visiblehidefadeinfo</include>
-				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))</visible>
 			</control>
 			<control type="image">
 				<description>Loading Small</description>
@@ -88,12 +88,12 @@
 				<texture>overlays/scan/loading-small.png</texture>
 				<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
 				<include>visiblehidefadeinfo</include>
-				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)</visible>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))</visible>
 			</control>
 			<control type="group">
 				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
 				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).property(TvTunesIsAlive))]">Conditional</animation>
-				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))">Conditional</animation>
 				<include>visiblehidefadeinfo</include>
 				<visible>!Window.IsVisible(infodialog) | [Window.IsVisible(infodialog) + IsEmpty(Window(home).property(info))]</visible>
 				<control type="image">
@@ -129,7 +129,7 @@
 				<aspect>keep</aspect>
 				<texture>overlays/scan/download.png</texture>
 				<include>visiblehidefadeinfo</include>
-				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan)</visible>
+				<visible>Window.IsActive(musicscan) | Window.IsActive(videoscan) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))</visible>
 			</control>
 			<control type="image">
 				<description>Busy</description>
@@ -153,7 +153,7 @@
 				<include>visiblehidefadeinfo</include>
 				<visible>Window.IsActive(mutebug)</visible>
 				<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Player.HasVideo | [Player.HasAudio + IsEmpty(Window(videos).property(TvTunesIsAlive))]">Conditional</animation>
-				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))">Conditional</animation>
 			</control>
 		</control>
 	</include>
@@ -228,7 +228,7 @@
 	<include name="Common-NowPlaying">
 		<control type="group">
 			<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Control.IsVisible(1111)">Conditional</animation>
-			<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
+			<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))">Conditional</animation>
 			<control type="image">
 				<description>Now Playing - Video</description>
 				<posx>174r</posx>
