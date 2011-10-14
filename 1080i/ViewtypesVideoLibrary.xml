@@ -1569,11 +1569,11 @@
 							<width>680</width>
 							<height>51</height>
 							<font>Font-Condensed-S29-B</font>
-							<label fallback="0.0">$INFO[ListItem.Rating,              ,]</label>
+							<label fallback="•••">$INFO[ListItem.Rating,              ,]</label>
 							<textcolor>77white</textcolor>
 							<scroll>false</scroll>
 							<align>right</align>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes)]</visible>
 						</control>
 						<!-- Watched/Unwatched/Star -->
 						<control type="image">
@@ -1655,11 +1655,11 @@
 							<width>680</width>
 							<height>51</height>
 							<font>Font-Condensed-S29-B</font>
-							<label fallback="0.0">$INFO[ListItem.Rating,              ,]</label>
+							<label fallback="•••">$INFO[ListItem.Rating,              ,]</label>
 							<scroll>false</scroll>
 							<align>right</align>
 							<include>listfocusanim</include>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes)]</visible>
 						</control>
 						<!-- Watched/Unwatched/Star -->
 						<control type="image">
@@ -2688,11 +2688,11 @@
 							<width>680</width>
 							<height>51</height>
 							<font>Font-Condensed-S29-B</font>
-							<label fallback="0.0">$INFO[ListItem.Rating,              ,]</label>
+							<label fallback="•••">$INFO[ListItem.Rating,              ,]</label>
 							<textcolor>77white</textcolor>
 							<scroll>false</scroll>
 							<align>right</align>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes)]</visible>
 						</control>
 						<!-- Watched/Unwatched/Star -->
 						<control type="image">
@@ -2702,7 +2702,7 @@
 							<height>49</height>
 							<aspect>scale</aspect>
 							<texture>$VAR[ListWatchedUnwatchedFlagSmallNoFo]</texture>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + !Container.Content(Seasons)</visible>
 						</control>
 						<!-- SD / HD Flag -->
 						<control type="image">
@@ -2716,7 +2716,8 @@
 							<colordiffuse>77white</colordiffuse>
 						</control>
 						<control type="group">
-							<visible>Container.Content(TVShows) + IntegerGreaterThan(ListItem.Property(unWatchedEpisodes),0) + Skin.HasSetting(unwatchedwatched)</visible>
+							<visible>[Container.Content(TVShows) | Container.Content(Seasons)] + IntegerGreaterThan(ListItem.Property(unWatchedEpisodes),0) + Skin.HasSetting(unwatchedwatched)</visible>
+							<animation effect="slide" end="85" time="0" condition="Container.Content(Seasons)">Conditional</animation>
 							<control type="image">
 								<posx>654</posx>
 								<posy>8</posy>
@@ -2774,11 +2775,11 @@
 							<width>100</width>
 							<height>51</height>
 							<font>Font-Condensed-S29-B</font>
-							<label fallback="0.0">$INFO[ListItem.Rating]</label>
+							<label fallback="•••">$INFO[ListItem.Rating]</label>
 							<scroll>false</scroll>
 							<align>right</align>
 							<include>piclistfocusanim</include>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes)]</visible>
 						</control>
 						<!-- Watched/Unwatched/Star -->
 						<control type="image">
@@ -2789,7 +2790,7 @@
 							<aspect>scale</aspect>
 							<texture>$VAR[ListWatchedUnwatchedFlagSmallFo]</texture>
 							<include>piclistfocusanim4</include>
-							<visible>!IsEmpty(ListItem.Overlay)</visible>
+							<visible>!IsEmpty(ListItem.Overlay) + !Container.Content(Seasons)</visible>
 						</control>
 						<!-- SD / HD Flag -->
 						<control type="image">
@@ -2803,7 +2804,8 @@
 							<include>piclistfocusanim</include>
 						</control>
 						<control type="group">
-							<visible>Container.Content(TVShows) + IntegerGreaterThan(ListItem.Property(unWatchedEpisodes),0) + Skin.HasSetting(unwatchedwatched)</visible>
+							<visible>[Container.Content(TVShows) | Container.Content(Seasons)] + IntegerGreaterThan(ListItem.Property(unWatchedEpisodes),0) + Skin.HasSetting(unwatchedwatched)</visible>
+							<animation effect="slide" end="85" time="0" condition="Container.Content(Seasons)">Conditional</animation>
 							<control type="image">
 								<posx>654</posx>
 								<posy>8</posy>
@@ -4743,14 +4745,14 @@
 							<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
 							<effect type="zoom" start="75" end="100" time="300" tween="sine" easing="out" center="auto" />
 						</animation>
-						<visible>!Container(56).OnNext + !Container(56).OnPrevious</visible>
+						<visible>!Container(56).OnNext + !Container(56).OnPrevious + !IsEmpty(Container(56).ListItem.Rating)</visible>
 					</control>
 					<control type="label">
 						<posx>55</posx>
 						<posy>17</posy>
 						<width>150</width>
 						<font>Font-Condensed-S45-B</font>
-						<label fallback="0.0">$INFO[Container(56).ListItem.Rating]</label>
+						<label>$INFO[Container(56).ListItem.Rating]</label>
 						<textcolor>eewhite</textcolor>
 						<align>left</align>
 					</control>
@@ -4767,14 +4769,14 @@
 							<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
 							<effect type="zoom" start="75" end="100" time="300" tween="sine" easing="out" center="auto" />
 						</animation>
-						<visible>!Container(56).OnNext + !Container(56).OnPrevious</visible>
+						<visible>!Container(56).OnNext + !Container(56).OnPrevious + !IsEmpty(Container(56).ListItem.Rating)</visible>
 					</control>
 					<control type="label">
 						<posx>0</posx>
 						<posy>17</posy>
 						<width>150</width>
 						<font>Font-Condensed-S45-B</font>
-						<label fallback="0.0">$INFO[Container(56).ListItem.Rating]</label>
+						<label>$INFO[Container(56).ListItem.Rating]</label>
 						<textcolor>eewhite</textcolor>
 						<align>left</align>
 					</control>
