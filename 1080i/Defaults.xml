@@ -89,7 +89,8 @@
 		<textoffsetx>5</textoffsetx>
 		<align>left</align>
 		<aligny>center</aligny>
-		<reverse>no</reverse>
+		<include condition="!Skin.HasSetting(SpinControl.Default)">SpinControlReversed</include>
+		<include condition="Skin.HasSetting(SpinControl.Default)">SpinControlDefault</include>
 		<pulseonselect>false</pulseonselect>
 	</default>
 	<default type="spincontrol">
@@ -110,7 +111,8 @@
 		<textoffsetx>0</textoffsetx>
 		<align>left</align>
 		<aligny>center</aligny>
-		<reverse>no</reverse>
+		<include condition="!Skin.HasSetting(SpinControl.Default)">SpinControlReversed</include>
+		<include condition="Skin.HasSetting(SpinControl.Default)">SpinControlDefault</include>
 		<pulseonselect>false</pulseonselect>
 	</default>
 	<default type="sliderex">

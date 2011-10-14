@@ -176,6 +176,13 @@
 					<enable>!Skin.HasSetting(DisableNowPlayingNotifications)</enable>
 					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(1004)">Conditional</animation>
 				</control>
+				<control type="radiobutton" id="1012">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>!Skin.HasSetting(SpinControl.Default)</selected>
+					<onclick>Skin.ToggleSetting(SpinControl.Default)</onclick>
+					<label>$LOCALIZE[41112]</label>
+				</control>
 				<control type="radiobutton" id="1005">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
