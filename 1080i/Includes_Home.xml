@@ -668,7 +668,7 @@
 				<item id="15">
 					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
