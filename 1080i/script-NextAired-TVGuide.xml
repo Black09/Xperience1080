@@ -1,14 +1,78 @@
 <window id="2003">
 	<onload>ClearProperty(TVGuide.MondayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.TuesdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.WednesdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.ThursdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.FridayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.SaturdayList,Home)</onload>
+	<onload>ClearProperty(TVGuide.SundayList,Home)</onload>
 	<controls>
 		<include>CommonContent</include>
-		<control type="image">
-			<description>Background fanart</description>
-			<include>FullscreenDimensions</include>
-			<fadetime>500</fadetime>
-			<include>Animation_FanartFade</include>
-			<texture background="true">$VAR[TVGuideInfoFanart]</texture>
-			<aspectratio>scale</aspectratio>
+		<control type="group">
+		    <visible>!IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart))</visible>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(200).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(200) | !IsEmpty(Window(Home).property(TVGuide.MondayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(201).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(201) | !IsEmpty(Window(Home).property(TVGuide.TuesdayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(202).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(202) | !IsEmpty(Window(Home).property(TVGuide.WednesdayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(203).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(203) | !IsEmpty(Window(Home).property(TVGuide.ThursdayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(204).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(204) | !IsEmpty(Window(Home).property(TVGuide.FridayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(205).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(205) | !IsEmpty(Window(Home).property(TVGuide.SaturdayList))</visible>
+		    </control>
+		    <control type="image">
+		    	<description>Background fanart</description>
+		    	<include>FullscreenDimensions</include>
+		    	<fadetime>500</fadetime>
+		    	<include>Animation_FanartFade</include>
+		    	<texture background="true">$INFO[Container(206).ListItem.Property(Fanart)]</texture>
+		    	<aspectratio>scale</aspectratio>
+		    	<visible>Control.HasFocus(206) | !IsEmpty(Window(Home).property(TVGuide.SundayList))</visible>
+		    </control>
 		</control>
 		<include>FadeBackgroundDialog</include>
 		<control type="image">
@@ -101,204 +165,212 @@
 						<aligny>center</aligny>
 					</control>
 				</control>
-			</control>		
-			<control type="list" id="200">
-				<description>Monday list</description>
-				<posx>118</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>200</onup>
-				<ondown>200</ondown>
-				<onleft>SetProperty(TVGuide.MondayList,1,Home)</onleft>
-				<onleft>9010</onleft>
-				<onright>201</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(200)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(200)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
 			</control>
-			<control type="list" id="201">
-				<description>Tuesday list</description>
-				<posx>293</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>201</onup>
-				<ondown>201</ondown>
-				<onleft>200</onleft>
-				<onright>202</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(201)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(201)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
-			<control type="list" id="202">
-				<description>Wednesday list</description>
-				<posx>468</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>202</onup>
-				<ondown>202</ondown>
-				<onleft>201</onleft>
-				<onright>203</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(202)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(202)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
-			<control type="list" id="203">
-				<description>Thursday list</description>
-				<posx>643</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>203</onup>
-				<ondown>203</ondown>
-				<onleft>202</onleft>
-				<onright>204</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(203)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(203)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
-			<control type="list" id="204">
-				<description>Friday list</description>
-				<posx>818</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>204</onup>
-				<ondown>204</ondown>
-				<onleft>203</onleft>
-				<onright>205</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(204)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(204)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
-			<control type="list" id="205">
-				<description>Saturday list</description>
-				<posx>993</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>205</onup>
-				<ondown>205</ondown>
-				<onleft>204</onleft>
-				<onright>206</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(205)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(205)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
-			<control type="list" id="206">
-				<description>Sunday list</description>
-				<posx>1168</posx>
-				<posy>194</posy>
-				<width>175</width>
-				<height>700</height>
-				<orientation>vertical</orientation>
-				<scrolltime>0</scrolltime>
-				<onup>206</onup>
-				<ondown>206</ondown>
-				<onleft>205</onleft>
-				<onright>200</onright>
-				<itemgap>0</itemgap>
-				<itemlayout height="140" width="175">
-					<include>TVGuideItemLayout</include>
-				</itemlayout>
-				<focusedlayout height="140" width="175">
-					<control type="group">
-						<visible>Control.HasFocus(206)</visible>
-						<include>TVGuideFocusedLayoutFocus</include>
-					</control>
-					<control type="group">
-						<visible>!Control.HasFocus(206)</visible>
-						<include>TVGuideFocusedLayoutNoFocus</include>
-					</control>
-					<include>TVGuideFocusedLayoutImage</include>
-				</focusedlayout>
-			</control>
+			<control type="group" id="9001">
+			    <control type="list" id="200">
+			    	<description>Monday list</description>
+			    	<posx>118</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.MondayList,1,Home)</onup>
+			    	<ondown>200</ondown>
+			    	<onleft>206</onleft>
+			    	<onright>201</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(200)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(200)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="201">
+			    	<description>Tuesday list</description>
+			    	<posx>293</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.TuesdayList,1,Home)</onup>
+			    	<ondown>201</ondown>
+			    	<onleft>200</onleft>
+			    	<onright>202</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(201)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(201)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="202">
+			    	<description>Wednesday list</description>
+			    	<posx>468</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.WednesdayList,1,Home)</onup>
+			    	<ondown>202</ondown>
+			    	<onleft>201</onleft>
+			    	<onright>203</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(202)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(202)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="203">
+			    	<description>Thursday list</description>
+			    	<posx>643</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.ThursdayList,1,Home)</onup>
+			    	<ondown>203</ondown>
+			    	<onleft>202</onleft>
+			    	<onright>204</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(203)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(203)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="204">
+			    	<description>Friday list</description>
+			    	<posx>818</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.FridayList,1,Home)</onup>
+			    	<ondown>204</ondown>
+			    	<onleft>203</onleft>
+			    	<onright>205</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(204)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(204)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="205">
+			    	<description>Saturday list</description>
+			    	<posx>993</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.SaturdayList,1,Home)</onup>
+			    	<ondown>205</ondown>
+			    	<onleft>204</onleft>
+			    	<onright>206</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(205)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(205)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			    <control type="list" id="206">
+			    	<description>Sunday list</description>
+			    	<posx>1168</posx>
+			    	<posy>194</posy>
+			    	<width>175</width>
+			    	<height>700</height>
+			    	<orientation>vertical</orientation>
+			    	<scrolltime>0</scrolltime>
+			    	<onup>9010</onup>
+			    	<onup>SetProperty(TVGuide.SundayList,1,Home)</onup>
+			    	<ondown>206</ondown>
+			    	<onleft>205</onleft>
+			    	<onright>200</onright>
+			    	<itemgap>0</itemgap>
+			    	<itemlayout height="140" width="175">
+			    		<include>TVGuideItemLayout</include>
+			    	</itemlayout>
+			    	<focusedlayout height="140" width="175">
+			    		<control type="group">
+			    			<visible>Control.HasFocus(206)</visible>
+			    			<include>TVGuideFocusedLayoutFocus</include>
+			    		</control>
+			    		<control type="group">
+			    			<visible>!Control.HasFocus(206)</visible>
+			    			<include>TVGuideFocusedLayoutNoFocus</include>
+			    		</control>
+			    		<include>TVGuideFocusedLayoutImage</include>
+			    	</focusedlayout>
+			    </control>
+			</control>	
 			<control type="group">
 				<description>Additional show info (monday)</description>
 				<posx>1357</posx>
@@ -311,11 +383,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(200).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2001) + !stringcompare(Control.GetLabel(2001),empty.png)]</visible>
+					<visible>![Control.IsVisible(2001) + !stringcompare(Control.GetLabel(2001),.)]</visible>
 				</control>
 				<control type="image" id="2001">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(200).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(200).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -337,7 +409,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(200).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -369,7 +441,7 @@
 				<description>Additional show info (tuesday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(201)</visible>
+				<visible>Control.HasFocus(201) | !IsEmpty(Window(Home).property(TVGuide.TuesdayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(201).ListItem.Label]</label>
@@ -377,11 +449,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(201).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2011) + !stringcompare(Control.GetLabel(2011),empty.png)]</visible>
+					<visible>![Control.IsVisible(2011) + !stringcompare(Control.GetLabel(2011),.)]</visible>
 				</control>
 				<control type="image" id="2011">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(201).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(201).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -403,7 +475,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(201).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -435,7 +507,7 @@
 				<description>Additional show info (wednesday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(202)</visible>
+				<visible>Control.HasFocus(202) | !IsEmpty(Window(Home).property(TVGuide.WednesdayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(202).ListItem.Label]</label>
@@ -443,11 +515,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(202).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2021) + !stringcompare(Control.GetLabel(2021),empty.png)]</visible>
+					<visible>![Control.IsVisible(2021) + !stringcompare(Control.GetLabel(2021),.)]</visible>
 				</control>
 				<control type="image" id="2021">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(202).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(202).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -469,7 +541,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(202).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -501,7 +573,7 @@
 				<description>Additional show info (thursday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(203)</visible>
+				<visible>Control.HasFocus(203) | !IsEmpty(Window(Home).property(TVGuide.ThursdayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(203).ListItem.Label]</label>
@@ -509,11 +581,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(203).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2031) + !stringcompare(Control.GetLabel(2031),empty.png)]</visible>
+					<visible>![Control.IsVisible(2031) + !stringcompare(Control.GetLabel(2031),.)]</visible>
 				</control>
 				<control type="image" id="2031">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(203).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(203).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -535,7 +607,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(203).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -567,7 +639,7 @@
 				<description>Additional show info (friday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(204)</visible>
+				<visible>Control.HasFocus(204) | !IsEmpty(Window(Home).property(TVGuide.FridayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(204).ListItem.Label]</label>
@@ -575,11 +647,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(204).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2041) + !stringcompare(Control.GetLabel(2041),empty.png)]</visible>
+					<visible>![Control.IsVisible(2041) + !stringcompare(Control.GetLabel(2041),.)]</visible>
 				</control>
 				<control type="image" id="2041">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(204).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(204).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -601,7 +673,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(204).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -633,7 +705,7 @@
 				<description>Additional show info (saturday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(205)</visible>
+				<visible>Control.HasFocus(205) | !IsEmpty(Window(Home).property(TVGuide.SaturdayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(205).ListItem.Label]</label>
@@ -641,11 +713,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(205).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2051) + !stringcompare(Control.GetLabel(2051),empty.png)]</visible>
+					<visible>![Control.IsVisible(2051) + !stringcompare(Control.GetLabel(2051),.)]</visible>
 				</control>
 				<control type="image" id="2051">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(205).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(205).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -667,7 +739,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(205).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -699,7 +771,7 @@
 				<description>Additional show info (sunday)</description>
 				<posx>1357</posx>
 				<posy>120</posy>
-				<visible>Control.HasFocus(206)</visible>
+				<visible>Control.HasFocus(206) | !IsEmpty(Window(Home).property(TVGuide.SundayList))</visible>
 				<control type="label">
 					<include>TVGuideInfoEpisodeTitleVars</include>
 					<label>$INFO[Container(206).ListItem.Label]</label>
@@ -707,11 +779,11 @@
 				<control type="image">
 					<include>TVGuideInfoFanartVars</include>
 					<texture background="true">$INFO[Container(206).ListItem.Property(Fanart)]</texture>
-					<visible>![Control.IsVisible(2061) + !stringcompare(Control.GetLabel(2061),empty.png)]</visible>
+					<visible>![Control.IsVisible(2061) + !stringcompare(Control.GetLabel(2061),.)]</visible>
 				</control>
 				<control type="image" id="2061">
 					<include>TVGuideInfoFanartVars</include>
-					<texture background="true" fallback="empty.png">$INFO[Container(206).ListItem.Property(Path),,thumb.jpg]</texture>
+					<texture background="true" fallback=".">$INFO[Container(206).ListItem.Property(Path),,landscape.jpg]</texture>
 					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs))</visible>
 				</control>
 				<control type="group">
@@ -733,7 +805,7 @@
 						<include>TVGuideInfoButtonVars</include>
 						<posy>124</posy>
 						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Genres)][/COLOR]</label2>
+						<label2>[COLOR=FF585858]$INFO[Container(206).ListItem.Property(Genre)][/COLOR]</label2>
 					</control>
 					<control type="button">
 						<include>TVGuideInfoButtonVars</include>
@@ -796,8 +868,8 @@
 				<width>404</width>
 				<height>399</height>
 				<itemgap>0</itemgap>
-				<onleft>206</onleft>
-				<onright>200</onright>
+				<onleft>9001</onleft>
+				<onright>9001</onright>
 				<onup>9111</onup>
 				<ondown>9111</ondown>
 				<include>GeneralOptionsAnimations</include>
@@ -808,7 +880,19 @@
 					<texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
 					<texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
 					<onleft>ClearProperty(TVGuide.MondayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.TuesdayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.WednesdayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.ThursdayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.FridayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.SaturdayList,Home)</onleft>
+					<onleft>ClearProperty(TVGuide.SundayList,Home)</onleft>
 					<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.FridayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
+					<onright>ClearProperty(TVGuide.SundayList,Home)</onright>
 				</control>
 			</control>
 			<control type="group">
