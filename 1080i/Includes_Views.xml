@@ -173,4 +173,9 @@
 		<value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	
+	<variable name="VideoInfoThumb">
+	    <value condition="Container.Content(Episodes)">$INFO[ListItem.Property(SeasonThumb)]</value>
+	    <value>$INFO[ListItem.Thumb]</value>
+	</variable>
+	
 </includes>
