@@ -145,10 +145,10 @@
 <!-- ===== -->
 
 	<include name="StageVisibility">
-		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(60) + !Window.IsActive(movieinformation) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
+		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(58) + !Control.IsVisible(60) + !Control.IsVisible(61) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
 	</include>
 	<include name="StageHidden">
-		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(60) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
+		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(60) | Control.IsVisible(61) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Window.IsActive(1122) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
 	</include>
 	<include name="CommonStage">
 		<control type="group">
@@ -226,7 +226,7 @@
 			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out" condition="IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
 			<animation effect="fade" time="300" start="0" end="100" delay="500" tween="sine" easing="out" condition="!IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
 			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[Control.IsVisible(55) | Control.IsVisible(60) | Skin.HasSetting(dimfanart) | [Window.IsActive(contextmenu) + !Control.IsVisible(60) + !Window.IsVisible(addoninformation)]] + !Window.IsActive(movieinformation) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+			<visible>[Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(60) | Control.IsVisible(61) | Skin.HasSetting(dimfanart) | [Window.IsActive(contextmenu) + !Control.IsVisible(60) + !Window.IsVisible(addoninformation)]] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
@@ -234,7 +234,7 @@
 			<aspectratio>stretch</aspectratio>
 			<animation effect="fade" time="300" start="0" end="65" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="65" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>Window.IsActive(contextmenu) + Control.IsVisible(60)</visible>
+			<visible>Window.IsActive(contextmenu) + [Control.IsVisible(60) | Control.IsVisible(61)]</visible>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
@@ -259,7 +259,7 @@
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" delay="500" time="300" />
 				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" delay="500" time="300" />
 			</animation>
-			<visible>Control.IsVisible(55) + !Window.IsActive(movieinformation) + !Window.IsActive(musicinformation)</visible>
+			<visible>[Control.IsVisible(55) | Control.IsVisible(57)] + !Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122)</visible>
 		</control>
 	</include>
 	<include name="BackgroundFanartMusicOSD">
@@ -324,7 +324,7 @@
 			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml)</visible>
+			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundInfo">
@@ -333,7 +333,7 @@
 			<texture>dialogs/video-info/diffuse.png</texture>
 			<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="out">Hidden</animation>
-			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation)</visible>
+			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation) | Window.IsActive(1122)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundMovieInfo">
@@ -350,7 +350,7 @@
 			<include>FullscreenDimensions</include>
 			<texture>windows/common/black2.png</texture>
 			<include>OpenCloseAnimationTwo</include>
-			<visible>ControlGroup(9000).HasFocus() + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation)</visible>
+			<visible>ControlGroup(9000).HasFocus() + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation) + !Window.IsActive(1122)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundThree">
@@ -452,7 +452,7 @@
 				<include>ScrollingLabelRight</include>
 				<label>$INFO[ListItem.SortLetter]</label>
 			</control>
-			<visible>Container(55).Scrolling + !Container.Content(Seasons)</visible>
+			<visible>[Container(55).Scrolling | Container(57).Scrolling] + !Container.Content(Seasons)</visible>
 		</control>
 	</include>
 	<include name="ScrollLetterDefault">
@@ -464,7 +464,7 @@
 				<include>ScrollingLabelRight</include>
 				<label>$INFO[ListItem.SortLetter]</label>
 			</control>
-			<visible>[Container(50).Scrolling | Container(56).Scrolling] + !Container.Content(Seasons)</visible>
+			<visible>[Container(50).Scrolling | Container(56).Scrolling | Container(58).Scrolling] + !Container.Content(Seasons)</visible>
 		</control>
 	</include>
 	<include name="ScrollLetterFileManager">

@@ -71,11 +71,11 @@
 			</include>
 			
 			<include name="OpenCloseAnimationContext">				
-				<animation type="WindowOpen" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !Window.IsVisible(addoninformation)" reversible="false">
+				<animation type="WindowOpen" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation)" reversible="false">
 					<effect type="slide" start="0,-20" end="0,0" time="200" tween="sine" easing="out" />
 					<effect type="fade" start="0" end="100" time="200" tween="sine" easing="out" />
 				</animation>
-				<animation type="WindowClose" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !Window.IsVisible(addoninformation)" reversible="false">
+				<animation type="WindowClose" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation)" reversible="false">
 					<effect type="slide" start="0,0" end="0,-20" time="200" tween="sine" easing="out" />
 					<effect type="fade" start="100" end="0" time="200" easing="out" tween="sine" />
 				</animation>
@@ -87,11 +87,11 @@
 					<effect type="rotatey" start="0" end="-180" time="400" tween="cubic" easing="inout" center="291,0" />
 					<effect type="fade" start="100" end="0" time="0" delay="225" />
 				</animation>
-				<animation type="WindowOpen" condition="stringcompare(Container.ViewMode,CoverView)">
+				<animation type="WindowOpen" condition="stringcompare(Container.ViewMode,CoverView) | stringcompare(Container.ViewMode,PosterView (Square))">
 					<effect type="rotatey" start="-180" end="0" time="400" tween="cubic" easing="inout" center="326,0" />
 					<effect type="fade" start="0" end="100" time="0" delay="175" />
 				</animation>
-				<animation type="WindowClose" condition="stringcompare(Container.ViewMode,CoverView)">
+				<animation type="WindowClose" condition="stringcompare(Container.ViewMode,CoverView) | stringcompare(Container.ViewMode,PosterView (Square))">
 					<effect type="rotatey" start="0" end="-180" time="400" tween="cubic" easing="inout" center="326,0" />
 					<effect type="fade" start="100" end="0" time="0" delay="225" />
 				</animation>
@@ -923,11 +923,11 @@
 					<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" /> 
 					<effect type="zoom" start="100" end="50" center="960,540" tween="sine" easing="inout" time="300" />
 				</animation>
-				<animation type="Conditional" condition="!Window.IsActive(movieinformation) + !Window.IsActive(musicinformation)" reversible="false">
+				<animation type="Conditional" condition="!Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122)" reversible="false">
 					<effect type="fade" start="0" end="100" time="300" delay="350" tween="sine" easing="in" />
 					<effect type="zoom" start="115" end="100" time="300" delay="350" center="auto" tween="sine" easing="out" />
 				</animation>
-				<animation type="Conditional" condition="Window.IsActive(movieinformation) | Window.IsActive(musicinformation)" reversible="false">
+				<animation type="Conditional" condition="Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(1122)" reversible="false">
 					<effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" /> 
 					<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
 				</animation>
