@@ -643,7 +643,7 @@
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
 				<visible>ControlGroup(3).HasFocus(34)</visible>
-				<control type="button" id="5001">
+				<control type="button" id="5000">
 					<width>1210</width>
 					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
 					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
@@ -652,6 +652,17 @@
 					<onclick>ClearProperty(CustomDialogType)</onclick>
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41251])</onclick>
+					<onclick>ActivateWindow(3002)</onclick>
+				</control>
+				<control type="button" id="5001">
+					<width>1210</width>
+					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+					<texturenofocus border="150,1,150,1">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<label>$LOCALIZE[41444]</label>
+					<onclick>ClearProperty(CustomDialogType)</onclick>
+					<onclick>ClearProperty(CustomDialog)</onclick>
+					<onclick>SetProperty(Dialog,$LOCALIZE[41444])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
 				</control>
 				<control type="button" id="5002">
