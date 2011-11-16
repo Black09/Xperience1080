@@ -2,1153 +2,1193 @@
 	<defaultcontrol always="true">3</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
-		<control type="group">
-			<include>KeyboardAnimations</include>
-			<visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog)</visible>
-			
-			<control type="label">
-				<description>Heading</description>
-				<posx>473</posx>
-				<posy>274</posy>
-				<width>974</width>
-				<font>Font-Condensed-S34</font>
-				<label>$INFO[Window(1111).property(Dialog)]</label>
-				<textcolor>ddwhite</textcolor>
-				<align>center</align>
-			</control>
-			
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>windows/settings/settings-customdialog.png</texture>
-			</control>
-			
-			<control type="grouplist" id="3">
-				<posx>1105</posx>
-				<posy>356</posy>
-				<width>257</width>
-				<height>360</height>
-				<itemgap>0</itemgap>
-				<onup>3</onup>
-				<ondown>3</ondown>
-				<onleft>4</onleft>
-				<onright>5</onright>
-				<scrolltime>0</scrolltime>
-				<orientation>vertical</orientation>
-				<control type="radiobutton" id="2101">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 1</label>
-					<onclick>Skin.SetString(CustomHomePanel1.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel1.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel1)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel1)</selected>
-				</control>
-				<control type="radiobutton" id="2102">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 2</label>
-					<onclick>Skin.SetString(CustomHomePanel2.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel2.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel2)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel2)</selected>
-				</control>
-				<control type="radiobutton" id="2103">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 3</label>
-					<onclick>Skin.SetString(CustomHomePanel3.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel3.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel3)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel3)</selected>
-				</control>
-				<control type="radiobutton" id="2104">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 4</label>
-					<onclick>Skin.SetString(CustomHomePanel4.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel4.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel4)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel4)</selected>
-				</control>
-				<control type="radiobutton" id="2105">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 5</label>
-					<onclick>Skin.SetString(CustomHomePanel5.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel5.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel5)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel5)</selected>
-				</control>
-				<control type="radiobutton" id="2106">
-					<include>SettingsBackgroundDialogRadioButtonVars</include>
-					<label>$LOCALIZE[41137] 6</label>
-					<onclick>Skin.SetString(CustomHomePanel6.Type,0)</onclick>
-					<onclick>Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.Label)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.Icon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.DimIcon)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.ShowOverlay)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.Path)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.SingleImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.MultiImage)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.VideoFanart)</onclick>
-					<onclick>Skin.Reset(CustomHomePanel6.MusicFanart)</onclick>
-					<onclick>Skin.ToggleSetting(CustomHomePanel6)</onclick>
-					<selected>Skin.HasSetting(CustomHomePanel6)</selected>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2101) + Skin.HasSetting(CustomHomePanel1)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel1.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel1.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel1.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel1.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel1.DimIcon))">Skin.SetString(CustomHomePanel1.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel1.DimIcon))">Skin.Reset(CustomHomePanel1.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel1.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))">Skin.SetString(CustomHomePanel1.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))">Skin.Reset(CustomHomePanel1.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel1.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel1.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel1.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetFile(CustomHomePanel1.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetFile(CustomHomePanel1.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2102) + Skin.HasSetting(CustomHomePanel2)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel2.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel2.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel2.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel2.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel2.DimIcon))">Skin.SetString(CustomHomePanel2.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel2.DimIcon))">Skin.Reset(CustomHomePanel2.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel2.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))">Skin.SetString(CustomHomePanel2.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))">Skin.Reset(CustomHomePanel2.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel2.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel2.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel2.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetFile(CustomHomePanel2.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetFile(CustomHomePanel2.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2103) + Skin.HasSetting(CustomHomePanel3)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel3.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel3.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel3.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel3.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel3.DimIcon))">Skin.SetString(CustomHomePanel3.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel3.DimIcon))">Skin.Reset(CustomHomePanel3.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel3.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))">Skin.SetString(CustomHomePanel3.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))">Skin.Reset(CustomHomePanel3.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel3.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel3.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel3.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetFile(CustomHomePanel3.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetFile(CustomHomePanel3.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2104) + Skin.HasSetting(CustomHomePanel4)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel4.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel4.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel4.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel4.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel4.DimIcon))">Skin.SetString(CustomHomePanel4.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel4.DimIcon))">Skin.Reset(CustomHomePanel4.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel4.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))">Skin.SetString(CustomHomePanel4.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))">Skin.Reset(CustomHomePanel4.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel4.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel4.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel4.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetFile(CustomHomePanel4.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetFile(CustomHomePanel4.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2105) + Skin.HasSetting(CustomHomePanel5)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel5.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel5.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel5.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel5.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel5.DimIcon))">Skin.SetString(CustomHomePanel5.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel5.DimIcon))">Skin.Reset(CustomHomePanel5.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel5.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))">Skin.SetString(CustomHomePanel5.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))">Skin.Reset(CustomHomePanel5.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel5.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel5.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel5.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetFile(CustomHomePanel5.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetFile(CustomHomePanel5.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>559</posx>
-				<posy>356</posy>
-				<visible>ControlGroup(3).HasFocus(2106) + Skin.HasSetting(CustomHomePanel6)</visible>
-				<control type="grouplist" id="4">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>532</width>
-					<height>360</height>
-					<itemgap>0</itemgap>
-					<onup>2406</onup>
-					<ondown>2405</ondown>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<scrolltime>0</scrolltime>
-					<orientation>vertical</orientation>
-					<control type="button" id="2141">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41138]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel6.Label)]</label2>
-						<onclick>Skin.SetString(CustomHomePanel6.Label)</onclick>
-					</control>
-					<control type="button" id="2142">
-						<include>SettingsCustomDialogButtonVars</include>
-						<label>$LOCALIZE[41139]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel6.Icon)]</label2>
-						<onclick>Skin.SetImage(CustomHomePanel6.Icon)</onclick>
-					</control>
-					<control type="radiobutton" id="2403">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41140]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel6.DimIcon))">Skin.SetString(CustomHomePanel6.DimIcon,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel6.DimIcon))">Skin.Reset(CustomHomePanel6.DimIcon)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel6.DimIcon))</selected>
-					</control>
-					<control type="radiobutton" id="2404">
-						<include>SettingsCustomDialogRadioButtonVars</include>
-						<label>$LOCALIZE[41144]</label>
-						<onclick condition="IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))">Skin.SetString(CustomHomePanel6.ShowOverlay,on)</onclick>
-						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))">Skin.Reset(CustomHomePanel6.ShowOverlay)</onclick>
-						<selected>!IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))</selected>
-					</control>
-				</control>
-				
-				<control type="group">
-					<control type="image">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>532</width>
-						<height>60</height>
-						<texture border="2">dialogs/content/highlight-light.png</texture>
-						<aspectratio>stretch</aspectratio>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>FF585858</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel6.TypeName)]</label2>
-						<visible>!ControlGroup(2405).HasFocus</visible>
-					</control>
-					<control type="button">
-						<posx>0</posx>
-						<posy>240</posy>
-						<width>455</width>
-						<height>60</height>
-						<align>left</align>
-						<aligny>top</aligny>
-						<textoffsetx>20</textoffsetx>
-						<textoffsety>8</textoffsety>
-						<font>Font-Condensed-S30</font>
-						<textcolor>eewhite</textcolor>
-						<label>$LOCALIZE[41141]</label>
-						<label2>$INFO[Skin.String(CustomHomePanel6.TypeName)]</label2>
-						<visible>ControlGroup(2405).HasFocus</visible>
-					</control>
-				</control>
-				
-				<control type="grouplist" id="2405">
-					<description>button area</description>
-					<posx>439</posx>
-					<posy>240</posy>
-					<width>120</width>
-					<height>60</height>
-					<itemgap>0</itemgap>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>4</onup>
-					<ondown>2406</ondown>
-					<orientation>horizontal</orientation>
-					<control type="button" id="24051">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
-					</control>
-					<control type="button" id="24052">
-						<width>43</width>
-						<height>60</height>
-						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
-						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.Type,1)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41146])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.Type,2)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41147])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.Type,3)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41148])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.Type,4)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41149])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Type,5)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41150])</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,6)</onclick>
-						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
-					</control>
-				</control>
-				
-				<control type="button" id="2406">
-					<posx>0</posx>
-					<posy>300</posy>
-					<onleft>5</onleft>
-					<onright>3</onright>
-					<onup>2405</onup>
-					<ondown>2141</ondown>
-					<include>SettingsCustomDialogButtonVars</include>
-					<label>$LOCALIZE[41142]</label>
-					<label2>$INFO[Skin.String(CustomHomePanel6.Path)]</label2>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.video)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.audio)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.image)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.executable)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetFile(CustomHomePanel6.Path,.xsp,special://userdata/playlists/video/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetFile(CustomHomePanel6.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Path)</onclick>
-				</control>
-			</control>
-			
-			<control type="group">
-				<posx>547</posx>
-				<posy>712</posy>
-				<control type="button" id="5">
-					<description>Close</description>
-					<texturefocus>buttons/cancel-fo.png</texturefocus>
-					<texturenofocus>buttons/cancel-nf.png</texturenofocus>
-					<include>DialogButtonDimensions</include>
-					<onleft>3</onleft>
-					<onright>3</onright>
-					<onup>3</onup>
-					<ondown>3</ondown>
-					<label>$LOCALIZE[42002]</label>
-					<onclick>PreviousMenu</onclick>
-				</control>
-				<control type="label">
-					<description>Info</description>
-					<posx>880</posx>
-					<width>500</width>
-					<font>Font-Condensed-S26-B</font>
-					<align>right</align>
-					<include>DialogButtonDimensions</include>
-					<label>$LOCALIZE[41143]</label>
-					<visible>Control.HasFocus(2142)</visible>
-					<include>visiblehidefadeinfo</include>
-				</control>
-			</control>
-		</control>
+	    <control type="group">
+	        <visible>!Window.IsVisible(yesnodialog)</visible>
+	        <animation type="Visible" reversible="false">
+	        	<effect type="zoom" start="75" end="100" center="960,540" easing="out" tween="back" time="300" />
+	        	<effect type="fade" start="0" end="100" time="175" />
+	        </animation>
+	        <animation type="Hidden" reversible="false">
+	        	<effect type="fade" start="100" end="0" time="0" />
+	        </animation>
+    		<control type="group">
+    			<include>KeyboardAnimations</include>
+    			<visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog)</visible>
+    			
+    			<control type="label">
+    				<description>Heading</description>
+    				<posx>473</posx>
+    				<posy>274</posy>
+    				<width>974</width>
+    				<font>Font-Condensed-S34</font>
+    				<label>$INFO[Window(1111).property(Dialog)]</label>
+    				<textcolor>ddwhite</textcolor>
+    				<align>center</align>
+    			</control>
+    			
+    			<control type="image">
+    				<include>FullscreenDimensions</include>
+    				<texture>windows/settings/settings-customdialog.png</texture>
+    			</control>
+    			
+    			<control type="grouplist" id="3">
+    				<posx>1105</posx>
+    				<posy>356</posy>
+    				<width>257</width>
+    				<height>360</height>
+    				<itemgap>0</itemgap>
+    				<onup>3</onup>
+    				<ondown>3</ondown>
+    				<onleft>4</onleft>
+    				<onright>5</onright>
+    				<scrolltime>0</scrolltime>
+    				<orientation>vertical</orientation>
+    				<control type="radiobutton" id="2101">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 1</label>
+    					<onclick>Skin.SetString(CustomHomePanel1.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel1.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel1)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel1)</selected>
+    				</control>
+    				<control type="radiobutton" id="2102">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 2</label>
+    					<onclick>Skin.SetString(CustomHomePanel2.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel2.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel2)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel2)</selected>
+    				</control>
+    				<control type="radiobutton" id="2103">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 3</label>
+    					<onclick>Skin.SetString(CustomHomePanel3.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel3.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel3)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel3)</selected>
+    				</control>
+    				<control type="radiobutton" id="2104">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 4</label>
+    					<onclick>Skin.SetString(CustomHomePanel4.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel4.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel4)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel4)</selected>
+    				</control>
+    				<control type="radiobutton" id="2105">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 5</label>
+    					<onclick>Skin.SetString(CustomHomePanel5.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel5.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel5)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel5)</selected>
+    				</control>
+    				<control type="radiobutton" id="2106">
+    					<include>SettingsBackgroundDialogRadioButtonVars</include>
+    					<label>$LOCALIZE[41137] 6</label>
+    					<onclick>Skin.SetString(CustomHomePanel6.Type,0)</onclick>
+    					<onclick>Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.Label)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.Icon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.DimIcon)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.ShowOverlay)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.Path)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.SingleImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.MultiImage)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.VideoFanart)</onclick>
+    					<onclick>Skin.Reset(CustomHomePanel6.MusicFanart)</onclick>
+    					<onclick>Skin.ToggleSetting(CustomHomePanel6)</onclick>
+    					<selected>Skin.HasSetting(CustomHomePanel6)</selected>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2101) + Skin.HasSetting(CustomHomePanel1)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel1.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel1.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel1.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel1.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel1.DimIcon))">Skin.SetString(CustomHomePanel1.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel1.DimIcon))">Skin.Reset(CustomHomePanel1.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel1.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))">Skin.SetString(CustomHomePanel1.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))">Skin.Reset(CustomHomePanel1.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel1.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel1.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel1.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetString(CustomHomePanel1.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel1.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),0)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),1)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),2)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),3)">Skin.SetAddon(CustomHomePanel1.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">Skin.SetFile(CustomHomePanel1.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">Skin.SetFile(CustomHomePanel1.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">RunScript(script.favourites,property=CustomHomePanel1)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),7)">Skin.SetString(CustomHomePanel1.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2102) + Skin.HasSetting(CustomHomePanel2)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel2.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel2.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel2.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel2.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel2.DimIcon))">Skin.SetString(CustomHomePanel2.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel2.DimIcon))">Skin.Reset(CustomHomePanel2.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel2.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))">Skin.SetString(CustomHomePanel2.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))">Skin.Reset(CustomHomePanel2.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel2.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel2.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel2.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetString(CustomHomePanel2.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel2.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),0)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),1)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),2)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),3)">Skin.SetAddon(CustomHomePanel2.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">Skin.SetFile(CustomHomePanel2.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">Skin.SetFile(CustomHomePanel2.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">RunScript(script.favourites,property=CustomHomePanel2)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),7)">Skin.SetString(CustomHomePanel2.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2103) + Skin.HasSetting(CustomHomePanel3)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel3.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel3.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel3.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel3.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel3.DimIcon))">Skin.SetString(CustomHomePanel3.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel3.DimIcon))">Skin.Reset(CustomHomePanel3.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel3.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))">Skin.SetString(CustomHomePanel3.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))">Skin.Reset(CustomHomePanel3.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel3.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel3.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel3.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetString(CustomHomePanel3.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel3.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),0)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),1)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),2)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),3)">Skin.SetAddon(CustomHomePanel3.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">Skin.SetFile(CustomHomePanel3.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">Skin.SetFile(CustomHomePanel3.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">RunScript(script.favourites,property=CustomHomePanel3)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),7)">Skin.SetString(CustomHomePanel3.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2104) + Skin.HasSetting(CustomHomePanel4)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel4.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel4.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel4.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel4.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel4.DimIcon))">Skin.SetString(CustomHomePanel4.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel4.DimIcon))">Skin.Reset(CustomHomePanel4.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel4.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))">Skin.SetString(CustomHomePanel4.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))">Skin.Reset(CustomHomePanel4.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel4.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel4.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel4.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetString(CustomHomePanel4.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel4.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),0)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),1)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),2)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),3)">Skin.SetAddon(CustomHomePanel4.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">Skin.SetFile(CustomHomePanel4.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">Skin.SetFile(CustomHomePanel4.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">RunScript(script.favourites,property=CustomHomePanel4)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),7)">Skin.SetString(CustomHomePanel4.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2105) + Skin.HasSetting(CustomHomePanel5)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel5.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel5.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel5.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel5.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel5.DimIcon))">Skin.SetString(CustomHomePanel5.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel5.DimIcon))">Skin.Reset(CustomHomePanel5.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel5.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))">Skin.SetString(CustomHomePanel5.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))">Skin.Reset(CustomHomePanel5.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel5.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel5.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel5.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetString(CustomHomePanel5.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel5.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),0)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),1)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),2)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),3)">Skin.SetAddon(CustomHomePanel5.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">Skin.SetFile(CustomHomePanel5.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">Skin.SetFile(CustomHomePanel5.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">RunScript(script.favourites,property=CustomHomePanel5)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),7)">Skin.SetString(CustomHomePanel5.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>559</posx>
+    				<posy>356</posy>
+    				<visible>ControlGroup(3).HasFocus(2106) + Skin.HasSetting(CustomHomePanel6)</visible>
+    				<control type="grouplist" id="4">
+    					<posx>0</posx>
+    					<posy>0</posy>
+    					<width>532</width>
+    					<height>360</height>
+    					<itemgap>0</itemgap>
+    					<onup>2406</onup>
+    					<ondown>2405</ondown>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<scrolltime>0</scrolltime>
+    					<orientation>vertical</orientation>
+    					<control type="button" id="2141">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41138]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel6.Label)]</label2>
+    						<onclick>Skin.SetString(CustomHomePanel6.Label)</onclick>
+    					</control>
+    					<control type="button" id="2142">
+    						<include>SettingsCustomDialogButtonVars</include>
+    						<label>$LOCALIZE[41139]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel6.Icon)]</label2>
+    						<onclick>Skin.SetImage(CustomHomePanel6.Icon)</onclick>
+    					</control>
+    					<control type="radiobutton" id="2403">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41140]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel6.DimIcon))">Skin.SetString(CustomHomePanel6.DimIcon,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel6.DimIcon))">Skin.Reset(CustomHomePanel6.DimIcon)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel6.DimIcon))</selected>
+    					</control>
+    					<control type="radiobutton" id="2404">
+    						<include>SettingsCustomDialogRadioButtonVars</include>
+    						<label>$LOCALIZE[41144]</label>
+    						<onclick condition="IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))">Skin.SetString(CustomHomePanel6.ShowOverlay,on)</onclick>
+    						<onclick condition="!IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))">Skin.Reset(CustomHomePanel6.ShowOverlay)</onclick>
+    						<selected>!IsEmpty(Skin.String(CustomHomePanel6.ShowOverlay))</selected>
+    					</control>
+    				</control>
+    				
+    				<control type="group">
+    					<control type="image">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>532</width>
+    						<height>60</height>
+    						<texture border="2">dialogs/content/highlight-light.png</texture>
+    						<aspectratio>stretch</aspectratio>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>FF585858</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel6.TypeName)]</label2>
+    						<visible>!ControlGroup(2405).HasFocus</visible>
+    					</control>
+    					<control type="button">
+    						<posx>0</posx>
+    						<posy>240</posy>
+    						<width>455</width>
+    						<height>60</height>
+    						<align>left</align>
+    						<aligny>top</aligny>
+    						<textoffsetx>20</textoffsetx>
+    						<textoffsety>8</textoffsety>
+    						<font>Font-Condensed-S30</font>
+    						<textcolor>eewhite</textcolor>
+    						<label>$LOCALIZE[41141]</label>
+    						<label2>$INFO[Skin.String(CustomHomePanel6.TypeName)]</label2>
+    						<visible>ControlGroup(2405).HasFocus</visible>
+    					</control>
+    				</control>
+    				
+    				<control type="grouplist" id="2405">
+    					<description>button area</description>
+    					<posx>439</posx>
+    					<posy>240</posy>
+    					<width>120</width>
+    					<height>60</height>
+    					<itemgap>0</itemgap>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>4</onup>
+    					<ondown>2406</ondown>
+    					<orientation>horizontal</orientation>
+    					<control type="button" id="24051">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
+    					</control>
+    					<control type="button" id="24052">
+    						<width>43</width>
+    						<height>60</height>
+    						<texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+    						<texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.Type,0)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41145])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.Type,1)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41146])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.Type,2)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41147])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.Type,3)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41148])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.Type,4)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41149])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.Type,5)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41150])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.Type,6)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41153])</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.Type,7)</onclick>
+    						<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetString(CustomHomePanel6.TypeName,$LOCALIZE[41151])</onclick>
+    					</control>
+    				</control>
+    				
+    				<control type="button" id="2406">
+    					<posx>0</posx>
+    					<posy>300</posy>
+    					<onleft>5</onleft>
+    					<onright>3</onright>
+    					<onup>2405</onup>
+    					<ondown>2141</ondown>
+    					<include>SettingsCustomDialogButtonVars</include>
+    					<label>$LOCALIZE[41142]</label>
+    					<label2>$INFO[Skin.String(CustomHomePanel6.Path)]</label2>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),0)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.video)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),1)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.audio)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),2)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.image)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),3)">Skin.SetAddon(CustomHomePanel6.Path,xbmc.addon.executable)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">Skin.SetFile(CustomHomePanel6.Path,.xsp,special://userdata/playlists/video/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">Skin.SetFile(CustomHomePanel6.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">RunScript(script.favourites,property=CustomHomePanel6)</onclick>
+    					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),7)">Skin.SetString(CustomHomePanel6.Path)</onclick>
+    				</control>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>547</posx>
+    				<posy>712</posy>
+    				<control type="button" id="5">
+    					<description>Close</description>
+    					<texturefocus>buttons/cancel-fo.png</texturefocus>
+    					<texturenofocus>buttons/cancel-nf.png</texturenofocus>
+    					<include>DialogButtonDimensions</include>
+    					<onleft>3</onleft>
+    					<onright>3</onright>
+    					<onup>3</onup>
+    					<ondown>3</ondown>
+    					<label>$LOCALIZE[42002]</label>
+    					<onclick>PreviousMenu</onclick>
+    				</control>
+    				<control type="label">
+    					<description>Info</description>
+    					<posx>880</posx>
+    					<width>500</width>
+    					<font>Font-Condensed-S26-B</font>
+    					<align>right</align>
+    					<include>DialogButtonDimensions</include>
+    					<label>$LOCALIZE[41143]</label>
+    					<visible>Control.HasFocus(2142)</visible>
+    					<include>visiblehidefadeinfo</include>
+    				</control>
+    			</control>
+    		</control>
+    	</control>
 	</controls>
 </window>
