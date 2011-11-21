@@ -348,6 +348,13 @@
 			<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
 			<visible>!Control.HasFocus(70) + [Container(50).Scrolling | Container(50).OnScrollNext | Container(50).OnScrollPrevious] | [Container(56).Scrolling | Container(56).OnScrollNext | Container(56).OnScrollPrevious] | [Container(60).Scrolling | Container(60).OnScrollNext | Container(60).OnScrollPrevious] | [Container(55).Scrolling | Container(55).OnScrollNext | Container(55).OnScrollPrevious]]</visible>
 		</control>
+		
+		<!-- Set focus to view options if scrollbar is hidden & horizontal -->
+		<control type="button" id="70">
+			<onfocus>SetFocus(9010)</onfocus>
+			<visible>!Skin.HasSetting(KioskMode) + [[Control.IsVisible(55) + !IntegerGreaterThan(Container.NumItems,6)] | [Control.IsVisible(56) + !IntegerGreaterThan(Container.NumItems,10)]]</visible>
+		</control>
+		
 		<include>FadeBackground</include>
 		<include>Common-Info</include>
 	</controls>

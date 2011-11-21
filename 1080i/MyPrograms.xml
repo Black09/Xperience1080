@@ -379,6 +379,12 @@
 			<visible>!Control.HasFocus(70) + [Container(50).Scrolling | Container(50).OnScrollNext | Container(50).OnScrollPrevious]</visible>
 		</control>
 		
+		<!-- Set focus to view options if scrollbar is hidden & horizontal -->
+		<control type="button" id="70">
+			<onfocus>SetFocus(9010)</onfocus>
+			<visible>!Skin.HasSetting(KioskMode) + [[Control.IsVisible(55) + !IntegerGreaterThan(Container.NumItems,7)] | [Control.IsVisible(56) + !IntegerGreaterThan(Container.NumItems,16)] | [Control.IsVisible(57) + !IntegerGreaterThan(Container.NumItems,6)] | [Control.IsVisible(58) + !IntegerGreaterThan(Container.NumItems,10)]]</visible>
+		</control>
+		
 		<include>FadeBackground</include>
 		<include>Common-Info</include>
 	</controls>

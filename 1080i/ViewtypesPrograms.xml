@@ -2429,11 +2429,7 @@
 				<ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
 				<ondown condition="Skin.HasSetting(KioskMode)">56</ondown>
 				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
-				<visible>Control.IsVisible(56) + IntegerGreaterThan(Container.NumItems,16)</visible>
-			</control>
-			<control type="button" id="70">
-				<onfocus>SetFocus(9010)</onfocus>
-				<visible>Control.IsVisible(56) + !IntegerGreaterThan(Container.NumItems,16)</visible>
+				<visible>Control.IsVisible(56)</visible>
 			</control>
 		</control>
 	</include>
@@ -2795,11 +2791,7 @@
 				<ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
 				<ondown condition="Skin.HasSetting(KioskMode)">58</ondown>
 				<animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
-				<visible>Control.IsVisible(58) + IntegerGreaterThan(Container.NumItems,10)</visible>
-			</control>
-			<control type="button" id="70">
-				<onfocus>SetFocus(9010)</onfocus>
-				<visible>Control.IsVisible(58) + !IntegerGreaterThan(Container.NumItems,10)</visible>
+				<visible>Control.IsVisible(58)</visible>
 			</control>
 		</control>
 	</include>
