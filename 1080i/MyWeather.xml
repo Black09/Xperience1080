@@ -31,6 +31,27 @@
 				<textcolor>ffC6C6C8</textcolor>
 				<shadowcolor>880d0d0d</shadowcolor>
 			</control>
+			<control type="image">
+				<description>current weather icon</description>
+				<posx>240</posx>
+				<posy>230</posy>
+				<height>192</height>
+				<width>192</width>
+				<info>Window.Property(Current.ConditionIcon)</info>					
+			</control>
+			<control type="label">
+				<description>weather location select label</description>
+				<posx>475</posx>
+				<posy>229</posy>
+				<height>75</height>
+				<width>435</width>
+				<scrollspeed>20</scrollspeed>
+				<font>Font-Condensed-S40-B</font>
+				<align>left</align>
+				<aligny>center</aligny>
+				<textcolor>ffffffff</textcolor>
+				<info>Window.Property(Location)</info>
+			</control>
 			<control type="label">
 				<description>current date</description>
 				<posx>475</posx>
@@ -40,7 +61,7 @@
 				<font>Font-Condensed-S36</font>
 				<align>left</align>
 				<aligny>center</aligny>
-				<info>System.Date</info>
+				<label>$INFO[Window.Property(Updated)]</label>
 				<textcolor>ddC6C6C8</textcolor>
 				<shadowcolor>880d0d0d</shadowcolor>
 			</control>
@@ -53,7 +74,7 @@
 				<font>Font-Condensed-S36</font>
 				<align>left</align>
 				<aligny>center</aligny>
-				<info>System.Time</info>
+				<label>$LOCALIZE[24000]: [COLOR=orange]$INFO[Window.Property(WeatherProvider)][/COLOR]</label>
 				<textcolor>ddC6C6C8</textcolor>
 				<shadowcolor>880d0d0d</shadowcolor>
 			</control>
@@ -212,27 +233,6 @@
 				<label>[B]$INFO[Window.Property(Current.Wind)][/B]</label>
 				<textcolor>ffffffff</textcolor>
 				<shadowcolor>880d0d0d</shadowcolor>
-			</control>
-			<control type="image">
-				<description>current weather icon</description>
-				<posx>240</posx>
-				<posy>230</posy>
-				<height>192</height>
-				<width>192</width>
-				<info>Window.Property(Current.ConditionIcon)</info>					
-			</control>
-			<control type="label">
-				<description>weather location select label</description>
-				<posx>475</posx>
-				<posy>228</posy>
-				<height>75</height>
-				<width>435</width>
-				<scrollspeed>20</scrollspeed>
-				<font>Font-Condensed-S45-B</font>
-				<align>left</align>
-				<aligny>center</aligny>
-				<textcolor>ffffffff</textcolor>
-				<info>Weather.Location</info>
 			</control>
 			<control type="group">
 				<posx>978</posx>
