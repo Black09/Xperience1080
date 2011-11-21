@@ -543,6 +543,7 @@
 					<icon>panel_menu_settings.png</icon>
 					<property name="single">$INFO[Skin.String(HomeSettingsSingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(HomeSettingsMultiImage)]</property>
+					<property name="settings">1</property>
 				</item>
 				<item id="2">
 					<label>$LOCALIZE[41500]</label>
@@ -552,6 +553,7 @@
 					<visible>!Skin.HasSetting(HomeMovies)</visible>
 					<property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
+					<property name="movies">1</property>
 				</item>
 				<item id="3">
 					<label>$LOCALIZE[41501]</label>
@@ -561,6 +563,7 @@
 					<visible>!Skin.HasSetting(HomeTVShows)</visible>
 					<property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
+					<property name="tvshows">1</property>
 				</item>
 				<item id="4">
 					<label>$LOCALIZE[41513]</label>
@@ -588,6 +591,7 @@
 					<visible>!Skin.HasSetting(HomeMusic)</visible>
 					<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
 					<property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
+					<property name="music">1</property>
 				</item>
 				<item id="7">
 					<label>$LOCALIZE[41514]</label>
@@ -623,7 +627,8 @@
 				</item>				
 				<item id="11">
 					<label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
-					<onclick>ActivateWindow(weather)</onclick>
+					<onclick condition="!IsEmpty(Weather.Plugin)">ActivateWindow(weather)</onclick>
+					<onclick condition="IsEmpty(Weather.Plugin)">ActivateWindow(weathersettings)</onclick>
 					<icon>panel_menu_weather.png</icon>
 					<visible>!Skin.HasSetting(HomeWeather)</visible>
 					<property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
@@ -640,10 +645,10 @@
 				<item id="13">
 					<label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel1.Type),4) + !stringcompare(Skin.String(CustomHomePanel1.Type),5) + !stringcompare(Skin.String(CustomHomePanel1.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel1.Type),4) + !stringcompare(Skin.String(CustomHomePanel1.Type),5) + !stringcompare(Skin.String(CustomHomePanel1.Type),6) + !stringcompare(Skin.String(CustomHomePanel1.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel1.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel1.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel1.SingleImage)]</property>
@@ -654,10 +659,10 @@
 				<item id="14">
 					<label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel2.Type),4) + !stringcompare(Skin.String(CustomHomePanel2.Type),5) + !stringcompare(Skin.String(CustomHomePanel2.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel2.Type),4) + !stringcompare(Skin.String(CustomHomePanel2.Type),5) + !stringcompare(Skin.String(CustomHomePanel2.Type),6) + !stringcompare(Skin.String(CustomHomePanel2.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel2.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel2.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel2.SingleImage)]</property>
@@ -668,10 +673,10 @@
 				<item id="15">
 					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6) + !stringcompare(Skin.String(CustomHomePanel3.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel3.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel3.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel3.SingleImage)]</property>
@@ -682,10 +687,10 @@
 				<item id="16">
 					<label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel4.Type),4) + !stringcompare(Skin.String(CustomHomePanel4.Type),5) + !stringcompare(Skin.String(CustomHomePanel4.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel4.Type),4) + !stringcompare(Skin.String(CustomHomePanel4.Type),5) + !stringcompare(Skin.String(CustomHomePanel4.Type),6) + !stringcompare(Skin.String(CustomHomePanel4.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel4.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel4.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel4.SingleImage)]</property>
@@ -696,10 +701,10 @@
 				<item id="17">
 					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel5.Type),4) + !stringcompare(Skin.String(CustomHomePanel5.Type),5) + !stringcompare(Skin.String(CustomHomePanel5.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel5.Type),4) + !stringcompare(Skin.String(CustomHomePanel5.Type),5) + !stringcompare(Skin.String(CustomHomePanel5.Type),6) + !stringcompare(Skin.String(CustomHomePanel5.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel5.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel5.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel5.SingleImage)]</property>
@@ -710,10 +715,10 @@
 				<item id="18">
 					<label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
 					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel6.Type),4) + !stringcompare(Skin.String(CustomHomePanel6.Type),5) + !stringcompare(Skin.String(CustomHomePanel6.Type),6)">RunAddon($INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
+					<onclick condition="!stringcompare(Skin.String(CustomHomePanel6.Type),4) + !stringcompare(Skin.String(CustomHomePanel6.Type),5) + !stringcompare(Skin.String(CustomHomePanel6.Type),6) + !stringcompare(Skin.String(CustomHomePanel6.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
 					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
+					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
 					<icon>$INFO[Skin.String(CustomHomePanel6.Icon)]</icon>
 					<visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(CustomHomePanel6.Hide)</visible>
 					<property name="single">$INFO[Skin.String(CustomHomePanel6.SingleImage)]</property>

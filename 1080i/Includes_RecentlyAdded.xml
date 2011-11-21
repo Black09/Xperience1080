@@ -230,7 +230,7 @@
 						<thumb>$INFO[Window.Property(LatestMovie.1.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestMovie.1.Year),, • ]$INFO[Window.Property(LatestMovie.1.RunningTime),, $LOCALIZE[12391]][/COLOR]</label2>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="2">
 						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.2.Path)])</onclick>
@@ -238,7 +238,7 @@
 						<thumb>$INFO[Window.Property(LatestMovie.2.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestMovie.2.Year),, • ]$INFO[Window.Property(LatestMovie.2.RunningTime),, $LOCALIZE[12391]][/COLOR]</label2>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="3">
 						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.3.Path)])</onclick>
@@ -246,7 +246,7 @@
 						<thumb>$INFO[Window.Property(LatestMovie.3.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestMovie.3.Year),, • ]$INFO[Window.Property(LatestMovie.3.RunningTime),, $LOCALIZE[12391]][/COLOR]</label2>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="4">
 						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.4.Path)])</onclick>
@@ -254,7 +254,7 @@
 						<thumb>$INFO[Window.Property(LatestMovie.4.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestMovie.4.Year),, • ]$INFO[Window.Property(LatestMovie.4.RunningTime),, $LOCALIZE[12391]][/COLOR]</label2>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="5">
 						<onclick>PlayMedia($INFO[Window.Property(LatestMovie.5.Path)])</onclick>
@@ -262,13 +262,13 @@
 						<thumb>$INFO[Window.Property(LatestMovie.5.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestMovie.5.Year),, • ]$INFO[Window.Property(LatestMovie.5.RunningTime),, $LOCALIZE[12391]][/COLOR]</label2>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="6">
 						<onclick>SetFocus(24)</onclick>
 						<thumb>$INFO[Window.property(RandomMovie.1.Fanart)]</thumb>
 						<label>$LOCALIZE[22082]</label>
-						<visible>Container(20).HasFocus(2)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(movies))</visible>
 					</item>
 					<item id="7">
 						<onclick>PlayMedia($INFO[Window.Property(LatestEpisode.1.Path)])</onclick>
@@ -276,7 +276,7 @@
 						<thumb>$INFO[Window.Property(LatestEpisode.1.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestEpisode.1.ShowTitle)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(LatestEpisode.1.Thumb)]</property>
 					</item>
 					<item id="8">
@@ -285,7 +285,7 @@
 						<thumb>$INFO[Window.Property(LatestEpisode.2.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestEpisode.2.ShowTitle)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(LatestEpisode.2.Thumb)]</property>
 					</item>
 					<item id="9">
@@ -294,7 +294,7 @@
 						<thumb>$INFO[Window.Property(LatestEpisode.3.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestEpisode.3.ShowTitle)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(LatestEpisode.3.Thumb)]</property>
 					</item>
 					<item id="10">
@@ -303,7 +303,7 @@
 						<thumb>$INFO[Window.Property(LatestEpisode.4.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestEpisode.4.EpisodeTitle)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestEpisode.4.ShowTitle)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(LatestEpisode.4.Thumb)]</property>
 					</item>
 					<item id="11">
@@ -312,14 +312,14 @@
 						<thumb>$INFO[Window.Property(LatestEpisode.5.Fanart)]</thumb>
 						<label>$INFO[Window.Property(LatestEpisode.5.EpisodeTitle)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestEpisode.5.ShowTitle)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(LatestEpisode.5.Thumb)]</property>
 					</item>
 					<item id="12">
 						<onclick>SetFocus(25)</onclick>
 						<thumb>$INFO[Window.property(RandomEpisode.1.Fanart)]</thumb>
 						<label>$LOCALIZE[22082]</label>
-						<visible>Container(20).HasFocus(3)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 						<property name="EpisodeThumb">$INFO[Window.Property(RandomEpisode.1.Thumb)]</property>
 					</item>
 					<item id="13">
@@ -328,7 +328,7 @@
 						<thumb>$INFO[Window.Property(LatestAlbum.1.Thumb)]</thumb>
 						<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestAlbum.1.Artist)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 					<item id="14">
 						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.2.Path)])</onclick>
@@ -336,7 +336,7 @@
 						<thumb>$INFO[Window.Property(LatestAlbum.2.Thumb)]</thumb>
 						<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestAlbum.2.Artist)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 					<item id="15">
 						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.3.Path)])</onclick>
@@ -344,7 +344,7 @@
 						<thumb>$INFO[Window.Property(LatestAlbum.3.Thumb)]</thumb>
 						<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestAlbum.3.Artist)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 					<item id="16">
 						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.4.Path)])</onclick>
@@ -352,7 +352,7 @@
 						<thumb>$INFO[Window.Property(LatestAlbum.4.Thumb)]</thumb>
 						<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestAlbum.4.Artist)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 					<item id="17">
 						<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.5.Path)])</onclick>
@@ -360,13 +360,13 @@
 						<thumb>$INFO[Window.Property(LatestAlbum.5.Thumb)]</thumb>
 						<label>$INFO[Window.Property(LatestAlbum.5.Title)]</label>
 						<label2>[COLOR=88FFFFFF]$INFO[Window.Property(LatestAlbum.5.Artist)][/COLOR]</label2>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 					<item id="18">
 						<onclick>SetFocus(26)</onclick>
 						<thumb>$INFO[Window.property(RandomAlbum.1.Thumb)]</thumb>
 						<label>$LOCALIZE[22082]</label>
-						<visible>Container(20).HasFocus(6)</visible>
+						<visible>!IsEmpty(Container(20).ListItem.Property(music))</visible>
 					</item>
 				</content>
 			</control>

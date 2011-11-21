@@ -85,7 +85,7 @@
 	<include name="HomeSubMenuMovies">
 		<control type="wraplist" id="23">
 			<description>SubMenu Container Movies</description>
-			<visible>![Container(20).OnNext | Container(20).OnPrevious] + Container(20).HasFocus(2)</visible>
+			<visible>![Container(20).OnNext | Container(20).OnPrevious] + !IsEmpty(Container(20).ListItem.Property(movies))</visible>
 			<include>ShutdownFavAnimation</include>
 			<include>SubMenuWraplistVars</include>
 			<include>listEndAnimation</include>
@@ -165,7 +165,7 @@
 	<include name="HomeSubMenuTVShows">
 		<control type="wraplist" id="23">
 			<description>SubMenu Container TVShows</description>
-			<visible>![Container(20).OnNext | Container(20).OnPrevious] + Container(20).HasFocus(3)</visible>
+			<visible>![Container(20).OnNext | Container(20).OnPrevious] + !IsEmpty(Container(20).ListItem.Property(tvshows))</visible>
 			<include>ShutdownFavAnimation</include>
 			<include>SubMenuWraplistVars</include>
 			<include>listEndAnimation</include>
@@ -229,7 +229,7 @@
 	<include name="HomeSubMenuMusic">
 		<control type="wraplist" id="23">
 			<description>SubMenu Container Music</description>
-			<visible>![Container(20).OnNext | Container(20).OnPrevious] + Container(20).HasFocus(6)</visible>
+			<visible>![Container(20).OnNext | Container(20).OnPrevious] + !IsEmpty(Container(20).ListItem.Property(music))</visible>
 			<include>ShutdownFavAnimation</include>
 			<include>SubMenuWraplistVars</include>
 			<include>listEndAnimation</include>
@@ -307,7 +307,7 @@
 	<include name="HomeSubMenuSettings">
 		<control type="wraplist" id="23">
 			<description>SubMenu Container Settings</description>
-			<visible>![Container(20).OnNext | Container(20).OnPrevious] + Container(20).HasFocus(1)</visible>
+			<visible>![Container(20).OnNext | Container(20).OnPrevious] + !IsEmpty(Container(20).ListItem.Property(settings))</visible>
 			<animation type="Conditional" condition="Window.IsActive(shutdownmenu) | Window.IsActive(favourites)" reversible="false">
 				<effect type="zoom" start="100" end="92" time="300" delay="100" center="960,500" tween="sine" easing="out"  />
 			</animation>
