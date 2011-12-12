@@ -3,6 +3,7 @@
 	<controls>
 		<control type="group">
 			<include>NowPlayingFullscreen</include>
+			<visible>!Window.IsVisible(addonsettings)</visible>
 			<control type="group">
 				<include>FullscreenDimensions</include>
 				<animation type="Conditional" condition="Control.HasFocus(150) | Window.IsVisible(addonsettings)">
@@ -376,7 +377,7 @@
 						<width>11</width>
 						<height>436</height>
 						<onleft>120</onleft>
-						<onright>120</onright>
+						<onright>150</onright>
 						<texturesliderbar border="0,6,0,6">views/other/scrollbar.png</texturesliderbar>
 						<texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
 						<orientation>vertical</orientation>
@@ -542,6 +543,20 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<scroll>false</scroll>
+							<visible>!ListItem.Property(man)</visible>
+						</control>
+						<control type="label">
+							<posx>35</posx>
+							<posy>0</posy>
+							<width>318</width>
+							<height>74</height>
+							<font>Font-Condensed-S25-B</font>
+							<textcolor>96FFFFFF</textcolor>
+							<info>ListItem.Label</info>
+							<align>left</align>
+							<aligny>center</aligny>
+							<scroll>false</scroll>
+							<visible>ListItem.Property(man)</visible>
 						</control>
 					</itemlayout>
 					<focusedlayout width="378" height="76">
@@ -564,6 +579,20 @@
 							<align>left</align>
 							<aligny>center</aligny>
 							<scroll>false</scroll>
+							<visible>!ListItem.Property(man)</visible>
+						</control>
+						<control type="label">
+							<posx>35</posx>
+							<posy>0</posy>
+							<width>318</width>
+							<height>74</height>
+							<font>Font-Condensed-S25-B</font>
+							<textcolor>white</textcolor>
+							<info>ListItem.Label</info>
+							<align>left</align>
+							<aligny>center</aligny>
+							<scroll>false</scroll>
+							<visible>ListItem.Property(man)</visible>
 						</control>
 					</focusedlayout>
 				</control>
