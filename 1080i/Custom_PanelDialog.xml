@@ -13,7 +13,7 @@
 	        </animation>
     		<control type="group">
     			<include>KeyboardAnimations</include>
-    			<visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog)</visible>
+    			<visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml)</visible>
     			
     			<control type="label">
     				<description>Heading</description>
@@ -29,6 +29,21 @@
     			<control type="image">
     				<include>FullscreenDimensions</include>
     				<texture>windows/settings/settings-customdialog.png</texture>
+    			</control>
+    			
+    			<control type="image">
+    			    <posx>1105</posx>
+    			    <posy>356</posy>
+    			    <width>257</width>
+    			    <height>60</height>
+    			    <texture>windows/common/black.png</texture>
+    			    <colordiffuse>15FFFFFF</colordiffuse>
+    			    <aspectratio>stretch</aspectratio>
+    			    <animation effect="slide" end="0,60" time="0" condition="ControlGroup(3).HasFocus(2102)">Conditional</animation>
+    			    <animation effect="slide" end="0,120" time="0" condition="ControlGroup(3).HasFocus(2103)">Conditional</animation>
+    			    <animation effect="slide" end="0,180" time="0" condition="ControlGroup(3).HasFocus(2104)">Conditional</animation>
+    			    <animation effect="slide" end="0,240" time="0" condition="ControlGroup(3).HasFocus(2105)">Conditional</animation>
+    			    <animation effect="slide" end="0,300" time="0" condition="ControlGroup(3).HasFocus(2106)">Conditional</animation>
     			</control>
     			
     			<control type="grouplist" id="3">
@@ -242,7 +257,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
@@ -411,7 +426,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
@@ -580,7 +595,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
@@ -749,7 +764,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
@@ -918,7 +933,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
@@ -1087,7 +1102,7 @@
     					<itemgap>0</itemgap>
     					<onleft>5</onleft>
     					<onright>3</onright>
-    					<onup>4</onup>
+    					<onup>2404</onup>
     					<ondown>2406</ondown>
     					<orientation>horizontal</orientation>
     					<control type="button" id="24051">
