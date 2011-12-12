@@ -30,7 +30,7 @@
 				<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog)">Conditional</animation>
 				<posx>1364</posx>
 				<posy>958</posy>
-				<visible>Control.IsVisible(410) + !Window.IsActive(fullscreenvideo)</visible>
+				<visible>Control.IsVisible(410) + !Window.IsActive(fullscreenvideo) + ![Window.IsActive(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
 				<control type="image">
 					<posx>0</posx>
 					<posy>0</posy>
@@ -117,8 +117,8 @@
 					<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
 					<effect type="slide" start="0" end="-50" time="200" tween="sine" easing="inout" />
 				</animation>
-				<visible>Control.IsVisible(410) + Window.IsActive(fullscreenvideo)</visible>
-				<animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop)">Conditional</animation>
+				<visible>Control.IsVisible(410) + [Window.IsActive(fullscreenvideo) | [Window.IsActive(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]]</visible>
+				<animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop) + !Window.IsActive(visualisation)">Conditional</animation>
 				<control type="image">
 					<posx>43</posx>
 					<posy>0</posy>

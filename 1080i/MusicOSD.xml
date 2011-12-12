@@ -8,6 +8,7 @@
 				<effect type="zoom" start="100" end="90" time="300" center="960,540" tween="back" easing="inout" />
 				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
 			</animation>
+			<include condition="Skin.HasSetting(OSDMusicAlt.Enabled)">OSDWeatherClock</include>
 			<control type="image">
 				<posx>0</posx>
 				<posy>918</posy>
@@ -17,8 +18,21 @@
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="group">
-				<posx>-45</posx>
+				<posx>-90</posx>
 				<posy>950</posy>
+				<control type="button" id="7">
+					<description>Playlist</description>
+					<posx>460</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/playlists-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/playlists-nofo.png</texturenofocus>
+					<onclick>ActivateWindow(musicplaylist)</onclick>
+					<onleft>14</onleft>
+					<onright>12</onright>
+					<onup>20</onup>
+					<ondown>-</ondown>
+				</control>
 				<control type="togglebutton" id="12">
 					<description>Shuffle</description>
 					<posx>550</posx>
@@ -32,7 +46,7 @@
 					<onclick>PlayerControl(random)</onclick>
 					<onup>20</onup>
 					<ondown>-</ondown>
-					<onleft>8</onleft>
+					<onleft>7</onleft>
 					<onright>10</onright>
 				</control>
 				<control type="button" id="10">
@@ -134,24 +148,11 @@
 					<onup>20</onup>
 					<ondown>-</ondown>
 					<onleft>5</onleft>
-					<onright>7</onright>
-				</control>
-				<control type="button" id="7">
-					<description>Playlist</description>
-					<posx>1270</posx>
-					<height>100</height>
-					<width>100</width>
-					<texturefocus>osd/fullscreen/buttons/playlists-fo.png</texturefocus>
-					<texturenofocus>osd/fullscreen/buttons/playlists-nofo.png</texturenofocus>
-					<onclick>ActivateWindow(musicplaylist)</onclick>
-					<onleft>6</onleft>
 					<onright>8</onright>
-					<onup>20</onup>
-					<ondown>-</ondown>
 				</control>
 				<control type="togglebutton" id="8">
-					<description>Playlist</description>
-					<posx>1360</posx>
+					<description>Lyrics</description>
+					<posx>1270</posx>
 					<height>100</height>
 					<width>100</width>
 					<texturefocus>osd/fullscreen/buttons/lyrics-fo.png</texturefocus>
@@ -164,14 +165,59 @@
 					<altclick>Close</altclick>
 					<altclick>XBMC.RunScript($INFO[Skin.String(LyricScript_Path)])</altclick>
 					<usealttexture>IsEmpty(Skin.String(LyricScript_Path))</usealttexture>
-					<onleft>7</onleft>
-					<onright>12</onright>
+					<onleft>6</onleft>
+					<onright>500</onright>
 					<onup>20</onup>
 					<ondown>-</ondown>
 				</control>
+				<control type="button" id="500">
+					<description>Viz presets</description>
+					<posx>1360</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/choose-viz-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/choose-viz-nofo.png</texturenofocus>
+					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>8</onleft>
+					<onright>13</onright>
+					<enable>Skin.HasSetting(OSDVisualisation.Enabled)</enable>
+					<animation effect="fade" end="50" time="0" condition="!Control.IsEnabled(500)">Conditional</animation>
+				</control>
+				<control type="button" id="13">
+					<description>Choose viz</description>
+					<posx>1450</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/viz-presets-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/viz-presets-nofo.png</texturenofocus>
+					<onclick>ActivateWindow(122)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>500</onleft>
+					<onright>14</onright>
+					<enable>Skin.HasSetting(OSDVisualisation.Enabled)</enable>
+					<animation effect="fade" end="50" time="0" condition="!Control.IsEnabled(13)">Conditional</animation>
+				</control>
+				<control type="button" id="14">
+					<description>Viz settings</description>
+					<posx>1540</posx>
+					<height>100</height>
+					<width>100</width>
+					<texturefocus>osd/fullscreen/buttons/viz-settings-fo.png</texturefocus>
+					<texturenofocus>osd/fullscreen/buttons/viz-settings-nofo.png</texturenofocus>
+					<onclick>Addon.Default.OpenSettings(xbmc.player.musicviz)</onclick>
+					<onup>20</onup>
+					<ondown>-</ondown>
+					<onleft>13</onleft>
+					<onright>7</onright>
+					<enable>Skin.HasSetting(OSDVisualisation.Enabled)</enable>
+					<animation effect="fade" end="50" time="0" condition="!Control.IsEnabled(14)">Conditional</animation>
+				</control>
 			</control>
 			<control type="group">
-				<posx>595</posx>
+				<posx>550</posx>
 				<posy>950</posy>
 				<control type="image">
 					<width>100</width>

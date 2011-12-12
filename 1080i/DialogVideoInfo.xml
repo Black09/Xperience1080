@@ -151,14 +151,14 @@
 					<textcolor>eewhite</textcolor>
 					<align>left</align>
 					<scroll>false</scroll>	
-					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1102) | Control.HasFocus(1103) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1106) | Control.HasFocus(1107) | Control.HasFocus(1110)">Conditional</animation>
+					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9333).HasFocus | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1102) | Control.HasFocus(1103) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110)">Conditional</animation>
 				</control>
 			</control>
 			
 			<!-- Plot Stuff -->
 			<control type="group">
 				<include>FullscreenDimensions</include>
-				<visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1102) | Control.HasFocus(1103) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1106) | Control.HasFocus(1107) | Control.HasFocus(1108) | Control.HasFocus(1109) | Control.HasFocus(1110)</visible>
+				<visible allowhiddenfocus="true">ControlGroup(9333).HasFocus | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1103) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1108) | Control.HasFocus(1110)</visible>
 				<include>listEndAnimation</include>
 				<animation type="Visible">
 					<effect type="slide" start="-1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
@@ -181,15 +181,46 @@
 				</control>
 				
 				<!-- Fanart -->
-				<control type="image">
-					<posx>132</posx>
-					<posy>254</posy>
-					<width>571</width>
-					<height>321</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$INFO[ListItem.property(fanart_image)]</texture>
-					<visible>!Player.HasVideo + !Container.Content(episodes)</visible>
-				</control>
+				<control type="group">
+				    <visible>!Player.HasVideo</visible>
+    				<control type="image">
+    					<posx>132</posx>
+    					<posy>254</posy>
+    					<width>571</width>
+    					<height>321</height>
+    					<aspectratio>stretch</aspectratio>
+    					<texture background="true">$INFO[ListItem.property(fanart_image)]</texture>
+    					<visible>!Container.Content(episodes)</visible>
+    				</control>
+    				<control type="group">
+    				    <visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
+    				    <animation effect="fade" start="0" end="100" time="600" delay="7500">WindowOpen</animation>
+        				<control type="multiimage">
+        					<posx>132</posx>
+        					<posy>254</posy>
+        					<width>571</width>
+        					<height>321</height>
+        					<timeperimage>7500</timeperimage>
+        					<randomize>true</randomize>
+        					<fadetime>600</fadetime>
+        					<aspectratio align="center">scale</aspectratio>
+        					<imagepath background="true">$INFO[ListItem.FileNameAndPath,,extrafanart]</imagepath>
+        					<visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
+        				</control>
+        				<control type="multiimage">
+        					<posx>132</posx>
+        					<posy>254</posy>
+        					<width>571</width>
+        					<height>321</height>
+        					<fadetime>1500</fadetime>
+        					<timeperimage>7500</timeperimage>
+        					<randomize>true</randomize>
+        					<aspectratio align="center">scale</aspectratio>
+        					<imagepath background="true">$INFO[ListItem.Path,,extrafanart]</imagepath>
+        					<visible>Container.Content(Movies)</visible>
+        				</control>
+        			</control>
+    			</control>
 				
 				<!-- Episode Thumb -->
 				<control type="image">
@@ -219,7 +250,7 @@
 					<width>585</width>
 					<height>335</height>
 					<texture>dialogs/video-info/button-frame.png</texture>
-					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1101) | Control.HasFocus(1102) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1106) | Control.HasFocus(1107)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105)]">Conditional</animation>
 				</control>
 				
 				<!-- OSD Back -->
@@ -229,7 +260,7 @@
 					<width>188</width>
 					<height>59</height>
 					<texture>dialogs/video-info/osd-back.png</texture>
-					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1101) | Control.HasFocus(1102) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1106) | Control.HasFocus(1107)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105)]">Conditional</animation>
 					<include>visiblehidefade</include>
 					<visible>Player.HasVideo</visible>
 				</control>
@@ -242,11 +273,11 @@
 					<height>335</height>
 					<texture>dialogs/video-info/button-play.png</texture>
 					<include>visiblehidefade</include>
-					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1101) | Control.HasFocus(1102)]">Conditional</animation>
+					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(1101)">Conditional</animation>
 					<visible>!Player.HasVideo</visible>
 				</control>
-				
-				<control type="group">
+
+				<control type="group" id="9336">
 					<posx>329</posx>
 					<posy>500</posy>
 					<width>177</width>
@@ -259,11 +290,8 @@
 						<height>59</height>
 						<onleft>1105</onleft>
 						<onright>1104</onright>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Move(9333,-1)</ondown>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
+						<onup>93334</onup>
+						<ondown>93331</ondown>
 						<onclick>PlayerControl(Stop)</onclick>
 						<onclick>SetFocus(1108)</onclick>
 						<texturefocus>dialogs/video-info/osd-stop.png</texturefocus>
@@ -278,11 +306,8 @@
 						<height>59</height>
 						<onleft>1101</onleft>
 						<onright>1105</onright>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Move(9333,-1)</ondown>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
+						<onup>93334</onup>
+						<ondown>93331</ondown>
 						<onclick>PlayerControl(Play)</onclick>
 						<texturefocus>dialogs/video-info/osd-play.png</texturefocus>
 						<texturenofocus>dialogs/video-info/osd-play-nf.png</texturenofocus>
@@ -300,11 +325,8 @@
 						<onleft>1104</onleft>
 						<onright>SendClick(2003,5)</onright>
 						<onright>SetFocus(9334)</onright>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Move(9333,-1)</ondown>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
+						<onup>93334</onup>
+						<ondown>93331</ondown>
 						<onclick>Action(fullscreen)</onclick>
 						<texturefocus>dialogs/video-info/osd-fs.png</texturefocus>
 						<texturenofocus>dialogs/video-info/osd-fs-nf.png</texturenofocus>
@@ -313,139 +335,98 @@
 					</control>
 				</control>
 				
-				<control type="group">
-					<posx>329</posx>
-					<posy>500</posy>
-					<width>177</width>
-					<height>59</height>
-					<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Control.HasFocus(1102) | Control.HasFocus(1106) | Control.HasFocus(1107)]">Conditional</animation>
-					<control type="button" id="1102">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>59</width>
-						<height>59</height>
-						<onleft>1107</onleft>
-						<onright>1106</onright>
-						<onup>Control.Move(9333,1)</onup>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
-						<onclick>PlayerControl(Stop)</onclick>
-						<onclick>SetFocus(1109)</onclick>
-						<texturefocus>dialogs/video-info/osd-stop.png</texturefocus>
-						<texturenofocus>dialogs/video-info/osd-stop-nf.png</texturenofocus>
-						<visible>Player.HasVideo</visible>
-						<enable>Player.HasVideo</enable>
-					</control>
-					<control type="togglebutton" id="1106">
-						<posx>59</posx>
-						<posy>0</posy>
-						<width>59</width>
-						<height>59</height>
-						<onleft>1102</onleft>
-						<onright>1107</onright>
-						<onup>Control.Move(9333,1)</onup>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
-						<onclick>PlayerControl(Play)</onclick>
-						<texturefocus>dialogs/video-info/osd-play.png</texturefocus>
-						<texturenofocus>dialogs/video-info/osd-play-nf.png</texturenofocus>
-						<alttexturefocus>dialogs/video-info/osd-pause.png</alttexturefocus>
-						<alttexturenofocus>dialogs/video-info/osd-pause-nf.png</alttexturenofocus>
-						<usealttexture>!Player.IsPaused</usealttexture>
-						<visible>Player.HasVideo</visible>
-						<enable>Player.HasVideo</enable>
-					</control>
-					<control type="button" id="1107">
-						<posx>118</posx>
-						<posy>0</posy>
-						<width>59</width>
-						<height>59</height>
-						<onleft>1106</onleft>
-						<onright>SendClick(2003,5)</onright>
-						<onright>SetFocus(9334)</onright>
-						<onup>Control.Move(9333,1)</onup>
-						<onup>Control.Message(9333,movedown,2003)</onup>
-						<onup>SetFocus(9333,3)</onup>
-						<ondown>Control.Message(9333,moveup,2003)</ondown>
-						<ondown>SetFocus(9333,0)</ondown>
-						<onclick>Action(fullscreen)</onclick>
-						<texturefocus>dialogs/video-info/osd-fs.png</texturefocus>
-						<texturenofocus>dialogs/video-info/osd-fs-nf.png</texturenofocus>
-						<visible>Player.HasVideo</visible>
-						<enable>Player.HasVideo</enable>
-					</control>
-				</control>
-
-				<control type="list" id="9333">
+				<control type="image">
 					<posx>122</posx>
 					<posy>585</posy>
 					<width>591</width>
-					<height>316</height>
-					<onleft>1110</onleft>
-					<onright>SendClick(2003,5)</onright>
-					<onright>SetFocus(9334)</onright>
-					<onup>1101</onup>
-					<ondown>1102</ondown>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<itemlayout width="591" height="74">
-						<control type="label">
-							<posx>30</posx>
-							<width>531</width>
-							<height>89</height>
-							<textcolor>aawhite</textcolor>
-							<shadowcolor>33FFFFFF</shadowcolor>
-							<font>Font-Condensed-S34</font>
-							<align>left</align>
-							<label>$INFO[ListItem.label]</label>
-						</control>
-					</itemlayout>
-					<focusedlayout width="591" height="74">
-						<control type="image">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>591</width>
-							<height>95</height>
-							<texture>dialogs/video-info/button.png</texture>
-							<animation effect="slide" start="0,-74" end="0,0" time="200" tween="sine" easing="inout" condition="Container(9333).OnNext" reversible="false">Focus</animation>
-							<animation effect="slide" start="0,74" end="0,0" time="200" tween="sine" easing="inout" condition="Container(9333).OnPrevious" reversible="false">Focus</animation>
-						</control>
-						<control type="label">
-							<posx>30</posx>
-							<width>531</width>
-							<height>89</height>
-							<textcolor>eewhite</textcolor>
-							<shadowcolor>33FFFFFF</shadowcolor>
-							<font>Font-Condensed-S34</font>
-							<align>left</align>
-							<label>$INFO[ListItem.label]</label>
-							<animation type="Focus" condition="Container(9333).OnNext | Container(9333).OnPrevious" reversible="false">
-								<effect type="fade" start="70" end="100" tween="sine" easing="inout" time="200" />
-							</animation>
-						</control>
-					</focusedlayout>
-					<content>
-						<item id="0">
-							<label>$LOCALIZE[41315]</label>
-							<onclick>SendClick(2003,8)</onclick>
-						</item>
-						<item id="1">
-							<label>$LOCALIZE[41305]</label>
-							<onclick>SendClick(2003,10)</onclick>
-						</item>
-						<item id="2">
-							<label>$LOCALIZE[41306]</label>
-							<onclick>SendClick(2003,12)</onclick>
-						</item>
-						<item id="3">
-							<label>$LOCALIZE[41307]</label>
-							<onclick>SendClick(2003,6)</onclick>
-						</item>
-					</content>
+					<height>95</height>
+					<texture>dialogs/video-info/button.png</texture>
+					<visible>!ControlGroup(9336).HasFocus + !Control.HasFocus(1101)</visible>
+					<animation effect="fade" start="0" end="100" time="200" tween="sine" easing="inout">Visible</animation>
+					<animation effect="fade" start="100" end="0" time="200" tween="sine" easing="inout">Hidden</animation>
+					<animation effect="slide" end="0,74" time="200" tween="sine" easing="inout" condition="Control.HasFocus(93332)">Conditional</animation>
+					<animation effect="slide" end="0,148" time="200" tween="sine" easing="inout" condition="Control.HasFocus(93333)">Conditional</animation>	
+					<animation effect="slide" end="0,222" time="200" tween="sine" easing="inout" condition="Control.HasFocus(93334)">Conditional</animation>
+				</control>
+
+				<control type="group" id="9333">
+				    <posx>152</posx>
+				    <posy>585</posy>
+				    <width>591</width>
+				    <height>316</height>
+				    <control type="button" id="93331">
+				    	<posx>0</posx>
+				    	<posy>0</posy>
+				    	<width>531</width>
+				    	<height>89</height>
+				    	<onleft>1110</onleft>
+				    	<onright>SendClick(2003,5)</onright>
+				    	<onright>SetFocus(9334)</onright>
+				    	<onup>1101</onup>
+				    	<ondown>93332</ondown>
+				    	<onclick>SendClick(2003,8)</onclick>
+				    	<textcolor>eewhite</textcolor>
+				    	<shadowcolor>33FFFFFF</shadowcolor>
+				    	<font>Font-Condensed-S34</font>
+				    	<align>left</align>
+				    	<label>$LOCALIZE[41315]</label>
+				    	<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout" condition="!Control.HasFocus(93331)">Conditional</animation>
+				    </control>
+				    <control type="button" id="93332">
+				    	<posx>0</posx>
+				    	<posy>74</posy>
+				    	<width>531</width>
+				    	<height>89</height>
+				    	<onleft>1110</onleft>
+				    	<onright>SendClick(2003,5)</onright>
+				    	<onright>SetFocus(9334)</onright>
+				    	<onup>93331</onup>
+				    	<ondown>93333</ondown>
+				    	<onclick>ActivateWindow(3004)</onclick>
+				    	<textcolor>eewhite</textcolor>
+				    	<shadowcolor>33FFFFFF</shadowcolor>
+				    	<font>Font-Condensed-S34</font>
+				    	<align>left</align>
+				    	<label>$LOCALIZE[41329]</label>
+				    	<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout" condition="!Control.HasFocus(93332)">Conditional</animation>
+				    </control>
+				    <control type="button" id="93333">
+				    	<posx>0</posx>
+				    	<posy>148</posy>
+				    	<width>531</width>
+				    	<height>89</height>
+				    	<onleft>1110</onleft>
+				    	<onright>SendClick(2003,5)</onright>
+				    	<onright>SetFocus(9334)</onright>
+				    	<onup>93332</onup>
+				    	<ondown>93334</ondown>
+				    	<onclick>RunScript(script.library.editor)</onclick>
+				    	<textcolor>eewhite</textcolor>
+				    	<shadowcolor>33FFFFFF</shadowcolor>
+				    	<font>Font-Condensed-S34</font>
+				    	<align>left</align>
+				    	<label>$LOCALIZE[41328]</label>
+				    	<enable>System.HasAddon(script.library.editor)</enable>
+				    	<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout" condition="!Control.HasFocus(93333)">Conditional</animation>
+				    </control>
+				    <control type="button" id="93334">
+				    	<posx>0</posx>
+				    	<posy>222</posy>
+				    	<width>531</width>
+				    	<height>89</height>
+				    	<onleft>1110</onleft>
+				    	<onright>SendClick(2003,5)</onright>
+				    	<onright>SetFocus(9334)</onright>
+				    	<onup>93333</onup>
+				    	<ondown>1101</ondown>
+				    	<onclick>SendClick(2003,6)</onclick>
+				    	<textcolor>eewhite</textcolor>
+				    	<shadowcolor>33FFFFFF</shadowcolor>
+				    	<font>Font-Condensed-S34</font>
+				    	<align>left</align>
+				    	<label>$LOCALIZE[41307]</label>
+				    	<animation effect="fade" start="100" end="70" time="200" tween="sine" easing="inout" condition="!Control.HasFocus(93334)">Conditional</animation>
+				    </control>
 				</control>
 				
 				<!-- Info -->
@@ -828,45 +809,18 @@
 			<onleft>-</onleft>
 			<onright>SendClick(2003,5)</onright>
 			<onright>SetFocus(9334)</onright>
-			<onup>Control.Message(9333,movedown,2003)</onup>
-			<onup>SetFocus(9333,3)</onup>
-			<ondown>Control.Move(9333,-1)</ondown>
-			<ondown>Control.Message(9333,moveup,2003)</ondown>
-			<ondown>SetFocus(9333,0)</ondown>
+			<onup>SetFocus(93334)</onup>
+			<ondown>SetFocus(93331)</ondown>
 			<onclick>PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
 			<onclick>SetFocus(1108)</onclick>
 			<visible>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</visible>
 			<enable>!IsEmpty(ListItem.Trailer) + !Player.HasVideo</enable>
 		</control>
 		
-		<!-- Trailer Button -->
-		<control type="button" id="1102">
-			<posx>125</posx>
-			<posy>247</posy>
-			<width>585</width>
-			<height>335</height>
-			<onleft>-</onleft>
-			<onright>SendClick(2003,5)</onright>
-			<onright>SetFocus(9334)</onright>
-			<onup>Control.Move(9333,1)</onup>
-			<onup>Control.Message(9333,movedown,2003)</onup>
-			<onup>SetFocus(9333,3)</onup>
-			<ondown>Control.Message(9333,moveup,2003)</ondown>
-			<ondown>SetFocus(9333,0)</ondown>
-			<onclick>PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
-			<onclick>SetFocus(1109)</onclick>
-			<visible>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</visible>
-			<enable>!Player.HasVideo + !IsEmpty(ListItem.Trailer)</enable>
-		</control>
-		
 		<control type="button" id="1108">
 			<onfocus>SetFocus(1101)</onfocus>
 		</control>
-		
-		<control type="button" id="1109">
-			<onfocus>SetFocus(1102)</onfocus>
-		</control>
-		
+
 		<control type="button" id="1110">
 			<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
 			<onright>9333</onright>

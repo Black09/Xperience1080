@@ -1,125 +1,122 @@
 <window id="101">
 	<defaultcontrol>10</defaultcontrol>
 	<controls>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black_content.png</texture>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
-			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
-			<visible>Window.IsVisible(addonsettings)</visible>
-		</control>
-		<control type="group">
-		
-			<include>KeyboardAnimations</include>
-			
-			<control type="image">
-				<description>background image</description>
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>1920</width>
-				<height>1080</height>
-				<texture>dialogs/progress/background.png</texture>
-			</control>
-			
-			<control type="group">
-				<posx>877</posx>
-				<posy>458</posy>
-				<control type="image">
-					<description>background image</description>
-					<width>166</width>
-					<height>166</height>
-					<texture>dialogs/progress/loading-back.png</texture>
-				</control>
-				<control type="image">
-					<description>background image</description>
-					<width>166</width>
-					<height>166</height>
-					<texture>dialogs/progress/loading-glow.png</texture>
-					<animation type="Conditional" pulse="true" condition="true">
-						<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
-					</animation>
-				</control>
-				<control type="image">
-					<description>background image</description>
-					<width>166</width>
-					<height>166</height>
-					<texture>dialogs/progress/loading.png</texture>
-					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
-				</control>
-			</control>
-			
-			<control type="label" id="1">
-				<description>heading label</description>
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>0</width>
-				<height>0</height>
-				<font>-</font>
-				<visible>false</visible>
-			</control>
-			
-			<control type="label">
-				<posx>650</posx>
-				<posy>635</posy>
-				<width>620</width>
-				<height>32</height>
-				<font>Font-Condensed-S30</font>
-				<textcolor>FF585858</textcolor>
-				<shadowcolor>20FFFFFF</shadowcolor>
-				<align>left</align>
-				<label>$INFO[Control.GetLabel(1)]</label>
-			</control>
-			
-			<control type="label" id="2">
-				<posx>650</posx>
-				<posy>380</posy>
-				<width>620</width>
-				<height>32</height>
-				<font>Font-Condensed-S30</font>
-				<textcolor>FF585858</textcolor>
-				<shadowcolor>20FFFFFF</shadowcolor>
-				<align>left</align>
-			</control>
-			
-			<control type="label" id="3">
-				<posx>650</posx>
-				<posy>410</posy>
-				<width>620</width>
-				<height>32</height>
-				<font>Font-Condensed-S30</font>
-				<textcolor>FF585858</textcolor>
-				<shadowcolor>20FFFFFF</shadowcolor>
-				<align>left</align>
-			</control>
-			
-			<control type="progress">
-				<description>Progressbar</description>
-				<posx>650</posx>
-				<posy>675</posy>
-				<width>620</width>
-				<height>20</height>
-				<info>System.Progressbar</info>
-				<aspectratio>stretch</aspectratio>
-				<lefttexture>dialogs/progress/progress-left.png</lefttexture>
-				<midtexture border="1">dialogs/progress/progress-mid.png</midtexture>
-				<righttexture>dialogs/progress/progress-right.png</righttexture>
-				<texturebg>dialogs/progress/progress-back.png</texturebg>
-			</control>
-			
-			<control type="button" id="10">
-				<posx>623</posx>
-				<posy>699</posy>
-				<description>Cancel</description>
-				<label>$LOCALIZE[42001]</label>
-				<texturefocus>buttons/cancel-fo.png</texturefocus>
-				<texturenofocus>buttons/cancel-nf.png</texturenofocus>
-				<include>DialogButtonDimensions</include>
-				<onleft>10</onleft>
-				<onright>10</onright>
-				<onup>10</onup>
-				<ondown>10</ondown>
-				<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(10)">Conditional</animation>
-			</control>
-		</control>
+	    <control type="group">
+	    	<animation type="WindowOpen" condition="Window.IsVisible(3004) | Window.IsVisible(selectdialog) | Window.IsVisible(addonsettings)" reversible="false">
+	    		<effect type="fade" start="0" end="100" time="0" delay="300" />
+	    	</animation> 
+    		<control type="group">
+    			<include>KeyboardAnimations</include>
+    			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(okdialog)</visible>
+    			<control type="image">
+    				<description>background image</description>
+    				<posx>0</posx>
+    				<posy>0</posy>
+    				<width>1920</width>
+    				<height>1080</height>
+    				<texture>dialogs/progress/background.png</texture>
+    			</control>
+    			
+    			<control type="group">
+    				<posx>877</posx>
+    				<posy>458</posy>
+    				<control type="image">
+    					<description>background image</description>
+    					<width>166</width>
+    					<height>166</height>
+    					<texture>dialogs/progress/loading-back.png</texture>
+    				</control>
+    				<control type="image">
+    					<description>background image</description>
+    					<width>166</width>
+    					<height>166</height>
+    					<texture>dialogs/progress/loading-glow.png</texture>
+    					<animation type="Conditional" pulse="true" condition="true">
+    						<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
+    					</animation>
+    				</control>
+    				<control type="image">
+    					<description>background image</description>
+    					<width>166</width>
+    					<height>166</height>
+    					<texture>dialogs/progress/loading.png</texture>
+    					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+    				</control>
+    			</control>
+    			
+    			<control type="label" id="1">
+    				<description>heading label</description>
+    				<posx>0</posx>
+    				<posy>0</posy>
+    				<width>0</width>
+    				<height>0</height>
+    				<font>-</font>
+    				<visible>false</visible>
+    			</control>
+    			
+    			<control type="label">
+    				<posx>650</posx>
+    				<posy>635</posy>
+    				<width>620</width>
+    				<height>32</height>
+    				<font>Font-Condensed-S30</font>
+    				<textcolor>FF585858</textcolor>
+    				<shadowcolor>20FFFFFF</shadowcolor>
+    				<align>left</align>
+    				<label>$INFO[Control.GetLabel(1)]</label>
+    			</control>
+    			
+    			<control type="label" id="2">
+    				<posx>650</posx>
+    				<posy>380</posy>
+    				<width>620</width>
+    				<height>32</height>
+    				<font>Font-Condensed-S30</font>
+    				<textcolor>FF585858</textcolor>
+    				<shadowcolor>20FFFFFF</shadowcolor>
+    				<align>left</align>
+    			</control>
+    			
+    			<control type="label" id="3">
+    				<posx>650</posx>
+    				<posy>410</posy>
+    				<width>620</width>
+    				<height>32</height>
+    				<font>Font-Condensed-S30</font>
+    				<textcolor>FF585858</textcolor>
+    				<shadowcolor>20FFFFFF</shadowcolor>
+    				<align>left</align>
+    			</control>
+    			
+    			<control type="progress">
+    				<description>Progressbar</description>
+    				<posx>650</posx>
+    				<posy>675</posy>
+    				<width>620</width>
+    				<height>20</height>
+    				<info>System.Progressbar</info>
+    				<aspectratio>stretch</aspectratio>
+    				<lefttexture>dialogs/progress/progress-left.png</lefttexture>
+    				<midtexture border="1">dialogs/progress/progress-mid.png</midtexture>
+    				<righttexture>dialogs/progress/progress-right.png</righttexture>
+    				<texturebg>dialogs/progress/progress-back.png</texturebg>
+    			</control>
+    			
+    			<control type="button" id="10">
+    				<posx>623</posx>
+    				<posy>699</posy>
+    				<description>Cancel</description>
+    				<label>$LOCALIZE[42001]</label>
+    				<texturefocus>buttons/cancel-fo.png</texturefocus>
+    				<texturenofocus>buttons/cancel-nf.png</texturenofocus>
+    				<include>DialogButtonDimensions</include>
+    				<onleft>10</onleft>
+    				<onright>10</onright>
+    				<onup>10</onup>
+    				<ondown>10</ondown>
+    				<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(10)">Conditional</animation>
+    			</control>
+    		</control>
+    	</control>
 	</controls>
 </window>

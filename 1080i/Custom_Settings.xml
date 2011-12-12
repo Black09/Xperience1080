@@ -122,16 +122,21 @@
 					<include>SettingsCategoryButtonVars</include>
 				</control>
 				<control type="button" id="34">
+					<description>OSD Settings</description>
+					<label>$LOCALIZE[478]</label>
+					<include>SettingsCategoryButtonVars</include>
+				</control>
+				<control type="button" id="35">
 					<description>Background Settings</description>
 					<label>$LOCALIZE[41250]</label>
 					<include>SettingsCategoryButtonVars</include>
 				</control>
-				<control type="button" id="35">
+				<control type="button" id="36">
 					<description>Guide menu Settings</description>
 					<label>$LOCALIZE[41460]</label>
 					<include>SettingsCategoryButtonVars</include>
 				</control>
-				<control type="button" id="36">
+				<control type="button" id="37">
 					<description>Add-on Settings</description>
 					<label>$LOCALIZE[41280]</label>
 					<include>SettingsCategoryButtonVars</include>
@@ -199,22 +204,6 @@
 					<enable>!Skin.HasSetting(KioskMode)</enable>
 					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(1006)">Conditional</animation>
 				</control>
-				<control type="radiobutton" id="1007">
-					<width>1210</width>
-					<include>SettingsCategoryRadioButtonVars</include>
-					<selected>Skin.HasSetting(ArtistSlideShow)</selected>
-					<onclick>Skin.ToggleSetting(ArtistSlideShow)</onclick>
-					<onclick condition="IsEmpty(Skin.String(ArtistSlideShow.CustomFolder))">Skin.SetString(ArtistSlideShow.CustomFolder,special://profile/Thumbnails/Music/Fanart/)</onclick>
-					<label>$LOCALIZE[41103]</label>
-				</control>
-				<control type="button" id="1008">
-					<width>1210</width>
-					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>Skin.SetPath(ArtistSlideShow.CustomFolder)</onclick>
-					<label> • $LOCALIZE[41104]</label>
-					<label2>$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</label2>
-					<visible>Skin.HasSetting(ArtistSlideShow)</visible>
-				</control>
 				<control type="group" id="1009">
 					<description>Fake spin control</description>
 					<width>1210</width>
@@ -235,7 +224,7 @@
 						<height>60</height>
 						<onleft>10092</onleft>
 						<onright>10092</onright>
-						<onup>1008</onup>
+						<onup>1006</onup>
 						<ondown>1010</ondown>
 						<texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
 						<texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
@@ -264,7 +253,7 @@
 						<height>60</height>
 						<onleft>10091</onleft>
 						<onright>10091</onright>
-						<onup>1008</onup>
+						<onup>1006</onup>
 						<ondown>1010</ondown>
 						<texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
 						<texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
@@ -639,10 +628,48 @@
 				</control>
 			</control>
 			
+			<!-- OSD Settings -->
+		    <control type="grouplist" id="5">
+		        <include>SettingsCategoryGrouplistVars</include>
+		        <visible>ControlGroup(3).HasFocus(34)</visible>
+		        <control type="radiobutton" id="8001">
+		        	<width>1210</width>
+		        	<include>SettingsCategoryRadioButtonVars</include>
+		        	<selected>Skin.HasSetting(OSDVisualisation.Enabled)</selected>
+		        	<onclick>Skin.ToggleSetting(OSDVisualisation.Enabled)</onclick>
+		        	<label>$LOCALIZE[41240]</label>
+		        </control>
+		        <control type="radiobutton" id="8002">
+		        	<width>1210</width>
+		        	<include>SettingsCategoryRadioButtonVars</include>
+		        	<selected>Skin.HasSetting(OSDMusicAlt.Enabled)</selected>
+		        	<onclick>Skin.ToggleSetting(OSDMusicAlt.Enabled)</onclick>
+		        	<label>$LOCALIZE[41241]</label>
+		        </control>
+		        <control type="radiobutton" id="8003">
+		        	<width>1210</width>
+		        	<include>SettingsCategoryRadioButtonVars</include>
+		        	<selected>Skin.HasSetting(ArtistSlideShow)</selected>
+		        	<onclick>Skin.ToggleSetting(ArtistSlideShow)</onclick>
+		        	<onclick condition="IsEmpty(Skin.String(ArtistSlideShow.CustomFolder))">Skin.SetString(ArtistSlideShow.CustomFolder,special://profile/Thumbnails/Music/Fanart/)</onclick>
+		        	<enable>!Skin.HasSetting(OSDVisualisation.Enabled)</enable>
+		        	<label>$LOCALIZE[41103]</label>
+		        	<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(8003)">Conditional</animation>
+		        </control>
+		        <control type="button" id="8004">
+		        	<width>1210</width>
+		        	<include>SettingsCategoryDefaultButtonVars</include>
+		        	<onclick>Skin.SetPath(ArtistSlideShow.CustomFolder)</onclick>
+		        	<label> • $LOCALIZE[41104]</label>
+		        	<label2>$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</label2>
+		        	<visible>Skin.HasSetting(ArtistSlideShow) + !Skin.HasSetting(OSDVisualisation.Enabled)</visible>
+		        </control>
+		    </control>
+			
 			<!-- Background Settings -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
-				<visible>ControlGroup(3).HasFocus(34)</visible>
+				<visible>ControlGroup(3).HasFocus(35)</visible>
 				<control type="button" id="5000">
 					<width>1210</width>
 					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
@@ -863,7 +890,7 @@
 			<!-- =================== -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
-				<visible>ControlGroup(3).HasFocus(35)</visible>
+				<visible>ControlGroup(3).HasFocus(36)</visible>
 				<control type="radiobutton" id="6001">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
@@ -961,7 +988,7 @@
 			<!-- =============== -->
 			<control type="grouplist" id="5">
 				<include>SettingsCategoryGrouplistVars</include>
-				<visible>ControlGroup(3).HasFocus(36)</visible>
+				<visible>ControlGroup(3).HasFocus(37)</visible>
 				<control type="button" id="7001">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
@@ -1000,9 +1027,37 @@
 				<control type="button" id="7006">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=landscape.jpg,poster=False,banner=False)</onclick>
+					<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
+					<label> • $LOCALIZE[41290]</label>
+					<visible>Skin.HasSetting(NextAired.Enabled)</visible>
+				</control>
+				<control type="button" id="7007">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,tvthumb)</onclick>
 					<label> • $LOCALIZE[41286]</label>
 					<visible>Skin.HasSetting(NextAired.Enabled)</visible>
+				</control>
+				<control type="radiobutton" id="7008">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(ExtraFanart.Enabled)</selected>
+					<onclick>Skin.ToggleSetting(ExtraFanart.Enabled)</onclick>
+					<label>$LOCALIZE[41287]</label>
+				</control>
+				<control type="button" id="7009">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
+					<label> • $LOCALIZE[41289]</label>
+					<visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
+				</control>
+				<control type="button" id="7010">
+					<width>1210</width>
+					<include>SettingsCategoryDefaultButtonVars</include>
+					<onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,extrafanart)</onclick>
+					<label> • $LOCALIZE[41288]</label>
+					<visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
 				</control>
 			</control>
 		</control>

@@ -178,4 +178,9 @@
 	    <value>$INFO[ListItem.Thumb]</value>
 	</variable>
 	
+	<variable name="TvTunesThumb">
+	    <value condition="!IsEmpty(Container(103).ListItem.Property(banner))">$INFO[Container(103).ListItem.Property(banner)]</value>
+	    <value>$INFO[Container(103).ListItem.Icon]</value>
+	</variable>
+	
 </includes>

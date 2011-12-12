@@ -30,8 +30,9 @@
 		<include>CommonStage</include>
 	</include>
 	<include name="CommonItemsMusicOSD">
-		<include>CommonContent</include>
-		<include>BackgroundFanartMusicOSD</include>
+		<include condition="!Skin.HasSetting(OSDBackground.Disabled)">CommonContent</include>
+		<include condition="!Skin.HasSetting(OSDBackground.Disabled)">BackgroundFanartMusicOSD</include>
+		<include condition="Skin.HasSetting(OSDVisualisation.Enabled)">OSDVisualisation</include>
 		<control type="image">
 			<animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
 		</control>
@@ -41,11 +42,12 @@
 			<texture background="true">views/thumb/panels/back-vignette.png</texture>
 			<aspectratio>stretch</aspectratio>
 			<include>Animation_FanartFade</include>
-			<include>StageHidden</include>
+			<visible>!Skin.HasSetting(OSDMusicAlt.Enabled)</visible>
 		</control>
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>windows/common/stage-musicvis.png</texture>
+			<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
 			<animation type="WindowClose">
 				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
 				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
@@ -54,8 +56,16 @@
 				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
 				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
 			</animation>
+			<animation type="Hidden">
+				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
+			</animation>
+			<animation type="Visible">
+				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
+				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
+			</animation>
 		</control>
-		<include>Common-Info-NoOptions</include>
+    	<include condition="!Skin.HasSetting(OSDMusicAlt.Enabled)">Common-Info-NoOptions</include>
 	</include>
 	<include name="CommonSettingsItems">
 		<include>CommonContent</include>
@@ -285,6 +295,7 @@
 			<include>FullscreenDimensions</include>
 			<texture background="true">windows/common/black_content.png</texture>
 			<colordiffuse>E5FFFFFF</colordiffuse>
+			<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
 			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
 			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
 			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
@@ -324,7 +335,7 @@
 			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml)</visible>
+			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml) | Window.IsActive(script-TvTunes-main.xml)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundInfo">
@@ -342,7 +353,7 @@
 			<texture>windows/common/black_content.png</texture>
 			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput)</visible>
+			<visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput) | Window.IsActive(3004) | Window.IsActive(DialogSelect.xml) | Window.IsActive(script-LibraryEditor-dialogs.xml) | Window.IsActive(script-LibraryEditor-genre.xml)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundTwo">
@@ -555,30 +566,6 @@
 		<textoffsetx>75</textoffsetx>
 		<textwidth>300</textwidth>
 		<scroll>false</scroll>		
-	</include>
-	
-	<include name="DialogButtonDimensions">
-		<textcolor>ddwhite</textcolor>
-		<focusedcolor>ddwhite</focusedcolor>
-		<disabledcolor>99FFFFFF</disabledcolor>
-		<align>left</align>
-		<textoffsetx>85</textoffsetx>
-		<aligny>top</aligny>
-		<textoffsety>31</textoffsety>
-		<width>350</width>
-		<height>100</height>
-	</include>
-	
-	<include name="DialogButtonDimensionsRightAlign">
-		<textcolor>ddwhite</textcolor>
-		<focusedcolor>ddwhite</focusedcolor>
-		<disabledcolor>99FFFFFF</disabledcolor>
-		<align>right</align>
-		<textoffsetx>85</textoffsetx>
-		<aligny>top</aligny>
-		<textoffsety>31</textoffsety>
-		<width>350</width>
-		<height>100</height>
 	</include>
 	
 	<include name="AddonDescHeight_1">

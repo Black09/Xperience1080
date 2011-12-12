@@ -1,0 +1,254 @@
+<window type="dialog">
+	<defaultcontrol always="true">120</defaultcontrol>
+	<zorder>2</zorder>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+    	<control type="group">
+    		<animation type="WindowOpen" condition="Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml)" reversible="false">
+    			<effect type="fade" start="0" end="100" time="0" delay="300" />
+    		</animation>
+    		<control type="group">
+    			<include>KeyboardAnimations</include>
+    			<visible>!Window.IsVisible(yesnodialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(script-LibraryEditor-dialogs.xml)</visible>
+    			
+    			<control type="label">
+    				<description>Heading</description>
+    				<posx>473</posx>
+    				<posy>218</posy>
+    				<width>974</width>
+    				<font>Font-Condensed-S34</font>
+    				<label>$INFO[Window.Property(Type),XBMC Library Editor • Genre • ,]</label>
+    				<textcolor>ddwhite</textcolor>
+    				<align>center</align>
+    			</control>
+    			
+    			<control type="image">
+    				<include>FullscreenDimensions</include>
+    				<texture>dialogs/select/background.png</texture>
+    			</control>
+    			<control type="image">
+    				<include>FullscreenDimensions</include>
+    				<texture>dialogs/select/separators-small.png</texture>
+    			</control>
+    						
+    			<control type="list" id="120">
+    				<posx>638</posx>
+    				<posy>300</posy>
+    				<width>644</width>
+    				<height>480</height>
+    				<onleft>25</onleft>
+    				<onright>61</onright>
+    				<onup>120</onup>
+    				<ondown>120</ondown>
+    				<pagecontrol>61</pagecontrol>
+    				<scrolltime>0</scrolltime>
+    				<itemlayout height="60">
+    					<control type="label">
+    						<posx>20</posx>
+    						<posy>-4</posy>
+    						<width>400</width>
+    						<height>60</height>
+    						<info>ListItem.Label</info>
+    						<font>Font-Condensed-S34</font>
+    						<align>left</align>
+    						<aligny>center</aligny>
+    						<textcolor>FF585858</textcolor>
+    						<scroll>false</scroll>
+    					</control>
+    					<control type="image">
+    						<posx>550</posx>
+    						<posy>-8</posy>
+    						<width>120</width>
+    						<height>76</height>
+    						<texture>buttons/radio/options-radio-button-nf.png</texture>
+    						<visible>IsEmpty(ListItem.Icon)</visible>
+    					</control>
+    					<control type="image">
+    						<posx>550</posx>
+    						<posy>-8</posy>
+    						<width>120</width>
+    						<height>76</height>
+    						<texture>buttons/radio/options-radio-button-fo.png</texture>
+    						<visible>!IsEmpty(ListItem.Icon)</visible>
+    					</control>
+    				</itemlayout>
+    				<focusedlayout height="60">
+    					<control type="group">
+    						<visible>!Control.HasFocus(120) + !Control.HasFocus(25)</visible>
+    						<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Visible</animation>
+    						<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Hidden</animation>
+    						<control type="label">
+    							<posx>20</posx>
+    							<posy>-4</posy>
+    							<width>400</width>
+    							<height>60</height>
+    							<info>ListItem.Label</info>
+    							<font>Font-Condensed-S34</font>
+    							<align>left</align>
+    							<aligny>center</aligny>
+    							<textcolor>FF585858</textcolor>
+    							<selectedcolor>FF585858</selectedcolor>
+    							<scroll>false</scroll>
+    						</control>
+    					</control>
+    					<control type="group">
+    						<visible>Control.HasFocus(120) | Control.HasFocus(25)</visible>
+    						<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Visible</animation>
+    						<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Hidden</animation>
+    						<control type="image">
+    							<width>644</width>
+    							<height>60</height>
+    							<texture border="2">dialogs/content/highlight-light.png</texture>
+    						</control>
+    						<control type="label">
+    							<posx>20</posx>
+    							<posy>-4</posy>
+    							<width>400</width>
+    							<height>60</height>
+    							<textcolor>eewhite</textcolor>
+    							<info>ListItem.Label</info>
+    							<font>Font-Condensed-S34</font>
+    							<align>left</align>
+    							<aligny>center</aligny>
+    							<scroll>false</scroll>
+    						</control>
+    					</control>
+    					<control type="image">
+    						<posx>550</posx>
+    						<posy>-8</posy>
+    						<width>120</width>
+    						<height>76</height>
+    						<texture>buttons/radio/options-radio-button-nf.png</texture>
+    						<visible>IsEmpty(ListItem.Icon)</visible>
+    					</control>
+    					<control type="image">
+    						<posx>550</posx>
+    						<posy>-8</posy>
+    						<width>120</width>
+    						<height>76</height>
+    						<texture>buttons/radio/options-radio-button-fo.png</texture>
+    						<visible>!IsEmpty(ListItem.Icon)</visible>
+    					</control>
+    				</focusedlayout>
+    			</control>
+    			
+    			<control type="group">
+    			    <posx>1145</posx>
+    			    <posy>300</posy>
+    			    <animation effect="slide" start="0,0" end="0,60" condition="stringcompare(Container(120).Position,1)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,120" condition="stringcompare(Container(120).Position,2)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,180" condition="stringcompare(Container(120).Position,3)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,240" condition="stringcompare(Container(120).Position,4)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,300" condition="stringcompare(Container(120).Position,5)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,360" condition="stringcompare(Container(120).Position,6)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,420" condition="stringcompare(Container(120).Position,7)">Conditional</animation>
+    			    <animation effect="slide" start="0,0" end="0,480" condition="stringcompare(Container(120).Position,8)">Conditional</animation>
+    			    <control type="button" id="25">
+    			        <description>Delete button</description>
+    			    	<posx>0</posx>
+    			    	<posy>-8</posy>
+    			    	<width>120</width>
+    			    	<height>76</height>
+    			    	<texturefocus>dialogs/libraryeditor/delete-fo.png</texturefocus>
+    			    	<texturenofocus>dialogs/libraryeditor/delete-nf.png</texturenofocus>
+    			    	<onleft>9000</onleft>
+    			    	<onright>120</onright>
+    			    	<onup>Control.Move(120,-1)</onup>
+    			    	<ondown>Control.Move(120,1)</ondown>
+    			    </control>
+    			    <control type="label">
+    			    	<posx>28</posx>
+    			    	<posy>-3</posy>
+    			    	<width>200</width>
+    			    	<height>60</height>
+    			    	<textcolor>eewhite</textcolor>
+    			    	<label>$LOCALIZE[117]</label>
+    			    	<font>Font-Condensed-S30</font>
+    			    	<align>right</align>
+    			    	<aligny>center</aligny>
+    			    	<scroll>false</scroll>
+    			    	<include>visiblehidefade</include>
+    			    	<visible>Control.HasFocus(25)</visible>
+    			    </control>
+    			</control>
+    						
+    			<control type="image" id="63">
+    				<animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+    			</control>
+    			<control type="image" id="62">
+    				<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+    				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+    				<visible>Control.HasFocus(61) | !Control.IsVisible(63)</visible>
+    			</control>
+    			<control type="image" id="62">
+    				<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+    				<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+    				<visible>!Control.HasFocus(61) + [Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]</visible>
+    			</control>
+    			<control type="scrollbar" id="61">
+    				<posx>1269</posx>
+    				<posy>303</posy>
+    				<width>11</width>
+    				<height>474</height>
+    				<texturesliderbackground>-</texturesliderbackground>
+    				<texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
+    				<texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+    				<textureslidernib>-</textureslidernib>
+    				<textureslidernibfocus>-</textureslidernibfocus>
+    				<onleft>120</onleft>
+    				<onright>9000</onright>
+    				<showonepage>false</showonepage>
+    				<orientation>vertical</orientation>
+    				<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(62)">Conditional</animation>
+    			</control>
+    
+    			<control type="group" id="9000">
+    				<posx>626</posx>
+    				<posy>776</posy>
+    				<control type="button" id="24">
+    					<description>Add</description>
+    					<texturefocus>buttons/add-fo.png</texturefocus>
+    					<texturenofocus>buttons/add-nf.png</texturenofocus>
+    					<include>DialogButtonDimensions</include>
+    					<onleft>23</onleft>
+    					<onright>22</onright>
+    					<label>15019</label>
+    					<onup>120</onup>
+    					<ondown>120</ondown>
+    					<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(24)">Conditional</animation>
+    				</control>
+    				<control type="button" id="22">
+    					<posx>200</posx>
+    					<description>Save</description>
+    					<label>$LOCALIZE[190]</label>
+    					<texturefocus>buttons/save-fo.png</texturefocus>
+    					<texturenofocus>buttons/save-nf.png</texturenofocus>
+    					<include>DialogButtonDimensions</include>
+    					<onclick>Action(close)</onclick>
+    					<onleft>24</onleft>
+    					<onright>23</onright>
+    					<onup>120</onup>
+    					<ondown>120</ondown>
+    					<enable>!IsEmpty(Window.Property(Update))</enable>
+    					<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(22)">Conditional</animation>
+    				</control>
+    				<control type="button" id="23">
+    					<posx>318</posx>
+    					<description>Cancel</description>
+    					<label>$LOCALIZE[222]</label>
+    					<texturefocus>buttons/cancel-right-fo.png</texturefocus>
+    					<texturenofocus>buttons/cancel-right-nf.png</texturenofocus>
+    					<include>DialogButtonDimensionsRightAlign</include>
+    					<onclick>Action(close)</onclick>
+    					<onleft>22</onleft>
+    					<onright>24</onright>
+    					<onup>120</onup>
+    					<ondown>120</ondown>
+    					<enable>!IsEmpty(Window.Property(Update))</enable>
+    					<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(23)">Conditional</animation>
+    				</control>
+    			</control>
+    		</control>
+    	</control>
+	</controls>
+</window>

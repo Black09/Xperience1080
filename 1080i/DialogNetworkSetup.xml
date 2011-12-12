@@ -9,7 +9,7 @@
 			<control type="group">
 				<include>KeyboardAnimations</include>
 				<include>OptionsShutdownAnimation</include>
-				<visible>!Window.IsVisible(virtualkeyboard)</visible>
+				<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(okdialog) + ![Window.IsVisible(filebrowser) + !IsEmpty(Window(home).Property(ShowDialog))]</visible>
 				<control type="image">
 					<include>FullscreenDimensions</include>
 					<texture>dialogs/networksetup/bg.png</texture>

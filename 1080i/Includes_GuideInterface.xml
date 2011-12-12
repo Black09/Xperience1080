@@ -362,7 +362,7 @@
 				<textcolor>77white</textcolor>
 				<font>Font-Condensed-S38</font>
 				<align>left</align>
-				<scroll>no</scroll>
+				<scroll>false</scroll>
 			</control>
 			<control type="group">
 				<visible>!ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
@@ -955,7 +955,7 @@
 					<shadowcolor>88000000</shadowcolor>
 					<font>Font-Condensed-S34</font>
 					<align>center</align>
-					<scroll>no</scroll>
+					<scroll>false</scroll>
 				</control>
 				<control type="progress" id="1">
 					<description>Progressbar</description>
@@ -998,7 +998,7 @@
 					<textcolor>99FFFFFF</textcolor>
 					<font>Font-Condensed-S34</font>
 					<align>center</align>
-					<scroll>no</scroll>
+					<scroll>false</scroll>
 				</control>
 				<control type="label">
 					<posx>25</posx>
@@ -1008,7 +1008,7 @@
 					<textcolor>77white</textcolor>
 					<font>Font-Condensed-S30</font>
 					<align>center</align>
-					<scroll>no</scroll>
+					<scroll>false</scroll>
 				</control>
 				<control type="image">
 					<posx>0</posx>
@@ -1032,6 +1032,19 @@
 						<effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
 					</animation>
 					<animation effect="fade" start="0" end="100" time="0" delay="500">Visible</animation>
+					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
+					<visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
+				</control>
+				<control type="image">
+					<posx>35</posx>
+					<posy>36</posy>
+					<width>229</width>
+					<height>229</height>
+					<texture diffuse="osd/media-guide/cdart-diffuse.png" background="true">$INFO[Player.FolderPath,,cdart.png]</texture>
+					<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
+						<effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
+					</animation>
+					<animation effect="fade" start="0" end="95" time="0" delay="500">Visible</animation>
 					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
 					<visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
 				</control>
@@ -1061,7 +1074,7 @@
 						<textcolor>77white</textcolor>
 						<font>Font-Condensed-S30</font>
 						<align>left</align>
-						<scroll>no</scroll>
+						<scroll>false</scroll>
 					</control>
 					<control type="label">
 						<posx>0</posx>
@@ -1071,7 +1084,7 @@
 						<textcolor>77white</textcolor>
 						<font>Font-Condensed-S30</font>
 						<align>left</align>
-						<scroll>no</scroll>
+						<scroll>false</scroll>
 					</control>
 					<control type="label">
 						<posx>0</posx>
@@ -1081,7 +1094,7 @@
 						<textcolor>77white</textcolor>
 						<font>Font-Condensed-S30</font>
 						<align>left</align>
-						<scroll>no</scroll>
+						<scroll>false</scroll>
 					</control>
 					<control type="label">
 						<posx>0</posx>
@@ -1091,7 +1104,7 @@
 						<textcolor>77white</textcolor>
 						<font>Font-Condensed-S30</font>
 						<align>left</align>
-						<scroll>no</scroll>
+						<scroll>false</scroll>
 					</control>
 				</control>
 			</control>
@@ -1586,7 +1599,7 @@
 			<font>Font-Condensed-S34</font>
 			<textcolor>bbwhite</textcolor>
 			<align>right</align>
-			<scroll>No</scroll>
+			<scroll>false</scroll>
 			<visible>!Skin.HasSetting(Guide.HideClock)</visible>
 		</control>
 		<control type="rss">

@@ -3,12 +3,20 @@
 	<zorder>5</zorder>
 	<controls>
 		<control type="group">
-			<visible>Window.IsActive(fullscreenvideo)</visible>
+			<visible>Window.IsActive(fullscreenvideo) | [Window.IsActive(musicosd) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
 			<animation type="WindowOpen">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
 				<effect type="slide" start="50" end="0" time="300" tween="sine" easing="inout" />
 			</animation>
 			<animation type="WindowClose">
+				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
+				<effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
+			</animation>
+			<animation type="Visible">
+				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+				<effect type="slide" start="50" end="0" time="300" tween="sine" easing="inout" />
+			</animation>
+			<animation type="Hidden">
 				<effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
 				<effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
 			</animation>
@@ -28,33 +36,6 @@
 				<width>100</width>
 				<height>100</height>
 				<texture>overlays/volume/muted-info.png</texture>
-			</control>
-		</control>
-		<control type="group">		
-			<visible>!Window.IsVisible(volumebar) + !Window.IsActive(fullscreenvideo)</visible>
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
-				<effect type="zoom" start="200" end="100" time="300" center="960,540" tween="sine" easing="inout" />
-				<effect type="fade" start="100" end="0" time="300" delay="2300" tween="sine" easing="inout" />
-				<effect type="zoom" start="100" end="50" time="300" delay="2300" center="960,540" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Visible">
-				<effect type="fade" start="100" end="0" time="0" />
-			</animation>
-			<control type="image">
-				<posx>800</posx>
-				<posy>380</posy>
-				<width>320</width>
-				<height>320</height>
-				<texture border="30,30,30,30">overlays/notification/back.png</texture>
-				<colordiffuse>ABFFFFFF</colordiffuse>
-			</control>
-			<control type="image">
-				<posx>800</posx>
-				<posy>380</posy>
-				<width>320</width>
-				<height>320</height>
-				<texture>overlays/volume/volume-muted.png</texture>
 			</control>
 		</control>
 	</controls>

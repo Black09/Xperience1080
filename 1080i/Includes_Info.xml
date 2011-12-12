@@ -39,8 +39,11 @@
 
 	<include name="Common-Clock">
 		<control type="group">
-			<animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo)" reversible="false">
+			<animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo) | [Window.Previous(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]" reversible="false">
 				<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+			</animation>
+			<animation type="WindowClose" condition="Window.Next(fullscreenvideo) | [Window.Next(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]" reversible="false">
+				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 			</animation>
 			<control type="image">
 				<description>Loading Back</description>
@@ -116,7 +119,7 @@
 					<textcolor>eewhite</textcolor>
 					<shadowcolor>55000000</shadowcolor>
 					<align>right</align>
-					<scroll>No</scroll>
+					<scroll>false</scroll>
 					<animation effect="slide" end="60" time="300" tween="sine" easing="inout" condition="!Weather.IsFetched">Conditional</animation>
 				</control>
 			</control>
@@ -227,6 +230,12 @@
 	<!-- Now Playing -->
 	<include name="Common-NowPlaying">
 		<control type="group">
+		    <animation type="WindowOpen" condition="Window.IsActive(loginscreen) | [Window.IsActive(startup) + !Window.Previous(loginscreen)] | Window.Previous(fullscreenvideo) | [Window.Previous(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]" reversible="false">
+		    	<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
+		    </animation>
+		    <animation type="WindowClose" condition="Window.Next(fullscreenvideo) | [Window.Next(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]" reversible="false">
+		    	<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
+		    </animation>
 			<animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Control.IsVisible(1111)">Conditional</animation>
 			<animation effect="slide" end="-85" time="300" tween="sine" easing="inout" condition="Window.IsActive(musicscan) | Window.IsActive(videoscan) | Window.IsActive(busydialog) | !IsEmpty(Window(Videos).Property(DialogDownloadProgress.IsAlive))">Conditional</animation>
 			<control type="image">
