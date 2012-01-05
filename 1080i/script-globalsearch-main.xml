@@ -1,0 +1,1697 @@
+<window type="dialog">
+	<allowoverlay>no</allowoverlay>
+	<onunload>ClearProperty(fanart_image,home)</onunload>
+	<controls>
+		<control type="group" id="100">
+			<control type="group">
+			    <posx>849</posx>
+			    <posy>400</posy>
+			    <control type="group">
+			        <description>Searching</description>
+    			    <include>visiblehidefadeinfo</include>
+    			    <visible>!IsEmpty(Control.GetLabel(190)) + !IsEmpty(Control.GetLabel(191))</visible>
+    			    <control type="grouplist">
+    			        <posx>-200</posx>
+    			        <posy>222</posy>
+    			        <width>622</width>
+    			        <height>60</height>
+    			        <orientation>horizontal</orientation>
+    			        <align>center</align>
+    			        <itemgap>6</itemgap>
+    			        <control type="label" id="190">
+    			            <description>Searching</description>
+    			            <width min="0" max="150">auto</width>
+    			            <height>60</height>
+    			            <font>Font-Condensed-S30</font>
+    			            <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                            <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+    			            <align>left</align>
+    			            <aligny>center</aligny>
+    			            <scroll>false</scroll>
+    			        </control>
+    			        <control type="label" id="191">
+    			            <description>Search category</description>
+    			            <width min="0" max="272">auto</width>
+    			            <height>60</height>
+    			            <font>Font-Condensed-S30</font>
+    			            <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                            <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+    			            <align>left</align>
+    			            <aligny>center</aligny>
+    			            <scroll>false</scroll>
+    			        </control>
+    			    </control>
+    			    <control type="image">
+    			    	<description>Loading Back</description>
+    			    	<posx>0</posx>
+    			    	<posy>0</posy>
+    			    	<width>222</width>
+    			    	<height>222</height>
+    			    	<texture>windows/startup/loading-back-dark.png</texture>
+    			    	<colordiffuse>88FFFFFF</colordiffuse>
+    			    	<animation type="Conditional" pulse="true" condition="true">
+    			    		<effect type="fade" center="auto" start="0" end="100" time="750" tween="sine" easing="in" delay="2250" />
+    			    	</animation>
+    			    </control>
+    			    <control type="image">
+    			    	<description>Loading</description>
+    			    	<posx>0</posx>
+    			    	<posy>0</posy>
+    			    	<width>222</width>
+    			    	<height>222</height>
+    			    	<colordiffuse>88FFFFFF</colordiffuse>
+    			    	<texture>windows/startup/loading-dark.png</texture>
+    			    	<animation effect="rotate" center="auto" start="360" end="0" time="1250" loop="true" condition="true">Conditional</animation>
+    			    </control>	
+    			</control>
+			    <control type="group">
+			        <visible>Control.IsVisible(198)</visible>
+			        <include>visiblehidefadeinfo</include>
+			        <control type="image">
+			            <description>No results icon</description>
+			        </control>
+			        <control type="label" id="198">
+			            <description>No results</description>
+			        </control>
+			    </control>
+			</control>
+			<control type="button" id="199">
+			    <description>New search button</description>
+			</control>
+			<control type="group" id="119">
+			    <description>Movies</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(111)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(111) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(111) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(181)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(121)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="110">
+			        <description>Number of found movies</description>
+			    </control>
+			    <control type="fixedlist" id="111">
+			        <description>Movie list</description>
+			        <posx>-226</posx>
+			        <posy>279</posy>
+			        <width>2282</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>181</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>121</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="326" height="650">
+			            <control type="group">
+			                <animation effect="fade" start="100" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+    			            <control type="image">
+    			                <posx>21</posx>
+    			                <posy>21</posy>
+    			                <width>320</width>
+    			                <height>480</height>
+    			                <aspectratio>scale</aspectratio>
+    			                <texture>windows/home/tile.png</texture>
+    			            </control>
+    			            <control type="image">
+    			                <posx>21</posx>
+    			                <posy>21</posy>
+    			                <width>320</width>
+    			                <height>480</height>
+    			                <aspectratio>scale</aspectratio>
+    			                <texture background="true">$INFO[ListItem.Icon]</texture>
+    			            </control>
+    			            <control type="image">
+    			            	<posx>241</posx>
+    			            	<posy>401</posy>
+    			            	<width>100</width>
+    			            	<height>100</height>
+    			            	<texture>windows/home/unwatched.png</texture>
+    			            	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+    			            </control>
+    			            <control type="image">
+    			            	<posx>241</posx>
+    			            	<posy>401</posy>
+    			            	<width>100</width>
+    			            	<height>100</height>
+    			            	<texture>windows/home/watched.png</texture>
+    			            	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+    			            </control>
+    			        </control>
+			        </itemlayout>
+			        <focusedlayout width="326" height="572">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,111,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(111).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>362</width>
+			                <height>522</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+    			            <control type="image">
+    			                <posx>21</posx>
+    			                <posy>21</posy>
+    			                <width>320</width>
+    			                <height>480</height>
+    			                <aspectratio>scale</aspectratio>
+    			                <texture>windows/home/tile.png</texture>
+    			            </control>
+    			            <control type="image">
+    			                <posx>21</posx>
+    			                <posy>21</posy>
+    			                <width>320</width>
+    			                <height>480</height>
+    			                <aspectratio>scale</aspectratio>
+    			                <texture background="true">$INFO[ListItem.Icon]</texture>
+    			            </control>
+    			            <control type="image">
+    			            	<posx>241</posx>
+    			            	<posy>401</posy>
+    			            	<width>100</width>
+    			            	<height>100</height>
+    			            	<texture>windows/home/unwatched.png</texture>
+    			            	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+    			            </control>
+    			            <control type="image">
+    			            	<posx>241</posx>
+    			            	<posy>401</posy>
+    			            	<width>100</width>
+    			            	<height>100</height>
+    			            	<texture>windows/home/watched.png</texture>
+    			            	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+    			            </control>
+    			        </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>300</posy>
+			    	<width>320</width>
+			    	<height>480</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="129">
+			    <description>Tv shows</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(121)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(121) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(121) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(111)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(131)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="120">
+			        <description>Number of found tv shows</description>
+			    </control>
+			    <control type="fixedlist" id="121">
+			        <description>Tv shows list</description>
+			        <posx>-226</posx>
+			        <posy>279</posy>
+			        <width>2282</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>111</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>131</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="326" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Studio), • ,]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="326" height="572">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,121,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(121).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>362</width>
+			                <height>522</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year)]$INFO[ListItem.Property(Studio), • ,]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>300</posy>
+			    	<width>320</width>
+			    	<height>480</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="139">
+			    <description>Seasons</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(131)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(131) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(131) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(121)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(141)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="130">
+			        <description>Number of found seasons</description>
+			    </control>
+			    <control type="fixedlist" id="131">
+			        <description>Seasons list</description>
+			        <posx>-226</posx>
+			        <posy>279</posy>
+			        <width>2282</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>121</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>141</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="326" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Property(TvShowTitle)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="326" height="572">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,131,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(131).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>362</width>
+			                <height>522</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>562</posy>
+			                    <width>360</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>505</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Property(TvShowTitle)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>540</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>320</width>
+			                    <height>480</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>241</posx>
+			                	<posy>401</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>300</posy>
+			    	<width>320</width>
+			    	<height>480</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="149">
+			    <description>Episodes</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(141)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(141) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(141) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(131)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(151)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="140">
+			        <description>Number of found episodes</description>
+			    </control>
+			    <control type="fixedlist" id="141">
+			        <description>Episodes list</description>
+                    <posx>-386</posx>
+                    <posy>368</posy>
+                    <width>2430</width>
+                    <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>131</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>151</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="486" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>384</posy>
+			                    <width>520</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>295</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Property(Episode),,. ]$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>330</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(TvShowTitle)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>362</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Season),$LOCALIZE[20373] ,]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="486" height="650">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,141,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(141).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>522</width>
+			                <height>312</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>384</posy>
+			                    <width>520</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>295</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Property(Episode),,. ]$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>330</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(TvShowTitle)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>362</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Season),$LOCALIZE[20373] ,]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]$INFO[ListItem.Property(Rating), • ,]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>389</posy>
+			    	<width>480</width>
+			    	<height>270</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="159">
+			    <description>Music videos</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(151)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(151) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(151) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(141)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(161)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="150">
+			        <description>Number of found music videos</description>
+			    </control>
+			    <control type="fixedlist" id="151">
+			        <description>Music videos list</description>
+			        <posx>-386</posx>
+			        <posy>384</posy>
+			        <width>2430</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>141</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>161</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="486" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>352</posy>
+			                    <width>520</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>295</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>330</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),,]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="486" height="650">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,151,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(151).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>522</width>
+			                <height>312</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>352</posy>
+			                    <width>520</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>295</posy>
+			                    <width>480</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>330</posy>
+			                    <width>320</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),,]$INFO[ListItem.Property(Duration), • , $LOCALIZE[12391]]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>480</width>
+			                    <height>270</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/unwatched.png</texture>
+			                	<visible>!IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			                <control type="image">
+			                	<posx>401</posx>
+			                	<posy>191</posy>
+			                	<width>100</width>
+			                	<height>100</height>
+			                	<texture>windows/home/watched.png</texture>
+			                	<visible>IntegerGreaterThan(ListItem.Property(PlayCount),0)</visible>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			        <control type="image">
+			        	<posx>121</posx>
+			        	<posy>405</posy>
+			        	<width>480</width>
+			        	<height>270</height>
+			        	<aspectratio>stretch</aspectratio>
+			        	<texture>windows/common/black.png</texture>
+			        	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			        	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			        	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			        </control>
+			    </control>
+			</control>
+			<control type="group" id="169">
+			    <description>Artists</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(161)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(161) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(161) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(151)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(171)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="160">
+			        <description>Number of found artists</description>
+			    </control>
+			    <control type="fixedlist" id="161">
+			        <description>Artists list</description>
+			        <posx>-286</posx>
+		            <posy>329</posy>
+		            <width>2282</width>
+		            <height>650</height>
+		            <onup>SetProperty(Movement,1)</onup>
+			        <onup>151</onup>
+		            <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>171</ondown>
+		            <viewtype label="List">List</viewtype>
+		            <scrolltime tween="cubic" easing="out">500</scrolltime>
+		            <orientation>horizontal</orientation>
+		            <preloaditems>2</preloaditems>
+		            <focusposition>1</focusposition>
+		            <itemlayout width="386" height="650">
+		                <control type="group">
+		                    <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+		                    <control type="image">
+		                        <decription>Bottom shadow</decription>
+		                        <posx>1</posx>
+		                        <posy>462</posy>
+		                        <width>420</width>
+		                        <height>60</height>
+		                        <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+		                    </control>
+		                    <control type="label">
+		                        <posx>21</posx>
+		                        <posy>405</posy>
+		                        <width>380</width>
+		                        <height>40</height>
+		                        <font>Font-Condensed-S29</font>
+		                        <label>$INFO[ListItem.Label]</label>
+		                        <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+		                        <aligny>center</aligny>
+		                        <textoffsetx>2</textoffsetx>
+		                        <scroll>false</scroll>
+		                    </control>
+		                    <control type="label">
+		                        <posx>21</posx>
+		                        <posy>440</posy>
+		                        <width>380</width>
+		                        <height>40</height>
+		                        <font>Font-Condensed-S27</font>
+		                        <label>$INFO[ListItem.Property(Artist_Genre)]</label>
+		                        <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+		                        <aligny>center</aligny>
+		                        <textoffsetx>2</textoffsetx>
+		                        <scroll>false</scroll>
+		                    </control>
+		                    <control type="image">
+		                        <posx>21</posx>
+		                        <posy>21</posy>
+		                        <width>380</width>
+		                        <height>380</height>
+		                        <aspectratio>scale</aspectratio>
+		                        <texture>windows/home/tile.png</texture>
+		                    </control>
+		                    <control type="image">
+		                        <posx>21</posx>
+		                        <posy>21</posy>
+		                        <width>380</width>
+		                        <height>380</height>
+		                        <aspectratio>scale</aspectratio>
+		                        <texture background="true">$INFO[ListItem.Icon]</texture>
+		                    </control>
+		                </control>
+		            </itemlayout>
+		            <focusedlayout width="386" height="650">
+		                <control type="button">
+		                    <onfocus>SetProperty(search_list,161,home)</onfocus>
+		                    <onfocus>SetProperty(fanart_image,$INFO[Container(161).ListItem.Property(Fanart_Image)],home)</onfocus>
+		                </control>
+		                <control type="image">
+		                    <posx>0</posx>
+		                    <posy>0</posy>
+		                    <width>422</width>
+		                    <height>422</height>
+		                    <texture border="40">windows/home/tile-fo.png</texture>
+		                    <animation type="Focus">
+		                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+		                    	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+		                    </animation>
+		                    <animation type="Unfocus">
+		                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+		                    	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+		                    </animation>
+		                </control>
+		                <control type="group">
+		                    <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+		                    <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+		                    <control type="image">
+		                        <decription>Bottom shadow</decription>
+		                        <posx>1</posx>
+		                        <posy>462</posy>
+		                        <width>420</width>
+		                        <height>60</height>
+		                        <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+		                    </control>
+		                    <control type="label">
+		                        <posx>21</posx>
+		                        <posy>405</posy>
+		                        <width>380</width>
+		                        <height>40</height>
+		                        <font>Font-Condensed-S29</font>
+		                        <label>$INFO[ListItem.Label]</label>
+		                        <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+		                        <aligny>center</aligny>
+		                        <textoffsetx>2</textoffsetx>
+		                        <scroll>false</scroll>
+		                    </control>
+		                    <control type="label">
+		                        <posx>21</posx>
+		                        <posy>440</posy>
+		                        <width>380</width>
+		                        <height>40</height>
+		                        <font>Font-Condensed-S27</font>
+		                        <label>$INFO[ListItem.Property(Artist_Genre)]</label>
+		                        <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+		                        <aligny>center</aligny>
+		                        <textoffsetx>2</textoffsetx>
+		                        <scroll>false</scroll>
+		                    </control>
+		                    <control type="image">
+		                        <posx>21</posx>
+		                        <posy>21</posy>
+		                        <width>380</width>
+		                        <height>380</height>
+		                        <aspectratio>scale</aspectratio>
+		                        <texture>windows/home/tile.png</texture>
+		                    </control>
+		                    <control type="image">
+		                        <posx>21</posx>
+		                        <posy>21</posy>
+		                        <width>380</width>
+		                        <height>380</height>
+		                        <aspectratio>scale</aspectratio>
+		                        <texture background="true">$INFO[ListItem.Icon]</texture>
+		                    </control>
+		                </control>
+		            </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>350</posy>
+			    	<width>380</width>
+			    	<height>380</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="179">
+			    <description>Albums</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(171)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(171) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(171) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(161)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(181)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="170">
+			        <description>Number of found albums</description>
+			    </control>
+			    <control type="fixedlist" id="171">
+			        <description>Albums list</description>
+			        <posx>-286</posx>
+			        <posy>329</posy>
+			        <width>2282</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>161</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>181</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="386" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>462</posy>
+			                    <width>420</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>405</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>440</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Genre)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="386" height="650">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,171,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(171).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>422</width>
+			                <height>422</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>462</posy>
+			                    <width>420</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>405</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>440</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Genre)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>350</posy>
+			    	<width>380</width>
+			    	<height>380</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+			<control type="group" id="189">
+			    <description>Songs</description>
+			    <visible allowhiddenfocus="true">IsEmpty(Control.GetLabel(190)) + IsEmpty(Control.GetLabel(191)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Control.HasFocus(181)</visible>
+			    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+			    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout">Visible</animation>
+			    <animation effect="slide" start="0,60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(181) + IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,-60" end="0,0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(181) + !IsEmpty(Window.Property(Movement))" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(171)" reversible="false">Conditional</animation>
+			    <animation effect="slide" start="0,0" end="0,-60" time="300" tween="sine" easing="inout" condition="Control.HasFocus(111)" reversible="false">Conditional</animation>
+			    <animation effect="zoom" start="100" end="110" time="300" tween="sine" easing="inout" center="auto" condition="Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <animation effect="zoom" start="120" end="100" time="600" tween="back" easing="out" center="auto" condition="!Window.IsVisible(script-globalsearch-infodialog.xml)">Conditional</animation>
+			    <control type="label" id="180">
+			        <description>Number of found songs</description>
+			    </control>
+			    <control type="fixedlist" id="181">
+			        <description>Songs list</description>
+			        <posx>-286</posx>
+			        <posy>297</posy>
+			        <width>2282</width>
+			        <height>650</height>
+			        <onup>SetProperty(Movement,1)</onup>
+			        <onup>171</onup>
+			        <ondown>ClearProperty(Movement)</ondown>
+			        <ondown>111</ondown>
+			        <viewtype label="List">List</viewtype>
+			        <scrolltime tween="cubic" easing="out">500</scrolltime>
+			        <orientation>horizontal</orientation>
+			        <preloaditems>2</preloaditems>
+			        <focusposition>1</focusposition>
+			        <itemlayout width="386" height="650">
+			            <control type="group">
+			                <animation effect="fade" end="75" time="0" condition="true">Conditional</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>526</posy>
+			                    <width>420</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>405</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>440</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Artist)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>472</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Album)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>504</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			            </control>
+			        </itemlayout>
+			        <focusedlayout width="386" height="650">
+			            <control type="button">
+			                <onfocus>SetProperty(search_list,181,home)</onfocus>
+			                <onfocus>SetProperty(fanart_image,$INFO[Container(181).ListItem.Property(Fanart_Image)],home)</onfocus>
+			            </control>
+			            <control type="image">
+			                <posx>0</posx>
+			                <posy>0</posy>
+			                <width>422</width>
+			                <height>422</height>
+			                <texture border="40">windows/home/tile-fo.png</texture>
+			                <animation type="Focus">
+			                    <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+			                </animation>
+			                <animation type="Unfocus">
+			                    <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+			                	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+			                </animation>
+			            </control>
+			            <control type="group">
+			                <animation effect="fade" start="75" end="100" time="200" tween="sine" easing="in">Focus</animation>
+			                <animation effect="fade" start="100" end="75" time="200" tween="sine" easing="out">UnFocus</animation>
+			                <control type="image">
+			                    <decription>Bottom shadow</decription>
+			                    <posx>1</posx>
+			                    <posy>526</posy>
+			                    <width>420</width>
+			                    <height>60</height>
+			                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>405</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S29</font>
+			                    <label>$INFO[ListItem.Label]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>440</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Artist)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>472</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Album)]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="label">
+			                    <posx>21</posx>
+			                    <posy>504</posy>
+			                    <width>380</width>
+			                    <height>40</height>
+			                    <font>Font-Condensed-S27</font>
+			                    <label>$INFO[ListItem.Property(Year),, • ]$INFO[ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+			                    <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeSearchLightColor</include>
+                                <include condition="IsEmpty(Skin.String(stage.customImage))">HomeSearchDarkColor</include>
+			                    <aligny>center</aligny>
+			                    <textoffsetx>2</textoffsetx>
+			                    <scroll>false</scroll>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture>windows/home/tile.png</texture>
+			                </control>
+			                <control type="image">
+			                    <posx>21</posx>
+			                    <posy>21</posy>
+			                    <width>380</width>
+			                    <height>380</height>
+			                    <aspectratio>scale</aspectratio>
+			                    <texture background="true">$INFO[ListItem.Icon]</texture>
+			                </control>
+			            </control>
+			        </focusedlayout>
+			    </control>
+			    <control type="image">
+			    	<posx>121</posx>
+			    	<posy>318</posy>
+			    	<width>380</width>
+			    	<height>380</height>
+			    	<aspectratio>stretch</aspectratio>
+			    	<texture>windows/common/black.png</texture>
+			    	<visible>Window.IsActive(script-globalsearch-contextmenu.xml)</visible>
+			    	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+			    	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+			    </control>
+			</control>
+		</control>
+	</controls>
+</window>

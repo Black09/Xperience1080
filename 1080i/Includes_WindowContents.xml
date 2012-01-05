@@ -114,6 +114,32 @@
 			<visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
 		</control> 
 		<include>CommonWeatherFanart</include>
+		<control type="image">
+			<description>Search results fanart</description>
+			<include>FullscreenDimensions</include>
+			<texture background="true">$INFO[Window(Home).Property(fanart_image)]</texture>
+			<fadetime>500</fadetime>
+			<include>Animation_FanartFade</include>
+			<visible>!IsEmpty(Window(Home).property(fanart_image)) + Skin.HasSetting(HomeNew.Enabled)</visible>
+		</control>
+		<control type="image">
+		    <include>FullscreenDimensions</include>
+		    <texture>windows/common/white_content.png</texture>
+		    <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
+		    <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
+		    <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
+		    <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
+		    <visible>IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
+		</control>
+		<control type="image">
+		    <include>FullscreenDimensions</include>
+		    <texture>windows/common/dark_content.png</texture>
+		    <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
+		    <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
+		    <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
+		    <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
+		    <visible>!IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
+		</control>
 	</include>
 
 <!-- ============== -->
@@ -155,10 +181,10 @@
 <!-- ===== -->
 
 	<include name="StageVisibility">
-		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(58) + !Control.IsVisible(60) + !Control.IsVisible(61) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
+		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(58) + !Control.IsVisible(60) + !Control.IsVisible(61) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
 	</include>
 	<include name="StageHidden">
-		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(60) | Control.IsVisible(61) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Window.IsActive(1122) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)]</visible>
+		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(60) | Control.IsVisible(61) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Window.IsActive(1122) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
 	</include>
 	<include name="CommonStage">
 		<control type="group">
@@ -333,9 +359,10 @@
 		<control type="image">
 			<include>FullscreenDimensions</include>
 			<texture>windows/common/black_content.png</texture>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
+			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="300" condition="!IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
+			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
 			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml) | Window.IsActive(script-TvTunes-main.xml)</visible>
+			<visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml) | Window.IsActive(script-TvTunes-main.xml)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundInfo">
@@ -344,7 +371,7 @@
 			<texture>dialogs/video-info/diffuse.png</texture>
 			<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">Visible</animation>
 			<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="out">Hidden</animation>
-			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation) | Window.IsActive(1122)</visible>
+			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation) | Window.IsActive(1122) | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
 		</control>
 	</include>
 	<include name="FadeBackgroundMovieInfo">

@@ -1,9 +1,13 @@
 <window id="103">
 	<defaultcontrol always="true">300</defaultcontrol>
+	<onunload>ClearProperty(HomeSearch,home)</onunload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(mediasource) | Window.IsVisible(networksetup) | Window.IsVisible(addonsettings) | Window.IsVisible(contextmenu) | Window.IsVisible(smartplaylisteditor) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(progressdialog) | Window.IsVisible(3003) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml)" reversible="false">
 				<effect type="fade" start="0" end="100" time="0" delay="300" />
+			</animation>
+			<animation type="WindowOpen" condition="!IsEmpty(Window(Home).Property(HomeSearch))" reversible="false">
+				<effect type="fade" start="0" end="100" time="0" delay="500" />
 			</animation>
 			<control type="group">
 				<posx>424</posx>

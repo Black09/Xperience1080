@@ -4,6 +4,7 @@
 	<controls>
 		<control type="group">
 			<include>KeyboardAnimations</include>
+			<visible>!Window.IsVisible(3003)</visible>
 			
 			<control type="label">
 				<description>Heading</description>
@@ -211,6 +212,10 @@
 			<control type="grouplist" id="3">
 				<include>SettingsDialogGrouplistVars</include>
 				<visible>stringcompare(Window(1111).property(Dialog),$LOCALIZE[41272])</visible>
+				<control type="button" id="2400">
+				    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
+				    <onfocus>SetFocus(10)</onfocus>
+				</control>
 				<control type="button" id="2401">
 					<width>1210</width>
 					<include>SettingsDialogRadioButtonVars</include>
@@ -276,6 +281,10 @@
 			<control type="grouplist" id="3">
 				<include>SettingsDialogGrouplistVars</include>
 				<visible>stringcompare(Window(1111).property(Dialog),$LOCALIZE[41273])</visible>
+				<control type="button" id="2500">
+				    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
+				    <onfocus>SetFocus(10)</onfocus>
+				</control>
 				<control type="button" id="2501">
 					<width>1210</width>
 					<include>SettingsDialogRadioButtonVars</include>
@@ -341,6 +350,10 @@
 			<control type="grouplist" id="3">
 				<include>SettingsDialogGrouplistVars</include>
 				<visible>stringcompare(Window(1111).property(Dialog),$LOCALIZE[41274])</visible>
+				<control type="button" id="2600">
+				    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
+				    <onfocus>SetFocus(10)</onfocus>
+				</control>
 				<control type="button" id="2601">
 					<width>1210</width>
 					<include>SettingsDialogRadioButtonVars</include>
@@ -406,6 +419,10 @@
 			<control type="grouplist" id="3">
 				<include>SettingsDialogGrouplistVars</include>
 				<visible>stringcompare(Window(1111).property(Dialog),$LOCALIZE[41275])</visible>
+				<control type="button" id="2700">
+				    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
+				    <onfocus>SetFocus(10)</onfocus>
+				</control>
 				<control type="button" id="2701">
 					<width>1210</width>
 					<include>SettingsDialogRadioButtonVars</include>
@@ -485,7 +502,7 @@
 				<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(61)">Conditional</animation>
 			</control>
 			
-			<control type="group">
+			<control type="group" id="10">
 				<posx>626</posx>
 				<posy>776</posy>
 				<control type="button" id="5">
@@ -493,12 +510,27 @@
 					<texturefocus>buttons/cancel-fo.png</texturefocus>
 					<texturenofocus>buttons/cancel-nf.png</texturenofocus>
 					<include>DialogButtonDimensions</include>
-					<onleft>3</onleft>
-					<onright>3</onright>
+					<onleft>6</onleft>
+					<onright>6</onright>
 					<onup>3</onup>
 					<ondown>3</ondown>
 					<label>$LOCALIZE[42002]</label>
 					<onclick>PreviousMenu</onclick>
+				</control>
+				<control type="button" id="6">
+				    <posx>200</posx>
+				    <description>Edit</description>
+				    <texturefocus>buttons/options-fo.png</texturefocus>
+				    <texturenofocus>buttons/options-nf.png</texturenofocus>
+				    <include>DialogButtonDimensions</include>
+				    <onleft>5</onleft>
+				    <onright>5</onright>
+				    <onup>3</onup>
+				    <ondown>3</ondown>
+				    <label>$LOCALIZE[21435]</label>
+				    <onclick>SetProperty(CustomDialog,1,3003)</onclick>
+				    <onclick>SetProperty(Dialog,$LOCALIZE[41136])</onclick>
+				    <onclick>ActivateWindow(3003)</onclick>
 				</control>
 			</control>
 		</control>

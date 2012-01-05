@@ -406,6 +406,13 @@
 			<control type="grouplist" id="5">
 				<visible>ControlGroup(3).HasFocus(32)</visible>
 				<include>SettingsCategoryGrouplistVars</include>
+				<control type="radiobutton" id="2000">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(HomeNew.Enabled)</selected>
+					<onclick>Skin.ToggleSetting(HomeNew.Enabled)</onclick>
+					<label>$LOCALIZE[41155]</label>
+				</control>
 				<control type="button" id="2001">
 					<width>1210</width>
 					<texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
@@ -414,6 +421,7 @@
 					<onclick>SetProperty(Dialog,$LOCALIZE[41131])</onclick>
 					<onclick>ActivateWindow(3001)</onclick>
 					<label>$LOCALIZE[41131]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="2002">
 					<width>1210</width>
@@ -423,6 +431,7 @@
 					<onclick>SetProperty(Dialog,$LOCALIZE[41132])</onclick>
 					<onclick>ActivateWindow(3001)</onclick>
 					<label>$LOCALIZE[41132]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="2003">
 					<width>1210</width>
@@ -441,6 +450,7 @@
 					<label>$LOCALIZE[41133]</label>
 					<enable>!Skin.HasSetting(HomePrograms)</enable>
 					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(2004)">Conditional</animation>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2005">
 					<width>1210</width>
@@ -455,6 +465,7 @@
 					<selected>Skin.HasSetting(RecentlyAddedShowEpisodeThumb)</selected>
 					<onclick>Skin.ToggleSetting(RecentlyAddedShowEpisodeThumb)</onclick>
 					<label>$LOCALIZE[41135]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="group" id="2007">
 					<description>Fake spin control</description>
@@ -702,7 +713,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41500])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomeMovies)</visible>
+					<visible>![Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeNew.Enabled)]</visible>
 				</control>
 				<control type="button" id="5003">
 					<width>1210</width>
@@ -714,7 +725,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41501])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomeTVShows)</visible>
+					<visible>![Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeNew.Enabled)]</visible>
 				</control>
 				<control type="button" id="5004">
 					<width>1210</width>
@@ -726,7 +737,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41513])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(HomeVideoFiles)</visible>
+					<visible>Skin.HasSetting(HomeVideoFiles) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5005">
 					<width>1210</width>
@@ -737,7 +748,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41449])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(HomeTrailers)</visible>
+					<visible>Skin.HasSetting(HomeTrailers) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5006">
 					<width>1210</width>
@@ -749,7 +760,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41502])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomeMusic)</visible>
+					<visible>![Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeNew.Enabled)]</visible>
 				</control>
 				<control type="button" id="5007">
 					<width>1210</width>
@@ -761,7 +772,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41514])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(HomeMusicFiles)</visible>
+					<visible>Skin.HasSetting(HomeMusicFiles) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5008">
 					<width>1210</width>
@@ -773,7 +784,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41503])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomePictures)</visible>
+					<visible>!Skin.HasSetting(HomePictures) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5009">
 					<width>1210</width>
@@ -785,7 +796,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41504])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomePrograms)</visible>
+					<visible>![Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeNew.Enabled)]</visible>
 				</control>
 				<control type="button" id="5010">
 					<width>1210</width>
@@ -797,7 +808,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41505])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>!Skin.HasSetting(HomeWeather)</visible>
+					<visible>![Skin.HasSetting(HomeWeather) + !Skin.HasSetting(HomeNew.Enabled)]</visible>
 				</control>
 				<control type="button" id="5011">
 					<width>1210</width>
@@ -809,7 +820,7 @@
 					<onclick>ClearProperty(CustomDialog)</onclick>
 					<onclick>SetProperty(Dialog,$LOCALIZE[41523])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(HomeAddons)</visible>
+					<visible>Skin.HasSetting(HomeAddons) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5012">
 					<width>1210</width>
@@ -821,7 +832,7 @@
 					<onclick>SetProperty(CustomDialogType,1)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel1)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5013">
 					<width>1210</width>
@@ -833,7 +844,7 @@
 					<onclick>SetProperty(CustomDialogType,2)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel2)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5014">
 					<width>1210</width>
@@ -845,7 +856,7 @@
 					<onclick>SetProperty(CustomDialogType,3)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel3)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5015">
 					<width>1210</width>
@@ -857,7 +868,7 @@
 					<onclick>SetProperty(CustomDialogType,4)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel4)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5016">
 					<width>1210</width>
@@ -869,7 +880,7 @@
 					<onclick>SetProperty(CustomDialogType,5)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel5)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="button" id="5017">
 					<width>1210</width>
@@ -881,7 +892,7 @@
 					<onclick>SetProperty(CustomDialogType,6)</onclick>
 					<onclick>SetProperty(CustomDialog,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
 					<onclick>ActivateWindow(3002)</onclick>
-					<visible>Skin.HasSetting(CustomHomePanel6)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 			</control>
 			

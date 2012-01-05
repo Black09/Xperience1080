@@ -1,70 +1,4 @@
 <includes>
-	<!--Home shutdown-favs Buttons-->
-	<include name="shutdown-favs">
-		<control type="group">
-			<description>Home Buttons</description>
-			<control type="button" id="21">
-				<description>Shutdown Button</description>
-				<posx>72</posx>
-				<posy>950</posy>
-				<width>100</width>
-				<height>100</height>
-				<aspect>keep</aspect>
-				<onup>20</onup>
-				<ondown>20</ondown>
-				<onleft>22</onleft>
-				<onright>22</onright>
-				<texturefocus>buttons/shutdown_fo.png</texturefocus>
-				<texturenofocus>buttons/shutdown_nofo.png</texturenofocus>
-				<onclick>ActivateWindow(111)</onclick>
-				<include>Animation_ShutdownButton</include>
-				<include>homebuttonsanim</include>
-			</control>
-			<control type="label">
-				<description>Shutdown Label</description>
-				<posx>157</posx>
-				<posy>988</posy>
-				<width>180</width>
-				<height>18</height>
-				<label>$LOCALIZE[41507]</label>
-				<font>Font-Condensed-S34-B</font>
-				<textcolor>white</textcolor>
-				<shadowcolor>CC6F6F6F</shadowcolor>
-				<include>Animation_ShutdownButton</include>
-				<include>homebuttonsanim2</include>
-			</control>
-			<control type="button" id="22">
-				<description>Favourites Button</description>
-				<posx>277</posx>
-				<posy>950</posy>
-				<width>100</width>
-				<height>100</height>
-				<onup>20</onup>
-				<ondown>20</ondown>
-				<onleft>21</onleft>
-				<onright>21</onright>
-				<aspect>keep</aspect>
-				<texturefocus>buttons/favourites_fo.png</texturefocus>
-				<texturenofocus>buttons/favourites_nofo.png</texturenofocus>
-				<onclick>ActivateWindow(134)</onclick>
-				<include>Animation_FavButton</include>
-				<include>homebuttonsanim3</include>
-			</control>
-			<control type="label">
-				<description>Favourites Label</description>
-				<posx>362</posx>
-				<posy>988</posy>
-				<width>180</width>
-				<height>18</height>
-				<label>$LOCALIZE[41508]</label>
-				<font>Font-Condensed-S34-B</font>
-				<textcolor>white</textcolor>
-				<shadowcolor>CC6F6F6F</shadowcolor>
-				<include>Animation_FavButton</include>
-				<include>homebuttonsanim4</include>
-			</control>
-		</control>
-	</include>
 
 	<include name="Animation_RecentlyFade">
 		<animation type="Conditional" condition="Control.HasFocus(82)">
@@ -376,6 +310,9 @@
 	
 	<!-- Home Buttons -->
 	<include name="HomeWraplist">	
+	    <control type="button" id="30">
+	        <onfocus>SetFocus(20)</onfocus>
+	    </control>
 		<control type="fixedlist" id="20">
 			<description>Home Container</description>
 			<posx>-458</posx>
