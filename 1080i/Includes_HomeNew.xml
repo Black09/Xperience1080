@@ -433,7 +433,6 @@
             	<item id="3">
             		<label>$LOCALIZE[41500]</label>
             		<onclick>-</onclick>
-            		<visible>!Skin.HasSetting(HomeMovies)</visible>
             		<property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
             		<property name="movies">1</property>
@@ -441,7 +440,6 @@
             	<item id="4">
             		<label>$LOCALIZE[41501]</label>
             		<onclick>-</onclick>
-            		<visible>!Skin.HasSetting(HomeTVShows)</visible>
             		<property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
             		<property name="tvshows">1</property>
@@ -449,7 +447,6 @@
             	<item id="5">
             		<label>$LOCALIZE[41502]</label>
             		<onclick>-</onclick>
-            		<visible>!Skin.HasSetting(HomeMusic)</visible>
             		<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
             		<property name="music">1</property>
@@ -457,14 +454,12 @@
             	<item id="6">
             		<label>$LOCALIZE[41504]</label>
             		<onclick>-</onclick>
-            		<visible>!Skin.HasSetting(HomeGames)</visible>
             		<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
             	</item>			
             	<item id="7">
             		<label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
             		<onclick>-</onclick>
-            		<visible>!Skin.HasSetting(HomeWeather)</visible>
             		<property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeWeatherMultiImage)]</property>
             	</item>
