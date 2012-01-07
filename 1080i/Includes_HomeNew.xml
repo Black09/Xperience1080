@@ -415,7 +415,7 @@
             <onup>21</onup>
             <orientation>horizontal</orientation>
             <focusposition>1</focusposition>
-            <scrolltime>0</scrolltime>
+            <scrolltime>500</scrolltime>
             <viewtype>list</viewtype>
             <itemlayout width="2" height="2"/>
            	<focusedlayout width="2" height="2"/>
@@ -502,7 +502,6 @@
             <animation effect="slide" start="-3975,0" end="-5300,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(7) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
             <animation effect="slide" start="-6625,0" end="-5300,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(7) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
             <animation effect="slide" start="-5300,0" end="-6625,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(8)" reversible="false">Conditional</animation>
-            
             <include>listEndAnimation</include>
             <control type="group" id="100">
                 <description>Search</description>
@@ -922,7 +921,7 @@
                         <scrolltime tween="cubic" easing="out">800</scrolltime>
                         <orientation>horizontal</orientation>
                         <preloaditems>2</preloaditems>
-                        <itemlayout width="334" height="501">
+                        <itemlayout width="382" height="572">
                             <control type="image">
                                 <posx>0</posx>
                                 <posy>0</posy>
@@ -934,7 +933,7 @@
                                 <visible>!IsEmpty(ListItem.Icon)</visible>
                             </control>
                         </itemlayout>
-                        <focusedlayout width="334" height="501">
+                        <focusedlayout width="382" height="572">
                             <control type="image">
                                 <posx>0</posx>
                                 <posy>0</posy>
