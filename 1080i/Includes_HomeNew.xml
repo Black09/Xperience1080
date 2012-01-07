@@ -360,6 +360,7 @@
     <include name="HomeControlList">
         <control type="button" id="30">
             <description>Control list mover</description>
+            <onleft>SetProperty(MoveLeft,1,home)</onleft>
             <onleft>CancelAlarm(HomeTileMove,true)</onleft>
             <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
             <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
@@ -370,6 +371,7 @@
             <onleft condition="Container(20).HasFocus(6)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
             <onleft condition="!Container(20).HasFocus(1)">Control.Move(20,-1)</onleft>
             <onleft condition="Container(20).HasFocus(1)">RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
+            <onright>ClearProperty(MoveLeft,home)</onright>
             <onright>CancelAlarm(HomeTileMove,true)</onright>
             <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
             <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
@@ -413,7 +415,7 @@
             <onup>21</onup>
             <orientation>horizontal</orientation>
             <focusposition>1</focusposition>
-            <scrolltime>500</scrolltime>
+            <scrolltime>0</scrolltime>
             <viewtype>list</viewtype>
             <itemlayout width="2" height="2"/>
            	<focusedlayout width="2" height="2"/>
@@ -478,14 +480,29 @@
         <control type="group">
             <posx>-2650</posx>
             <posy>0</posy>
-            <animation effect="slide" end="2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(1)">Conditional</animation>
+            <!--<animation effect="slide" end="2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(1)">Conditional</animation>
             <animation effect="slide" end="1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(2)">Conditional</animation>
             <animation effect="slide" end="0,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(3)">Conditional</animation>
             <animation effect="slide" end="-1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(4)">Conditional</animation>
             <animation effect="slide" end="-2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(5)">Conditional</animation>
             <animation effect="slide" end="-3975,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(6)">Conditional</animation>
             <animation effect="slide" end="-5300,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(7)">Conditional</animation>
-            <animation effect="slide" end="-6625,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(8)">Conditional</animation>
+            <animation effect="slide" end="-6625,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(8)">Conditional</animation>-->
+            <animation effect="slide" start="1325,0" end="2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(1)" reversible="false">Conditional</animation>
+            <animation effect="slide" start="2650,0" end="1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(2) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="0,0" end="1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(2) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="1325,0" end="0,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(3) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-1325,0" end="0,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(3) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="0,0" end="-1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(4) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-2650,0" end="-1325,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(4) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-1325,0" end="-2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(5) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-3975,0" end="-2650,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(5) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-2650,0" end="-3975,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(6) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-5300,0" end="-3975,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(6) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-3975,0" end="-5300,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(7) + IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-6625,0" end="-5300,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(7) + !IsEmpty(Window(Home).Property(MoveLeft))" reversible="false">Conditional</animation>
+            <animation effect="slide" start="-5300,0" end="-6625,0" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(8)" reversible="false">Conditional</animation>
+            
             <include>listEndAnimation</include>
             <control type="group" id="100">
                 <description>Search</description>
@@ -508,7 +525,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(1)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(1) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="960,586" />
                 </animation>
@@ -617,7 +634,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(2)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(2) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="2285,586" />
                 </animation>
@@ -1270,7 +1287,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(3)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(3) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="3610,586" />
                 </animation>
@@ -1886,7 +1903,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(4)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(4) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="4935,586" />
                 </animation>
@@ -2466,7 +2483,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(5)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(5) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="6260,586" />
                 </animation>
@@ -3108,7 +3125,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(6)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(6) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="7585,586" />
                 </animation>
@@ -3562,7 +3579,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(7)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(7) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="8910,586" />
                 </animation>
@@ -4090,7 +4107,7 @@
                 	<effect type="zoom" start="100" end="150" center="10235,586" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(8)">
+                <animation type="Conditional" condition="!Container(20).HasFocus(8) | Container(20).Scrolling">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="10235,586" />
                 </animation>
