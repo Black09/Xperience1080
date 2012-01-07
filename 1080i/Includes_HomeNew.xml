@@ -524,7 +524,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(1) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(1) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="960,586" />
                 </animation>
@@ -591,6 +591,7 @@
                         </control>
                     </control>
                     <control type="button" id="101">
+                        <onright>ClearProperty(MoveLeft,home)</onright>
                         <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
                         <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                         <onright>Control.Move(20,1)</onright>
@@ -633,7 +634,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(2) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(2) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="2285,586" />
                 </animation>
@@ -881,6 +882,7 @@
                         <ondown>Control.Move(5032,1)</ondown>
                         <onleft>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
                         <onleft>502</onleft>
+                        <onright>ClearProperty(MoveLeft,home)</onright>
                         <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                         <onright>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
                         <onright>Control.Move(20,1)</onright>
@@ -1075,6 +1077,7 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
@@ -1286,7 +1289,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(3) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(3) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="3610,586" />
                 </animation>
@@ -1494,6 +1497,7 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
@@ -1654,6 +1658,7 @@
                     <width>620</width>
                     <height>620</height>
                     <onleft>202</onleft>
+                    <onright>ClearProperty(MoveLeft,home)</onright>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
@@ -1902,7 +1907,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(4) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(4) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="4935,586" />
                 </animation>
@@ -2110,6 +2115,7 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
@@ -2270,6 +2276,7 @@
                     <width>331</width>
                     <height>620</height>
                     <onleft>302</onleft>
+                    <onright>ClearProperty(MoveLeft,home)</onright>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
@@ -2482,7 +2489,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(5) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(5) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="6260,586" />
                 </animation>
@@ -2712,6 +2719,7 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
@@ -2871,6 +2879,7 @@
                     <width>525</width>
                     <height>620</height>
                     <onleft>402</onleft>
+                    <onright>ClearProperty(MoveLeft,home)</onright>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>601</onright>
@@ -3124,7 +3133,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(6) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(6) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="7585,586" />
                 </animation>
@@ -3199,6 +3208,7 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
@@ -3331,6 +3341,7 @@
                     <width>620</width>
                     <height>620</height>
                     <onleft>602</onleft>
+                    <onright>ClearProperty(MoveLeft,home)</onright>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>701</onright>
@@ -3578,7 +3589,7 @@
                 	<effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(7) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(7) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="8910,586" />
                 </animation>
@@ -3933,8 +3944,10 @@
                     <posy>-24</posy>
                     <width>331</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>603</onleft>
+                    <onright>ClearProperty(MoveLeft,home)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>801</onright>
                     <onup>30</onup>
@@ -4106,7 +4119,7 @@
                 	<effect type="zoom" start="100" end="150" center="10235,586" tween="sine" delay="250" easing="out" time="350" /> 
                 	<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                 </animation>
-                <animation type="Conditional" condition="!Container(20).HasFocus(8) | Container(20).Scrolling">
+                <animation type="Conditional" condition="!Container(20).HasFocus(8) | Container(20).Scrolling | Window.IsVisible(shutdownmenu) | Window.IsVisible(favourites)">
                     <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
                     <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="10235,586" />
                 </animation>
@@ -4123,6 +4136,7 @@
                     <posy>-24</posy>
                     <width>1302</width>
                     <height>620</height>
+                    <onleft>SetProperty(MoveLeft,1,home)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>701</onleft>
                     <onup>30</onup>
