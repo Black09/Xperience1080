@@ -1,46 +1,7 @@
 <window id="147">
 	<defaultcontrol>61</defaultcontrol>
 	<controls>
-		<control type="group">
-			<include>FullscreenDimensions</include>
-			<animation type="WindowOpen">
-				<effect type="slide" start="1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="zoom" start="100" end="75" center="640,540" time="300" tween="sine" easing="inout" />
-				<effect type="slide" end="2320" time="600" delay="0" tween="sine" easing="inout" />
-			</animation>
-			<include>listEndAnimation</include>
-			<control type="textbox" id="5">
-				<description>textarea</description>
-				<posx>118</posx>
-				<posy>220</posy>
-				<width>842</width>
-				<height>655</height>
-				<label>-</label>
-				<font>Font-Condensed-S40</font>
-				<align>left</align>
-				<textcolor>aawhite</textcolor>
-				<selectedcolor>white</selectedcolor>
-				<pagecontrol>61</pagecontrol>
-			</control>
-			<control type="scrollbar" id="61">
-				<posx>1500</posx>
-				<posy>90</posy>
-				<width>25</width>
-				<height>655</height>
-				<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
-				<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
-				<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
-				<textureslidernib>ScrollBarNib.png</textureslidernib>
-				<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
-				<onleft>Action(close)</onleft>
-				<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onright>
-				<ondown>61</ondown>
-				<onup>61</onup>
-				<showonepage>false</showonepage>
-				<orientation>vertical</orientation>
-			</control>
-		</control>
+	    <include condition="!Window.IsVisible(addoninfo)">DialogTextViewerDefault</include>
+		<include condition="Window.IsVisible(addoninfo)">DialogTextViewerAddonInfo</include>
 	</controls>
 </window>

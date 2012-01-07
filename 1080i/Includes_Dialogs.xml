@@ -29,7 +29,7 @@
         <control type="group">
 			<include>KeyboardAnimations</include>
 			<include>OptionsShutdownAnimation</include>
-			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(progressdialog)</visible>
+			<visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(progressdialog) + !Window.IsVisible(textviewer)</visible>
 			<control type="image">
 				<description>background image</description>
 				<posx>0</posx>
@@ -1001,7 +1001,7 @@
     <include name="DialogSelectOSD">
         <control type="group">
 			<include>NowPlayingFullscreen</include>
-			<visible>!Window.IsVisible(yesnodialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + ![Window.IsVisible(script-LibraryEditor-genre.xml) + IsEmpty(Window.Property(ShowDialog))] + !Window.IsVisible(script-LibraryEditor-dialogs.xml)</visible>
+			<visible>!Window.IsVisible(yesnodialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + ![Window.IsVisible(script-LibraryEditor-genre.xml) + IsEmpty(Window.Property(ShowDialog))] + !Window.IsVisible(script-LibraryEditor-dialogs.xml) + !Window.IsVisible(textviewer)</visible>
 
 			<control type="image">
 				<include>FullscreenDimensions</include>
@@ -1452,6 +1452,140 @@
     			</control>
 			</control>
 		</control>
+    </include>
+    
+    <include name="DialogTextViewerDefault">
+        <control type="group">
+        	<animation type="WindowOpen" condition="Window.IsVisible(addonsettings)" reversible="false">
+        		<effect type="fade" start="0" end="100" time="0" delay="300" />
+        	</animation>
+            <control type="group">
+    		    <include>KeyboardAnimations</include>
+    			
+    			<control type="label" id="1">
+    				<description>Heading</description>
+    				<posx>473</posx>
+    				<posy>183</posy>
+    				<width>974</width>
+    				<font>Font-Condensed-S34</font>
+    				<label>-</label>
+    				<textcolor>ddwhite</textcolor>
+    				<align>center</align>
+    			</control>
+    			
+    			<control type="image">
+    				<include>FullscreenDimensions</include>
+    				<texture>dialogs/textviewer/bg.png</texture>
+    			</control>
+    			
+    			<control type="textbox" id="5">
+    				<description>textarea</description>
+    				<posx>495</posx>
+    				<posy>275</posy>
+    				<width>930</width>
+    				<height>530</height>
+    				<label>-</label>
+    				<font>Font-Condensed-S30</font>
+    				<align>left</align>
+    				<textcolor>FF585858</textcolor>
+    				<selectedcolor>FF585858</selectedcolor>
+    				<pagecontrol>61</pagecontrol>
+    			</control>
+    			
+    			<control type="image" id="63">
+    				<animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+    			</control>
+    			<control type="image" id="62">
+    				<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+    				<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+    				<visible>Control.HasFocus(61) | !Control.IsVisible(63)</visible>
+    			</control>
+    			<control type="image" id="62">
+    				<animation effect="fade" start="0" end="100" time="0">Visible</animation>
+    				<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+    				<visible>!Control.HasFocus(61) + [Container(3).Scrolling | Container(6).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious | Container(6).OnScrollNext | Container(6).OnScrollPrevious]</visible>
+    			</control>
+    			<control type="scrollbar" id="61">
+    				<posx>1426</posx>
+    				<posy>268</posy>
+    				<width>11</width>
+    				<height>541</height>
+    				<texturesliderbackground>-</texturesliderbackground>
+    				<texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
+    				<texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+    				<textureslidernib>-</textureslidernib>
+    				<textureslidernibfocus>-</textureslidernibfocus>
+    				<onleft>8000</onleft>
+    				<onright>8000</onright>
+    				<showonepage>false</showonepage>
+    				<orientation>vertical</orientation>
+    				<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(62)">Conditional</animation>
+    			</control>
+    
+    			<control type="group" id="8000">
+    				<posx>466</posx>
+    				<posy>809</posy>
+    				<control type="button" id="7">
+    					<posx>0</posx>
+    					<description>Close</description>
+    					<label>$LOCALIZE[42002]</label>
+    					<texturefocus>buttons/cancel-fo.png</texturefocus>
+    					<texturenofocus>buttons/cancel-nf.png</texturenofocus>
+    					<include>DialogButtonDimensions</include>
+    					<onclick>PreviousMenu</onclick>
+    					<onleft>61</onleft>
+    					<onright>61</onright>
+    					<onup>61</onup>
+    					<ondown>61</ondown>
+    					<animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(7)">Conditional</animation>
+    				</control>
+    			</control>
+    		</control>
+    	</control>
+    </include>
+    
+    <include name="DialogTextViewerAddonInfo">
+        <control type="group">
+        	<include>FullscreenDimensions</include>
+        	<animation type="WindowOpen">
+        		<effect type="slide" start="1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
+        	</animation>
+        	<animation type="WindowClose">
+        		<effect type="zoom" start="100" end="75" center="640,540" time="300" tween="sine" easing="inout" />
+        		<effect type="slide" end="2320" time="600" delay="0" tween="sine" easing="inout" />
+        	</animation>
+        	<include>listEndAnimation</include>
+        	<control type="textbox" id="5">
+        		<description>textarea</description>
+        		<posx>118</posx>
+        		<posy>220</posy>
+        		<width>842</width>
+        		<height>655</height>
+        		<label>-</label>
+        		<font>Font-Condensed-S40</font>
+        		<align>left</align>
+        		<textcolor>aawhite</textcolor>
+        		<selectedcolor>white</selectedcolor>
+        		<pagecontrol>61</pagecontrol>
+        	</control>
+        	<control type="scrollbar" id="61">
+        		<posx>1500</posx>
+        		<posy>90</posy>
+        		<width>25</width>
+        		<height>655</height>
+        		<texturesliderbackground border="0,14,0,14">ScrollBarV.png</texturesliderbackground>
+        		<texturesliderbar border="0,14,0,14">ScrollBarV_bar.png</texturesliderbar>
+        		<texturesliderbarfocus border="0,14,0,14">ScrollBarV_bar_focus.png</texturesliderbarfocus>
+        		<textureslidernib>ScrollBarNib.png</textureslidernib>
+        		<textureslidernibfocus>ScrollBarNib.png</textureslidernibfocus>
+        		<onleft>Action(close)</onleft>
+        		<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onright>
+        		<ondown>61</ondown>
+        		<onup>61</onup>
+        		<showonepage>false</showonepage>
+        		<orientation>vertical</orientation>
+        	</control>
+        </control>
     </include>
     
 </includes>
