@@ -1,6 +1,7 @@
 <window id="103">
 	<defaultcontrol always="true">300</defaultcontrol>
-	<onunload>ClearProperty(HomeSearch,home)</onunload>
+	<onunload condition="!IsEmpty(Window(virtualkeyboard).Property(Clear))">ClearProperty(HomeSearch,home)</onunload>
+	<onunload>ClearProperty(Clear,virtualkeyboard)</onunload>
 	<controls>
 		<control type="group">
 			<animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(mediasource) | Window.IsVisible(networksetup) | Window.IsVisible(addonsettings) | Window.IsVisible(contextmenu) | Window.IsVisible(smartplaylisteditor) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(progressdialog) | Window.IsVisible(3003) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml)" reversible="false">
@@ -520,6 +521,7 @@
 							<ondown>323</ondown>
 							<label>$LOCALIZE[42120]</label>
 							<include>DoubleKeyDone</include>
+							<onclick>SetProperty(Clear,1)</onclick>
 						</control>
 					</control>
 				</control>

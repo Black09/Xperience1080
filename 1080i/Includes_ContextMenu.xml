@@ -172,4 +172,61 @@
 			<textoffsety>14</textoffsety>
 		</control>
 	</include>
+	
+	<include name="ContextMenuFavourites">
+		<control type="image" id="999">
+			<description>background image</description>
+			<visible>false</visible>
+		</control>
+		<control type="grouplist" id="996">
+			<description>grouplist for context buttons</description>
+			<visible>false</visible>
+		</control>
+		<control type="button" id="1000">
+			<description>button template</description>
+			<visible>false</visible>
+		</control>
+		<control type="grouplist" id="2000">
+		    <description>Custom group list</description>
+		    <posx>-798</posx>
+		    <posy>86</posy>
+		    <width>1000</width>
+		    <height>100</height>
+		    <itemgap>-275</itemgap>
+		    <orientation>horizontal</orientation>
+		    <scrolltime>0</scrolltime>
+		    <control type="button" id="2001">
+		        <width>350</width>
+		        <height>100</height>
+		        <texturefocus>buttons/left-fo.png</texturefocus>
+		        <texturenofocus>buttons/left-nf.png</texturenofocus>
+		        <label>-</label>
+		        <onclick>SendClick(1001)</onclick>
+		    </control>
+		    <control type="button" id="2002">
+		        <width>350</width>
+		        <height>100</height>
+		        <texturefocus>buttons/right-fo.png</texturefocus>
+		        <texturenofocus>buttons/right-nf.png</texturenofocus>
+		        <label>-</label>
+		        <onclick>SendClick(1002)</onclick>
+		    </control>
+		    <control type="button" id="2003">
+		        <width>350</width>
+		        <height>100</height>
+		        <texturefocus>buttons/cancel-fo.png</texturefocus>
+		        <texturenofocus>buttons/cancel-nf.png</texturenofocus>
+		        <label>-</label>
+		        <onclick>SendClick(1003)</onclick>
+		    </control>
+		    <control type="button" id="2004">
+		        <width>350</width>
+		        <height>100</height>
+		        <texturefocus>buttons/edit-fo.png</texturefocus>
+		        <texturenofocus>buttons/edit-nf.png</texturenofocus>
+		        <label>-</label>
+		        <onclick>SendClick(1004)</onclick>
+		    </control>
+		</control>
+	</include>
 </includes>

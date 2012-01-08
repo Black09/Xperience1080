@@ -71,11 +71,11 @@
 			</include>
 			
 			<include name="OpenCloseAnimationContext">				
-				<animation type="WindowOpen" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation)" reversible="false">
+				<animation type="WindowOpen" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation) + !Window.IsVisible(favourites)" reversible="false">
 					<effect type="slide" start="0,-20" end="0,0" time="200" tween="sine" easing="out" />
 					<effect type="fade" start="0" end="100" time="200" tween="sine" easing="out" />
 				</animation>
-				<animation type="WindowClose" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation)" reversible="false">
+				<animation type="WindowClose" condition="!stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation) + !Window.IsVisible(favourites)" reversible="false">
 					<effect type="slide" start="0,0" end="0,-20" time="200" tween="sine" easing="out" />
 					<effect type="fade" start="100" end="0" time="200" easing="out" tween="sine" />
 				</animation>
@@ -95,10 +95,10 @@
 					<effect type="rotatey" start="0" end="-180" time="400" tween="cubic" easing="inout" center="326,0" />
 					<effect type="fade" start="100" end="0" time="0" delay="225" />
 				</animation>
-				<animation type="WindowOpen" condition="Window.IsVisible(addoninformation)">
+				<animation type="WindowOpen" condition="Window.IsVisible(addoninformation) | Window.IsVisible(favourites)">
 					<effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
 				</animation>
-				<animation type="WindowClose" condition="Window.IsVisible(addoninformation)">
+				<animation type="WindowClose" condition="Window.IsVisible(addoninformation) | Window.IsVisible(favourites)">
 					<effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
 				</animation>
 				<animation type="Visible" reversible="false">
@@ -489,11 +489,11 @@
 				<animation type="Conditional" condition="!Window.IsActive(shutdownmenu)" reversible="false">
 					<effect type="slide" start="200" end="0" time="500" delay="50" tween="sine" easing="in" />
 				</animation>
-				<animation type="Conditional" condition="Window.IsActive(favourites)" reversible="false">
+				<animation type="Conditional" condition="Window.IsActive(favourites) + !Skin.HasSetting(HomeNew.Enabled)" reversible="false">
 					<effect type="fade" start="100" end="0" time="50" tween="sine" easing="out" />
 					<effect type="slide" start="0,0" end="0,-40" time="300" delay="100" tween="sine" easing="out" />
 				</animation>
-				<animation type="Conditional" condition="!Window.IsActive(favourites)" reversible="false">
+				<animation type="Conditional" condition="!Window.IsActive(favourites) + !Skin.HasSetting(HomeNew.Enabled)" reversible="false">
 					<effect type="fade" start="0" end="100" time="50" tween="sine" easing="in" />
 					<effect type="slide" start="0,-40" end="0,0" time="300" delay="250" tween="sine" easing="in" />
 				</animation>

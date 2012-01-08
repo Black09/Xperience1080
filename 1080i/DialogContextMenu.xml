@@ -4,11 +4,13 @@
 	<animation effect="slide" start="0,0" end="-635,-124" time="0" condition="stringcompare(Container.ViewMode,PosterView)">Conditional</animation>
 	<animation effect="slide" start="0,0" end="-590,-123" time="0" condition="stringcompare(Container.ViewMode,CoverView) | stringcompare(Container.ViewMode,PosterView (Square))">Conditional</animation>
 	<animation effect="slide" end="0,256" time="0" condition="Window.IsVisible(LockSettings)">Conditional</animation>
+	<onload condition="Window.IsVisible(favourites)">SetFocus(2000)</onload>
 	<controls>
-		<include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation)">ContextMenuDefault</include>
-		<include condition="Window.IsVisible(filemanager) | Window.IsVisible(LockSettings) | Window.IsVisible(musicplaylisteditor) | Window.IsVisible(favourites)">ContextMenuFileManager</include>
+		<include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !stringcompare(Container.ViewMode,PosterView) + !stringcompare(Container.ViewMode,CoverView) + !stringcompare(Container.ViewMode,PosterView (Square)) + !Window.IsVisible(addoninformation) + !Window.IsVisible(favourites)">ContextMenuDefault</include>
+		<include condition="Window.IsVisible(filemanager) | Window.IsVisible(LockSettings) | Window.IsVisible(musicplaylisteditor)">ContextMenuFileManager</include>
 		<include condition="stringcompare(Container.ViewMode,PosterView)">ContextMenuPosterView</include>
 		<include condition="stringcompare(Container.ViewMode,CoverView) | stringcompare(Container.ViewMode,PosterView (Square))">ContextMenuCoverView</include>
 		<include condition="Window.IsVisible(addoninformation)">ContextMenuAddonInfo</include>
+		<include condition="Window.IsVisible(favourites)">ContextMenuFavourites</include>
 	</controls>
 </window>

@@ -339,6 +339,7 @@
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[41137])">Skin.SetString(stage.style,$LOCALIZE[571])</onclick>
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[41137])">Skin.Reset(stage.custom)</onclick>
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[41137])">Skin.Reset(stage.customImage)</onclick>
+						<onclick>ReloadSkin()</onclick>
 					</control>
 					<control type="button" id="10102">
 						<posx>1147</posx>
@@ -360,6 +361,7 @@
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[41137])">Skin.SetString(stage.customImage,windows/common/stage-dark.png)</onclick>
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[571])">Skin.SetString(stage.style,$LOCALIZE[41137])</onclick>
 						<onclick condition="stringcompare(Skin.String(stage.style),$LOCALIZE[571])">Skin.SetBool(stage.custom)</onclick>
+						<onclick>ReloadSkin()</onclick>
 					</control>
 					<control type="button">
 						<posx>0</posx>
@@ -411,6 +413,7 @@
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(HomeNew.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(HomeNew.Enabled)</onclick>
+					<onclick>ReloadSkin()</onclick>
 					<label>$LOCALIZE[41155]</label>
 				</control>
 				<control type="button" id="2001">
