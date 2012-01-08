@@ -412,6 +412,7 @@
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(HomeNew.Enabled)</selected>
+					<onclick condition="!Skin.HasSetting(HomeNew.Enabled)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=6)</onclick>
 					<onclick>Skin.ToggleSetting(HomeNew.Enabled)</onclick>
 					<onclick>ReloadSkin()</onclick>
 					<label>$LOCALIZE[41155]</label>
