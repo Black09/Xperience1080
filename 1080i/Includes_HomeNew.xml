@@ -332,6 +332,7 @@
                 <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(3) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(3) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(225)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomeMovies)</visible>
             </control>
             <control type="label">
                 <description>TV Shows</description>
@@ -340,6 +341,7 @@
                 <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(4) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(4) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(325)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomeTVShows)</visible>
             </control>
             <control type="label">
                 <description>Music</description>
@@ -348,6 +350,7 @@
                 <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(5) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(5) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(425)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomeMusic)</visible>
             </control>
             <control type="label">
                 <description>Applications</description>
@@ -356,6 +359,7 @@
                 <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(6) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(6) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="150" tween="sine" easing="inout" center="auto" condition="!Control.HasFocus(625)">Conditional</animation>
+                <visible>!Skin.HasSetting(HomePrograms)</visible>
             </control>
             <control type="label">
                 <description>Weather</description>
@@ -409,6 +413,7 @@
             		<property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
             		<property name="movies">1</property>
+            		<visible>!Skin.HasSetting(HomeMovies)</visible>
             	</item>
             	<item id="4">
             		<label>$LOCALIZE[41501]</label>
@@ -416,6 +421,7 @@
             		<property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
             		<property name="tvshows">1</property>
+            		<visible>!Skin.HasSetting(HomeTVShows)</visible>
             	</item>
             	<item id="5">
             		<label>$LOCALIZE[41502]</label>
@@ -423,12 +429,14 @@
             		<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
             		<property name="music">1</property>
+            		<visible>!Skin.HasSetting(HomeMusic)</visible>
             	</item>					
             	<item id="6">
             		<label>$LOCALIZE[41504]</label>
             		<onclick>-</onclick>
             		<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
             		<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
+            		<visible>!Skin.HasSetting(HomePrograms)</visible>
             	</item>			
             	<item id="7">
             		<label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
@@ -616,7 +624,9 @@
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
-                    <onright>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
+                    <onright condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>225</onright>
                     <onup>80</onup>
@@ -744,7 +754,7 @@
                             <viewtype label="List">List</viewtype>
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
-                            <preloaditems>2</preloaditems>
+                            <preloaditems>1</preloaditems>
                             <itemlayout width="572" height="501">
                                 <control type="image">
                                     <posx>0</posx>
@@ -771,36 +781,42 @@
                                 	<thumb>$INFO[Window.Property(RandomMovie.1.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.1.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.1.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.1.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.1.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.1.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.1.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomMovie.2.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.2.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.2.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.2.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.2.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.2.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.2.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomMovie.3.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.3.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.3.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.3.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.3.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.3.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.3.Path)]</property>
+                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
                                 </item>
                             </content>
                         </control>
@@ -838,43 +854,43 @@
                                 <decription>Dot #1</decription>
                                 <posx>0</posx>
                                 <include>HomeDotIndicator</include>
-                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(1)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(1) + ![Container(5022).HasFocus(2) + Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)]">Conditional</animation>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,0)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #2</decription>
                                 <posx>16</posx>
                                 <include>HomeDotIndicator</include>
-                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(2)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,1)</visible>
+                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="![Container(5022).HasFocus(2) + !Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)] + ![Container(5022).HasFocus(3) + !Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows)] + ![Container(5022).HasFocus(4) + Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)]">Conditional</animation>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,1)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #3</decription>
                                 <posx>32</posx>
                                 <include>HomeDotIndicator</include>
-                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(3)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,2)</visible>
+                                <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="![Container(5022).HasFocus(3) + !Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)] + ![Container(5022).HasFocus(5) + !Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows)] + ![Container(5022).HasFocus(6) + Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)]">Conditional</animation>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,2)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #4</decription>
                                 <posx>48</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(4)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,3)</visible>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,3)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #5</decription>
                                 <posx>64</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(5)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,4)</visible>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,4)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #6</decription>
                                 <posx>80</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5022).HasFocus(6)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,5)</visible>
+                                <visible>IntegerGreaterThan(Container(5022).NumItems,5)</visible>
                             </control>
                         </control>
                     </control>
@@ -890,9 +906,15 @@
                             <onleft>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
                             <onleft>502</onleft>
                             <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
-                            <onright>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
+                            <onright condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
+                            <onright condition="!Skin.HasSetting(HomeMovies)">201</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">301</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">401</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">601</onright>
+                            <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                             <onright>Control.Move(20,1)</onright>
-                            <onright>201</onright>
                             <onclick>PlayMedia($INFO[Container(5032).ListItem.Property(Path)])</onclick>
                         </control>
                         <control type="label">
@@ -928,7 +950,7 @@
                             <viewtype label="List">List</viewtype>
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
-                            <preloaditems>2</preloaditems>
+                            <preloaditems>1</preloaditems>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1270,6 +1292,7 @@
                 <width>2320</width>
                 <height>780</height>
                 <description>Movies</description>
+                <visible>!Skin.HasSetting(HomeMovies)</visible>
                 <control type="button" id="225">
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
@@ -1282,6 +1305,8 @@
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
                     <onright>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                    <onright condition="!Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                    <onright condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>325</onright>
                     <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://1/2/)])</onclick>
@@ -1375,7 +1400,7 @@
                             <viewtype label="List">List</viewtype>
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
-                            <preloaditems>2</preloaditems>
+                            <preloaditems>1</preloaditems>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1685,9 +1710,13 @@
                         <height>620</height>
                         <onleft>202</onleft>
                         <onright>CancelAlarm(HomeTileMove,true)</onright>
-                        <onright>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                        <onright condition="!Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                         <onright>Control.Move(20,1)</onright>
-                        <onright>301</onright>
+                        <onright condition="!Skin.HasSetting(HomeTVShows)">301</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">401</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                         <onup>225</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
@@ -1914,17 +1943,20 @@
                 <width>2320</width>
                 <height>780</height>
                 <description>TV Shows</description>
+                <visible>!Skin.HasSetting(HomeTVShows)</visible>
                 <control type="button" id="325">
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-                    <onleft>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>225</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
-                    <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
+                    <onright condition="!Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
                     <onright>425</onright>
                     <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
@@ -2018,7 +2050,7 @@
                             <viewtype label="List">List</viewtype>
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
-                            <preloaditems>2</preloaditems>
+                            <preloaditems>1</preloaditems>
                             <itemlayout width="671" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -2168,9 +2200,11 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
-                        <onleft>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>203</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeMovies)">203</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMovies)">503</onleft>
                         <onright>302</onright>
                         <onup>325</onup>
                         <ondown>80</ondown>
@@ -2328,9 +2362,11 @@
                         <height>620</height>
                         <onleft>302</onleft>
                         <onright>CancelAlarm(HomeTileMove,true)</onright>
-                        <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
+                        <onright condition="!Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                         <onright>Control.Move(20,1)</onright>
-                        <onright>401</onright>
+                        <onright condition="!Skin.HasSetting(HomeMusic)">401</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                         <onup>325</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
@@ -2521,11 +2557,15 @@
                 <width>2320</width>
                 <height>780</height>
                 <description>Music</description>
+                <visible>!Skin.HasSetting(HomeMusic)</visible>
                 <control type="button" id="425">
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-                    <onleft>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>325</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
@@ -2623,7 +2663,7 @@
                             <viewtype label="List">List</viewtype>
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
-                            <preloaditems>2</preloaditems>
+                            <preloaditems>1</preloaditems>
                             <itemgap>6</itemgap>
                             <itemlayout width="477" height="572">
                                 <control type="image">
@@ -2796,9 +2836,14 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
-                        <onleft>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>303</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeTVShows)">303</onleft>
+                        <onleft condition="Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">201</onleft>
+                        <onleft condition="Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">501</onleft>
                         <onright>402</onright>
                         <onup>425</onup>
                         <ondown>80</ondown>
@@ -2956,7 +3001,8 @@
                         <onleft>402</onleft>
                         <onright>CancelAlarm(HomeTileMove,true)</onright>
                         <onright>Control.Move(20,1)</onright>
-                        <onright>601</onright>
+                        <onright condition="!Skin.HasSetting(HomePrograms)">601</onright>
+                        <onright condition="Skin.HasSetting(HomePrograms)">701</onright>
                         <onup>425</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
@@ -3183,11 +3229,16 @@
                 <width>2320</width>
                 <height>780</height>
                 <description>Apps</description>
+                <visible>!Skin.HasSetting(HomePrograms)</visible>
                 <control type="button" id="625">
                     <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
                     <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-                    <onleft>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="!Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
+                    <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>425</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
@@ -3304,9 +3355,16 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
-                        <onleft>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>403</onleft>
+                        <onleft condition="!Skin.HasSetting(HomeMusic)">403</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
+                        <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
                         <onright>602</onright>
                         <onup>625</onup>
                         <ondown>80</ondown>
@@ -4063,7 +4121,11 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>603</onleft>
+                        <onleft condition="!Skin.HasSetting(HomePrograms)">603</onleft>
+                        <onleft condition="Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeMusic)">403</onleft>
+                        <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
+                        <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
+                        <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
                         <onright>Control.Move(20,1)</onright>
                         <onright>801</onright>
                         <onup>725</onup>

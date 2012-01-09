@@ -50,6 +50,7 @@
 					<selected>Skin.HasSetting(HomeVideoFiles)</selected>
 					<onclick>Skin.ToggleSetting(HomeVideoFiles)</onclick>
 					<label>$LOCALIZE[41513]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2104">
 					<width>1210</width>
@@ -57,6 +58,7 @@
 					<selected>Skin.HasSetting(HomeTrailers)</selected>
 					<onclick>Skin.ToggleSetting(HomeTrailers)</onclick>
 					<label>$LOCALIZE[41449]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2105">
 					<width>1210</width>
@@ -71,6 +73,7 @@
 					<selected>Skin.HasSetting(HomeMusicFiles)</selected>
 					<onclick>Skin.ToggleSetting(HomeMusicFiles)</onclick>
 					<label>$LOCALIZE[41514]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2107">
 					<width>1210</width>
@@ -78,6 +81,7 @@
 					<selected>!Skin.HasSetting(HomePictures)</selected>
 					<onclick>Skin.ToggleSetting(HomePictures)</onclick>
 					<label>$LOCALIZE[41503]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2108">
 					<width>1210</width>
@@ -92,6 +96,7 @@
 					<selected>!Skin.HasSetting(HomeWeather)</selected>
 					<onclick>Skin.ToggleSetting(HomeWeather)</onclick>
 					<label>$LOCALIZE[41505]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2110">
 					<width>1210</width>
@@ -99,6 +104,7 @@
 					<selected>Skin.HasSetting(HomeAddons)</selected>
 					<onclick>Skin.ToggleSetting(HomeAddons)</onclick>
 					<label>$LOCALIZE[41523]</label>
+					<visible>!Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2111">
 					<width>1210</width>
@@ -106,7 +112,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel1.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel1.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel1)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2112">
 					<width>1210</width>
@@ -114,7 +120,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel2.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel2.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel2)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2113">
 					<width>1210</width>
@@ -122,7 +128,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel3.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel3.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel3)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2114">
 					<width>1210</width>
@@ -130,7 +136,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel4.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel4.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel4)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2115">
 					<width>1210</width>
@@ -138,7 +144,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel5.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel5.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel5)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 				<control type="radiobutton" id="2116">
 					<width>1210</width>
@@ -146,7 +152,7 @@
 					<selected>!Skin.HasSetting(CustomHomePanel6.Hide)</selected>
 					<onclick>Skin.ToggleSetting(CustomHomePanel6.Hide)</onclick>
 					<label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-					<visible>Skin.HasSetting(CustomHomePanel6)</visible>
+					<visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(HomeNew.Enabled)</visible>
 				</control>
 			</control>
 			
@@ -531,6 +537,7 @@
 				    <onclick>SetProperty(CustomDialog,1,3003)</onclick>
 				    <onclick>SetProperty(Dialog,$LOCALIZE[41136])</onclick>
 				    <onclick>ActivateWindow(3003)</onclick>
+				    <visible>stringcompare(Window(1111).property(Dialog),$LOCALIZE[41272]) | stringcompare(Window(1111).property(Dialog),$LOCALIZE[41273]) | stringcompare(Window(1111).property(Dialog),$LOCALIZE[41274]) | stringcompare(Window(1111).property(Dialog),$LOCALIZE[41275])</visible>
 				</control>
 			</control>
 		</control>
