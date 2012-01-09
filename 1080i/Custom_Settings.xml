@@ -636,7 +636,7 @@
 				<control type="button" id="3005">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
-					<onclick>XBMC.RunScript(script.logo-downloader,mode=bulk,clearart=False,logo=False,showthumb=False,poster=False,banner=banner.jpg)</onclick>
+					<onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,banner)</onclick>
 					<label> • $LOCALIZE[41194]</label>
 					<enable>Skin.HasSetting(bannerjpg)</enable>
 					<animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(3005)">Conditional</animation>
