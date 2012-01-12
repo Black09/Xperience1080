@@ -3157,12 +3157,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile1.ShowLabel))">Skin.Reset(HomeVideoTile1.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeVideoTile1.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeVideoTile1.Animate))">Skin.SetString(HomeVideoTile1.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile1.Animate))">Skin.Reset(HomeVideoTile1.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeVideoTile1.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3171,7 +3178,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3186,7 +3193,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3204,13 +3211,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -3265,7 +3272,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -3316,12 +3323,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile2.ShowLabel))">Skin.Reset(HomeVideoTile2.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeVideoTile2.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeVideoTile2.Animate))">Skin.SetString(HomeVideoTile2.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile2.Animate))">Skin.Reset(HomeVideoTile2.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeVideoTile2.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3330,7 +3344,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3345,7 +3359,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3363,13 +3377,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -3424,7 +3438,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -3475,12 +3489,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile3.ShowOverlay))">Skin.Reset(HomeVideoTile3.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeVideoTile3.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeVideoTile3.Animate))">Skin.SetString(HomeVideoTile3.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile3.Animate))">Skin.Reset(HomeVideoTile3.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeVideoTile3.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3489,7 +3510,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3504,7 +3525,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3522,13 +3543,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -3583,7 +3604,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -3634,12 +3655,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile4.ShowLabel))">Skin.Reset(HomeVideoTile4.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeVideoTile4.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeVideoTile1.Animate))">Skin.SetString(HomeVideoTile4.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeVideoTile1.Animate))">Skin.Reset(HomeVideoTile4.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeVideoTile4.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3648,7 +3676,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3663,7 +3691,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3681,13 +3709,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -3742,7 +3770,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -3793,12 +3821,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeTVShowTile1.ShowLabel))">Skin.Reset(HomeTVShowTile1.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeTVShowTile1.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeTVShowTile1.Animate))">Skin.SetString(HomeTVShowTile1.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeTVShowTile1.Animate))">Skin.Reset(HomeTVShowTile1.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeTVShowTile1.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3807,7 +3842,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3822,7 +3857,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3840,13 +3875,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -3901,7 +3936,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -3952,12 +3987,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeTVShowTile2.ShowLabel))">Skin.Reset(HomeTVShowTile2.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeTVShowTile2.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeTVShowTile1.Animate))">Skin.SetString(HomeTVShowTile2.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeTVShowTile1.Animate))">Skin.Reset(HomeTVShowTile2.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeTVShowTile2.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -3966,7 +4008,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3981,7 +4023,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -3999,13 +4041,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -4060,7 +4102,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -4111,12 +4153,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile1.ShowLabel))">Skin.Reset(HomeProgramTile1.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeProgramTile1.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeProgramTile1.Animate))">Skin.SetString(HomeProgramTile1.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile1.Animate))">Skin.Reset(HomeProgramTile1.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeProgramTile1.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -4125,7 +4174,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4140,7 +4189,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4158,13 +4207,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -4219,7 +4268,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -4270,12 +4319,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile2.ShowLabel))">Skin.Reset(HomeProgramTile2.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeProgramTile2.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeProgramTile2.Animate))">Skin.SetString(HomeProgramTile2.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile2.Animate))">Skin.Reset(HomeProgramTile2.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeProgramTile2.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -4284,7 +4340,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4299,7 +4355,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4317,13 +4373,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -4378,7 +4434,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -4429,12 +4485,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile3.ShowOverlay))">Skin.Reset(HomeProgramTile3.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeProgramTile3.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeProgramTile3.Animate))">Skin.SetString(HomeProgramTile3.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile3.Animate))">Skin.Reset(HomeProgramTile3.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeProgramTile3.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -4443,7 +4506,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4458,7 +4521,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4476,13 +4539,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -4537,7 +4600,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -4588,12 +4651,19 @@
     			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile4.ShowLabel))">Skin.Reset(HomeProgramTile4.ShowLabel)</onclick>
     			<selected>!IsEmpty(Skin.String(HomeProgramTile4.ShowLabel))</selected>
     		</control>
+    		<control type="radiobutton" id="2404">
+    			<include>SettingsCustomDialogRadioButtonVars</include>
+    			<label>$LOCALIZE[41160]</label>
+    			<onclick condition="IsEmpty(Skin.String(HomeProgramTile4.Animate))">Skin.SetString(HomeProgramTile4.Animate,on)</onclick>
+    			<onclick condition="!IsEmpty(Skin.String(HomeProgramTile4.Animate))">Skin.Reset(HomeProgramTile4.Animate)</onclick>
+    			<selected>!IsEmpty(Skin.String(HomeProgramTile4.Animate))</selected>
+    		</control>
     	</control>
     	
     	<control type="group">
     		<control type="image">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>532</width>
     			<height>60</height>
     			<texture border="2">dialogs/content/highlight-light.png</texture>
@@ -4602,7 +4672,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4617,7 +4687,7 @@
     		</control>
     		<control type="button">
     			<posx>0</posx>
-    			<posy>180</posy>
+    			<posy>240</posy>
     			<width>455</width>
     			<height>60</height>
     			<align>left</align>
@@ -4635,13 +4705,13 @@
     	<control type="grouplist" id="2405">
     		<description>button area</description>
     		<posx>439</posx>
-    		<posy>180</posy>
+    		<posy>240</posy>
     		<width>120</width>
     		<height>60</height>
     		<itemgap>0</itemgap>
     		<onleft>5</onleft>
     		<onright>3</onright>
-    		<onup>2403</onup>
+    		<onup>2404</onup>
     		<ondown>2406</ondown>
     		<orientation>horizontal</orientation>
     		<control type="button" id="24051">
@@ -4696,7 +4766,7 @@
     	
     	<control type="button" id="2406">
     		<posx>0</posx>
-    		<posy>240</posy>
+    		<posy>300</posy>
     		<onleft>5</onleft>
     		<onright>3</onright>
     		<onup>2405</onup>
@@ -5065,7 +5135,7 @@
         		<control type="label">
         			<description>Heading</description>
         			<posx>473</posx>
-        			<posy>308</posy>
+        			<posy>278</posy>
         			<width>974</width>
         			<font>Font-Condensed-S34</font>
         			<label>$INFO[Window(1111).property(Dialog)]</label>
@@ -5080,7 +5150,7 @@
         		
         		<control type="group">
         			<posx>694</posx>
-        			<posy>390</posy>
+        			<posy>360</posy>
         		    <include condition="StringCompare(Window.Property(SingleDialog),one)">PanelDialogHomeNewVideoTile1</include>
         		    <include condition="StringCompare(Window.Property(SingleDialog),two)">PanelDialogHomeNewVideoTile2</include>
         		    <include condition="StringCompare(Window.Property(SingleDialog),three)">PanelDialogHomeNewVideoTile3</include>
@@ -5095,7 +5165,7 @@
         		
         		<control type="group">
         			<posx>682</posx>
-        			<posy>688</posy>
+        			<posy>718</posy>
         			<control type="button" id="5">
         				<description>Close</description>
         				<texturefocus>buttons/cancel-fo.png</texturefocus>
