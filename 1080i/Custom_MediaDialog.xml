@@ -114,19 +114,19 @@
 					        <description>Get banner</description>
 					        <label>$LOCALIZE[41330]</label>
 					        <onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,medianame=$INFO[ListItem.TVShowTitle],banner)</onclick>
-					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.logo-downloader)</visible>
+					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.artwork.downloader)</visible>
 					    </item>
 					    <item id="4">
 					        <description>Get logo</description>
 					        <label>$LOCALIZE[41331]</label>
 					        <onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,medianame=$INFO[ListItem.TVShowTitle],clearlogo)</onclick>
-					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.logo-downloader)</visible>
+					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.artwork.downloader)</visible>
 					    </item>
 					    <item id="5">
 					        <description>Get landscape</description>
 					        <label>$LOCALIZE[41332]</label>
 					        <onclick>RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,medianame=$INFO[ListItem.TVShowTitle],tvthumb)</onclick>
-					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.logo-downloader)</visible>
+					        <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.artwork.downloader)</visible>
 					    </item>
 					    <item id="6">
 					        <description>Get theme</description>
