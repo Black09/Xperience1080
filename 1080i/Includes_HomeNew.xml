@@ -135,7 +135,7 @@
     </include>
 
     <include name="HomeLabel">
-        <width min="0" max="300">auto</width>
+        <width min="0" max="500">auto</width>
         <height>100</height>
         <font>Font-Condensed-S45</font>
         <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeProfileInfoLabelLightColor</include>
@@ -302,6 +302,14 @@
             	<effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
             	<effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
             </animation>
+            <animation type="Conditional" condition="!Window.IsActive(3020) + !Window.IsActive(3021) + !Window.IsActive(3022)">
+            	<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+            	<effect type="zoom" start="100,209,1720,1" end="100,150,1720,60" tween="sine" easing="out" time="200" />
+            </animation>
+            <animation type="Conditional" condition="Window.IsActive(3020) | Window.IsActive(3021) | Window.IsActive(3022)">
+            	<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+            	<effect type="zoom" start="100,150,1720,60" end="100,209,1720,1" tween="sine" easing="out" time="200" />
+            </animation>
             <posx>100</posx>
             <posy>150</posy>
             <width>1720</width>
@@ -316,6 +324,7 @@
                 <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(1) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(1) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(125)">Conditional</animation>
+                <visible>System.HasAddon(script.globalsearch)</visible>
             </control>
             <control type="label">
                 <description>Home</description>
@@ -380,6 +389,14 @@
         </control>
     </include>
     
+    <include name="HomeControlListFocusDefault">
+        <focusposition>1</focusposition>
+    </include>
+    
+    <include name="HomeControlListFocusNoSearch">
+        <focusposition>0</focusposition>
+    </include>
+    
     <include name="HomeControlList">
         <control type="wraplist" id="20">
             <description>Control list</description>
@@ -389,20 +406,18 @@
             <width>2</width>
             <onup>21</onup>
             <orientation>horizontal</orientation>
-            <focusposition>1</focusposition>
+            <include condition="System.HasAddon(script.globalsearch)">HomeControlListFocusDefault</include>
+            <include condition="!System.HasAddon(script.globalsearch)">HomeControlListFocusNoSearch</include>
             <scrolltime>0</scrolltime>
             <viewtype>list</viewtype>
             <itemlayout width="2" height="2"/>
-           	<focusedlayout width="2" height="2">
-           	    <control type="button">
-           	        <onfocus>SetFocus(525)</onfocus>
-           	    </control>
-           	</focusedlayout>
+           	<focusedlayout width="2" height="2"/>
             <content>
             	<item id="1">
             		<label>$LOCALIZE[137]</label>
             		<onclick>-</onclick>
             		<property name="search">1</property>
+            		<visible>System.HasAddon(script.globalsearch)</visible>
             	</item>
             	<item id="2">
             		<label>$LOCALIZE[41524]</label>
@@ -482,6 +497,7 @@
                 <width>2320</width>
                 <height>780</height>
                 <description>Search</description>
+                <visible>System.HasAddon(script.globalsearch)</visible>
                 <control type="button" id="125">
                     <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
                     <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
@@ -620,11 +636,12 @@
                 <height>780</height>
                 <description>Home</description>
                 <control type="button" id="525">
-                    <onleft>CancelAlarm(HomeTileMove,true)</onleft>
-                    <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
-                    <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-                    <onleft>Control.Move(20,-1)</onleft>
-                    <onleft>125</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMove,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveThree,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">125</onleft>
+                    <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
@@ -723,7 +740,7 @@
                             <onleft>501</onleft>
                             <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                             <onright>503</onright>
-                            <onclick>PlayMedia($INFO[Container(5022).ListItem.Property(Path)])</onclick>
+                            <onclick condition="System.HasAddon(script.randomitems)">PlayMedia($INFO[Container(5022).ListItem.Property(Path)])</onclick>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -747,6 +764,20 @@
                             <aspectratio>scale</aspectratio>
                             <colordiffuse>D4FFFFFF</colordiffuse>
                             <texture border="1">windows/home/tile.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>572</width>
+                            <height>501</height>
+                            <font>Font-Condensed-S34</font>
+                            <textcolor>77white</textcolor>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>5</textoffsetx>
+                            <wrapmultiline>true</wrapmultiline>
+                            <label>script.randomitems not found</label>
+                            <visible>!System.HasAddon(script.randomitems)</visible>
                         </control>
                         <control type="wraplist" id="5022">
                             <posx>0</posx>
@@ -785,42 +816,42 @@
                                 	<thumb>$INFO[Window.Property(RandomMovie.1.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.1.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
+                                	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.1.Path))</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.1.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.1.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.1.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.1.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.1.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
+                                	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.1.Path))</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomMovie.2.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.2.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
+                                	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.2.Path))</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.2.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.2.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.2.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.2.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.2.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
+                                	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.2.Path))</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomMovie.3.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.3.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeMovies)</visible>
+                                	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.3.Path))</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
                                 	<thumb>$INFO[Window.Property(RandomEpisode.3.Fanart)]</thumb>
                                 	<label>$INFO[Window.Property(RandomEpisode.3.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.3.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.3.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.3.Path)]</property>
-                                	<visible>!Skin.HasSetting(HomeTVShows)</visible>
+                                	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.3.Path))</visible>
                                 </item>
                             </content>
                         </control>
@@ -919,7 +950,7 @@
                             <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">601</onright>
                             <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                             <onright>Control.Move(20,1)</onright>
-                            <onclick>PlayMedia($INFO[Container(5032).ListItem.Property(Path)])</onclick>
+                            <onclick condition="System.HasAddon(script.watchlist)">PlayMedia($INFO[Container(5032).ListItem.Property(Path)])</onclick>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -943,6 +974,20 @@
                             <aspectratio>scale</aspectratio>
                             <colordiffuse>D4FFFFFF</colordiffuse>
                             <texture border="1">windows/home/tile.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>382</width>
+                            <height>572</height>
+                            <font>Font-Condensed-S34</font>
+                            <textcolor>77white</textcolor>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>5</textoffsetx>
+                            <wrapmultiline>true</wrapmultiline>
+                            <label>script.watchlist not found</label>
+                            <visible>!System.HasAddon(script.watchlist)</visible>
                         </control>
                         <control type="wraplist" id="5032">
                             <posx>0</posx>
@@ -1109,10 +1154,11 @@
                         <posy>-24</posy>
                         <width>331</width>
                         <height>620</height>
-                        <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
-                        <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-                        <onleft>Control.Move(20,-1)</onleft>
-                        <onleft>101</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveThree,true)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch)">101</onleft>
+                        <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
                         <onright>502</onright>
                         <onup>525</onup>
                         <ondown>80</ondown>
@@ -1315,7 +1361,7 @@
                     <onright>325</onright>
                     <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://1/2/)])</onclick>
                     <onclick>ActivateWindow(videos,movietitles,return)</onclick>
-                    <onup>80</onup>
+                    <onup>ActivateWindow(3020)</onup>
                     <ondown>201</ondown>
                 </control>
                 <control type="group" id="250">
@@ -1509,42 +1555,42 @@
                                 <posx>0</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(1)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,0)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #2</decription>
                                 <posx>16</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(2)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,1)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,1)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #3</decription>
                                 <posx>32</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(3)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,2)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,2)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #4</decription>
                                 <posx>48</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(4)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,3)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,3)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #5</decription>
                                 <posx>64</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(5)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,4)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,4)</visible>
                             </control>
                             <control type="image">
                                 <decription>Dot #6</decription>
                                 <posx>80</posx>
                                 <include>HomeDotIndicator</include>
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(6)">Conditional</animation>
-                                <visible>IntegerGreaterThan(Container(5032).NumItems,5)</visible>
+                                <visible>IntegerGreaterThan(Container(2022).NumItems,5)</visible>
                             </control>
                         </control>
                     </control>
@@ -1965,7 +2011,7 @@
                     <onright>425</onright>
                     <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
                     <onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
-                    <onup>80</onup>
+                    <onup>ActivateWindow(3021)</onup>
                     <ondown>301</ondown>
                 </control>
                 <control type="group" id="350">
@@ -2579,7 +2625,7 @@
                     <onright>625</onright>
                     <onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
                     <onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
-                    <onup>80</onup>
+                    <onup>ActivateWindow(3022)</onup>
                     <ondown>401</ondown>
                 </control>
                 <control type="group" id="450">
