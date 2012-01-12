@@ -1020,53 +1020,67 @@
 				<control type="radiobutton" id="7003">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(WatchList.Disabled)</selected>
+					<onclick>Skin.ToggleSetting(WatchList.Disabled)</onclick>
+					<label>$LOCALIZE[41291]</label>
+				</control>
+				<control type="radiobutton" id="7004">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
+					<selected>Skin.HasSetting(RandomItems.Disabled)</selected>
+					<onclick>Skin.ToggleSetting(RandomItems.Disabled)</onclick>
+					<label>$LOCALIZE[41292]</label>
+				</control>
+				<control type="radiobutton" id="7005">
+					<width>1210</width>
+					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(TVTunes.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(TVTunes.Enabled)</onclick>
 					<label>$LOCALIZE[41283]</label>
 				</control>
-				<control type="button" id="7004">
+				<control type="button" id="7006">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.tvtunes)</onclick>
 					<label> • $LOCALIZE[41284]</label>
 					<visible>Skin.HasSetting(TVTunes.Enabled)</visible>
 				</control>
-				<control type="radiobutton" id="7005">
+				<control type="radiobutton" id="7007">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(NextAired.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(NextAired.Enabled)</onclick>
 					<label>$LOCALIZE[41285]</label>
 				</control>
-				<control type="button" id="7006">
+				<control type="button" id="7008">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>Addon.OpenSettings(script.tv.show.next.aired)</onclick>
 					<label> • $LOCALIZE[41290]</label>
 					<visible>Skin.HasSetting(NextAired.Enabled)</visible>
 				</control>
-				<control type="button" id="7007">
+				<control type="button" id="7009">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,tvthumb)</onclick>
 					<label> • $LOCALIZE[41286]</label>
 					<visible>Skin.HasSetting(NextAired.Enabled)</visible>
 				</control>
-				<control type="radiobutton" id="7008">
+				<control type="radiobutton" id="7010">
 					<width>1210</width>
 					<include>SettingsCategoryRadioButtonVars</include>
 					<selected>Skin.HasSetting(ExtraFanart.Enabled)</selected>
 					<onclick>Skin.ToggleSetting(ExtraFanart.Enabled)</onclick>
 					<label>$LOCALIZE[41287]</label>
 				</control>
-				<control type="button" id="7009">
+				<control type="button" id="7011">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
 					<label> • $LOCALIZE[41289]</label>
 					<visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
 				</control>
-				<control type="button" id="7010">
+				<control type="button" id="7012">
 					<width>1210</width>
 					<include>SettingsCategoryDefaultButtonVars</include>
 					<onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,extrafanart)</onclick>
