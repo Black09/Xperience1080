@@ -87,7 +87,7 @@
 			<loop>yes</loop>
 			<include>Animation_FanartFade</include>
 			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
-			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + [Window.IsVisible(weather) | [Container(20).HasFocus(11) + Skin.HasSetting(ShowWeatherFanartHome)]] + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + [Window.IsVisible(weather) | [[[Container(20).HasFocus(11) + !Skin.HasSetting(HomeNew.Enabled)] | [Container(20).HasFocus(7) + Skin.HasSetting(HomeNew.Enabled)]] + Skin.HasSetting(ShowWeatherFanartHome)]] + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
 		</control>
 	</include>
 	
