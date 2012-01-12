@@ -393,7 +393,11 @@
             <scrolltime>0</scrolltime>
             <viewtype>list</viewtype>
             <itemlayout width="2" height="2"/>
-           	<focusedlayout width="2" height="2"/>
+           	<focusedlayout width="2" height="2">
+           	    <control type="button">
+           	        <onfocus>SetFocus(525)</onfocus>
+           	    </control>
+           	</focusedlayout>
             <content>
             	<item id="1">
             		<label>$LOCALIZE[137]</label>
