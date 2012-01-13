@@ -10,7 +10,7 @@
 			<onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
 			<onfocus>RunScript(script.viewmodes,0)</onfocus>
 			<onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(script.playerevents)</onfocus>
-			<onfocus condition="System.HasAddon(script.randomitems) + !Skin.HasSetting(RandomItems.Disabled)">RunScript(script.randomitems,limit=3&amp;albums=True)</onfocus>
+			<onfocus condition="System.HasAddon(script.randomitems) + !Skin.HasSetting(RandomItems.Disabled)">RunScript(script.randomitems,limit=6&amp;albums=True)</onfocus>
 			<onfocus condition="Skin.HasSetting(HomeNew.Enabled) + System.HasAddon(script.watchlist) + !Skin.HasSetting(WatchList.Disabled)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=6)</onfocus>
 			<onfocus condition="Skin.HasSetting(HomeNew.Enabled)">SetFocus(11)</onfocus>
 			<onfocus condition="!Skin.HasSetting(HomeNew.Enabled)">SetFocus(12)</onfocus>

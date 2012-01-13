@@ -2682,7 +2682,7 @@
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
                     <control type="group" id="402">
-                        <description>Recently added albums</description>
+                        <description>Featured albums</description>
                         <posx>289</posx>
                         <control type="button" id="4021">
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
@@ -2706,7 +2706,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41554][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$LOCALIZE[41556][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                         </control>
                         <control type="image">
@@ -2716,6 +2716,20 @@
                             <height>477</height>
                             <colordiffuse>D4FFFFFF</colordiffuse>
                             <texture border="1">windows/home/tile.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>477</width>
+                            <height>477</height>
+                            <font>Font-Condensed-S30</font>
+                            <textcolor>77white</textcolor>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>5</textoffsetx>
+                            <wrapmultiline>true</wrapmultiline>
+                            <label>script.randomitems[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
+                            <visible>!System.HasAddon(script.randomitems)</visible>
                         </control>
                         <control type="wraplist" id="4022">
                             <posx>0</posx>
@@ -2752,57 +2766,57 @@
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.1.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.1.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.1.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.1.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.1.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.1.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.1.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.1.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.1.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.1.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.1.Path))</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.2.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.2.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.2.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.2.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.2.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.2.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.2.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.2.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.2.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.2.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.2.Path))</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.3.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.3.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.3.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.3.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.3.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.3.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.3.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.3.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.3.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.3.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.3.Path))</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.4.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.4.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.4.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.4.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.4.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.4.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.4.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.4.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.4.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.4.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.4.Path))</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.5.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.5.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.5.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.5.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.5.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.5.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.5.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.5.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.5.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.5.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.5.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.5.Path))</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestAlbum.6.Thumb)]</thumb>
-                                	<label>$INFO[Window.Property(LatestAlbum.6.Title)]</label>
-                                	<label2>$INFO[Window.Property(LatestAlbum.6.Artist)]</label2>
-                                	<property name="year">$INFO[Window.Property(LatestAlbum.6.Year)]</property>
-                                	<property name="Path">$INFO[Window.Property(LatestAlbum.6.Path)]</property>
-                                	<visible>!IsEmpty(Window.Property(LatestAlbum.6.Path))</visible>
+                                	<thumb>$INFO[Window.Property(RandomAlbum.6.Thumb)]</thumb>
+                                	<label>$INFO[Window.Property(RandomAlbum.6.Title)]</label>
+                                	<label2>$INFO[Window.Property(RandomAlbum.6.Artist)]</label2>
+                                	<property name="year">$INFO[Window.Property(RandomAlbum.6.Year)]</property>
+                                	<property name="Path">$INFO[Window.Property(RandomAlbum.6.Path)]</property>
+                                	<visible>!IsEmpty(Window.Property(RandomAlbum.6.Path))</visible>
                                 </item>
                             </content>
                         </control>
@@ -3057,7 +3071,22 @@
                             </item>
                         </content>
                     </control>
+                    <control type="label">
+                        <posx>769</posx>
+                        <posy>572</posy>
+                        <width>477</width>
+                        <height>25</height>
+                        <font>Font-Condensed-S20</font>
+                        <include condition="!IsEmpty(Skin.String(stage.customImage))">HomeTileLightColor</include>
+                        <include condition="IsEmpty(Skin.String(stage.customImage))">HomeTileDarkColor</include>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textoffsetx>5</textoffsetx>
+                        <label>[UPPERCASE]$LOCALIZE[41554][/UPPERCASE]</label>
+                        <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="Container(403).HasFocus(4)">Conditional</animation>
+                    </control>
                     <control type="panel" id="403">
+                        <description>Recently added albums</description>
                         <posx>748</posx>
                         <posy>-24</posy>
                         <width>525</width>
@@ -3130,7 +3159,7 @@
                                 	<align>left</align>
                                 	<aligny>center</aligny>
                                 	<textcolor>99FFFFFF</textcolor>
-                                	<label>$INFO[ListItem.Property(album)]</label>
+                                	<label>$INFO[ListItem.Property(info)]</label>
                                 	<scroll>false</scroll>
                                 </control>
                             </control>
@@ -3232,7 +3261,7 @@
                                     	<align>left</align>
                                     	<aligny>center</aligny>
                                     	<textcolor>99FFFFFF</textcolor>
-                                    	<label>$INFO[ListItem.Property(album)]</label>
+                                    	<label>$INFO[ListItem.Property(info)]</label>
                                     	<scroll>false</scroll>
                                     </control>
                                 </control>
@@ -3240,35 +3269,39 @@
                         </focusedlayout>
                         <content>
                             <item id="1">
-                            	<onclick>PlayMedia($INFO[Window.Property(LatestSong.1.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestSong.1.Thumb)]</thumb>
-                            	<label>$INFO[Window.Property(LatestSong.1.Title)]</label>
-                            	<label2>$INFO[Window.Property(LatestSong.1.Artist)]</label2>
-                            	<property name="album">$INFO[Window.Property(LatestSong.1.Album)]</property>
+                            	<onclick>-</onclick>
+                            	<thumb>$INFO[Window.Property(LatestAlbum.1.Thumb)]</thumb>
+                            	<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
+                            	<label2>$INFO[Window.Property(LatestAlbum.1.Artist)]</label2>
+                            	<property name="info">$INFO[Window.Property(LatestAlbum.1.Year)]</property>
+                            	<property name="Path">$INFO[Window.Property(LatestAlbum.1.Path)]</property>
                             	<property name="pos">one</property>
                             </item>
                             <item id="2">
-                            	<onclick>PlayMedia($INFO[Window.Property(LatestSong.2.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestSong.2.Thumb)]</thumb>
-                            	<label>$INFO[Window.Property(LatestSong.2.Title)]</label>
-                            	<label2>$INFO[Window.Property(LatestSong.2.Artist)]</label2>
-                            	<property name="album">$INFO[Window.Property(LatestSong.2.Album)]</property>
+                            	<onclick>-</onclick>
+                            	<thumb>$INFO[Window.Property(LatestAlbum.2.Thumb)]</thumb>
+                            	<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
+                            	<label2>$INFO[Window.Property(LatestAlbum.2.Artist)]</label2>
+                            	<property name="info">$INFO[Window.Property(LatestAlbum.2.Year)]</property>
+                            	<property name="Path">$INFO[Window.Property(LatestAlbum.2.Path)]</property>
                             	<property name="pos">two</property>
                             </item>
                             <item id="3">
-                            	<onclick>PlayMedia($INFO[Window.Property(LatestSong.3.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestSong.3.Thumb)]</thumb>
-                            	<label>$INFO[Window.Property(LatestSong.3.Title)]</label>
-                            	<label2>$INFO[Window.Property(LatestSong.3.Artist)]</label2>
-                            	<property name="album">$INFO[Window.Property(LatestSong.3.Album)]</property>
+                            	<onclick>-</onclick>
+                            	<thumb>$INFO[Window.Property(LatestAlbum.3.Thumb)]</thumb>
+                            	<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
+                            	<label2>$INFO[Window.Property(LatestAlbum.3.Artist)]</label2>
+                            	<property name="info">$INFO[Window.Property(LatestAlbum.3.Year)]</property>
+                            	<property name="Path">$INFO[Window.Property(LatestAlbum.3.Path)]</property>
                             	<property name="pos">three</property>
                             </item>
                             <item id="4">
-                            	<onclick>PlayMedia($INFO[Window.Property(LatestSong.4.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestSong.4.Thumb)]</thumb>
-                            	<label>$INFO[Window.Property(LatestSong.4.Title)]</label>
-                            	<label2>$INFO[Window.Property(LatestSong.4.Artist)]</label2>
-                            	<property name="album">$INFO[Window.Property(LatestSong.4.Album)]</property>
+                            	<onclick>-</onclick>
+                            	<thumb>$INFO[Window.Property(LatestAlbum.4.Thumb)]</thumb>
+                            	<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
+                            	<label2>$INFO[Window.Property(LatestAlbum.4.Artist)]</label2>
+                            	<property name="info">$INFO[Window.Property(LatestAlbum.4.Year)]</property>
+                            	<property name="Path">$INFO[Window.Property(LatestAlbum.4.Path)]</property>
                             	<property name="pos">four</property>
                             </item>
                         </content>
@@ -3353,70 +3386,10 @@
                         <height>110</height>
                         <texture>windows/home/item-shadow.png</texture>
                     </control>
-                    <control type="group" id="602">
-                        <description>Pictures</description>
-                        <control type="button" id="6021">
-                            <onup>625</onup>
-                            <ondown>80</ondown>
-                            <onleft>601</onleft>
-                            <onright>603</onright>
-                            <onclick>ActivateWindow(pictures)</onclick>
-                        </control>
-                        <control type="image">
-                            <decription>Title overlay</decription>
-                            <posx>289</posx>
-                            <posy>0</posy>
-                            <width>382</width>
-                            <height>572</height>
-                            <colordiffuse>99000000</colordiffuse>
-                            <texture>windows/home/tile.png</texture>
-                        </control>
-                        <!--<control type="image">
-                            <posx>289</posx>
-                            <posy>0</posy>
-                            <width>382</width>
-                            <height>572</height>
-                            <texture background="true">$VAR[HomePictureImageSingle]</texture>
-                        </control>-->
-                        <control type="multiimage">
-                        	<posx>289</posx>
-                        	<posy>0</posy>
-                        	<width>382</width>
-                        	<height>572</height>
-                        	<aspectratio>scale</aspectratio>
-                        	<timeperimage>10000</timeperimage>
-                        	<randomize>true</randomize>
-                        	<fadetime>600</fadetime>
-                        	<loop>yes</loop>
-                        	<imagepath background="true">$INFO[Skin.String(HomePicturesMultiImage)]</imagepath>
-                        </control>
-                        <control type="image">
-                            <decription>Title overlay</decription>
-                            <posx>289</posx>
-                            <posy>518</posy>
-                            <width>382</width>
-                            <height>54</height>
-                            <colordiffuse>99000000</colordiffuse>
-                            <texture>windows/common/black.png</texture>
-                        </control>
-                        <control type="label">
-                            <decription>Title label</decription>
-                            <posx>309</posx>
-                            <posy>518</posy>
-                            <width>240</width>
-                            <height>50</height>
-                            <label>$LOCALIZE[41503]</label>
-                            <font>Font-Condensed-S25-B</font>
-                            <textcolor>aawhite</textcolor>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <scroll>false</scroll>
-                        </control>
-                    </control>
                     <control type="panel" id="601">
                         <posx>-24</posx>
                         <posy>-24</posy>
-                        <width>331</width>
+                        <width>1291</width>
                         <height>620</height>
                         <onleft>CancelAlarm(HomeTileMove,true)</onleft>
                         <onleft condition="!Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
@@ -3429,12 +3402,15 @@
                         <onleft condition="Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
                         <onleft condition="Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMovies)">503</onleft>
-                        <onright>602</onright>
+                        <onright>CancelAlarm(HomeTileMove,true)</onright>
+                        <onright>Control.Move(20,1)</onright>
+                        <onright>701</onright>
                         <onup>625</onup>
                         <ondown>80</ondown>
                         <scrolltime>0</scrolltime>
                         <itemlayout width="289" height="289">
                             <control type="group">
+                                <visible>IsEmpty(ListItem.Property(wide)) + IsEmpty(ListItem.Property(custom))</visible>
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
                                 <control type="image">
                                     <posx>24</posx>
@@ -3470,102 +3446,10 @@
                                     <textoffsetx>20</textoffsetx>
                                 </control>
                             </control>
-                        </itemlayout>
-                        <focusedlayout width="289" height="289">
                             <control type="group">
-                                <control type="image">
-                                    <posx>3</posx>
-                                    <posy>3</posy>
-                                    <width>325</width>
-                                    <height>325</height>
-                                    <texture border="40">windows/home/tile-fo.png</texture>
-                                    <animation type="Focus">
-                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
-                                    	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
-                                    	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                </control>
-                                <control type="group">
-                                    <animation type="Focus">
-                                    	<effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
-                                    </animation>
-                                    <animation type="Unfocus">
-                                    	<effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
-                                    </animation>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-                                        <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-,.png]</texture>
-                                    </control>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>241</posy>
-                                        <width>283</width>
-                                        <height>66</height>
-                                        <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-overlay-,.png]</texture>
-                                    </control>
-                                    <control type="image">
-                                        <posx>24</posx>
-                                        <posy>24</posy>
-                                        <width>283</width>
-                                        <height>283</height>
-                                        <texture>$INFO[ListItem.Icon]</texture>
-                                        <animation type="Focus" reversible="false">
-                                        	<effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
-                                        	<effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
-                                        </animation>
-                                    </control>
-                                    <control type="label">
-                                        <posx>24</posx>
-                                        <posy>240</posy>
-                                        <width>283</width>
-                                        <height>60</height>
-                                        <label>$INFO[ListItem.Label]</label>
-                                        <font>Font-Condensed-S34</font>
-                                        <textcolor>aawhite</textcolor>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                        <textoffsetx>20</textoffsetx>
-                                    </control>
-                                </control>
-                            </control>
-                        </focusedlayout>
-                        <content>
-                            <item id="0">
-                            	<label>$LOCALIZE[41504]</label>
-                            	<icon>windows/home/icons/appearance.png</icon>
-                            	<onclick>ActivateWindow(programs)</onclick>
-                            	<property name="pos">top</property>
-                            </item>
-                            <item id="1">
-                            	<label>$LOCALIZE[41937]</label>
-                            	<icon>windows/home/icons/addons.png</icon>
-                            	<onclick>ActivateWindow(programs,addons,return)</onclick>
-                            	<property name="pos">bottom</property>
-                            </item>
-                        </content>
-                    </control>
-                    <control type="panel" id="603">
-                        <posx>653</posx>
-                        <posy>-24</posy>
-                        <width>620</width>
-                        <height>620</height>
-                        <onleft>602</onleft>
-                        <onright>CancelAlarm(HomeTileMove,true)</onright>
-                        <onright>Control.Move(20,1)</onright>
-                        <onright>701</onright>
-                        <onup>625</onup>
-                        <ondown>80</ondown>
-                        <scrolltime>0</scrolltime>
-                        <itemlayout width="289" height="289">
-                            <control type="group">
+                                <visible>IsEmpty(ListItem.Property(wide)) + !IsEmpty(ListItem.Property(custom))</visible>
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <posx>99</posx>
                                 <control type="image">
                                     <posx>24</posx>
                                     <posy>24</posy>
@@ -3613,6 +3497,44 @@
                                     </control>
                                 </control>
                             </control>
+                            <control type="group">
+                                <visible>!IsEmpty(ListItem.Property(wide))</visible>
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>382</width>
+                                    <height>283</height>
+                                    <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-,.png]</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>382</width>
+                                    <height>66</height>
+                                    <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-overlay-,.png]</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>382</width>
+                                    <height>283</height>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
+                                </control>
+                                <control type="label">
+                                    <posx>24</posx>
+                                    <posy>240</posy>
+                                    <width>382</width>
+                                    <height>60</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font-Condensed-S34</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>20</textoffsetx>
+                                </control>
+                            </control>
                         </itemlayout>
                         <focusedlayout width="289" height="289">
                             <control type="group">
@@ -3622,6 +3544,24 @@
                                     <width>325</width>
                                     <height>325</height>
                                     <texture border="40">windows/home/tile-fo.png</texture>
+                                    <visible>IsEmpty(ListItem.Property(wide))</visible>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                    	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                    	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <animation effect="slide" start="0" end="99" time="0" condition="!IsEmpty(ListItem.Property(custom))">Conditional</animation>
+                                </control>
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>424</width>
+                                    <height>325</height>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <visible>!IsEmpty(ListItem.Property(wide))</visible>
                                     <animation type="Focus">
                                         <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
                                     	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
@@ -3632,12 +3572,14 @@
                                     </animation>
                                 </control>
                                 <control type="group">
+                                    <visible>IsEmpty(ListItem.Property(wide))</visible>
                                     <animation type="Focus">
                                     	<effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
                                     </animation>
                                     <animation type="Unfocus">
                                     	<effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
                                     </animation>
+                                    <animation effect="slide" start="0" end="99" time="0" condition="!IsEmpty(ListItem.Property(custom))">Conditional</animation>
                                     <control type="image">
                                         <posx>24</posx>
                                         <posy>24</posy>
@@ -3650,10 +3592,8 @@
                                         <posy>24</posy>
                                         <width>283</width>
                                         <height>283</height>
-                                        <texture background="true">$INFO[ListItem.Icon]</texture>
-                                        <aspectratio>scale</aspectratio>
-                                        <visible>!IsEmpty(ListItem.Property(Path))</visible>
-                                        <animation type="Focus" condition="!IsEmpty(Container(603).ListItem.Property(animate))" reversible="false">
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <animation type="Focus" condition="IsEmpty(Container(601).ListItem.Property(custom))|!IsEmpty(Container(601).ListItem.Property(animate))" reversible="false">
                                         	<effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
                                         	<effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
                                         </animation>
@@ -3664,14 +3604,14 @@
                                         <width>283</width>
                                         <height>283</height>
                                         <texture>windows/home/icons/addtile.png</texture>
-                                        <visible>IsEmpty(ListItem.Property(Path))</visible>
+                                        <visible>!IsEmpty(ListItem.Property(custom)) + IsEmpty(ListItem.Property(Path))</visible>
                                         <animation type="Focus" reversible="false">
                                         	<effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
                                         	<effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
                                         </animation>
                                     </control>
                                     <control type="group">
-                                        <visible>!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))</visible>
+                                        <visible>IsEmpty(ListItem.Property(custom)) | [!IsEmpty(ListItem.property(showlabel)) + !IsEmpty(ListItem.Property(Path))]</visible>
                                         <control type="image">
                                             <posx>24</posx>
                                             <posy>241</posy>
@@ -3693,10 +3633,70 @@
                                         </control>
                                     </control>
                                 </control>
+                                <control type="group">
+                                    <visible>!IsEmpty(ListItem.Property(wide))</visible>
+                                    <animation type="Focus">
+                                    	<effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                    	<effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>382</width>
+                                        <height>283</height>
+                                        <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-,.png]</texture>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>382</width>
+                                        <height>66</height>
+                                        <texture border="1">$INFO[ListItem.Property(pos),windows/home/tile-overlay-,.png]</texture>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>382</width>
+                                        <height>283</height>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <aspectratio align="center">keep</aspectratio>
+                                        <animation type="Focus" reversible="false">
+                                        	<effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                        	<effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>240</posy>
+                                        <width>382</width>
+                                        <height>60</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S34</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
                             </control>
                         </focusedlayout>
                         <content>
                             <item id="1">
+                            	<label>$LOCALIZE[41504]</label>
+                            	<icon>windows/home/icons/appearance.png</icon>
+                            	<onclick>ActivateWindow(programs)</onclick>
+                            	<property name="pos">top</property>
+                            </item>
+                            <item id="2">
+                            	<label>$LOCALIZE[41510]</label>
+                            	<icon>windows/home/icons/games.png</icon>
+                            	<onclick>ActivateWindow(10001,plugin://plugin.program.advanced.launcher,return)</onclick>
+                            	<property name="pos">top</property>
+                            	<property name="wide">1</property>
+                            </item>
+                            <item id="3">
                                 <label>$INFO[Skin.String(HomeProgramTile1.Label)]</label>
                                 <onclick>SetProperty(NextStage,0)</onclick>
                                 <onclick condition="!stringcompare(Skin.String(HomeProgramTile1.Type),4) + !stringcompare(Skin.String(HomeProgramTile1.Type),5) + !stringcompare(Skin.String(HomeProgramTile1.Type),6) + !stringcompare(Skin.String(HomeProgramTile1.Type),7)">RunAddon($INFO[Skin.String(HomeProgramTile1.Path)])</onclick>
@@ -3714,8 +3714,9 @@
                                 <property name="showlabel">$INFO[Skin.String(HomeProgramTile1.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeProgramTile1.Path)]</property>
                                 <property name="animate">$INFO[Skin.String(HomeProgramTile1.Animate)]</property>
+                                <property name="custom">1</property>
                             </item>
-                            <item id="2">
+                            <item id="4">
                                 <label>$INFO[Skin.String(HomeProgramTile2.Label)]</label>
                                 <onclick>SetProperty(NextStage,0)</onclick>
                                 <onclick condition="!stringcompare(Skin.String(HomeProgramTile2.Type),4) + !stringcompare(Skin.String(HomeProgramTile2.Type),5) + !stringcompare(Skin.String(HomeProgramTile2.Type),6) + !stringcompare(Skin.String(HomeProgramTile2.Type),7)">RunAddon($INFO[Skin.String(HomeProgramTile2.Path)])</onclick>
@@ -3733,8 +3734,22 @@
                                 <property name="showlabel">$INFO[Skin.String(HomeProgramTile2.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeProgramTile2.Path)]</property>
                                 <property name="animate">$INFO[Skin.String(HomeProgramTile2.Animate)]</property>
+                                <property name="custom">1</property>
                             </item>
-                            <item id="3">
+                            <item id="5">
+                            	<label>$LOCALIZE[41937]</label>
+                            	<icon>windows/home/icons/addons.png</icon>
+                            	<onclick>ActivateWindow(programs,addons,return)</onclick>
+                            	<property name="pos">bottom</property>
+                            </item>
+                            <item id="6">
+                            	<label>$LOCALIZE[41503]</label>
+                            	<icon>windows/home/icons/pictures.png</icon>
+                            	<onclick>ActivateWindow(pictures)</onclick>
+                            	<property name="pos">bottom</property>
+                            	<property name="wide">1</property>
+                            </item>
+                            <item id="7">
                                 <label>$INFO[Skin.String(HomeProgramTile3.Label)]</label>
                                 <onclick>SetProperty(NextStage,0)</onclick>
                                 <onclick condition="!stringcompare(Skin.String(HomeProgramTile3.Type),4) + !stringcompare(Skin.String(HomeProgramTile3.Type),5) + !stringcompare(Skin.String(HomeProgramTile3.Type),6) + !stringcompare(Skin.String(HomeProgramTile3.Type),7)">RunAddon($INFO[Skin.String(HomeProgramTile3.Path)])</onclick>
@@ -3752,8 +3767,9 @@
                                 <property name="showlabel">$INFO[Skin.String(HomeProgramTile3.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeProgramTile3.Path)]</property>
                                 <property name="animate">$INFO[Skin.String(HomeProgramTile3.Animate)]</property>
+                                <property name="custom">1</property>
                             </item>
-                            <item id="4">
+                            <item id="8">
                                 <label>$INFO[Skin.String(HomeProgramTile4.Label)]</label>
                                 <onclick>SetProperty(NextStage,0)</onclick>
                                 <onclick condition="!stringcompare(Skin.String(HomeProgramTile4.Type),4) + !stringcompare(Skin.String(HomeProgramTile4.Type),5) + !stringcompare(Skin.String(HomeProgramTile4.Type),6) + !stringcompare(Skin.String(HomeProgramTile4.Type),7)">RunAddon($INFO[Skin.String(HomeProgramTile4.Path)])</onclick>
@@ -3771,22 +3787,9 @@
                                 <property name="showlabel">$INFO[Skin.String(HomeProgramTile4.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeProgramTile4.Path)]</property>
                                 <property name="animate">$INFO[Skin.String(HomeProgramTile4.Animate)]</property>
+                                <property name="custom">1</property>
                             </item>
                         </content>
-                    </control>
-                    <control type="image">
-                        <posx>268</posx>
-                        <posy>-21</posy>
-                        <width>424</width>
-                        <height>614</height>
-                        <texture border="40">windows/home/tile-fo.png</texture>
-                        <animation type="Visible">
-                        	<effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
-                        </animation>
-                        <animation type="Hidden">
-                        	<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-                        </animation>
-                        <visible>ControlGroup(602).HasFocus</visible>
                     </control>
                 </control>
             </control>
@@ -4193,7 +4196,7 @@
                         <width>331</width>
                         <height>620</height>
                         <onleft>Control.Move(20,-1)</onleft>
-                        <onleft condition="!Skin.HasSetting(HomePrograms)">603</onleft>
+                        <onleft condition="!Skin.HasSetting(HomePrograms)">601</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + !Skin.HasSetting(HomeMusic)">403</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomeTVShows)">303</onleft>
                         <onleft condition="Skin.HasSetting(HomePrograms) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMovies)">203</onleft>
