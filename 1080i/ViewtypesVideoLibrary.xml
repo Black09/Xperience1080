@@ -4114,7 +4114,7 @@
 							<posy>34</posy>
 							<width>208</width>
 							<height>312</height>
-							<texture diffuse="views/wall/diffuse/poster_diffuse.png">$VAR[WallPoster]</texture>
+							<texture background="true" diffuse="views/wall/diffuse/poster_diffuse.png">$VAR[WallPoster]</texture>
 							<aspectratio align="center" scalediffuse="false">scale</aspectratio>
 						</control>
 						<control type="image">
@@ -4992,10 +4992,9 @@
 							<posy>49</posy>
 							<width>156</width>
 							<height>234</height>
-							<info>ListItem.Thumb</info>
-							<texture diffuse="views/banner/diffuse/poster.png" background="true" scalediffuse="false"/>
+							<texture diffuse="views/banner/diffuse/poster.png" background="true">$INFO[ListItem.Thumb]</texture>
 							<fadetime>300</fadetime>
-							<aspectratio>stretch</aspectratio>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<visible>!IsEmpty(ListItem.Title)</visible>
 						</control>
 						<control type="image">
@@ -5394,9 +5393,8 @@
 							<posy>49</posy>
 							<width>416</width>
 							<height>234</height>
-							<info>ListItem.Thumb</info>
-							<texture diffuse="views/banner/diffuse/episode.png" background="true" scalediffuse="false"/>
-							<aspectratio>stretch</aspectratio>
+							<texture diffuse="views/banner/diffuse/episode.png" background="true">$INFO[ListItem.Thumb]</texture>
+							<aspectratio scalediffuse="false">stretch</aspectratio>
 							<fadetime>300</fadetime>
 							<aspectratio>stretch</aspectratio>
 							<visible>!IsEmpty(ListItem.Title)</visible>
