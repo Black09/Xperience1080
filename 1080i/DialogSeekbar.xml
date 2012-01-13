@@ -66,16 +66,21 @@
 					<font>Font-Condensed-S34</font>
 					<align>center</align>
 				</control>
-				<control type="label">
-					<description>Pause</description>
+				<control type="fadelabel">
+					<description>Pause / finish time</description>
 					<posx>750</posx>
 					<posy>948</posy>
 					<width>420</width>
-					<height>68</height>
+					<height>66</height>
 					<label>$LOCALIZE[112]</label>
+					<label>$INFO[Player.FinishTime,$LOCALIZE[41371] ,]</label>
+					<scroll>false</scroll>
+					<scrollout>false</scrollout>
+					<pauseatend>5000</pauseatend>
 					<textcolor>aawhite</textcolor>
 					<font>Font-Condensed-S38</font>
 					<align>center</align>
+					<aligny>center</aligny>
 					<visible>Player.Paused + ![Window.IsActive(videoosd) | Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding]</visible>
 					<animation effect="fade" start="0" end="100" time="400" tween="sine" easing="inout">Visible</animation>
 					<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="inout">Hidden</animation>
