@@ -2693,7 +2693,7 @@
                             <onleft>401</onleft>
                             <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                             <onright>403</onright>
-                            <onclick>PlayMedia($INFO[Container(4022).ListItem.Property(Path)])</onclick>
+                            <onclick>$INFO[Container(4022).ListItem.Property(Path)]</onclick>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -3269,39 +3269,35 @@
                         </focusedlayout>
                         <content>
                             <item id="1">
-                            	<onclick>-</onclick>
+                            	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.1.Path)])</onclick>
                             	<thumb>$INFO[Window.Property(LatestAlbum.1.Thumb)]</thumb>
                             	<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.1.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.1.Year)]</property>
-                            	<property name="Path">$INFO[Window.Property(LatestAlbum.1.Path)]</property>
                             	<property name="pos">one</property>
                             </item>
                             <item id="2">
-                            	<onclick>-</onclick>
+                            	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.2.Path)])</onclick>
                             	<thumb>$INFO[Window.Property(LatestAlbum.2.Thumb)]</thumb>
                             	<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.2.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.2.Year)]</property>
-                            	<property name="Path">$INFO[Window.Property(LatestAlbum.2.Path)]</property>
                             	<property name="pos">two</property>
                             </item>
                             <item id="3">
-                            	<onclick>-</onclick>
+                            	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.3.Path)])</onclick>
                             	<thumb>$INFO[Window.Property(LatestAlbum.3.Thumb)]</thumb>
                             	<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.3.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.3.Year)]</property>
-                            	<property name="Path">$INFO[Window.Property(LatestAlbum.3.Path)]</property>
                             	<property name="pos">three</property>
                             </item>
                             <item id="4">
-                            	<onclick>-</onclick>
+                            	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.4.Path)])</onclick>
                             	<thumb>$INFO[Window.Property(LatestAlbum.4.Thumb)]</thumb>
                             	<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.4.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.4.Year)]</property>
-                            	<property name="Path">$INFO[Window.Property(LatestAlbum.4.Path)]</property>
                             	<property name="pos">four</property>
                             </item>
                         </content>
