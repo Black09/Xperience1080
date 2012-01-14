@@ -373,15 +373,18 @@
 		</control>
 		<control type="button" id="24">
 			<onfocus>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://4/)])</onfocus>
+			<onfocus>SetFocus(20)</onfocus>
 			<onfocus>ActivateWindow(videos,RecentlyAddedMovies,return)</onfocus>
 			<animation effect="fade" start="0" end="100" time="0" delay="400">Focus</animation>
 		</control>
 		<control type="button" id="25">
 			<onfocus>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://5/)])</onfocus>
+			<onfocus>SetFocus(20)</onfocus>
 			<onfocus>ActivateWindow(videos,RecentlyAddedEpisodes,return)</onfocus>
 			<animation effect="fade" start="0" end="100" time="0" delay="400">Focus</animation>
 		</control>
 		<control type="button" id="26">
+		    <onfocus>SetFocus(20)</onfocus>
 			<onfocus>ActivateWindow(musiclibrary,recentlyaddedalbums,return)</onfocus>
 			<animation effect="fade" start="0" end="100" time="0" delay="400">Focus</animation>
 		</control>
