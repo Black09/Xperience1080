@@ -1,6 +1,6 @@
 <window id="103">
 	<defaultcontrol always="true">300</defaultcontrol>
-	<onunload condition="!IsEmpty(Window(virtualkeyboard).Property(Clear))">ClearProperty(HomeSearch,home)</onunload>
+	<onunload condition="IsEmpty(Window(virtualkeyboard).Property(Clear))">ClearProperty(HomeSearch,home)</onunload>
 	<onunload>ClearProperty(Clear,virtualkeyboard)</onunload>
 	<controls>
 		<control type="group">
