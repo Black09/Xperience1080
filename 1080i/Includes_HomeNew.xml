@@ -797,7 +797,7 @@
                                     <width>572</width>
                                     <height>501</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="572" height="501">
@@ -807,48 +807,48 @@
                                     <width>572</width>
                                     <height>501</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomMovie.1.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomMovie.1.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.1.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.1.Path))</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomEpisode.1.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomEpisode.1.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomEpisode.1.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.1.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.1.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.1.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.1.Path))</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomMovie.2.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomMovie.2.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.2.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.2.Path))</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomEpisode.2.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomEpisode.2.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomEpisode.2.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.2.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.2.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.2.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.2.Path))</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomMovie.3.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomMovie.3.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomMovie.3.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeMovies) + !IsEmpty(Window.Property(RandomMovie.3.Path))</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomEpisode.3.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomEpisode.3.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(RandomEpisode.3.EpisodeSeason),,x]$INFO[Window.Property(RandomEpisode.3.EpisodeNumber),, ]$INFO[Window.Property(RandomEpisode.3.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(RandomEpisode.3.Path)]</property>
                                 	<visible>!Skin.HasSetting(HomeTVShows) + !IsEmpty(Window.Property(RandomEpisode.3.Path))</visible>
@@ -1008,8 +1008,6 @@
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.ActualIcon]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Icon)</visible>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="382" height="572">
@@ -1020,14 +1018,11 @@
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.ActualIcon]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Icon)</visible>
                                 </control>
                             </focusedlayout>
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.1.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.1.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.1.Season),,x]$INFO[Window.Property(WatchList_Episode.1.Episode),, ]$INFO[Window.Property(WatchList_Episode.1.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.1.Path)]</property>
@@ -1035,7 +1030,6 @@
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.2.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.2.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.2.Season),,x]$INFO[Window.Property(WatchList_Episode.2.Episode),, ]$INFO[Window.Property(WatchList_Episode.2.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.2.Path)]</property>
@@ -1043,7 +1037,6 @@
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.3.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.3.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.3.Season),,x]$INFO[Window.Property(WatchList_Episode.3.Episode),, ]$INFO[Window.Property(WatchList_Episode.3.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.3.Path)]</property>
@@ -1051,7 +1044,6 @@
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.4.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.4.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.4.Season),,x]$INFO[Window.Property(WatchList_Episode.4.Episode),, ]$INFO[Window.Property(WatchList_Episode.4.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.4.Path)]</property>
@@ -1059,7 +1051,6 @@
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.5.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.5.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.5.Season),,x]$INFO[Window.Property(WatchList_Episode.5.Episode),, ]$INFO[Window.Property(WatchList_Episode.5.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.5.Path)]</property>
@@ -1067,7 +1058,6 @@
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(WatchList_Episode.6.SeasonThumb)]</thumb>
                                 	<icon>$INFO[Window.Property(WatchList_Episode.6.TvshowThumb)]</icon>
                                 	<label>$INFO[Window.Property(WatchList_Episode.6.Season),,x]$INFO[Window.Property(WatchList_Episode.6.Episode),, ]$INFO[Window.Property(WatchList_Episode.6.Label)]</label>
                                 	<property name="Path">$INFO[Window.Property(WatchList_Episode.6.Path)]</property>
@@ -1458,9 +1448,7 @@
                                     <width>382</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="382" height="572">
@@ -1470,50 +1458,48 @@
                                     <width>382</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.1.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.1.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.1.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.1.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.1.Path))</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.2.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.2.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.2.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.2.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.2.Path))</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.3.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.3.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.3.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.3.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.3.Path))</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.4.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.4.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.4.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.4.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.4.Path))</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.5.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.5.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.5.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.5.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.5.Path))</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestMovie.6.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestMovie.6.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(LatestMovie.6.Title)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestMovie.6.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestMovie.6.Path))</visible>
@@ -2116,9 +2102,7 @@
                                     <width>671</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="671" height="572">
@@ -2128,50 +2112,48 @@
                                     <width>671</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
-                                    <include>visiblehidefadeinfo</include>
-                                    <visible>!IsEmpty(ListItem.Thumb)</visible>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.1.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.1.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.1.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.1.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.1.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.1.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.1.Path))</visible>
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.2.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.2.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.2.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.2.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.2.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.2.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.2.Path))</visible>
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.3.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.3.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.3.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.3.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.3.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.3.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.3.Path))</visible>
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.4.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.4.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.4.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.4.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.4.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.4.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.4.Path))</visible>
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.5.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.5.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.5.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.5.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.5.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.5.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.5.Path))</visible>
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(LatestEpisode.6.Fanart)]</thumb>
+                                	<icon>$INFO[Window.Property(LatestEpisode.6.Fanart)]</icon>
                                 	<label>$INFO[Window.Property(LatestEpisode.6.EpisodeSeason),,x]$INFO[Window.Property(LatestEpisode.6.EpisodeNumber),, ]$INFO[Window.Property(LatestEpisode.6.EpisodeTitle)]</label>
                                 	<property name="Path">$INFO[Window.Property(LatestEpisode.6.Path)]</property>
                                 	<visible>!IsEmpty(Window.Property(LatestEpisode.6.Path))</visible>
@@ -2750,7 +2732,7 @@
                                     <width>477</width>
                                     <height>477</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="477" height="572">
@@ -2760,13 +2742,13 @@
                                     <width>477</width>
                                     <height>477</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
                                 <item id="1">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.1.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.1.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.1.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.1.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.1.Year)]</property>
@@ -2775,7 +2757,7 @@
                                 </item>
                                 <item id="2">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.2.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.2.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.2.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.2.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.2.Year)]</property>
@@ -2784,7 +2766,7 @@
                                 </item>
                                 <item id="3">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.3.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.3.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.3.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.3.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.3.Year)]</property>
@@ -2793,7 +2775,7 @@
                                 </item>
                                 <item id="4">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.4.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.4.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.4.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.4.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.4.Year)]</property>
@@ -2802,7 +2784,7 @@
                                 </item>
                                 <item id="5">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.5.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.5.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.5.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.5.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.5.Year)]</property>
@@ -2811,7 +2793,7 @@
                                 </item>
                                 <item id="6">
                                 	<onclick>-</onclick>
-                                	<thumb>$INFO[Window.Property(RandomAlbum.6.Thumb)]</thumb>
+                                	<icon>$INFO[Window.Property(RandomAlbum.6.Thumb)]</icon>
                                 	<label>$INFO[Window.Property(RandomAlbum.6.Title)]</label>
                                 	<label2>$INFO[Window.Property(RandomAlbum.6.Artist)]</label2>
                                 	<property name="year">$INFO[Window.Property(RandomAlbum.6.Year)]</property>
@@ -3124,7 +3106,7 @@
                                     <posy>44</posy>
                                     <width>100</width>
                                     <height>100</height>
-                                    <texture background="true">$INFO[ListItem.Icon]</texture>
+                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                 </control>
                                 <control type="label">
                                 	<posx>162</posx>
@@ -3227,7 +3209,7 @@
                                         <posy>44</posy>
                                         <width>100</width>
                                         <height>100</height>
-                                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                                        <texture background="true">$INFO[ListItem.ActualIcon]</texture>
                                     </control>
                                     <control type="label">
                                     	<posx>162</posx>
@@ -3270,7 +3252,7 @@
                         <content>
                             <item id="1">
                             	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.1.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestAlbum.1.Thumb)]</thumb>
+                            	<icon>$INFO[Window.Property(LatestAlbum.1.Thumb)]</icon>
                             	<label>$INFO[Window.Property(LatestAlbum.1.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.1.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.1.Year)]</property>
@@ -3278,7 +3260,7 @@
                             </item>
                             <item id="2">
                             	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.2.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestAlbum.2.Thumb)]</thumb>
+                            	<icon>$INFO[Window.Property(LatestAlbum.2.Thumb)]</icon>
                             	<label>$INFO[Window.Property(LatestAlbum.2.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.2.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.2.Year)]</property>
@@ -3286,7 +3268,7 @@
                             </item>
                             <item id="3">
                             	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.3.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestAlbum.3.Thumb)]</thumb>
+                            	<icon>$INFO[Window.Property(LatestAlbum.3.Thumb)]</icon>
                             	<label>$INFO[Window.Property(LatestAlbum.3.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.3.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.3.Year)]</property>
@@ -3294,7 +3276,7 @@
                             </item>
                             <item id="4">
                             	<onclick>PlayMedia($INFO[Window.Property(LatestAlbum.4.Path)])</onclick>
-                            	<thumb>$INFO[Window.Property(LatestAlbum.4.Thumb)]</thumb>
+                            	<icon>$INFO[Window.Property(LatestAlbum.4.Thumb)]</icon>
                             	<label>$INFO[Window.Property(LatestAlbum.4.Title)]</label>
                             	<label2>$INFO[Window.Property(LatestAlbum.4.Artist)]</label2>
                             	<property name="info">$INFO[Window.Property(LatestAlbum.4.Year)]</property>
