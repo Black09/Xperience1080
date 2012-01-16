@@ -826,6 +826,10 @@
 					</control>
 				</itemlayout>
 				<focusedlayout height="60">
+				    <control type="button">
+				        <onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Label,$INFO[Container(6).ListItem.Label])</onfocus>
+				        <onfocus condition="!IsEmpty(Window(selectdialog).Property(Property))">SetProperty(Icon,$INFO[Container(6).ListItem.Icon])</onfocus>
+				    </control>
 					<control type="group">
 						<visible>!Control.HasFocus(6)</visible>
 						<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(6).Scrolling | Container(6).OnScrollNext | Container(6).OnScrollPrevious]">Visible</animation>
