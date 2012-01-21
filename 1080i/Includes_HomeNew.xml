@@ -731,6 +731,10 @@
                         <posx>289</posx>
                         <posy>71</posy>
                         <control type="button" id="5021">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>572</width>
+                            <height>501</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
                             <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5032,1),00:07,silent,loop)</onup>
@@ -928,11 +932,26 @@
                                 <visible>IntegerGreaterThan(Container(5022).NumItems,5)</visible>
                             </control>
                         </control>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>0</posy>
+                        	<width>572</width>
+                        	<height>501</height>
+                        	<aspectratio>stretch</aspectratio>
+                        	<texture>windows/common/black.png</texture>
+                        	<visible>Window.IsActive(contextmenu) + Control.HasFocus(5021)</visible>
+                        	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+                        	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
+                        </control>
                     </control>
                     <control type="group" id="503">
                         <description>Ongoing tv shows</description>
                         <posx>867</posx>
                         <control type="button" id="5031">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>382</width>
+                            <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onfocus>CancelAlarm(HomeTileMoveThree,true)</onfocus>
                             <onup>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onup>
@@ -1137,6 +1156,17 @@
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(5032).HasFocus(6)">Conditional</animation>
                                 <visible>IntegerGreaterThan(Container(5032).NumItems,5)</visible>
                             </control>
+                        </control>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>0</posy>
+                        	<width>382</width>
+                        	<height>572</height>
+                        	<aspectratio>stretch</aspectratio>
+                        	<texture>windows/common/black.png</texture>
+                        	<visible>Window.IsActive(contextmenu) + Control.HasFocus(5031)</visible>
+                        	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+                        	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
                     </control>
                     <control type="panel" id="501">
@@ -1397,6 +1427,10 @@
                         <description>Recently added / watchlist items</description>
                         <posx>289</posx>
                         <control type="button" id="2021">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>382</width>
+                            <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onup>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onup>
                             <onup>225</onup>
@@ -1578,6 +1612,17 @@
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(2022).HasFocus(6)">Conditional</animation>
                                 <visible>IntegerGreaterThan(Container(2022).NumItems,5)</visible>
                             </control>
+                        </control>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>0</posy>
+                        	<width>382</width>
+                        	<height>572</height>
+                        	<aspectratio>stretch</aspectratio>
+                        	<texture>windows/common/black.png</texture>
+                        	<visible>Window.IsActive(contextmenu) + Control.HasFocus(2021)</visible>
+                        	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+                        	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
                     </control>
                     <control type="panel" id="201">
@@ -2051,6 +2096,10 @@
                         <description>Recently added / watchlist items</description>
                         <posx>289</posx>
                         <control type="button" id="3021">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>671</width>
+                            <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onup>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onup>
                             <onup>325</onup>
@@ -2232,6 +2281,17 @@
                                 <animation effect="fade" start="100" end="20" time="300" tween="sine" easing="inout" condition="!Container(3022).HasFocus(6)">Conditional</animation>
                                 <visible>IntegerGreaterThan(Container(3022).NumItems,5)</visible>
                             </control>
+                        </control>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>0</posy>
+                        	<width>671</width>
+                        	<height>572</height>
+                        	<aspectratio>stretch</aspectratio>
+                        	<texture>windows/common/black.png</texture>
+                        	<visible>Window.IsActive(contextmenu) + Control.HasFocus(3021)</visible>
+                        	<animation effect="fade" time="300" start="0" end="90" tween="sine" easing="out">Visible</animation>
+                        	<animation effect="fade" time="300" start="90" end="0" tween="sine" easing="in">Hidden</animation>
                         </control>
                     </control>
                     <control type="panel" id="301">
