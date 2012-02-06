@@ -160,6 +160,17 @@
         <texture>windows/home/dot.png</texture>
     </include>
     
+    <include name="HomeOnLeftSearch">
+        <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
+        <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
+        <onleft>Control.Move(20,-1)</onleft>
+        <onleft>101</onleft>
+    </include>
+    
+    <include name="HomeOnLeftNoSearch">
+        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
+    </include>
+    
     <variable name="HomePictureImageSingle">
         <value condition="IsEmpty(Skin.String(HomePicturesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
         <value>$INFO[Skin.String(HomePicturesSingleImage)]</value>
@@ -1174,11 +1185,8 @@
                         <posy>-24</posy>
                         <width>331</width>
                         <height>620</height>
-                        <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
-                        <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveThree,true)</onleft>
-                        <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
-                        <onleft condition="System.HasAddon(script.globalsearch)">101</onleft>
-                        <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
+                        <include condition="System.HasAddon(script.globalsearch)">HomeOnLeftSearch</include>
+                        <include condition="!System.HasAddon(script.globalsearch)">HomeOnLeftNoSearch</include>
                         <onright>502</onright>
                         <onup>525</onup>
                         <ondown>80</ondown>
