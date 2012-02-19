@@ -83,7 +83,7 @@
 					<control type="label">
 						<posx>193</posx>
 						<posy>-22</posy>
-						<width>1097</width>
+						<width>997</width>
 						<height>105</height>
 						<font>Font-Condensed-S34-B</font>
 						<align>left</align>
@@ -153,7 +153,7 @@
 					<control type="label">
 						<posx>1390</posx>
 						<posy>0</posy>
-						<width>100</width>
+						<width>1175</width>
 						<height>100</height>
 						<font>Font-Condensed-S34-B</font>
 						<align>right</align>
@@ -339,7 +339,7 @@
 					<control type="label">
 						<posx>193</posx>
 						<posy>-22</posy>
-						<width>1097</width>
+						<width>997</width>
 						<height>105</height>
 						<font>Font-Condensed-S34-B</font>
 						<align>left</align>
@@ -428,7 +428,7 @@
 					<control type="label">
 						<posx>1390</posx>
 						<posy>0</posy>
-						<width>200</width>
+						<width>1175</width>
 						<height>100</height>
 						<font>Font-Condensed-S34-B</font>
 						<align>right</align>
@@ -643,7 +643,20 @@
 							<textcolor>white</textcolor>
 							<scroll>false</scroll>
 							<include>defaultfocusanim4</include>
-							<animation effect="slide" start="0" end="200" time="0" condition="Container.Content(Episodes)">Conditional</animation>
+							<visible>!Container.Content(Episodes)</visible>
+						</control>
+						<control type="label">
+							<posx>380</posx>
+							<posy>-22</posy>
+							<width>910</width>
+							<height>105</height>
+							<font>Font-Condensed-S34</font>
+							<align>left</align>
+							<label>[B]$INFO[ListItem.Label][/B]</label>
+							<textcolor>white</textcolor>
+							<scroll>false</scroll>
+							<include>defaultfocusanim4</include>
+							<visible>Container.Content(Episodes)</visible>
 						</control>
 						<!-- Genre Icon -->
 						<control type="image">
@@ -830,7 +843,7 @@
 						<control type="label">
 							<posx>1390</posx>
 							<posy>0</posy>
-							<width>200</width>
+							<width>1175</width>
 							<height>98</height>
 							<font>Font-Condensed-S34-B</font>
 							<align>right</align>
