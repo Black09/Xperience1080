@@ -1,669 +1,669 @@
 <includes>
 
-	<include name="Animation_RecentlyFade">
-		<animation type="Conditional" condition="Control.HasFocus(82)">
-			<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="400" /> 
-		</animation>
-	</include>
-	
-	<include name="Animation_RecentlyFadeIcon">
-		<animation type="Visible">
-			<effect type="fade" start="0" end="100" time="0" delay="400" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="fade" start="100" end="0" time="0" delay="0" /> 
-		</animation>
-	</include>
-		
-	<include name="HomeWraplistAnimation">
-		
-		<control type="image" id="90">
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" delay="1010" time="0" />
-			</animation>
-		</control>
-	
-		<control type="group">
-			<include>ShutdownFavAnimation</include>
-			<posx>-100</posx>
-			<animation effect="fade" start="0" end="100" time="0" reversible="false">Visible</animation>
-			<visible>Window.Next(Home) | Window.Next(programs) | Window.Next(pictures) | Window.Next(filemanager) | Window.Next(settings) | Window.Next(music) | Window.Next(systeminfo) | Window.Next(screencalibration) | Window.Next(picturessettings) | Window.Next(programssettings) | Window.Next(weathersettings) | Window.Next(musicsettings) | Window.Next(systemsettings) | Window.Next(videossettings) | Window.Next(networksettings) | Window.Next(appearancesettings) | Window.Next(scripts) | Window.Next(videos) | Window.Next(videoplaylist) | Window.Next(LoginScreen) | Window.Next(profiles) | Window.Next(addonbrowser) | Window.Next(filebrowser) | Window.Next(ProfileSettings) | Window.Next(LockSettings) | Window.Next(smartplaylisteditor) | Window.Next(smartplaylistrule) | Window.Next(musicplaylist) | Window.Next(musicfiles) | Window.Next(musiclibrary) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(karaoke) | Window.Next(weather) | Window.Next(script-NextAired-TVGuide.xml) | Window.Next(1111) | !Control.IsVisible(90)</visible>
-			<control type="group">
-				<animation type="Conditional" condition="true">
-					<effect type="zoom" start="100" end="80" time="0" center="7,680" />
-				</animation>
-				<animation type="WindowOpen" reversible="true">
-					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-					<effect type="slide" start="522" end="0" delay="350" tween="cubic" easing="out" time="500" />
-				</animation>
-				<animation type="WindowClose" reversible="true">
-					<effect type="slide" start="0" end="522" tween="sine" easing="in" time="250" />
-					<effect type="fade" delay="200" start="100" end="0" time="100" />
-				</animation>
-				<control type="group">
-					<posx>-358</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(-1).ActualIcon]</texture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(-1).property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(Container(20).ListItemNoWrap(-1).property(overlay))</visible>
-					</control>
-					<control type="label">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<font>Font-Condensed-S50-B</font>
-						<align>right</align>
-						<posx>642</posx>
-						<posy>380</posy>
-						<width>500</width>
-						<height>50</height>
-						<textcolor>BCFFFFFF</textcolor>
-						<shadowcolor>FF000000</shadowcolor>
-						<include>Animation_RecentlyFade</include>
-						<label>$INFO[Container(20).ListItemNoWrap(-1).Label]</label>
-					</control>
-					<visible>!IsEmpty(Container(20).ListItemNoWrap(-1).Label)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<animation type="Conditional" condition="true">
-					<effect type="zoom" start="100" end="80" time="0" center="2095,680" />
-				</animation>
-				<animation type="Windowopen" reversible="true">
-					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-					<effect type="slide" start="-1566" end="0" delay="350" tween="cubic" easing="out" time="660" />
-				</animation>
-				<animation type="WindowClose" reversible="true">
-					<effect type="slide" start="0" end="-1566" tween="sine" easing="in" time="250" />
-					<effect type="fade" delay="200" start="100" end="0" time="100" />
-				</animation>
-				<control type="group">
-					<posx>1730</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(3).ActualIcon]</texture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(3).property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(Container(20).ListItemNoWrap(3).property(overlay))</visible>
-					</control>
-					<control type="label">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<font>Font-Condensed-S50-B</font>
-						<align>right</align>
-						<posx>642</posx>
-						<posy>380</posy>
-						<width>500</width>
-						<height>50</height>
-						<textcolor>BCFFFFFF</textcolor>
-						<shadowcolor>FF000000</shadowcolor>
-						<include>Animation_RecentlyFade</include>
-						<label>$INFO[Container(20).ListItemNoWrap(3).Label]</label>
-					</control>
-					<visible>!IsEmpty(Container(20).ListItemNoWrap(3).Label)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<animation type="Conditional" condition="true">
-					<effect type="zoom" start="100" end="80" time="0" center="1573,680" />
-				</animation>
-				<animation type="Windowopen" reversible="true">
-					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-					<effect type="slide" start="-1044" end="0" delay="350" tween="cubic" easing="out" time="600" />
-				</animation>
-				<animation type="WindowClose" reversible="true">
-					<effect type="slide" start="0" end="-1044" tween="sine" easing="in" time="250" />
-					<effect type="fade" delay="200" start="100" end="0" time="100" />
-				</animation>
-				<control type="group">
-					<posx>1208</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(2).ActualIcon]</texture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(2).property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(Container(20).ListItemNoWrap(2).property(overlay))</visible>
-					</control>
-					<control type="label">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<font>Font-Condensed-S50-B</font>
-						<align>right</align>
-						<posx>642</posx>
-						<posy>380</posy>
-						<width>500</width>
-						<height>50</height>
-						<textcolor>BCFFFFFF</textcolor>
-						<shadowcolor>FF000000</shadowcolor>
-						<include>Animation_RecentlyFade</include>
-						<label>$INFO[Container(20).ListItemNoWrap(2).Label]</label>
-					</control>
-					<visible>!IsEmpty(Container(20).ListItemNoWrap(2).Label)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<animation type="Conditional" condition="true">
-					<effect type="zoom" start="100" end="80" time="0" center="1051,680" />
-				</animation>
-				<animation type="Windowopen" reversible="true">
-					<effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-					<effect type="slide" start="-522" end="0" delay="350" tween="cubic" easing="out" time="500" />
-				</animation>
-				<animation type="WindowClose" reversible="true">
-					<effect type="slide" start="0" end="-522" tween="sine" easing="in" time="250" />
-					<effect type="fade" delay="200" start="100" end="0" time="100" />
-				</animation>
-				<control type="group">
-					<posx>686</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(1).ActualIcon]</texture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(1).property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(Container(20).ListItemNoWrap(1).property(overlay))</visible>
-					</control>
-					<control type="label">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<font>Font-Condensed-S50-B</font>
-						<align>right</align>
-						<posx>642</posx>
-						<posy>380</posy>
-						<width>500</width>
-						<height>50</height>
-						<textcolor>BCFFFFFF</textcolor>
-						<shadowcolor>FF000000</shadowcolor>
-						<include>Animation_RecentlyFade</include>
-						<label>$INFO[Container(20).ListItemNoWrap(1).Label]</label>
-					</control>
-					<visible>!IsEmpty(Container(20).ListItemNoWrap(1).Label)</visible>
-				</control>
-			</control>
-			<control type="group">
-				<animation type="Windowopen" reversible="true">
-					<effect type="zoom" start="200" end="100" center="529,680" tween="sine" easing="out" time="350" /> 
-					<effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" />
-				</animation>
-				<animation type="WindowClose" reversible="true">
-					<effect type="zoom" start="100" end="200" center="529,680" tween="sine" delay="250" easing="out" time="350" /> 
-					<effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
-				</animation>
-				<posx>164</posx>
-				<posy>404</posy>
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>730</width>
-					<height>610</height>
-					<texture>windows/home/panel_menu.png</texture>
-				</control>
-				<control type="image">
-					<posx>48</posx>
-					<posy>23</posy>
-					<width>633</width>
-					<height>437</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[Container(20).ListItem(0).ActualIcon]</texture>
-					<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItem(0).property(diffuse))">Conditional</animation>
-				</control>
-				<control type="image">
-					<posx>48</posx>
-					<posy>23</posy>
-					<width>633</width>
-					<height>437</height>
-					<aspectratio scalediffuse="false">scale</aspectratio>
-					<texture>windows/home/panel-overlay.png</texture>
-					<visible>!IsEmpty(Container(20).ListItem(0).property(overlay))</visible>
-				</control>
-				<control type="label">
-					<font>Font-Condensed-S50-B</font>
-					<align>right</align>
-					<posx>642</posx>
-					<posy>380</posy>
-					<width>500</width>
-					<height>50</height>
-					<textcolor>BCFFFFFF</textcolor>
-					<shadowcolor>99000000</shadowcolor>
-					<include>Animation_RecentlyFade</include>
-					<label>$INFO[Container(20).ListItem(0).Label]</label>
-				</control>
-			</control>
-		</control>
-	</include>
-	
-	<!-- Home Buttons -->
-	<include name="HomeWraplist">
-	    <control type="button" id="525">
-	        <onfocus>SetFocus(20)</onfocus>
-	    </control>
-		<control type="fixedlist" id="20">
-			<description>Home Container</description>
-			<posx>-458</posx>
-			<posy>-1500</posy>
-			<width>2550</width>
-			<height>1080</height>
-			<onup condition="Container(20).HasFocus(1) | [Container(20).HasFocus(2) + !Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + !Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + !Skin.HasSetting(HideSubMenuMusic)]">SetFocus(23)</onup>
-			<onup condition="[Container(20).HasFocus(2) + Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + Skin.HasSetting(HideSubMenuMusic)]">SetFocus(82)</onup>
-			<ondown>SetFocus(21)</ondown>
-			<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
-			<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Right)</onright>
-			<orientation>horizontal</orientation>
-			<focusposition>1</focusposition>
-			<scrolltime tween="cubic" easing="out">500</scrolltime>
-			<preloaditems>2</preloaditems>
-			<viewtype>list</viewtype>
-			<include>ShutdownFavAnimation</include>
-			<include>listEndAnimation</include>
-			<animation type="WindowOpen" reversible="false">
-				<effect type="fade" start="0" end="100" time="0" />
-				<effect type="slide" start="0,0" end="0,1500" delay="1010" time="0" />
-			</animation>
-			<animation type="WindowClose" reversible="false">
-				<effect type="fade" start="100" end="0" time="0" />
-			</animation>
-			<itemlayout width="522" height="610">
-				<control type="group">
-					<animation type="Conditional" condition="true">
-						<effect type="zoom" start="100" end="80" time="0" center="365,680" />
-					</animation>
-					<posx>0</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(ListItem.property(overlay))</visible>
-					</control>
-					<control type="group">
-						<animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
-						<control type="label">
-							<font>Font-Condensed-S50-B</font>
-							<align>right</align>
-							<posx>-120r</posx>
-							<posy>380</posy>
-							<width>500</width>
-							<height>50</height>
-							<textcolor>BCFFFFFF</textcolor>
-							<shadowcolor>FF000000</shadowcolor>
-							<info>ListItem.Label</info>
-						</control>
-					</control>
-				</control>
-			</itemlayout>
-			<focusedlayout width="522" height="610">
-				<control type="group">
-					<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
-						<effect type="zoom" start="80" end="100" time="350" tween="sine" easing="out" center="365,680" />
-					</animation>
-					<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
-						<effect type="zoom" start="100" end="80" time="250" tween="sine" easing="out" center="365,680" />
-					</animation>
-					<posx>0</posx>
-					<posy>404</posy>
-					<control type="image">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>730</width>
-						<height>610</height>
-						<texture>windows/home/panel_menu.png</texture>
-					</control>
-					<control type="image">
-						<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
-							<effect type="fade" start="60" end="100" time="350" tween="sine" easing="out" />
-						</animation>
-						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
-							<effect type="fade" start="100" end="60" time="250" tween="sine" easing="out" />
-						</animation>
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
-						<include>Animation_RecentlyFadeIcon</include>
-						<visible>!Control.HasFocus(82)</visible>
-						<animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
-					</control>
-					<control type="image">
-						<posx>48</posx>
-						<posy>23</posy>
-						<width>633</width>
-						<height>437</height>
-						<aspectratio scalediffuse="false">scale</aspectratio>
-						<texture>windows/home/panel-overlay.png</texture>
-						<visible>!IsEmpty(ListItem.property(overlay))</visible>
-					</control>
-					<control type="group">
-						<animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
-							<effect type="fade" start="45" end="100" time="350" tween="sine" easing="out" />
-						</animation>
-						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
-							<effect type="fade" start="100" end="45" time="250" tween="sine" easing="out" />
-						</animation>
-						<control type="label">
-							<font>Font-Condensed-S50-B</font>
-							<align>right</align>
-							<posx>-120r</posx>
-							<posy>380</posy>
-							<width>500</width>
-							<height>50</height>
-							<textcolor>BCFFFFFF</textcolor>
-							<shadowcolor>99000000</shadowcolor>
-							<include>Animation_RecentlyFade</include>
-							<info>ListItem.Label</info>
-						</control>
-					</control>
-					<control type="image">
-						<posx>350</posx>
-						<posy>60</posy>
-						<width>29</width>
-						<height>14</height>
-						<texture>osd/recently-added/arrow.png</texture>
-						<animation type="Conditional" condition="!Control.HasFocus(82) + [Container(20).HasFocus(1) | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)]" pulse="true">
-						  	<effect type="fade" start="5" end="60" time="700" tween="sine" easing="inout" />
-							<effect type="slide" start="0,0" end="0,6" tween="sine" easing="inout" time="700" />
-						</animation>
-						<animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
-							<effect type="fade" start="100" end="0" time="0" />
-						</animation>
-						<visible>!Control.HasFocus(82) + ![Container(20).OnNext | Container(20).OnPrevious] + [[Container(20).HasFocus(1) + !Skin.HasSetting(HideSubMenuSettings)] | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)] + !Control.HasFocus(23)</visible>
-					</control>
-				</control>
-			</focusedlayout>
-			<content>
-				<item id="0">
-					<label>$INFO[System.DVDLabel]</label>
-					<onclick>XBMC.PlayDVD()</onclick>
-					<icon>panel_menu_dvd.png</icon>
-					<visible>System.HasMediaDVD</visible>
-				</item>
-				<item id="1">
-					<label>$LOCALIZE[41506]</label>
-					<onclick>ActivateWindow(4)</onclick>
-					<icon>panel_menu_settings.png</icon>
-					<property name="single">$INFO[Skin.String(HomeSettingsSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeSettingsMultiImage)]</property>
-					<property name="settings">1</property>
-				</item>
-				<item id="2">
-					<label>$LOCALIZE[41500]</label>
-					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://1/2/)])</onclick>
-					<onclick>ActivateWindow(videos,movietitles,return)</onclick>
-					<icon>panel_menu_movies.png</icon>
-					<visible>!Skin.HasSetting(HomeMovies)</visible>
-					<property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
-					<property name="movies">1</property>
-				</item>
-				<item id="3">
-					<label>$LOCALIZE[41501]</label>
-					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
-					<onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
-					<icon>panel_menu_tvshows.png</icon>
-					<visible>!Skin.HasSetting(HomeTVShows)</visible>
-					<property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
-					<property name="tvshows">1</property>
-				</item>
-				<item id="4">
-					<label>$LOCALIZE[41513]</label>
-					<onclick>SetProperty(NextStage,$INFO[Window.property(10025-sources://video/)])</onclick>
-					<onclick>ActivateWindow(videos,files,return)</onclick>
-					<icon>panel_menu_videos.png</icon>
-					<visible>Skin.HasSetting(HomeVideoFiles)</visible>
-					<property name="single">$INFO[Skin.String(HomeVideoFilesSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeVideoFilesMultiImage)]</property>
-				</item>
-				<item id="5">
-					<label>$LOCALIZE[41449]</label>
-					<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
-					<onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
-					<icon>panel_menu_apple.png</icon>
-					<visible>Skin.HasSetting(HomeTrailers)</visible>
-					<property name="single">$INFO[Skin.String(HomeTrailersSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeTrailersMultiImage)]</property>
-				</item>
-				<item id="6">
-					<label>$LOCALIZE[41502]</label>
-					<onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
-					<onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
-					<icon>panel_menu_music.png</icon>
-					<visible>!Skin.HasSetting(HomeMusic)</visible>
-					<property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
-					<property name="music">1</property>
-				</item>
-				<item id="7">
-					<label>$LOCALIZE[41514]</label>
-					<onclick>ActivateWindow(musicfiles)</onclick>
-					<icon>panel_menu_musicfiles.png</icon>
-					<visible>Skin.HasSetting(HomeMusicFiles)</visible>
-					<property name="single">$INFO[Skin.String(HomeMusicFilesSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeMusicFilesMultiImage)]</property>
-				</item>				
-				<item id="8">
-					<label>$LOCALIZE[41503]</label>
-					<onclick>ActivateWindow(pictures)</onclick>
-					<icon>panel_menu_pictures.png</icon>
-					<visible>!Skin.HasSetting(HomePictures)</visible>
-					<property name="single">$INFO[Skin.String(HomePicturesSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomePicturesMultiImage)]</property>
-				</item>				
-				<item id="9">
-					<label>$LOCALIZE[41504]</label>
-					<onclick>ActivateWindow(programs)</onclick>
-					<icon>panel_menu_programs.png</icon>
-					<visible>!Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
-					<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
-				</item>
-				<item id="10">
-					<label>$LOCALIZE[41510]</label>
-					<onclick>ActivateWindow(programs)</onclick>
-					<icon>panel_menu_games.png</icon>
-					<visible>Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
-					<property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
-				</item>				
-				<item id="11">
-					<label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
-					<onclick condition="!IsEmpty(Weather.Plugin)">ActivateWindow(weather)</onclick>
-					<onclick condition="IsEmpty(Weather.Plugin)">ActivateWindow(weathersettings)</onclick>
-					<icon>panel_menu_weather.png</icon>
-					<visible>!Skin.HasSetting(HomeWeather)</visible>
-					<property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeWeatherMultiImage)]</property>
-				</item>
-				<item id="12">
-					<label>$LOCALIZE[41523]</label>
-					<onclick>ActivateWindow(addonbrowser)</onclick>
-					<icon>panel_menu_addons.png</icon>
-					<visible>Skin.HasSetting(HomeAddons)</visible>
-					<property name="single">$INFO[Skin.String(HomeAddonsSingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(HomeAddonsMultiImage)]</property>
-				</item>
-				<item id="13">
-					<label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel1.Type),4) + !stringcompare(Skin.String(CustomHomePanel1.Type),5) + !stringcompare(Skin.String(CustomHomePanel1.Type),6) + !stringcompare(Skin.String(CustomHomePanel1.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel1.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel1.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel1.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel1.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel1.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel1.ShowOverlay)]</property>
-				</item>
-				<item id="14">
-					<label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel2.Type),4) + !stringcompare(Skin.String(CustomHomePanel2.Type),5) + !stringcompare(Skin.String(CustomHomePanel2.Type),6) + !stringcompare(Skin.String(CustomHomePanel2.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6) | stringcompare(Skin.String(CustomHomePanel2.Type),7)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel2.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel2.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel2.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel2.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel2.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel2.ShowOverlay)]</property>
-				</item>
-				<item id="15">
-					<label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6) + !stringcompare(Skin.String(CustomHomePanel3.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6) | stringcompare(Skin.String(CustomHomePanel3.Type),7)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel3.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel3.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel3.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel3.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel3.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel3.ShowOverlay)]</property>
-				</item>	
-				<item id="16">
-					<label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel4.Type),4) + !stringcompare(Skin.String(CustomHomePanel4.Type),5) + !stringcompare(Skin.String(CustomHomePanel4.Type),6) + !stringcompare(Skin.String(CustomHomePanel4.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6) | stringcompare(Skin.String(CustomHomePanel4.Type),7)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel4.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel4.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel4.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel4.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel4.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel4.ShowOverlay)]</property>
-				</item>
-				<item id="17">
-					<label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel5.Type),4) + !stringcompare(Skin.String(CustomHomePanel5.Type),5) + !stringcompare(Skin.String(CustomHomePanel5.Type),6) + !stringcompare(Skin.String(CustomHomePanel5.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6) | stringcompare(Skin.String(CustomHomePanel5.Type),7)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel5.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel5.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel5.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel5.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel5.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel5.ShowOverlay)]</property>
-				</item>	
-				<item id="18">
-					<label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-					<onclick>SetProperty(NextStage,0)</onclick>
-					<onclick condition="!stringcompare(Skin.String(CustomHomePanel6.Type),4) + !stringcompare(Skin.String(CustomHomePanel6.Type),5) + !stringcompare(Skin.String(CustomHomePanel6.Type),6) + !stringcompare(Skin.String(CustomHomePanel6.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
-					<onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6) | stringcompare(Skin.String(CustomHomePanel6.Type),7)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
-					<icon>$INFO[Skin.String(CustomHomePanel6.Icon)]</icon>
-					<visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(CustomHomePanel6.Hide)</visible>
-					<property name="single">$INFO[Skin.String(CustomHomePanel6.SingleImage)]</property>
-					<property name="multi">$INFO[Skin.String(CustomHomePanel6.MultiImage)]</property>
-					<property name="diffuse">$INFO[Skin.String(CustomHomePanel6.DimIcon)]</property>
-					<property name="overlay">$INFO[Skin.String(CustomHomePanel6.ShowOverlay)]</property>
-				</item>			
-			</content>
-		</control>
-	</include>
+    <include name="Animation_RecentlyFade">
+        <animation type="Conditional" condition="Control.HasFocus(82)">
+            <effect type="fade" start="100" end="0" tween="sine" easing="inout" time="400" /> 
+        </animation>
+    </include>
+    
+    <include name="Animation_RecentlyFadeIcon">
+        <animation type="Visible">
+            <effect type="fade" start="0" end="100" time="0" delay="400" />
+        </animation>
+        <animation type="Hidden">
+            <effect type="fade" start="100" end="0" time="0" delay="0" /> 
+        </animation>
+    </include>
+        
+    <include name="HomeWraplistAnimation">
+        
+        <control type="image" id="90">
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" delay="1010" time="0" />
+            </animation>
+        </control>
+    
+        <control type="group">
+            <include>ShutdownFavAnimation</include>
+            <posx>-100</posx>
+            <animation effect="fade" start="0" end="100" time="0" reversible="false">Visible</animation>
+            <visible>Window.Next(Home) | Window.Next(programs) | Window.Next(pictures) | Window.Next(filemanager) | Window.Next(settings) | Window.Next(music) | Window.Next(systeminfo) | Window.Next(screencalibration) | Window.Next(picturessettings) | Window.Next(programssettings) | Window.Next(weathersettings) | Window.Next(musicsettings) | Window.Next(systemsettings) | Window.Next(videossettings) | Window.Next(networksettings) | Window.Next(appearancesettings) | Window.Next(scripts) | Window.Next(videos) | Window.Next(videoplaylist) | Window.Next(LoginScreen) | Window.Next(profiles) | Window.Next(addonbrowser) | Window.Next(filebrowser) | Window.Next(ProfileSettings) | Window.Next(LockSettings) | Window.Next(smartplaylisteditor) | Window.Next(smartplaylistrule) | Window.Next(musicplaylist) | Window.Next(musicfiles) | Window.Next(musiclibrary) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(karaoke) | Window.Next(weather) | Window.Next(script-NextAired-TVGuide.xml) | Window.Next(1111) | !Control.IsVisible(90)</visible>
+            <control type="group">
+                <animation type="Conditional" condition="true">
+                    <effect type="zoom" start="100" end="80" time="0" center="7,680" />
+                </animation>
+                <animation type="WindowOpen" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                    <effect type="slide" start="522" end="0" delay="350" tween="cubic" easing="out" time="500" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                    <effect type="slide" start="0" end="522" tween="sine" easing="in" time="250" />
+                    <effect type="fade" delay="200" start="100" end="0" time="100" />
+                </animation>
+                <control type="group">
+                    <posx>-358</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(-1).ActualIcon]</texture>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(-1).property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(Container(20).ListItemNoWrap(-1).property(overlay))</visible>
+                    </control>
+                    <control type="label">
+                        <animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+                        <font>Font-Condensed-S50-B</font>
+                        <align>right</align>
+                        <posx>642</posx>
+                        <posy>380</posy>
+                        <width>500</width>
+                        <height>50</height>
+                        <textcolor>BCFFFFFF</textcolor>
+                        <shadowcolor>FF000000</shadowcolor>
+                        <include>Animation_RecentlyFade</include>
+                        <label>$INFO[Container(20).ListItemNoWrap(-1).Label]</label>
+                    </control>
+                    <visible>!IsEmpty(Container(20).ListItemNoWrap(-1).Label)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="Conditional" condition="true">
+                    <effect type="zoom" start="100" end="80" time="0" center="2095,680" />
+                </animation>
+                <animation type="Windowopen" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                    <effect type="slide" start="-1566" end="0" delay="350" tween="cubic" easing="out" time="660" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                    <effect type="slide" start="0" end="-1566" tween="sine" easing="in" time="250" />
+                    <effect type="fade" delay="200" start="100" end="0" time="100" />
+                </animation>
+                <control type="group">
+                    <posx>1730</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(3).ActualIcon]</texture>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(3).property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(Container(20).ListItemNoWrap(3).property(overlay))</visible>
+                    </control>
+                    <control type="label">
+                        <animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+                        <font>Font-Condensed-S50-B</font>
+                        <align>right</align>
+                        <posx>642</posx>
+                        <posy>380</posy>
+                        <width>500</width>
+                        <height>50</height>
+                        <textcolor>BCFFFFFF</textcolor>
+                        <shadowcolor>FF000000</shadowcolor>
+                        <include>Animation_RecentlyFade</include>
+                        <label>$INFO[Container(20).ListItemNoWrap(3).Label]</label>
+                    </control>
+                    <visible>!IsEmpty(Container(20).ListItemNoWrap(3).Label)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="Conditional" condition="true">
+                    <effect type="zoom" start="100" end="80" time="0" center="1573,680" />
+                </animation>
+                <animation type="Windowopen" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                    <effect type="slide" start="-1044" end="0" delay="350" tween="cubic" easing="out" time="600" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                    <effect type="slide" start="0" end="-1044" tween="sine" easing="in" time="250" />
+                    <effect type="fade" delay="200" start="100" end="0" time="100" />
+                </animation>
+                <control type="group">
+                    <posx>1208</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(2).ActualIcon]</texture>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(2).property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(Container(20).ListItemNoWrap(2).property(overlay))</visible>
+                    </control>
+                    <control type="label">
+                        <animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+                        <font>Font-Condensed-S50-B</font>
+                        <align>right</align>
+                        <posx>642</posx>
+                        <posy>380</posy>
+                        <width>500</width>
+                        <height>50</height>
+                        <textcolor>BCFFFFFF</textcolor>
+                        <shadowcolor>FF000000</shadowcolor>
+                        <include>Animation_RecentlyFade</include>
+                        <label>$INFO[Container(20).ListItemNoWrap(2).Label]</label>
+                    </control>
+                    <visible>!IsEmpty(Container(20).ListItemNoWrap(2).Label)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="Conditional" condition="true">
+                    <effect type="zoom" start="100" end="80" time="0" center="1051,680" />
+                </animation>
+                <animation type="Windowopen" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                    <effect type="slide" start="-522" end="0" delay="350" tween="cubic" easing="out" time="500" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                    <effect type="slide" start="0" end="-522" tween="sine" easing="in" time="250" />
+                    <effect type="fade" delay="200" start="100" end="0" time="100" />
+                </animation>
+                <control type="group">
+                    <posx>686</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png">$INFO[Container(20).ListItemNoWrap(1).ActualIcon]</texture>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItemNoWrap(1).property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(Container(20).ListItemNoWrap(1).property(overlay))</visible>
+                    </control>
+                    <control type="label">
+                        <animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+                        <font>Font-Condensed-S50-B</font>
+                        <align>right</align>
+                        <posx>642</posx>
+                        <posy>380</posy>
+                        <width>500</width>
+                        <height>50</height>
+                        <textcolor>BCFFFFFF</textcolor>
+                        <shadowcolor>FF000000</shadowcolor>
+                        <include>Animation_RecentlyFade</include>
+                        <label>$INFO[Container(20).ListItemNoWrap(1).Label]</label>
+                    </control>
+                    <visible>!IsEmpty(Container(20).ListItemNoWrap(1).Label)</visible>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="Windowopen" reversible="true">
+                    <effect type="zoom" start="200" end="100" center="529,680" tween="sine" easing="out" time="350" /> 
+                    <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" />
+                </animation>
+                <animation type="WindowClose" reversible="true">
+                    <effect type="zoom" start="100" end="200" center="529,680" tween="sine" delay="250" easing="out" time="350" /> 
+                    <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
+                </animation>
+                <posx>164</posx>
+                <posy>404</posy>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>730</width>
+                    <height>610</height>
+                    <texture>windows/home/panel_menu.png</texture>
+                </control>
+                <control type="image">
+                    <posx>48</posx>
+                    <posy>23</posy>
+                    <width>633</width>
+                    <height>437</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[Container(20).ListItem(0).ActualIcon]</texture>
+                    <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(Container(20).ListItem(0).property(diffuse))">Conditional</animation>
+                </control>
+                <control type="image">
+                    <posx>48</posx>
+                    <posy>23</posy>
+                    <width>633</width>
+                    <height>437</height>
+                    <aspectratio scalediffuse="false">scale</aspectratio>
+                    <texture>windows/home/panel-overlay.png</texture>
+                    <visible>!IsEmpty(Container(20).ListItem(0).property(overlay))</visible>
+                </control>
+                <control type="label">
+                    <font>Font-Condensed-S50-B</font>
+                    <align>right</align>
+                    <posx>642</posx>
+                    <posy>380</posy>
+                    <width>500</width>
+                    <height>50</height>
+                    <textcolor>BCFFFFFF</textcolor>
+                    <shadowcolor>99000000</shadowcolor>
+                    <include>Animation_RecentlyFade</include>
+                    <label>$INFO[Container(20).ListItem(0).Label]</label>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+    <!-- Home Buttons -->
+    <include name="HomeWraplist">
+        <control type="button" id="525">
+            <onfocus>SetFocus(20)</onfocus>
+        </control>
+        <control type="fixedlist" id="20">
+            <description>Home Container</description>
+            <posx>-458</posx>
+            <posy>-1500</posy>
+            <width>2550</width>
+            <height>1080</height>
+            <onup condition="Container(20).HasFocus(1) | [Container(20).HasFocus(2) + !Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + !Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + !Skin.HasSetting(HideSubMenuMusic)]">SetFocus(23)</onup>
+            <onup condition="[Container(20).HasFocus(2) + Skin.HasSetting(HideSubMenuMovies)] | [Container(20).HasFocus(3) + Skin.HasSetting(HideSubMenuTVShows)] | [Container(20).HasFocus(6) + Skin.HasSetting(HideSubMenuMusic)]">SetFocus(82)</onup>
+            <ondown>SetFocus(21)</ondown>
+            <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+            <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+            <orientation>horizontal</orientation>
+            <focusposition>1</focusposition>
+            <scrolltime tween="cubic" easing="out">500</scrolltime>
+            <preloaditems>2</preloaditems>
+            <viewtype>list</viewtype>
+            <include>ShutdownFavAnimation</include>
+            <include>listEndAnimation</include>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="0" />
+                <effect type="slide" start="0,0" end="0,1500" delay="1010" time="0" />
+            </animation>
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="0" />
+            </animation>
+            <itemlayout width="522" height="610">
+                <control type="group">
+                    <animation type="Conditional" condition="true">
+                        <effect type="zoom" start="100" end="80" time="0" center="365,680" />
+                    </animation>
+                    <posx>0</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation effect="fade" start="100" end="60" time="0" condition="true">Conditional</animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(ListItem.property(overlay))</visible>
+                    </control>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="45" time="0" condition="true">Conditional</animation>
+                        <control type="label">
+                            <font>Font-Condensed-S50-B</font>
+                            <align>right</align>
+                            <posx>-120r</posx>
+                            <posy>380</posy>
+                            <width>500</width>
+                            <height>50</height>
+                            <textcolor>BCFFFFFF</textcolor>
+                            <shadowcolor>FF000000</shadowcolor>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </control>
+                </control>
+            </itemlayout>
+            <focusedlayout width="522" height="610">
+                <control type="group">
+                    <animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                        <effect type="zoom" start="80" end="100" time="350" tween="sine" easing="out" center="365,680" />
+                    </animation>
+                    <animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                        <effect type="zoom" start="100" end="80" time="250" tween="sine" easing="out" center="365,680" />
+                    </animation>
+                    <posx>0</posx>
+                    <posy>404</posy>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>730</width>
+                        <height>610</height>
+                        <texture>windows/home/panel_menu.png</texture>
+                    </control>
+                    <control type="image">
+                        <animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                            <effect type="fade" start="60" end="100" time="350" tween="sine" easing="out" />
+                        </animation>
+                        <animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                            <effect type="fade" start="100" end="60" time="250" tween="sine" easing="out" />
+                        </animation>
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture diffuse="windows/home/panel_menu-diffuse.png" background="true">$INFO[ListItem.ActualIcon]</texture>
+                        <include>Animation_RecentlyFadeIcon</include>
+                        <visible>!Control.HasFocus(82)</visible>
+                        <animation effect="fade" start="100" end="60" time="0" condition="!IsEmpty(ListItem.property(diffuse))">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <posx>48</posx>
+                        <posy>23</posy>
+                        <width>633</width>
+                        <height>437</height>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <texture>windows/home/panel-overlay.png</texture>
+                        <visible>!IsEmpty(ListItem.property(overlay))</visible>
+                    </control>
+                    <control type="group">
+                        <animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                            <effect type="fade" start="45" end="100" time="350" tween="sine" easing="out" />
+                        </animation>
+                        <animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                            <effect type="fade" start="100" end="45" time="250" tween="sine" easing="out" />
+                        </animation>
+                        <control type="label">
+                            <font>Font-Condensed-S50-B</font>
+                            <align>right</align>
+                            <posx>-120r</posx>
+                            <posy>380</posy>
+                            <width>500</width>
+                            <height>50</height>
+                            <textcolor>BCFFFFFF</textcolor>
+                            <shadowcolor>99000000</shadowcolor>
+                            <include>Animation_RecentlyFade</include>
+                            <info>ListItem.Label</info>
+                        </control>
+                    </control>
+                    <control type="image">
+                        <posx>350</posx>
+                        <posy>60</posy>
+                        <width>29</width>
+                        <height>14</height>
+                        <texture>osd/recently-added/arrow.png</texture>
+                        <animation type="Conditional" condition="!Control.HasFocus(82) + [Container(20).HasFocus(1) | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)]" pulse="true">
+                            <effect type="fade" start="5" end="60" time="700" tween="sine" easing="inout" />
+                            <effect type="slide" start="0,0" end="0,6" tween="sine" easing="inout" time="700" />
+                        </animation>
+                        <animation type="Unfocus" condition="Container(20).OnNext | Container(20).OnPrevious">
+                            <effect type="fade" start="100" end="0" time="0" />
+                        </animation>
+                        <visible>!Control.HasFocus(82) + ![Container(20).OnNext | Container(20).OnPrevious] + [[Container(20).HasFocus(1) + !Skin.HasSetting(HideSubMenuSettings)] | Container(20).HasFocus(2) | Container(20).HasFocus(3) | Container(20).HasFocus(6)] + !Control.HasFocus(23)</visible>
+                    </control>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="0">
+                    <label>$INFO[System.DVDLabel]</label>
+                    <onclick>XBMC.PlayDVD()</onclick>
+                    <icon>panel_menu_dvd.png</icon>
+                    <visible>System.HasMediaDVD</visible>
+                </item>
+                <item id="1">
+                    <label>$LOCALIZE[41506]</label>
+                    <onclick>ActivateWindow(4)</onclick>
+                    <icon>panel_menu_settings.png</icon>
+                    <property name="single">$INFO[Skin.String(HomeSettingsSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeSettingsMultiImage)]</property>
+                    <property name="settings">1</property>
+                </item>
+                <item id="2">
+                    <label>$LOCALIZE[41500]</label>
+                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://1/2/)])</onclick>
+                    <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+                    <icon>panel_menu_movies.png</icon>
+                    <visible>!Skin.HasSetting(HomeMovies)</visible>
+                    <property name="single">$INFO[Skin.String(HomeMoviesSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeMoviesMultiImage)]</property>
+                    <property name="movies">1</property>
+                </item>
+                <item id="3">
+                    <label>$LOCALIZE[41501]</label>
+                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/2/)])</onclick>
+                    <onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
+                    <icon>panel_menu_tvshows.png</icon>
+                    <visible>!Skin.HasSetting(HomeTVShows)</visible>
+                    <property name="single">$INFO[Skin.String(HomeTVShowsSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeTVShowsMultiImage)]</property>
+                    <property name="tvshows">1</property>
+                </item>
+                <item id="4">
+                    <label>$LOCALIZE[41513]</label>
+                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-sources://video/)])</onclick>
+                    <onclick>ActivateWindow(videos,files,return)</onclick>
+                    <icon>panel_menu_videos.png</icon>
+                    <visible>Skin.HasSetting(HomeVideoFiles)</visible>
+                    <property name="single">$INFO[Skin.String(HomeVideoFilesSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeVideoFilesMultiImage)]</property>
+                </item>
+                <item id="5">
+                    <label>$LOCALIZE[41449]</label>
+                    <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
+                    <onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
+                    <icon>panel_menu_apple.png</icon>
+                    <visible>Skin.HasSetting(HomeTrailers)</visible>
+                    <property name="single">$INFO[Skin.String(HomeTrailersSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeTrailersMultiImage)]</property>
+                </item>
+                <item id="6">
+                    <label>$LOCALIZE[41502]</label>
+                    <onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
+                    <onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
+                    <icon>panel_menu_music.png</icon>
+                    <visible>!Skin.HasSetting(HomeMusic)</visible>
+                    <property name="single">$INFO[Skin.String(HomeMusicSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeMusicMultiImage)]</property>
+                    <property name="music">1</property>
+                </item>
+                <item id="7">
+                    <label>$LOCALIZE[41514]</label>
+                    <onclick>ActivateWindow(musicfiles)</onclick>
+                    <icon>panel_menu_musicfiles.png</icon>
+                    <visible>Skin.HasSetting(HomeMusicFiles)</visible>
+                    <property name="single">$INFO[Skin.String(HomeMusicFilesSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeMusicFilesMultiImage)]</property>
+                </item>             
+                <item id="8">
+                    <label>$LOCALIZE[41503]</label>
+                    <onclick>ActivateWindow(pictures)</onclick>
+                    <icon>panel_menu_pictures.png</icon>
+                    <visible>!Skin.HasSetting(HomePictures)</visible>
+                    <property name="single">$INFO[Skin.String(HomePicturesSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomePicturesMultiImage)]</property>
+                </item>             
+                <item id="9">
+                    <label>$LOCALIZE[41504]</label>
+                    <onclick>ActivateWindow(programs)</onclick>
+                    <icon>panel_menu_programs.png</icon>
+                    <visible>!Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
+                    <property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
+                </item>
+                <item id="10">
+                    <label>$LOCALIZE[41510]</label>
+                    <onclick>ActivateWindow(programs)</onclick>
+                    <icon>panel_menu_games.png</icon>
+                    <visible>Skin.HasSetting(HomeGames) + !Skin.HasSetting(HomePrograms)</visible>
+                    <property name="single">$INFO[Skin.String(HomeProgramsSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeProgramsMultiImage)]</property>
+                </item>             
+                <item id="11">
+                    <label>$LOCALIZE[41505] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
+                    <onclick condition="!IsEmpty(Weather.Plugin)">ActivateWindow(weather)</onclick>
+                    <onclick condition="IsEmpty(Weather.Plugin)">ActivateWindow(weathersettings)</onclick>
+                    <icon>panel_menu_weather.png</icon>
+                    <visible>!Skin.HasSetting(HomeWeather)</visible>
+                    <property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeWeatherMultiImage)]</property>
+                </item>
+                <item id="12">
+                    <label>$LOCALIZE[41523]</label>
+                    <onclick>ActivateWindow(addonbrowser)</onclick>
+                    <icon>panel_menu_addons.png</icon>
+                    <visible>Skin.HasSetting(HomeAddons)</visible>
+                    <property name="single">$INFO[Skin.String(HomeAddonsSingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(HomeAddonsMultiImage)]</property>
+                </item>
+                <item id="13">
+                    <label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel1.Type),4) + !stringcompare(Skin.String(CustomHomePanel1.Type),5) + !stringcompare(Skin.String(CustomHomePanel1.Type),6) + !stringcompare(Skin.String(CustomHomePanel1.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel1.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel1.Type),6) | stringcompare(Skin.String(CustomHomePanel1.Type),7)">$INFO[Skin.String(CustomHomePanel1.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel1.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel1.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel1.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel1.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel1.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel1.ShowOverlay)]</property>
+                </item>
+                <item id="14">
+                    <label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel2.Type),4) + !stringcompare(Skin.String(CustomHomePanel2.Type),5) + !stringcompare(Skin.String(CustomHomePanel2.Type),6) + !stringcompare(Skin.String(CustomHomePanel2.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel2.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel2.Type),6) | stringcompare(Skin.String(CustomHomePanel2.Type),7)">$INFO[Skin.String(CustomHomePanel2.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel2.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel2.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel2.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel2.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel2.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel2.ShowOverlay)]</property>
+                </item>
+                <item id="15">
+                    <label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel3.Type),4) + !stringcompare(Skin.String(CustomHomePanel3.Type),5) + !stringcompare(Skin.String(CustomHomePanel3.Type),6) + !stringcompare(Skin.String(CustomHomePanel3.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel3.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel3.Type),6) | stringcompare(Skin.String(CustomHomePanel3.Type),7)">$INFO[Skin.String(CustomHomePanel3.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel3.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel3.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel3.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel3.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel3.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel3.ShowOverlay)]</property>
+                </item> 
+                <item id="16">
+                    <label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel4.Type),4) + !stringcompare(Skin.String(CustomHomePanel4.Type),5) + !stringcompare(Skin.String(CustomHomePanel4.Type),6) + !stringcompare(Skin.String(CustomHomePanel4.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel4.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel4.Type),6) | stringcompare(Skin.String(CustomHomePanel4.Type),7)">$INFO[Skin.String(CustomHomePanel4.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel4.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel4.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel4.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel4.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel4.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel4.ShowOverlay)]</property>
+                </item>
+                <item id="17">
+                    <label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel5.Type),4) + !stringcompare(Skin.String(CustomHomePanel5.Type),5) + !stringcompare(Skin.String(CustomHomePanel5.Type),6) + !stringcompare(Skin.String(CustomHomePanel5.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel5.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel5.Type),6) | stringcompare(Skin.String(CustomHomePanel5.Type),7)">$INFO[Skin.String(CustomHomePanel5.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel5.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel5.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel5.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel5.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel5.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel5.ShowOverlay)]</property>
+                </item> 
+                <item id="18">
+                    <label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
+                    <onclick>SetProperty(NextStage,0)</onclick>
+                    <onclick condition="!stringcompare(Skin.String(CustomHomePanel6.Type),4) + !stringcompare(Skin.String(CustomHomePanel6.Type),5) + !stringcompare(Skin.String(CustomHomePanel6.Type),6) + !stringcompare(Skin.String(CustomHomePanel6.Type),7)">RunAddon($INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(CustomHomePanel6.Path)],return)</onclick>
+                    <onclick condition="stringcompare(Skin.String(CustomHomePanel6.Type),6) | stringcompare(Skin.String(CustomHomePanel6.Type),7)">$INFO[Skin.String(CustomHomePanel6.Path)]</onclick>
+                    <icon>$INFO[Skin.String(CustomHomePanel6.Icon)]</icon>
+                    <visible>Skin.HasSetting(CustomHomePanel6) + !Skin.HasSetting(CustomHomePanel6.Hide)</visible>
+                    <property name="single">$INFO[Skin.String(CustomHomePanel6.SingleImage)]</property>
+                    <property name="multi">$INFO[Skin.String(CustomHomePanel6.MultiImage)]</property>
+                    <property name="diffuse">$INFO[Skin.String(CustomHomePanel6.DimIcon)]</property>
+                    <property name="overlay">$INFO[Skin.String(CustomHomePanel6.ShowOverlay)]</property>
+                </item>         
+            </content>
+        </control>
+    </include>
 </includes>

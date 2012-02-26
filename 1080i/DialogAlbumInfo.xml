@@ -1,738 +1,738 @@
 <window id="2001">
-	<defaultcontrol always="true">9333</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>	
-		<!-- Albums, Artists -->
-		<control type="group">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<animation type="WindowOpen">
-				<effect type="fade" start="15" end="100" time="200" tween="sine" delay="300" easing="in" />
-				<effect type="zoom" start="335,125,1440,810" end="0,0,1920,1080" time="300" delay="300" tween="cubic" easing="out" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-				<effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
-			</animation>
-			<visible>[Container.Content(artists) + !IsEmpty(ListItem.Artist)] | [Container.Content(albums) + !IsEmpty(ListItem.Album)]</visible>
-			
-			<!-- Artist Label -->			
-			<control type="label">
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-				<posx>118</posx>
-				<posy>75</posy>
-				<width>1684</width>
-				<label>$INFO[ListItem.Artist]</label>
-				<font>Font-Condensed-S75</font>
-				<textcolor>aawhite</textcolor>
-				<align>left</align>
-				<scroll>false</scroll>
-				<visible>Container.Content(artists)</visible>
-			</control>
-			
-			<!-- Album Label -->			
-			<control type="label">
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-				<posx>118</posx>
-				<posy>75</posy>
-				<width>1375</width>
-				<label>$INFO[ListItem.Album]</label>
-				<font>Font-Condensed-S75</font>
-				<textcolor>aawhite</textcolor>
-				<align>left</align>
-				<scroll>false</scroll>
-				<visible>Container.Content(albums)</visible>
-			</control>
-			
-			<!-- Rating -->
-			<control type="image">
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-				<posx>425r</posx>
-				<posy>34</posy>
-				<width>350</width>
-				<height>120</height>
-				<texture>dialogs/music-info/$INFO[ListItem.StarRating]</texture>
-				<visible>Container.Content(albums)</visible>
-			</control>
-			
-			<control type="grouplist">
-				<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-				<animation type="Conditional" condition="Control.HasFocus(1110)">
-					<effect type="slide" start="0" end="510" time="400" delay="0" tween="sine" easing="inout" />
-				</animation>
-				<posx>118</posx>
-				<posy>150</posy>
-				<width>600</width>
-				<orientation>horizontal</orientation>
-				<itemgap>20</itemgap>
-				<!-- Biography Label -->
-				<control type="label">
-					<posx>118</posx>
-					<posy>0</posy>
-					<width min="50" max="400">auto</width>
-					<label>$LOCALIZE[41324]</label>
-					<font>Font-Condensed-S45</font>
-					<textcolor>eewhite</textcolor>
-					<align>left</align>
-					<scroll>false</scroll>
-					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
-					<visible>Container.Content(artists)</visible>
-				</control>
-				<!-- Discography Label -->
-				<control type="label">
-					<posx>118</posx>
-					<posy>0</posy>
-					<width min="50" max="400">auto</width>
-					<label>$LOCALIZE[41304]</label>
-					<font>Font-Condensed-S45</font>
-					<textcolor>eewhite</textcolor>
-					<align>left</align>
-					<scroll>false</scroll>
-					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9333).HasFocus | Control.HasFocus(9335)">Conditional</animation>
-					<visible>Container.Content(artists)</visible>
-				</control>
-				<!-- Tracks Label -->
-				<control type="label">
-					<posx>118</posx>
-					<posy>0</posy>
-					<width min="50" max="400">auto</width>
-					<label>$LOCALIZE[41325]</label>
-					<font>Font-Condensed-S45</font>
-					<textcolor>eewhite</textcolor>
-					<align>left</align>
-					<scroll>false</scroll>
-					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
-					<visible>Container.Content(albums)</visible>
-				</control>
-				<!-- Review Label -->
-				<control type="label">
-					<posx>118</posx>
-					<posy>0</posy>
-					<width min="50" max="400">auto</width>
-					<label>$LOCALIZE[41303]</label>
-					<font>Font-Condensed-S45</font>
-					<textcolor>eewhite</textcolor>
-					<align>left</align>
-					<scroll>false</scroll>	
-					<animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9333).HasFocus | Control.HasFocus(9335)">Conditional</animation>
-					<visible>Container.Content(albums)</visible>
-				</control>
-			</control>
-			
-			<!-- Review Stuff -->
-			<control type="group">
-				<include>FullscreenDimensions</include>
-				<visible allowhiddenfocus="true">ControlGroup(9333).HasFocus | Control.HasFocus(9335)</visible>
-				<animation type="Visible">
-					<effect type="slide" start="-2000" end="0" time="600" delay="0" tween="sine" easing="inout" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="75" center="440,540" time="300" tween="sine" easing="inout" />
-					<effect type="slide" start="0" end="-2000" time="600" delay="0" tween="sine" easing="inout" />
-				</animation>
-				<include>listEndAnimation</include>
-				
-				<!-- Panel -->
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>835</width>
-					<height>1080</height>
-					<texture>dialogs/music-info/panel.png</texture>
-				</control>
-				
-				<!-- Artist/Album Thumb -->
-				<control type="image" id="9339">
-					<posx>133</posx>
-					<posy>255</posy>
-					<width>418</width>
-					<height>418</height>
-					<aspectratio>stretch</aspectratio>
-					<texture fallback="empty.png">$INFO[ListItem.Thumb,dialogs/music-info/,]</texture>
-				</control>
-				<control type="image">
-					<posx>133</posx>
-					<posy>255</posy>
-					<width>418</width>
-					<height>418</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-					<visible>stringcompare(Control.GetLabel(9339),empty.png)</visible>
-				</control>
+    <defaultcontrol always="true">9333</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>  
+        <!-- Albums, Artists -->
+        <control type="group">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1920</width>
+            <height>1080</height>
+            <animation type="WindowOpen">
+                <effect type="fade" start="15" end="100" time="200" tween="sine" delay="300" easing="in" />
+                <effect type="zoom" start="335,125,1440,810" end="0,0,1920,1080" time="300" delay="300" tween="cubic" easing="out" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
+            </animation>
+            <visible>[Container.Content(artists) + !IsEmpty(ListItem.Artist)] | [Container.Content(albums) + !IsEmpty(ListItem.Album)]</visible>
+            
+            <!-- Artist Label -->           
+            <control type="label">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
+                <posx>118</posx>
+                <posy>75</posy>
+                <width>1684</width>
+                <label>$INFO[ListItem.Artist]</label>
+                <font>Font-Condensed-S75</font>
+                <textcolor>aawhite</textcolor>
+                <align>left</align>
+                <scroll>false</scroll>
+                <visible>Container.Content(artists)</visible>
+            </control>
+            
+            <!-- Album Label -->            
+            <control type="label">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
+                <posx>118</posx>
+                <posy>75</posy>
+                <width>1375</width>
+                <label>$INFO[ListItem.Album]</label>
+                <font>Font-Condensed-S75</font>
+                <textcolor>aawhite</textcolor>
+                <align>left</align>
+                <scroll>false</scroll>
+                <visible>Container.Content(albums)</visible>
+            </control>
+            
+            <!-- Rating -->
+            <control type="image">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
+                <posx>425r</posx>
+                <posy>34</posy>
+                <width>350</width>
+                <height>120</height>
+                <texture>dialogs/music-info/$INFO[ListItem.StarRating]</texture>
+                <visible>Container.Content(albums)</visible>
+            </control>
+            
+            <control type="grouplist">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
+                <animation type="Conditional" condition="Control.HasFocus(1110)">
+                    <effect type="slide" start="0" end="510" time="400" delay="0" tween="sine" easing="inout" />
+                </animation>
+                <posx>118</posx>
+                <posy>150</posy>
+                <width>600</width>
+                <orientation>horizontal</orientation>
+                <itemgap>20</itemgap>
+                <!-- Biography Label -->
+                <control type="label">
+                    <posx>118</posx>
+                    <posy>0</posy>
+                    <width min="50" max="400">auto</width>
+                    <label>$LOCALIZE[41324]</label>
+                    <font>Font-Condensed-S45</font>
+                    <textcolor>eewhite</textcolor>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
+                    <visible>Container.Content(artists)</visible>
+                </control>
+                <!-- Discography Label -->
+                <control type="label">
+                    <posx>118</posx>
+                    <posy>0</posy>
+                    <width min="50" max="400">auto</width>
+                    <label>$LOCALIZE[41304]</label>
+                    <font>Font-Condensed-S45</font>
+                    <textcolor>eewhite</textcolor>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9333).HasFocus | Control.HasFocus(9335)">Conditional</animation>
+                    <visible>Container.Content(artists)</visible>
+                </control>
+                <!-- Tracks Label -->
+                <control type="label">
+                    <posx>118</posx>
+                    <posy>0</posy>
+                    <width min="50" max="400">auto</width>
+                    <label>$LOCALIZE[41325]</label>
+                    <font>Font-Condensed-S45</font>
+                    <textcolor>eewhite</textcolor>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+                <!-- Review Label -->
+                <control type="label">
+                    <posx>118</posx>
+                    <posy>0</posy>
+                    <width min="50" max="400">auto</width>
+                    <label>$LOCALIZE[41303]</label>
+                    <font>Font-Condensed-S45</font>
+                    <textcolor>eewhite</textcolor>
+                    <align>left</align>
+                    <scroll>false</scroll>  
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9333).HasFocus | Control.HasFocus(9335)">Conditional</animation>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+            </control>
+            
+            <!-- Review Stuff -->
+            <control type="group">
+                <include>FullscreenDimensions</include>
+                <visible allowhiddenfocus="true">ControlGroup(9333).HasFocus | Control.HasFocus(9335)</visible>
+                <animation type="Visible">
+                    <effect type="slide" start="-2000" end="0" time="600" delay="0" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Hidden">
+                    <effect type="zoom" start="100" end="75" center="440,540" time="300" tween="sine" easing="inout" />
+                    <effect type="slide" start="0" end="-2000" time="600" delay="0" tween="sine" easing="inout" />
+                </animation>
+                <include>listEndAnimation</include>
+                
+                <!-- Panel -->
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>835</width>
+                    <height>1080</height>
+                    <texture>dialogs/music-info/panel.png</texture>
+                </control>
+                
+                <!-- Artist/Album Thumb -->
+                <control type="image" id="9339">
+                    <posx>133</posx>
+                    <posy>255</posy>
+                    <width>418</width>
+                    <height>418</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture fallback="empty.png">$INFO[ListItem.Thumb,dialogs/music-info/,]</texture>
+                </control>
+                <control type="image">
+                    <posx>133</posx>
+                    <posy>255</posy>
+                    <width>418</width>
+                    <height>418</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                    <visible>stringcompare(Control.GetLabel(9339),empty.png)</visible>
+                </control>
 
-				<!-- Focused Button Image -->
-				<control type="image">
-					<posx>122</posx>
-					<posy>689</posy>
-					<width>441</width>
-					<height>86</height>
-					<aspectratio>stretch</aspectratio>
-					<texture border="30,0,30,0">dialogs/addon-info/button.png</texture>
-					<animation effect="slide" end="0,65" time="200" tween="sine" easing="inout" condition="stringcompare(Window(2001).Property(focus),1)">Conditional</animation>
-					<animation effect="slide" end="0,129" time="200" tween="sine" easing="inout" condition="stringcompare(Window(2001).Property(focus),2)">Conditional</animation>	
-					<visible>Control.IsEnabled(6) | Control.IsEnabled(10) | Control.IsEnabled(12)</visible>		
-				</control>
-								
-				<control type="group" id="9333">
-					<posx>122</posx>
-					<posy>689</posy>
-					<control type="button" id="10">
-						<description>Get poster button</description>
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>401</width>
-						<height>86</height>
-						<label>13405</label>
-						<align>left</align>
-						<aligny>top</aligny>
-						<font>Font-Condensed-S34</font>
-						<textoffsetx>30</textoffsetx>
-						<textoffsety>18</textoffsety>
-						<textcolor>eewhite</textcolor>
-						<disabledcolor>44FFFFFF</disabledcolor>
-						<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
-						<onfocus>SetProperty(focus,0)</onfocus>
-						<onright>SendClick(2001,5)</onright>
-						<onright>SetFocus(9334)</onright>
-						<onup>6</onup>
-						<ondown>12</ondown>
-						<animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),0)">Conditional</animation>
-					</control>
-					<control type="button" id="12">
-						<description>Get fanart button</description>
-						<posx>0</posx>
-						<posy>65</posy>
-						<width>401</width>
-						<height>86</height>
-						<label>20413</label>
-						<align>left</align>
-						<aligny>top</aligny>
-						<font>Font-Condensed-S34</font>
-						<textoffsetx>30</textoffsetx>
-						<textoffsety>18</textoffsety>
-						<textcolor>eewhite</textcolor>
-						<disabledcolor>44FFFFFF</disabledcolor>
-						<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
-						<onfocus>SetProperty(focus,1)</onfocus>
-						<onright>SendClick(2001,5)</onright>
-						<onright>SetFocus(9334)</onright>
-						<onup>10</onup>
-						<ondown>6</ondown>
-						<animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),1)">Conditional</animation>
-					</control>
-					<control type="button" id="6">
-						<description>Refresh button</description>
-						<posx>0</posx>
-						<posy>129</posy>
-						<width>401</width>
-						<height>86</height>
-						<label>184</label>
-						<align>left</align>
-						<aligny>top</aligny>
-						<font>Font-Condensed-S34</font>
-						<textoffsetx>30</textoffsetx>
-						<textoffsety>18</textoffsety>
-						<textcolor>eewhite</textcolor>
-						<disabledcolor>44FFFFFF</disabledcolor>
-						<onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,Left)</onleft>
-						<onfocus>SetProperty(focus,2)</onfocus>
-						<onright>SendClick(2001,5)</onright>
-						<onright>SetFocus(9334)</onright>
-						<onup>12</onup>
-						<ondown>10</ondown>
-						<animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),2)">Conditional</animation>
-					</control>
-					<control type="button" id="11">
-						<description>-</description>
-						<onright>SendClick(2001,5)</onright>
-						<onup>6</onup>
-						<ondown>10</ondown>
-					</control>
-				</control>
-								
-				<!-- Info -->
-				<control type="group">
-					<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-					<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
-					<posx>610</posx>
-					<posy>246</posy>
-					<width>1200</width>
-					<height>700</height>
-					<control type="group">
-						<visible>Container.Content(Artists)</visible>
-						<control type="grouplist">
-							<!-- Album title -->
-							<width>1200</width>
-							<height>50</height>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="170" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[557]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1030</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Artist]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Born -->
-							<visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
-							<width>1200</width>
-							<height>50</height>
-							<posy>50</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<posx>0</posx>
-								<posy>0</posy>
-								<width min="170" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[21893]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<posx>110</posx>
-								<posy>0</posy>
-								<width>1030</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Property(Artist_Born)]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Formed -->
-							<visible>IsEmpty(ListItem.Property(Artist_Born))</visible>
-							<width>1200</width>
-							<height>50</height>
-							<posy>50</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<posx>0</posx>
-								<posy>0</posy>
-								<width min="170" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[21894]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<posx>110</posx>
-								<posy>0</posy>
-								<width>1030</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Property(Artist_Formed)]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Genre -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>150</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="170" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[515]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1030</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Genre]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>no</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Style -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>100</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="170" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[176]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1030</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Property(Artist_Style)]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="group">
-							<!-- Biography -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>225</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<posy>0</posy>
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[21887][/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="textbox">
-								<description>Description</description>
-								<posx>0</posx>
-								<posy>50</posy>
-								<width>1200</width>
-								<height>330</height>
-								<font>Font-Condensed-S40</font>
-								<align>justify</align>
-								<textcolor>bbwhite</textcolor>
-								<scroll>false</scroll>
-								<label>$INFO[ListItem.Property(Artist_Description)]</label>
-								<scrollout>false</scrollout>
-								<autoscroll time="2000" delay="10000" repeat="10000" />
-								<visible>!IsEmpty(ListItem.Property(Artist_Description))</visible>
-							</control>
-							<control type="label">
-								<posx>0</posx>
-								<posy>50</posy>
-								<width>1200</width>
-								<font>Font-Condensed-S40</font>
-								<align>left</align>
-								<label>$LOCALIZE[547]</label>
-								<textcolor>bbwhite</textcolor>
-								<scroll>false</scroll>
-								<visible>IsEmpty(ListItem.Property(Artist_Description))</visible>
-							</control>
-						</control>
-					</control>
-					<control type="group">
-						<visible>Container.Content(Albums)</visible>
-						<control type="grouplist">
-							<!-- Album title -->
-							<width>1200</width>
-							<height>50</height>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[558]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1050</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Album]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Author -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>50</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<posx>0</posx>
-								<posy>0</posy>
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[557]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<posx>110</posx>
-								<posy>0</posy>
-								<width>1050</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Artist]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Year -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>100</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[562]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1050</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Year]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="grouplist">
-							<!-- Genre -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>150</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[515]:[/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<width>1050</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label fallback="416">$INFO[ListItem.Genre]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>no</scroll>
-							</control>
-						</control>
-						<control type="group">
-							<!-- Review -->
-							<width>1200</width>
-							<height>50</height>
-							<posy>225</posy>
-							<orientation>horizontal</orientation>
-							<control type="label">
-								<posy>0</posy>
-								<width min="140" max="200">auto</width>
-								<font>Font-Condensed-S34</font>
-								<align>left</align>
-								<label>[B]$LOCALIZE[183][/B]</label>
-								<textcolor>aawhite</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="textbox">
-								<description>Description</description>
-								<posx>0</posx>
-								<posy>50</posy>
-								<width>1200</width>
-								<height>330</height>
-								<font>Font-Condensed-S40</font>
-								<align>justify</align>
-								<textcolor>bbwhite</textcolor>
-								<scroll>false</scroll>
-								<label>$INFO[ListItem.Property(Album_Description)]</label>
-								<scrollout>false</scrollout>
-								<autoscroll time="2000" delay="10000" repeat="10000" />
-								<visible>!IsEmpty(ListItem.Property(Album_Description))</visible>
-							</control>
-							<control type="label">
-								<posx>0</posx>
-								<posy>50</posy>
-								<width>1200</width>
-								<font>Font-Condensed-S40</font>
-								<align>left</align>
-								<label>$LOCALIZE[414]</label>
-								<textcolor>bbwhite</textcolor>
-								<scroll>false</scroll>
-								<visible>IsEmpty(ListItem.Property(Album_Description))</visible>
-							</control>
-						</control>
-					</control>
-				</control>	
-			</control>
+                <!-- Focused Button Image -->
+                <control type="image">
+                    <posx>122</posx>
+                    <posy>689</posy>
+                    <width>441</width>
+                    <height>86</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture border="30,0,30,0">dialogs/addon-info/button.png</texture>
+                    <animation effect="slide" end="0,65" time="200" tween="sine" easing="inout" condition="stringcompare(Window(2001).Property(focus),1)">Conditional</animation>
+                    <animation effect="slide" end="0,129" time="200" tween="sine" easing="inout" condition="stringcompare(Window(2001).Property(focus),2)">Conditional</animation>  
+                    <visible>Control.IsEnabled(6) | Control.IsEnabled(10) | Control.IsEnabled(12)</visible>     
+                </control>
+                                
+                <control type="group" id="9333">
+                    <posx>122</posx>
+                    <posy>689</posy>
+                    <control type="button" id="10">
+                        <description>Get poster button</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>401</width>
+                        <height>86</height>
+                        <label>13405</label>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <font>Font-Condensed-S34</font>
+                        <textoffsetx>30</textoffsetx>
+                        <textoffsety>18</textoffsety>
+                        <textcolor>eewhite</textcolor>
+                        <disabledcolor>44FFFFFF</disabledcolor>
+                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onfocus>SetProperty(focus,0)</onfocus>
+                        <onright>SendClick(2001,5)</onright>
+                        <onright>SetFocus(9334)</onright>
+                        <onup>6</onup>
+                        <ondown>12</ondown>
+                        <animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),0)">Conditional</animation>
+                    </control>
+                    <control type="button" id="12">
+                        <description>Get fanart button</description>
+                        <posx>0</posx>
+                        <posy>65</posy>
+                        <width>401</width>
+                        <height>86</height>
+                        <label>20413</label>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <font>Font-Condensed-S34</font>
+                        <textoffsetx>30</textoffsetx>
+                        <textoffsety>18</textoffsety>
+                        <textcolor>eewhite</textcolor>
+                        <disabledcolor>44FFFFFF</disabledcolor>
+                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onfocus>SetProperty(focus,1)</onfocus>
+                        <onright>SendClick(2001,5)</onright>
+                        <onright>SetFocus(9334)</onright>
+                        <onup>10</onup>
+                        <ondown>6</ondown>
+                        <animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),1)">Conditional</animation>
+                    </control>
+                    <control type="button" id="6">
+                        <description>Refresh button</description>
+                        <posx>0</posx>
+                        <posy>129</posy>
+                        <width>401</width>
+                        <height>86</height>
+                        <label>184</label>
+                        <align>left</align>
+                        <aligny>top</aligny>
+                        <font>Font-Condensed-S34</font>
+                        <textoffsetx>30</textoffsetx>
+                        <textoffsety>18</textoffsety>
+                        <textcolor>eewhite</textcolor>
+                        <disabledcolor>44FFFFFF</disabledcolor>
+                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onfocus>SetProperty(focus,2)</onfocus>
+                        <onright>SendClick(2001,5)</onright>
+                        <onright>SetFocus(9334)</onright>
+                        <onup>12</onup>
+                        <ondown>10</ondown>
+                        <animation effect="fade" start="100" end="71" time="200" tween="sine" easing="inout" condition="!stringcompare(Window(2001).Property(focus),2)">Conditional</animation>
+                    </control>
+                    <control type="button" id="11">
+                        <description>-</description>
+                        <onright>SendClick(2001,5)</onright>
+                        <onup>6</onup>
+                        <ondown>10</ondown>
+                    </control>
+                </control>
+                                
+                <!-- Info -->
+                <control type="group">
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
+                    <animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
+                    <posx>610</posx>
+                    <posy>246</posy>
+                    <width>1200</width>
+                    <height>700</height>
+                    <control type="group">
+                        <visible>Container.Content(Artists)</visible>
+                        <control type="grouplist">
+                            <!-- Album title -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="170" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[557]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1030</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Artist]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Born -->
+                            <visible>!IsEmpty(ListItem.Property(Artist_Born))</visible>
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>50</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width min="170" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[21893]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <posx>110</posx>
+                                <posy>0</posy>
+                                <width>1030</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Property(Artist_Born)]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Formed -->
+                            <visible>IsEmpty(ListItem.Property(Artist_Born))</visible>
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>50</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width min="170" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[21894]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <posx>110</posx>
+                                <posy>0</posy>
+                                <width>1030</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Property(Artist_Formed)]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Genre -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>150</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="170" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[515]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1030</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Genre]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>no</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Style -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>100</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="170" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[176]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1030</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Property(Artist_Style)]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <!-- Biography -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>225</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <posy>0</posy>
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[21887][/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="textbox">
+                                <description>Description</description>
+                                <posx>0</posx>
+                                <posy>50</posy>
+                                <width>1200</width>
+                                <height>330</height>
+                                <font>Font-Condensed-S40</font>
+                                <align>justify</align>
+                                <textcolor>bbwhite</textcolor>
+                                <scroll>false</scroll>
+                                <label>$INFO[ListItem.Property(Artist_Description)]</label>
+                                <scrollout>false</scrollout>
+                                <autoscroll time="2000" delay="10000" repeat="10000" />
+                                <visible>!IsEmpty(ListItem.Property(Artist_Description))</visible>
+                            </control>
+                            <control type="label">
+                                <posx>0</posx>
+                                <posy>50</posy>
+                                <width>1200</width>
+                                <font>Font-Condensed-S40</font>
+                                <align>left</align>
+                                <label>$LOCALIZE[547]</label>
+                                <textcolor>bbwhite</textcolor>
+                                <scroll>false</scroll>
+                                <visible>IsEmpty(ListItem.Property(Artist_Description))</visible>
+                            </control>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <visible>Container.Content(Albums)</visible>
+                        <control type="grouplist">
+                            <!-- Album title -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[558]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1050</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Album]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Author -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>50</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[557]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <posx>110</posx>
+                                <posy>0</posy>
+                                <width>1050</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Artist]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Year -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>100</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[562]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1050</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Year]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="grouplist">
+                            <!-- Genre -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>150</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[515]:[/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <width>1050</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label fallback="416">$INFO[ListItem.Genre]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>no</scroll>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <!-- Review -->
+                            <width>1200</width>
+                            <height>50</height>
+                            <posy>225</posy>
+                            <orientation>horizontal</orientation>
+                            <control type="label">
+                                <posy>0</posy>
+                                <width min="140" max="200">auto</width>
+                                <font>Font-Condensed-S34</font>
+                                <align>left</align>
+                                <label>[B]$LOCALIZE[183][/B]</label>
+                                <textcolor>aawhite</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="textbox">
+                                <description>Description</description>
+                                <posx>0</posx>
+                                <posy>50</posy>
+                                <width>1200</width>
+                                <height>330</height>
+                                <font>Font-Condensed-S40</font>
+                                <align>justify</align>
+                                <textcolor>bbwhite</textcolor>
+                                <scroll>false</scroll>
+                                <label>$INFO[ListItem.Property(Album_Description)]</label>
+                                <scrollout>false</scrollout>
+                                <autoscroll time="2000" delay="10000" repeat="10000" />
+                                <visible>!IsEmpty(ListItem.Property(Album_Description))</visible>
+                            </control>
+                            <control type="label">
+                                <posx>0</posx>
+                                <posy>50</posy>
+                                <width>1200</width>
+                                <font>Font-Condensed-S40</font>
+                                <align>left</align>
+                                <label>$LOCALIZE[414]</label>
+                                <textcolor>bbwhite</textcolor>
+                                <scroll>false</scroll>
+                                <visible>IsEmpty(ListItem.Property(Album_Description))</visible>
+                            </control>
+                        </control>
+                    </control>
+                </control>  
+            </control>
 
-			<!-- Tracks/Discography Stuff -->
-			<control type="group">
-				<include>FullscreenDimensions</include>
-				<visible allowhiddenfocus="true">Control.HasFocus(9334) | Control.HasFocus(50)</visible>
-				<animation type="Visible">
-					<effect type="slide" start="1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
-				</animation>
-				<animation type="Hidden">
-					<effect type="zoom" start="100" end="75" center="640,540" time="300" tween="sine" easing="inout" />
-					<effect type="slide" end="2320" time="600" delay="0" tween="sine" easing="inout" />
-				</animation>
-				<include>listEndAnimation</include>
-				<control type="list" id="50">
-					<posx>118</posx>
-					<posy>220</posy>
-					<width>1684</width>
-					<height>660</height>
-					<onleft>SetFocus(9335)</onleft>
-					<onright>RunScript(special://skin/extras/scripts/setClearProperty.py,Right)</onright>
-					<onup>-</onup>
-					<ondown>-</ondown>
-					<scrolltime>200</scrolltime>
-					<orientation>vertical</orientation>
-					<focusposition>0</focusposition>
-					<viewtype label="album/track list">list</viewtype>
-					<itemlayout condition="Container.Content(Artists)" height="60">
-						<control type="label">
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.label2] $INFO[ListItem.label]</label>
-							<font>Font-Condensed-S40</font>
-							<textcolor>aawhite</textcolor>
-							<selectedcolor>white</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<scroll>no</scroll>
-							<visible>!IsEmpty(ListItem.label2)</visible>
-						</control>	
-						<control type="label">
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.label]</label>
-							<font>Font-Condensed-S40</font>
-							<textcolor>aawhite</textcolor>
-							<selectedcolor>white</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<scroll>no</scroll>
-							<visible>IsEmpty(ListItem.label2)</visible>
-						</control>
-					</itemlayout>
-					<itemlayout condition="Container.Content(Albums)" height="60">
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
-							<font>Font-Condensed-S40</font>
-							<textcolor>aawhite</textcolor>
-							<selectedcolor>white</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<scroll>no</scroll>
-							<visible>IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
-						</control>
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>950</width>
-							<height>50</height>
-							<label>0$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
-							<font>Font-Condensed-S40</font>
-							<textcolor>aawhite</textcolor>
-							<selectedcolor>white</selectedcolor>
-							<align>left</align>
-							<aligny>center</aligny>
-							<scroll>no</scroll>
-							<visible>!IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
-						</control>		
-					</itemlayout>
-					<focusedlayout condition="Container.Content(Artists)" height="60">
-						<control type="label">
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.label2] $INFO[ListItem.label]</label>
-							<textcolor>white</textcolor>
-							<font>Font-Condensed-S40</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<visible>!IsEmpty(ListItem.label2)</visible>
-						</control>	
-						<control type="label">
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.label]</label>
-							<textcolor>white</textcolor>
-							<font>Font-Condensed-S40</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<visible>IsEmpty(ListItem.label2)</visible>
-						</control>
-					</focusedlayout>
-					<focusedlayout condition="Container.Content(Albums)" height="60">
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>950</width>
-							<height>50</height>
-							<label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
-							<textcolor>white</textcolor>
-							<font>Font-Condensed-S40</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<visible>IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
-						</control>
-						<control type="label">
-							<posx>0</posx>
-							<posy>0</posy>
-							<width>950</width>
-							<height>50</height>
-							<label>0$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
-							<textcolor>white</textcolor>
-							<font>Font-Condensed-S40</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<visible>!IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
-						</control>	
-					</focusedlayout>
-				</control>				
-			</control>
-		</control>
-		
-		<!-- Invisible Buttons -->
-		<control type="button" id="5">
-			<description>Review/Tracks</description>
-			<visible>false</visible>
-		</control>
-		
-		<control type="button" id="9334">
-			<onfocus>Action(left)</onfocus>
-			<onleft>50</onleft>
-		</control>
-		
-		<control type="button" id="50">
-			<onleft>SetFocus(9335)</onleft>
-			<visible>!IntegerGreaterThan(Container(50).NumItems,0)</visible>
-		</control>
-		
-		<control type="button" id="9334">
-			<onfocus>Action(left)</onfocus>
-			<onleft>50</onleft>
-		</control>
-		
-		<control type="button" id="9335">
-			<onfocus>SendClick(2001,5)</onfocus>
-			<onfocus>SetFocus(9333)</onfocus>
-			<animation effect="fade" start="0" end="100" time="0" delay="725">Focus</animation>
-		</control>
-		
-		<include>FadeBackgroundMovieInfo</include>
-	</controls>
+            <!-- Tracks/Discography Stuff -->
+            <control type="group">
+                <include>FullscreenDimensions</include>
+                <visible allowhiddenfocus="true">Control.HasFocus(9334) | Control.HasFocus(50)</visible>
+                <animation type="Visible">
+                    <effect type="slide" start="1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Hidden">
+                    <effect type="zoom" start="100" end="75" center="640,540" time="300" tween="sine" easing="inout" />
+                    <effect type="slide" end="2320" time="600" delay="0" tween="sine" easing="inout" />
+                </animation>
+                <include>listEndAnimation</include>
+                <control type="list" id="50">
+                    <posx>118</posx>
+                    <posy>220</posy>
+                    <width>1684</width>
+                    <height>660</height>
+                    <onleft>SetFocus(9335)</onleft>
+                    <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                    <onup>-</onup>
+                    <ondown>-</ondown>
+                    <scrolltime>200</scrolltime>
+                    <orientation>vertical</orientation>
+                    <focusposition>0</focusposition>
+                    <viewtype label="album/track list">list</viewtype>
+                    <itemlayout condition="Container.Content(Artists)" height="60">
+                        <control type="label">
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.label2] $INFO[ListItem.label]</label>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>aawhite</textcolor>
+                            <selectedcolor>white</selectedcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>no</scroll>
+                            <visible>!IsEmpty(ListItem.label2)</visible>
+                        </control>  
+                        <control type="label">
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.label]</label>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>aawhite</textcolor>
+                            <selectedcolor>white</selectedcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>no</scroll>
+                            <visible>IsEmpty(ListItem.label2)</visible>
+                        </control>
+                    </itemlayout>
+                    <itemlayout condition="Container.Content(Albums)" height="60">
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>aawhite</textcolor>
+                            <selectedcolor>white</selectedcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>no</scroll>
+                            <visible>IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>950</width>
+                            <height>50</height>
+                            <label>0$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>aawhite</textcolor>
+                            <selectedcolor>white</selectedcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>no</scroll>
+                            <visible>!IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
+                        </control>      
+                    </itemlayout>
+                    <focusedlayout condition="Container.Content(Artists)" height="60">
+                        <control type="label">
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.label2] $INFO[ListItem.label]</label>
+                            <textcolor>white</textcolor>
+                            <font>Font-Condensed-S40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>!IsEmpty(ListItem.label2)</visible>
+                        </control>  
+                        <control type="label">
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.label]</label>
+                            <textcolor>white</textcolor>
+                            <font>Font-Condensed-S40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>IsEmpty(ListItem.label2)</visible>
+                        </control>
+                    </focusedlayout>
+                    <focusedlayout condition="Container.Content(Albums)" height="60">
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>950</width>
+                            <height>50</height>
+                            <label>$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
+                            <textcolor>white</textcolor>
+                            <font>Font-Condensed-S40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>950</width>
+                            <height>50</height>
+                            <label>0$INFO[ListItem.TrackNumber]. $INFO[ListItem.label] ($INFO[ListItem.Duration])</label>
+                            <textcolor>white</textcolor>
+                            <font>Font-Condensed-S40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <visible>!IntegerGreaterThan(ListItem.TrackNumber,9)</visible>
+                        </control>  
+                    </focusedlayout>
+                </control>              
+            </control>
+        </control>
+        
+        <!-- Invisible Buttons -->
+        <control type="button" id="5">
+            <description>Review/Tracks</description>
+            <visible>false</visible>
+        </control>
+        
+        <control type="button" id="9334">
+            <onfocus>Action(left)</onfocus>
+            <onleft>50</onleft>
+        </control>
+        
+        <control type="button" id="50">
+            <onleft>SetFocus(9335)</onleft>
+            <visible>!IntegerGreaterThan(Container(50).NumItems,0)</visible>
+        </control>
+        
+        <control type="button" id="9334">
+            <onfocus>Action(left)</onfocus>
+            <onleft>50</onleft>
+        </control>
+        
+        <control type="button" id="9335">
+            <onfocus>SendClick(2001,5)</onfocus>
+            <onfocus>SetFocus(9333)</onfocus>
+            <animation effect="fade" start="0" end="100" time="0" delay="725">Focus</animation>
+        </control>
+        
+        <include>FadeBackgroundMovieInfo</include>
+    </controls>
 </window>

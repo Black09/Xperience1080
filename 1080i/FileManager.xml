@@ -1,556 +1,556 @@
 <window id="3">
-	<defaultcontrol always="20">20</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>CommonContent</include>
-		<include>FadeBackgroundDialog</include>
-		<control type="image">
-			<description>Back Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">views/thumb/panels/back-vignette.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>Animation_FanartFade</include>
-		</control>
-		<control type="group">
-			<include>CommonViewAnimations</include>
-			<include>OptionsShutdownAnimation</include>
-			<include>ScrollLetterFileManager</include>
-			<!-- Header / Footer -->
-			<!-- Left -->
-			<control type="group">
-				<posx>282</posx>
-				<posy>112</posy>
-				<control type="group" id="35">
-					<visible>!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<animation type="Visible" reversible="false">
-						<effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
-						<effect type="slide" start="0,50" end="0,0" time="200" tween="sine" easing="inout" />
-					</animation>
-					<animation type="Hidden" reversible="false">
-						<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-						<effect type="slide" start="0,0" end="0,50" time="200" tween="sine" easing="out" />
-					</animation>
-					<control type="button" id="33">
-						<posx>-36</posx>
-						<posy>-32</posy>
-						<width>100</width>
-						<height>100</height>
-						<texturefocus>windows/filemanager/back-fo.png</texturefocus>
-						<texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
-						<include>DialogButtonDimensionsRightAlign</include>
-						<onup>Control.Message(20,movedown,3)</onup>
-						<onup>SetFocus(20)</onup>
-						<ondown>SetFocus(20)</ondown>
-						<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,20,33,101)</onclick>
-						<visible>!Control.HasFocus(34)</visible>
-					</control>
-					<control type="button" id="34">
-						<posx>-36</posx>
-						<posy>-32</posy>
-						<width>100</width>
-						<height>100</height>
-						<texturefocus>windows/filemanager/back-fo.png</texturefocus>
-						<texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
-						<onup>SetFocus(20)</onup>
-						<ondown>Control.Message(20,moveup,3)</ondown>
-						<ondown>SetFocus(20)</ondown>
-						<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,20,34,101)</onclick>
-						<visible allowhiddenfocus="true">Control.HasFocus(34)</visible>
-					</control>
-				</control>
-				<control type="group" id="35">
-					<visible allowhiddenfocus="true">!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
-					<control type="button" id="33">
-						<onfocus>Control.Message(20,movedown,3)</onfocus>
-						<onfocus>SetFocus(20)</onfocus>
-						<visible>!Control.HasFocus(34)</visible>
-					</control>
-					<control type="button" id="34">
-						<onfocus>Control.Message(20,moveup,3)</onfocus>
-						<onfocus>SetFocus(20)</onfocus>
-						<visible allowhiddenfocus="true">Control.HasFocus(34)</visible>
-					</control>
-				</control>
-				<control type="label" id="101">
-					<description>Header Label</description>
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>601</width>
-					<align>left</align>
-					<font>Font-Condensed-S31</font>
-					<textcolor>ddwhite</textcolor>
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<animation effect="slide" start="0" end="50" time="200" tween="sine" easing="inout" condition="!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])">Conditional</animation>
-				</control>
-				<control type="group">
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,-80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<control type="label" id="12">
-						<description>Footer Label</description>
-						<posx>0</posx>
-						<posy>800</posy>
-						<width>651</width>
-						<align>left</align>
-						<font>Font-Condensed-S31</font>
-						<textcolor>77white</textcolor>
-					</control>
-					<control type="label">
-						<description>Page Label</description>
-						<posx>651</posx>
-						<posy>800</posy>
-						<width>100</width>
-						<align>right</align>
-						<font>Font-Condensed-S31</font>
-						<label>$INFO[Container(20).CurrentPage]/$INFO[Container(20).NumPages]</label>
-						<textcolor>77white</textcolor>
-					</control>
-				</control>
-			</control>
-			<!-- Right -->
-			<control type="group">
-				<posx>987</posx>
-				<posy>112</posy>
-				<control type="group" id="45">
-					<visible>!stringcompare(Control.GetLabel(102),$LOCALIZE[20108])</visible>
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<animation type="Visible" reversible="false">
-						<effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
-						<effect type="slide" start="0,50" end="0,0" time="200" tween="sine" easing="inout" />
-					</animation>
-					<animation type="Hidden" reversible="false">
-						<effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
-						<effect type="slide" start="0,0" end="0,50" time="200" tween="sine" easing="out" />
-					</animation>
-					<control type="button" id="43">
-						<description>Down</description>
-						<posx>-36</posx>
-						<posy>-32</posy>
-						<width>100</width>
-						<height>100</height>
-						<texturefocus>windows/filemanager/back-fo.png</texturefocus>
-						<texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
-						<include>DialogButtonDimensionsRightAlign</include>
-						<onup>Control.Message(21,movedown,3)</onup>
-						<onup>SetFocus(21)</onup>
-						<ondown>SetFocus(21)</ondown>
-						<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,21,43,102)</onclick>
-						<visible>!Control.HasFocus(44)</visible>
-					</control>
-					<control type="button" id="44">
-						<description>Down</description>
-						<posx>-36</posx>
-						<posy>-32</posy>
-						<width>100</width>
-						<height>100</height>
-						<texturefocus>windows/filemanager/back-fo.png</texturefocus>
-						<texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
-						<onup>SetFocus(21)</onup>
-						<ondown>Control.Message(21,moveup,3)</ondown>
-						<ondown>SetFocus(21)</ondown>
-						<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,21,44,102)</onclick>
-						<visible allowhiddenfocus="true">Control.HasFocus(44)</visible>
-					</control>
-				</control>
-				<control type="group" id="45">
-					<visible allowhiddenfocus="true">!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
-					<control type="button" id="43">
-						<onfocus>Control.Message(21,movedown,3)</onfocus>
-						<onfocus>SetFocus(21)</onfocus>
-						<visible>!Control.HasFocus(44)</visible>
-					</control>
-					<control type="button" id="44">
-						<onfocus>Control.Message(21,moveup,3)</onfocus>
-						<onfocus>SetFocus(21)</onfocus>
-						<visible allowhiddenfocus="true">Control.HasFocus(44)</visible>
-					</control>
-				</control>
-				<control type="label" id="102">
-					<description>Header Label</description>
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>651</width>
-					<align>left</align>
-					<font>Font-Condensed-S31</font>
-					<textcolor>ddwhite</textcolor>
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<animation effect="slide" start="0" end="50" time="200" tween="sine" easing="inout" condition="!stringcompare(Control.GetLabel(102),$LOCALIZE[20108])">Conditional</animation>
-				</control>
-				<control type="group">
-					<animation type="WindowOpen" reversible="false">
-						<effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
-						<effect type="slide" start="0,-80" end="0,0" time="550" delay="400" tween="back" easing="out" />
-					</animation>
-					<control type="label" id="13">
-						<description>Footer Label</description>
-						<posx>0</posx>
-						<posy>800</posy>
-						<width>651</width>
-						<align>left</align>
-						<font>Font-Condensed-S31</font>
-						<textcolor>77white</textcolor>
-					</control>
-					<control type="label">
-						<description>Page Label</description>
-						<posx>651</posx>
-						<posy>800</posy>
-						<width>100</width>
-						<align>right</align>
-						<font>Font-Condensed-S31</font>
-						<label>$INFO[Container(21).CurrentPage]/$INFO[Container(21).NumPages]</label>
-						<textcolor>77white</textcolor>
-					</control>
-				</control>
-			</control>
-			<!-- Panel -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>windows/filemanager/bg.png</texture>
-			</control>
-			<!-- Left -->
-			<control type="group">
-				<control type="list" id="20">
-					<description>Left File List</description>
-					<posx>262</posx>
-					<posy>171</posy>
-					<width>691</width>
-					<height>720</height>
-					<onleft>30</onleft>
-					<onright>21</onright>
-					<onup>33</onup>
-					<ondown>34</ondown>
-					<pagecontrol>30</pagecontrol>
-					<scrolltime>0</scrolltime>
-					<itemlayout height="60">
-						<control type="image">
-							<posx>5</posx>
-							<posy>0</posy>
-							<width>60</width>
-							<height>60</height>
-							<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-						<control type="label">
-							<posx>70</posx>
-							<posy>-3</posy>
-							<width>585</width>
-							<height>60</height>
-							<info>ListItem.Label</info>
-							<font>Font-Condensed-S28</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<textcolor>FF585858</textcolor>
-							<scroll>false</scroll>
-						</control>
-						<control type="label">
-							<posx>671</posx>
-							<posy>-2</posy>
-							<width>585</width>
-							<height>60</height>
-							<info>ListItem.Label2</info>
-							<font>Font-Condensed-S25</font>
-							<align>right</align>
-							<aligny>center</aligny>
-							<textcolor>FF787878</textcolor>
-							<scroll>false</scroll>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60">
-						<control type="group">
-							<visible>!Control.HasFocus(20)</visible>
-							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Visible</animation>
-							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Hidden</animation>
-							<control type="image">
-								<posx>5</posx>
-								<posy>0</posy>
-								<width>60</width>
-								<height>60</height>
-								<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="label">
-								<posx>70</posx>
-								<posy>-3</posy>
-								<width>585</width>
-								<height>60</height>
-								<info>ListItem.Label</info>
-								<font>Font-Condensed-S28</font>
-								<align>left</align>
-								<aligny>center</aligny>
-								<textcolor>FF585858</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<posx>671</posx>
-								<posy>-2</posy>
-								<width>585</width>
-								<height>60</height>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S25</font>
-								<align>right</align>
-								<aligny>center</aligny>
-								<textcolor>FF787878</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Control.HasFocus(20)</visible>
-							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Visible</animation>
-							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Hidden</animation>
-							<control type="image">
-								<width>691</width>
-								<height>60</height>
-								<texture border="2">dialogs/content/highlight-light.png</texture>
-							</control>
-							<control type="image">
-								<posx>5</posx>
-								<posy>0</posy>
-								<width>60</width>
-								<height>60</height>
-								<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="label">
-								<posx>70</posx>
-								<posy>-3</posy>
-								<width>585</width>
-								<height>60</height>
-								<info>ListItem.Label</info>
-								<font>Font-Condensed-S28</font>
-								<align>left</align>
-								<aligny>center</aligny>
-								<textcolor>eewhite</textcolor>
-							</control>
-							<control type="label">
-								<posx>671</posx>
-								<posy>-2</posy>
-								<width>585</width>
-								<height>60</height>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S25</font>
-								<align>right</align>
-								<aligny>center</aligny>
-								<textcolor>CCFFFFFF</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="image" id="32">
-					<animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
-				</control>
-				<control type="image" id="31">
-					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-					<visible>Control.HasFocus(30) | !Control.IsVisible(32)</visible>
-				</control>
-				<control type="image" id="31">
-					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
-					<visible>!Control.HasFocus(30) + [Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]</visible>
-				</control>
-				<control type="scrollbar" id="30">
-					<posx>266</posx>
-					<posy>174</posy>
-					<width>11</width>
-					<height>714</height>
-					<texturesliderbackground>-</texturesliderbackground>
-					<texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-					<texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
-					<onleft>21</onleft>
-					<onright>20</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(31)">Conditional</animation>
-				</control>
-			</control>
-			<!-- Right -->
-			<control type="group">
-				<control type="list" id="21">
-					<description>Right File List</description>
-					<posx>967</posx>
-					<posy>171</posy>
-					<width>691</width>
-					<height>720</height>
-					<onleft>20</onleft>
-					<onright>40</onright>
-					<onup>43</onup>
-					<ondown>44</ondown>
-					<pagecontrol>40</pagecontrol>
-					<scrolltime>0</scrolltime>
-					<itemlayout height="60">
-						<control type="image">
-							<posx>5</posx>
-							<posy>0</posy>
-							<width>60</width>
-							<height>60</height>
-							<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
-							<aspectratio>keep</aspectratio>
-						</control>
-						<control type="label">
-							<posx>70</posx>
-							<posy>-3</posy>
-							<width>585</width>
-							<height>60</height>
-							<info>ListItem.Label</info>
-							<font>Font-Condensed-S28</font>
-							<align>left</align>
-							<aligny>center</aligny>
-							<textcolor>FF585858</textcolor>
-							<scroll>false</scroll>
-						</control>
-						<control type="label">
-							<posx>671</posx>
-							<posy>-2</posy>
-							<width>585</width>
-							<height>60</height>
-							<info>ListItem.Label2</info>
-							<font>Font-Condensed-S25</font>
-							<align>right</align>
-							<aligny>center</aligny>
-							<textcolor>FF585858</textcolor>
-							<scroll>false</scroll>
-						</control>
-					</itemlayout>
-					<focusedlayout height="60">
-						<control type="group">
-							<visible>!Control.HasFocus(21)</visible>
-							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Visible</animation>
-							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Hidden</animation>
-							<control type="image">
-								<posx>5</posx>
-								<posy>0</posy>
-								<width>60</width>
-								<height>60</height>
-								<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="label">
-								<posx>70</posx>
-								<posy>-3</posy>
-								<width>485</width>
-								<height>60</height>
-								<info>ListItem.Label</info>
-								<font>Font-Condensed-S28</font>
-								<align>left</align>
-								<aligny>center</aligny>
-								<textcolor>FF585858</textcolor>
-								<scroll>false</scroll>
-							</control>
-							<control type="label">
-								<posx>671</posx>
-								<posy>-2</posy>
-								<width>100</width>
-								<height>60</height>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S25</font>
-								<align>right</align>
-								<aligny>center</aligny>
-								<textcolor>FF585858</textcolor>
-								<scroll>false</scroll>
-							</control>
-						</control>
-						<control type="group">
-							<visible>Control.HasFocus(21)</visible>
-							<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Visible</animation>
-							<animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Hidden</animation>
-							<control type="image">
-								<width>691</width>
-								<height>60</height>
-								<texture border="2">dialogs/content/highlight-light.png</texture>
-							</control>
-							<control type="image">
-								<posx>5</posx>
-								<posy>0</posy>
-								<width>60</width>
-								<height>60</height>
-								<texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
-								<aspectratio>keep</aspectratio>
-							</control>
-							<control type="label">
-								<posx>70</posx>
-								<posy>-3</posy>
-								<width>485</width>
-								<height>60</height>
-								<textcolor>eewhite</textcolor>
-								<info>ListItem.Label</info>
-								<font>Font-Condensed-S28</font>
-								<align>left</align>
-								<aligny>center</aligny>
-							</control>
-							<control type="label">
-								<posx>671</posx>
-								<posy>-2</posy>
-								<width>100</width>
-								<height>60</height>
-								<textcolor>eewhite</textcolor>
-								<info>ListItem.Label2</info>
-								<font>Font-Condensed-S25</font>
-								<align>right</align>
-								<aligny>center</aligny>
-							</control>
-						</control>
-					</focusedlayout>
-				</control>
-				<control type="image" id="42">
-					<animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
-				</control>
-				<control type="image" id="41">
-					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="0">Hidden</animation>
-					<visible>Control.HasFocus(40) | !Control.IsVisible(42)</visible>
-				</control>
-				<control type="image" id="41">
-					<animation effect="fade" start="0" end="100" time="0">Visible</animation>
-					<animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
-					<visible>!Control.HasFocus(40) + [Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]</visible>
-				</control>
-				<control type="scrollbar" id="40">
-					<posx>1643</posx>
-					<posy>174</posy>
-					<width>11</width>
-					<height>714</height>
-					<texturesliderbackground>-</texturesliderbackground>
-					<texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-					<texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
-					<textureslidernib>-</textureslidernib>
-					<textureslidernibfocus>-</textureslidernibfocus>
-					<onleft>21</onleft>
-					<onright>20</onright>
-					<showonepage>false</showonepage>
-					<orientation>vertical</orientation>
-					<animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(41)">Conditional</animation>
-				</control>
-			</control>
-			<control type="image">
-				<posx>262</posx>
-				<posy>171</posy>
-				<width>691</width>
-				<height>720</height>
-				<texture>windows/filemanager/contextback.png</texture>
-				<visible>Window.IsActive(contextmenu)</visible>
-				<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
-				<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
-				<animation effect="slide" end="705" time="0" condition="Control.HasFocus(21)">Conditional</animation>
-			</control>
-		</control>
-		<include>FadeBackground</include>
-		<include>Common-Info-NoOptions</include>
-	</controls>
+    <defaultcontrol always="20">20</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>CommonContent</include>
+        <include>FadeBackgroundDialog</include>
+        <control type="image">
+            <description>Back Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">views/thumb/panels/back-vignette.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <include>Animation_FanartFade</include>
+        </control>
+        <control type="group">
+            <include>CommonViewAnimations</include>
+            <include>OptionsShutdownAnimation</include>
+            <include>ScrollLetterFileManager</include>
+            <!-- Header / Footer -->
+            <!-- Left -->
+            <control type="group">
+                <posx>282</posx>
+                <posy>112</posy>
+                <control type="group" id="35">
+                    <visible>!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
+                        <effect type="slide" start="0,50" end="0,0" time="200" tween="sine" easing="inout" />
+                    </animation>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                        <effect type="slide" start="0,0" end="0,50" time="200" tween="sine" easing="out" />
+                    </animation>
+                    <control type="button" id="33">
+                        <posx>-36</posx>
+                        <posy>-32</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texturefocus>windows/filemanager/back-fo.png</texturefocus>
+                        <texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
+                        <include>DialogButtonDimensionsRightAlign</include>
+                        <onup>Control.Message(20,movedown,3)</onup>
+                        <onup>SetFocus(20)</onup>
+                        <ondown>SetFocus(20)</ondown>
+                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,20,33,101)</onclick>
+                        <visible>!Control.HasFocus(34)</visible>
+                    </control>
+                    <control type="button" id="34">
+                        <posx>-36</posx>
+                        <posy>-32</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texturefocus>windows/filemanager/back-fo.png</texturefocus>
+                        <texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
+                        <onup>SetFocus(20)</onup>
+                        <ondown>Control.Message(20,moveup,3)</ondown>
+                        <ondown>SetFocus(20)</ondown>
+                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,20,34,101)</onclick>
+                        <visible allowhiddenfocus="true">Control.HasFocus(34)</visible>
+                    </control>
+                </control>
+                <control type="group" id="35">
+                    <visible allowhiddenfocus="true">!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
+                    <control type="button" id="33">
+                        <onfocus>Control.Message(20,movedown,3)</onfocus>
+                        <onfocus>SetFocus(20)</onfocus>
+                        <visible>!Control.HasFocus(34)</visible>
+                    </control>
+                    <control type="button" id="34">
+                        <onfocus>Control.Message(20,moveup,3)</onfocus>
+                        <onfocus>SetFocus(20)</onfocus>
+                        <visible allowhiddenfocus="true">Control.HasFocus(34)</visible>
+                    </control>
+                </control>
+                <control type="label" id="101">
+                    <description>Header Label</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>601</width>
+                    <align>left</align>
+                    <font>Font-Condensed-S31</font>
+                    <textcolor>ddwhite</textcolor>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <animation effect="slide" start="0" end="50" time="200" tween="sine" easing="inout" condition="!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])">Conditional</animation>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,-80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <control type="label" id="12">
+                        <description>Footer Label</description>
+                        <posx>0</posx>
+                        <posy>800</posy>
+                        <width>651</width>
+                        <align>left</align>
+                        <font>Font-Condensed-S31</font>
+                        <textcolor>77white</textcolor>
+                    </control>
+                    <control type="label">
+                        <description>Page Label</description>
+                        <posx>651</posx>
+                        <posy>800</posy>
+                        <width>100</width>
+                        <align>right</align>
+                        <font>Font-Condensed-S31</font>
+                        <label>$INFO[Container(20).CurrentPage]/$INFO[Container(20).NumPages]</label>
+                        <textcolor>77white</textcolor>
+                    </control>
+                </control>
+            </control>
+            <!-- Right -->
+            <control type="group">
+                <posx>987</posx>
+                <posy>112</posy>
+                <control type="group" id="45">
+                    <visible>!stringcompare(Control.GetLabel(102),$LOCALIZE[20108])</visible>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
+                        <effect type="slide" start="0,50" end="0,0" time="200" tween="sine" easing="inout" />
+                    </animation>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                        <effect type="slide" start="0,0" end="0,50" time="200" tween="sine" easing="out" />
+                    </animation>
+                    <control type="button" id="43">
+                        <description>Down</description>
+                        <posx>-36</posx>
+                        <posy>-32</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texturefocus>windows/filemanager/back-fo.png</texturefocus>
+                        <texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
+                        <include>DialogButtonDimensionsRightAlign</include>
+                        <onup>Control.Message(21,movedown,3)</onup>
+                        <onup>SetFocus(21)</onup>
+                        <ondown>SetFocus(21)</ondown>
+                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,21,43,102)</onclick>
+                        <visible>!Control.HasFocus(44)</visible>
+                    </control>
+                    <control type="button" id="44">
+                        <description>Down</description>
+                        <posx>-36</posx>
+                        <posy>-32</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texturefocus>windows/filemanager/back-fo.png</texturefocus>
+                        <texturenofocus>windows/filemanager/back-nf.png</texturenofocus>
+                        <onup>SetFocus(21)</onup>
+                        <ondown>Control.Message(21,moveup,3)</ondown>
+                        <ondown>SetFocus(21)</ondown>
+                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,parentdir,21,44,102)</onclick>
+                        <visible allowhiddenfocus="true">Control.HasFocus(44)</visible>
+                    </control>
+                </control>
+                <control type="group" id="45">
+                    <visible allowhiddenfocus="true">!stringcompare(Control.GetLabel(101),$LOCALIZE[20108])</visible>
+                    <control type="button" id="43">
+                        <onfocus>Control.Message(21,movedown,3)</onfocus>
+                        <onfocus>SetFocus(21)</onfocus>
+                        <visible>!Control.HasFocus(44)</visible>
+                    </control>
+                    <control type="button" id="44">
+                        <onfocus>Control.Message(21,moveup,3)</onfocus>
+                        <onfocus>SetFocus(21)</onfocus>
+                        <visible allowhiddenfocus="true">Control.HasFocus(44)</visible>
+                    </control>
+                </control>
+                <control type="label" id="102">
+                    <description>Header Label</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>651</width>
+                    <align>left</align>
+                    <font>Font-Condensed-S31</font>
+                    <textcolor>ddwhite</textcolor>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <animation effect="slide" start="0" end="50" time="200" tween="sine" easing="inout" condition="!stringcompare(Control.GetLabel(102),$LOCALIZE[20108])">Conditional</animation>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
+                        <effect type="slide" start="0,-80" end="0,0" time="550" delay="400" tween="back" easing="out" />
+                    </animation>
+                    <control type="label" id="13">
+                        <description>Footer Label</description>
+                        <posx>0</posx>
+                        <posy>800</posy>
+                        <width>651</width>
+                        <align>left</align>
+                        <font>Font-Condensed-S31</font>
+                        <textcolor>77white</textcolor>
+                    </control>
+                    <control type="label">
+                        <description>Page Label</description>
+                        <posx>651</posx>
+                        <posy>800</posy>
+                        <width>100</width>
+                        <align>right</align>
+                        <font>Font-Condensed-S31</font>
+                        <label>$INFO[Container(21).CurrentPage]/$INFO[Container(21).NumPages]</label>
+                        <textcolor>77white</textcolor>
+                    </control>
+                </control>
+            </control>
+            <!-- Panel -->
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>windows/filemanager/bg.png</texture>
+            </control>
+            <!-- Left -->
+            <control type="group">
+                <control type="list" id="20">
+                    <description>Left File List</description>
+                    <posx>262</posx>
+                    <posy>171</posy>
+                    <width>691</width>
+                    <height>720</height>
+                    <onleft>30</onleft>
+                    <onright>21</onright>
+                    <onup>33</onup>
+                    <ondown>34</ondown>
+                    <pagecontrol>30</pagecontrol>
+                    <scrolltime>0</scrolltime>
+                    <itemlayout height="60">
+                        <control type="image">
+                            <posx>5</posx>
+                            <posy>0</posy>
+                            <width>60</width>
+                            <height>60</height>
+                            <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <posx>70</posx>
+                            <posy>-3</posy>
+                            <width>585</width>
+                            <height>60</height>
+                            <info>ListItem.Label</info>
+                            <font>Font-Condensed-S28</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>FF585858</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                        <control type="label">
+                            <posx>671</posx>
+                            <posy>-2</posy>
+                            <width>585</width>
+                            <height>60</height>
+                            <info>ListItem.Label2</info>
+                            <font>Font-Condensed-S25</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>FF787878</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <control type="group">
+                            <visible>!Control.HasFocus(20)</visible>
+                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Visible</animation>
+                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>5</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="label">
+                                <posx>70</posx>
+                                <posy>-3</posy>
+                                <width>585</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S28</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF585858</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <posx>671</posx>
+                                <posy>-2</posy>
+                                <width>585</width>
+                                <height>60</height>
+                                <info>ListItem.Label2</info>
+                                <font>Font-Condensed-S25</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF787878</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(20)</visible>
+                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Visible</animation>
+                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <width>691</width>
+                                <height>60</height>
+                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>5</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="label">
+                                <posx>70</posx>
+                                <posy>-3</posy>
+                                <width>585</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S28</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>eewhite</textcolor>
+                            </control>
+                            <control type="label">
+                                <posx>671</posx>
+                                <posy>-2</posy>
+                                <width>585</width>
+                                <height>60</height>
+                                <info>ListItem.Label2</info>
+                                <font>Font-Condensed-S25</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <textcolor>CCFFFFFF</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="image" id="32">
+                    <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+                </control>
+                <control type="image" id="31">
+                    <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+                    <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+                    <visible>Control.HasFocus(30) | !Control.IsVisible(32)</visible>
+                </control>
+                <control type="image" id="31">
+                    <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+                    <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+                    <visible>!Control.HasFocus(30) + [Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]</visible>
+                </control>
+                <control type="scrollbar" id="30">
+                    <posx>266</posx>
+                    <posy>174</posy>
+                    <width>11</width>
+                    <height>714</height>
+                    <texturesliderbackground>-</texturesliderbackground>
+                    <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                    <textureslidernib>-</textureslidernib>
+                    <textureslidernibfocus>-</textureslidernibfocus>
+                    <onleft>21</onleft>
+                    <onright>20</onright>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(31)">Conditional</animation>
+                </control>
+            </control>
+            <!-- Right -->
+            <control type="group">
+                <control type="list" id="21">
+                    <description>Right File List</description>
+                    <posx>967</posx>
+                    <posy>171</posy>
+                    <width>691</width>
+                    <height>720</height>
+                    <onleft>20</onleft>
+                    <onright>40</onright>
+                    <onup>43</onup>
+                    <ondown>44</ondown>
+                    <pagecontrol>40</pagecontrol>
+                    <scrolltime>0</scrolltime>
+                    <itemlayout height="60">
+                        <control type="image">
+                            <posx>5</posx>
+                            <posy>0</posy>
+                            <width>60</width>
+                            <height>60</height>
+                            <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
+                            <aspectratio>keep</aspectratio>
+                        </control>
+                        <control type="label">
+                            <posx>70</posx>
+                            <posy>-3</posy>
+                            <width>585</width>
+                            <height>60</height>
+                            <info>ListItem.Label</info>
+                            <font>Font-Condensed-S28</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textcolor>FF585858</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                        <control type="label">
+                            <posx>671</posx>
+                            <posy>-2</posy>
+                            <width>585</width>
+                            <height>60</height>
+                            <info>ListItem.Label2</info>
+                            <font>Font-Condensed-S25</font>
+                            <align>right</align>
+                            <aligny>center</aligny>
+                            <textcolor>FF585858</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <control type="group">
+                            <visible>!Control.HasFocus(21)</visible>
+                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Visible</animation>
+                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>5</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/nf.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="label">
+                                <posx>70</posx>
+                                <posy>-3</posy>
+                                <width>485</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S28</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF585858</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <posx>671</posx>
+                                <posy>-2</posy>
+                                <width>100</width>
+                                <height>60</height>
+                                <info>ListItem.Label2</info>
+                                <font>Font-Condensed-S25</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF585858</textcolor>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>Control.HasFocus(21)</visible>
+                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Visible</animation>
+                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <width>691</width>
+                                <height>60</height>
+                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>5</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
+                                <aspectratio>keep</aspectratio>
+                            </control>
+                            <control type="label">
+                                <posx>70</posx>
+                                <posy>-3</posy>
+                                <width>485</width>
+                                <height>60</height>
+                                <textcolor>eewhite</textcolor>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S28</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                            </control>
+                            <control type="label">
+                                <posx>671</posx>
+                                <posy>-2</posy>
+                                <width>100</width>
+                                <height>60</height>
+                                <textcolor>eewhite</textcolor>
+                                <info>ListItem.Label2</info>
+                                <font>Font-Condensed-S25</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
+                <control type="image" id="42">
+                    <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+                </control>
+                <control type="image" id="41">
+                    <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+                    <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+                    <visible>Control.HasFocus(40) | !Control.IsVisible(42)</visible>
+                </control>
+                <control type="image" id="41">
+                    <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+                    <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+                    <visible>!Control.HasFocus(40) + [Container(21).Scrolling | Container(21).OnScrollNext | Container(21).OnScrollPrevious]</visible>
+                </control>
+                <control type="scrollbar" id="40">
+                    <posx>1643</posx>
+                    <posy>174</posy>
+                    <width>11</width>
+                    <height>714</height>
+                    <texturesliderbackground>-</texturesliderbackground>
+                    <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                    <textureslidernib>-</textureslidernib>
+                    <textureslidernibfocus>-</textureslidernibfocus>
+                    <onleft>21</onleft>
+                    <onright>20</onright>
+                    <showonepage>false</showonepage>
+                    <orientation>vertical</orientation>
+                    <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(41)">Conditional</animation>
+                </control>
+            </control>
+            <control type="image">
+                <posx>262</posx>
+                <posy>171</posy>
+                <width>691</width>
+                <height>720</height>
+                <texture>windows/filemanager/contextback.png</texture>
+                <visible>Window.IsActive(contextmenu)</visible>
+                <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
+                <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
+                <animation effect="slide" end="705" time="0" condition="Control.HasFocus(21)">Conditional</animation>
+            </control>
+        </control>
+        <include>FadeBackground</include>
+        <include>Common-Info-NoOptions</include>
+    </controls>
 </window>

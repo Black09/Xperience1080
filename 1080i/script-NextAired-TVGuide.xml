@@ -1,561 +1,561 @@
 <window id="2003">
-	<onload>ClearProperty(TVGuide.MondayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.TuesdayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.WednesdayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.ThursdayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.FridayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.SaturdayList,Home)</onload>
-	<onload>ClearProperty(TVGuide.SundayList,Home)</onload>
-	<controls>
-		<include>CommonContent</include>
-	    <control type="image">
-	    	<description>Background fanart</description>
-	    	<include>FullscreenDimensions</include>
-	    	<fadetime>500</fadetime>
-	    	<include>Animation_FanartFade</include>
-	    	<texture background="true">$VAR[TVGuideInfoFanart]</texture>
-	    	<aspectratio>scale</aspectratio>
-	    	<visible>!IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart)))</visible>
-	    </control>
-		<include>FadeBackgroundDialog</include>
-		<control type="image">
-			<description>Back Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">views/thumb/panels/back-vignette.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>Animation_FanartFade</include>
-		</control>
-		<control type="group">
-			<include>CommonViewAnimations</include>
-			<include>OptionsShutdownAnimation</include>
-			<control type="image">
-				<description>Panel</description>
-				<include>FullscreenDimensions</include>
-				<texture>windows/tvguide/bg.png</texture>
-			</control>
-			<control type="group">
-				<description>Day labels</description>
-				<control type="label">
-					<description>Monday</description>
-					<posx>118</posx>
-					<label>$LOCALIZE[11]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Monday Date</description>
-					<posx>118</posx>
-					<label>$INFO[Window(Home).Property(NextAired.1.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Tuesday</description>
-					<posx>293</posx>
-					<label>$LOCALIZE[12]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Tuesday Date</description>
-					<posx>293</posx>
-					<label>$INFO[Window(Home).Property(NextAired.2.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Wednesday</description>
-					<posx>468</posx>
-					<label>$LOCALIZE[13]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Wednesday Date</description>
-					<posx>468</posx>
-					<label>$INFO[Window(Home).Property(NextAired.3.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Thursday</description>
-					<posx>643</posx>
-					<label>$LOCALIZE[14]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Thursday Date</description>
-					<posx>643</posx>
-					<label>$INFO[Window(Home).Property(NextAired.4.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Friday</description>
-					<posx>818</posx>
-					<label>$LOCALIZE[15]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Friday Date</description>
-					<posx>818</posx>
-					<label>$INFO[Window(Home).Property(NextAired.5.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Saturday</description>
-					<posx>993</posx>
-					<label>$LOCALIZE[16]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Saturday Date</description>
-					<posx>993</posx>
-					<label>$INFO[Window(Home).Property(NextAired.6.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="label">
-					<description>Sunday</description>
-					<posx>1168</posx>
-					<label>$LOCALIZE[17]</label>
-					<include>TVGuideDayLabel</include>
-				</control>
-				<control type="label">
-					<description>Sunday Date</description>
-					<posx>1168</posx>
-					<label>$INFO[Window(Home).Property(NextAired.7.Date)]</label>
-					<include>TVGuideDateLabel</include>
-				</control>
-				<control type="group">
-					<description>Current day</description>
-					<posx>118</posx>
-					<posy>115</posy>
-					<animation effect="slide" end="175" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[42])">Conditional</animation>
-					<animation effect="slide" end="350" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[43])">Conditional</animation>
-					<animation effect="slide" end="525" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[44])">Conditional</animation>
-					<animation effect="slide" end="700" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[45])">Conditional</animation>
-					<animation effect="slide" end="875" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[46])">Conditional</animation>
-					<animation effect="slide" end="1050" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[47])">Conditional</animation>
-					<control type="image">
-						<posx>0</posx>
-						<posy>5</posy>
-						<width>175</width>
-						<height>85</height>
-						<texture border="2">windows/tvguide/current-day-bg.png</texture>
-						<aspectratio>stretch</aspectratio>
-					</control>
-					<control type="label">
-						<description>Current day label</description>
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>175</width>
-						<height>58</height>
-						<label>$INFO[System.Date(DDD)]</label>
-						<textcolor>eewhite</textcolor>
-						<font>Font-Condensed-S30-B</font>
-						<align>center</align>
-						<aligny>center</aligny>
-					</control>
-					<control type="label">
-						<description>Current day label</description>
-						<posx>0</posx>
-						<posy>35</posy>
-						<width>175</width>
-						<height>58</height>
-						<label>$INFO[Window(Home).Property(NextAired.TodayDate)]</label>
-						<textcolor>eewhite</textcolor>
-						<font>Font-Condensed-S30</font>
-						<align>center</align>
-						<aligny>center</aligny>
-					</control>
-				</control>
-			</control>
-			<control type="group" id="9001">
-			    <control type="list" id="200">
-			    	<description>Monday list</description>
-			    	<posx>118</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.MondayList,1,Home)</onup>
-			    	<ondown>200</ondown>
-			    	<onleft>206</onleft>
-			    	<onright>201</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(200)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(200)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="201">
-			    	<description>Tuesday list</description>
-			    	<posx>293</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.TuesdayList,1,Home)</onup>
-			    	<ondown>201</ondown>
-			    	<onleft>200</onleft>
-			    	<onright>202</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(201)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(201)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="202">
-			    	<description>Wednesday list</description>
-			    	<posx>468</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.WednesdayList,1,Home)</onup>
-			    	<ondown>202</ondown>
-			    	<onleft>201</onleft>
-			    	<onright>203</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(202)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(202)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="203">
-			    	<description>Thursday list</description>
-			    	<posx>643</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.ThursdayList,1,Home)</onup>
-			    	<ondown>203</ondown>
-			    	<onleft>202</onleft>
-			    	<onright>204</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(203)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(203)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="204">
-			    	<description>Friday list</description>
-			    	<posx>818</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.FridayList,1,Home)</onup>
-			    	<ondown>204</ondown>
-			    	<onleft>203</onleft>
-			    	<onright>205</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(204)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(204)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="205">
-			    	<description>Saturday list</description>
-			    	<posx>993</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.SaturdayList,1,Home)</onup>
-			    	<ondown>205</ondown>
-			    	<onleft>204</onleft>
-			    	<onright>206</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(205)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(205)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			    <control type="list" id="206">
-			    	<description>Sunday list</description>
-			    	<posx>1168</posx>
-			    	<posy>219</posy>
-			    	<width>175</width>
-			    	<height>675</height>
-			    	<orientation>vertical</orientation>
-			    	<scrolltime>0</scrolltime>
-			    	<onup>9010</onup>
-			    	<onup>SetProperty(TVGuide.SundayList,1,Home)</onup>
-			    	<ondown>206</ondown>
-			    	<onleft>205</onleft>
-			    	<onright>200</onright>
-			    	<itemgap>0</itemgap>
-			    	<itemlayout height="135" width="175">
-			    		<include>TVGuideItemLayout</include>
-			    	</itemlayout>
-			    	<focusedlayout height="135" width="175">
-			    		<control type="group">
-			    			<visible>Control.HasFocus(206)</visible>
-			    			<include>TVGuideFocusedLayoutFocus</include>
-			    		</control>
-			    		<control type="group">
-			    			<visible>!Control.HasFocus(206)</visible>
-			    			<include>TVGuideFocusedLayoutNoFocus</include>
-			    		</control>
-			    		<include>TVGuideFocusedLayoutImage</include>
-			    	</focusedlayout>
-			    </control>
-			</control>	
-			<control type="group">
-				<description>Additional show info</description>
-				<posx>1357</posx>
-				<posy>120</posy>
-				<control type="label">
-					<include>TVGuideInfoEpisodeTitleVars</include>
-					<label>$VAR[TVGuideInfoLabel]</label>
-				</control>
-				<control type="image">
-					<include>TVGuideInfoFanartVars</include>
-					<texture background="true">$VAR[TVGuideInfoFanart]</texture>
-					<visible>Control.IsVisible(2000)</visible>
-				</control>
-				<control type="image" id="2000">
-					<include>TVGuideInfoFanartVars</include>
-					<texture background="true">$VAR[TVGuideInfoLandscape]</texture>
-					<visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs)) + ![Control.HasFocus(200) + stringcompare(Control.GetLabel(2001),.)] + ![Control.HasFocus(201) + stringcompare(Control.GetLabel(2002),.)] + ![Control.HasFocus(202) + stringcompare(Control.GetLabel(2003),.)] + ![Control.HasFocus(203) + stringcompare(Control.GetLabel(2004),.)] + ![Control.HasFocus(204) + stringcompare(Control.GetLabel(2005),.)] + ![Control.HasFocus(205) + stringcompare(Control.GetLabel(2006),.)] + ![Control.HasFocus(206) + stringcompare(Control.GetLabel(2007),.)]</visible>
-				</control>
+    <onload>ClearProperty(TVGuide.MondayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.TuesdayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.WednesdayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.ThursdayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.FridayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.SaturdayList,Home)</onload>
+    <onload>ClearProperty(TVGuide.SundayList,Home)</onload>
+    <controls>
+        <include>CommonContent</include>
+        <control type="image">
+            <description>Background fanart</description>
+            <include>FullscreenDimensions</include>
+            <fadetime>500</fadetime>
+            <include>Animation_FanartFade</include>
+            <texture background="true">$VAR[TVGuideInfoFanart]</texture>
+            <aspectratio>scale</aspectratio>
+            <visible>!IsEmpty(Window(Home).Property(TVGuide.BackgroundFanart)))</visible>
+        </control>
+        <include>FadeBackgroundDialog</include>
+        <control type="image">
+            <description>Back Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">views/thumb/panels/back-vignette.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <include>Animation_FanartFade</include>
+        </control>
+        <control type="group">
+            <include>CommonViewAnimations</include>
+            <include>OptionsShutdownAnimation</include>
+            <control type="image">
+                <description>Panel</description>
+                <include>FullscreenDimensions</include>
+                <texture>windows/tvguide/bg.png</texture>
+            </control>
+            <control type="group">
+                <description>Day labels</description>
+                <control type="label">
+                    <description>Monday</description>
+                    <posx>118</posx>
+                    <label>$LOCALIZE[11]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Monday Date</description>
+                    <posx>118</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.1.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Tuesday</description>
+                    <posx>293</posx>
+                    <label>$LOCALIZE[12]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Tuesday Date</description>
+                    <posx>293</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.2.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Wednesday</description>
+                    <posx>468</posx>
+                    <label>$LOCALIZE[13]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Wednesday Date</description>
+                    <posx>468</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.3.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Thursday</description>
+                    <posx>643</posx>
+                    <label>$LOCALIZE[14]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Thursday Date</description>
+                    <posx>643</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.4.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Friday</description>
+                    <posx>818</posx>
+                    <label>$LOCALIZE[15]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Friday Date</description>
+                    <posx>818</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.5.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Saturday</description>
+                    <posx>993</posx>
+                    <label>$LOCALIZE[16]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Saturday Date</description>
+                    <posx>993</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.6.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="label">
+                    <description>Sunday</description>
+                    <posx>1168</posx>
+                    <label>$LOCALIZE[17]</label>
+                    <include>TVGuideDayLabel</include>
+                </control>
+                <control type="label">
+                    <description>Sunday Date</description>
+                    <posx>1168</posx>
+                    <label>$INFO[Window(Home).Property(NextAired.7.Date)]</label>
+                    <include>TVGuideDateLabel</include>
+                </control>
+                <control type="group">
+                    <description>Current day</description>
+                    <posx>118</posx>
+                    <posy>115</posy>
+                    <animation effect="slide" end="175" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[42])">Conditional</animation>
+                    <animation effect="slide" end="350" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[43])">Conditional</animation>
+                    <animation effect="slide" end="525" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[44])">Conditional</animation>
+                    <animation effect="slide" end="700" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[45])">Conditional</animation>
+                    <animation effect="slide" end="875" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[46])">Conditional</animation>
+                    <animation effect="slide" end="1050" time="0" condition="stringcompare(System.Date(ddd),$LOCALIZE[47])">Conditional</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>5</posy>
+                        <width>175</width>
+                        <height>85</height>
+                        <texture border="2">windows/tvguide/current-day-bg.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                    </control>
+                    <control type="label">
+                        <description>Current day label</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>175</width>
+                        <height>58</height>
+                        <label>$INFO[System.Date(DDD)]</label>
+                        <textcolor>eewhite</textcolor>
+                        <font>Font-Condensed-S30-B</font>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                    </control>
+                    <control type="label">
+                        <description>Current day label</description>
+                        <posx>0</posx>
+                        <posy>35</posy>
+                        <width>175</width>
+                        <height>58</height>
+                        <label>$INFO[Window(Home).Property(NextAired.TodayDate)]</label>
+                        <textcolor>eewhite</textcolor>
+                        <font>Font-Condensed-S30</font>
+                        <align>center</align>
+                        <aligny>center</aligny>
+                    </control>
+                </control>
+            </control>
+            <control type="group" id="9001">
+                <control type="list" id="200">
+                    <description>Monday list</description>
+                    <posx>118</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.MondayList,1,Home)</onup>
+                    <ondown>200</ondown>
+                    <onleft>206</onleft>
+                    <onright>201</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(200)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(200)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="201">
+                    <description>Tuesday list</description>
+                    <posx>293</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.TuesdayList,1,Home)</onup>
+                    <ondown>201</ondown>
+                    <onleft>200</onleft>
+                    <onright>202</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(201)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(201)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="202">
+                    <description>Wednesday list</description>
+                    <posx>468</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.WednesdayList,1,Home)</onup>
+                    <ondown>202</ondown>
+                    <onleft>201</onleft>
+                    <onright>203</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(202)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(202)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="203">
+                    <description>Thursday list</description>
+                    <posx>643</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.ThursdayList,1,Home)</onup>
+                    <ondown>203</ondown>
+                    <onleft>202</onleft>
+                    <onright>204</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(203)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(203)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="204">
+                    <description>Friday list</description>
+                    <posx>818</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.FridayList,1,Home)</onup>
+                    <ondown>204</ondown>
+                    <onleft>203</onleft>
+                    <onright>205</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(204)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(204)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="205">
+                    <description>Saturday list</description>
+                    <posx>993</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.SaturdayList,1,Home)</onup>
+                    <ondown>205</ondown>
+                    <onleft>204</onleft>
+                    <onright>206</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(205)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(205)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+                <control type="list" id="206">
+                    <description>Sunday list</description>
+                    <posx>1168</posx>
+                    <posy>219</posy>
+                    <width>175</width>
+                    <height>675</height>
+                    <orientation>vertical</orientation>
+                    <scrolltime>0</scrolltime>
+                    <onup>9010</onup>
+                    <onup>SetProperty(TVGuide.SundayList,1,Home)</onup>
+                    <ondown>206</ondown>
+                    <onleft>205</onleft>
+                    <onright>200</onright>
+                    <itemgap>0</itemgap>
+                    <itemlayout height="135" width="175">
+                        <include>TVGuideItemLayout</include>
+                    </itemlayout>
+                    <focusedlayout height="135" width="175">
+                        <control type="group">
+                            <visible>Control.HasFocus(206)</visible>
+                            <include>TVGuideFocusedLayoutFocus</include>
+                        </control>
+                        <control type="group">
+                            <visible>!Control.HasFocus(206)</visible>
+                            <include>TVGuideFocusedLayoutNoFocus</include>
+                        </control>
+                        <include>TVGuideFocusedLayoutImage</include>
+                    </focusedlayout>
+                </control>
+            </control>  
+            <control type="group">
+                <description>Additional show info</description>
+                <posx>1357</posx>
+                <posy>120</posy>
+                <control type="label">
+                    <include>TVGuideInfoEpisodeTitleVars</include>
+                    <label>$VAR[TVGuideInfoLabel]</label>
+                </control>
+                <control type="image">
+                    <include>TVGuideInfoFanartVars</include>
+                    <texture background="true">$VAR[TVGuideInfoFanart]</texture>
+                    <visible>Control.IsVisible(2000)</visible>
+                </control>
+                <control type="image" id="2000">
+                    <include>TVGuideInfoFanartVars</include>
+                    <texture background="true">$VAR[TVGuideInfoLandscape]</texture>
+                    <visible>!IsEmpty(Window(Home).Property(TVGuide.PreviewThumbs)) + ![Control.HasFocus(200) + stringcompare(Control.GetLabel(2001),.)] + ![Control.HasFocus(201) + stringcompare(Control.GetLabel(2002),.)] + ![Control.HasFocus(202) + stringcompare(Control.GetLabel(2003),.)] + ![Control.HasFocus(203) + stringcompare(Control.GetLabel(2004),.)] + ![Control.HasFocus(204) + stringcompare(Control.GetLabel(2005),.)] + ![Control.HasFocus(205) + stringcompare(Control.GetLabel(2006),.)] + ![Control.HasFocus(206) + stringcompare(Control.GetLabel(2007),.)]</visible>
+                </control>
 
-				<control type="image" id="2001">
-				    <texture background="true" fallback=".">$INFO[Container(200).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2002">
-				    <texture background="true" fallback=".">$INFO[Container(201).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2003">
-				    <texture background="true" fallback=".">$INFO[Container(202).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2004">
-				    <texture background="true" fallback=".">$INFO[Container(203).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2005">
-				    <texture background="true" fallback=".">$INFO[Container(204).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2006">
-				    <texture background="true" fallback=".">$INFO[Container(205).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				<control type="image" id="2007">
-				    <texture background="true" fallback=".">$INFO[Container(206).ListItem.Property(Path),,landscape.jpg]</texture>
-				    <visible>false</visible>
-				</control>
-				
-				<control type="group">
-					<posx>15</posx>
-					<posy>340</posy>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>0</posy>
-						<label>$LOCALIZE[21442]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNextTitle][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>62</posy>
-						<label>$LOCALIZE[2050]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoRuntime][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>124</posy>
-						<label>$LOCALIZE[515]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoGenres][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>186</posy>
-						<label>$LOCALIZE[552]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNextDate][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>248</posy>
-						<label>$LOCALIZE[555]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoShortTime][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>310</posy>
-						<label>$LOCALIZE[42161]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoNetwork][/COLOR]</label2>
-					</control>
-					<control type="button">
-						<include>TVGuideInfoButtonVars</include>
-						<posy>372</posy>
-						<label>$LOCALIZE[21875]</label>
-						<label2>[COLOR=FF585858]$VAR[TVGuideInfoCountry][/COLOR]</label2>
-					</control>
-				</control>
-			</control>
-		</control>
-		<include>FadeBackgroundTwo</include>
-		<control type="group" id="9000">
-			<posx>267</posx>
-			<posy>517</posy>
-			<include>OptionsAnimations</include>
-			<animation effect="slide" start="0" end="-204" time="0" condition="Skin.HasSetting(HideShutdownButton)">Conditional</animation>		
-			<control type="group">
-				<include>OptionsPanelAnimations</include>
-				<control type="image">
-					<description>shadow image</description>
-					<posx>5</posx>
-					<posy>505</posy>
-					<height>60</height>
-					<width>442</width>
-					<texture>dialogs/shutdown/shutdown_shadow.png</texture>
-					<aspectratio>stretch</aspectratio>
-					<include>StageVisibility</include>
-				</control>
-				<control type="image">
-					<description>background image</description>
-					<posx>0</posx>
-					<posy>0</posy>
-					<height>540</height>
-					<width>442</width>
-					<texture>dialogs/shutdown/shutdown.png</texture>
-					<aspectratio>stretch</aspectratio>
-				</control>
-			</control>
-			<control type="grouplist" id="9111">
-				<posx>19</posx>
-				<posy>47</posy>
-				<width>404</width>
-				<height>399</height>
-				<itemgap>0</itemgap>
-				<onleft>9001</onleft>
-				<onright>9001</onright>
-				<onup>9111</onup>
-				<ondown>9111</ondown>
-				<include>GeneralOptionsAnimations</include>
-				<control type="button" id="8">
-					<description>Settings</description>
-					<include>optionsbuttonsdimensions</include>
-					<label>5</label>
-					<texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
-					<texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
-					<onleft>ClearProperty(TVGuide.MondayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.TuesdayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.WednesdayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.ThursdayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.FridayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.SaturdayList,Home)</onleft>
-					<onleft>ClearProperty(TVGuide.SundayList,Home)</onleft>
-					<onright>ClearProperty(TVGuide.MondayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.FridayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
-					<onright>ClearProperty(TVGuide.SundayList,Home)</onright>
-				</control>
-			</control>
-			<control type="group">
-				<include>GeneralOptionsAnimations</include>
-				<control type="image">
-					<posx>9</posx>
-					<posy>433</posy>
-					<width>100</width>
-					<height>100</height>
-					<aspect>keep</aspect>
-					<texture>buttons/options_nofo.png</texture>
-				</control>
-				<control type="label">
-					<posx>94</posx>
-					<posy>470</posy>
-					<width>300</width>
-					<height>18</height>
-					<label>$LOCALIZE[41600]</label>
-					<font>Font-Condensed-S34-B</font>
-					<textcolor>66000000</textcolor>
-				</control>
-				<control type="label">
-					<posx>94</posx>
-					<posy>471</posy>
-					<width>300</width>
-					<height>18</height>
-					<label>$LOCALIZE[41600]</label>
-					<font>Font-Condensed-S34-B</font>
-					<textcolor>ddwhite</textcolor>
-				</control>
-			</control>
-		</control>
-		<include>FadeBackground</include>
-		<include>Common-Info</include>
-	</controls>
+                <control type="image" id="2001">
+                    <texture background="true" fallback=".">$INFO[Container(200).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2002">
+                    <texture background="true" fallback=".">$INFO[Container(201).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2003">
+                    <texture background="true" fallback=".">$INFO[Container(202).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2004">
+                    <texture background="true" fallback=".">$INFO[Container(203).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2005">
+                    <texture background="true" fallback=".">$INFO[Container(204).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2006">
+                    <texture background="true" fallback=".">$INFO[Container(205).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                <control type="image" id="2007">
+                    <texture background="true" fallback=".">$INFO[Container(206).ListItem.Property(Path),,landscape.jpg]</texture>
+                    <visible>false</visible>
+                </control>
+                
+                <control type="group">
+                    <posx>15</posx>
+                    <posy>340</posy>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>0</posy>
+                        <label>$LOCALIZE[21442]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoNextTitle][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>62</posy>
+                        <label>$LOCALIZE[2050]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoRuntime][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>124</posy>
+                        <label>$LOCALIZE[515]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoGenres][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>186</posy>
+                        <label>$LOCALIZE[552]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoNextDate][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>248</posy>
+                        <label>$LOCALIZE[555]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoShortTime][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>310</posy>
+                        <label>$LOCALIZE[42161]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoNetwork][/COLOR]</label2>
+                    </control>
+                    <control type="button">
+                        <include>TVGuideInfoButtonVars</include>
+                        <posy>372</posy>
+                        <label>$LOCALIZE[21875]</label>
+                        <label2>[COLOR=FF585858]$VAR[TVGuideInfoCountry][/COLOR]</label2>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <include>FadeBackgroundTwo</include>
+        <control type="group" id="9000">
+            <posx>267</posx>
+            <posy>517</posy>
+            <include>OptionsAnimations</include>
+            <animation effect="slide" start="0" end="-204" time="0" condition="Skin.HasSetting(HideShutdownButton)">Conditional</animation>     
+            <control type="group">
+                <include>OptionsPanelAnimations</include>
+                <control type="image">
+                    <description>shadow image</description>
+                    <posx>5</posx>
+                    <posy>505</posy>
+                    <height>60</height>
+                    <width>442</width>
+                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                    <include>StageVisibility</include>
+                </control>
+                <control type="image">
+                    <description>background image</description>
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <height>540</height>
+                    <width>442</width>
+                    <texture>dialogs/shutdown/shutdown.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                </control>
+            </control>
+            <control type="grouplist" id="9111">
+                <posx>19</posx>
+                <posy>47</posy>
+                <width>404</width>
+                <height>399</height>
+                <itemgap>0</itemgap>
+                <onleft>9001</onleft>
+                <onright>9001</onright>
+                <onup>9111</onup>
+                <ondown>9111</ondown>
+                <include>GeneralOptionsAnimations</include>
+                <control type="button" id="8">
+                    <description>Settings</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>5</label>
+                    <texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
+                    <texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
+                    <onleft>ClearProperty(TVGuide.MondayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.TuesdayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.WednesdayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.ThursdayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.FridayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.SaturdayList,Home)</onleft>
+                    <onleft>ClearProperty(TVGuide.SundayList,Home)</onleft>
+                    <onright>ClearProperty(TVGuide.MondayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.TuesdayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.WednesdayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.ThursdayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.FridayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.SaturdayList,Home)</onright>
+                    <onright>ClearProperty(TVGuide.SundayList,Home)</onright>
+                </control>
+            </control>
+            <control type="group">
+                <include>GeneralOptionsAnimations</include>
+                <control type="image">
+                    <posx>9</posx>
+                    <posy>433</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspect>keep</aspect>
+                    <texture>buttons/options_nofo.png</texture>
+                </control>
+                <control type="label">
+                    <posx>94</posx>
+                    <posy>470</posy>
+                    <width>300</width>
+                    <height>18</height>
+                    <label>$LOCALIZE[41600]</label>
+                    <font>Font-Condensed-S34-B</font>
+                    <textcolor>66000000</textcolor>
+                </control>
+                <control type="label">
+                    <posx>94</posx>
+                    <posy>471</posy>
+                    <width>300</width>
+                    <height>18</height>
+                    <label>$LOCALIZE[41600]</label>
+                    <font>Font-Condensed-S34-B</font>
+                    <textcolor>ddwhite</textcolor>
+                </control>
+            </control>
+        </control>
+        <include>FadeBackground</include>
+        <include>Common-Info</include>
+    </controls>
 </window>

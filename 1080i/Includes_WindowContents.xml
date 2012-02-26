@@ -1,620 +1,612 @@
 <includes>
-	
+    
 <!-- ========== -->
 <!-- Dimensions -->
 <!-- ========== -->
 
-	<include name="FullscreenDimensions">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>1920</width>
-		<height>1080</height>
-		<aspectratio>stretch</aspectratio>
-	</include>
+    <include name="FullscreenDimensions">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>1920</width>
+        <height>1080</height>
+        <aspectratio>stretch</aspectratio>
+    </include>
 
 <!-- ================================================== -->
 <!-- Common Items: Stage, Shutdown, Options, Clock etc. -->
-<!-- ================================================== -->	
+<!-- ================================================== --> 
 
-	<include name="CommonItems">
-		<include>CommonContent</include>
-		<include>BackgroundFanart</include>
-		<control type="image">
-			<description>Back Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">views/thumb/panels/back-vignette.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>Animation_FanartFade</include>
-			<include>StageHidden</include>
-		</control>
-		<include>CommonStage</include>
-	</include>
-	<include name="CommonItemsMusicOSD">
-		<include condition="!Skin.HasSetting(OSDBackground.Disabled)">CommonContent</include>
-		<include condition="!Skin.HasSetting(OSDBackground.Disabled)">BackgroundFanartMusicOSD</include>
-		<include condition="Skin.HasSetting(OSDVisualisation.Enabled)">OSDVisualisation</include>
-		<control type="image">
-			<animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
-		</control>
-		<control type="image">
-			<description>Back Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">views/thumb/panels/back-vignette.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>Animation_FanartFade</include>
-			<visible>!Skin.HasSetting(OSDMusicAlt.Enabled)</visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/stage-musicvis.png</texture>
-			<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="Hidden">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="Visible">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
-			</animation>
-		</control>
-    	<include condition="!Skin.HasSetting(OSDMusicAlt.Enabled)">Common-Info-NoOptions</include>
-	</include>
-	<include name="CommonSettingsItems">
-		<include>CommonContent</include>
-		<control type="image">
-			<description>Back Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture>views/thumb/panels/back-vignette.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<include>Animation_FanartFade</include>
-		</control>
-	</include>
-	
-	<include name="CommonWeatherFanart">		
-		<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>600</fadetime>
-			<loop>yes</loop>
-			<include>Animation_FanartFade</include>
-			<imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
-			<visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + [Window.IsVisible(weather) | [[[Container(20).HasFocus(11) + !Skin.HasSetting(HomeNew.Enabled)] | [Container(20).HasFocus(7) + Skin.HasSetting(HomeNew.Enabled)]] + Skin.HasSetting(ShowWeatherFanartHome)]] + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-	</include>
-	
+    <include name="CommonItems">
+        <include>CommonContent</include>
+        <include>BackgroundFanart</include>
+        <control type="image">
+            <description>Back Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">views/thumb/panels/back-vignette.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <include>Animation_FanartFade</include>
+            <include>StageHidden</include>
+        </control>
+        <include>CommonStage</include>
+    </include>
+    <include name="CommonItemsMusicOSD">
+        <include condition="!Skin.HasSetting(OSDBackground.Disabled)">CommonContent</include>
+        <include condition="!Skin.HasSetting(OSDBackground.Disabled)">BackgroundFanartMusicOSD</include>
+        <include condition="Skin.HasSetting(OSDVisualisation.Enabled)">OSDVisualisation</include>
+        <control type="image">
+            <animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
+        </control>
+        <control type="image">
+            <description>Back Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">views/thumb/panels/back-vignette.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <include>Animation_FanartFade</include>
+            <visible>!Skin.HasSetting(OSDMusicAlt.Enabled)</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/stage-musicvis.png</texture>
+            <visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
+            </animation>
+        </control>
+        <include condition="!Skin.HasSetting(OSDMusicAlt.Enabled)">Common-Info-NoOptions</include>
+    </include>
+    <include name="CommonSettingsItems">
+        <include>CommonContent</include>
+        <control type="image">
+            <description>Back Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture>views/thumb/panels/back-vignette.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <include>Animation_FanartFade</include>
+        </control>
+    </include>
+    
+    <include name="CommonWeatherFanart">        
+        <control type="multiimage">
+            <include>FullscreenDimensions</include>
+            <timeperimage>10000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>600</fadetime>
+            <loop>yes</loop>
+            <include>Animation_FanartFade</include>
+            <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+            <visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + [Window.IsVisible(weather) | [[[Container(20).HasFocus(11) + !Skin.HasSetting(HomeNew.Enabled)] | [Container(20).HasFocus(7) + Skin.HasSetting(HomeNew.Enabled)]] + Skin.HasSetting(ShowWeatherFanartHome)]] + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
+        </control>
+    </include>
+    
 <!-- ============== -->
 <!-- Home Backdrops -->
 <!-- ============== -->
 
-	<include name="HomeCustomBackdrops">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<include>Animation_FanartFade</include>
-			<fadetime>600</fadetime>
-			<texture background="true">$INFO[Container(20).ListItem.property(single)]</texture>
-			<visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control> 
-		<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>600</fadetime>
-			<loop>yes</loop>
-			<include>Animation_FanartFade</include>
-			<imagepath background="true">$INFO[Container(20).ListItem.property(multi)]</imagepath>
-			<visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control> 
-		<include>CommonWeatherFanart</include>
-		<control type="image">
-			<description>Search results fanart</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">$INFO[Window(Home).Property(fanart_image)]</texture>
-			<fadetime>500</fadetime>
-			<include>Animation_FanartFade</include>
-			<visible>!IsEmpty(Window(Home).property(fanart_image)) + Skin.HasSetting(HomeNew.Enabled)</visible>
-		</control>
-		<control type="image">
-		    <include>FullscreenDimensions</include>
-		    <texture>windows/common/white_content.png</texture>
-		    <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
-		    <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
-		    <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
-		    <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
-		    <visible>IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
-		</control>
-		<control type="image">
-		    <include>FullscreenDimensions</include>
-		    <texture>windows/common/black_content.png</texture>
-		    <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
-		    <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
-		    <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
-		    <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-		    <visible>!IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
-		</control>
-	</include>
+    <include name="HomeCustomBackdrops">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <include>Animation_FanartFade</include>
+            <fadetime>600</fadetime>
+            <texture background="true">$INFO[Container(20).ListItem.property(single)]</texture>
+            <visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
+        </control> 
+        <control type="multiimage">
+            <include>FullscreenDimensions</include>
+            <timeperimage>10000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>600</fadetime>
+            <loop>yes</loop>
+            <include>Animation_FanartFade</include>
+            <imagepath background="true">$INFO[Container(20).ListItem.property(multi)]</imagepath>
+            <visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
+        </control> 
+        <include>CommonWeatherFanart</include>
+        <control type="image">
+            <description>Search results fanart</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Window(Home).Property(fanart_image)]</texture>
+            <fadetime>500</fadetime>
+            <include>Animation_FanartFade</include>
+            <visible>!IsEmpty(Window(Home).property(fanart_image)) + Skin.HasSetting(HomeNew.Enabled)</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/white_content.png</texture>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
+            <visible>IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black_content.png</texture>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
+            <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
+            <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
+            <visible>!IsEmpty(Skin.String(stage.customImage)) + !Window.IsVisible(script-globalsearch-infodialog.xml) + Skin.HasSetting(HomeNew.Enabled)</visible>
+        </control>
+    </include>
 
 <!-- ============== -->
 <!-- Skin Backdrops -->
 <!-- ============== -->
-	
-	<include name="CommonContent">
-		<control type="image">
-			<animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
-		</control>
-		<control type="image">
-			<description>Custom Wallpaper Image</description>
-			<include>FullscreenDimensions</include>
-			<texture fallback="special://skin/extras/backgrounds/01.jpg">$INFO[Skin.String(GlobalBackdropSingle)]</texture>
-			<visible>IsEmpty(Skin.String(GlobalBackdropMulti)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-		<control type="multiimage">
-			<description>Custom Wallpaper Image</description>
-			<include>FullscreenDimensions</include>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>600</fadetime>
-			<loop>yes</loop>
-			<imagepath background="true">$INFO[Skin.String(GlobalBackdropMulti)]</imagepath>
-			<visible>!IsEmpty(Skin.String(GlobalBackdropMulti)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-		<include>BackgroundVideo</include>
-	</include>
-	
-	<include name="BackgroundVideo">
-		<control type="videowindow">
-			<include>FullscreenDimensions</include>
-			<visible>Skin.HasSetting(BackgroundVideo) + Player.HasVideo</visible>
-		</control>
-	</include>
+    
+    <include name="CommonContent">
+        <control type="image">
+            <animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
+        </control>
+        <control type="image">
+            <description>Custom Wallpaper Image</description>
+            <include>FullscreenDimensions</include>
+            <texture fallback="special://skin/extras/backgrounds/01.jpg">$INFO[Skin.String(GlobalBackdropSingle)]</texture>
+            <visible>IsEmpty(Skin.String(GlobalBackdropMulti)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+        </control>
+        <control type="multiimage">
+            <description>Custom Wallpaper Image</description>
+            <include>FullscreenDimensions</include>
+            <timeperimage>10000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>600</fadetime>
+            <loop>yes</loop>
+            <imagepath background="true">$INFO[Skin.String(GlobalBackdropMulti)]</imagepath>
+            <visible>!IsEmpty(Skin.String(GlobalBackdropMulti)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+        </control>
+        <include>BackgroundVideo</include>
+    </include>
+    
+    <include name="BackgroundVideo">
+        <control type="videowindow">
+            <include>FullscreenDimensions</include>
+            <visible>Skin.HasSetting(BackgroundVideo) + Player.HasVideo</visible>
+        </control>
+    </include>
 
 <!-- ===== -->
 <!-- Stage -->
 <!-- ===== -->
 
-	<include name="StageVisibility">
-		<visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(58) + !Control.IsVisible(60) + !Control.IsVisible(61) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
-	</include>
-	<include name="StageHidden">
-		<visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(60) | Control.IsVisible(61) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Window.IsActive(1122) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
-	</include>
-	<include name="CommonStage">
-		<control type="group">
-			<include>StageVisibility</include>
-			<animation type="WindowClose" condition="[Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)] | [Window.Next(videos) + [stringcompare(Window(Home).property(NextStage),0) | stringcompare(Window(PlayerControls).property(NextStage),0) | IsEmpty(Window(Home).property(NextStage)) | IsEmpty(Window(PlayerControls).property(NextStage))]]" reversible="false">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
-				<effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
-			</animation>
-			<animation type="WindowOpen" condition="Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
-			</animation>
-			<animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + !Window.IsVisible(videos) + Window.Previous(videos) + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
-			</animation>
-			<animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + Window.IsVisible(videos) + Window.Previous(videos) + [stringcompare(Window(Home).property(NextStage),1) | stringcompare(Window(PlayerControls).property(NextStage),1)] + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
-			</animation>
-			<animation type="WindowClose" condition="Window.Next(programs)|Window.Next(pictures)|Window.Next(screencalibration)|Window.Next(scripts)|Window.Next(videoplaylist)|Window.Next(musicplaylist)|Window.Next(musicfiles)|Window.Next(musiclibrary)|Window.Next(addonbrowser)|Window.Next(settings)|Window.Next(picturessettings)|Window.Next(programssettings)|Window.Next(weathersettings)|Window.Next(musicsettings)|Window.Next(systemsettings)|Window.Next(videossettings)|Window.Next(networksettings)|Window.Next(appearancesettings)|Window.Next(profiles)|Window.Next(filemanager)|Window.Next(LoginScreen)|Window.Next(systeminfo)|Window.Next(1111)|Window.Next(visualisation)|Window.Next(script-NextAired-TVGuide.xml)" reversible="false">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
-				<effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
-			</animation>
-			<animation type="WindowOpen" condition="Window.Previous(programs)|Window.Previous(pictures)|Window.Previous(screencalibration)|Window.Previous(scripts)|Window.Previous(videoplaylist)|Window.Previous(LoginScreen)|Window.Previous(musicplaylist)|Window.Previous(musicfiles)|Window.Previous(musiclibrary)|Window.Previous(addonbrowser)|Window.Previous(settings)|Window.Previous(picturessettings)|Window.Previous(programssettings)|Window.Previous(weathersettings)|Window.Previous(musicsettings)|Window.Previous(systemsettings)|Window.Previous(videossettings)|Window.Previous(networksettings)|Window.Previous(appearancesettings)|Window.Previous(profiles)|Window.Previous(startup)|Window.Previous(filemanager)|Window.Previous(LoginScreen)|Window.Previous(systeminfo)|Window.Previous(1111)|Window.Previous(visualisation)|Window.Previous(script-NextAired-TVGuide.xml)" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" delay="300" time="350" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" delay="300" time="350" />
-			</animation>
-			<animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" delay="0" time="300" />
-				<effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" delay="0" time="300" />
-			</animation>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture background="true" fallback="windows/common/stage.png">$INFO[Skin.String(stage.customImage)]</texture>
-			</control>
-		</control>
-	</include>
-	
+    <include name="StageVisibility">
+        <visible>!Control.IsVisible(50) + !Control.IsVisible(55) + !Control.IsVisible(56) + !Control.IsVisible(57) + !Control.IsVisible(58) + !Control.IsVisible(60) + !Control.IsVisible(61) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Skin.HasSetting(stage.hidden) + ![Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] + ![Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+    </include>
+    <include name="StageHidden">
+        <visible>Control.IsVisible(50) | Control.IsVisible(55) | Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58) | Control.IsVisible(60) | Control.IsVisible(61) | Window.IsVisible(LoginScreen) | Window.IsActive(movieinformation) | Window.IsActive(1122) | Skin.HasSetting(stage.hidden) | [Window.IsVisible(videos) + Skin.HasSetting(stage.hiddenViews)] | [Window.IsVisible(home) + Skin.HasSetting(stage.hiddenHome)] | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+    </include>
+    <include name="CommonStage">
+        <control type="group">
+            <include>StageVisibility</include>
+            <animation type="WindowClose" condition="[Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)] | [Window.Next(videos) + [stringcompare(Window(Home).property(NextStage),0) | stringcompare(Window(PlayerControls).property(NextStage),0) | IsEmpty(Window(Home).property(NextStage)) | IsEmpty(Window(PlayerControls).property(NextStage))]]" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
+                <effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
+            </animation>
+            <animation type="WindowOpen" condition="Skin.HasSetting(stage.hiddenHome) | Skin.HasSetting(stage.hiddenViews)" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
+            </animation>
+            <animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + !Window.IsVisible(videos) + Window.Previous(videos) + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
+            </animation>
+            <animation type="WindowOpen" condition="!Skin.HasSetting(stage.hiddenHome) + !Skin.HasSetting(stage.hiddenViews) + Window.IsVisible(videos) + Window.Previous(videos) + [stringcompare(Window(Home).property(NextStage),1) | stringcompare(Window(PlayerControls).property(NextStage),1)] + stringcompare(Window(Home).property(PreviousStage),0)" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
+            </animation>
+            <animation type="WindowClose" condition="Window.Next(programs)|Window.Next(pictures)|Window.Next(screencalibration)|Window.Next(scripts)|Window.Next(videoplaylist)|Window.Next(musicplaylist)|Window.Next(musicfiles)|Window.Next(musiclibrary)|Window.Next(addonbrowser)|Window.Next(settings)|Window.Next(picturessettings)|Window.Next(programssettings)|Window.Next(weathersettings)|Window.Next(musicsettings)|Window.Next(systemsettings)|Window.Next(videossettings)|Window.Next(networksettings)|Window.Next(appearancesettings)|Window.Next(profiles)|Window.Next(filemanager)|Window.Next(LoginScreen)|Window.Next(systeminfo)|Window.Next(1111)|Window.Next(visualisation)|Window.Next(weather)|Window.Next(script-NextAired-TVGuide.xml)" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" delay="250" time="350" />
+                <effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" delay="250" time="350" />
+            </animation>
+            <animation type="WindowOpen" condition="Window.Previous(programs)|Window.Previous(pictures)|Window.Previous(screencalibration)|Window.Previous(scripts)|Window.Previous(videoplaylist)|Window.Previous(LoginScreen)|Window.Previous(musicplaylist)|Window.Previous(musicfiles)|Window.Previous(musiclibrary)|Window.Previous(addonbrowser)|Window.Previous(settings)|Window.Previous(picturessettings)|Window.Previous(programssettings)|Window.Previous(weathersettings)|Window.Previous(musicsettings)|Window.Previous(systemsettings)|Window.Previous(videossettings)|Window.Previous(networksettings)|Window.Previous(appearancesettings)|Window.Previous(profiles)|Window.Previous(startup)|Window.Previous(filemanager)|Window.Previous(LoginScreen)|Window.Previous(systeminfo)|Window.Previous(1111)|Window.Previous(visualisation)|Window.Previous(weather)|Window.Previous(script-NextAired-TVGuide.xml)" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="350" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" time="350" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,0" end="0,200" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" delay="300" time="350" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" delay="300" time="350" />
+            </animation>
+            <animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" delay="0" time="300" />
+                <effect type="slide" start="0,200" end="0,0" tween="sine" easing="out" delay="0" time="300" />
+            </animation>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture background="true" fallback="windows/common/stage.png">$INFO[Skin.String(stage.customImage)]</texture>
+            </control>
+        </control>
+    </include>
+    
 <!-- ====== -->
 <!-- Fanart -->
 <!-- ====== -->
 
-	<include name="BackgroundFanart">
-		<control type="image">
-			<description>List Panel fanart</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">$INFO[listitem.property(fanart_image)]</texture>
-			<fadetime>500</fadetime>
-			<include>Animation_FanartFade</include>
-			<visible>!Skin.HasSetting(HideFanart) + !Container.Content(addons) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-		<control type="image">
-			<description>List Panel fanart</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">$INFO[Window(movieinformation).property(fanart_image)]</texture>
-			<fadetime>500</fadetime>
-			<include>Animation_FanartFade</include>
-			<visible>!IsEmpty(Window(movieinformation).property(fanart_image)) + Window.IsActive(movieinformation) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_content.png</texture>
-			<colordiffuse>D5FFFFFF</colordiffuse>
-			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
-			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
-			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out" condition="IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
-			<animation effect="fade" time="300" start="0" end="100" delay="500" tween="sine" easing="out" condition="!IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
-			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(60) | Control.IsVisible(61) | Skin.HasSetting(dimfanart) | [Window.IsActive(contextmenu) + !Control.IsVisible(60) + !Window.IsVisible(addoninformation)]] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture border="2" background="true">windows/common/black.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<animation effect="fade" time="300" start="0" end="65" tween="sine" easing="out">Visible</animation>
-			<animation effect="fade" time="300" start="65" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>Window.IsActive(contextmenu) + [Control.IsVisible(60) | Control.IsVisible(61)]</visible>
-		</control>
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>views/posterview/stage.png</texture>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="Hidden">
-				<effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
-				<effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
-			</animation>
-			<animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" delay="300" time="300" />
-				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" delay="300" time="300" />
-			</animation>
-			<animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))">
-				<effect type="fade" start="0" end="100" tween="sine" easing="out" delay="500" time="300" />
-				<effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" delay="500" time="300" />
-			</animation>
-			<visible>[Control.IsVisible(55) | Control.IsVisible(57)] + !Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122)</visible>
-		</control>
-	</include>
-	<include name="BackgroundFanartMusicOSD">
-		<control type="image">
-			<description>Music OSD fanart</description>
-			<include>FullscreenDimensions</include>
-			<texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
-			<fadetime>500</fadetime>
-			<include>Animation_FanartFade</include>
-			<visible>!Skin.HasSetting(ArtistSlideShow)</visible>
-		</control>
-		<control type="multiimage">
-			<include>FullscreenDimensions</include>
-			<timeperimage>10000</timeperimage>
-			<randomize>true</randomize>
-			<fadetime>600</fadetime>
-			<loop>yes</loop>
-			<include>Animation_FanartFade</include>
-			<imagepath background="true">$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</imagepath>
-			<visible>Skin.HasSetting(ArtistSlideShow)</visible>
-		</control> 
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture background="true">windows/common/black_content.png</texture>
-			<colordiffuse>E5FFFFFF</colordiffuse>
-			<visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
-			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
-			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
-			<animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
-			<animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
-		</control>
-	</include>
+    <include name="BackgroundFanart">
+        <control type="image">
+            <description>List Panel fanart</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[listitem.property(fanart_image)]</texture>
+            <fadetime>500</fadetime>
+            <include>Animation_FanartFade</include>
+            <visible>!Skin.HasSetting(HideFanart) + !Container.Content(addons) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+        </control>
+        <control type="image">
+            <description>List Panel fanart</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[Window(movieinformation).property(fanart_image)]</texture>
+            <fadetime>500</fadetime>
+            <include>Animation_FanartFade</include>
+            <visible>!IsEmpty(Window(movieinformation).property(fanart_image)) + Window.IsActive(movieinformation) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture background="true">windows/common/black_content.png</texture>
+            <colordiffuse>D5FFFFFF</colordiffuse>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out" condition="IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
+            <animation effect="fade" time="300" start="0" end="100" delay="500" tween="sine" easing="out" condition="!IsEmpty(Window(home).property(NoAnimation))">Visible</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
+            <visible>[Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(60) | Control.IsVisible(61) | Skin.HasSetting(dimfanart) | [Window.IsActive(contextmenu) + !Control.IsVisible(60) + !Window.IsVisible(addoninformation)]] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+        </control>
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>views/posterview/stage.png</texture>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" />
+                <effect type="slide" start="0,0" end="0,100" tween="sine" easing="out" time="300" />
+            </animation>
+            <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" delay="300" time="300" />
+                <effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" delay="300" time="300" />
+            </animation>
+            <animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))">
+                <effect type="fade" start="0" end="100" tween="sine" easing="out" delay="500" time="300" />
+                <effect type="slide" start="0,100" end="0,0" tween="sine" easing="out" delay="500" time="300" />
+            </animation>
+            <visible>[Control.IsVisible(55) | Control.IsVisible(57)] + !Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122)</visible>
+        </control>
+    </include>
+    <include name="BackgroundFanartMusicOSD">
+        <control type="image">
+            <description>Music OSD fanart</description>
+            <include>FullscreenDimensions</include>
+            <texture background="true">$INFO[MusicPlayer.Property(Fanart_Image)]</texture>
+            <fadetime>500</fadetime>
+            <include>Animation_FanartFade</include>
+            <visible>!Skin.HasSetting(ArtistSlideShow)</visible>
+        </control>
+        <control type="multiimage">
+            <include>FullscreenDimensions</include>
+            <timeperimage>10000</timeperimage>
+            <randomize>true</randomize>
+            <fadetime>600</fadetime>
+            <loop>yes</loop>
+            <include>Animation_FanartFade</include>
+            <imagepath background="true">$INFO[Skin.String(ArtistSlideShow.CustomFolder)]</imagepath>
+            <visible>Skin.HasSetting(ArtistSlideShow)</visible>
+        </control> 
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture background="true">windows/common/black_content.png</texture>
+            <colordiffuse>E5FFFFFF</colordiffuse>
+            <visible>Player.ShowInfo | Window.IsActive(musicosd)</visible>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">WindowOpen</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">WindowClose</animation>
+            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
+            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
+        </control>
+    </include>
 
 <!-- ============================================= -->
 <!-- Fade Backgrounds (behind dialogs, menus etc.) -->
 <!-- ============================================= -->
 
-	<include name="FadeBlackDefault">
-		<control type="image">
-			<posx>0</posx>
-			<posy>0</posy>
-			<width>1920</width>
-			<height>1080</height>
-			<texture border="2">windows/common/black.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<animation effect="fade" time="200" start="0" end="75">WindowOpen</animation>
-			<animation effect="fade" time="200" start="75" end="0">WindowClose</animation>
-		</control>
-	</include>
-	<include name="FadeBackgroundDialog">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black_content.png</texture>
-			<animation effect="fade" end="80" time="0" condition="Window.IsActive(filemanager)">Conditional</animation>
-			<animation effect="fade" end="60" time="0" condition="Window.IsActive(script-NextAired-TVGuide.xml)">Conditional</animation>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
-			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
-		</control>
-	</include>
-	<include name="FadeBackground">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black_content.png</texture>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="300" condition="!IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
-			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml) | Window.IsActive(script-TvTunes-main.xml)</visible>
-		</control>
-	</include>
-	<include name="FadeBackgroundInfo">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>dialogs/video-info/diffuse.png</texture>
-			<animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="400" tween="sine" easing="out">Hidden</animation>
-			<visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation) | Window.IsActive(1122) | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
-		</control>
-	</include>
-	<include name="FadeBackgroundMovieInfo">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black_content.png</texture>
-			<animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
-			<animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-			<visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput) | Window.IsActive(3004) | Window.IsActive(DialogSelect.xml) | Window.IsActive(script-LibraryEditor-dialogs.xml) | Window.IsActive(script-LibraryEditor-genre.xml)</visible>
-		</control>
-	</include>
-	<include name="FadeBackgroundTwo">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black2.png</texture>
-			<include>OpenCloseAnimationTwo</include>
-			<visible>ControlGroup(9000).HasFocus() + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation) + !Window.IsActive(1122)</visible>
-		</control>
-	</include>
-	<include name="FadeBackgroundThree">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black2.png</texture>
-			<include>OpenCloseAnimationThree</include>
-		</control>
-	</include>
-	<include name="FadeBackgroundFavourites">
-		<control type="image">
-			<include>FullscreenDimensions</include>
-			<texture>windows/common/black_favourites.png</texture>
-			<include>OpenCloseAnimationTwo</include>
-			<visible>Window.IsVisible(favourites)</visible>
-		</control>
-	</include>
-	
+    <include name="FadeBlackDefault">
+        <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>1920</width>
+            <height>1080</height>
+            <texture border="2">windows/common/black.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <animation effect="fade" time="200" start="0" end="75">WindowOpen</animation>
+            <animation effect="fade" time="200" start="75" end="0">WindowClose</animation>
+        </control>
+    </include>
+    <include name="FadeBackgroundDialog">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black_content.png</texture>
+            <animation effect="fade" end="80" time="0" condition="Window.IsActive(filemanager)">Conditional</animation>
+            <animation effect="fade" end="60" time="0" condition="Window.IsActive(script-NextAired-TVGuide.xml)">Conditional</animation>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
+            <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
+        </control>
+    </include>
+    <include name="FadeBackground">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black_content.png</texture>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="300" condition="!IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="IsEmpty(Window(Home).Property(HomeSearch))">Visible</animation>
+            <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
+            <visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(DialogPeripheralManager.xml) | Window.IsActive(DialogPeripheralSettings.xml) | Window.IsActive(script-SetFavourites-Dialog.xml) | Window.IsActive(script-TvTunes-main.xml)</visible>
+        </control>
+    </include>
+    <include name="FadeBackgroundInfo">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>dialogs/video-info/diffuse.png</texture>
+            <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="400" tween="sine" easing="out">Hidden</animation>
+            <visible>Window.IsActive(movieinformation) | Window.IsActive(addoninformation) | Window.IsActive(musicinformation) | Window.IsActive(1122) | Window.IsActive(script-globalsearch-infodialog.xml)</visible>
+        </control>
+    </include>
+    <include name="FadeBackgroundMovieInfo">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black_content.png</texture>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
+            <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
+            <visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput) | Window.IsActive(3004) | Window.IsActive(DialogSelect.xml) | Window.IsActive(script-LibraryEditor-dialogs.xml) | Window.IsActive(script-LibraryEditor-genre.xml)</visible>
+        </control>
+    </include>
+    <include name="FadeBackgroundTwo">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black2.png</texture>
+            <include>OpenCloseAnimationTwo</include>
+            <visible>[ControlGroup(9000).HasFocus() | Window.IsActive(contextmenu)] + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation) + !Window.IsActive(1122)</visible>
+        </control>
+    </include>
+    <include name="FadeBackgroundThree">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black2.png</texture>
+            <include>OpenCloseAnimationThree</include>
+        </control>
+    </include>
+    <include name="FadeBackgroundFavourites">
+        <control type="image">
+            <include>FullscreenDimensions</include>
+            <texture>windows/common/black_favourites.png</texture>
+            <include>OpenCloseAnimationTwo</include>
+            <visible>Window.IsVisible(favourites)</visible>
+        </control>
+    </include>
+    
 <!-- ============== -->
 <!-- Scroll letters -->
 <!-- ============== -->
 
-	<include name="ScrollingLabelLeft">
-		<posx>26</posx>
-		<posy>32</posy>
-		<width>132</width>
-		<height>132</height>
-		<font>Font-Condensed-S80-B</font>
-		<align>center</align>
-		<aligny>top</aligny>
-		<textoffsety>12</textoffsety>
-		<textcolor>MenuGrey</textcolor>
-		<textshadow>white</textshadow>
-	</include>
-	<include name="ScrollingLabelRight">
-		<posx>44</posx>
-		<posy>32</posy>
-		<width>132</width>
-		<height>132</height>
-		<font>Font-Condensed-S80-B</font>
-		<align>center</align>
-		<aligny>top</aligny>
-		<textoffsety>12</textoffsety>
-		<textcolor>MenuGrey</textcolor>
-		<textshadow>white</textshadow>
-	</include>
-	<include name="ScrollingEntitiesLeft">
-		<animation type="Visible" reversible="false">
-			<effect type="slide" start="-10" end="0" time="300" delay="0" tween="sine" easing="in" />
-		 	<effect type="fade" start="0" end="100" time="200" delay="100" tween="sine" easing="in" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="slide" start="0" end="-10" delay="1500" time="300" tween="sine" easing="in" />
-		 	<effect type="fade" start="100" end="0" delay="1500" time="300" tween="sine" easing="out" />
-		</animation>
-		<control type="image">
-		 	<posx>0</posx>
-		  	<posy>0</posy>
-		  	<width>200</width>
-		  	<height>200</height>
-		  	<texture flipx="true">dialogs/other/alphapanel.png</texture>
-		</control>
-	</include>
-	<include name="ScrollingEntitiesRight">
-		<animation type="Visible" reversible="false">
-			<effect type="slide" start="10" end="0" time="300" delay="0" tween="sine" easing="in" />
-		 	<effect type="fade" start="0" end="100" time="200" delay="100" tween="sine" easing="in" />
-		</animation>
-		<animation type="Hidden">
-			<effect type="slide" start="0" end="10" delay="1500" time="300" tween="sine" easing="in" />
-		 	<effect type="fade" start="100" end="0" delay="1500" time="300" tween="sine" easing="out" />
-		</animation>
-		<control type="image">
-		 	<posx>0</posx>
-		  	<posy>0</posy>
-		  	<width>200</width>
-		  	<height>200</height>
-		  	<texture>dialogs/other/alphapanel.png</texture>
-		</control>
-	</include>
-	<include name="ScrollLetterList">
-		<control type="group">
-			<posx>895</posx>
-			<posy>380</posy>
-			<include>ScrollingEntitiesRight</include>
-			<control type="label">
-				<include>ScrollingLabelRight</include>
-				<label>$INFO[ListItem.SortLetter]</label>
-			</control>
-			<visible>[Container(52).Scrolling | Container(54).Scrolling] + !Container.Content(Seasons)</visible>
-		</control>
-	</include>
-	<include name="ScrollLetterPosterView">
-		<control type="group">
-			<posx>535</posx>
-			<posy>490</posy>
-			<include>ScrollingEntitiesRight</include>
-			<control type="label">
-				<include>ScrollingLabelRight</include>
-				<label>$INFO[ListItem.SortLetter]</label>
-			</control>
-			<visible>[Container(55).Scrolling | Container(57).Scrolling] + !Container.Content(Seasons)</visible>
-		</control>
-	</include>
-	<include name="ScrollLetterDefault">
-		<control type="group">
-			<posx>1670</posx>
-			<posy>424</posy>
-			<include>ScrollingEntitiesRight</include>
-			<control type="label">
-				<include>ScrollingLabelRight</include>
-				<label>$INFO[ListItem.SortLetter]</label>
-			</control>
-			<visible>[Container(50).Scrolling | Container(56).Scrolling | Container(58).Scrolling] + !Container.Content(Seasons)</visible>
-		</control>
-	</include>
-	<include name="ScrollLetterFileManager">
-		<control type="group">
-			<posx>58</posx>
-			<posy>431</posy>
-			<include>ScrollingEntitiesLeft</include>
-			<control type="label">
-				<include>ScrollingLabelLeft</include>
-				<label>$INFO[Container(20).ListItem.SortLetter]</label>
-			</control>
-			<visible>Container(20).Scrolling</visible>
-		</control>
-		<control type="group">
-			<posx>1662</posx>
-			<posy>431</posy>
-			<include>ScrollingEntitiesRight</include>
-			<control type="label">
-				<include>ScrollingLabelRight</include>
-				<label>$INFO[Container(21).ListItem.SortLetter]</label>
-			</control>
-			<visible>Container(21).Scrolling</visible>
-		</control>
-	</include>
-	<include name="ScrollLetterPlaylistEditor">
-		<control type="group">
-			<posx>58</posx>
-			<posy>431</posy>
-			<include>ScrollingEntitiesLeft</include>
-			<control type="label">
-				<include>ScrollingLabelLeft</include>
-				<label>$INFO[Container(50).ListItem.SortLetter]</label>
-			</control>
-			<visible>Container(50).Scrolling</visible>
-		</control>
-		<control type="group">
-			<posx>1662</posx>
-			<posy>431</posy>
-			<include>ScrollingEntitiesRight</include>
-			<control type="label">
-				<include>ScrollingLabelRight</include>
-				<label>$INFO[Container(100).ListItem.SortLetter]</label>
-			</control>
-			<visible>Container(100).Scrolling</visible>
-		</control>
-	</include>
-	<include name="ScrollLetterFileBrowser">
-		<control type="group">
-			<posx>275</posx>
-			<posy>440</posy>
-			<include>ScrollingEntitiesLeft</include>
-			<control type="label">
-				<include>ScrollingLabelLeft</include>
-				<label>$INFO[Container(450).ListItem.SortLetter]</label>
-			</control>
-			<visible>Container(450).Scrolling</visible>
-		</control>
-	</include>
-	
+    <include name="ScrollingLabelLeft">
+        <posx>26</posx>
+        <posy>32</posy>
+        <width>132</width>
+        <height>132</height>
+        <font>Font-Condensed-S80-B</font>
+        <align>center</align>
+        <aligny>top</aligny>
+        <textoffsety>12</textoffsety>
+        <textcolor>MenuGrey</textcolor>
+        <textshadow>white</textshadow>
+    </include>
+    <include name="ScrollingLabelRight">
+        <posx>44</posx>
+        <posy>32</posy>
+        <width>132</width>
+        <height>132</height>
+        <font>Font-Condensed-S80-B</font>
+        <align>center</align>
+        <aligny>top</aligny>
+        <textoffsety>12</textoffsety>
+        <textcolor>MenuGrey</textcolor>
+        <textshadow>white</textshadow>
+    </include>
+    <include name="ScrollingEntitiesLeft">
+        <animation type="Visible" reversible="false">
+            <effect type="slide" start="-10" end="0" time="300" delay="0" tween="sine" easing="in" />
+            <effect type="fade" start="0" end="100" time="200" delay="100" tween="sine" easing="in" />
+        </animation>
+        <animation type="Hidden">
+            <effect type="slide" start="0" end="-10" delay="1500" time="300" tween="sine" easing="in" />
+            <effect type="fade" start="100" end="0" delay="1500" time="300" tween="sine" easing="out" />
+        </animation>
+        <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>200</height>
+            <texture flipx="true">dialogs/other/alphapanel.png</texture>
+        </control>
+    </include>
+    <include name="ScrollingEntitiesRight">
+        <animation type="Visible" reversible="false">
+            <effect type="slide" start="10" end="0" time="300" delay="0" tween="sine" easing="in" />
+            <effect type="fade" start="0" end="100" time="200" delay="100" tween="sine" easing="in" />
+        </animation>
+        <animation type="Hidden">
+            <effect type="slide" start="0" end="10" delay="1500" time="300" tween="sine" easing="in" />
+            <effect type="fade" start="100" end="0" delay="1500" time="300" tween="sine" easing="out" />
+        </animation>
+        <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>200</width>
+            <height>200</height>
+            <texture>dialogs/other/alphapanel.png</texture>
+        </control>
+    </include>
+    <include name="ScrollLetterList">
+        <control type="group">
+            <posx>895</posx>
+            <posy>380</posy>
+            <include>ScrollingEntitiesRight</include>
+            <control type="label">
+                <include>ScrollingLabelRight</include>
+                <label>$INFO[ListItem.SortLetter]</label>
+            </control>
+            <visible>[Container(52).Scrolling | Container(54).Scrolling] + !Container.Content(Seasons)</visible>
+        </control>
+    </include>
+    <include name="ScrollLetterPosterView">
+        <control type="group">
+            <posx>535</posx>
+            <posy>490</posy>
+            <include>ScrollingEntitiesRight</include>
+            <control type="label">
+                <include>ScrollingLabelRight</include>
+                <label>$INFO[ListItem.SortLetter]</label>
+            </control>
+            <visible>[Container(55).Scrolling | Container(57).Scrolling] + !Container.Content(Seasons)</visible>
+        </control>
+    </include>
+    <include name="ScrollLetterDefault">
+        <control type="group">
+            <posx>1670</posx>
+            <posy>424</posy>
+            <include>ScrollingEntitiesRight</include>
+            <control type="label">
+                <include>ScrollingLabelRight</include>
+                <label>$INFO[ListItem.SortLetter]</label>
+            </control>
+            <visible>[Container(50).Scrolling | Container(56).Scrolling | Container(58).Scrolling] + !Container.Content(Seasons)</visible>
+        </control>
+    </include>
+    <include name="ScrollLetterFileManager">
+        <control type="group">
+            <posx>58</posx>
+            <posy>431</posy>
+            <include>ScrollingEntitiesLeft</include>
+            <control type="label">
+                <include>ScrollingLabelLeft</include>
+                <label>$INFO[Container(20).ListItem.SortLetter]</label>
+            </control>
+            <visible>Container(20).Scrolling</visible>
+        </control>
+        <control type="group">
+            <posx>1662</posx>
+            <posy>431</posy>
+            <include>ScrollingEntitiesRight</include>
+            <control type="label">
+                <include>ScrollingLabelRight</include>
+                <label>$INFO[Container(21).ListItem.SortLetter]</label>
+            </control>
+            <visible>Container(21).Scrolling</visible>
+        </control>
+    </include>
+    <include name="ScrollLetterPlaylistEditor">
+        <control type="group">
+            <posx>58</posx>
+            <posy>431</posy>
+            <include>ScrollingEntitiesLeft</include>
+            <control type="label">
+                <include>ScrollingLabelLeft</include>
+                <label>$INFO[Container(50).ListItem.SortLetter]</label>
+            </control>
+            <visible>Container(50).Scrolling</visible>
+        </control>
+        <control type="group">
+            <posx>1662</posx>
+            <posy>431</posy>
+            <include>ScrollingEntitiesRight</include>
+            <control type="label">
+                <include>ScrollingLabelRight</include>
+                <label>$INFO[Container(100).ListItem.SortLetter]</label>
+            </control>
+            <visible>Container(100).Scrolling</visible>
+        </control>
+    </include>
+    <include name="ScrollLetterFileBrowser">
+        <control type="group">
+            <posx>275</posx>
+            <posy>440</posy>
+            <include>ScrollingEntitiesLeft</include>
+            <control type="label">
+                <include>ScrollingLabelLeft</include>
+                <label>$INFO[Container(450).ListItem.SortLetter]</label>
+            </control>
+            <visible>Container(450).Scrolling</visible>
+        </control>
+    </include>
+    
 <!-- ============= -->
 <!-- Various stuff -->
 <!-- ============= -->
 
-	<include name="ViewModesScriptStage">
-		<control type="button">
-			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),0) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
-		</control>
-	</include>
-	
-	<include name="ViewModesScriptNoStage">
-		<control type="button">
-			<onfocus condition="stringcompare(Window(Home).property(PreviousStage),1) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
-		</control>
-	</include>
+    <include name="ViewModesScriptStage">
+        <control type="button">
+            <onfocus condition="stringcompare(Window(Home).property(PreviousStage),0) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
+        </control>
+    </include>
+    
+    <include name="ViewModesScriptNoStage">
+        <control type="button">
+            <onfocus condition="stringcompare(Window(Home).property(PreviousStage),1) + !Window.IsVisible(videoplaylist)">RunScript(script.viewmodes,1)</onfocus>
+        </control>
+    </include>
 
-	<include name="optionsbuttonsdimensions">
-		<posx>0</posx>
-		<posy>0</posy>
-		<width>404</width>
-		<height>57</height>
-		<font>Font-Condensed-S34</font>
-		<align>left</align>
-		<aligny>top</aligny>
-		<textcolor>FF484848</textcolor>
-		<focusedcolor>DDFFFFFF</focusedcolor>
-		<disabledcolor>FF484848</disabledcolor>
-		<textoffsety>3</textoffsety>
-		<textoffsetx>75</textoffsetx>
-		<textwidth>300</textwidth>
-		<scroll>false</scroll>		
-	</include>
-	
-	<include name="AddonDescHeight_1">
-		<height>330</height>
-	</include>
-	
-	<include name="AddonDescHeight_2">
-		<height>270</height>
-	</include>
-	
-	<include name="AddonDescHeight_3">
-		<height>160</height>
-	</include>
-	
-	<include name="OSDFwRwLabel">
-		<posx>1742</posx>
-		<posy>76</posy>
-		<width>150</width>
-		<height>34</height>
-		<font>Font-Condensed-S34</font>
-		<textcolor>aawhite</textcolor>
-		<align>right</align>
-		<scroll>false</scroll>
-	</include>
+    <include name="optionsbuttonsdimensions">
+        <posx>0</posx>
+        <posy>0</posy>
+        <width>404</width>
+        <height>57</height>
+        <font>Font-Condensed-S34</font>
+        <align>left</align>
+        <aligny>top</aligny>
+        <textcolor>FF484848</textcolor>
+        <focusedcolor>DDFFFFFF</focusedcolor>
+        <disabledcolor>FF484848</disabledcolor>
+        <textoffsety>3</textoffsety>
+        <textoffsetx>75</textoffsetx>
+        <textwidth>300</textwidth>
+        <scroll>false</scroll>      
+    </include>
+    
+    <include name="AddonDescHeight_1">
+        <height>330</height>
+    </include>
+    
+    <include name="AddonDescHeight_2">
+        <height>270</height>
+    </include>
+    
+    <include name="AddonDescHeight_3">
+        <height>160</height>
+    </include>
+    
+    <include name="OSDFwRwLabel">
+        <posx>1742</posx>
+        <posy>76</posy>
+        <width>150</width>
+        <height>34</height>
+        <font>Font-Condensed-S34</font>
+        <textcolor>aawhite</textcolor>
+        <align>right</align>
+        <scroll>false</scroll>
+    </include>
 </includes>

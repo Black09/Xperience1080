@@ -1,115 +1,115 @@
 ﻿<window>
-	<defaultcontrol always="true">1111</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<control type="group">
-			<include>FullscreenDimensions</include>
-			<include>NowPlayingFullscreen</include>
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>dialogs/lyrics/bg.png</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="image">
-				<description>Cover</description>
-				<posx>450</posx>
-				<posy>249</posy>
-				<width>80</width>
-				<height>80</height>
-				<texture background="true">$INFO[MusicPlayer.Cover]</texture>
-				<aspectratio>stretch</aspectratio>
-			</control>
-			<control type="label">
-				<description>Title</description>
-				<posx>545</posx>
-				<posy>249</posy>
-				<width>875</width>
-				<height>34</height>
-				<align>left</align>
-				<label>$INFO[MusicPlayer.Title]</label>
-				<font>Font-Condensed-S34-B</font>
-				<textcolor>eewhite</textcolor>
-				<shadowcolor>66000000</shadowcolor>
-				<scroll>false</scroll>
-			</control>
-			<control type="label">
-				<description>Artist</description>
-				<posx>545</posx>
-				<posy>289</posy>
-				<width>875</width>
-				<height>34</height>
-				<align>left</align>
-				<label>$INFO[MusicPlayer.Artist]</label>
-				<font>Font-Condensed-S34</font>
-				<textcolor>bbwhite</textcolor>
-				<shadowcolor>66000000</shadowcolor>
-			</control>
-			<control type="image">
-				<description>Lyrics icon</description>
-				<posx>1409</posx>
-				<posy>247</posy>
-				<width>85</width>
-				<height>85</height>
-				<texture>DefaultAddonLyrics.png</texture>
-			</control>
-			
-			<control type="textbox" id="100">
-				<description>Lyrics</description>
-				<posx>450</posx>
-				<posy>340</posy>
-				<height>439</height>
-				<width>1020</width>
-				<font>Font-Condensed-S32</font>
-				<align>center</align>
-				<onleft>111</onleft>
-				<onright>111</onright>
-				<pagecontrol>111</pagecontrol>
-				<textcolor>bbwhite</textcolor>
-				<autoscroll delay="6000" time="3000" repeat="100">!Control.HasFocus(111)</autoscroll>
-			</control>
-			
-			<control type="button" id="1111">
-				<onleft>111</onleft>
-				<onright>111</onright>
-				<ondown>111</ondown>
-				<onup>111</onup>
-				<visible allowhiddenfocus="true">false</visible>
-			</control>
-			
-			<control type="spincontrol" id="111">
-				<posx>1399</posx>
-				<posy>781</posy>
-				<width>43</width>
-				<height>60</height>
-				<font>Font-Condensed-S25-B</font>
-				<textcolor>bbwhite</textcolor>
-				<focusedcolor>eewhite</focusedcolor>
-				<align>right</align>
-				<onleft>111</onleft>
-				<onright>111</onright>
-				<ondown>1111</ondown>
-				<onup>1111</onup>
-				<subtype>page</subtype>
-				<showonepage>false</showonepage>
-			</control>
+    <defaultcontrol always="true">1111</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <control type="group">
+            <include>FullscreenDimensions</include>
+            <include>NowPlayingFullscreen</include>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>dialogs/lyrics/bg.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="image">
+                <description>Cover</description>
+                <posx>450</posx>
+                <posy>249</posy>
+                <width>80</width>
+                <height>80</height>
+                <texture background="true">$INFO[MusicPlayer.Cover]</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
+            <control type="label">
+                <description>Title</description>
+                <posx>545</posx>
+                <posy>249</posy>
+                <width>875</width>
+                <height>34</height>
+                <align>left</align>
+                <label>$INFO[MusicPlayer.Title]</label>
+                <font>Font-Condensed-S34-B</font>
+                <textcolor>eewhite</textcolor>
+                <shadowcolor>66000000</shadowcolor>
+                <scroll>false</scroll>
+            </control>
+            <control type="label">
+                <description>Artist</description>
+                <posx>545</posx>
+                <posy>289</posy>
+                <width>875</width>
+                <height>34</height>
+                <align>left</align>
+                <label>$INFO[MusicPlayer.Artist]</label>
+                <font>Font-Condensed-S34</font>
+                <textcolor>bbwhite</textcolor>
+                <shadowcolor>66000000</shadowcolor>
+            </control>
+            <control type="image">
+                <description>Lyrics icon</description>
+                <posx>1409</posx>
+                <posy>247</posy>
+                <width>85</width>
+                <height>85</height>
+                <texture>DefaultAddonLyrics.png</texture>
+            </control>
+            
+            <control type="textbox" id="100">
+                <description>Lyrics</description>
+                <posx>450</posx>
+                <posy>340</posy>
+                <height>439</height>
+                <width>1020</width>
+                <font>Font-Condensed-S32</font>
+                <align>center</align>
+                <onleft>111</onleft>
+                <onright>111</onright>
+                <pagecontrol>111</pagecontrol>
+                <textcolor>bbwhite</textcolor>
+                <autoscroll delay="6000" time="3000" repeat="100">!Control.HasFocus(111)</autoscroll>
+            </control>
+            
+            <control type="button" id="1111">
+                <onleft>111</onleft>
+                <onright>111</onright>
+                <ondown>111</ondown>
+                <onup>111</onup>
+                <visible allowhiddenfocus="true">false</visible>
+            </control>
+            
+            <control type="spincontrol" id="111">
+                <posx>1399</posx>
+                <posy>781</posy>
+                <width>43</width>
+                <height>60</height>
+                <font>Font-Condensed-S25-B</font>
+                <textcolor>bbwhite</textcolor>
+                <focusedcolor>eewhite</focusedcolor>
+                <align>right</align>
+                <onleft>111</onleft>
+                <onright>111</onright>
+                <ondown>1111</ondown>
+                <onup>1111</onup>
+                <subtype>page</subtype>
+                <showonepage>false</showonepage>
+            </control>
 
-			<!-- The following do not appear anywhere with CU-Lyrics -->
-			<!-- May implement those if XBMC Lyrics is working again -->
-			<control type="label" id="200">
-				<visible>false</visible>
-			</control>
-			
-			<control type="textbox" id="110">
-				<visible>false</visible>
-			</control>
-			
-			<control type="spincontrol" id="121">
-				<visible>false</visible>
-			</control>
-			
-			<control type="list" id="120">
-				<visible>false</visible>
-			</control>
-		</control>
-	</controls>
+            <!-- The following do not appear anywhere with CU-Lyrics -->
+            <!-- May implement those if XBMC Lyrics is working again -->
+            <control type="label" id="200">
+                <visible>false</visible>
+            </control>
+            
+            <control type="textbox" id="110">
+                <visible>false</visible>
+            </control>
+            
+            <control type="spincontrol" id="121">
+                <visible>false</visible>
+            </control>
+            
+            <control type="list" id="120">
+                <visible>false</visible>
+            </control>
+        </control>
+    </controls>
 </window>

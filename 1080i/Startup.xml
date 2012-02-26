@@ -1,36 +1,36 @@
 <window id="2999">
-	<defaultcontrol always="true">10</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		<include>CommonContent</include>
-		<include>Common-Loading</include>
-		<include>Common-Info-NoOptions</include>
-		<control type="button" id="10">
-			<onfocus>SetProperty(Startup,1)</onfocus>
-			<onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
-			<onfocus>RunScript(script.viewmodes,0)</onfocus>
-			<onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(script.playerevents)</onfocus>
-			<onfocus condition="System.HasAddon(script.randomitems) + !Skin.HasSetting(RandomItems.Disabled)">RunScript(script.randomitems,limit=6&amp;albums=True)</onfocus>
-			<onfocus condition="Skin.HasSetting(HomeNew.Enabled) + System.HasAddon(script.watchlist) + !Skin.HasSetting(WatchList.Disabled)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=6)</onfocus>
-			<onfocus condition="Skin.HasSetting(NextAired.Update)">RunScript(script.tv.show.next.aired,silent=True)</onfocus>
-			<onfocus condition="Skin.HasSetting(HomeNew.Enabled)">SetFocus(11)</onfocus>
-			<onfocus condition="!Skin.HasSetting(HomeNew.Enabled)">SetFocus(12)</onfocus>
-		</control>
-		<!-- Show home if watchlist loading is finished -->
-		<control type="button" id="11">
-		    <onfocus condition="!System.HasAddon(script.watchlist)">SetFocus(12)</onfocus>
-			<onfocus condition="System.HasAddon(script.watchlist)">SetFocus(11)</onfocus>
-			<visible>IsEmpty(Window(Home).Property(WatchList_Running))</visible>
-			<animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
-		</control>
-		<control type="button" id="11">
-			<onfocus>ReplaceWindow(Home)</onfocus>
-			<visible>!IsEmpty(Window(Home).Property(WatchList_Running))</visible>
-			<animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
-		</control>
-		<control type="button" id="12">
-			<onfocus>ReplaceWindow(Home)</onfocus>
-			<animation effect="fade" start="0" end="100" time="0" delay="4000">Focus</animation>
-		</control>
-	</controls>
+    <defaultcontrol always="true">10</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        <include>CommonContent</include>
+        <include>Common-Loading</include>
+        <include>Common-Info-NoOptions</include>
+        <control type="button" id="10">
+            <onfocus>SetProperty(Startup,1)</onfocus>
+            <onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
+            <onfocus>RunScript(script.viewmodes,0)</onfocus>
+            <onfocus condition="!Skin.HasSetting(DisableNowPlayingNotifications)">RunScript(script.playerevents)</onfocus>
+            <onfocus condition="System.HasAddon(script.randomitems) + !Skin.HasSetting(RandomItems.Disabled)">RunScript(script.randomitems,limit=6&amp;albums=True)</onfocus>
+            <onfocus condition="Skin.HasSetting(HomeNew.Enabled) + System.HasAddon(script.watchlist) + !Skin.HasSetting(WatchList.Disabled)">RunScript(script.watchlist,movies=true&amp;episodes=true&amp;limit=6)</onfocus>
+            <onfocus condition="Skin.HasSetting(NextAired.Update)">RunScript(script.tv.show.next.aired,silent=True)</onfocus>
+            <onfocus condition="Skin.HasSetting(HomeNew.Enabled)">SetFocus(11)</onfocus>
+            <onfocus condition="!Skin.HasSetting(HomeNew.Enabled)">SetFocus(12)</onfocus>
+        </control>
+        <!-- Show home if watchlist loading is finished -->
+        <control type="button" id="11">
+            <onfocus condition="!System.HasAddon(script.watchlist)">SetFocus(12)</onfocus>
+            <onfocus condition="System.HasAddon(script.watchlist)">SetFocus(11)</onfocus>
+            <visible>IsEmpty(Window(Home).Property(WatchList_Running))</visible>
+            <animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
+        </control>
+        <control type="button" id="11">
+            <onfocus>ReplaceWindow(Home)</onfocus>
+            <visible>!IsEmpty(Window(Home).Property(WatchList_Running))</visible>
+            <animation effect="fade" start="0" end="100" time="0" delay="1000">Focus</animation>
+        </control>
+        <control type="button" id="12">
+            <onfocus>ReplaceWindow(Home)</onfocus>
+            <animation effect="fade" start="0" end="100" time="0" delay="4000">Focus</animation>
+        </control>
+    </controls>
 </window>

@@ -3,1653 +3,1653 @@
 <!-- Guide Interface -->
 <!-- =============== -->
 
-	<include name="GuideDialogClose">		
-		<onclick>Dialog.Close(yesnodialog)</onclick>
-		<onclick>Dialog.Close(progressdialog)</onclick>
-		<onclick>Dialog.Close(virtualkeyboard)</onclick>
-		<onclick>Dialog.Close(volumebar)</onclick>
-		<onclick>Dialog.Close(contextmenu)</onclick>
-		<onclick>Dialog.Close(infodialog)</onclick>
-		<onclick>Dialog.Close(numericinput)</onclick>
-		<onclick>Dialog.Close(shutdownmenu)</onclick>
-		<onclick>Dialog.Close(musicscan)</onclick>
-		<onclick>Dialog.Close(mutebug)</onclick>
-		<onclick>Dialog.Close(seekbar)</onclick>
-		<onclick>Dialog.Close(musicosd)</onclick>
-		<onclick>Dialog.Close(visualisationpresetlist)</onclick>
-		<onclick>Dialog.Close(osdvideosettings)</onclick>
-		<onclick>Dialog.Close(osdaudiosettings)</onclick>
-		<onclick>Dialog.Close(videobookmarks)</onclick>
-		<onclick>Dialog.Close(filebrowser)</onclick>
-		<onclick>Dialog.Close(networksetup)</onclick>
-		<onclick>Dialog.Close(mediasource)</onclick>
-		<onclick>Dialog.Close(contentsettings)</onclick>
-		<onclick>Dialog.Close(videoscan)</onclick>
-		<onclick>Dialog.Close(favourites)</onclick>
-		<onclick>Dialog.Close(songinformation)</onclick>
-		<onclick>Dialog.Close(smartplaylisteditor)</onclick>
-		<onclick>Dialog.Close(smartplaylistrule)</onclick>
-		<onclick>Dialog.Close(busydialog)</onclick>
-		<onclick>Dialog.Close(pictureinfo)</onclick>
-		<onclick>Dialog.Close(addonsettings)</onclick>
-		<onclick>Dialog.Close(accesspoints)</onclick>
-		<onclick>Dialog.Close(fullscreeninfo)</onclick>
-		<onclick>Dialog.Close(karaokeselector)</onclick>
-		<onclick>Dialog.Close(karaokelargeselector)</onclick>
-		<onclick>Dialog.Close(sliderdialog)</onclick>
-		<onclick>Dialog.Close(addoninformation)</onclick>
-		<onclick>Dialog.Close(musicinformation)</onclick>
-		<onclick>Dialog.Close(movieinformation)</onclick>
-		<onclick>Dialog.Close(selectdialog)</onclick>
-		<onclick>Dialog.Close(okdialog)</onclick>
-		<onclick>Dialog.Close(filestackingdialog)</onclick>
-		<onclick>Dialog.Close(1122)</onclick>
-		<onclick>Dialog.Close(3001)</onclick>
-		<onclick>Dialog.Close(3002)</onclick>
-		<onclick>Dialog.Close(3003)</onclick>
-		<onclick>Dialog.Close(3004)</onclick>
-		<onclick>Dialog.Close(3020)</onclick>
-		<onclick>Dialog.Close(3021)</onclick>
-		<onclick>Dialog.Close(3022)</onclick>
-		<onclick>Dialog.Close(playercontrols)</onclick>
-		<onclick>Dialog.Close(textviewer,true)</onclick>
-	</include>
+    <include name="GuideDialogClose">       
+        <onclick>Dialog.Close(yesnodialog)</onclick>
+        <onclick>Dialog.Close(progressdialog)</onclick>
+        <onclick>Dialog.Close(virtualkeyboard)</onclick>
+        <onclick>Dialog.Close(volumebar)</onclick>
+        <onclick>Dialog.Close(contextmenu)</onclick>
+        <onclick>Dialog.Close(infodialog)</onclick>
+        <onclick>Dialog.Close(numericinput)</onclick>
+        <onclick>Dialog.Close(shutdownmenu)</onclick>
+        <onclick>Dialog.Close(musicscan)</onclick>
+        <onclick>Dialog.Close(mutebug)</onclick>
+        <onclick>Dialog.Close(seekbar)</onclick>
+        <onclick>Dialog.Close(musicosd)</onclick>
+        <onclick>Dialog.Close(visualisationpresetlist)</onclick>
+        <onclick>Dialog.Close(osdvideosettings)</onclick>
+        <onclick>Dialog.Close(osdaudiosettings)</onclick>
+        <onclick>Dialog.Close(videobookmarks)</onclick>
+        <onclick>Dialog.Close(filebrowser)</onclick>
+        <onclick>Dialog.Close(networksetup)</onclick>
+        <onclick>Dialog.Close(mediasource)</onclick>
+        <onclick>Dialog.Close(contentsettings)</onclick>
+        <onclick>Dialog.Close(videoscan)</onclick>
+        <onclick>Dialog.Close(favourites)</onclick>
+        <onclick>Dialog.Close(songinformation)</onclick>
+        <onclick>Dialog.Close(smartplaylisteditor)</onclick>
+        <onclick>Dialog.Close(smartplaylistrule)</onclick>
+        <onclick>Dialog.Close(busydialog)</onclick>
+        <onclick>Dialog.Close(pictureinfo)</onclick>
+        <onclick>Dialog.Close(addonsettings)</onclick>
+        <onclick>Dialog.Close(accesspoints)</onclick>
+        <onclick>Dialog.Close(fullscreeninfo)</onclick>
+        <onclick>Dialog.Close(karaokeselector)</onclick>
+        <onclick>Dialog.Close(karaokelargeselector)</onclick>
+        <onclick>Dialog.Close(sliderdialog)</onclick>
+        <onclick>Dialog.Close(addoninformation)</onclick>
+        <onclick>Dialog.Close(musicinformation)</onclick>
+        <onclick>Dialog.Close(movieinformation)</onclick>
+        <onclick>Dialog.Close(selectdialog)</onclick>
+        <onclick>Dialog.Close(okdialog)</onclick>
+        <onclick>Dialog.Close(filestackingdialog)</onclick>
+        <onclick>Dialog.Close(1122)</onclick>
+        <onclick>Dialog.Close(3001)</onclick>
+        <onclick>Dialog.Close(3002)</onclick>
+        <onclick>Dialog.Close(3003)</onclick>
+        <onclick>Dialog.Close(3004)</onclick>
+        <onclick>Dialog.Close(3020)</onclick>
+        <onclick>Dialog.Close(3021)</onclick>
+        <onclick>Dialog.Close(3022)</onclick>
+        <onclick>Dialog.Close(playercontrols)</onclick>
+        <onclick>Dialog.Close(textviewer,true)</onclick>
+    </include>
 
-	<include name="GuideList">
-		<posx>637</posx>
-		<posy>325</posy>
-		<width>750</width>
-		<height>464</height>
-		<orientation>vertical</orientation>
-		<scrolltime>0</scrolltime>
-		<onleft>9102</onleft>
-		<onright>9105</onright>
-		<itemlayout height="64" width="750">
-			<control type="image">
-				<posx>0</posx>
-				<posy>80</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="label">
-				<posx>30</posx>
-				<posy>17</posy>
-				<width>690</width>
-				<height>60</height>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
-				<textcolor>77white</textcolor>
-				<font>Font-Condensed-S42</font>
-				<align>left</align>
-			</control>
-		</itemlayout>
-		<focusedlayout height="64" width="750">
-			<control type="button">
-				<onfocus>ClearProperty(left)</onfocus>
-				<onfocus>ClearProperty(right)</onfocus>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>80</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>750</width>
-				<height>96</height>
-				<texture>osd/media-guide/mediaguide-fo.png</texture>
-				<include>guidelistfocusanim2</include>
-			</control>
-			<control type="label">
-				<posx>30</posx>
-				<posy>17</posy>
-				<width>690</width>
-				<height>60</height>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
-				<textcolor>eewhite</textcolor>
-				<font>Font-Condensed-S42</font>
-				<align>left</align>
-				<include>guidelistfocusanim</include>
-			</control>
-		</focusedlayout>
-		<content>
-			<item id="0">
-				<label>$LOCALIZE[41445]</label>
-				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://1/2/)])</onclick>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videos,movietitles,return)</onclick>
-			</item>
-			<item id="1">
-				<label>$LOCALIZE[41446]</label>
-				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://2/2/)])</onclick>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
-			</item>
-			<item id="2">
-				<label>$LOCALIZE[41447]</label>
-				<include>GuideDialogClose</include>
-				<onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
-				<onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
-			</item>
-			<item id="3">
-				<label>$LOCALIZE[41448]</label>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(pictures)</onclick>
-				<visible>!Skin.HasSetting(Guide.Custom1) + IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
-			</item>
-			<item id="4">
-				<label>$INFO[Skin.String(Guide.Custom1.Label)]</label>
-				<include>GuideDialogClose</include>
-				<onclick>SetProperty(NextStage,0)</onclick>
-				<onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),6)">$INFO[Skin.String(Guide.Custom1.Path)]</onclick>
-				<visible>Skin.HasSetting(Guide.Custom1) + !IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
-			</item>
-			<item id="5">
-				<label>$LOCALIZE[41449]</label>
-				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
-				<visible>!Skin.HasSetting(Guide.Custom2) + IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
-			</item>
-			<item id="6">
-				<label>$INFO[Skin.String(Guide.Custom2.Label)]</label>
-				<include>GuideDialogClose</include>
-				<onclick>SetProperty(NextStage,0)</onclick>
-				<onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),6)">$INFO[Skin.String(Guide.Custom2.Path)]</onclick>
-				<visible>Skin.HasSetting(Guide.Custom2) + !IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
-			</item>
-			<item id="7">
-				<label>$LOCALIZE[41450]</label>
-				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://4/)])</onclick>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videos,RecentlyAddedMovies,return)</onclick>
-				<visible>!Skin.HasSetting(Guide.Custom3) + IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
-			</item>
-			<item id="8">
-				<label>$INFO[Skin.String(Guide.Custom3.Label)]</label>
-				<include>GuideDialogClose</include>
-				<onclick>SetProperty(NextStage,0)</onclick>
-				<onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),6)">$INFO[Skin.String(Guide.Custom3.Path)]</onclick>
-				<visible>Skin.HasSetting(Guide.Custom3) + !IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
-			</item>
-			<item id="9">
-				<label>$LOCALIZE[41451]</label>
-				<onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://5/)])</onclick>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
-				<visible>!Skin.HasSetting(Guide.Custom4) + IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
-			</item>
-			<item id="10">
-				<label>$INFO[Skin.String(Guide.Custom4.Label)]</label>
-				<include>GuideDialogClose</include>
-				<onclick>SetProperty(NextStage,0)</onclick>
-				<onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
-				<onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),6)">$INFO[Skin.String(Guide.Custom4.Path)]</onclick>
-				<visible>Skin.HasSetting(Guide.Custom4) + !IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
-			</item>
-		</content>
-	</include>
-	
-	<include name="GuideSettings">
-		<posx>637</posx>
-		<posy>325</posy>
-		<width>750</width>
-		<height>464</height>
-		<orientation>vertical</orientation>
-		<scrolltime>250</scrolltime>
-		<itemlayout height="64" width="750">
-			<control type="image">
-				<posx>0</posx>
-				<posy>80</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="image">
-				<posx>670</posx>
-				<posy>23</posy>
-				<width>50</width>
-				<height>50</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>77FFFFFF</colordiffuse>
-			</control>
-			<control type="label">
-				<posx>30</posx>
-				<posy>17</posy>
-				<width>690</width>
-				<height>60</height>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
-				<textcolor>77white</textcolor>
-				<font>Font-Condensed-S42</font>
-				<align>left</align>
-			</control>
-		</itemlayout>
-		<focusedlayout height="64" width="750">
-			<control type="button">
-				<onfocus>SetProperty(right,1)</onfocus>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>80</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>750</width>
-				<height>96</height>
-				<texture>osd/media-guide/mediaguide-fo.png</texture>
-				<include>guidelistfocusanim2</include>
-			</control>
-			<control type="image">
-				<posx>670</posx>
-				<posy>23</posy>
-				<width>50</width>
-				<height>50</height>
-				<texture>$INFO[ListItem.Icon]</texture>
-				<colordiffuse>EEFFFFFF</colordiffuse>
-				<include>guidelistfocusanim</include>
-			</control>
-			<control type="label">
-				<posx>30</posx>
-				<posy>17</posy>
-				<width>690</width>
-				<height>60</height>
-				<label>[B]$INFO[ListItem.Label][/B]</label>
-				<textcolor>eewhite</textcolor>
-				<font>Font-Condensed-S42</font>
-				<align>left</align>
-				<include>guidelistfocusanim</include>
-			</control>
-		</focusedlayout>
-		<content>
-			<item id="0">
-				<label>$LOCALIZE[41706]</label>
-				<icon>osd/media-guide/settings/appearance.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(appearancesettings)</onclick>
-			</item>
-			<item id="1">
-				<label>$LOCALIZE[41700]</label>
-				<icon>osd/media-guide/settings/video.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(videossettings)</onclick>
-			</item>
-			<item id="2">
-				<label>$LOCALIZE[41701]</label>
-				<icon>osd/media-guide/settings/music.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(musicsettings)</onclick>
-			</item>
-			<item id="3">
-				<label>$LOCALIZE[41702]</label>
-				<icon>osd/media-guide/settings/pictures.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(picturessettings)</onclick>
-			</item>
-			<item id="4">
-				<label>$LOCALIZE[41704]</label>
-				<icon>osd/media-guide/settings/weather.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(weathersettings)</onclick>
-			</item>
-			<item id="5">
-				<label>$LOCALIZE[41705]</label>
-				<icon>osd/media-guide/settings/network.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(networksettings)</onclick>
-			</item>
-			<item id="6">
-				<label>$LOCALIZE[41703]</label>
-				<icon>osd/media-guide/settings/profiles.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(profiles)</onclick>
-			</item>
-			<item id="7">
-				<label>$LOCALIZE[41709]</label>
-				<icon>osd/media-guide/settings/addons.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(addonbrowser)</onclick>
-			</item>
-			<item id="8">
-				<label>$LOCALIZE[166]</label>
-				<icon>osd/media-guide/settings/skin.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(1111)</onclick>
-			</item>
-			<item id="9">
-				<label>$LOCALIZE[41708]</label>
-				<icon>osd/media-guide/settings/system.png</icon>
-				<include>GuideDialogClose</include>
-				<onclick>ActivateWindow(systemsettings)</onclick>
-			</item>
-		</content>
-	</include>
-	
-	<include name="GuideRecentlyAdded">
-		<posx>637</posx>
-		<posy>325</posy>
-		<width>750</width>
-		<height>464</height>
-		<orientation>vertical</orientation>
-		<scrolltime>250</scrolltime>
-		<onup>9108</onup>
-		<ondown>9109</ondown>
-		<onleft>9103</onleft>
-		<onright>9100</onright>
-		<itemlayout height="64" width="750">
-			<control type="image">
-				<posx>0</posx>
-				<posy>80</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="label">
-				<posx>30</posx>
-				<posy>16</posy>
-				<width>600</width>
-				<height>60</height>
-				<label>$INFO[ListItem.Label]</label>
-				<textcolor>77white</textcolor>
-				<font>Font-Condensed-S38</font>
-				<align>left</align>
-				<scroll>false</scroll>
-			</control>
-			<control type="group">
-				<visible>!ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-				<control type="image">
-					<posx>655</posx>
-					<posy>-5</posy>
-					<width>105</width>
-					<height>105</height>
-					<aspect>keepaspect</aspect>
-					<texture>views/thumb/other/star_nofo.png</texture>
-				</control>
-				<control type="label">
-					<posx>680</posx>
-					<posy>16</posy>
-					<width>55</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.property(rating)][/B]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</control>
-			<control type="label">
-				<posx>720</posx>
-				<posy>16</posy>
-				<width>75</width>
-				<height>60</height>
-				<label>[B]$INFO[ListItem.property(year)][/B]</label>
-				<textcolor>77white</textcolor>
-				<font>Font-Condensed-S34</font>
-				<align>right</align>
-				<visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
-			</control>
-		</itemlayout>
-		<focusedlayout height="128" width="750">
-			<control type="button">
-				<onfocus>ClearProperty(center)</onfocus>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>144</posy>
-				<width>750</width>
-				<height>2</height>
-				<texture>osd/media-guide/separator.png</texture>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>0</posy>
-				<width>750</width>
-				<height>162</height>
-				<aspectratio>stretch</aspectratio>
-				<texture>osd/media-guide/mediaguide-big-fo.png</texture>
-				<include>guidelistfocusanim2</include>
-				<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
-			</control>
-			<!-- Latest Movies -->
-			<control type="group">
-				<visible>!ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-				<include>guidelistfocusanim2</include>
-				<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
-				<control type="image">
-					<posx>30</posx>
-					<posy>27</posy>
-					<width>72</width>
-					<height>108</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-				</control>
-				<control type="label">
-					<posx>117</posx>
-					<posy>19</posy>
-					<width>605</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S38</font>
-					<align>left</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="label">
-					<posx>118</posx>
-					<posy>76</posy>
-					<width>460</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Label2]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>left</align>
-				</control>
-				<control type="image">
-					<posx>655</posx>
-					<posy>55</posy>
-					<width>105</width>
-					<height>105</height>
-					<aspect>keepaspect</aspect>
-					<texture>views/thumb/other/star_fo.png</texture>
-				</control>
-				<control type="label">
-					<posx>680</posx>
-					<posy>76</posy>
-					<width>55</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.property(rating)][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</control>
-			<!-- Latest Episodes -->
-			<control type="group">
-				<visible>ControlGroup(9120).HasFocus(91202)</visible>
-				<include>guidelistfocusanim2</include>
-				<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
-				<control type="image">
-					<posx>30</posx>
-					<posy>27</posy>
-					<width>192</width>
-					<height>108</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-				</control>
-				<control type="label">
-					<posx>237</posx>
-					<posy>19</posy>
-					<width>485</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S38</font>
-					<align>left</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="label">
-					<posx>238</posx>
-					<posy>76</posy>
-					<width>340</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Label2]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>left</align>
-				</control>
-				<control type="image">
-					<posx>655</posx>
-					<posy>55</posy>
-					<width>105</width>
-					<height>105</height>
-					<aspect>keepaspect</aspect>
-					<texture>views/thumb/other/star_fo.png</texture>
-				</control>
-				<control type="label">
-					<posx>680</posx>
-					<posy>76</posy>
-					<width>55</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.property(rating)][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</control>
-			<!-- Latest Albums / Songs -->
-			<control type="group">
-				<visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
-				<include>guidelistfocusanim2</include>
-				<animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
-				<control type="image">
-					<posx>30</posx>
-					<posy>27</posy>
-					<width>108</width>
-					<height>108</height>
-					<aspectratio>stretch</aspectratio>
-					<texture background="true">$INFO[ListItem.Thumb]</texture>
-				</control>
-				<control type="label">
-					<posx>153</posx>
-					<posy>19</posy>
-					<width>569</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.Label][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S38</font>
-					<align>left</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="label">
-					<posx>154</posx>
-					<posy>76</posy>
-					<width>484</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Label2]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>left</align>
-				</control>
-				<control type="label">
-					<posx>720</posx>
-					<posy>76</posy>
-					<width>75</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.property(year)][/B]</label>
-					<textcolor>eewhite</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</control>
-		</focusedlayout>
-		<content>
-			<item id="1">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.1.Path)])</onclick>
-				<thumb>$INFO[Window(home).property(LatestMovie.1.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.1.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.1.Year),, • ]$INFO[Window(home).Property(LatestMovie.1.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.1.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.1.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="2">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.2.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestMovie.2.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.2.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.2.Year),, • ]$INFO[Window(home).Property(LatestMovie.2.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.2.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.2.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="3">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.3.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestMovie.3.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.3.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.3.Year),, • ]$INFO[Window(home).Property(LatestMovie.3.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.3.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.3.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="4">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.4.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestMovie.4.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.4.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.4.Year),, • ]$INFO[Window(home).Property(LatestMovie.4.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.4.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.4.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="5">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.5.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestMovie.5.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.5.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.5.Year),, • ]$INFO[Window(home).Property(LatestMovie.5.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.5.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.5.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="6">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.6.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestMovie.6.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestMovie.6.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestMovie.6.Year),, • ]$INFO[Window(home).Property(LatestMovie.6.RunningTime),, $LOCALIZE[12391]]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestMovie.6.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestMovie.6.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="7">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.1.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.1.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.1.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.1.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.1.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.1.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.1.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.1.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="8">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.2.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.2.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.2.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.2.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.2.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.2.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.2.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.2.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="9">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.3.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.3.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.3.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.3.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.3.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.3.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.3.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.3.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="10">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.4.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.4.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.4.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.4.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.4.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.4.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.4.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.4.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="11">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.5.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.5.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.5.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.5.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.5.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.5.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.5.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.5.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="12">
-				<onclick>PreviousMenu</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.6.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestEpisode.6.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestEpisode.6.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.6.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.6.EpisodeTitle)]</label>
-				<label2>$INFO[Window(home).Property(LatestEpisode.6.ShowTitle)]</label2>
-				<property name="rating">$INFO[Window(home).Property(LatestEpisode.6.Rating)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestEpisode.6.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
-			</item>
-			<item id="13">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.1.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.1.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.1.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.1.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.1.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.1.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="14">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.2.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.2.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.2.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.2.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.2.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.2.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="15">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.3.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.3.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.3.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.3.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.3.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.3.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="16">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.4.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.4.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.4.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.4.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.4.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.4.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="17">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.5.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.5.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.5.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.5.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.5.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.5.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="18">
-				<onclick>PlayList.Clear</onclick>
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.6.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestAlbum.6.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestAlbum.6.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestAlbum.6.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestAlbum.6.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestAlbum.6.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
-			</item>
-			<item id="19">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.1.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.1.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.1.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.1.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.1.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.1.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="20">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.2.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.2.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.2.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.2.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.2.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.2.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="21">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.3.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.3.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.3.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.3.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.3.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.3.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="22">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.4.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.4.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.4.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.4.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.4.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.4.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="23">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.5.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.5.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.5.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.5.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.5.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.5.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-			<item id="24">
-				<onclick>PlayMedia($INFO[Window(home).Property(LatestSong.6.Path)])</onclick>
-				<thumb>$INFO[Window(home).Property(LatestSong.6.Thumb)]</thumb>
-				<label>$INFO[Window(home).Property(LatestSong.6.Title)]</label>
-				<label2>$INFO[Window(home).Property(LatestSong.6.Artist)]</label2>
-				<property name="year">$INFO[Window(home).Property(LatestSong.6.Year)]</property>
-				<visible>!IsEmpty(Window(home).Property(LatestSong.6.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
-			</item>
-		</content>
-	</include>
-	
-	<include name="GuideSystemInfo">
-		<control type="list">
-			<posx>637</posx>
-			<posy>325</posy>
-			<width>750</width>
-			<height>464</height>
-			<orientation>vertical</orientation>
-			<scrolltime>0</scrolltime>
-			<itemlayout height="64" width="750">
-				<control type="image">
-					<posx>0</posx>
-					<posy>80</posy>
-					<width>750</width>
-					<height>2</height>
-					<texture>osd/media-guide/separator.png</texture>
-				</control>
-				<control type="label">
-					<posx>30</posx>
-					<posy>17</posy>
-					<width>690</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S38</font>
-					<align>left</align>
-				</control>
-				<control type="label">
-					<posx>720</posx>
-					<posy>17</posy>
-					<width>690</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.Label2][/B]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</itemlayout>
-			<focusedlayout height="64" width="750">
-				<control type="image">
-					<posx>0</posx>
-					<posy>80</posy>
-					<width>750</width>
-					<height>2</height>
-					<texture>osd/media-guide/separator.png</texture>
-				</control>
-				<control type="label">
-					<posx>30</posx>
-					<posy>17</posy>
-					<width>690</width>
-					<height>60</height>
-					<label>$INFO[ListItem.Label]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S38</font>
-					<align>left</align>
-				</control>
-				<control type="label">
-					<posx>720</posx>
-					<posy>17</posy>
-					<width>690</width>
-					<height>60</height>
-					<label>[B]$INFO[ListItem.Label2][/B]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>right</align>
-				</control>
-			</focusedlayout>
-			<content>
-				<item id="0">
-					<label>$LOCALIZE[41453]</label>
-					<label2>$INFO[System.ProfileName]</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="1">
-					<label>$LOCALIZE[41454]</label>
-					<label2>$INFO[Network.IPAddress]</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="2">
-					<label>$LOCALIZE[41455]</label>
-					<label2>$INFO[System.FreeMemory]</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="3">
-					<label>$LOCALIZE[41456]</label>
-					<label2>$INFO[System.ScreenWidth,,x]$INFO[System.ScreenHeight,, @ ]$INFO[System.FPS,, FPS]</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="4">
-					<label>$LOCALIZE[41457]</label>
-					<label2>$INFO[System.Uptime]</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="5">
-					<label>$LOCALIZE[41458]</label>
-					<label2>0.9.7</label2>
-					<onclick>-</onclick>
-				</item>
-				<item id="6">
-					<label>$LOCALIZE[41459]</label>
-					<label2>$INFO[System.BuildVersion]</label2>
-					<onclick>-</onclick>
-				</item>
-			</content>
-		</control>
-	</include>
-	
-	<include name="GuideNowPlaying">
-		<control type="group">
-			<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-			<visible>!Player.HasMedia</visible>
-			<control type="image">
-				<posx>58</posx>
-				<posy>-5</posy>
-				<width>633</width>
-				<height>437</height>
-				<texture>osd/media-guide/no-movies-music.png</texture>
-				<colordiffuse>44FFFFFF</colordiffuse>
-			</control>
-			<control type="label">
-				<posx>0</posx>
-				<posy>340</posy>
-				<width>750</width>
-				<height>60</height>
-				<label>$LOCALIZE[41452]</label>
-				<textcolor>44FFFFFF</textcolor>
-				<font>Font-Condensed-S42</font>
-				<align>center</align>
-			</control>
-		</control>
-		<control type="group">
-			<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-			<visible>Player.HasVideo</visible>
-			<control type="image">
-				<posx>13</posx>
-				<posy>-4</posy>
-				<width>725</width>
-				<height>391</height>
-				<aspectratio>stretch</aspectratio>
-				<texture border="1">windows/common/black.png</texture>
-				<colordiffuse>BCFFFFFF</colordiffuse>
-			</control>
-			<control type="videowindow">
-				<description>video</description>
-				<posx>13</posx>
-				<posy>-4</posy>
-				<width>725</width>
-				<height>391</height>
-				<aspectratio>scale</aspectratio>
-			</control>
-			<control type="group">
-				<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-				<visible>Control.HasFocus(9110)</visible>
-				<control type="image">
-					<posx>0</posx>
-					<posy>-4</posy>
-					<width>750</width>
-					<height>100</height>
-					<texture>osd/media-guide/video-overlay.png</texture>
-				</control>
-				<control type="label">
-					<posx>25</posx>
-					<posy>9</posy>
-					<width>700</width>
-					<label>[B]$INFO[VideoPlayer.Title][/B]</label>
-					<textcolor>DDFFFFFF</textcolor>
-					<shadowcolor>88000000</shadowcolor>
-					<font>Font-Condensed-S34</font>
-					<align>center</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="progress" id="1">
-					<description>Progressbar</description>
-					<posx>125</posx>
-					<posy>55</posy>
-					<width>500</width>
-					<height>22</height>
-					<info>Player.Progress</info>
-					<lefttexture border="10,0,0,0">overlays/volume/volume-bar-left.png</lefttexture>
-					<midtexture border="1">overlays/volume/volume-bar-mid.png</midtexture>
-					<righttexture border="0,0,10,0">overlays/volume/volume-bar-right.png</righttexture>
-					<texturebg border="20,0,20,0">overlays/volume/volume-bar-back.png</texturebg>
-				</control>
-			</control>
-			<control type="image">
-				<posx>0</posx>
-				<posy>387</posy>
-				<width>750</width>
-				<height>100</height>
-				<texture>osd/media-guide/buttons-underlay.png</texture>
-			</control>
-		</control>
-		<control type="group">
-			<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-			<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-			<visible>Player.HasAudio</visible>
-			<control type="group">
-				<control type="image">
-					<posx>0</posx>
-					<posy>-4</posy>
-					<width>750</width>
-					<height>100</height>
-					<texture>osd/media-guide/title-underlay.png</texture>
-				</control>
-				<control type="label">
-					<posx>25</posx>
-					<posy>9</posy>
-					<width>700</width>
-					<label>[B]$INFO[MusicPlayer.Title][/B]</label>
-					<textcolor>99FFFFFF</textcolor>
-					<font>Font-Condensed-S34</font>
-					<align>center</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="label">
-					<posx>25</posx>
-					<posy>49</posy>
-					<width>700</width>
-					<label>$INFO[MusicPlayer.Artist]</label>
-					<textcolor>77white</textcolor>
-					<font>Font-Condensed-S30</font>
-					<align>center</align>
-					<scroll>false</scroll>
-				</control>
-				<control type="image">
-					<posx>0</posx>
-					<posy>387</posy>
-					<width>750</width>
-					<height>100</height>
-					<texture>osd/media-guide/buttons-underlay.png</texture>
-					<colordiffuse>BCFFFFFF</colordiffuse>
-				</control>
-			</control>
-			<control type="group">
-				<posx>87</posx>
-				<posy>90</posy>
-				<control type="image">
-					<posx>-167</posx>
-					<posy>-68</posy>
-					<width>633</width>
-					<height>437</height>
-					<texture>panel_menu_dvd.png</texture>
-					<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
-						<effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
-					</animation>
-					<animation effect="fade" start="0" end="100" time="0" delay="500">Visible</animation>
-					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
-					<visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
-				</control>
-				<control type="image">
-					<posx>35</posx>
-					<posy>36</posy>
-					<width>229</width>
-					<height>229</height>
-					<texture diffuse="osd/media-guide/cdart-diffuse.png" background="true">$INFO[Player.FolderPath,,cdart.png]</texture>
-					<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
-						<effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
-					</animation>
-					<animation effect="fade" start="0" end="95" time="0" delay="500">Visible</animation>
-					<animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
-					<visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
-				</control>
-				<control type="image">
-					<posx>25</posx>
-					<posy>25</posy>
-					<width>250</width>
-					<height>250</height>
-					<fadetime>300</fadetime>
-					<texture background="true">$INFO[MusicPlayer.Cover]</texture>
-				</control>
-				<control type="image">
-					<posx>0</posx>
-					<posy>0</posy>
-					<width>300</width>
-					<height>300</height>
-					<texture>osd/media-guide/cover-overlay.png</texture>
-				</control>
-				<control type="group">
-					<posx>300</posx>
-					<posy>55</posy>
-					<control type="label">
-						<posx>0</posx>
-						<posy>0</posy>
-						<width>325</width>
-						<label>$LOCALIZE[42100][B]$INFO[MusicPlayer.PlaylistPosition] / $INFO[MusicPlayer.PlaylistLength][/B]</label>
-						<textcolor>77white</textcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<scroll>false</scroll>
-					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>50</posy>
-						<width>325</width>
-						<label>$LOCALIZE[42103][B]$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration][/B]</label>
-						<textcolor>77white</textcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<scroll>false</scroll>
-					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>100</posy>
-						<width>325</width>
-						<label>$LOCALIZE[42104][B]$INFO[MusicPlayer.Year][/B]</label>
-						<textcolor>77white</textcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<scroll>false</scroll>
-					</control>
-					<control type="label">
-						<posx>0</posx>
-						<posy>150</posy>
-						<width>325</width>
-						<label>$LOCALIZE[42101][B]$INFO[MusicPlayer.Genre][/B]</label>
-						<textcolor>77white</textcolor>
-						<font>Font-Condensed-S30</font>
-						<align>left</align>
-						<scroll>false</scroll>
-					</control>
-				</control>
-			</control>
-		</control>
-		<control type="list" id="9110">
-			<onup>9105</onup>
-			<ondown>9105</ondown>
-			<onleft>9110</onleft>
-			<onright>9110</onright>
-			<visible>Player.HasMedia + [Control.HasFocus(9105) | Control.HasFocus(9110)]</visible>
-			<animation effect="rotate" end="0" time="175">Hidden</animation>
-			<include>NowPlayingControls</include>
-		</control>
-	</include>
-	
-	<include name="NowPlayingControls">
-		<posx>25</posx>
-		<posy>393</posy>
-		<width>720</width>
-		<height>120</height>
-		<orientation>horizontal</orientation>
-		<itemgap>-25</itemgap>
-		<focusposition>3</focusposition>
-		<itemlayout height="100" width="100">
-			<control type="image">
-				<posx>-10</posx>
-				<posy>-10</posy>
-				<width>120</width>
-				<height>120</height>
-				<texture>$INFO[ListItem.ActualIcon]</texture>
-				<animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
-			</control>
-		</itemlayout>
-		<focusedlayout height="100" width="100">
-			<control type="image">
-				<posx>-10</posx>
-				<posy>-10</posy>
-				<width>120</width>
-				<height>120</height>
-				<texture>$INFO[ListItem.ActualIcon]</texture>
-				<animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
-				<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-				<visible>!Control.HasFocus(9110)</visible>
-			</control>
-			<control type="image">
-				<posx>-10</posx>
-				<posy>-10</posy>
-				<width>120</width>
-				<height>120</height>
-				<texture>$INFO[ListItem.ActualIcon]</texture>
-				<animation type="Focus" reversible="false">
-					<effect type="fade" start="35" end="100" time="250" tween="sine" easing="inout" />
-				</animation>
-				<animation type="UnFocus" reversible="false">
-					<effect type="fade" start="100" end="35" time="250" tween="sine" easing="inout" />
-				</animation>
-				<animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-				<animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-				<visible>Control.HasFocus(9110)</visible>
-			</control>
-		</focusedlayout>
-		<content>
-			<item id="0">
-				<icon>osd/media-guide/buttons/previous.png</icon>
-				<onclick>PlayerControl(Previous)</onclick>
-			</item>
-			<item id="1">
-				<icon>osd/media-guide/buttons/rewind.png</icon>
-				<onclick>PlayerControl(Rewind)</onclick>
-			</item>
-			<item id="2">
-				<icon>osd/media-guide/buttons/stop.png</icon>
-				<onclick>PlayerControl(Stop)</onclick>
-				<onclick>SetFocus(9105)</onclick>
-			</item>
-			<item id="3">
-				<icon>osd/media-guide/buttons/play.png</icon>
-				<onclick>PlayerControl(Play)</onclick>
-				<visible>Player.Paused</visible>
-			</item>
-			<item id="4">
-				<icon>osd/media-guide/buttons/pause.png</icon>
-				<onclick>PlayerControl(Play)</onclick>
-				<visible>!Player.Paused</visible>
-			</item>
-			<item id="5">
-				<icon>osd/media-guide/buttons/forward.png</icon>
-				<onclick>PlayerControl(Forward)</onclick>
-			</item>
-			<item id="6">
-				<icon>osd/media-guide/buttons/next.png</icon>
-				<onclick>PlayerControl(Next)</onclick>
-			</item>
-			<item id="7">
-				<icon>osd/media-guide/buttons/playlist.png</icon>
-				<onclick>Dialog.Close(musicinformation)</onclick>
-				<onclick>Dialog.Close(movieinformation)</onclick>
-				<onclick>Dialog.Close(playercontrols)</onclick>
-				<onclick>ActivateWindow(videoplaylist)</onclick>
-				<visible>Player.HasVideo</visible>
-			</item>
-			<item id="8">
-				<icon>osd/media-guide/buttons/playlist.png</icon>
-				<onclick>Dialog.Close(musicinformation)</onclick>
-				<onclick>Dialog.Close(movieinformation)</onclick>
-				<onclick>Dialog.Close(playercontrols)</onclick>
-				<onclick>ActivateWindow(musicplaylist)</onclick>
-				<visible>Player.HasAudio</visible>
-			</item>
-		</content>
-	</include>
-	
-	<include name="GuideBladeLeft">
-		<control type="image">
-			<posx>524</posx>
-			<posy>253</posy>
-			<width>120</width>
-			<height>574</height>
-			<texture>osd/media-guide/blade-left.png</texture>
-			<aspectratio>stretch</aspectratio>
-		</control>
-	</include>
-	
-	<include name="GuideBladeRight">
-		<control type="image">
-			<posx>1276</posx>
-			<posy>253</posy>
-			<width>120</width>
-			<height>574</height>
-			<texture>osd/media-guide/blade-right.png</texture>
-			<aspectratio>stretch</aspectratio>
-		</control>
-	</include>
-	
-	<include name="GuideInterface">
-		<include>MediaGuideAnimations</include>
-	
-		<!-- Left Side Blades -->
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>LeftBlade</include>
-			<include>GuideBladeLeft</include>
-			<control type="label">
-				<posx>428</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41440]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-			
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>LeftBlade2</include>
-			<include>GuideBladeLeft</include>
-			<control type="label">
-				<posx>428</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41920]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>LeftBlade3</include>
-			<include>GuideBladeLeft</include>
-			<control type="label">
-				<posx>428</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41441]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>LeftBlade4</include>
-			<include>GuideBladeLeft</include>
-			<control type="label">
-				<posx>428</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41443]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-	
-		<!-- Right Side Blades -->
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>RightBlade</include>
-			<include>GuideBladeRight</include>
-			<control type="label">
-				<posx>1173</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41444]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>RightBlade2</include>
-			<include>GuideBladeRight</include>
-			<control type="label">
-				<posx>1173</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41443]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>RightBlade3</include>
-			<include>GuideBladeRight</include>
-			<control type="label">
-				<posx>1173</posx>
-				<posy>513</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41441]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<include>RightBlade4</include>
-			<include>GuideBladeRight</include>
-			<control type="label">
-				<posx>1172</posx>
-				<posy>514</posy>
-				<width>325</width>
-				<height>50</height>
-				<label>$LOCALIZE[41920]</label>
-				<textcolor>midgrey</textcolor>
-				<font>Font-Condensed-S36</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
+    <include name="GuideList">
+        <posx>637</posx>
+        <posy>325</posy>
+        <width>750</width>
+        <height>464</height>
+        <orientation>vertical</orientation>
+        <scrolltime>0</scrolltime>
+        <onleft>9102</onleft>
+        <onright>9105</onright>
+        <itemlayout height="64" width="750">
+            <control type="image">
+                <posx>0</posx>
+                <posy>80</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="label">
+                <posx>30</posx>
+                <posy>17</posy>
+                <width>690</width>
+                <height>60</height>
+                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <textcolor>77white</textcolor>
+                <font>Font-Condensed-S42</font>
+                <align>left</align>
+            </control>
+        </itemlayout>
+        <focusedlayout height="64" width="750">
+            <control type="button">
+                <onfocus>ClearProperty(left)</onfocus>
+                <onfocus>ClearProperty(right)</onfocus>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>80</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>750</width>
+                <height>96</height>
+                <texture>osd/media-guide/mediaguide-fo.png</texture>
+                <include>guidelistfocusanim2</include>
+            </control>
+            <control type="label">
+                <posx>30</posx>
+                <posy>17</posy>
+                <width>690</width>
+                <height>60</height>
+                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <textcolor>eewhite</textcolor>
+                <font>Font-Condensed-S42</font>
+                <align>left</align>
+                <include>guidelistfocusanim</include>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="0">
+                <label>$LOCALIZE[41445]</label>
+                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://1/2/)])</onclick>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videos,movietitles,return)</onclick>
+            </item>
+            <item id="1">
+                <label>$LOCALIZE[41446]</label>
+                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://2/2/)])</onclick>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
+            </item>
+            <item id="2">
+                <label>$LOCALIZE[41447]</label>
+                <include>GuideDialogClose</include>
+                <onclick condition="IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary)</onclick>
+                <onclick condition="!IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
+            </item>
+            <item id="3">
+                <label>$LOCALIZE[41448]</label>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(pictures)</onclick>
+                <visible>!Skin.HasSetting(Guide.Custom1) + IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
+            </item>
+            <item id="4">
+                <label>$INFO[Skin.String(Guide.Custom1.Label)]</label>
+                <include>GuideDialogClose</include>
+                <onclick>SetProperty(NextStage,0)</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),6)">$INFO[Skin.String(Guide.Custom1.Path)]</onclick>
+                <visible>Skin.HasSetting(Guide.Custom1) + !IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
+            </item>
+            <item id="5">
+                <label>$LOCALIZE[41449]</label>
+                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
+                <visible>!Skin.HasSetting(Guide.Custom2) + IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
+            </item>
+            <item id="6">
+                <label>$INFO[Skin.String(Guide.Custom2.Label)]</label>
+                <include>GuideDialogClose</include>
+                <onclick>SetProperty(NextStage,0)</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),6)">$INFO[Skin.String(Guide.Custom2.Path)]</onclick>
+                <visible>Skin.HasSetting(Guide.Custom2) + !IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
+            </item>
+            <item id="7">
+                <label>$LOCALIZE[41450]</label>
+                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://4/)])</onclick>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videos,RecentlyAddedMovies,return)</onclick>
+                <visible>!Skin.HasSetting(Guide.Custom3) + IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
+            </item>
+            <item id="8">
+                <label>$INFO[Skin.String(Guide.Custom3.Label)]</label>
+                <include>GuideDialogClose</include>
+                <onclick>SetProperty(NextStage,0)</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),6)">$INFO[Skin.String(Guide.Custom3.Path)]</onclick>
+                <visible>Skin.HasSetting(Guide.Custom3) + !IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
+            </item>
+            <item id="9">
+                <label>$LOCALIZE[41451]</label>
+                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://5/)])</onclick>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
+                <visible>!Skin.HasSetting(Guide.Custom4) + IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
+            </item>
+            <item id="10">
+                <label>$INFO[Skin.String(Guide.Custom4.Label)]</label>
+                <include>GuideDialogClose</include>
+                <onclick>SetProperty(NextStage,0)</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),6)">$INFO[Skin.String(Guide.Custom4.Path)]</onclick>
+                <visible>Skin.HasSetting(Guide.Custom4) + !IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
+            </item>
+        </content>
+    </include>
+    
+    <include name="GuideSettings">
+        <posx>637</posx>
+        <posy>325</posy>
+        <width>750</width>
+        <height>464</height>
+        <orientation>vertical</orientation>
+        <scrolltime>250</scrolltime>
+        <itemlayout height="64" width="750">
+            <control type="image">
+                <posx>0</posx>
+                <posy>80</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>670</posx>
+                <posy>23</posy>
+                <width>50</width>
+                <height>50</height>
+                <texture>$INFO[ListItem.Icon]</texture>
+                <colordiffuse>77FFFFFF</colordiffuse>
+            </control>
+            <control type="label">
+                <posx>30</posx>
+                <posy>17</posy>
+                <width>690</width>
+                <height>60</height>
+                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <textcolor>77white</textcolor>
+                <font>Font-Condensed-S42</font>
+                <align>left</align>
+            </control>
+        </itemlayout>
+        <focusedlayout height="64" width="750">
+            <control type="button">
+                <onfocus>SetProperty(right,1)</onfocus>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>80</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>750</width>
+                <height>96</height>
+                <texture>osd/media-guide/mediaguide-fo.png</texture>
+                <include>guidelistfocusanim2</include>
+            </control>
+            <control type="image">
+                <posx>670</posx>
+                <posy>23</posy>
+                <width>50</width>
+                <height>50</height>
+                <texture>$INFO[ListItem.Icon]</texture>
+                <colordiffuse>EEFFFFFF</colordiffuse>
+                <include>guidelistfocusanim</include>
+            </control>
+            <control type="label">
+                <posx>30</posx>
+                <posy>17</posy>
+                <width>690</width>
+                <height>60</height>
+                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <textcolor>eewhite</textcolor>
+                <font>Font-Condensed-S42</font>
+                <align>left</align>
+                <include>guidelistfocusanim</include>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="0">
+                <label>$LOCALIZE[41706]</label>
+                <icon>osd/media-guide/settings/appearance.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(appearancesettings)</onclick>
+            </item>
+            <item id="1">
+                <label>$LOCALIZE[41700]</label>
+                <icon>osd/media-guide/settings/video.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(videossettings)</onclick>
+            </item>
+            <item id="2">
+                <label>$LOCALIZE[41701]</label>
+                <icon>osd/media-guide/settings/music.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(musicsettings)</onclick>
+            </item>
+            <item id="3">
+                <label>$LOCALIZE[41702]</label>
+                <icon>osd/media-guide/settings/pictures.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(picturessettings)</onclick>
+            </item>
+            <item id="4">
+                <label>$LOCALIZE[41704]</label>
+                <icon>osd/media-guide/settings/weather.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(weathersettings)</onclick>
+            </item>
+            <item id="5">
+                <label>$LOCALIZE[41705]</label>
+                <icon>osd/media-guide/settings/network.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(networksettings)</onclick>
+            </item>
+            <item id="6">
+                <label>$LOCALIZE[41703]</label>
+                <icon>osd/media-guide/settings/profiles.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(profiles)</onclick>
+            </item>
+            <item id="7">
+                <label>$LOCALIZE[41709]</label>
+                <icon>osd/media-guide/settings/addons.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(addonbrowser)</onclick>
+            </item>
+            <item id="8">
+                <label>$LOCALIZE[166]</label>
+                <icon>osd/media-guide/settings/skin.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(1111)</onclick>
+            </item>
+            <item id="9">
+                <label>$LOCALIZE[41708]</label>
+                <icon>osd/media-guide/settings/system.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(systemsettings)</onclick>
+            </item>
+        </content>
+    </include>
+    
+    <include name="GuideRecentlyAdded">
+        <posx>637</posx>
+        <posy>325</posy>
+        <width>750</width>
+        <height>464</height>
+        <orientation>vertical</orientation>
+        <scrolltime>250</scrolltime>
+        <onup>9108</onup>
+        <ondown>9109</ondown>
+        <onleft>9103</onleft>
+        <onright>9100</onright>
+        <itemlayout height="64" width="750">
+            <control type="image">
+                <posx>0</posx>
+                <posy>80</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="label">
+                <posx>30</posx>
+                <posy>16</posy>
+                <width>600</width>
+                <height>60</height>
+                <label>$INFO[ListItem.Label]</label>
+                <textcolor>77white</textcolor>
+                <font>Font-Condensed-S38</font>
+                <align>left</align>
+                <scroll>false</scroll>
+            </control>
+            <control type="group">
+                <visible>!ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+                <control type="image">
+                    <posx>655</posx>
+                    <posy>-5</posy>
+                    <width>105</width>
+                    <height>105</height>
+                    <aspect>keepaspect</aspect>
+                    <texture>views/thumb/other/star_nofo.png</texture>
+                </control>
+                <control type="label">
+                    <posx>680</posx>
+                    <posy>16</posy>
+                    <width>55</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </control>
+            <control type="label">
+                <posx>720</posx>
+                <posy>16</posy>
+                <width>75</width>
+                <height>60</height>
+                <label>[B]$INFO[ListItem.property(year)][/B]</label>
+                <textcolor>77white</textcolor>
+                <font>Font-Condensed-S34</font>
+                <align>right</align>
+                <visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
+            </control>
+        </itemlayout>
+        <focusedlayout height="128" width="750">
+            <control type="button">
+                <onfocus>ClearProperty(center)</onfocus>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>144</posy>
+                <width>750</width>
+                <height>2</height>
+                <texture>osd/media-guide/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>750</width>
+                <height>162</height>
+                <aspectratio>stretch</aspectratio>
+                <texture>osd/media-guide/mediaguide-big-fo.png</texture>
+                <include>guidelistfocusanim2</include>
+                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+            </control>
+            <!-- Latest Movies -->
+            <control type="group">
+                <visible>!ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+                <include>guidelistfocusanim2</include>
+                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <control type="image">
+                    <posx>30</posx>
+                    <posy>27</posy>
+                    <width>72</width>
+                    <height>108</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                </control>
+                <control type="label">
+                    <posx>117</posx>
+                    <posy>19</posy>
+                    <width>605</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>118</posx>
+                    <posy>76</posy>
+                    <width>460</width>
+                    <height>60</height>
+                    <label>$INFO[ListItem.Label2]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>left</align>
+                </control>
+                <control type="image">
+                    <posx>655</posx>
+                    <posy>55</posy>
+                    <width>105</width>
+                    <height>105</height>
+                    <aspect>keepaspect</aspect>
+                    <texture>views/thumb/other/star_fo.png</texture>
+                </control>
+                <control type="label">
+                    <posx>680</posx>
+                    <posy>76</posy>
+                    <width>55</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </control>
+            <!-- Latest Episodes -->
+            <control type="group">
+                <visible>ControlGroup(9120).HasFocus(91202)</visible>
+                <include>guidelistfocusanim2</include>
+                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <control type="image">
+                    <posx>30</posx>
+                    <posy>27</posy>
+                    <width>192</width>
+                    <height>108</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                </control>
+                <control type="label">
+                    <posx>237</posx>
+                    <posy>19</posy>
+                    <width>485</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>238</posx>
+                    <posy>76</posy>
+                    <width>340</width>
+                    <height>60</height>
+                    <label>$INFO[ListItem.Label2]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>left</align>
+                </control>
+                <control type="image">
+                    <posx>655</posx>
+                    <posy>55</posy>
+                    <width>105</width>
+                    <height>105</height>
+                    <aspect>keepaspect</aspect>
+                    <texture>views/thumb/other/star_fo.png</texture>
+                </control>
+                <control type="label">
+                    <posx>680</posx>
+                    <posy>76</posy>
+                    <width>55</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </control>
+            <!-- Latest Albums / Songs -->
+            <control type="group">
+                <visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
+                <include>guidelistfocusanim2</include>
+                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <control type="image">
+                    <posx>30</posx>
+                    <posy>27</posy>
+                    <width>108</width>
+                    <height>108</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                </control>
+                <control type="label">
+                    <posx>153</posx>
+                    <posy>19</posy>
+                    <width>569</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>154</posx>
+                    <posy>76</posy>
+                    <width>484</width>
+                    <height>60</height>
+                    <label>$INFO[ListItem.Label2]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <posx>720</posx>
+                    <posy>76</posy>
+                    <width>75</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.property(year)][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="1">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.1.Path)])</onclick>
+                <thumb>$INFO[Window(home).property(LatestMovie.1.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.1.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.1.Year),, • ]$INFO[Window(home).Property(LatestMovie.1.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.1.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.1.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="2">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.2.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestMovie.2.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.2.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.2.Year),, • ]$INFO[Window(home).Property(LatestMovie.2.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.2.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.2.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="3">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.3.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestMovie.3.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.3.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.3.Year),, • ]$INFO[Window(home).Property(LatestMovie.3.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.3.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.3.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="4">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.4.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestMovie.4.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.4.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.4.Year),, • ]$INFO[Window(home).Property(LatestMovie.4.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.4.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.4.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="5">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.5.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestMovie.5.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.5.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.5.Year),, • ]$INFO[Window(home).Property(LatestMovie.5.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.5.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.5.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="6">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestMovie.6.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestMovie.6.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestMovie.6.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestMovie.6.Year),, • ]$INFO[Window(home).Property(LatestMovie.6.RunningTime),, $LOCALIZE[12391]]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestMovie.6.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestMovie.6.Title)) + !ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="7">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.1.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.1.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.1.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.1.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.1.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.1.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.1.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.1.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="8">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.2.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.2.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.2.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.2.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.2.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.2.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.2.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.2.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="9">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.3.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.3.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.3.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.3.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.3.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.3.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.3.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.3.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="10">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.4.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.4.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.4.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.4.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.4.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.4.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.4.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.4.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="11">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.5.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.5.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.5.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.5.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.5.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.5.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.5.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.5.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="12">
+                <onclick>PreviousMenu</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestEpisode.6.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestEpisode.6.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestEpisode.6.EpisodeSeason),,x]$INFO[Window(home).Property(LatestEpisode.6.EpisodeNumber)] $INFO[Window(home).Property(LatestEpisode.6.EpisodeTitle)]</label>
+                <label2>$INFO[Window(home).Property(LatestEpisode.6.ShowTitle)]</label2>
+                <property name="rating">$INFO[Window(home).Property(LatestEpisode.6.Rating)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestEpisode.6.ShowTitle)) + ControlGroup(9120).HasFocus(91202)</visible>
+            </item>
+            <item id="13">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.1.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.1.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.1.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.1.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.1.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.1.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="14">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.2.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.2.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.2.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.2.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.2.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.2.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="15">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.3.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.3.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.3.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.3.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.3.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.3.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="16">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.4.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.4.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.4.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.4.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.4.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.4.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="17">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.5.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.5.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.5.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.5.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.5.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.5.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="18">
+                <onclick>PlayList.Clear</onclick>
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestAlbum.6.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestAlbum.6.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestAlbum.6.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestAlbum.6.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestAlbum.6.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestAlbum.6.Title)) + ControlGroup(9120).HasFocus(91203)</visible>
+            </item>
+            <item id="19">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.1.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.1.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.1.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.1.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.1.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.1.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="20">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.2.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.2.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.2.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.2.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.2.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.2.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="21">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.3.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.3.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.3.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.3.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.3.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.3.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="22">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.4.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.4.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.4.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.4.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.4.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.4.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="23">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.5.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.5.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.5.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.5.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.5.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.5.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+            <item id="24">
+                <onclick>PlayMedia($INFO[Window(home).Property(LatestSong.6.Path)])</onclick>
+                <thumb>$INFO[Window(home).Property(LatestSong.6.Thumb)]</thumb>
+                <label>$INFO[Window(home).Property(LatestSong.6.Title)]</label>
+                <label2>$INFO[Window(home).Property(LatestSong.6.Artist)]</label2>
+                <property name="year">$INFO[Window(home).Property(LatestSong.6.Year)]</property>
+                <visible>!IsEmpty(Window(home).Property(LatestSong.6.Title)) + ControlGroup(9120).HasFocus(91204)</visible>
+            </item>
+        </content>
+    </include>
+    
+    <include name="GuideSystemInfo">
+        <control type="list">
+            <posx>637</posx>
+            <posy>325</posy>
+            <width>750</width>
+            <height>464</height>
+            <orientation>vertical</orientation>
+            <scrolltime>0</scrolltime>
+            <itemlayout height="64" width="750">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>80</posy>
+                    <width>750</width>
+                    <height>2</height>
+                    <texture>osd/media-guide/separator.png</texture>
+                </control>
+                <control type="label">
+                    <posx>30</posx>
+                    <posy>17</posy>
+                    <width>690</width>
+                    <height>60</height>
+                    <label>$INFO[ListItem.Label]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <posx>720</posx>
+                    <posy>17</posy>
+                    <width>690</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.Label2][/B]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </itemlayout>
+            <focusedlayout height="64" width="750">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>80</posy>
+                    <width>750</width>
+                    <height>2</height>
+                    <texture>osd/media-guide/separator.png</texture>
+                </control>
+                <control type="label">
+                    <posx>30</posx>
+                    <posy>17</posy>
+                    <width>690</width>
+                    <height>60</height>
+                    <label>$INFO[ListItem.Label]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <posx>720</posx>
+                    <posy>17</posy>
+                    <width>690</width>
+                    <height>60</height>
+                    <label>[B]$INFO[ListItem.Label2][/B]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>right</align>
+                </control>
+            </focusedlayout>
+            <content>
+                <item id="0">
+                    <label>$LOCALIZE[41453]</label>
+                    <label2>$INFO[System.ProfileName]</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="1">
+                    <label>$LOCALIZE[41454]</label>
+                    <label2>$INFO[Network.IPAddress]</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="2">
+                    <label>$LOCALIZE[41455]</label>
+                    <label2>$INFO[System.FreeMemory]</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="3">
+                    <label>$LOCALIZE[41456]</label>
+                    <label2>$INFO[System.ScreenWidth,,x]$INFO[System.ScreenHeight,, @ ]$INFO[System.FPS,, FPS]</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="4">
+                    <label>$LOCALIZE[41457]</label>
+                    <label2>$INFO[System.Uptime]</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="5">
+                    <label>$LOCALIZE[41458]</label>
+                    <label2>0.9.7</label2>
+                    <onclick>-</onclick>
+                </item>
+                <item id="6">
+                    <label>$LOCALIZE[41459]</label>
+                    <label2>$INFO[System.BuildVersion]</label2>
+                    <onclick>-</onclick>
+                </item>
+            </content>
+        </control>
+    </include>
+    
+    <include name="GuideNowPlaying">
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+            <visible>!Player.HasMedia</visible>
+            <control type="image">
+                <posx>58</posx>
+                <posy>-5</posy>
+                <width>633</width>
+                <height>437</height>
+                <texture>osd/media-guide/no-movies-music.png</texture>
+                <colordiffuse>44FFFFFF</colordiffuse>
+            </control>
+            <control type="label">
+                <posx>0</posx>
+                <posy>340</posy>
+                <width>750</width>
+                <height>60</height>
+                <label>$LOCALIZE[41452]</label>
+                <textcolor>44FFFFFF</textcolor>
+                <font>Font-Condensed-S42</font>
+                <align>center</align>
+            </control>
+        </control>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+            <visible>Player.HasVideo</visible>
+            <control type="image">
+                <posx>13</posx>
+                <posy>-4</posy>
+                <width>725</width>
+                <height>391</height>
+                <aspectratio>stretch</aspectratio>
+                <texture border="1">windows/common/black.png</texture>
+                <colordiffuse>BCFFFFFF</colordiffuse>
+            </control>
+            <control type="videowindow">
+                <description>video</description>
+                <posx>13</posx>
+                <posy>-4</posy>
+                <width>725</width>
+                <height>391</height>
+                <aspectratio>scale</aspectratio>
+            </control>
+            <control type="group">
+                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+                <visible>Control.HasFocus(9110)</visible>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>-4</posy>
+                    <width>750</width>
+                    <height>100</height>
+                    <texture>osd/media-guide/video-overlay.png</texture>
+                </control>
+                <control type="label">
+                    <posx>25</posx>
+                    <posy>9</posy>
+                    <width>700</width>
+                    <label>[B]$INFO[VideoPlayer.Title][/B]</label>
+                    <textcolor>DDFFFFFF</textcolor>
+                    <shadowcolor>88000000</shadowcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>center</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="progress" id="1">
+                    <description>Progressbar</description>
+                    <posx>125</posx>
+                    <posy>55</posy>
+                    <width>500</width>
+                    <height>22</height>
+                    <info>Player.Progress</info>
+                    <lefttexture border="10,0,0,0">overlays/volume/volume-bar-left.png</lefttexture>
+                    <midtexture border="1">overlays/volume/volume-bar-mid.png</midtexture>
+                    <righttexture border="0,0,10,0">overlays/volume/volume-bar-right.png</righttexture>
+                    <texturebg border="20,0,20,0">overlays/volume/volume-bar-back.png</texturebg>
+                </control>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>387</posy>
+                <width>750</width>
+                <height>100</height>
+                <texture>osd/media-guide/buttons-underlay.png</texture>
+            </control>
+        </control>
+        <control type="group">
+            <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+            <visible>Player.HasAudio</visible>
+            <control type="group">
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>-4</posy>
+                    <width>750</width>
+                    <height>100</height>
+                    <texture>osd/media-guide/title-underlay.png</texture>
+                </control>
+                <control type="label">
+                    <posx>25</posx>
+                    <posy>9</posy>
+                    <width>700</width>
+                    <label>[B]$INFO[MusicPlayer.Title][/B]</label>
+                    <textcolor>99FFFFFF</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>center</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>25</posx>
+                    <posy>49</posy>
+                    <width>700</width>
+                    <label>$INFO[MusicPlayer.Artist]</label>
+                    <textcolor>77white</textcolor>
+                    <font>Font-Condensed-S30</font>
+                    <align>center</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>387</posy>
+                    <width>750</width>
+                    <height>100</height>
+                    <texture>osd/media-guide/buttons-underlay.png</texture>
+                    <colordiffuse>BCFFFFFF</colordiffuse>
+                </control>
+            </control>
+            <control type="group">
+                <posx>87</posx>
+                <posy>90</posy>
+                <control type="image">
+                    <posx>-167</posx>
+                    <posy>-68</posy>
+                    <width>633</width>
+                    <height>437</height>
+                    <texture>panel_menu_dvd.png</texture>
+                    <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
+                        <effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
+                    </animation>
+                    <animation effect="fade" start="0" end="100" time="0" delay="500">Visible</animation>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
+                    <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
+                </control>
+                <control type="image">
+                    <posx>35</posx>
+                    <posy>36</posy>
+                    <width>229</width>
+                    <height>229</height>
+                    <texture diffuse="osd/media-guide/cdart-diffuse.png" background="true">$INFO[Player.FolderPath,,cdart.png]</texture>
+                    <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
+                        <effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
+                    </animation>
+                    <animation effect="fade" start="0" end="95" time="0" delay="500">Visible</animation>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
+                    <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
+                </control>
+                <control type="image">
+                    <posx>25</posx>
+                    <posy>25</posy>
+                    <width>250</width>
+                    <height>250</height>
+                    <fadetime>300</fadetime>
+                    <texture background="true">$INFO[MusicPlayer.Cover]</texture>
+                </control>
+                <control type="image">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <width>300</width>
+                    <height>300</height>
+                    <texture>osd/media-guide/cover-overlay.png</texture>
+                </control>
+                <control type="group">
+                    <posx>300</posx>
+                    <posy>55</posy>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>325</width>
+                        <label>$LOCALIZE[42100][B]$INFO[MusicPlayer.PlaylistPosition] / $INFO[MusicPlayer.PlaylistLength][/B]</label>
+                        <textcolor>77white</textcolor>
+                        <font>Font-Condensed-S30</font>
+                        <align>left</align>
+                        <scroll>false</scroll>
+                    </control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>50</posy>
+                        <width>325</width>
+                        <label>$LOCALIZE[42103][B]$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration][/B]</label>
+                        <textcolor>77white</textcolor>
+                        <font>Font-Condensed-S30</font>
+                        <align>left</align>
+                        <scroll>false</scroll>
+                    </control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>100</posy>
+                        <width>325</width>
+                        <label>$LOCALIZE[42104][B]$INFO[MusicPlayer.Year][/B]</label>
+                        <textcolor>77white</textcolor>
+                        <font>Font-Condensed-S30</font>
+                        <align>left</align>
+                        <scroll>false</scroll>
+                    </control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>150</posy>
+                        <width>325</width>
+                        <label>$LOCALIZE[42101][B]$INFO[MusicPlayer.Genre][/B]</label>
+                        <textcolor>77white</textcolor>
+                        <font>Font-Condensed-S30</font>
+                        <align>left</align>
+                        <scroll>false</scroll>
+                    </control>
+                </control>
+            </control>
+        </control>
+        <control type="list" id="9110">
+            <onup>9105</onup>
+            <ondown>9105</ondown>
+            <onleft>9110</onleft>
+            <onright>9110</onright>
+            <visible>Player.HasMedia + [Control.HasFocus(9105) | Control.HasFocus(9110)]</visible>
+            <animation effect="rotate" end="0" time="175">Hidden</animation>
+            <include>NowPlayingControls</include>
+        </control>
+    </include>
+    
+    <include name="NowPlayingControls">
+        <posx>25</posx>
+        <posy>393</posy>
+        <width>720</width>
+        <height>120</height>
+        <orientation>horizontal</orientation>
+        <itemgap>-25</itemgap>
+        <focusposition>3</focusposition>
+        <itemlayout height="100" width="100">
+            <control type="image">
+                <posx>-10</posx>
+                <posy>-10</posy>
+                <width>120</width>
+                <height>120</height>
+                <texture>$INFO[ListItem.ActualIcon]</texture>
+                <animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
+            </control>
+        </itemlayout>
+        <focusedlayout height="100" width="100">
+            <control type="image">
+                <posx>-10</posx>
+                <posy>-10</posy>
+                <width>120</width>
+                <height>120</height>
+                <texture>$INFO[ListItem.ActualIcon]</texture>
+                <animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
+                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+                <visible>!Control.HasFocus(9110)</visible>
+            </control>
+            <control type="image">
+                <posx>-10</posx>
+                <posy>-10</posy>
+                <width>120</width>
+                <height>120</height>
+                <texture>$INFO[ListItem.ActualIcon]</texture>
+                <animation type="Focus" reversible="false">
+                    <effect type="fade" start="35" end="100" time="250" tween="sine" easing="inout" />
+                </animation>
+                <animation type="UnFocus" reversible="false">
+                    <effect type="fade" start="100" end="35" time="250" tween="sine" easing="inout" />
+                </animation>
+                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
+                <visible>Control.HasFocus(9110)</visible>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="0">
+                <icon>osd/media-guide/buttons/previous.png</icon>
+                <onclick>PlayerControl(Previous)</onclick>
+            </item>
+            <item id="1">
+                <icon>osd/media-guide/buttons/rewind.png</icon>
+                <onclick>PlayerControl(Rewind)</onclick>
+            </item>
+            <item id="2">
+                <icon>osd/media-guide/buttons/stop.png</icon>
+                <onclick>PlayerControl(Stop)</onclick>
+                <onclick>SetFocus(9105)</onclick>
+            </item>
+            <item id="3">
+                <icon>osd/media-guide/buttons/play.png</icon>
+                <onclick>PlayerControl(Play)</onclick>
+                <visible>Player.Paused</visible>
+            </item>
+            <item id="4">
+                <icon>osd/media-guide/buttons/pause.png</icon>
+                <onclick>PlayerControl(Play)</onclick>
+                <visible>!Player.Paused</visible>
+            </item>
+            <item id="5">
+                <icon>osd/media-guide/buttons/forward.png</icon>
+                <onclick>PlayerControl(Forward)</onclick>
+            </item>
+            <item id="6">
+                <icon>osd/media-guide/buttons/next.png</icon>
+                <onclick>PlayerControl(Next)</onclick>
+            </item>
+            <item id="7">
+                <icon>osd/media-guide/buttons/playlist.png</icon>
+                <onclick>Dialog.Close(musicinformation)</onclick>
+                <onclick>Dialog.Close(movieinformation)</onclick>
+                <onclick>Dialog.Close(playercontrols)</onclick>
+                <onclick>ActivateWindow(videoplaylist)</onclick>
+                <visible>Player.HasVideo</visible>
+            </item>
+            <item id="8">
+                <icon>osd/media-guide/buttons/playlist.png</icon>
+                <onclick>Dialog.Close(musicinformation)</onclick>
+                <onclick>Dialog.Close(movieinformation)</onclick>
+                <onclick>Dialog.Close(playercontrols)</onclick>
+                <onclick>ActivateWindow(musicplaylist)</onclick>
+                <visible>Player.HasAudio</visible>
+            </item>
+        </content>
+    </include>
+    
+    <include name="GuideBladeLeft">
+        <control type="image">
+            <posx>524</posx>
+            <posy>253</posy>
+            <width>120</width>
+            <height>574</height>
+            <texture>osd/media-guide/blade-left.png</texture>
+            <aspectratio>stretch</aspectratio>
+        </control>
+    </include>
+    
+    <include name="GuideBladeRight">
+        <control type="image">
+            <posx>1276</posx>
+            <posy>253</posy>
+            <width>120</width>
+            <height>574</height>
+            <texture>osd/media-guide/blade-right.png</texture>
+            <aspectratio>stretch</aspectratio>
+        </control>
+    </include>
+    
+    <include name="GuideInterface">
+        <include>MediaGuideAnimations</include>
+    
+        <!-- Left Side Blades -->
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>LeftBlade</include>
+            <include>GuideBladeLeft</include>
+            <control type="label">
+                <posx>428</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41440]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+            
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>LeftBlade2</include>
+            <include>GuideBladeLeft</include>
+            <control type="label">
+                <posx>428</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41920]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>LeftBlade3</include>
+            <include>GuideBladeLeft</include>
+            <control type="label">
+                <posx>428</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41441]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>LeftBlade4</include>
+            <include>GuideBladeLeft</include>
+            <control type="label">
+                <posx>428</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41443]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+    
+        <!-- Right Side Blades -->
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>RightBlade</include>
+            <include>GuideBladeRight</include>
+            <control type="label">
+                <posx>1173</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41444]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>RightBlade2</include>
+            <include>GuideBladeRight</include>
+            <control type="label">
+                <posx>1173</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41443]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>RightBlade3</include>
+            <include>GuideBladeRight</include>
+            <control type="label">
+                <posx>1173</posx>
+                <posy>513</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41441]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <include>RightBlade4</include>
+            <include>GuideBladeRight</include>
+            <control type="label">
+                <posx>1172</posx>
+                <posy>514</posy>
+                <width>325</width>
+                <height>50</height>
+                <label>$LOCALIZE[41920]</label>
+                <textcolor>midgrey</textcolor>
+                <font>Font-Condensed-S36</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
 
-		<control type="image"> 
-			<description>Center Panel</description>
-			<include>FullscreenDimensions</include>
-			<texture>osd/media-guide/center.png</texture>
-		</control>		
-		<control type="image">
-			<posx>539</posx>
-			<posy>265</posy>
-			<width>90</width>
-			<height>90</height>
-			<texture>osd/media-guide/quicknavicon.png</texture>
-			<aspectratio>stretch</aspectratio>
-			<visible>ControlGroup(9100).HasFocus() | ControlGroup(9101).HasFocus()</visible>
-			<animation type="Conditional" condition="ControlGroup(9100).HasFocus() | ControlGroup(9101).HasFocus()" reversible="false">
-				<effect type="fade" start="0" end="100" time="300" />
-			</animation>
-		</control>
-		<!-- Labels -->
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<visible>Control.HasFocus(9100)</visible>
-			<animation type="Conditional" condition="[Control.HasFocus(9099) | Control.HasFocus(9100)] + !IsEmpty(Window.property(center))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
-				<effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
-				<effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Conditional" condition="[Control.HasFocus(9099) | Control.HasFocus(9100)] + IsEmpty(Window.property(center))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
-				<effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" end="100" time="0" delay="175" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9102)" reversible="false">
-				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
-			</animation>
-			<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))" reversible="false">
-				<effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
-			</animation>
-			<control type="label">
-				<posx>412</posx>
-				<posy>513</posy>
-				<width>350</width>
-				<height>50</height>
-				<label>$LOCALIZE[41441]</label>
-				<textcolor>bbwhite</textcolor>
-				<font>Font-Condensed-S45</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
-			<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !IsEmpty(Window.property(right))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
-				<effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
-				<effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
-				<effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" end="100" time="0" delay="175" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9100) + !IsEmpty(Window.Property(center))" reversible="false">
-				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9106)" reversible="false">
-				<effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
-			</animation>
-			<control type="label">
-				<posx>412</posx>
-				<posy>513</posy>
-				<width>350</width>
-				<height>50</height>
-				<label>$LOCALIZE[41443]</label>
-				<textcolor>bbwhite</textcolor>
-				<font>Font-Condensed-S45</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
-			<animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
-				<effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
-				<effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
-				<effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" end="100" time="0" delay="175" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9103)" reversible="false">
-				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
-			</animation>
-			<animation type="Conditional" condition="Control.HasFocus(9100) + IsEmpty(Window.Property(center))" reversible="false">
-				<effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
-			</animation>
-			<control type="label">
-				<posx>412</posx>
-				<posy>513</posy>
-				<width>350</width>
-				<height>50</height>
-				<label>$LOCALIZE[41920]</label>
-				<textcolor>bbwhite</textcolor>
-				<font>Font-Condensed-S45</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<visible>Control.HasFocus(9103)</visible>
-			<animation type="Conditional" condition="Control.HasFocus(9103)" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
-				<effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
-				<effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
-			</animation>
-			<control type="label">
-				<posx>412</posx>
-				<posy>524</posy>
-				<width>350</width>
-				<height>50</height>
-				<label>$LOCALIZE[41440]</label>
-				<textcolor>bbwhite</textcolor>
-				<font>Font-Condensed-S45</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-		<control type="group">
-			<width>120</width>
-			<height>574</height>
-			<visible>Control.HasFocus(9106)</visible>
-			<animation type="Conditional" condition="Control.HasFocus(9106)" reversible="false">
-				<effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
-				<effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
-			</animation>
-			<animation type="Hidden" reversible="false">
-				<effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
-				<effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
-				<effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
-			</animation>
-			<control type="label">
-				<posx>412</posx>
-				<posy>524</posy>
-				<width>350</width>
-				<height>50</height>
-				<label>$LOCALIZE[41444]</label>
-				<textcolor>bbwhite</textcolor>
-				<font>Font-Condensed-S45</font>
-				<align>center</align>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
-				<animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
-			</control>
-		</control>
-			
-		<control type="label">
-			<description>Clock</description>
-			<posx>560r</posx>
-			<posy>215</posy>
-			<width>170</width>
-			<label>[B]$INFO[System.Time][/B]</label>
-			<font>Font-Condensed-S34</font>
-			<textcolor>bbwhite</textcolor>
-			<align>right</align>
-			<scroll>false</scroll>
-			<visible>!Skin.HasSetting(Guide.HideClock)</visible>
-		</control>
-		<control type="rss">
-			<posx>690</posx>
-			<posy>270</posy>
-			<height>30</height>
-			<width>685</width>
-			<font>Font-Condensed-S30</font>
-			<urlset>1</urlset>
-			<textcolor>rsstext</textcolor>
-			<titlecolor>rsstitle</titlecolor>
-			<shadowcolor>ff0d0d0d</shadowcolor>
-			<headlinecolor>ddwhite</headlinecolor>
-		</control>
-		<control type="image">
-			<posx>640</posx>
-			<posy>265</posy>
-			<width>50</width>
-			<height>50</height>
-			<texture>osd/media-guide/rssicon.png</texture>
-			<aspectratio>stretch</aspectratio>
-		</control>
-		<control type="image">
-			<posx>650</posx>
-			<posy>320</posy>
-			<width>725</width>
-			<height>1</height>
-			<texture>osd/media-guide/line.png</texture>
-			<aspectratio>stretch</aspectratio>
-		</control>
+        <control type="image"> 
+            <description>Center Panel</description>
+            <include>FullscreenDimensions</include>
+            <texture>osd/media-guide/center.png</texture>
+        </control>      
+        <control type="image">
+            <posx>539</posx>
+            <posy>265</posy>
+            <width>90</width>
+            <height>90</height>
+            <texture>osd/media-guide/quicknavicon.png</texture>
+            <aspectratio>stretch</aspectratio>
+            <visible>ControlGroup(9100).HasFocus() | ControlGroup(9101).HasFocus()</visible>
+            <animation type="Conditional" condition="ControlGroup(9100).HasFocus() | ControlGroup(9101).HasFocus()" reversible="false">
+                <effect type="fade" start="0" end="100" time="300" />
+            </animation>
+        </control>
+        <!-- Labels -->
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <visible>Control.HasFocus(9100)</visible>
+            <animation type="Conditional" condition="[Control.HasFocus(9099) | Control.HasFocus(9100)] + !IsEmpty(Window.property(center))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
+                <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
+                <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
+            </animation>
+            <animation type="Conditional" condition="[Control.HasFocus(9099) | Control.HasFocus(9100)] + IsEmpty(Window.property(center))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
+                <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" end="100" time="0" delay="175" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(9102)" reversible="false">
+                <effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+            </animation>
+            <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))" reversible="false">
+                <effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
+            </animation>
+            <control type="label">
+                <posx>412</posx>
+                <posy>513</posy>
+                <width>350</width>
+                <height>50</height>
+                <label>$LOCALIZE[41441]</label>
+                <textcolor>bbwhite</textcolor>
+                <font>Font-Condensed-S45</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
+            <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !IsEmpty(Window.property(right))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
+                <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
+                <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
+            </animation>
+            <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
+                <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" end="100" time="0" delay="175" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(9100) + !IsEmpty(Window.Property(center))" reversible="false">
+                <effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(9106)" reversible="false">
+                <effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
+            </animation>
+            <control type="label">
+                <posx>412</posx>
+                <posy>513</posy>
+                <width>350</width>
+                <height>50</height>
+                <label>$LOCALIZE[41443]</label>
+                <textcolor>bbwhite</textcolor>
+                <font>Font-Condensed-S45</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+            <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
+                <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
+                <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
+            </animation>
+            <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
+                <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" end="100" time="0" delay="175" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(9103)" reversible="false">
+                <effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+            </animation>
+            <animation type="Conditional" condition="Control.HasFocus(9100) + IsEmpty(Window.Property(center))" reversible="false">
+                <effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
+            </animation>
+            <control type="label">
+                <posx>412</posx>
+                <posy>513</posy>
+                <width>350</width>
+                <height>50</height>
+                <label>$LOCALIZE[41920]</label>
+                <textcolor>bbwhite</textcolor>
+                <font>Font-Condensed-S45</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <visible>Control.HasFocus(9103)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(9103)" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
+                <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
+                <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" delay="50" time="50" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="80" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="-106" time="175" tween="sine" easing="in" />
+            </animation>
+            <control type="label">
+                <posx>412</posx>
+                <posy>524</posy>
+                <width>350</width>
+                <height>50</height>
+                <label>$LOCALIZE[41440]</label>
+                <textcolor>bbwhite</textcolor>
+                <font>Font-Condensed-S45</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+        <control type="group">
+            <width>120</width>
+            <height>574</height>
+            <visible>Control.HasFocus(9106)</visible>
+            <animation type="Conditional" condition="Control.HasFocus(9106)" reversible="false">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
+                <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden" reversible="false">
+                <effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
+                <effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
+                <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+            </animation>
+            <control type="label">
+                <posx>412</posx>
+                <posy>524</posy>
+                <width>350</width>
+                <height>50</height>
+                <label>$LOCALIZE[41444]</label>
+                <textcolor>bbwhite</textcolor>
+                <font>Font-Condensed-S45</font>
+                <align>center</align>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowOpen</animation>
+                <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
+            </control>
+        </control>
+            
+        <control type="label">
+            <description>Clock</description>
+            <posx>560r</posx>
+            <posy>215</posy>
+            <width>170</width>
+            <label>[B]$INFO[System.Time][/B]</label>
+            <font>Font-Condensed-S34</font>
+            <textcolor>bbwhite</textcolor>
+            <align>right</align>
+            <scroll>false</scroll>
+            <visible>!Skin.HasSetting(Guide.HideClock)</visible>
+        </control>
+        <control type="rss">
+            <posx>690</posx>
+            <posy>270</posy>
+            <height>30</height>
+            <width>685</width>
+            <font>Font-Condensed-S30</font>
+            <urlset>1</urlset>
+            <textcolor>rsstext</textcolor>
+            <titlecolor>rsstitle</titlecolor>
+            <shadowcolor>ff0d0d0d</shadowcolor>
+            <headlinecolor>ddwhite</headlinecolor>
+        </control>
+        <control type="image">
+            <posx>640</posx>
+            <posy>265</posy>
+            <width>50</width>
+            <height>50</height>
+            <texture>osd/media-guide/rssicon.png</texture>
+            <aspectratio>stretch</aspectratio>
+        </control>
+        <control type="image">
+            <posx>650</posx>
+            <posy>320</posy>
+            <width>725</width>
+            <height>1</height>
+            <texture>osd/media-guide/line.png</texture>
+            <aspectratio>stretch</aspectratio>
+        </control>
 
-		<!-- current user logo -->
-		<control type="image">
-			<posx>920</posx>
-			<posy>165</posy>
-			<width>80</width>
-			<height>80</height>
-			<info>System.ProfileThumb</info>
-			<texture diffuse="windows/logon/profile_mask.png" />
-			<fadetime>300</fadetime>
-			<aspectratio scalediffuse="false">scale</aspectratio>
-			<visible>!Skin.HasSetting(Guide.HideUserImage)</visible>
-		</control>
-	</include>
+        <!-- current user logo -->
+        <control type="image">
+            <posx>920</posx>
+            <posy>165</posy>
+            <width>80</width>
+            <height>80</height>
+            <info>System.ProfileThumb</info>
+            <texture diffuse="windows/logon/profile_mask.png" />
+            <fadetime>300</fadetime>
+            <aspectratio scalediffuse="false">scale</aspectratio>
+            <visible>!Skin.HasSetting(Guide.HideUserImage)</visible>
+        </control>
+    </include>
 </includes>

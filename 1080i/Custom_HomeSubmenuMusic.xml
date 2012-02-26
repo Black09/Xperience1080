@@ -5,16 +5,16 @@
         <control type="GroupList">
             <description>Button labels</description>
             <animation type="WindowOpen">
-            	<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
-            	<effect type="zoom" start="100,209,1720,1" end="100,150,1720,60" tween="sine" easing="out" time="200" />
+                <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+                <effect type="zoom" start="100,209,1720,1" end="100,150,1720,60" tween="sine" easing="out" time="200" />
             </animation>
             <animation type="WindowClose" condition="!IsEmpty(Window(3022).Property(Close))">
-            	<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
-            	<effect type="zoom" start="100,150,1720,60" end="100,209,1720,1" tween="sine" easing="out" time="200" />
+                <effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+                <effect type="zoom" start="100,150,1720,60" end="100,209,1720,1" tween="sine" easing="out" time="200" />
             </animation>
             <animation type="WindowClose" condition="IsEmpty(Window(3022).Property(Close))">
-            	<effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
-            	<effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
             </animation>
             <posx>100</posx>
             <posy>150</posy>
@@ -89,64 +89,64 @@
         </control>
         
         <control type="wraplist" id="3">
-        	<description>Control list</description>
-        	<posx>0</posx>
-        	<posy>0</posy>
-        	<height>2</height>
-        	<width>2</width>
-        	<onleft>3</onleft>
-        	<onright>3</onright>
-        	<onup>SetProperty(Close,1)</onup>
-        	<onup>PreviousMenu</onup>
-        	<ondown>SetProperty(Close,1)</ondown>
-        	<ondown>PreviousMenu</ondown>
-        	<orientation>horizontal</orientation>
-        	<scrolltime>0</scrolltime>
-        	<viewtype>list</viewtype>
-        	<itemlayout width="2" height="2"/>
-        	<focusedlayout width="2" height="2"/>
-        	<content>
-        		<item id="1">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musicfiles)</onclick>
-        		</item>
-        		<item id="2">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,genres,return)</onclick>
-        		</item>
-        		<item id="3">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,artists,return)</onclick>
-        		</item>
-        		<item id="4">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,albums,return)</onclick>
-        		</item>
-        		<item id="5">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,songs,return)</onclick>
-        		</item>
-        		<item id="6">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,years,return)</onclick>
-        		</item>
-        		<item id="7">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,top100,return)</onclick>
-        		</item>
-        		<item id="8">
-        			<label>-</label>
-        			<onclick>PreviousMenu</onclick>
-        			<onclick>ActivateWindow(musiclibrary,playlists,return)</onclick>
-        		</item>
-        	</content>
+            <description>Control list</description>
+            <posx>0</posx>
+            <posy>0</posy>
+            <height>2</height>
+            <width>2</width>
+            <onleft>3</onleft>
+            <onright>3</onright>
+            <onup>SetProperty(Close,1)</onup>
+            <onup>PreviousMenu</onup>
+            <ondown>SetProperty(Close,1)</ondown>
+            <ondown>PreviousMenu</ondown>
+            <orientation>horizontal</orientation>
+            <scrolltime>0</scrolltime>
+            <viewtype>list</viewtype>
+            <itemlayout width="2" height="2"/>
+            <focusedlayout width="2" height="2"/>
+            <content>
+                <item id="1">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musicfiles)</onclick>
+                </item>
+                <item id="2">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,genres,return)</onclick>
+                </item>
+                <item id="3">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,artists,return)</onclick>
+                </item>
+                <item id="4">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,albums,return)</onclick>
+                </item>
+                <item id="5">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,songs,return)</onclick>
+                </item>
+                <item id="6">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,years,return)</onclick>
+                </item>
+                <item id="7">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,top100,return)</onclick>
+                </item>
+                <item id="8">
+                    <label>-</label>
+                    <onclick>PreviousMenu</onclick>
+                    <onclick>ActivateWindow(musiclibrary,playlists,return)</onclick>
+                </item>
+            </content>
         </control>        
     </controls>
 </window>

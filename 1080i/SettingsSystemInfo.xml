@@ -1,261 +1,261 @@
 <window id="7">
-	<defaultcontrol>4001</defaultcontrol>
-	<allowoverlay>no</allowoverlay>
-	<controls>
-		
-		<include>CommonSettingsItems</include>
-		
-		<!-- Top Label -->
-		<control type="label">
-			<posx>100</posx>
-			<posy>60</posy>
-			<width>1000</width>
-			<height>65</height>
-			<font>Font-Condensed-S60</font>
-			<textcolor>ddwhite</textcolor>
-			<shadowcolor>55000000</shadowcolor>
-			<label>$LOCALIZE[130]</label>
-			<animation type="WindowOpen">
-				<effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
-				<effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
-			</animation>
-			<animation type="WindowClose">
-				<effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
-				<effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
-			</animation>
-		</control>
-		
-		<control type="group">
-			<include>CommonViewAnimations</include>
-			<include>OptionsShutdownAnimation</include>
-			<!-- Panel -->
-			<control type="image">
-				<include>FullscreenDimensions</include>
-				<texture>windows/settings/settings-panel-systeminfo.png</texture>
-			</control>
-			
-			<!-- SpinCtrl Focus -->
-			<control type="image">
-				<posx>357</posx>
-				<posy>170</posy>
-				<width>1210</width>
-				<height>91</height>
-				<texture>windows/settings/images/category-focus.png</texture>
-				<animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
-				<animation effect="fade" end="100" tween="sine" easing="inout" time="200">Visible</animation>
-				<animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
-				<visible>ControlGroup(4001).HasFocus</visible>
-			</control>
-			
-			<control type="label">
-				<description>Category</description>
-				<posx>391</posx>
-				<posy>186</posy>
-				<height>60</height>
-				<width>400</width>
-				<align>left</align>
-				<font>Font-Condensed-S37-B</font>
-				<label>$LOCALIZE[42130]</label>
-				<textcolor>white</textcolor>
-				<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-				<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-			</control>
-			
-			<control type="grouplist" id="4001">
-				<description>button area</description>
-				<posx>1460</posx>
-				<posy>188</posy>
-				<width>86</width>
-				<height>60</height>
-				<itemgap>0</itemgap>
-				<onleft>4001</onleft>
-				<onright>4001</onright>
-				<onup>5</onup>
-				<ondown>5</ondown>
-				<orientation>horizontal</orientation>
-				<control type="button" id="4002">
-					<width>43</width>
-					<height>60</height>
-					<texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
-					<texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
-					<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,4000,4001)</onclick>
-				</control>
-				<control type="button" id="4003">
-					<width>43</width>
-					<height>60</height>
-					<texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
-					<texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
-					<onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,4000,4001)</onclick>
-				</control>
-			</control>
-		
-			<!-- Side Buttons -->
-			<control type="grouplist" id="4000">
-				<description>Button Area</description>
-				<posx>1045</posx>
-				<posy>186</posy>
-				<width>400</width>
-				<height>60</height>
-				<itemgap>0</itemgap>
-				<onleft>4000</onleft>
-				<onright>4000</onright>
-				<onup>4000</onup>
-				<ondown>4000</ondown>
-				<scrolltime>0</scrolltime>
-				<orientation>vertical</orientation>
-				<control type="button" id="95">
-					<description>Button Summary Values</description>
-					<label>20037</label>
-					<height>60</height>
-					<width>400</width>
-					<align>right</align>
-					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<disabledcolor>77FFFFFF</disabledcolor>
-					<font>Font-Condensed-S37-B</font>
-					<textwidth>400</textwidth>
-					<textoffsetx>0</textoffsetx>
-					<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-					<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
-				</control>
-				<control type="button" id="94">
-					<description>Button Storage</description>
-					<label>13277</label>
-					<height>60</height>
-					<width>400</width>
-					<align>right</align>
-					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<disabledcolor>77FFFFFF</disabledcolor>
-					<font>Font-Condensed-S37-B</font>
-					<textwidth>400</textwidth>
-					<textoffsetx>0</textoffsetx>
-					<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-					<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
-				</control>
-				<control type="button" id="96">
-					<description>Button Network</description>
-					<label>13279</label>
-					<height>60</height>
-					<width>400</width>
-					<align>right</align>
-					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<disabledcolor>77FFFFFF</disabledcolor>
-					<font>Font-Condensed-S37-B</font>
-					<textwidth>400</textwidth>
-					<textoffsetx>0</textoffsetx>
-					<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-					<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
-				</control>
-				<control type="button" id="97">
-					<description>Button Video</description>
-					<label>13280</label>
-					<height>60</height>
-					<width>400</width>
-					<align>right</align>
-					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<disabledcolor>77FFFFFF</disabledcolor>
-					<font>Font-Condensed-S37-B</font>
-					<textwidth>400</textwidth>
-					<textoffsetx>0</textoffsetx>
-					<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-					<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
-				</control>
-				<control type="button" id="98">
-					<description>Button Hardware</description>
-					<label>13281</label>
-					<height>60</height>
-					<width>400</width>
-					<align>right</align>
-					<aligny>center</aligny>
-					<textcolor>white</textcolor>
-					<focusedcolor>white</focusedcolor>
-					<disabledcolor>77FFFFFF</disabledcolor>
-					<font>Font-Condensed-S37-B</font>
-					<textwidth>400</textwidth>
-					<textoffsetx>0</textoffsetx>
-					<animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
-					<animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
-				</control>
-			</control>
-			
-			<control type="grouplist">
-				<description>Info Area</description>
-				<posx>356</posx>
-				<posy>260</posy>
-				<width>1210</width>
-				<height>610</height>
-				<itemgap>-20</itemgap>
-				<onleft>-</onleft>
-				<onright>-</onright>
-				<onup>4001</onup>
-				<ondown>4001</ondown>
-				<scrolltime>0</scrolltime>
-				<orientation>vertical</orientation>
-				<control type="label" id="2">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="3">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="4">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="5">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="6">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="7">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="8">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="9">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<!--<control type="label" id="10">
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="11">
-					<include>SettingsSystemInfoLabel</include>
-				</control>-->
-			</control>
-			
-			<control type="image">
-				<posx>1222</posx>
-				<posy>765</posy>
-				<width>336</width>
-				<height>100</height>
-				<texture>windows/settings/xbmc-logo.png</texture>
-			</control>
-			
-			<control type="group">
-				<posx>356</posx>
-				<posy>755</posy>
-				<control type="label" id="1">
-					<posy>0</posy>
-					<label>$INFO[System.BuildVersion,$LOCALIZE[144] ,]</label>
-					<textcolor>CFFFFFFF</textcolor>
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-				<control type="label" id="1">
-					<posy>45</posy>
-					<label>$INFO[System.BuildDate,$LOCALIZE[552]: ,]</label>
-					<textcolor>CFFFFFFF</textcolor>
-					<include>SettingsSystemInfoLabel</include>
-				</control>
-			</control>
-		</control>
-		<include>FadeBackground</include>
-		<include>Common-Info-NoOptions</include>
-	</controls>
+    <defaultcontrol>4001</defaultcontrol>
+    <allowoverlay>no</allowoverlay>
+    <controls>
+        
+        <include>CommonSettingsItems</include>
+        
+        <!-- Top Label -->
+        <control type="label">
+            <posx>100</posx>
+            <posy>60</posy>
+            <width>1000</width>
+            <height>65</height>
+            <font>Font-Condensed-S60</font>
+            <textcolor>ddwhite</textcolor>
+            <shadowcolor>55000000</shadowcolor>
+            <label>$LOCALIZE[130]</label>
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
+                <effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
+                <effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
+            </animation>
+        </control>
+        
+        <control type="group">
+            <include>CommonViewAnimations</include>
+            <include>OptionsShutdownAnimation</include>
+            <!-- Panel -->
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>windows/settings/settings-panel-systeminfo.png</texture>
+            </control>
+            
+            <!-- SpinCtrl Focus -->
+            <control type="image">
+                <posx>357</posx>
+                <posy>170</posy>
+                <width>1210</width>
+                <height>91</height>
+                <texture>windows/settings/images/category-focus.png</texture>
+                <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
+                <animation effect="fade" end="100" tween="sine" easing="inout" time="200">Visible</animation>
+                <animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
+                <visible>ControlGroup(4001).HasFocus</visible>
+            </control>
+            
+            <control type="label">
+                <description>Category</description>
+                <posx>391</posx>
+                <posy>186</posy>
+                <height>60</height>
+                <width>400</width>
+                <align>left</align>
+                <font>Font-Condensed-S37-B</font>
+                <label>$LOCALIZE[42130]</label>
+                <textcolor>white</textcolor>
+                <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+            </control>
+            
+            <control type="grouplist" id="4001">
+                <description>button area</description>
+                <posx>1460</posx>
+                <posy>188</posy>
+                <width>86</width>
+                <height>60</height>
+                <itemgap>0</itemgap>
+                <onleft>4001</onleft>
+                <onright>4001</onright>
+                <onup>5</onup>
+                <ondown>5</ondown>
+                <orientation>horizontal</orientation>
+                <control type="button" id="4002">
+                    <width>43</width>
+                    <height>60</height>
+                    <texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
+                    <texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
+                    <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,4000,4001)</onclick>
+                </control>
+                <control type="button" id="4003">
+                    <width>43</width>
+                    <height>60</height>
+                    <texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
+                    <texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
+                    <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,4000,4001)</onclick>
+                </control>
+            </control>
+        
+            <!-- Side Buttons -->
+            <control type="grouplist" id="4000">
+                <description>Button Area</description>
+                <posx>1045</posx>
+                <posy>186</posy>
+                <width>400</width>
+                <height>60</height>
+                <itemgap>0</itemgap>
+                <onleft>4000</onleft>
+                <onright>4000</onright>
+                <onup>4000</onup>
+                <ondown>4000</ondown>
+                <scrolltime>0</scrolltime>
+                <orientation>vertical</orientation>
+                <control type="button" id="95">
+                    <description>Button Summary Values</description>
+                    <label>20037</label>
+                    <height>60</height>
+                    <width>400</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <disabledcolor>77FFFFFF</disabledcolor>
+                    <font>Font-Condensed-S37-B</font>
+                    <textwidth>400</textwidth>
+                    <textoffsetx>0</textoffsetx>
+                    <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                    <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
+                </control>
+                <control type="button" id="94">
+                    <description>Button Storage</description>
+                    <label>13277</label>
+                    <height>60</height>
+                    <width>400</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <disabledcolor>77FFFFFF</disabledcolor>
+                    <font>Font-Condensed-S37-B</font>
+                    <textwidth>400</textwidth>
+                    <textoffsetx>0</textoffsetx>
+                    <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                    <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
+                </control>
+                <control type="button" id="96">
+                    <description>Button Network</description>
+                    <label>13279</label>
+                    <height>60</height>
+                    <width>400</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <disabledcolor>77FFFFFF</disabledcolor>
+                    <font>Font-Condensed-S37-B</font>
+                    <textwidth>400</textwidth>
+                    <textoffsetx>0</textoffsetx>
+                    <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                    <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
+                </control>
+                <control type="button" id="97">
+                    <description>Button Video</description>
+                    <label>13280</label>
+                    <height>60</height>
+                    <width>400</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <disabledcolor>77FFFFFF</disabledcolor>
+                    <font>Font-Condensed-S37-B</font>
+                    <textwidth>400</textwidth>
+                    <textoffsetx>0</textoffsetx>
+                    <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                    <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
+                </control>
+                <control type="button" id="98">
+                    <description>Button Hardware</description>
+                    <label>13281</label>
+                    <height>60</height>
+                    <width>400</width>
+                    <align>right</align>
+                    <aligny>center</aligny>
+                    <textcolor>white</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <disabledcolor>77FFFFFF</disabledcolor>
+                    <font>Font-Condensed-S37-B</font>
+                    <textwidth>400</textwidth>
+                    <textoffsetx>0</textoffsetx>
+                    <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="ControlGroup(5).HasFocus" reversible="false">Conditional</animation>
+                    <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="!ControlGroup(5).HasFocus" reversible="false"> Conditional</animation>
+                </control>
+            </control>
+            
+            <control type="grouplist">
+                <description>Info Area</description>
+                <posx>356</posx>
+                <posy>260</posy>
+                <width>1210</width>
+                <height>610</height>
+                <itemgap>-20</itemgap>
+                <onleft>-</onleft>
+                <onright>-</onright>
+                <onup>4001</onup>
+                <ondown>4001</ondown>
+                <scrolltime>0</scrolltime>
+                <orientation>vertical</orientation>
+                <control type="label" id="2">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="3">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="4">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="5">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="6">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="7">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="8">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="9">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <!--<control type="label" id="10">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="11">
+                    <include>SettingsSystemInfoLabel</include>
+                </control>-->
+            </control>
+            
+            <control type="image">
+                <posx>1222</posx>
+                <posy>765</posy>
+                <width>336</width>
+                <height>100</height>
+                <texture>windows/settings/xbmc-logo.png</texture>
+            </control>
+            
+            <control type="group">
+                <posx>356</posx>
+                <posy>755</posy>
+                <control type="label" id="1">
+                    <posy>0</posy>
+                    <label>$INFO[System.BuildVersion,$LOCALIZE[144] ,]</label>
+                    <textcolor>CFFFFFFF</textcolor>
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+                <control type="label" id="1">
+                    <posy>45</posy>
+                    <label>$INFO[System.BuildDate,$LOCALIZE[552]: ,]</label>
+                    <textcolor>CFFFFFFF</textcolor>
+                    <include>SettingsSystemInfoLabel</include>
+                </control>
+            </control>
+        </control>
+        <include>FadeBackground</include>
+        <include>Common-Info-NoOptions</include>
+    </controls>
 </window>
