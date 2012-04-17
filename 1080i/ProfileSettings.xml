@@ -1,11 +1,12 @@
 <window id="130">
     <defaultcontrol>5</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
     <controls>
         
         <control type="group">
             <include>KeyboardAnimations</include>
             <include>OptionsShutdownAnimation</include>
-            <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard)</visible>  
+            <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(locksettings)</visible>  
         
             <control type="image">
                 <description>background image</description>

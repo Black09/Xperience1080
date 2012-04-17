@@ -1,127 +1,133 @@
 <window id="131">
     <defaultcontrol always="true">5</defaultcontrol>
     <allowoverlay>no</allowoverlay>
+    <backgroundcolor>0</backgroundcolor>
     <controls>
         <control type="group">
-            <include>KeyboardAnimations</include>
-            <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput)</visible>
-            <control type="label">
-                <description>Heading</description>
-                <posx>473</posx>
-                <posy>211</posy>
-                <width>974</width>
-                <font>Font-Condensed-S34</font>
-                <label>$LOCALIZE[20043]</label>
-                <textcolor>ddwhite</textcolor>
-                <align>center</align>
+            <animation type="WindowOpen" condition="Window.IsVisible(profilesettings)" reversible="false">
+                <effect type="fade" start="0" end="100" time="0" delay="310" />
+            </animation>
+            <control type="group">
+                <include>KeyboardAnimations</include>
+                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput)</visible>
+                <control type="label">
+                    <description>Heading</description>
+                    <posx>473</posx>
+                    <posy>211</posy>
+                    <width>974</width>
+                    <font>Font-Condensed-S34</font>
+                    <label>$LOCALIZE[20043]</label>
+                    <textcolor>ddwhite</textcolor>
+                    <align>center</align>
+                </control>
+                <control type="image">
+                    <include>FullscreenDimensions</include>
+                    <texture>dialogs/locksettings/bg.png</texture>
+                </control>
+                <control type="grouplist" id="5">
+                    <description>Control Area</description>
+                    <posx>638</posx>
+                    <posy>293</posy>
+                    <width>644</width>
+                    <height>494</height>
+                    <itemgap>0</itemgap>
+                    <onleft>9000</onleft>
+                    <onright>9000</onright>
+                    <onup>5</onup>
+                    <ondown>5</ondown>
+                </control>
+                <control type="button" id="7">
+                    <description>default</description>
+                    <height>60</height>
+                    <font>Font-Condensed-S34</font>
+                    <textoffsetx>20</textoffsetx>
+                    <textoffsety>4</textoffsety>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <textcolor>FF585858</textcolor>
+                    <focusedcolor>eewhite</focusedcolor>
+                    <disabledcolor>77585858</disabledcolor>
+                    <shadowcolor>20FFFFFF</shadowcolor>
+                    <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                </control>
+                <control type="radiobutton" id="8">
+                    <description>radioButton</description>
+                    <height>60</height>
+                    <align>left</align>
+                    <aligny>top</aligny>
+                    <textoffsetx>20</textoffsetx>
+                    <textoffsety>4</textoffsety>
+                    <radioposx>538</radioposx>
+                    <textcolor>FF585858</textcolor>
+                    <focusedcolor>eewhite</focusedcolor>
+                    <disabledcolor>77585858</disabledcolor>
+                    <shadowcolor>20FFFFFF</shadowcolor>
+                    <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
+                    <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
+                    <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                </control>
+                <control type="spincontrolex" id="9">
+                    <description>Directory Content</description>
+                    <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
+                    <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
+                    <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
+                    <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
+                    <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                    <textcolor>FF585858</textcolor>
+                    <focusedcolor>eewhite</focusedcolor>
+                    <disabledcolor>77585858</disabledcolor>
+                    <shadowcolor>20FFFFFF</shadowcolor>
+                    <aligny>top</aligny>
+                    <textoffsetx>20</textoffsetx>
+                    <textoffsety>4</textoffsety>
+                    <spinposx>9</spinposx>
+                </control>
+                <control type="image" id="11">
+                    <description>separator image</description>
+                    <height>14</height>
+                    <texture>-</texture>
+                </control>
+                <control type="group" id="9000">
+                    <posx>626</posx>
+                    <posy>783</posy>
+                    <control type="button" id="28">
+                        <description>Select</description>
+                        <label>$LOCALIZE[42000]</label>
+                        <texturefocus>buttons/select-fo.png</texturefocus>
+                        <texturenofocus>buttons/select-nf.png</texturenofocus>
+                        <include>DialogButtonDimensions</include>
+                        <onleft>29</onleft>
+                        <onright>29</onright>
+                        <onup>5</onup>
+                        <ondown>5</ondown>
+                        <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(28)">Conditional</animation>
+                    </control>
+                    <control type="button" id="29">
+                        <description>Cancel</description>
+                        <posx>200</posx>
+                        <label>$LOCALIZE[42001]</label>
+                        <texturefocus>buttons/cancel-fo.png</texturefocus>
+                        <texturenofocus>buttons/cancel-nf.png</texturenofocus>
+                        <include>DialogButtonDimensions</include>
+                        <onleft>28</onleft>
+                        <onright>28</onright>
+                        <onup>5</onup>
+                        <ondown>5</ondown>
+                        <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(29)">Conditional</animation>
+                    </control>
+                </control>
             </control>
             <control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>dialogs/locksettings/bg.png</texture>
-            </control>
-            <control type="grouplist" id="5">
-                <description>Control Area</description>
                 <posx>638</posx>
-                <posy>293</posy>
+                <posy>367</posy>
                 <width>644</width>
-                <height>494</height>
-                <itemgap>0</itemgap>
-                <onleft>9000</onleft>
-                <onright>9000</onright>
-                <onup>5</onup>
-                <ondown>5</ondown>
+                <height>420</height>
+                <texture border="2">windows/filemanager/contextback.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>Window.IsActive(contextmenu)</visible>
+                <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
+                <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
             </control>
-            <control type="button" id="7">
-                <description>default</description>
-                <height>60</height>
-                <font>Font-Condensed-S34</font>
-                <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
-                <align>left</align>
-                <aligny>top</aligny>
-                <textcolor>FF585858</textcolor>
-                <focusedcolor>eewhite</focusedcolor>
-                <disabledcolor>77585858</disabledcolor>
-                <shadowcolor>20FFFFFF</shadowcolor>
-                <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
-            </control>
-            <control type="radiobutton" id="8">
-                <description>radioButton</description>
-                <height>60</height>
-                <align>left</align>
-                <aligny>top</aligny>
-                <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
-                <radioposx>538</radioposx>
-                <textcolor>FF585858</textcolor>
-                <focusedcolor>eewhite</focusedcolor>
-                <disabledcolor>77585858</disabledcolor>
-                <shadowcolor>20FFFFFF</shadowcolor>
-                <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
-                <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
-                <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
-            </control>
-            <control type="spincontrolex" id="9">
-                <description>Directory Content</description>
-                <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
-                <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
-                <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
-                <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
-                <textcolor>FF585858</textcolor>
-                <focusedcolor>eewhite</focusedcolor>
-                <disabledcolor>77585858</disabledcolor>
-                <shadowcolor>20FFFFFF</shadowcolor>
-                <aligny>top</aligny>
-                <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
-                <spinposx>9</spinposx>
-            </control>
-            <control type="image" id="11">
-                <description>separator image</description>
-                <height>14</height>
-                <texture>-</texture>
-            </control>
-            <control type="group" id="9000">
-                <posx>626</posx>
-                <posy>783</posy>
-                <control type="button" id="28">
-                    <description>Select</description>
-                    <label>$LOCALIZE[42000]</label>
-                    <texturefocus>buttons/select-fo.png</texturefocus>
-                    <texturenofocus>buttons/select-nf.png</texturenofocus>
-                    <include>DialogButtonDimensions</include>
-                    <onleft>29</onleft>
-                    <onright>29</onright>
-                    <onup>5</onup>
-                    <ondown>5</ondown>
-                    <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(28)">Conditional</animation>
-                </control>
-                <control type="button" id="29">
-                    <description>Cancel</description>
-                    <posx>200</posx>
-                    <label>$LOCALIZE[42001]</label>
-                    <texturefocus>buttons/cancel-fo.png</texturefocus>
-                    <texturenofocus>buttons/cancel-nf.png</texturenofocus>
-                    <include>DialogButtonDimensions</include>
-                    <onleft>28</onleft>
-                    <onright>28</onright>
-                    <onup>5</onup>
-                    <ondown>5</ondown>
-                    <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(29)">Conditional</animation>
-                </control>
-            </control>
-        </control>
-        <control type="image">
-            <posx>638</posx>
-            <posy>367</posy>
-            <width>644</width>
-            <height>420</height>
-            <texture border="2">windows/filemanager/contextback.png</texture>
-            <aspectratio>stretch</aspectratio>
-            <visible>Window.IsActive(contextmenu)</visible>
-            <animation effect="fade" time="300" start="0" end="100" tween="sine" easing="out">Visible</animation>
-            <animation effect="fade" time="300" start="100" end="0" tween="sine" easing="in">Hidden</animation>
         </control>
     </controls>
 </window>
