@@ -1,5 +1,6 @@
 <window id="2007">
     <defaultcontrol>2</defaultcontrol>
+    <backgroundcolor>0</backgroundcolor>
     <controls>
         <control type="image">
             <description>Back Panel</description>
@@ -7,6 +8,7 @@
             <texture background="true">views/thumb/panels/back-vignette.png</texture>
             <aspectratio>stretch</aspectratio>
             <include>Animation_FanartFade</include>
+            <visible>!Skin.HasSetting(OSDMusicAlt.Enabled)</visible>
         </control>
         <control type="group">
             <posx>1683</posx>
@@ -38,6 +40,6 @@
             </control>
         </control>
         <include>FadeBackground</include>
-        <include>Common-Info-NoOptions</include>
+        <include condition="!Skin.HasSetting(OSDMusicAlt.Enabled)">Common-Info-NoOptions</include>
     </controls>
 </window>
