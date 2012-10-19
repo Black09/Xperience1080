@@ -417,6 +417,15 @@
                     <onclick>ReloadSkin()</onclick>
                     <label>$LOCALIZE[41155]</label>
                 </control>
+                <control type="radiobutton" id="2008">
+                    <width>1210</width>
+                    <include>SettingsCategoryRadioButtonVars</include>
+                    <selected>Skin.HasSetting(HomeMetroOverlay.Disabled)</selected>
+                    <onclick>Skin.ToggleSetting(HomeMetroOverlay.Disabled)</onclick>
+                    <label>$LOCALIZE[41161]</label>
+                    <enable>Skin.HasSetting(HomeNew.Enabled)</enable>
+                    <animation effect="fade" start="100" end="42" time="0" condition="!Skin.HasSetting(HomeNew.Enabled)">Conditional</animation>
+                </control>
                 <control type="button" id="2001">
                     <width>1210</width>
                     <texturefocus border="150,1,150,1">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
