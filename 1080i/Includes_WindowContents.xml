@@ -30,8 +30,8 @@
         <include>CommonStage</include>
     </include>
     <include name="CommonItemsMusicOSD">
-        <include condition="!Skin.HasSetting(OSDBackground.Disabled)">CommonContent</include>
-        <include condition="!Skin.HasSetting(OSDBackground.Disabled)">BackgroundFanartMusicOSD</include>
+        <include condition="!Skin.HasSetting(OSDVisualisation.Enabled)">CommonContent</include>
+        <include condition="!Skin.HasSetting(OSDVisualisation.Enabled) + Skin.HasSetting(ArtistSlideShow)">BackgroundFanartMusicOSD</include>
         <include condition="Skin.HasSetting(OSDVisualisation.Enabled)">OSDVisualisation</include>
         <control type="image">
             <animation effect="slide" end="0" time="0" delay="400">WindowClose</animation>
