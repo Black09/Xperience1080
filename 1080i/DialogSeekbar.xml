@@ -236,51 +236,33 @@
                                 <aligny>center</aligny>
                                 <scroll>false</scroll>
                             </control>
-                            <control type="grouplist">
-                                <posx>390</posx>
-                                <posy>142</posy>
-                                <width>1400</width>
+                            <control type="button">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>1416</width>
                                 <height>44</height>
-                                <orientation>horizontal</orientation>
-                                <itemgap>0</itemgap>
-                                <usecontrolcoords>true</usecontrolcoords>
-                                <control type="label">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width min="0" max="80">auto</width>
-                                    <height>44</height>
-                                    <label>$INFO[VideoPlayer.Year]</label>
-                                    <textcolor>88FFFFFF</textcolor>
-                                    <font>Font-Condensed-S36</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                </control>
-                                <control type="label">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width min="0" max="30">auto</width>
-                                    <height>44</height>
-                                    <label> • </label>
-                                    <textcolor>88FFFFFF</textcolor>
-                                    <font>Font-Condensed-S36</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                    <visible>!IsEmpty(VideoPlayer.Year) + !IsEmpty(VideoPlayer.Genre)</visible>
-                                </control>
-                                <control type="label">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width>1300</width>
-                                    <height>44</height>
-                                    <label>$INFO[VideoPlayer.Genre]</label>
-                                    <textcolor>88FFFFFF</textcolor>
-                                    <font>Font-Condensed-S36</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                </control>
+                                <label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre, • ,]</label>
+                                <label2>$INFO[Player.Chapter,$LOCALIZE[21396] , / ]$INFO[Player.ChapterCount]</label2>
+                                <disabledcolor>88FFFFFF</disabledcolor>
+                                <font>Font-Condensed-S36</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <enable>false</enable>
+                                <visible>!IsEmpty(VideoPlayer.Year) + !IsEmpty(VideoPlayer.Genre)</visible>
+                            </control>
+                            <control type="button">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>1416</width>
+                                <height>44</height>
+                                <label>$INFO[VideoPlayer.Year]$INFO[VideoPlayer.Genre]</label>
+                                <label2>$INFO[Player.Chapter,$LOCALIZE[21396] , / ]$INFO[Player.ChapterCount]</label2>
+                                <disabledcolor>88FFFFFF</disabledcolor>
+                                <font>Font-Condensed-S36</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <enable>false</enable>
+                                <visible>IsEmpty(VideoPlayer.Year) | IsEmpty(VideoPlayer.Genre)</visible>
                             </control>
                             <control type="textbox">
                                 <posx>390</posx>
