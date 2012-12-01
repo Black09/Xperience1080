@@ -85,7 +85,6 @@
                         <textcolor>aawhite</textcolor>
                         <font>Font-Condensed-S34</font>
                         <align>left</align>
-                        <visible>!VideoPlayer.Content(LiveTV)</visible>
                     </control>
                     <control type="label">
                         <description>Pause / finish time</description>
@@ -333,22 +332,14 @@
                         </control>
                         <control type="group">
                             <posy>825</posy>
-                            <visible>VideoPlayer.Content(LiveTV)</visible>
-                            <control type="image">
-                                <posx>110</posx>
-                                <posy>67</posy>
-                                <width>276</width>
-                                <height>276</height>
-                                <texture border="30">osd/fullscreen/cover-shadow.png</texture>
-                                <aspectratio>stretch</aspectratio>
-                            </control>                           
+                            <visible>VideoPlayer.Content(LiveTV)</visible>                          
                             <control type="image">
                                 <posx>130</posx>
                                 <posy>87</posy>
                                 <width>236</width>
                                 <height>236</height>
                                 <texture background="true">$INFO[Player.Art(thumb)]</texture>
-                                <aspectratio>stretch</aspectratio>
+                                <aspectratio aligny="top">keep</aspectratio>
                             </control>
                             <control type="label">
                                 <posx>390</posx>
