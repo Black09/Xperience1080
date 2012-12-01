@@ -2,7 +2,13 @@
 	<defaultcontrol always="true">7</defaultcontrol>
 	<include condition="Window.IsActive(fullscreenvideo)">PVRGuideInfoZOrder</include>
 	<controls>
-	    <include condition="!Window.IsActive(fullscreenvideo)">PVRGuideInfo</include>
-	    <include condition="Window.IsActive(fullscreenvideo)">PVRGuideInfoOSD</include>
+	    <control type="group">
+	        <visible>!Window.IsActive(fullscreenvideo)</visible>
+	        <include>PVRGuideInfo</include>
+	    </control>
+	    <control type="group">
+	        <visible>Window.IsActive(fullscreenvideo)</visible>
+	        <include>PVRGuideInfoOSD</include>
+	    </control>
 	</controls>
 </window>
