@@ -6,7 +6,7 @@
     <onunload>ClearProperty(ShowDialog,home)</onunload>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(networksetup) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(DialogPVRChannelManager.xml)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(peripheralsettings) | Window.IsVisible(networksetup) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(pvrchannelmanager)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
             <animation type="WindowOpen" condition="Window.IsVisible(addonsettings)" reversible="false">
