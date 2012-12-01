@@ -800,12 +800,13 @@
                     <label> • $LOCALIZE[41290]</label>
                     <visible>Skin.HasSetting(NextAired.Enabled)</visible>
                 </control>
-                <control type="button" id="7010">
+                <control type="radiobutton" id="7010">
                     <width>1210</width>
-                    <include>SettingsCategoryDefaultButtonVars</include>
-                    <onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,landscape)</onclick>
-                    <label> • $LOCALIZE[41286]</label>
-                    <visible>Skin.HasSetting(NextAired.Enabled)</visible>
+                    <include>SettingsCategoryRadioButtonVars</include>
+                    <selected>Skin.HasSetting(UpdateArt.Enabled)</selected>
+                    <onclick>Skin.ToggleSetting(UpdateArt.Enabled)</onclick>
+                    <label>$LOCALIZE[41294]</label>
+                    <visible>System.HasAddon(script.artwork.downloader)</visible>
                 </control>
                 <control type="radiobutton" id="7011">
                     <width>1210</width>
