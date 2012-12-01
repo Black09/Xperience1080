@@ -39,6 +39,7 @@
             </animation>
             <control type="group">
                 <animation effect="slide" end="-65" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
+                <animation effect="slide" end="-60" time="300" tween="sine" easing="inout" condition="PVR.IsRecording | PVR.HasTimer">Conditional</animation>
                 <control type="image">
                     <description>Small weather</description>
                     <posx>174r</posx>
@@ -64,6 +65,39 @@
                     <animation effect="slide" end="60" time="300" tween="sine" easing="inout" condition="!Weather.IsFetched | [stringcompare(Weather.FanartCode,na) + substring(Weather.Conditions,/)]">Conditional</animation>
                 </control>
             </control>
+            <control type="group">
+                <visible>PVR.IsRecording</visible>
+                <animation effect="slide" end="-60" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
+                <include>visiblehidefadeinfo</include>
+                <control type="image">
+                    <posx>174r</posx>
+                    <posy>950</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspect>keep</aspect>
+                    <texture>windows/pvr/recording-info.png</texture>
+                </control>
+                <control type="image">
+                    <posx>174r</posx>
+                    <posy>950</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspect>keep</aspect>
+                    <texture>windows/pvr/recording-info-pulse.png</texture>
+                    <animation effect="fade" start="65" end="100" time="750" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
+                </control>
+            </control>
+            <control type="image">
+                <posx>174r</posx>
+                <posy>950</posy>
+                <width>100</width>
+                <height>100</height>
+                <aspect>keep</aspect>
+                <texture>windows/pvr/timer.png</texture>
+                <animation effect="slide" end="-60" time="300" tween="sine" easing="inout" condition="Window.IsActive(mutebug)">Conditional</animation>
+                <include>visiblehidefadeinfo</include>
+                <visible>!PVR.IsRecording + PVR.HasTimer</visible>
+            </control>
             <control type="image">
                 <description>Mute</description>
                 <posx>174r</posx>
@@ -71,7 +105,7 @@
                 <width>100</width>
                 <height>100</height>
                 <aspect>keep</aspect>
-                <texture>overlays/volume/muted-info.png</texture>
+                <texture>overlays/volume/muted.png</texture>
                 <include>visiblehidefadeinfo</include>
                 <visible>Window.IsActive(mutebug)</visible>
             </control>
