@@ -411,7 +411,7 @@
     </variable>
     
     <variable name="PvrListIcon">
-        <value condition="ListItem.IsEncrypted">windows/pvr/encrypted.png</value>
+        <value condition="ListItem.IsEncrypted + IsEmpty(ListItem.Thumb)">windows/pvr/encrypted.png</value>
         <value>$INFO[ListItem.Thumb]</value>
     </variable>
     
