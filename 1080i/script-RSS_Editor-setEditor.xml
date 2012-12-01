@@ -9,7 +9,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <include>OptionsShutdownAnimation</include>
-                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(script-RSS_Editor-rssEditor.xml)</visible>
+                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(script-RSS_Editor-rssEditor.xml) + !Window.IsVisible(yesnodialog)</visible>
                 <control type="image">
                     <include>FullscreenDimensions</include>
                     <texture>dialogs/rsseditor/bg.png</texture>
@@ -29,7 +29,7 @@
                         <posx>479</posx>
                         <posy>429</posy>
                         <width>922</width>
-                        <height>30</height>
+                        <height>34</height>
                         <align>left</align>
                         <textoffsetx>20</textoffsetx>
                         <textcolor>FF585858</textcolor>
@@ -51,9 +51,7 @@
                             <control type="label">
                                 <posx>20</posx>
                                 <width>597</width>
-                                <height>9</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
+                                <height>60</height>
                                 <info>ListItem.Label</info>
                                 <textcolor>FF585858</textcolor>
                                 <scroll>false</scroll>
@@ -69,7 +67,7 @@
                             <control type="image">
                                 <width>691</width>
                                 <height>60</height>
-                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                                <texture border="2">dialogs/default/highlight.png</texture>
                                 <visible>Control.HasFocus(10)</visible>
                             </control>
                             <control type="image">
@@ -77,16 +75,15 @@
                                 <width>74</width>
                                 <height>60</height>
                                 <texture>dialogs/mediasource/keyboard-fo.png</texture>
-                                <visible>Control.HasFocus(10)</visible>
+                                <visible>Control.HasFocus(10) + !ListItem.IsSelected</visible>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
                                 <width>597</width>
                                 <height>60</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
                                 <info>ListItem.Label</info>
                                 <textcolor>eewhite</textcolor>
+                                <selectedcolor>eewhite</selectedcolor>
                                 <scroll>false</scroll>
                                 <visible>Control.HasFocus(10)</visible>
                             </control>
@@ -95,17 +92,22 @@
                                 <width>74</width>
                                 <height>60</height>
                                 <texture>dialogs/mediasource/keyboard-nf.png</texture>
-                                <visible>!Control.HasFocus(10)</visible>
+                                <visible>!Control.HasFocus(10) + !ListItem.IsSelected</visible>
+                            </control>
+                            <control type="image">
+                                <posx>624</posx>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>dialogs/select/selected.png</texture>
+                                <visible>ListItem.IsSelected</visible>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
                                 <width>597</width>
                                 <height>60</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
                                 <info>ListItem.Label</info>
                                 <textcolor>FF585858</textcolor>
-                                <selectedcolor>MenuBlue</selectedcolor>
+                                <selectedcolor>FF585858</selectedcolor>
                                 <scroll>false</scroll>
                                 <visible>!Control.HasFocus(10)</visible>
                             </control>
@@ -128,8 +130,8 @@
                         <width>11</width>
                         <height>174</height>
                         <texturesliderbackground>-</texturesliderbackground>
-                        <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-                        <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                        <texturesliderbar border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbar>
+                        <texturesliderbarfocus border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbarfocus>
                         <textureslidernib>-</textureslidernib>
                         <textureslidernibfocus>-</textureslidernibfocus>
                         <onleft>10</onleft>
@@ -151,10 +153,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height> 
                             <onup>18</onup>
@@ -176,10 +176,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height> 
                             <onup>20</onup>
@@ -199,10 +197,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height>
                             <onup>13</onup>

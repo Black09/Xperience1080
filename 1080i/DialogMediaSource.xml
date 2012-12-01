@@ -1,4 +1,4 @@
-<window id="129">
+<window>
     <defaultcontrol always="true">9002</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -24,7 +24,7 @@
                 <control type="label">
                     <description>Path label</description>
                     <posx>479</posx>
-                    <posy>373</posy>
+                    <posy>375</posy>
                     <width>922</width>
                     <height>30</height>
                     <align>left</align>
@@ -49,9 +49,7 @@
                         <control type="label">
                             <posx>20</posx>
                             <width>597</width>
-                            <height>9</height>
-                            <aligny>top</aligny>
-                            <textoffsety>4</textoffsety>
+                            <height>60</height>
                             <info>ListItem.Label</info>
                             <textcolor>FF585858</textcolor>
                             <scroll>false</scroll>
@@ -64,48 +62,55 @@
                         </control>
                     </itemlayout>
                     <focusedlayout height="60">
-                        <control type="image">
-                            <width>691</width>
-                            <height>60</height>
-                            <texture border="2">dialogs/content/highlight-light.png</texture>
-                            <visible>Control.HasFocus(10)</visible>
-                        </control>
-                        <control type="image">
-                            <posx>617</posx>
-                            <width>74</width>
-                            <height>60</height>
-                            <texture>dialogs/mediasource/keyboard-fo.png</texture>
-                            <visible>Control.HasFocus(10)</visible>
-                        </control>
-                        <control type="label">
-                            <posx>20</posx>
-                            <width>597</width>
-                            <height>60</height>
-                            <aligny>top</aligny>
-                            <textoffsety>4</textoffsety>
-                            <info>ListItem.Label</info>
-                            <textcolor>eewhite</textcolor>
-                            <scroll>false</scroll>
-                            <visible>Control.HasFocus(10)</visible>
-                        </control>
-                        <control type="image">
-                            <posx>617</posx>
-                            <width>74</width>
-                            <height>60</height>
-                            <texture>dialogs/mediasource/keyboard-nf.png</texture>
+                        <control type="group">
                             <visible>!Control.HasFocus(10)</visible>
+                            <control type="label">
+                                <posx>20</posx>
+                                <width>597</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <textcolor>FF585858</textcolor>
+                                <selectedcolor>FF585858</selectedcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="image">
+                                <posx>617</posx>
+                                <width>74</width>
+                                <height>60</height>
+                                <texture>dialogs/mediasource/rules-nf.png</texture>
+                                <visible>!ListItem.IsSelected</visible>
+                            </control>
                         </control>
-                        <control type="label">
-                            <posx>20</posx>
-                            <width>597</width>
+                        <control type="group">
+                            <visible>Control.HasFocus(10)</visible>
+                            <control type="image">
+                                <width>691</width>
+                                <height>60</height>
+                                <texture border="2">dialogs/default/highlight.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <width>597</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <textcolor>eewhite</textcolor>
+                                <selectedcolor>eewhite</selectedcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="image">
+                                <posx>617</posx>
+                                <width>74</width>
+                                <height>60</height>
+                                <texture>dialogs/mediasource/rules-fo.png</texture>
+                                <visible>!ListItem.IsSelected</visible>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>624</posx>
+                            <width>60</width>
                             <height>60</height>
-                            <aligny>top</aligny>
-                            <textoffsety>4</textoffsety>
-                            <info>ListItem.Label</info>
-                            <textcolor>FF585858</textcolor>
-                            <selectedcolor>MenuBlue</selectedcolor>
-                            <scroll>false</scroll>
-                            <visible>!Control.HasFocus(10)</visible>
+                            <texture>dialogs/select/selected.png</texture>
+                            <visible>ListItem.IsSelected</visible>
                         </control>
                     </focusedlayout>
                 </control>
@@ -126,8 +131,8 @@
                     <width>11</width>
                     <height>174</height>
                     <texturesliderbackground>-</texturesliderbackground>
-                    <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-                    <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                    <texturesliderbar border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbarfocus>
                     <textureslidernib>-</textureslidernib>
                     <textureslidernibfocus>-</textureslidernibfocus>
                     <onleft>10</onleft>
@@ -150,10 +155,8 @@
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <align>left</align>
-                        <aligny>top</aligny>
-                        <font>Font-Condensed-S31</font>
+                        <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <textoffsety>7</textoffsety>
                         <width>257</width>
                         <height>60</height> 
                         <onup>18</onup>
@@ -173,10 +176,8 @@
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <align>left</align>
-                        <aligny>top</aligny>
-                        <font>Font-Condensed-S31</font>
+                        <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <textoffsety>7</textoffsety>
                         <width>257</width>
                         <height>60</height> 
                         <onup>11</onup>
@@ -196,10 +197,8 @@
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <align>left</align>
-                        <aligny>top</aligny>
-                        <font>Font-Condensed-S31</font>
+                        <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <textoffsety>7</textoffsety>
                         <width>257</width>
                         <height>60</height>
                         <onup>13</onup>
@@ -214,7 +213,7 @@
                 <control type="label">
                     <description>Name label</description>
                     <posx>479</posx>
-                    <posy>607</posy>
+                    <posy>609</posy>
                     <width>922</width>
                     <height>30</height>
                     <align>left</align>
@@ -231,15 +230,13 @@
                     <width>910</width>
                     <height>60</height>
                     <align>left</align>
-                    <aligny>top</aligny>
                     <textoffsetx>20</textoffsetx>
-                    <textoffsety>4</textoffsety>
                     <textcolor>FF585858</textcolor>
                     <focusedcolor>eewhite</focusedcolor>
                     <disabledcolor>FF585858</disabledcolor>
                     <shadowcolor>20FFFFFF</shadowcolor>
-                    <font>Font-Condensed-S34</font>
-                    <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                    <font>Font-Condensed-S32</font>
+                    <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                     <onup>9002</onup>
                     <onleft>-</onleft>
                     <onright>-</onright>

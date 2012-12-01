@@ -1,14 +1,14 @@
-<window id="106">
+<window>
     <defaultcontrol always="true">996</defaultcontrol>
-    <backgroundcolor>0</backgroundcolor>
     <include>OpenCloseAnimationContext</include>
-    <include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !Window.IsVisible(addoninformation) + !Window.IsVisible(favourites) + !Window.IsVisible(home)">ContextCoordinates</include>
+    <include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !Window.IsVisible(addoninformation) + !Window.IsVisible(favourites) + !Window.IsVisible(home) + !Window.IsVisible(DialogPVRChannelManager.xml)">ContextCoordinates</include>
     <animation effect="slide" end="0,256" time="0" condition="Window.IsVisible(LockSettings)">Conditional</animation>
     <onload condition="Window.IsVisible(favourites)">SetFocus(2000)</onload>
     <controls>
-        <include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !Window.IsVisible(addoninformation) + !Window.IsVisible(home)">ContextMenuDefault</include>
+        <include condition="!Window.IsVisible(favourites) + !Window.IsVisible(filemanager) + !Window.IsVisible(musicplaylisteditor) + !Window.IsVisible(LockSettings) + !Window.IsVisible(addoninformation) + !Window.IsVisible(home) + !Window.IsVisible(DialogPVRChannelManager.xml)">ContextMenuDefault</include>
         <include condition="Window.IsVisible(home) + !Window.IsVisible(favourites)">ContextMenuHome</include>
-        <include condition="Window.IsVisible(filemanager) | Window.IsVisible(LockSettings) | Window.IsVisible(musicplaylisteditor)">ContextMenuFileManager</include>
+        <include condition="Window.IsVisible(LockSettings) | Window.IsVisible(DialogPVRChannelManager.xml)">ContextMenuPVRChannelManager</include>
+        <include condition="Window.IsVisible(filemanager) | Window.IsVisible(musicplaylisteditor)">ContextMenuFileManager</include>
         <include condition="Window.IsVisible(addoninformation)">ContextMenuAddonInfo</include>
         <include condition="Window.IsVisible(favourites)">ContextMenuFavourites</include>
     </controls>

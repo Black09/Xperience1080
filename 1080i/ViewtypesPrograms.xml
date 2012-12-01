@@ -1,8 +1,192 @@
 <includes>
+    <!-- ========= -->
+    <!-- List (50) -->
+    <!-- ========= -->
+    <include name="Viewtype-ProgramList">
+    
+        <control type="group">
+            <visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+            <include>CommonViewAnimations</include>
+            <include>OptionsShutdownAnimation</include>
+        
+            <control type="image">
+                <posx>248</posx>
+                <posy>187</posy>
+                <height>704</height>
+                <width>1424</width>
+                <texture border="4">views/list/panel/panel.png</texture>
+            </control>
+            <control type="image">
+                <description>Shadow</description>
+                <posx>150</posx>
+                <posy>883</posy>
+                <width>1620</width>
+                <height>150</height>
+                <texture>windows/home/item-shadow.png</texture>
+            </control>
+            
+            <control type="list" id="50">
+                <posx>250</posx>
+                <posy>190</posy>
+                <height>700</height>
+                <width>1420</width>
+                <pagecontrol>70</pagecontrol>
+                <onleft>9010</onleft>
+                <onright>70</onright>
+                <onup>50</onup>
+                <ondown>50</ondown>
+                <viewtype label="List">list</viewtype>
+                <scrolltime tween="cubic" easing="out">500</scrolltime>
+                <preloaditems>2</preloaditems>
+                <itemlayout height="100">
+                    <control type="image">
+                        <description>List separator</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1420</width>
+                        <height>101</height>
+                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                    </control>
+                    <control type="label">
+                        <description>Label</description>
+                        <posx>120</posx>
+                        <posy>0</posy>
+                        <width>1280</width>
+                        <height>100</height>
+                        <font>Font-Condensed-S34-B</font>
+                        <align>left</align>
+                        <label>$INFO[ListItem.Label]</label>
+                        <textcolor>aawhite</textcolor>
+                        <selectedcolor>aawhite</selectedcolor>
+                        <scroll>false</scroll>
+                    </control>
+                    <control type="label">
+                        <description>Label 2</description>
+                        <posx>1390</posx>
+                        <posy>0</posy>
+                        <width>1270</width>
+                        <height>100</height>
+                        <font>Font-Condensed-S34-B</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <textcolor>99FFFFFF</textcolor>
+                        <selectedcolor>99FFFFFF</selectedcolor>
+                        <scroll>false</scroll>
+                    </control>
+                    <control type="image">
+                        <posx>20</posx>
+                        <posy>8</posy>
+                        <width>85</width>
+                        <height>85</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
+                    </control>
+                </itemlayout>
+                <focusedlayout height="100">
+                    <control type="image">
+                        <description>List separator</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1420</width>
+                        <height>101</height>
+                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1420</width>
+                        <height>99</height>
+                        <texture border="150,1,150,1">views/other/focus.png</texture>
+                        <include>defaultfocusanim</include>
+                        <include>visiblehidefadeinfo</include>
+                        <visible>Control.HasFocus(50)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>20</posx>
+                        <posy>8</posy>
+                        <width>85</width>
+                        <height>85</height>
+                        <texture background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio>keep</aspectratio>
+                    </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
+                    </control>
+                    <control type="group">
+                        <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
+                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                        </animation>
+                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <control type="label">
+                            <description>Label</description>
+                            <posx>120</posx>
+                            <posy>0</posy>
+                            <width>1280</width>
+                            <height>100</height>
+                            <font>Font-Condensed-S34-B</font>
+                            <align>left</align>
+                            <label>$INFO[ListItem.Label]</label>
+                            <textcolor>eewhite</textcolor>
+                            <selectedcolor>eewhite</selectedcolor>
+                        </control>
+                        <control type="label">
+                            <description>Label 2</description>
+                            <posx>1390</posx>
+                            <posy>0</posy>
+                            <width>1270</width>
+                            <height>100</height>
+                            <font>Font-Condensed-S34-B</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <textcolor>D4FFFFFF</textcolor>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
+                            <scroll>false</scroll>
+                        </control>
+                    </control>
+                </focusedlayout>
+            </control>
 
-<!-- ========= -->
-<!-- List (50) -->
-<!-- ========= -->
+            <control type="scrollbar" id="70">
+                <description>Scrollbar</description>
+                <posx>1664</posx>
+                <posy>190</posy>
+                <width>6</width>
+                <height>700</height>
+                <onleft condition="!Control.IsVisible(500)">50</onleft>
+                <onleft condition="Control.IsVisible(500)">9010</onleft>
+                <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+                <onright condition="Skin.HasSetting(KioskMode)">50</onright>
+                <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+                <ondown condition="Skin.HasSetting(KioskMode)">50</ondown>
+                <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                <orientation>vertical</orientation>
+                <showonepage>false</showonepage>
+                <animation effect="fade" start="45" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
+                <visible>Control.IsVisible(50)</visible>
+            </control>
+        </control>
+    </include>
+</includes>
+
+<!--<includes>
+
+<!-- ========= --*>
+<!-- List (50) --*>
+<!-- ========= --*>
     <include name="Viewtype-ProgramList">
 
         <control type="group">
@@ -23,7 +207,7 @@
                 </animation>
             </control>
             
-            <!-- List Header -->
+            <!-- List Header --*>
             <control type="group">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
@@ -567,7 +751,7 @@
                 </focusedlayout>
             </control>
 
-            <!--Scrollbar-->
+            <!--Scrollbar--*>
             <control type="scrollbar" id="70">
                 <description>Scrollbar</description>
                 <posx>1649</posx>
@@ -587,9 +771,9 @@
         </control>
     </include>
 
-<!-- =============== -->
-<!-- PosterView (55) -->
-<!-- =============== -->
+<!-- =============== --*>
+<!-- PosterView (55) --*>
+<!-- =============== --*>
     <include name="Viewtype-PosterViewPrograms">
         <control type="group">
             <include>FullscreenDimensions</include>
@@ -1026,14 +1210,11 @@
                         <effect type="zoom" start="100" end="65" center="155,400" tween="sine" delay="200" easing="out" time="300" /> 
                         <effect type="fade" start="100" end="0" tween="cubic" easing="inout" delay="200" time="300" />
                     </animation>
-                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))" reversible="false">
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
                         <effect type="zoom" start="175" end="100" delay="300" center="155,400" tween="sine" easing="out" time="350" /> 
                         <effect type="fade" start="25" end="100" delay="300" tween="sine" easing="in" time="350" />
                     </animation>
-                    <animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">
-                        <effect type="zoom" start="175" end="100" delay="500" center="155,400" tween="sine" easing="out" time="350" /> 
-                        <effect type="fade" start="25" end="100" delay="500" tween="sine" easing="in" time="350" />
-                    </animation>
+                    <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
                         <effect type="zoom" start="100" end="175" center="155,400" tween="sine" delay="100" easing="out" time="200" /> 
                         <effect type="fade" start="100" end="0" tween="sine" easing="out" delay="200" time="100" />
@@ -1276,7 +1457,7 @@
                         </control>
                     </control>
                 </control>
-                <!--Scrollbar-->
+                <!--Scrollbar--*>
                 <control type="scrollbar" id="70">
                     <description>Scrollbar</description>
                     <posx>104</posx>
@@ -1298,11 +1479,11 @@
         </control>
     </include>
     
-<!-- ======================== -->
-<!-- PosterView (Square) (57) -->
-<!-- ======================== -->
+<!-- ======================== --*>
+<!-- PosterView (Square) (57) --*>
+<!-- ======================== --*>
     <include name="Viewtype-PosterViewProgramsSquare">      
-        <!-- List -->
+        <!-- List --*>
         <control type="group">
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
@@ -1685,14 +1866,11 @@
                         <effect type="zoom" start="100" end="65" center="190,290" tween="sine" delay="200" easing="out" time="300" /> 
                         <effect type="fade" start="100" end="0" tween="cubic" easing="inout" delay="200" time="300" />
                     </animation>
-                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation))" reversible="false">
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
                         <effect type="zoom" start="175" end="100" delay="300" center="190,290" tween="sine" easing="out" time="350" /> 
                         <effect type="fade" start="25" end="100" delay="300" tween="sine" easing="in" time="350" />
                     </animation>
-                    <animation type="Visible" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">
-                        <effect type="zoom" start="175" end="100" delay="500" center="190,290" tween="sine" easing="out" time="350" /> 
-                        <effect type="fade" start="25" end="100" delay="500" tween="sine" easing="in" time="350" />
-                    </animation>
+                    <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
                         <effect type="zoom" start="100" end="175" center="190,290" tween="sine" delay="100" easing="out" time="200" /> 
                         <effect type="fade" start="100" end="0" tween="sine" easing="out" delay="200" time="100" />
@@ -1942,7 +2120,7 @@
                         </control>
                     </control>
                 </control>
-                <!--Scrollbar-->
+                <!--Scrollbar--*>
                 <control type="scrollbar" id="70">
                     <description>Scrollbar</description>
                     <posx>104</posx>
@@ -1963,16 +2141,16 @@
         </control>
     </include>
     
-<!-- ========= -->
-<!-- Wall (56) -->
-<!-- ========= -->
+<!-- ========= --*>
+<!-- Wall (56) --*>
+<!-- ========= --*>
     <include name="Viewtype-WallPrograms">
         <control type="group">
             <visible>!Window.IsActive(1122) + Control.IsVisible(56)</visible>
             <include>wallpanelanimation</include>
             <include>OptionsShutdownAnimation</include>
             
-            <!-- Shadow -->
+            <!-- Shadow --*>
             <control type="image">
                 <posx>-120</posx>
                 <posy>0</posy>
@@ -1985,7 +2163,7 @@
                 </animation>
             </control>
             
-            <!-- Wall Header -->
+            <!-- Wall Header --*>
             <control type="group">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
@@ -2094,7 +2272,6 @@
                     </control>
                 </focusedlayout>
                 <focusedlayout condition="!Skin.HasSetting(HideWallInfoPrograms)" width="237" height="370">
-                    <include>ViewModesScriptNoStage</include>
                     <control type="group">
                         <posx>100</posx>
                         <posy>6</posy>
@@ -2252,7 +2429,7 @@
                     </control>
                 </focusedlayout>
             </control>
-            <!-- Bottom Info -->
+            <!-- Bottom Info --*>
             <control type="group">
                 <posx>37</posx>
                 <posy>845</posy>
@@ -2307,16 +2484,16 @@
         </control>
     </include>
     
-<!-- ================== -->
-<!-- Wall (Square) (58) -->
-<!-- ================== -->
+<!-- ================== --*>
+<!-- Wall (Square) (58) --*>
+<!-- ================== --*>
     <include name="Viewtype-WallSquarePrograms">
         <control type="group">
             <visible>!Window.IsActive(1122) + Control.IsVisible(58)</visible>
             <include>wallpanelanimation</include>
             <include>OptionsShutdownAnimation</include>
             
-            <!-- Shadow -->
+            <!-- Shadow --*>
             <control type="image">
                 <posx>-120</posx>
                 <posy>0</posy>
@@ -2329,7 +2506,7 @@
                 </animation>
             </control>
             
-            <!-- Wall Header -->
+            <!-- Wall Header --*>
             <control type="group">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
@@ -2613,7 +2790,7 @@
                     </control>
                 </focusedlayout>
             </control>
-            <!-- Bottom Info -->
+            <!-- Bottom Info --*>
             <control type="group">
                 <posx>37</posx>
                 <posy>845</posy>
@@ -2668,9 +2845,9 @@
         </control>
     </include>
     
-<!-- =============== -->
-<!-- BannerList (60) -->
-<!-- =============== -->
+<!-- =============== --*>
+<!-- BannerList (60) --*>
+<!-- =============== --*>
     <include name="Viewtype-BannerListPrograms">        
         <control type="group">
             <include>FullscreenDimensions</include>
@@ -2837,9 +3014,9 @@
         </control>
     </include>
     
-<!-- ======================== -->
-<!-- BannerList (Square) (61) -->
-<!-- ======================== -->
+<!-- ======================== --*>
+<!-- BannerList (Square) (61) --*>
+<!-- ======================== --*>
     <include name="Viewtype-BannerListSquarePrograms">      
         <control type="group">
             <include>FullscreenDimensions</include>
@@ -3007,4 +3184,4 @@
             </control>
         </control>
     </include>
-</includes>
+</includes>-->

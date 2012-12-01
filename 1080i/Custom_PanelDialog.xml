@@ -11,11 +11,11 @@
     <onunload condition="Skin.HasSetting(HomeProgramTile2) + !IsEmpty(Window(3003).Property(SingleDialog)) + IsEmpty(Skin.String(HomeProgramTile2.Path))">Skin.ToggleSetting(HomeProgramTile2)</onunload>
     <onunload condition="Skin.HasSetting(HomeProgramTile3) + !IsEmpty(Window(3003).Property(SingleDialog)) + IsEmpty(Skin.String(HomeProgramTile3.Path))">Skin.ToggleSetting(HomeProgramTile3)</onunload>
     <onunload condition="Skin.HasSetting(HomeProgramTile4) + !IsEmpty(Window(3003).Property(SingleDialog)) + IsEmpty(Skin.String(HomeProgramTile4.Path))">Skin.ToggleSetting(HomeProgramTile4)</onunload>
-    <onunload condition="Skin.HasSetting(HomeNew.Enabled) + !IsEmpty(Window(3003).Property(SingleDialog))">ClearProperty(SingleDialog,3003)</onunload>
-    <onunload condition="Skin.HasSetting(HomeNew.Enabled) + !IsEmpty(Window(3003).Property(CustomDialog))">ClearProperty(CustomDialog,3003)</onunload>
+    <onunload condition="!IsEmpty(Window(3003).Property(SingleDialog))">ClearProperty(SingleDialog,3003)</onunload>
+    <onunload condition="!IsEmpty(Window(3003).Property(CustomDialog))">ClearProperty(CustomDialog,3003)</onunload>
     <controls>
-        <include condition="!Skin.HasSetting(HomeNew.Enabled) | !IsEmpty(Window.Property(CustomDialog))">PanelDialogHomeOld</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled) + IsEmpty(Window.Property(SingleDialog)) + IsEmpty(Window.Property(CustomDialog))">PanelDialogHomeNew</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled) + !IsEmpty(Window.Property(SingleDialog)) + IsEmpty(Window.Property(CustomDialog))">PanelDialogHomeNewSingle</include>
+        <include condition="!IsEmpty(Window.Property(CustomDialog))">PanelDialogGuide</include>
+        <include condition="IsEmpty(Window.Property(SingleDialog)) + IsEmpty(Window.Property(CustomDialog))">PanelDialogHome</include>
+        <include condition="!IsEmpty(Window.Property(SingleDialog)) + IsEmpty(Window.Property(CustomDialog))">PanelDialogHomeSingle</include>
     </controls>
 </window>

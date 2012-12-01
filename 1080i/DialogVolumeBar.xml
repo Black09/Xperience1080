@@ -1,60 +1,45 @@
-<window id="104">
-    <zorder>10</zorder>
+<window>
     <controls>
-        <control type="group">  
-            <animation type="WindowOpen">
-                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
-                <effect type="zoom" start="200" end="100" time="300" center="960,540" tween="sine" easing="inout" />
+        <control type="group">
+            <posx>1745</posx>
+            <posy>24</posy>
+            <animation type="WindowOpen" reversible="false">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+                <effect type="slide" start="0,-75" end="0,0" time="350" tween="cubic" easing="out" />
             </animation>
-            <animation type="WindowClose" condition="!Window.IsActive(mutebug)">
-                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="inout" />
-                <effect type="zoom" start="100" end="50" time="300" center="960,540" tween="sine" easing="inout" />
+            <animation type="WindowClose" reversible="false">
+                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+                <effect type="slide" end="0,-75" time="700" delay="300" />
             </animation>
-            <animation type="WindowClose" condition="Window.IsActive(mutebug)">
-                <effect type="fade" start="100" end="0" time="300" delay="2000" tween="sine" easing="inout" />
-                <effect type="zoom" start="100" end="50" time="300" delay="2000" center="960,540" tween="sine" easing="inout" />
-            </animation>
-            <visible>!Window.IsActive(fullscreenvideo) + ![Window.IsActive(musicosd) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
-            <control type="image">
-                <posx>770</posx>
-                <posy>350</posy>
-                <width>380</width>
-                <height>380</height>
-                <texture>overlays/notification/back.png</texture>
-                <aspectratio>stretch</aspectratio>
-            </control>
+            <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
+            <visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
             <control type="group">
-                <visible>!substring(Player.Volume,-60.0)</visible>
-                <include>visiblehidefade</include>
                 <control type="image">
-                    <posx>800</posx>
-                    <posy>380</posy>
-                    <width>320</width>
-                    <height>320</height>
-                    <texture>overlays/volume/volume.png</texture>
+                    <posx>-4</posx>
+                    <posy>27</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>overlays/volume/volume-back.png</texture>
                 </control>
-                <control type="progress" id="1">
-                    <description>Progressbar</description>
-                    <posx>822</posx>
-                    <posy>658</posy>
-                    <width>276</width>
-                    <height>22</height>
-                    <info>Player.Volume</info>
-                    <lefttexture>overlays/volume/volume-bar-left.png</lefttexture>
-                    <midtexture border="1">overlays/volume/volume-bar-mid.png</midtexture>
-                    <righttexture>overlays/volume/volume-bar-right.png</righttexture>
-                    <texturebg>overlays/volume/volume-bar-back.png</texturebg>
-                </control>
-            </control>
-            <control type="group">
-                <visible>substring(Player.Volume,-60.0)</visible>
-                <include>visiblehidefade</include>
                 <control type="image">
-                    <posx>800</posx>
-                    <posy>380</posy>
-                    <width>320</width>
-                    <height>320</height>
-                    <texture>overlays/volume/volume-muted.png</texture>
+                    <posx>-4</posx>
+                    <posy>27</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>$INFO[Player.Volume,overlays/volume/progress/,.png]</texture>
+                </control>
+                <control type="label">
+                    <description>Line 1</description>
+                    <posx>0</posx>
+                    <posy>27</posy>
+                    <width>750</width>
+                    <height>100</height>
+                    <label>$INFO[Player.Volume]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>right</align>
                 </control>
             </control>
         </control>
@@ -69,7 +54,7 @@
             </animation>
             <animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
             <animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop)">Conditional</animation>
-            <visible>Window.IsActive(fullscreenvideo) | [Window.IsActive(musicosd) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
+            <visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
             <control type="image">
                 <posx>1570</posx>
                 <posy>0</posy>
@@ -89,7 +74,7 @@
             <control type="label">
                 <description>Volume label</description>
                 <posx>1742</posx>
-                <posy>76</posy>
+                <posy>79</posy>
                 <width>150</width>
                 <height>34</height>
                 <label>$INFO[Player.Volume]</label>

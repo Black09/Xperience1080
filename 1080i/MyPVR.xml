@@ -1,0 +1,188 @@
+<window id="600">
+	<defaultcontrol>32</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<controls>
+	    <include>CommonPVRItems</include>
+        <include>PVRHeader</include>
+        <include>PVRViews</include>
+        
+        <control type="grouplist">
+            <description>Button labels</description>
+            <animation type="WindowOpen">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in"  />
+                <effect type="slide" start="0,-75" end="0,0" time="350" tween="cubic" easing="out" />
+            </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" delay="300" />
+                <effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" delay="300" />
+            </animation>
+            <animation type="WindowClose">
+                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+            </animation>
+            <posx>100</posx>
+            <posy>170</posy>
+            <width>1720</width>
+            <height>60</height>
+            <orientation>horizontal</orientation>
+            <itemgap>50</itemgap>
+            <usecontrolcoords>true</usecontrolcoords>
+            <align>center</align>
+            <control type="label">
+            	<description>TV Channels</description>
+            	<include>HomeLabel</include>
+            	<label>$INFO[Control.GetLabel(32)]</label>
+            	<animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32) + !ControlGroup(110).HasFocus">Conditional</animation>
+            	<animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(32)">Conditional</animation>
+            </control>
+            <control type="label">
+            	<description>Radio Channels</description>
+            	<include>HomeLabel</include>
+            	<label>$INFO[Control.GetLabel(33)]</label>
+            	<animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33) + !ControlGroup(120).HasFocus">Conditional</animation>
+            	<animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(33)">Conditional</animation>
+            </control>
+            <control type="label">
+            	<description>TV Guide</description>
+            	<include>HomeLabel</include>
+            	<label>$INFO[Control.GetLabel(31)]</label>
+            	<animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31) + !ControlGroup(100).HasFocus + !ControlGroup(150).HasFocus + !ControlGroup(160).HasFocus">Conditional</animation>
+            	<animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(31)">Conditional</animation>
+            </control>
+            <control type="label">
+            	<description>Recordings</description>
+            	<include>HomeLabel</include>
+            	<label>$INFO[Control.GetLabel(34)]</label>
+            	<animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34) + !ControlGroup(130).HasFocus">Conditional</animation>
+            	<animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(34)">Conditional</animation>
+            </control>
+            <control type="label">
+            	<description>Timers</description>
+            	<include>HomeLabel</include>
+            	<label>$INFO[Control.GetLabel(35)]</label>
+            	<animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35) + !ControlGroup(140).HasFocus">Conditional</animation>
+            	<animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(35)">Conditional</animation>
+            </control>
+            <control type="image">
+                <description>Search</description>
+                <posx>0</posx>
+                <posy>12</posy>
+                <width>38</width>
+                <height>38</height>
+                <texture>windows/pvr/search.png</texture>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36) + !ControlGroup(170).HasFocus">Conditional</animation>
+                <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="19,50" condition="!Control.HasFocus(36)">Conditional</animation>
+            </control>
+        </control>
+        
+        <control type="group" id="9001">
+            <onup>50</onup>
+            <ondown>50</ondown>
+            <orientation>horizontal</orientation>
+            <control type="button" id="32">
+            	<description>TV Channels</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[19023]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>36</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>33</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+            <control type="button" id="33">
+            	<description>Radio Channels</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[19024]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>32</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>31</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+            <control type="button" id="31">
+            	<description>TV Guide</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[19222]: $LOCALIZE[19030]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>33</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>34</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+            <control type="button" id="34">
+            	<description>Recordings</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[19163]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>31</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>35</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+            <control type="button" id="35">
+            	<description>Timers</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[19040]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>34</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>36</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+            <control type="button" id="36">
+            	<description>Search</description>
+            	<include>HomeLabel</include>
+            	<label>$LOCALIZE[137]</label>
+            	<onleft>SetProperty(Movement,1)</onleft>
+            	<onleft>35</onleft>
+            	<onright>ClearProperty(Movement)</onright>
+            	<onright>32</onright>
+            	<onup>50</onup>
+            	<ondown>50</ondown>
+            	<visible allowhiddenfocus="true">false</visible>
+            </control>
+        </control>
+        
+        <control type="label" id="29">
+        	<description>Empty so we can pass the values up one level</description>
+        	<visible>False</visible>
+        </control>
+        <control type="label" id="30">
+        	<description>Empty so we can pass the values up one level</description>
+        	<visible>False</visible>
+        </control>
+        
+        <!-- Scrollbar visibility controls -->
+        <control type="image" id="9773">
+            <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+        </control>
+        <control type="image" id="9772">
+            <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+            <visible>Control.HasFocus(70) | !Control.IsVisible(9773)</visible>
+        </control>
+        <control type="image" id="9772">
+            <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+            <visible>!Control.HasFocus(70) + [[Container(10).Scrolling | Container(10).OnScrollNext | Container(10).OnScrollPrevious] | [Container(11).Scrolling | Container(11).OnScrollNext | Container(11).OnScrollPrevious] | [Container(12).Scrolling | Container(12).OnScrollNext | Container(12).OnScrollPrevious] | [Container(13).Scrolling | Container(13).OnScrollNext | Container(13).OnScrollPrevious] | [Container(14).Scrolling | Container(14).OnScrollNext | Container(14).OnScrollPrevious] | [Container(15).Scrolling | Container(15).OnScrollNext | Container(15).OnScrollPrevious]] | [Container(16).Scrolling | Container(16).OnScrollNext | Container(16).OnScrollPrevious]] | [Container(17).Scrolling | Container(17).OnScrollNext | Container(17).OnScrollPrevious]]</visible>
+        </control>
+        
+        <include>FadeBackgroundContentContext</include>
+        <include>FadeBackground</include>
+        <include>Common-Info</include>
+	</controls>
+</window>

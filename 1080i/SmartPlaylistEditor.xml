@@ -1,4 +1,4 @@
-<window id="136">
+<window>
     <defaultcontrol always="true">22</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -33,14 +33,12 @@
                     <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                     <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                     <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                    <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                    <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                     <textcolor>FF585858</textcolor>
                     <focusedcolor>eewhite</focusedcolor>
                     <disabledcolor>77585858</disabledcolor>
                     <shadowcolor>20FFFFFF</shadowcolor>
-                    <aligny>top</aligny>
                     <textoffsetx>20</textoffsetx>
-                    <textoffsety>4</textoffsety>
                     <spinposx>5</spinposx>
                     <onup>8000</onup>
                     <ondown>12</ondown>
@@ -54,7 +52,7 @@
                         <posx>0</posx>
                         <posy>0</posy>
                         <width>922</width>
-                        <height>30</height>
+                        <height>34</height>
                         <align>left</align>
                         <textoffsetx>20</textoffsetx>
                         <label>$LOCALIZE[21433]</label>
@@ -69,16 +67,15 @@
                         <width>910</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
+                        <aligny>center</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
+                        <font>Font-Condensed-S32</font>
                         <pulseonselect>false</pulseonselect>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <onup>22</onup>
                         <onleft>12</onleft>
                         <onright>12</onright>
@@ -108,7 +105,7 @@
                         <posx>0</posx>
                         <posy>188</posy>
                         <width>922</width>
-                        <height>30</height>
+                        <height>34</height>
                         <align>left</align>
                         <textoffsetx>20</textoffsetx>
                         <label>$LOCALIZE[21434]</label>
@@ -131,11 +128,10 @@
                             <control type="label">
                                 <posx>20</posx>
                                 <width>597</width>
-                                <height>9</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
+                                <height>60</height>
                                 <info>ListItem.Label</info>
                                 <textcolor>FF585858</textcolor>
+                                <selectedcolor>FF585858</selectedcolor>
                                 <scroll>false</scroll>
                             </control>
                             <control type="image">
@@ -146,48 +142,55 @@
                             </control>
                         </itemlayout>
                         <focusedlayout height="60">
-                            <control type="image">
-                                <width>691</width>
-                                <height>60</height>
-                                <texture border="2">dialogs/content/highlight-light.png</texture>
-                                <visible>Control.HasFocus(10)</visible>
-                            </control>
-                            <control type="image">
-                                <posx>617</posx>
-                                <width>74</width>
-                                <height>60</height>
-                                <texture>dialogs/mediasource/rules-fo.png</texture>
-                                <visible>Control.HasFocus(10)</visible>
-                            </control>
-                            <control type="label">
-                                <posx>20</posx>
-                                <width>597</width>
-                                <height>60</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
-                                <info>ListItem.Label</info>
-                                <textcolor>eewhite</textcolor>
-                                <scroll>false</scroll>
-                                <visible>Control.HasFocus(10)</visible>
-                            </control>
-                            <control type="image">
-                                <posx>617</posx>
-                                <width>74</width>
-                                <height>60</height>
-                                <texture>dialogs/mediasource/rules-nf.png</texture>
+                            <control type="group">
                                 <visible>!Control.HasFocus(10)</visible>
+                                <control type="label">
+                                    <posx>20</posx>
+                                    <width>597</width>
+                                    <height>60</height>
+                                    <info>ListItem.Label</info>
+                                    <textcolor>FF585858</textcolor>
+                                    <selectedcolor>FF585858</selectedcolor>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="image">
+                                    <posx>617</posx>
+                                    <width>74</width>
+                                    <height>60</height>
+                                    <texture>dialogs/mediasource/rules-nf.png</texture>
+                                    <visible>!ListItem.IsSelected</visible>
+                                </control>
                             </control>
-                            <control type="label">
-                                <posx>20</posx>
-                                <width>597</width>
+                            <control type="group">
+                                <visible>Control.HasFocus(10)</visible>
+                                <control type="image">
+                                    <width>691</width>
+                                    <height>60</height>
+                                    <texture border="2">dialogs/default/highlight.png</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>20</posx>
+                                    <width>597</width>
+                                    <height>60</height>
+                                    <info>ListItem.Label</info>
+                                    <textcolor>eewhite</textcolor>
+                                    <selectedcolor>eewhite</selectedcolor>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="image">
+                                    <posx>617</posx>
+                                    <width>74</width>
+                                    <height>60</height>
+                                    <texture>dialogs/mediasource/rules-fo.png</texture>
+                                    <visible>!ListItem.IsSelected</visible>
+                                </control>
+                            </control>
+                            <control type="image">
+                                <posx>624</posx>
+                                <width>60</width>
                                 <height>60</height>
-                                <aligny>top</aligny>
-                                <textoffsety>4</textoffsety>
-                                <info>ListItem.Label</info>
-                                <textcolor>FF585858</textcolor>
-                                <selectedcolor>MenuBlue</selectedcolor>
-                                <scroll>false</scroll>
-                                <visible>!Control.HasFocus(10)</visible>
+                                <texture>dialogs/select/selected.png</texture>
+                                <visible>ListItem.IsSelected</visible>
                             </control>
                         </focusedlayout>
                     </control>
@@ -208,8 +211,8 @@
                         <width>11</width>
                         <height>174</height>
                         <texturesliderbackground>-</texturesliderbackground>
-                        <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-                        <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                        <texturesliderbar border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbar>
+                        <texturesliderbarfocus border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbarfocus>
                         <textureslidernib>-</textureslidernib>
                         <textureslidernibfocus>-</textureslidernibfocus>
                         <onleft>10</onleft>
@@ -232,10 +235,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height> 
                             <onup>12</onup>
@@ -255,10 +256,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height> 
                             <onup>13</onup>
@@ -278,10 +277,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <width>257</width>
                             <height>60</height>
                             <onup>14</onup>
@@ -299,10 +296,10 @@
                         <posx>0</posx>
                         <posy>0</posy>
                         <width>922</width>
-                        <height>30</height>
+                        <height>34</height>
                         <align>left</align>
                         <textoffsetx>20</textoffsetx>
-                        <label>$LOCALIZE[31325]</label>
+                        <label>$LOCALIZE[41716]</label>
                         <textcolor>FF585858</textcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <font>Font-Condensed-S30</font>
@@ -316,14 +313,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>8001</onup>
                         <ondown>17</ondown>
@@ -340,14 +335,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>16</onup>
                         <ondown>8003</ondown>
@@ -366,14 +359,12 @@
                             <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                             <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                             <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                            <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                            <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
-                            <aligny>top</aligny>
                             <textoffsetx>20</textoffsetx>
-                            <textoffsety>4</textoffsety>
                             <spinposx>5</spinposx>
                             <onup>17</onup>
                             <ondown>8000</ondown>
@@ -395,10 +386,8 @@
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
                             <align>left</align>
-                            <aligny>top</aligny>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <label>$LOCALIZE[21431]</label>
                             <altlabel>$LOCALIZE[21430]</altlabel>
                             <onright>18</onright>

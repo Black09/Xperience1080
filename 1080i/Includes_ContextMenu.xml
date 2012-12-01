@@ -16,11 +16,9 @@
     <include name="ContextMenuButtonVars">
         <height>60</height>
         <align>center</align>
-        <aligny>top</aligny>
-        <font>Font-Condensed-S34</font>
+        <font>Font-Condensed-S32</font>
         <focusedcolor>eewhite</focusedcolor>
         <textoffsetx>20</textoffsetx>
-        <textoffsety>4</textoffsety>
     </include>
     
     <include name="ContextMenuSearchSmallWidth">
@@ -53,9 +51,8 @@
                 <posy>505</posy>
                 <height>60</height>
                 <width>442</width>
-                <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+                <texture>dialogs/shutdown/shadow.png</texture>
                 <aspectratio>stretch</aspectratio>
-                <include>StageVisibility</include>
             </control>
             <control type="image" id="999">
                 <description>background image</description>
@@ -72,7 +69,6 @@
                 <posy>47</posy>
                 <width>404</width>
                 <itemgap>0</itemgap>
-                <width>380</width>
                 <height min="399" max="399">auto</height>
             </control>
             <control type="group">
@@ -86,21 +82,13 @@
                 </control>
                 <control type="label">
                     <posx>94</posx>
-                    <posy>470</posy>
+                    <posy>433</posy>
                     <width>300</width>
-                    <height>18</height>
+                    <height>100</height>
                     <label>$LOCALIZE[41600]</label>
                     <font>Font-Condensed-S34-B</font>
-                    <textcolor>66000000</textcolor>
-                </control>
-                <control type="label">
-                    <posx>94</posx>
-                    <posy>471</posy>
-                    <width>300</width>
-                    <height>18</height>
-                    <label>$LOCALIZE[41600]</label>
-                    <font>Font-Condensed-S34-B</font>
-                    <textcolor>ddwhite</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                 </control>
             </control>
         </control>
@@ -110,11 +98,9 @@
             <height>57</height>
             <font>Font-Condensed-S34</font>
             <align>left</align>
-            <aligny>top</aligny>
             <textcolor>FF484848</textcolor>
             <focusedcolor>DDFFFFFF</focusedcolor>
             <disabledcolor>FF484848</disabledcolor>
-            <textoffsety>3</textoffsety>
             <textoffsetx>25</textoffsetx>
             <scroll>false</scroll>
             <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
@@ -143,6 +129,28 @@
         </control>
     </include>
     
+    <include name="ContextMenuPVRChannelManager">
+        <control type="image" id="999">
+            <description>background image</description>
+            <width>380</width>
+            <height>660</height>
+            <include>ContextMenuBackgroundVars</include>
+        </control>
+        <control type="grouplist" id="996">
+            <description>grouplist for context buttons</description>
+            <width>380</width>
+            <height min="0" max="660">auto</height>
+            <include>ContextMenuGroupListVars</include>
+        </control>
+        <control type="button" id="1000">
+            <description>button template</description>
+            <width>380</width>
+            <textcolor>FF585858</textcolor>
+            <texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
+            <include>ContextMenuButtonVars</include>
+        </control>
+    </include>
+    
     <include name="ContextMenuFileManager">
         <control type="image" id="999">
             <description>background image</description>
@@ -153,13 +161,14 @@
         <control type="grouplist" id="996">
             <description>grouplist for context buttons</description>
             <width>380</width>
+            <itemgap>-5</itemgap>
             <height min="0" max="600">auto</height>
             <include>ContextMenuGroupListVars</include>
         </control>
         <control type="button" id="1000">
             <description>button template</description>
             <width>380</width>
-            <textcolor>FF484848</textcolor>
+            <textcolor>77white</textcolor>
             <texturefocus border="45,2,45,2">dialogs/context/selection.png</texturefocus>
             <include>ContextMenuButtonVars</include>
         </control>
@@ -168,31 +177,32 @@
     <include name="ContextMenuAddonInfo">
         <control type="image" id="999">
             <description>background image</description>
-            <width>401</width>
+            <width>436</width>
             <height>0</height>
             <include>ContextMenuBackgroundVars</include>
         </control>
         <control type="grouplist" id="996">
             <description>grouplist for context buttons</description>
-            <posy>-240</posy>
-            <width>444</width>
-            <height min="0" max="271">auto</height>
+            <posy>-26</posy>
+            <width>436</width>
+            <height min="0" max="251">auto</height>
             <align>top</align>
-            <itemgap>-21</itemgap>
+            <itemgap>-1</itemgap>
             <include>ContextMenuGroupListVars</include>
         </control>
         <control type="button" id="1000">
             <description>button template</description>
-            <width>401</width>
-            <texturefocus border="20">dialogs/addon-info/button.png</texturefocus>
-            <height>71</height>
+            <width>436</width>
+            <height>51</height>
+            <textoffsetx>20</textoffsetx>
             <align>left</align>
-            <aligny>top</aligny>
             <font>Font-Condensed-S30</font>
-            <textcolor>ABFFFFFF</textcolor>
+            <textcolor>99FFFFFF</textcolor>
             <focusedcolor>eewhite</focusedcolor>
-            <textoffsetx>30</textoffsetx>
-            <textoffsety>14</textoffsety>
+            <disabledcolor>44FFFFFF</disabledcolor>
+            <shadowcolor>33000000</shadowcolor>
+            <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
+            <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
         </control>
     </include>
     
@@ -211,8 +221,8 @@
         </control>
         <control type="grouplist" id="2000">
             <description>Custom group list</description>
-            <posx>-798</posx>
-            <posy>86</posy>
+            <posx>-819</posx>
+            <posy>90</posy>
             <width>1000</width>
             <height>100</height>
             <itemgap>-275</itemgap>

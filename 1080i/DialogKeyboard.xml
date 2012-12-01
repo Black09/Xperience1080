@@ -1,10 +1,10 @@
-<window id="103">
+<window>
     <defaultcontrol always="true">300</defaultcontrol>
     <onunload condition="IsEmpty(Window(virtualkeyboard).Property(Clear))">ClearProperty(HomeSearch,home)</onunload>
-    <onunload>ClearProperty(Clear,virtualkeyboard)</onunload>
+    <onunload>ClearProperty(Clear,virtualkeyboard))</onunload>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(mediasource) | Window.IsVisible(networksetup) | Window.IsVisible(addonsettings) | Window.IsVisible(contextmenu) | Window.IsVisible(smartplaylisteditor) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(progressdialog) | Window.IsVisible(3003) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(mediasource) | Window.IsVisible(networksetup) | Window.IsVisible(addonsettings) | Window.IsVisible(contextmenu) | Window.IsVisible(smartplaylisteditor) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(progressdialog) | Window.IsVisible(3003) | Window.IsVisible(peripheralsettings) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(mediafilter) | Window.IsVisible(DialogPVRGroupManager.xml) | Window.IsVisible(DialogPVRTimerSettings.xml) | Window.IsVisible(DialogPVRGuideSearch.xml) | Window.IsVisible(DialogPVRChannelManager.xml)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
             <animation type="WindowOpen" condition="!IsEmpty(Window(Home).Property(HomeSearch))" reversible="false">
@@ -15,19 +15,26 @@
                 <posy>294</posy>
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(numericinput)</visible>
-                <control type="image" id="0">
+                <control type="image">
+                    <posx>496</posx>
+                    <posy>-2</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
                     <description>image</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>18</posy>
                     <width>1072</width>
-                    <height>492</height>
-                    <texture>dialogs/keyboard/keyboard_back.png</texture>
+                    <height>474</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
                     <aspectratio>stretch</aspectratio>
                 </control>
                 <control type="label" id="311">
                     <description>Dialog Header</description>
                     <posx>36</posx>
-                    <posy>-77</posy>
+                    <posy>-75</posy>
                     <width>1000</width>
                     <height>22</height>
                     <font>Font-Condensed-S34</font>
@@ -37,12 +44,13 @@
                 <control type="label" id="310">
                     <description>Edit Text</description>
                     <posx>36</posx>
-                    <posy>-35</posy>
+                    <posy>-33</posy>
                     <width>1000</width>
                     <font>Font-Condensed-S45</font>
                     <align>center</align>
                     <onup>32</onup>
                     <ondown>49</ondown>
+                    <textcolor>eewhite</textcolor>
                 </control>
             <!-- First Row -->
                 <control type="group" id="320">
@@ -55,7 +63,7 @@
                         <onright>49</onright>
                         <onup>361</onup>
                         <ondown>304</ondown>
-                        <label>$LOCALIZE[42122]</label>
+                        <label>$LOCALIZE[150]</label>
                         <include>BigKey</include>           
                     </control>
                     <control type="group" id="321">
@@ -166,7 +174,7 @@
                         <onright>65</onright>
                         <onup>307</onup>
                         <ondown>303</ondown>
-                        <label>$LOCALIZE[42121]</label>
+                        <label>$LOCALIZE[20180]</label>
                         <include>BigKey</include>
                         <radioposx>15</radioposx>
                         <radioposy>15</radioposy>
@@ -519,7 +527,7 @@
                             <onright>305</onright>
                             <onup>8</onup>
                             <ondown>323</ondown>
-                            <label>$LOCALIZE[42120]</label>
+                            <label>$LOCALIZE[20177]</label>
                             <include>DoubleKeyDone</include>
                             <onclick>SetProperty(Clear,1)</onclick>
                         </control>

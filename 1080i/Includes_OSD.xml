@@ -9,48 +9,117 @@
             <height>1080</height>
         </control>
     </include>
+    
+    <include name="OSDFwRwLabel">
+        <posx>1742</posx>
+        <posy>79</posy>
+        <width>150</width>
+        <height>34</height>
+        <font>Font-Condensed-S34</font>
+        <textcolor>aawhite</textcolor>
+        <align>right</align>
+        <scroll>false</scroll>
+    </include>
+    
+    <include name="OSDDefaultControlPlay">
+        <defaultcontrol>3</defaultcontrol>
+    </include>
+    
+    <include name="OSDDefaultControlSubtitles">
+        <defaultcontrol>7</defaultcontrol>
+    </include>
+    
+    <include name="OSDDefaultControlLiveTV">
+        <defaultcontrol>1</defaultcontrol>
+    </include>
 
     <include name="OSDWeatherClock">
         <control type="group">
             <animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
             <animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar)">Conditional</animation>
-            <animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop) + Window.IsActive(fullscreenvideo)">Conditional</animation>
-            <include>OSDHideShowAnimation</include>
-            <visible>![Window.IsActive(fullscreenvideo) + Player.ShowCodec]</visible>
+            <include condition="Window.IsActive(fullscreenvideo)">BannerListInfoAnimation</include>
+            <include condition="!Window.IsActive(fullscreenvideo)">BannerListInfoAnimationMusicOSD</include>
+            <visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsActive(videoosd) | Window.IsActive(musicosd)] + ![Window.IsActive(fullscreenvideo) + Player.ShowCodec]</visible>
             <control type="image">
-                <posx>1385</posx>
+                <posx>1218</posx>
                 <posy>0</posy>
-                <width>535</width>
+                <width>702</width>
                 <height>194</height>
                 <texture>osd/fullscreen/osd-back-weatherclock.png</texture>
                 <aspectratio>stretch</aspectratio>
             </control>
+            <control type="group">
+                <visible>![stringcompare(Weather.FanartCode,na) + substring(Weather.Conditions,/)]</visible>
+                <include>visiblehidefadeinfo</include>
+                <control type="image">
+                    <description>Small weather</description>
+                    <posx>1388</posx>
+                    <posy>47</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <colordiffuse>aawhite</colordiffuse>
+                    <texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
+                </control>
+                <control type="label">
+                    <description>Temp label</description>
+                    <posx>1400</posx>
+                    <posy>79</posy>
+                    <width>75</width>
+                    <height>34</height>
+                    <label>$INFO[Weather.Temperature]</label>
+                    <font>Font-Condensed-S34</font>
+                    <textcolor>aawhite</textcolor>
+                    <align>right</align>
+                    <scroll>false</scroll>
+                    <visible>Weather.IsFetched</visible>
+                </control>
+            </control>
+            <control type="group">
+                <visible>stringcompare(Weather.FanartCode,na) + substring(Weather.Conditions,/)</visible>
+                <include>visiblehidefadeinfo</include>
+                <control type="image">
+                    <description>Weather loading background</description>
+                    <posx>1353</posx>
+                    <posy>47</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>osd/fullscreen/weather-loading-back.png</texture>
+                </control>
+                <control type="image">
+                    <description>Weather loading indicator</description>
+                    <posx>1353</posx>
+                    <posy>47</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <texture>osd/fullscreen/weather-loading.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="true">Conditional</animation>
+                </control>
+            </control>
             <control type="image">
-                <description>Small weather</description>
-                <posx>1555</posx>
+                <description>Finish time image</description>
+                <posx>1563</posx>
                 <posy>47</posy>
                 <width>100</width>
                 <height>100</height>
-                <texture fallback="weather/small/na.png">weather/small/$INFO[Weather.FanartCode].png</texture>
+                <texture>osd/fullscreen/clock-finish.png</texture>
             </control>
             <control type="label">
-                <description>Temp label</description>
-                <posx>1567</posx>
-                <posy>76</posy>
-                <width>75</width>
+                <description>Clock label</description>
+                <posx>1575</posx>
+                <posy>79</posy>
+                <width>150</width>
                 <height>34</height>
-                <label>$INFO[Weather.Temperature]</label>
+                <label>$INFO[Player.FinishTime(hh:mm)]</label>
                 <font>Font-Condensed-S34</font>
                 <textcolor>aawhite</textcolor>
                 <align>right</align>
                 <scroll>false</scroll>
-                <visible>Weather.IsFetched</visible>
             </control>
             <control type="group">
                 <visible>!Player.Forwarding + !Player.Rewinding</visible>
                 <include>visiblehidefadeinfo</include>
                 <control type="image">
-                    <description>Cock image</description>
+                    <description>Clock image</description>
                     <posx>1730</posx>
                     <posy>47</posy>
                     <width>100</width>
@@ -59,18 +128,18 @@
                     <visible>!Control.IsVisible(24)</visible>
                 </control>
                 <control type="image" id="24">
-                    <description>Cock image</description>
+                    <description>Clock image</description>
                     <posx>1730</posx>
                     <posy>47</posy>
                     <width>100</width>
                     <height>100</height>
                     <texture>osd/fullscreen/clock-pm.png</texture>
-                    <visible>substring(System.Time,Pm)</visible>
+                    <visible>substring(System.Time,Pm,right)</visible>
                 </control>
                 <control type="label">
                     <description>Clock label</description>
                     <posx>1742</posx>
-                    <posy>76</posy>
+                    <posy>79</posy>
                     <width>150</width>
                     <height>34</height>
                     <label>$INFO[System.Time(hh)]:$INFO[System.Time(mm)]</label>
@@ -134,749 +203,4 @@
             </control>
         </control>
     </include>
-    
-    <include name="OSDMusicCoverFlip">
-        <control type="group">
-            <visible>[Player.Forwarding | Player.Rewinding] + [Player.ShowInfo | Window.IsActive(musicosd)]</visible>
-            <animation type="Visible">
-                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
-                <effect type="slide" start="50" end="0" time="300" tween="sine" easing="inout" />
-            </animation>
-            <animation type="Hidden">
-                <effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
-                <effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
-            </animation>
-            <control type="image">
-                <posx>1584</posx>
-                <posy>0</posy>
-                <width>336</width>
-                <height>194</height>
-                <texture>osd/music/seekinfo.png</texture>
-                <aspectratio>stretch</aspectratio>
-            </control>
-            <control type="image">
-                <description>Forwarding image</description>
-                <posx>1730</posx>
-                <posy>47</posy>
-                <width>100</width>
-                <height>100</height>
-                <texture>osd/fullscreen/fw.png</texture>
-                <visible>Player.Forwarding</visible>
-            </control>
-            <control type="image">
-                <description>Rewinding image</description>
-                <posx>1730</posx>
-                <posy>47</posy>
-                <width>100</width>
-                <height>100</height>
-                <texture>osd/fullscreen/rw.png</texture>
-                <visible>Player.Rewinding</visible>
-            </control>
-            <control type="label">
-                <description>Forwarding / Rewinding 2x</description>
-                <include>OSDFwRwLabel</include>
-                <label>2x</label>
-                <visible>Player.Forwarding2x | Player.Rewinding2x</visible>
-            </control>
-            <control type="label">
-                <description>Forwarding / Rewinding 4x</description>
-                <include>OSDFwRwLabel</include>
-                <label>4x</label>
-                <visible>Player.Forwarding4x | Player.Rewinding4x</visible>
-            </control>
-            <control type="label">
-                <description>Forwarding / Rewinding 8x</description>
-                <include>OSDFwRwLabel</include>
-                <label>8x</label>
-                <visible>Player.Forwarding8x | Player.Rewinding8x</visible>
-            </control>
-            <control type="label">
-                <description>Forwarding / Rewinding 16x</description>
-                <include>OSDFwRwLabel</include>
-                <label>16x</label>
-                <visible>Player.Forwarding16x | Player.Rewinding16x</visible>
-            </control>
-            <control type="label">
-                <description>Forwarding / Rewinding 32x</description>
-                <include>OSDFwRwLabel</include>
-                <label>32x</label>
-                <visible>Player.Forwarding32x | Player.Rewinding32x</visible>
-            </control>
-        </control>
-        <control type="group">
-            <visible>!Skin.HasSetting(MusicVisFlip)</visible>
-            <include>FullscreenDimensions</include>
-            <include>OptionsShutdownAnimation</include>
-            <animation type="Hidden">
-                <effect type="rotatey" start="0" end="180" time="1000" tween="cubic" easing="inout" center="960,0" />
-                <effect type="fade" start="100" end="0" time="0" delay="500" />
-            </animation>
-            <animation type="Visible">
-                <effect type="rotatey" start="180" end="0" time="1000" tween="cubic" easing="inout" center="960,0" />
-                <effect type="fade" start="0" end="100" time="0" delay="500" />
-            </animation>
-            <animation effect="slide" start="0" end="151" time="600" tween="cubic" easing="inout" delay="300" condition="!MusicPlayer.HasNext">Conditional</animation>
-            <control type="group">
-                <animation type="WindowOpen">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="1450" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1450" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="1450" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1450" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="true">
-                    <effect type="zoom" start="100" end="78" time="0" center="570,290" />
-                </animation>
-                <posx>1475</posx>
-                <posy>394</posy>
-                <visible>MusicPlayer.HasNext</visible>
-                <control type="image">
-                    <description>Shadow Back</description>
-                    <posx>-42</posx>
-                    <posy>0</posy>
-                    <width>464</width>
-                    <height>464</height>
-                    <texture border="50">views/posterview/shadow-back.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Offset(1).Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[MusicPlayer.Offset(1).Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Offset(1).Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Shadow Bottom</description>
-                    <posx>-62</posx>
-                    <posy>437</posy>
-                    <width>504</width>
-                    <height>36</height>
-                    <texture>views/posterview/shadow.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture diffuse="views/posterview/diffuse-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Offset(1).Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[MusicPlayer.Offset(1).Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Offset(1).Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Overlay</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture border="20">views/posterview/overlay.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-            </control>
-            <control type="group">
-                <animation type="WindowOpen">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="1000" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="1000" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <posx>876</posx>
-                <posy>318</posy>
-                <control type="image">
-                    <description>Shadow Back</description>
-                    <posx>-42</posx>
-                    <posy>0</posy>
-                    <width>464</width>
-                    <height>464</height>
-                    <texture border="50">views/posterview/shadow-back.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[MusicPlayer.Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Shadow Bottom</description>
-                    <posx>-62</posx>
-                    <posy>437</posy>
-                    <width>504</width>
-                    <height>36</height>
-                    <texture>views/posterview/shadow.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Shadow Focus</description>
-                    <posx>-135</posx>
-                    <posy>0</posy>
-                    <width>650</width>
-                    <height>464</height>
-                    <texture>views/posterview/shadow-focus-square.png</texture>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture diffuse="views/posterview/diffuse-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[MusicPlayer.Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Overlay</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture border="20">views/posterview/overlay.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-            </control>
-            <control type="group">
-                <animation type="WindowOpen">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="-750" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="-750" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <posx>288</posx>
-                <posy>329</posy>
-                <control type="image">
-                    <description>Info Back</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>556</width>
-                    <height>444</height>
-                    <texture>osd/music/info.png</texture>
-                </control>
-                <control type="list">
-                    <posx>54</posx>
-                    <posy>54</posy>
-                    <width>448</width>
-                    <height>336</height>
-                    <itemlayout width="448" height="56">
-                        <control type="label">
-                            <posx>15</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF787878</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                        <control type="label">
-                            <posx>433</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label2]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>right</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF585858</textcolor>
-                            <scroll>false</scroll>
-                            <visible>IsEmpty(ListItem.property(rating))</visible>
-                        </control>
-                        <control type="progress">
-                            <posx>1</posx>
-                            <posy>50</posy>
-                            <width>446</width>
-                            <height>3</height>
-                            <info>Player.Progress</info>
-                            <texturebg>osd/music/progressback.png</texturebg>
-                            <midtexture border="1">windows/common/black.png</midtexture>
-                            <lefttexture>-</lefttexture>
-                            <righttexture>-</righttexture>
-                            <overlaytexture>-</overlaytexture>
-                            <animation effect="fade" end="35" time="0" condition="true">Conditional</animation>
-                            <visible>!IsEmpty(ListItem.property(duration))</visible>
-                        </control>
-                        <control type="image">
-                            <posx>307</posx>
-                            <posy>16</posy>
-                            <width>129</width>
-                            <height>23</height>
-                            <texture fallback="osd/music/rating0.png">$INFO[ListItem.Label2,osd/music/rating,.png]</texture>
-                            <visible>!IsEmpty(ListItem.property(rating))</visible>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout width="448" height="56">
-                        <control type="label">
-                            <posx>15</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF787878</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                        <control type="label">
-                            <posx>433</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label2]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>right</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF585858</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </focusedlayout>
-                    <content>
-                        <item id="1">
-                            <label>$LOCALIZE[556]</label>
-                            <label2>$INFO[MusicPlayer.Title]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="2">
-                            <label>$LOCALIZE[557]</label>
-                            <label2>$INFO[MusicPlayer.Artist]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="3">
-                            <label>$LOCALIZE[558]</label>
-                            <label2>$INFO[MusicPlayer.Album]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="4">
-                            <label>$LOCALIZE[180]</label>
-                            <label2>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label2>
-                            <property name="duration">1</property>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="5">
-                            <label>$LOCALIZE[515]</label>
-                            <label2>$INFO[MusicPlayer.Genre]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="6">
-                            <label>$LOCALIZE[563]</label>
-                            <label2>$INFO[MusicPlayer.Rating]</label2>
-                            <property name="rating">1</property>
-                            <onclick>-</onclick>
-                        </item>
-                    </content>
-                </control>
-            </control>
-         </control>
-         <control type="group">
-            <visible>Skin.HasSetting(MusicVisFlip)</visible>
-            <include>FullscreenDimensions</include>
-            <include>OptionsShutdownAnimation</include>
-            <animation type="Visible">
-                <effect type="rotatey" start="-180" end="0" time="1000" tween="cubic" easing="inout" center="960,0" />
-                <effect type="fade" start="0" end="100" time="0" delay="500" />
-            </animation>
-            <animation type="Hidden">
-                <effect type="rotatey" start="0" end="-180" time="1000" tween="cubic" easing="inout" center="960,0" />
-                <effect type="fade" start="100" end="0" time="0" delay="500" />
-            </animation>
-            <animation effect="slide" start="0" end="-151" time="600" tween="cubic" easing="inout" delay="300" condition="!MusicPlayer.HasNext">Conditional</animation>
-            <control type="group">
-                <animation type="Conditional" condition="true">
-                    <effect type="zoom" start="100" end="78" time="0" center="570,290" />
-                </animation>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1450" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="-1450" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1450" time="300" tween="cubic" easing="in" />
-                </animation>
-                <posx>285</posx>
-                <posy>396</posy>
-                <visible>MusicPlayer.HasNext</visible>
-                <control type="image">
-                    <description>Shadow Back</description>
-                    <posx>-42</posx>
-                    <posy>0</posy>
-                    <width>464</width>
-                    <height>464</height>
-                    <texture border="50">views/posterview/shadow-back.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Offset(1).Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[MusicPlayer.Offset(1).Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Offset(1).Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Shadow Bottom</description>
-                    <posx>-62</posx>
-                    <posy>437</posy>
-                    <width>504</width>
-                    <height>36</height>
-                    <texture>views/posterview/shadow.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture diffuse="views/posterview/diffuse-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Offset(1).Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[MusicPlayer.Offset(1).Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Offset(1).Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Overlay</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture border="20">views/posterview/overlay.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-            </control>
-            <control type="group">
-                <posx>664</posx>
-                <posy>318</posy>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="-1000" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="-1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <control type="image">
-                    <description>Shadow Back</description>
-                    <posx>-42</posx>
-                    <posy>0</posy>
-                    <width>464</width>
-                    <height>464</height>
-                    <texture border="50">views/posterview/shadow-back.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Reflection</description>
-                    <posx>-32</posx>
-                    <posy>458</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png">$INFO[MusicPlayer.Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Shadow Bottom</description>
-                    <posx>-62</posx>
-                    <posy>437</posy>
-                    <width>504</width>
-                    <height>36</height>
-                    <texture>views/posterview/shadow.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-                <control type="image">
-                    <description>Shadow Focus</description>
-                    <posx>-135</posx>
-                    <posy>0</posy>
-                    <width>650</width>
-                    <height>464</height>
-                    <texture>views/posterview/shadow-focus-square.png</texture>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture diffuse="views/posterview/diffuse-square.png">views/posterview/DefaultAlbumCover.png</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>IsEmpty(MusicPlayer.Cover) | stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Poster</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture background="true" diffuse="views/posterview/diffuse-square.png">$INFO[MusicPlayer.Cover]</texture>
-                    <aspectratio align="center" scalediffuse="false">scale</aspectratio>
-                    <visible>!IsEmpty(MusicPlayer.Cover) + !stringcompare(MusicPlayer.Cover,DefaultAlbumCover.png)</visible>
-                </control>
-                <control type="image">
-                    <description>Overlay</description>
-                    <posx>-32</posx>
-                    <posy>10</posy>
-                    <width>444</width>
-                    <height>444</height>
-                    <texture border="20">views/posterview/overlay.png</texture>
-                    <aspectratio>stretch</aspectratio>
-                </control>
-            </control>
-            <control type="group">
-                <posx>1076</posx>
-                <posy>329</posy>
-                <animation type="WindowClose">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Player.ShowInfo | Window.IsActive(musicosd)">
-                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
-                    <effect type="slide" start="750" end="0" time="700" tween="cubic" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="!Player.ShowInfo + !Window.IsActive(musicosd)">
-                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                    <effect type="slide" start="0" end="1000" time="300" tween="cubic" easing="in" />
-                </animation>
-                <control type="image">
-                    <description>Info Back</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>556</width>
-                    <height>444</height>
-                    <texture flipx="true">osd/music/info.png</texture>
-                </control>
-                <control type="list">
-                    <posx>54</posx>
-                    <posy>54</posy>
-                    <width>448</width>
-                    <height>336</height>
-                    <itemlayout width="448" height="56">
-                        <control type="label">
-                            <posx>15</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF787878</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                        <control type="label">
-                            <posx>433</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label2]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>right</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF585858</textcolor>
-                            <scroll>false</scroll>
-                            <visible>IsEmpty(ListItem.property(rating))</visible>
-                        </control>
-                        <control type="progress">
-                            <posx>1</posx>
-                            <posy>50</posy>
-                            <width>446</width>
-                            <height>3</height>
-                            <info>Player.Progress</info>
-                            <texturebg>osd/music/progressback.png</texturebg>
-                            <midtexture border="1">windows/common/black.png</midtexture>
-                            <lefttexture>-</lefttexture>
-                            <righttexture>-</righttexture>
-                            <overlaytexture>-</overlaytexture>
-                            <animation effect="fade" end="35" time="0" condition="true">Conditional</animation>
-                            <visible>!IsEmpty(ListItem.property(duration))</visible>
-                        </control>
-                        <control type="image">
-                            <posx>307</posx>
-                            <posy>16</posy>
-                            <width>129</width>
-                            <height>23</height>
-                            <texture fallback="osd/music/rating0.png">$INFO[ListItem.Label2,osd/music/rating,.png]</texture>
-                            <visible>!IsEmpty(ListItem.property(rating))</visible>
-                        </control>
-                    </itemlayout>
-                    <focusedlayout width="448" height="56">
-                        <control type="label">
-                            <posx>15</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF787878</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                        <control type="label">
-                            <posx>433</posx>
-                            <posy>-2</posy>
-                            <width>418</width>
-                            <height>56</height>
-                            <label>$INFO[ListItem.Label2]</label>
-                            <font>Font-Condensed-S25</font>
-                            <align>right</align>
-                            <aligny>center</aligny>
-                            <textcolor>FF585858</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </focusedlayout>
-                    <content>
-                        <item id="1">
-                            <label>$LOCALIZE[556]</label>
-                            <label2>$INFO[MusicPlayer.Title]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="2">
-                            <label>$LOCALIZE[557]</label>
-                            <label2>$INFO[MusicPlayer.Artist]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="3">
-                            <label>$LOCALIZE[558]</label>
-                            <label2>$INFO[MusicPlayer.Album]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="4">
-                            <label>$LOCALIZE[180]</label>
-                            <label2>$INFO[MusicPlayer.Time,, / ]$INFO[MusicPlayer.Duration]</label2>
-                            <property name="duration">1</property>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="5">
-                            <label>$LOCALIZE[562]</label>
-                            <label2>$INFO[MusicPlayer.Year]</label2>
-                            <onclick>-</onclick>
-                        </item>
-                        <item id="6">
-                            <label>$LOCALIZE[563]</label>
-                            <label2>$INFO[MusicPlayer.Rating]</label2>
-                            <property name="rating">1</property>
-                            <onclick>-</onclick>
-                        </item>
-                    </content>
-                </control>
-            </control>
-         </control>
-    </include>
-
 </includes>

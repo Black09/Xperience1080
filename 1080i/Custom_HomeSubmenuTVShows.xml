@@ -6,77 +6,82 @@
             <description>Button labels</description>
             <animation type="WindowOpen">
                 <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
-                <effect type="zoom" start="100,209,1720,1" end="100,150,1720,60" tween="sine" easing="out" time="200" />
+                <effect type="zoom" start="0,229,1920,1" end="0,170,1920,70" tween="sine" easing="out" time="200" />
             </animation>
             <animation type="WindowClose" condition="!IsEmpty(Window(3021).Property(Close))">
                 <effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
-                <effect type="zoom" start="100,150,1720,60" end="100,209,1720,1" tween="sine" easing="out" time="200" />
+                <effect type="zoom" start="0,170,1920,70" end="0,229,1920,1" tween="sine" easing="out" time="200" />
             </animation>
             <animation type="WindowClose" condition="IsEmpty(Window(3021).Property(Close))">
                 <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
                 <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
             </animation>
-            <posx>100</posx>
-            <posy>150</posy>
-            <width>1720</width>
-            <height>60</height>
+            <posx>0</posx>
+            <posy>170</posy>
+            <width>1920</width>
+            <height>70</height>
+            <align>center</align>
             <orientation>horizontal</orientation>
+            <usecontrolcoords>true</usecontrolcoords>
             <itemgap>50</itemgap>
             <control type="label">
                 <description>Root</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[41934][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(1) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(1) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[3]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(1)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(1)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Videos</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[744][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(2) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(2) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[744]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(2)">Conditional</animation>
             </control>
             <control type="label">
                 <description>TV guide</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[42160][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(3) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(3) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[42160]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(3)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(3)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Genres</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[41922][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(4) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(4) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[135]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(4)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(4)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Years</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[41923][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(5) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(5) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[652]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(5)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="150" tween="sine" easing="inout" center="auto" condition="!Container(3).HasFocus(5)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Actors</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[41924][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(6) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(6) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[344]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(6)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(6)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Studios</description>
                 <include>HomeLabel</include>
-                <label>[LOWERCASE]$LOCALIZE[41926][/LOWERCASE]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(7) + IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
-                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(7) + !IsEmpty(Skin.String(stage.customImage))">Conditional</animation>
+                <label>$LOCALIZE[20388]</label>
+                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(7)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(7)">Conditional</animation>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>12</posy>
+                <width>32</width>
+                <height>38</height>
+                <texture>windows/home/update-library.png</texture>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(8)">Conditional</animation>
+                <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="16,50" condition="!Container(3).HasFocus(8)">Conditional</animation>
+                <animation effect="rotate" center="16,34" start="360" end="0" time="1000" loop="true" condition="Library.IsScanningVideo">Conditional</animation>
             </control>
         </control>
         
@@ -101,13 +106,11 @@
                 <item id="1">
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-)])</onclick>
                     <onclick>ActivateWindow(videos,root)</onclick>
                 </item>
                 <item id="2">
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-sources://video/)])</onclick>
                     <onclick>ActivateWindow(videos,files,return)</onclick>
                 </item>
                 <item id="3">
@@ -118,27 +121,27 @@
                 <item id="4">               
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/1/)])</onclick>
                     <onclick>ActivateWindow(videos,tvshowgenres,return)</onclick>
                 </item>
                 <item id="5">               
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/3/)])</onclick>
                     <onclick>ActivateWindow(videos,tvshowyears,return)</onclick>
                 </item>
                 <item id="6">                   
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/4/)])</onclick>
                     <onclick>ActivateWindow(videos,tvshowactors,return)</onclick>
                 </item>
                 <item id="7">               
                     <label>-</label>
                     <onclick>PreviousMenu</onclick>
-                    <onclick>SetProperty(NextStage,$INFO[Window.property(10025-videodb://2/5/)])</onclick>
                     <onclick>ActivateWindow(videos,tvshowstudios,return)</onclick>
-                </item> 
+                </item>
+                <item id="8">           
+                    <label>-</label>
+                    <onclick condition="!Library.IsScanningVideo">UpdateLibrary(video)</onclick>
+                </item>
             </content>
         </control>        
     </controls>

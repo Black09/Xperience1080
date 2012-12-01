@@ -12,10 +12,10 @@
                 <posy>271</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
-                <label>$INFO[Window(1111).property(Dialog)]</label>
+                <label>$INFO[Window(skinsettings).property(Dialog)]</label>
                 <textcolor>ddwhite</textcolor>
                 <align>center</align>
-                <visible>IsEmpty(Window(1111).property(CustomDialog))</visible>
+                <visible>IsEmpty(Window(skinsettings).property(CustomDialog))</visible>
             </control>
             
             <control type="label">
@@ -24,10 +24,10 @@
                 <posy>271</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
-                <label>$INFO[Window(1111).property(CustomDialog)]</label>
+                <label>$INFO[Window(skinsettings).property(CustomDialog)]</label>
                 <textcolor>ddwhite</textcolor>
                 <align>center</align>
-                <visible>!IsEmpty(Window(1111).property(CustomDialog))</visible>
+                <visible>!IsEmpty(Window(skinsettings).property(CustomDialog))</visible>
             </control>
             
             <control type="image">
@@ -35,24 +35,13 @@
                 <texture>windows/settings/settings-bgdialog.png</texture>
             </control>
             
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41251])">SettingsBackgroundDialogGlobal</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41444])">SettingsBackgroundDialogSettings</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41500])">SettingsBackgroundDialogMovies</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41501])">SettingsBackgroundDialogTVShows</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41513])">SettingsBackgroundDialogVideoFiles</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41449])">SettingsBackgroundDialogTrailers</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41502])">SettingsBackgroundDialogMusic</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41514])">SettingsBackgroundDialogMusicFiles</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41503])">SettingsBackgroundDialogPictures</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41504])">SettingsBackgroundDialogPrograms</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41505])">SettingsBackgroundDialogWeather</include>
-            <include condition="stringcompare(Window(1111).property(Dialog),$LOCALIZE[41523])">SettingsBackgroundDialogAddons</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),1)">SettingsBackgroundDialogCustom1</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),2)">SettingsBackgroundDialogCustom2</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),3)">SettingsBackgroundDialogCustom3</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),4)">SettingsBackgroundDialogCustom4</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),5)">SettingsBackgroundDialogCustom5</include>
-            <include condition="stringcompare(Window(1111).property(CustomDialogType),6)">SettingsBackgroundDialogCustom6</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41251])">SettingsBackgroundDialogGlobal</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[5])">SettingsBackgroundDialogSettings</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[342])">SettingsBackgroundDialogMovies</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[20343])">SettingsBackgroundDialogTVShows</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[2])">SettingsBackgroundDialogMusic</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41504])">SettingsBackgroundDialogPrograms</include>
+            <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[12600])">SettingsBackgroundDialogWeather</include>
             
             <control type="group">
                 <posx>547</posx>

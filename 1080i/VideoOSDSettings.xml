@@ -1,4 +1,4 @@
-<window id="123">
+<window>
     <defaultcontrol always="true">5</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -6,16 +6,21 @@
             <posx>0</posx>
             <posy>0</posy>
             <include>NowPlayingFullscreen</include>
-            <visible>!Window.IsActive(sliderdialog) + !Window.IsVisible(filebrowser)</visible>
+            <visible>!Window.IsVisible(sliderdialog) + !Window.IsVisible(filebrowser)</visible>
             <control type="image">
                 <include>FullscreenDimensions</include>
                 <texture>osd/fullscreen/osdsettings.png</texture>
                 <aspectratio>stretch</aspectratio>
             </control>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>osd/fullscreen/osdsettings-separators.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
             <control type="label" id="2">
                 <description>Settings</description>
                 <posx>510</posx>
-                <posy>242</posy>
+                <posy>244</posy>
                 <width>900</width>
                 <height>34</height>
                 <align>center</align>

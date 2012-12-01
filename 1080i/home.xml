@@ -1,41 +1,30 @@
-<window id="0">
+<window>
     <defaultcontrol>525</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
-    <onload condition="Container(20).HasFocus(2) + Skin.HasSetting(HomeNew.Enabled)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onload>
-    <onload condition="Container(20).HasFocus(2) + Skin.HasSetting(HomeNew.Enabled)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onload>
-    <onload condition="Container(20).HasFocus(3) + Skin.HasSetting(HomeNew.Enabled)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onload>
-    <onload condition="Container(20).HasFocus(4) + Skin.HasSetting(HomeNew.Enabled)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onload>
-    <onload condition="Container(20).HasFocus(5) + Skin.HasSetting(HomeNew.Enabled)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onload>
-    <onunload condition="Skin.HasSetting(HomeNew.Enabled)">CancelAlarm(HomeTileMove,true)</onunload>
-    <controls>  
+    <onload condition="Container(20).HasFocus(2)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onload>
+    <onload condition="Container(20).HasFocus(2)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onload>
+    <onload condition="Container(20).HasFocus(3)">AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onload>
+    <onload condition="Container(20).HasFocus(4)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onload>
+    <onload condition="Container(20).HasFocus(5)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onload>
+    <onload condition="!Skin.HasSetting(HideHomeProfileInfo)">AlarmClock(ProfileMove,Control.Move(30,1),00:10,silent,loop)</onload>
+    <onunload>CancelAlarm(HomeTileMove,true)</onunload>
+    <onunload>CancelAlarm(HomeTileMoveTwo,true)</onunload>
+    <onunload>CancelAlarm(HomeTileMoveThree,true)</onunload>
+    <onunload condition="!Skin.HasSetting(HideHomeProfileInfo)">CancelAlarm(ProfileMove,true)</onunload>
+    <controls>
         <!-- Backgrounds -->
-        <include>CommonContent</include>
-        <!-- Custom home backdrops -->
-        <include>HomeCustomBackdrops</include>
-        <!-- Bottom -->
-        <include>CommonStage</include>  
-        
-        <!-- Old home screen -->
-        <include condition="!Skin.HasSetting(HideSubMenuMovies) + !Skin.HasSetting(HomeNew.Enabled)">HomeSubMenuMovies</include>
-        <include condition="!Skin.HasSetting(HideSubMenuTVShows) + !Skin.HasSetting(HomeNew.Enabled)">HomeSubMenuTVShows</include>
-        <include condition="!Skin.HasSetting(HideSubMenuMusic) + !Skin.HasSetting(HomeNew.Enabled)">HomeSubMenuMusic</include>
-        <include condition="!Skin.HasSetting(HideSubMenuSettings) + !Skin.HasSetting(HomeNew.Enabled)">HomeSubMenuSettings</include>
-        <include condition="!Skin.HasSetting(HomeNew.Enabled)">HomeWraplist</include>
-        <include condition="!Skin.HasSetting(HomeNew.Enabled)">HomeWraplistAnimation</include>
-        <include condition="!Skin.HasSetting(HomeNew.Enabled)">Recent-Added</include>
-        
-        <!-- New metro home screen -->
-        <include condition="Skin.HasSetting(HomeNew.Enabled)">HomeProfileInfo</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled)">HomeControlList</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled)">HomeControlListLabels</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled)">HomeItems</include>
-        <include condition="Skin.HasSetting(HomeNew.Enabled)">FadeBackgroundInfo</include>
-        
-        <!-- fade background -->
+        <include>CommonItemsHome</include>
+        <!-- Home screen -->
+        <include>HomeControlList</include>
+        <include>HomeControlListLabels</include>
+        <include>HomeItems</include>
+        <include>HomeProfileInfo</include>
+        <include>FadeBackgroundInfo</include>
+        <!-- Fade background -->
         <include>FadeBackground</include>
-        <!-- bottom Buttons -->
+        <!-- Bottom buttons -->
         <include condition="!Skin.HasSetting(HideHomeButtons)">shutdown-favs</include>
-        <!-- Common (now playing) info -->
+        <!-- Common/profile info -->
         <include>Common-Home-Info</include>
     </controls>
 </window>

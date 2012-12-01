@@ -1,4 +1,4 @@
-<window id="137">
+<window>
     <defaultcontrol always="true">8001</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -9,7 +9,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <include>OptionsShutdownAnimation</include>
-                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog)</visible>
+                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(filebrowser)</visible>
                 <control type="image">
                     <include>FullscreenDimensions</include>
                     <texture>dialogs/smartplaylist/bgrule.png</texture>
@@ -37,14 +37,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>8000</onup>
                         <ondown>8002</ondown>
@@ -61,14 +59,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>8000</onup>
                         <ondown>8002</ondown>
@@ -86,16 +82,14 @@
                         <width>639</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
+                        <font>Font-Condensed-S32</font>
                         <pulseonselect>false</pulseonselect>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <onup>8001</onup>
                         <onleft>20</onleft>
                         <onright>20</onright>
@@ -130,10 +124,8 @@
                         <disabledcolor>FF585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <align>left</align>
-                        <aligny>top</aligny>
-                        <font>Font-Condensed-S31</font>
+                        <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <textoffsety>7</textoffsety>
                         <label>$LOCALIZE[1024]</label>
                         <onright>17</onright>
                         <onleft>17</onleft>

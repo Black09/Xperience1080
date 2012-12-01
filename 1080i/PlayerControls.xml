@@ -1,23 +1,16 @@
-<window type="dialog" id="114">
+<window type="dialog">
     <defaultcontrol always="true">9100</defaultcontrol>
     <zorder>3</zorder>
-    <onload>SetFocus(91201)</onload>
-    <onload>SetFocus(9100)</onload>
+    <onload condition="Window.IsVisible(fullscreenvideo) | [Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)] | Window.IsVisible(progressdialog) | Window.IsVisible(pvr)">Action(close)</onload>
     <onload>SetProperty(NoAnimation,1,10000)</onload>
     <onunload>ClearProperty(NoAnimation,10000)</onunload>
     <controls>
-        <!-- Guide should not open if fullscreenvideo is visible -->
-        <control type="button" id="9100">
-            <visible>Window.IsVisible(fullscreenvideo) | [Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)]</visible>
-            <onfocus>close</onfocus>
-            <animation effect="fade" start="0" end="100" delay="10">Focus</animation>
-        </control>
         <control type="group">
-            <visible>!Window.IsVisible(fullscreenvideo) + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)]</visible>
+            <visible>!Window.IsVisible(fullscreenvideo) + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)] + !Window.IsVisible(progressdialog) + !Window.IsVisible(pvr)</visible>
             <control type="group">
-                <visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
                 <posx>625</posx>
-                <posy>755</posy>
+                <posy>726</posy>
                 <animation type="Visible" reversible="false">
                     <effect type="slide" end="0,55" time="175" tween="sine" easing="out" />
                     <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
@@ -30,20 +23,20 @@
                     <visible>!ControlGroup(9109).HasFocus()</visible>
                     <control type="button" id="91081">
                         <description>Down</description>
-                        <posx>375</posx>
+                        <posx>376</posx>
                         <label>-</label>
                         <texturefocus>buttons/down-fo.png</texturefocus>
                         <texturenofocus>buttons/down-nf.png</texturenofocus>
                         <include>DialogButtonDimensionsRightAlign</include>
                         <onleft>SetFocus(91082)</onleft>
                         <onright>SetFocus(91082)</onright>
-                        <onup>Control.Message(9102,movedown,114)</onup>
+                        <onup>Control.Move(91022,-1)</onup>
                         <onup>SetFocus(9102)</onup>
                         <ondown>SetFocus(9102)</ondown>
                         <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,9120,91081)</onclick>
                     </control>
                     <control type="button" id="91082">
-                        <posx>425</posx>
+                        <posx>426</posx>
                         <description>Up</description>
                         <label>-</label>
                         <texturefocus>buttons/up-fo.png</texturefocus>
@@ -51,7 +44,7 @@
                         <include>DialogButtonDimensionsRightAlign</include>
                         <onleft>SetFocus(91081)</onleft>
                         <onright>SetFocus(91081)</onright>
-                        <onup>Control.Message(9102,movedown,114)</onup>
+                        <onup>Control.Move(91022,-1)</onup>
                         <onup>SetFocus(9102)</onup>
                         <ondown>SetFocus(9102)</ondown>
                         <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,9120,91082)</onclick>
@@ -62,7 +55,7 @@
                     <visible allowhiddenfocus="true">ControlGroup(9109).HasFocus()</visible>
                     <control type="button" id="91091">
                         <description>Down</description>
-                        <posx>375</posx>
+                        <posx>376</posx>
                         <label>-</label>
                         <texturefocus>buttons/down-fo.png</texturefocus>
                         <texturenofocus>buttons/down-nf.png</texturenofocus>
@@ -70,12 +63,12 @@
                         <onleft>SetFocus(91092)</onleft>
                         <onright>SetFocus(91092)</onright>
                         <onup>SetFocus(9102)</onup>
-                        <ondown>Control.Message(9102,moveup,114)</ondown>
+                        <ondown>Control.Move(91022,1)</ondown>
                         <ondown>SetFocus(9102)</ondown>
                         <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,9120,91091)</onclick>
                     </control>
                     <control type="button" id="91092">
-                        <posx>425</posx>
+                        <posx>426</posx>
                         <description>Up</description>
                         <label>-</label>
                         <texturefocus>buttons/up-fo.png</texturefocus>
@@ -84,7 +77,7 @@
                         <onleft>SetFocus(91091)</onleft>
                         <onright>SetFocus(91091)</onright>
                         <onup>SetFocus(9102)</onup>
-                        <ondown>Control.Message(9102,moveup,114)</ondown>
+                        <ondown>Control.Move(91022,1)</ondown>
                         <ondown>SetFocus(9102)</ondown>
                         <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,9120,91092)</onclick>
                     </control>
@@ -118,6 +111,22 @@
                     </control>
                 </control>
             </control>
+            <control type="list" id="9110">
+                <onup>9105</onup>
+                <ondown>-</ondown>
+                <onleft>9110</onleft>
+                <onright>9110</onright>
+                <visible>Player.HasMedia + [Control.HasFocus(9105) | Control.HasFocus(9110)]</visible>
+                <animation type="Visible" reversible="false">
+                    <effect type="slide" end="0,55" time="175" tween="sine" easing="out" />
+                    <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                </animation>
+                <animation type="Hidden" reversible="false">
+                    <effect type="slide" start="0,55" end="0,0" time="175" tween="sine" easing="out" />
+                    <effect type="fade" start="100" end="0" time="175" easing="out" tween="sine" />
+                </animation>
+                <include>NowPlayingControls</include>
+            </control>
             <include>GuideInterface</include>
             <control type="list" id="9100">
                 <visible allowhiddenfocus="true">Control.HasFocus(9100)</visible>
@@ -130,7 +139,7 @@
                     <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
                     <effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
                 </animation>
-                <animation type="Conditional" condition="Control.HasFocus(9102)"  reversible="false">
+                <animation type="Conditional" condition="ControlGroup(9102).HasFocus"  reversible="false">
                     <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
                     <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
                 </animation>
@@ -148,34 +157,40 @@
             </control>
             <!-- Hidden buttons used for the animations -->
             <!-- Onleft Buttons -->
-            <control type="list" id="9102">
-                <posx>637</posx>
-                <posy>325</posy>
-                <width>750</width>
-                <height>500</height>
-                <visible allowhiddenfocus="true">Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
-                <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
-                    <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-                    <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
-                    <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
-                    <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
-                    <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
-                    <effect type="slide" start="-30" end="0" time="175" tween="sine" easing="out" />
-                </animation>
-                <animation type="Hidden" reversible="false">
-                    <effect type="fade" start="100" end="0" time="175" tween="sine" easing="out" />
-                </animation>
-                <animation type="Conditional" condition="Control.HasFocus(9100)" reversible="false">
-                    <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
-                    <effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
-                </animation>
-                <animation type="Conditional" condition="Control.HasFocus(9103)">
-                    <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
-                    <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
-                </animation>
-                <include>GuideRecentlyAdded</include>
+            <control type="group" id="9102">
+                <control type="button" id="91021">
+                    <onup>9108</onup>
+                    <ondown>9109</ondown>
+                    <onleft>9103</onleft>
+                    <onright>9100</onright>
+                    <onfocus>ClearProperty(center)</onfocus>
+                    <visible>!IntegerGreaterThan(Container(91022).NumItems,0)</visible>
+                </control>
+                <control type="list" id="91022">
+                    <visible allowhiddenfocus="true">ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus</visible>
+                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
+                        <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                        <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+                        <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+                    </animation>
+                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
+                        <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                        <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+                        <effect type="slide" start="-30" end="0" time="175" tween="sine" easing="out" />
+                    </animation>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="fade" start="100" end="0" time="175" tween="sine" easing="out" />
+                    </animation>
+                    <animation type="Conditional" condition="Control.HasFocus(9100)" reversible="false">
+                        <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+                        <effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
+                    </animation>
+                    <animation type="Conditional" condition="Control.HasFocus(9103)">
+                        <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+                        <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+                    </animation>
+                    <include>GuideRecentlyAdded</include>
+                </control>
             </control>
             <control type="button" id="9103">
                 <onleft>9103</onleft>
@@ -191,6 +206,32 @@
                 <onup>9110</onup>
                 <ondown>9110</ondown>
                 <onfocus>SetProperty(center,1)</onfocus>
+                <visible>!Player.HasAudio</visible>
+            </control>
+            <control type="list" id="9105">
+                <visible allowhiddenfocus="true">[Control.HasFocus(9105) | Control.HasFocus(9110)] + Player.HasAudio</visible>
+                <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !IsEmpty(Window.property(right))" reversible="false">
+                    <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                    <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+                    <effect type="slide" start="-30" end="0" time="175" tween="sine" easing="out" />
+                </animation>
+                <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))" reversible="false">
+                    <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
+                    <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
+                    <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
+                </animation>
+                <animation type="Hidden" reversible="false">
+                    <effect type="fade" start="100" end="0" time="175" tween="sine" easing="out" />
+                </animation>
+                <animation type="Conditional" condition="Control.HasFocus(9106)" reversible="false">
+                    <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+                    <effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
+                </animation>
+                <animation type="Conditional" condition="Control.HasFocus(9100)">
+                    <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
+                    <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
+                </animation>
+                <include>GuideUpNext</include>
             </control>
             <control type="list" id="9106">
                 <visible allowhiddenfocus="true">Control.HasFocus(9106)</visible>
@@ -233,15 +274,15 @@
                     <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
                     <effect type="slide" start="0" end="-30" time="175" tween="sine" easing="in" />
                 </animation>
-                <animation type="Conditional" condition="Control.HasFocus(9102)">
+                <animation type="Conditional" condition="ControlGroup(9102).HasFocus">
                     <effect type="zoom" start="100" end="95" center="960,325" time="175" tween="sine" easing="in" />
                     <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
                 </animation>
                 <control type="group">
                     <posx>668</posx>
-                    <posy>17</posy>
-                    <animation effect="fade" start="60" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(0) + Control.IsVisible(9100)">Conditional</animation>
-                    <animation effect="fade" start="100" end="60" time="0" reversible="false" condition="!Container(9100).HasFocus(0) + Control.IsVisible(9100)">Conditional</animation>
+                    <posy>10</posy>
+                    <animation effect="fade" start="50" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(0) + Control.IsVisible(9100)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="0" reversible="false" condition="!Container(9100).HasFocus(0) + Control.IsVisible(9100)">Conditional</animation>
                     <control type="label">
                         <width>100</width>
                         <height>60</height>
@@ -252,7 +293,7 @@
                     </control>
                     <control type="image">
                         <posx>7</posx>
-                        <posy>6</posy>
+                        <posy>5</posy>
                         <width>50</width>
                         <height>50</height>
                         <texture>osd/media-guide/settings/video.png</texture>
@@ -262,9 +303,9 @@
                 
                 <control type="group">
                     <posx>668</posx>
-                    <posy>81</posy>
-                    <animation effect="fade" start="60" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(1) + Control.IsVisible(9100)">Conditional</animation>
-                    <animation effect="fade" start="100" end="60" time="0" reversible="false" condition="!Container(9100).HasFocus(1) + Control.IsVisible(9100)">Conditional</animation>
+                    <posy>77</posy>
+                    <animation effect="fade" start="50" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(1) + Control.IsVisible(9100)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="0" reversible="false" condition="!Container(9100).HasFocus(1) + Control.IsVisible(9100)">Conditional</animation>
                     <control type="label">
                         <width>100</width>
                         <height>60</height>
@@ -275,7 +316,7 @@
                     </control>
                     <control type="image">
                         <posx>7</posx>
-                        <posy>6</posy>
+                        <posy>5</posy>
                         <width>50</width>
                         <height>50</height>
                         <texture>osd/media-guide/settings/tvshows.png</texture>
@@ -285,20 +326,20 @@
                 
                 <control type="group">
                     <posx>668</posx>
-                    <posy>145</posy>
-                    <animation effect="fade" start="60" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(2) + Control.IsVisible(9100)">Conditional</animation>
-                    <animation effect="fade" start="100" end="60" time="0" reversible="false" condition="!Container(9100).HasFocus(2) + Control.IsVisible(9100)">Conditional</animation>
+                    <posy>144</posy>
+                    <animation effect="fade" start="50" end="100" time="800" delay="100" reversible="false" condition="Container(9100).HasFocus(2) + Control.IsVisible(9100)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="0" reversible="false" condition="!Container(9100).HasFocus(2) + Control.IsVisible(9100)">Conditional</animation>
                     <control type="label">
                         <width>100</width>
                         <height>60</height>
                         <label fallback=" 0">$INFO[Window(Home).Property(Music.SongsCount)]</label>
                         <textcolor>eewhite</textcolor>
-                        <font>Font-Condensed-S40</font>
+                        <font>Font-Condensed-S42</font>
                         <align>right</align>
                     </control>
                     <control type="image">
                         <posx>7</posx>
-                        <posy>6</posy>
+                        <posy>5</posy>
                         <width>50</width>
                         <height>50</height>
                         <texture>osd/media-guide/settings/music.png</texture>
@@ -310,8 +351,8 @@
             <!-- Quicknav Icon -->
             
             <control type="image">
-                <posx>533</posx>
-                <posy>250</posy>
+                <posx>538</posx>
+                <posy>274</posy>
                 <width>100</width>
                 <height>100</height>
                 <texture>osd/media-guide/quicknavicon.png</texture>
@@ -328,8 +369,8 @@
             <!-- Now Playing Icon -->
             
             <control type="image">
-                <posx>533</posx>
-                <posy>250</posy>
+                <posx>538</posx>
+                <posy>274</posy>
                 <width>100</width>
                 <height>100</height>
                 <texture>osd/media-guide/nowplayingicon.png</texture>
@@ -346,8 +387,8 @@
             <!-- Settings Icon -->
             
             <control type="image">
-                <posx>533</posx>
-                <posy>250</posy>
+                <posx>538</posx>
+                <posy>274</posy>
                 <width>100</width>
                 <height>100</height>
                 <texture>osd/media-guide/settingsicon.png</texture>
@@ -364,13 +405,13 @@
             <!-- Recently added Icon -->
 
             <control type="image">
-                <posx>533</posx>
-                <posy>250</posy>
+                <posx>538</posx>
+                <posy>274</posy>
                 <width>100</width>
                 <height>100</height>
                 <texture>osd/media-guide/recentlyaddedicon.png</texture>
                 <aspectratio>stretch</aspectratio>
-                <visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
                 <animation type="Visible" reversible="false">
                     <effect type="fade" start="15" end="100" delay="75" time="100" />
                 </animation>
@@ -382,8 +423,8 @@
             <!-- System info Icon -->
             
             <control type="image">
-                <posx>533</posx>
-                <posy>250</posy>
+                <posx>538</posx>
+                <posy>274</posy>
                 <width>100</width>
                 <height>100</height>
                 <texture>osd/media-guide/systeminfoicon.png</texture>
@@ -449,16 +490,6 @@
                 <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
                 <include>GuideNowPlaying</include>
             </control>
-        </control>
-        <!-- Reset list position for main, recently added & settings -->
-        <control type="list" id="9100">
-            <animation effect="fade" end="0" time="0">WindowOpen</animation>
-        </control>
-        <control type="list" id="9102">
-            <animation effect="fade" end="0" time="0">WindowOpen</animation>
-        </control>
-        <control type="list" id="9106">
-            <animation effect="fade" end="0" time="0">WindowOpen</animation>
         </control>
     </controls>
 </window>

@@ -1,4 +1,4 @@
-<window id="128">
+<window>
     <defaultcontrol always="true">10</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -9,7 +9,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <include>OptionsShutdownAnimation</include>
-                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(okdialog) + ![Window.IsVisible(filebrowser) + !IsEmpty(Window(home).Property(ShowDialog))]</visible>
+                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(okdialog) + ![Window.IsVisible(filebrowser) + !IsEmpty(Window(Home).Property(ShowDialog))]</visible>
                 <control type="image">
                     <include>FullscreenDimensions</include>
                     <texture>dialogs/networksetup/bg.png</texture>
@@ -37,14 +37,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>9002</onup>
                         <ondown>9003</ondown>
@@ -59,15 +57,13 @@
                             <width>639</width>
                             <height>60</height>
                             <align>left</align>
-                            <aligny>top</aligny>
                             <textoffsetx>20</textoffsetx>
-                            <textoffsety>4</textoffsety>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>77585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
-                            <font>Font-Condensed-S34</font>
-                            <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                            <font>Font-Condensed-S32</font>
+                            <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                             <onup>10</onup>
                             <onleft>12</onleft>
                             <onright>12</onright>
@@ -80,14 +76,12 @@
                             <width>257</width>
                             <height>60</height>
                             <align>left</align>
-                            <aligny>top</aligny>
                             <textoffsetx>60</textoffsetx>
-                            <textoffsety>7</textoffsety>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>FF585858</disabledcolor>
                             <shadowcolor>20FFFFFF</shadowcolor>
-                            <font>Font-Condensed-S31</font>
+                            <font>Font-Condensed-S32</font>
                             <texturefocus>dialogs/mediasource/browse-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/browse-nf.png</texturenofocus>
                             <label>1024</label>
@@ -105,15 +99,13 @@
                         <width>910</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <font>Font-Condensed-S32</font>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <onup>9003</onup>
                         <onleft>16</onleft>
                         <onright>16</onright>
@@ -126,15 +118,13 @@
                         <width>910</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <font>Font-Condensed-S32</font>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <label>1013</label>
                         <onup>16</onup>
                         <onleft>13</onleft>
@@ -148,15 +138,13 @@
                         <width>910</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <font>Font-Condensed-S32</font>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <label>1014</label>
                         <onup>13</onup>
                         <onleft>14</onleft>
@@ -170,15 +158,13 @@
                         <width>910</width>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>80585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <font>Font-Condensed-S34</font>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <font>Font-Condensed-S32</font>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <label>15052</label>
                         <onup>14</onup>
                         <onleft>15</onleft>

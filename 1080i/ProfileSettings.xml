@@ -1,6 +1,5 @@
-<window id="130">
+<window>
     <defaultcontrol>5</defaultcontrol>
-    <backgroundcolor>0</backgroundcolor>
     <controls>
         
         <control type="group">
@@ -17,17 +16,6 @@
                 <texture>dialogs/profile/profilebg.png</texture>
             </control>
 
-            <control type="image" id="2">
-                <description>profile image</description>
-                <posx>920</posx>
-                <posy>235</posy>
-                <width>80</width>
-                <height>80</height>
-                <align>center</align>
-                <aspectratio>scale</aspectratio>                
-                <texture diffuse="windows/logon/profile_mask.png" />
-            </control>
-            
             <control type="image" id="2">
                 <description>profile image</description>
                 <posx>920</posx>
@@ -68,29 +56,25 @@
             <control type="label" id="1000">
                 <description>profile name</description>
                 <posx>1322</posx>
-                <posy>355</posy>
+                <posy>361</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
-                <aligny>top</aligny>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textcolor>FF585858</textcolor>
-                <textoffsety>10</textoffsety>
                 <visible>!ControlGroup(5).HasFocus() | !ControlGroup(5).HasFocus(30)</visible>
             </control>
             
             <control type="label">
                 <description>profile name</description>
                 <posx>1322</posx>
-                <posy>355</posy>
+                <posy>361</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
-                <aligny>top</aligny>
                 <label>$INFO[Control.GetLabel(1000)]</label>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textcolor>eewhite</textcolor>
-                <textoffsety>10</textoffsety>
                 <visible>ControlGroup(5).HasFocus() + ControlGroup(5).HasFocus(30)</visible>
             </control>
             
@@ -106,29 +90,25 @@
             <control type="label" id="1001">
                 <description>profile location</description>
                 <posx>1322</posx>
-                <posy>475</posy>
+                <posy>481</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
-                <aligny>top</aligny>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textcolor>FF585858</textcolor>
-                <textoffsety>10</textoffsety>
                 <visible>[!ControlGroup(5).HasFocus() | !ControlGroup(5).HasFocus(32)] + !IsEmpty(Control.GetLabel(33))</visible>
             </control>
             
             <control type="label">
                 <description>profile location</description>
                 <posx>1322</posx>
-                <posy>475</posy>
+                <posy>481</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
-                <aligny>top</aligny>
                 <label>$INFO[Control.GetLabel(1001)]</label>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textcolor>eewhite</textcolor>
-                <textoffsety>10</textoffsety>
                 <visible>ControlGroup(5).HasFocus() + ControlGroup(5).HasFocus(32) + !IsEmpty(Control.GetLabel(33))</visible>
             </control>
             
@@ -136,16 +116,14 @@
                 <description>-</description>
                 <height>60</height>
                 <align>left</align>
-                <aligny>top</aligny>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textwidth>352</textwidth>
                 <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
                 <textcolor>FF585858</textcolor>
                 <focusedcolor>eewhite</focusedcolor>
                 <disabledcolor>77585858</disabledcolor>
                 <shadowcolor>20FFFFFF</shadowcolor>
-                <texturefocus>dialogs/content/highlight-light.png</texturefocus>
+                <texturefocus>dialogs/default/highlight.png</texturefocus>
                 <texturenofocus>-</texturenofocus>
             </control>
             
@@ -153,11 +131,9 @@
                 <description>-</description>
                 <height>60</height>
                 <align>left</align>
-                <aligny>top</aligny>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textwidth>352</textwidth>
                 <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
                 <radioposx>852</radioposx>
                 <textcolor>FF585858</textcolor>
                 <focusedcolor>eewhite</focusedcolor>
@@ -165,7 +141,7 @@
                 <shadowcolor>20FFFFFF</shadowcolor>
                 <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
                 <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
-                <texturefocus>dialogs/content/highlight-light.png</texturefocus>
+                <texturefocus>dialogs/default/highlight.png</texturefocus>
                 <texturenofocus>-</texturenofocus>
             </control>
             
@@ -175,17 +151,15 @@
                 <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                 <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                 <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                <texturefocus>dialogs/content/highlight-light.png</texturefocus>
+                <texturefocus>dialogs/default/highlight.png</texturefocus>
                 <texturenofocus>-</texturenofocus>
                 <textcolor>FF585858</textcolor>
                 <focusedcolor>eewhite</focusedcolor>
                 <disabledcolor>77585858</disabledcolor>
                 <shadowcolor>20FFFFFF</shadowcolor>
-                <aligny>top</aligny>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textwidth>352</textwidth>
                 <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
                 <spinposx>5</spinposx>
             </control>
             
@@ -195,10 +169,9 @@
                 <focusedcolor>eewhite</focusedcolor>
                 <disabledcolor>77585858</disabledcolor>
                 <shadowcolor>20FFFFFF</shadowcolor>
-                <font>Font-Condensed-S34</font>
+                <font>Font-Condensed-S32</font>
                 <textwidth>352</textwidth>
                 <textoffsetx>20</textoffsetx>
-                <textoffsety>4</textoffsety>
                 <sliderwidth>140</sliderwidth>
                 <sliderheight>20</sliderheight>
                 <texturesliderbar>buttons/OSD/slider_back.png</texturesliderbar>

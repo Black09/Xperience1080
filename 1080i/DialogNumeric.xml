@@ -1,27 +1,34 @@
-<window id="109">
+<window>
     <defaultcontrol always="true">21</defaultcontrol>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(virtualkeyboard) | Window.IsVisible(contextmenu) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(virtualkeyboard) | Window.IsVisible(contextmenu) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(LockSettings) | Window.IsVisible(DialogPVRTimerSettings.xml) | Window.IsVisible(DialogPVRGuideSearch.xml)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="310" />
             </animation>
             <control type="group">
                 <posx>800</posx>
                 <posy>332</posy>
                 <include>KeyboardAnimations</include>
-                <control type="image" id="0">
+                <control type="image">
+                    <posx>120</posx>
+                    <posy>-4</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
                     <description>image</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>16</posy>
                     <width>320</width>
-                    <height>416</height>
-                    <texture>dialogs/keyboard/numeric-back.png</texture>
+                    <height>398</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
                     <aspectratio>stretch</aspectratio>
                 </control>
                 <control type="label" id="1">
                     <description>Dialog Header</description>
                     <posx>-340</posx>
-                    <posy>-77</posy>
+                    <posy>-73</posy>
                     <width>1000</width>
                     <height>22</height>
                     <font>Font-Condensed-S34</font>
@@ -31,13 +38,15 @@
                 <control type="label" id="4">
                     <description>Edit Text</description>
                     <posx>-340</posx>
-                    <posy>-35</posy>
+                    <posy>-31</posy>
                     <width>1000</width>
                     <font>Font-Condensed-S45</font>
                     <align>center</align>
                     <onup>32</onup>
                     <ondown>49</ondown>
-                    <textcolor>FFFFFFFF</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <selectedcolor>eewhite</selectedcolor>
+                    <disabledcolor>aawhite</disabledcolor>
                 </control>
             <!-- First Row -->
                 <control type="group">
@@ -171,7 +180,7 @@
                         <include>SmallKey</include>
                     </control>
                     <control type="button" id="21">
-                        <description>DONE button</description>
+                        <description>Done button</description>
                         <posx>162</posx>
                         <onleft>10</onleft>
                         <onright>23</onright>

@@ -1,9 +1,9 @@
-<window id="100">
+<window>
     <defaultcontrol always="true">10</defaultcontrol>
     <zorder>5</zorder>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(3004)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(3004) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(DialogPVRGuideInfo.xml) | Window.IsVisible(DialogPVRChannelManager.xml) | Window.IsVisible(DialogPVRGroupManager.xml)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
             <include>FadeBackgroundDialog</include>
@@ -16,13 +16,18 @@
                     <animation effect="slide" end="0,-25" time="0" condition="IsEmpty(Control.GetLabel(3))">Conditional</animation>
                     <animation effect="slide" end="0,-25" time="0" condition="IsEmpty(Control.GetLabel(4))">Conditional</animation>
                     <control type="image">
-                        <description>Background</description>
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>740</width>
-                        <height>220</height>
-                        <texture>dialogs/other/yes-no-bg.png</texture>
-                        <aspectratio>stretch</aspectratio>
+                        <posx>330</posx>
+                        <posy>13</posy>
+                        <width>80</width>
+                        <height>60</height>
+                        <texture>dialogs/default/arrow.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>42</posx>
+                        <posy>33</posy>
+                        <width>656</width>
+                        <height>154</height>
+                        <texture border="39">dialogs/default/bg.png</texture>
                     </control>
                     <control type="button" id="11">
                         <description>Yes button</description>
@@ -35,14 +40,11 @@
                         <align>center</align>
                         <font>Font-Condensed-S34-B</font>
                         <label>107</label>
-                        <texturefocus border="30">dialogs/keyboard/donefocus.png</texturefocus>
-                        <texturenofocus border="30">dialogs/keyboard/doublekeynofocus.png</texturenofocus>
+                        <texturefocus border="20">dialogs/keyboard/donefocus.png</texturefocus>
+                        <texturenofocus border="20">dialogs/keyboard/key-nf.png</texturenofocus>
                         <textcolor>KeyboardGrey</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
-                        <selectedcolor>red</selectedcolor>
-                        <aligny>top</aligny>
-                        <textoffsety>20</textoffsety>
-                        <include>KeyboardFadeAnimations</include>
+                        <selectedcolor>eewhite</selectedcolor>
                     </control>
                     <control type="button" id="10">
                         <description>No button</description>
@@ -55,20 +57,17 @@
                         <align>center</align>
                         <font>Font-Condensed-S34-B</font>
                         <label>106</label>
-                        <texturefocus border="30">dialogs/keyboard/cancelfocus.png</texturefocus>
-                        <texturenofocus border="30">dialogs/keyboard/doublekeynofocus.png</texturenofocus>
+                        <texturefocus border="20">dialogs/keyboard/cancelfocus.png</texturefocus>
+                        <texturenofocus border="20">dialogs/keyboard/key-nf.png</texturenofocus>
                         <textcolor>KeyboardGrey</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
-                        <selectedcolor>red</selectedcolor>
-                        <aligny>top</aligny>
-                        <textoffsety>20</textoffsety>
-                        <include>KeyboardFadeAnimations</include>
+                        <selectedcolor>eewhite</selectedcolor>
                     </control>
                 </control>
                 <control type="label" id="1">
                     <description>Dialog Header</description>
                     <posx>460</posx>
-                    <posy>325</posy>
+                    <posy>327</posy>
                     <width>1000</width>
                     <height>22</height>
                     <font>Font-Condensed-S34</font>
@@ -81,7 +80,7 @@
                 <control type="label" id="2">
                     <description>Line 1</description>
                     <posx>100</posx>
-                    <posy>365</posy>
+                    <posy>367</posy>
                     <width>1720</width>
                     <font>Font-Condensed-S45</font>
                     <align>center</align>
@@ -93,7 +92,7 @@
                 <control type="label" id="3">
                     <description>Line 2</description>
                     <posx>100</posx>
-                    <posy>415</posy>
+                    <posy>417</posy>
                     <width>1720</width>
                     <font>Font-Condensed-S45</font>
                     <align>center</align>
@@ -105,7 +104,7 @@
                 <control type="label" id="4">
                     <description>Line 3</description>
                     <posx>100</posx>
-                    <posy>465</posy>
+                    <posy>467</posy>
                     <width>1720</width>
                     <font>Font-Condensed-S45</font>
                     <align>center</align>

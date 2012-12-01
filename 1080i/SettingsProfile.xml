@@ -1,43 +1,44 @@
-<window id="34">
+<window>
     <defaultcontrol always="true">2</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
         
         <include>CommonSettingsItems</include>
-        
-        <!-- Top Label -->
-        <control type="label">
-            <posx>100</posx>
-            <posy>60</posy>
-            <width>1000</width>
-            <height>65</height>
-            <font>Font-Condensed-S60</font>
-            <textcolor>ddwhite</textcolor>
-            <shadowcolor>55000000</shadowcolor>
-            <label>$LOCALIZE[41703]</label>
-            <animation type="WindowOpen">
-                <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="200" />
-                <effect type="zoom" start="100,120,1000,1" end="100,60,1000,65" tween="sine" easing="out" time="200" />
-            </animation>
-            <animation type="WindowClose">
-                <effect type="fade" start="100" end="0" tween="sine" easing="inout" time="200" />
-                <effect type="zoom" start="100,60,1000,65" end="100,120,1000,1" tween="sine" easing="out" time="200" />
-            </animation>
-        </control>
+        <include>SettingsHeader</include>
         
         <control type="group">
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
             <!-- Panel -->
             <control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>windows/settings/settings-panel-categories.png</texture>
+                <posx>353</posx>
+                <posy>187</posy>
+                <height>704</height>
+                <width>1214</width>
+                <texture border="4">views/list/panel/panel.png</texture>
+            </control>
+            <control type="image">
+                <description>Shadow</description>
+                <posx>255</posx>
+                <posy>883</posy>
+                <width>1410</width>
+                <height>150</height>
+                <texture>windows/home/item-shadow.png</texture>
+            </control>
+            
+            <control type="image">
+                <description>List separator</description>
+                <posx>355</posx>
+                <posy>191</posy>
+                <width>1210</width>
+                <height>91</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             
             <!-- SpinCtrl Focus -->
             <control type="image">
                 <posx>357</posx>
-                <posy>170</posy>
+                <posy>191</posy>
                 <width>1210</width>
                 <height>91</height>
                 <texture>windows/settings/images/category-focus.png</texture>
@@ -46,13 +47,26 @@
                 <animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
                 <visible>Control.HasFocus(4)</visible>
             </control>
+            
+            <control type="label">
+                <description>Category</description>
+                <posx>391</posx>
+                <posy>203</posy>
+                <height>60</height>
+                <width>400</width>
+                <align>left</align>
+                <font>Font-Condensed-S37-B</font>
+                <label>$LOCALIZE[20096]</label>
+                <textcolor>white</textcolor>
+                <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="!Control.HasFocus(4)">Conditional</animation>
+            </control>
     
             <control type="radiobutton" id="4">
                 <posx>356</posx>
-                <posy>188</posy>
+                <posy>205</posy>
                 <height>60</height>
                 <width>1210</width>
-                <label>$LOCALIZE[20096]</label>
+                <label>-</label>
                 <align>left</align>
                 <aligny>top</aligny>
                 <textcolor>96FFFFFF</textcolor>
@@ -65,21 +79,30 @@
                 <onup>2</onup>
                 <ondown>2</ondown>
                 <textoffsetx>35</textoffsetx>
-                <textoffsety>5</textoffsety>
+                <textoffsety>4</textoffsety>
             </control>
             
             <control type="list" id="2">
                 <description>Control Area</description>
                 <posx>356</posx>
-                <posy>260</posy>
+                <posy>281</posy>
                 <width>1210</width>
-                <height>610</height>
+                <height>609</height>
                 <onleft>-</onleft>
-                <onright>-</onright>
+                <onright>40</onright>
                 <onup>4</onup>
                 <ondown>4</ondown>
+                <pagecontrol>40</pagecontrol>
                 <orientation>vertical</orientation>
                 <itemlayout height="76">
+                    <control type="image">
+                        <description>List separator</description>
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1210</width>
+                        <height>77</height>
+                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                    </control>
                     <control type="image">
                         <posx>35</posx>
                         <posy>10</posy>
@@ -155,6 +178,14 @@
                     <control type="group">
                         <visible>!Control.HasFocus(2)</visible>
                         <control type="image">
+                            <description>List separator</description>
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1210</width>
+                            <height>77</height>
+                            <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                        </control>
+                        <control type="image">
                             <posx>35</posx>
                             <posy>10</posy>
                             <width>56</width>
@@ -187,6 +218,30 @@
                         </control>
                     </control>
                 </focusedlayout>
+            </control>
+            <control type="image" id="42">
+                <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+            </control>
+            <control type="image" id="41">
+                <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+                <visible>Control.HasFocus(40) | !Control.IsVisible(42)</visible>
+            </control>
+            <control type="scrollbar" id="40">
+                <posx>1559</posx>
+                <posy>281</posy>
+                <width>6</width>
+                <height>608</height>
+                <texturesliderbackground>-</texturesliderbackground>
+                <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                <textureslidernib>-</textureslidernib>
+                <textureslidernibfocus>-</textureslidernibfocus>
+                <onleft>2</onleft>
+                <onright>2</onright>
+                <showonepage>false</showonepage>
+                <orientation>vertical</orientation>
+                <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(41)">Conditional</animation>
             </control>
         </control>
         <include>FadeBackground</include>

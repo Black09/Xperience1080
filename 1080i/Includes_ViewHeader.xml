@@ -1,1193 +1,737 @@
 <includes>
 
-    <!-- Variables -->
-    <variable name="BannerCoverHeaderImage">
-        <value condition="stringcompare(Container.FolderPath,musicdb://6/)">DefaultMusicRecentlyAdded.png</value>
-        <value condition="stringcompare(Container.FolderPath,musicdb://7/)">DefaultMusicRecentlyPlayed.png</value>
-        <value condition="stringcompare(Container.FolderPath,musicdb://8/)">DefaultMusicCompilations.png</value>
-        <value>DefaultMusicAlbums.png</value>
+    <!-- Variables -->    
+    <variable name="MusicHeaderIcon">
+        <value condition="Window.IsVisible(musicplaylist)">DefaultMusicPlaylists.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://1/,left)">DefaultMusicGenres.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://2/,left)">DefaultMusicArtists.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://3/,left)">DefaultMusicAlbums.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://4/,left)">DefaultMusicSongs.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://5/,left)">DefaultMusicTop100.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://6/,left)">DefaultMusicRecentlyAdded.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://7/,left)">DefaultMusicRecentlyPlayed.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://8/,left)">DefaultMusicCompilations.png</value>
+        <value condition="substring(Container.FolderPath,musicdb://9/,left)">DefaultMusicYears.png</value>
+        <value condition="stringcompare(Container.FolderPath,special://musicplaylists/) | substring(Container.FolderPath,special://profile/playlists/music/,left)">DefaultPlaylist.png</value>
+        <value>DefaultAudio.png</value>
+    </variable>
+    
+    <variable name="MusicHeaderLabel">
+        <value condition="Window.IsVisible(musicfiles)">$LOCALIZE[744]</value>
+        <value condition="Window.IsVisible(musicplaylist)">$LOCALIZE[20011]</value>
+        <value condition="substring(Container.FolderPath,musicdb://5/1/,left)">$LOCALIZE[10504]</value>
+        <value condition="substring(Container.FolderPath,musicdb://5/2/,left)">$LOCALIZE[10505]</value>
+        <value condition="substring(Container.FolderPath,musicdb://1/,left)">$LOCALIZE[135]</value>
+        <value condition="substring(Container.FolderPath,musicdb://2/,left)">$LOCALIZE[133]</value>
+        <value condition="substring(Container.FolderPath,musicdb://3/,left)">$LOCALIZE[132]</value>
+        <value condition="substring(Container.FolderPath,musicdb://4/,left)">$LOCALIZE[134]</value>
+        <value condition="substring(Container.FolderPath,musicdb://5/,left) + !substring(Container.FolderPath,musicdb://5/1/,left) + !substring(Container.FolderPath,musicdb://5/2/,left)">$LOCALIZE[271]</value>
+        <value condition="substring(Container.FolderPath,musicdb://6/,left)">$LOCALIZE[359]</value>
+        <value condition="substring(Container.FolderPath,musicdb://7/,left)">$LOCALIZE[517]</value>
+        <value condition="substring(Container.FolderPath,musicdb://8/,left)">$LOCALIZE[521]</value>
+        <value condition="substring(Container.FolderPath,musicdb://9/,left)">$LOCALIZE[652]</value>
+        <value condition="stringcompare(Container.FolderPath,special://musicplaylists/) | substring(Container.FolderPath,special://profile/playlists/music/,left)">$LOCALIZE[136]</value>
+        <value condition="stringcompare(Container.FolderPath,addons://sources/audio/) | substring(Container.FolderPath,plugin://plugin,left)">$LOCALIZE[1038]</value>
+        <value>$LOCALIZE[2]</value>
     </variable>
     
     <variable name="BannerCoverHeaderImageSongs">
         <value condition="Window.IsVisible(musicplaylist)">DefaultMusicPlaylists.png</value>
         <value>DefaultMusicSongs.png</value>
     </variable>
-
-    <!-- Includes -->
-    <include name="ListCenterRightGroup">
-        <!-- center group -->
+    
+    <variable name="VideoHeaderIcon">
+        <value condition="stringcompare(Container.FolderPath,library://video/movies/) | substring(Container.FolderPath,videodb://1/,left)">DefaultMovies.png</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/tvshows/) | stringcompare(Container.FolderPath,library://video/inprogressshows.xml/) | substring(Container.FolderPath,videodb://2/,left)">DefaultTVShows.png</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedmovies.xml/) | stringcompare(Container.FolderPath,videodb://4/)">DefaultRecentlyAddedMovies.png</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedepisodes.xml/) | stringcompare(Container.FolderPath,videodb://5/)">DefaultRecentlyAddedEpisodes.png</value>
+        <value condition="stringcompare(Container.FolderPath,special://videoplaylists/) | substring(Container.FolderPath,special://profile/playlists/video/,left)">DefaultPlaylist.png</value>
+        <value condition="stringcompare(Container.FolderPath,addons://sources/video/) | substring(Container.FolderPath,plugin://plugin.video,left)">DefaultAddonVideo.png</value>
+        <value>DefaultFolder.png</value>
+    </variable>
+    
+    <variable name="VideoHeaderLabel">
+        <value condition="stringcompare(Container.FolderPath,library://video/movies/) | substring(Container.FolderPath,videodb://1/,left)">$LOCALIZE[342]</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/tvshows/) | substring(Container.FolderPath,videodb://2/,left)">$LOCALIZE[20343]</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/inprogressshows.xml/)">$LOCALIZE[626]</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedmovies.xml/) | stringcompare(Container.FolderPath,videodb://4/)">$LOCALIZE[20386]</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedepisodes.xml/) | stringcompare(Container.FolderPath,videodb://5/)">$LOCALIZE[20387]</value>
+        <value condition="stringcompare(Container.FolderPath,special://videoplaylists/) | substring(Container.FolderPath,special://profile/playlists/video/,left)">$LOCALIZE[20012]</value>
+        <value condition="stringcompare(Container.FolderPath,addons://sources/video/) | substring(Container.FolderPath,plugin://plugin.video,left)">$LOCALIZE[1037]</value>
+        <value condition="!IsEmpty(Container.FolderPath)">$LOCALIZE[1214]</value>
+        <value>$LOCALIZE[3]</value>
+    </variable>
+    
+    <variable name="AddonHeaderIcon">
+        <value condition="substring(Container.FolderPath,albums,right)">DefaultAddonAlbumInfo.png</value>
+        <value condition="substring(Container.FolderPath,artists,right)">DefaultAddonArtistInfo.png</value>
+        <value condition="substring(Container.FolderPath,lyrics,right)">DefaultAddonLyrics.png</value>
+        <value condition="substring(Container.FolderPath,movies,right)">DefaultAddonMovieInfo.png</value>
+        <value condition="substring(Container.FolderPath,audio,right)">DefaultAddonMusic.png</value>
+        <value condition="substring(Container.FolderPath,musicvideos,right)">DefaultAddonMusicVideoInfo.png</value>
+        <value condition="substring(Container.FolderPath,image,right)">DefaultAddonPicture.png</value>
+        <value condition="substring(Container.FolderPath,executable,right)">DefaultAddonProgram.png</value>
+        <value condition="substring(Container.FolderPath,pvrclient,right)">DefaultFolder.png</value>
+        <value condition="substring(Container.FolderPath,screensaver,right)">DefaultAddonScreensaver.png</value>
+        <value condition="substring(Container.FolderPath,service,right)">DefaultAddonService.png</value>
+        <value condition="substring(Container.FolderPath,skin,right)">DefaultAddonSkin.png</value>
+        <value condition="substring(Container.FolderPath,subtitles,right)">DefaultAddonSubtitles.png</value>
+        <value condition="substring(Container.FolderPath,tvshows,right)">DefaultAddonTvInfo.png</value>
+        <value condition="substring(Container.FolderPath,video,right)">DefaultAddonVideo.png</value>
+        <value condition="substring(Container.FolderPath,musicviz,right)">DefaultAddonVisualization.png</value>
+        <value condition="substring(Container.FolderPath,weather,right)">DefaultAddonWeather.png</value>
+        <value condition="substring(Container.FolderPath,webinterface,right)">DefaultAddonWebSkin.png</value>
+        <value>DefaultAddon.png</value>
+    </variable>
+    
+    <variable name="AddonHeaderLabel">
+        <value condition="substring(Container.FolderPath,addons://disabled,left)">$LOCALIZE[24039]</value>
+        <value condition="substring(Container.FolderPath,addons://enabled,left)">$LOCALIZE[24062]</value>
+        <value condition="substring(Container.FolderPath,addons://repos,left)">$LOCALIZE[24033]</value>
+        <value>$LOCALIZE[24001]</value>
+    </variable>
+    
+    <variable name="SettingsIcon">
+        <value condition="Window.IsActive(systeminfo)"></value>
+        <value condition="Window.IsActive(weathersettings)">DefaultAddonWeather.png</value>
+        <value condition="Window.IsActive(systemsettings)"></value>
+        <value condition="Window.IsActive(pvrsettings)">DefaultTVShows.png</value>
+        <value condition="Window.IsActive(skinsettings)">DefaultAddonSkin.png</value>
+        <value condition="Window.IsActive(picturessettings)">DefaultAddonPicture.png</value>
+        <value condition="Window.IsActive(addonbrowser)">DefaultAddon.png</value>
+        <value condition="Window.IsActive(musicsettings)">DefaultAddonMusic.png</value>
+        <value condition="Window.IsActive(profiles)">DefaultActor.png</value>
+        <value condition="Window.IsActive(videossettings)">DefaultMovies.png</value>
+        <value condition="Window.IsActive(settings) | Window.IsActive(servicesettings)">DefaultAddonService.png</value>
+        <value>DefaultAddonProgram.png</value>
+    </variable>
+    
+    <variable name="SettingsHeaderLabel">
+        <value condition="Control.HasFocus(111) | Window.IsActive(systeminfo)">$LOCALIZE[130]</value>
+        <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[8]</value>
+        <value condition="Control.HasFocus(109) | Window.IsActive(systemsettings)">$LOCALIZE[13000]</value>
+        <value condition="Control.HasFocus(108) | Window.IsActive(pvrsettings)">$LOCALIZE[19020]</value>
+        <value condition="Control.HasFocus(107) | Window.IsActive(skinsettings)">$LOCALIZE[166]</value>
+        <value condition="Control.HasFocus(106) | Window.IsActive(picturessettings)">$LOCALIZE[1]</value>
+        <value condition="Control.HasFocus(105) | Window.IsActive(addonbrowser)">$LOCALIZE[24001]</value>
+        <value condition="Control.HasFocus(104) | Window.IsActive(musicsettings)">$LOCALIZE[2]</value>
+        <value condition="Control.HasFocus(103) | Window.IsActive(profiles)">$LOCALIZE[13200]</value>
+        <value condition="Control.HasFocus(102) | Window.IsActive(videossettings)">$LOCALIZE[157]</value>
+        <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[14036]</value>
+        <value>$LOCALIZE[480]</value>
+    </variable>
+    
+    <variable name="SettingsHeaderSubLabel">
+        <value condition="Control.HasFocus(111) | Window.IsActive(systeminfo)">$LOCALIZE[154] • $LOCALIZE[705] • $LOCALIZE[157] • $LOCALIZE[13281]</value>
+        <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[24029]</value>
+        <value condition="Control.HasFocus(109) | Window.IsActive(systemsettings)">$LOCALIZE[291]/$LOCALIZE[337] • $LOCALIZE[14094] • $LOCALIZE[798] • $LOCALIZE[14095]</value>
+        <value condition="Control.HasFocus(108) | Window.IsActive(pvrsettings)">$LOCALIZE[19181] • $LOCALIZE[19222] • $LOCALIZE[14086] • $LOCALIZE[19043]</value>
+        <value condition="Control.HasFocus(107) | Window.IsActive(skinsettings)">$LOCALIZE[10000] • $LOCALIZE[41190] • $LOCALIZE[478] • $LOCALIZE[33069] • $LOCALIZE[22020] • $LOCALIZE[24001]</value>
+        <value condition="Control.HasFocus(106) | Window.IsActive(picturessettings)">$LOCALIZE[14081] • $LOCALIZE[108]</value>
+        <value condition="Control.HasFocus(105) | Window.IsActive(addonbrowser)">$LOCALIZE[1024] • $LOCALIZE[24038] • $LOCALIZE[24020]</value>
+        <value condition="Control.HasFocus(104) | Window.IsActive(musicsettings)">$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[15200] • $LOCALIZE[620] • $LOCALIZE[13327]</value>
+        <value condition="Control.HasFocus(103) | Window.IsActive(profiles)">$LOCALIZE[20067] • $LOCALIZE[20096]</value>
+        <value condition="Control.HasFocus(102) | Window.IsActive(videossettings)">$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[24012] • $LOCALIZE[14087]</value>
+        <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[20187] • $LOCALIZE[33101] • $LOCALIZE[790] • $LOCALIZE[1259] • $LOCALIZE[1273] • $LOCALIZE[1200]</value>
+        <value>$LOCALIZE[166] • $LOCALIZE[14090] • $LOCALIZE[14081] • $LOCALIZE[360]</value>
+    </variable>
+    
+    <variable name="FileManagerSortLetterLabel">
+        <value condition="Control.HasFocus(21)">$INFO[Container(21).ListItem.SortLetter]</value>
+        <value>$INFO[Container(20).ListItem.SortLetter]</value>
+    </variable>
+    
+    <include name="ViewHeaderItemPageInfo">
         <control type="grouplist">
-            <posx>271</posx>
-            <posy>100</posy>
-            <width>1361</width>
-            <align>center</align>
-            <aligny>center</aligny>
+            <posx>110</posx>
+            <posy>32</posy>
             <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Items Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>47</width>
-                <height>42</height>
-                <aspectratio>stretch</aspectratio>
-                <texture>views/other/items-icon.png</texture>
-                <visible>Control.IsVisible(50)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>      
+            <itemgap>0</itemgap>
             <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container.NumItems] $LOCALIZE[41817]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(50)</visible>
-            </control>
-        </control>
-        <!-- right group -->
-        <control type="grouplist">
-            <posx>278</posx>
-            <posy>100</posy>
-            <width>1365</width>
-            <align>right</align>
-            <aligny>center</aligny>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Pages Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>52</width>
-                <height>42</height>
-                <aspectratio>stretch</aspectratio>
-                <texture>views/other/page-icon.png</texture>
-                <visible>Control.IsVisible(50)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[41819] $INFO[Container.CurrentPage] $LOCALIZE[41820] $INFO[Container.NumPages]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
+                <width min="50" max="400">auto</width>
+                <height>120</height>
+                <label>$INFO[Container.NumItems,, $LOCALIZE[41822]]</label>
+                <font>Font-Condensed-S28</font>
+                <textcolor>80FFFFFF</textcolor>
                 <scroll>false</scroll>
                 <align>left</align>
-                <visible>Control.IsVisible(50)</visible>
+                <visible>IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)</visible>
+            </control>
+            <control type="label">
+                <width min="50" max="400">auto</width>
+                <height>120</height>
+                <label>$INFO[Container.NumItems,, $LOCALIZE[41817]]</label>
+                <font>Font-Condensed-S28</font>
+                <textcolor>80FFFFFF</textcolor>
+                <scroll>false</scroll>
+                <align>left</align>
+                <visible>!IntegerGreaterThan(Container.NumItems,0) | IntegerGreaterThan(Container.NumItems,1)</visible>
+            </control>
+            <control type="label">
+                <width min="50" max="400">auto</width>
+                <height>120</height>
+                <label>$INFO[Container.CurrentPage, • $LOCALIZE[41819] ,]$INFO[Container.NumPages,/,]</label>
+                <font>Font-Condensed-S28</font>
+                <textcolor>80FFFFFF</textcolor>
+                <scroll>false</scroll>
+                <align>left</align>
+                <visible>IntegerGreaterThan(Container.NumPages,1)</visible>
             </control>
         </control>
     </include>
     
-    <include name="WallCenterRightGroup">
-        <!-- center group -->
-        <control type="grouplist">
-            <posx>30</posx>
-            <posy>30</posy>
-            <width>1842</width>
-            <align>center</align>
-            <aligny>center</aligny>
-            <orientation>horizontal</orientation>
-            <visible>Control.IsVisible(56) | Control.IsVisible(58)</visible>
+    <include name="ViewHeaderSortLetter">
+        <control type="group">
+            <posx>17</posx>
+            <posy>32</posy>
+            <visible>Container.Scrolling</visible>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                <effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" delay="2000" />
+                <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" delay="2000" />
+            </animation>
             <control type="image">
-                <description>Items Icon</description>
                 <posx>0</posx>
                 <posy>0</posy>
-                <width>47</width>
-                <height>42</height>
-                <aspectratio>stretch</aspectratio>
-                <texture>views/other/items-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56) | Control.IsVisible(58)">Conditional</animation>
-            </control>      
+                <width>85</width>
+                <height>85</height>
+                <texture>DefaultSortLetter.png</texture>
+            </control>
             <control type="label">
                 <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container.NumItems] $LOCALIZE[41817]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
+                <posy>1</posy>
+                <width>85</width>
+                <height>85</height>
+                <align>center</align>
+                <font>Font-Condensed-S52-B</font>
+                <label>$INFO[ListItem.SortLetter]</label>
+                <textcolor>C0000000</textcolor>
+                <shadowcolor>white</shadowcolor>
             </control>
         </control>
-        <!-- right group -->
-        <control type="grouplist">
-            <posx>37</posx>
-            <posy>30</posy>
-            <width>1846</width>
-            <align>right</align>
-            <aligny>center</aligny>
-            <orientation>horizontal</orientation>
-            <visible>Control.IsVisible(56) | Control.IsVisible(58)</visible>
-            <animation effect="slide" end="-10" time="0" condition="Window.IsActive(MusicLibrary)">Conditional</animation>
-            <control type="image">
-                <description>Pages Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>52</width>
-                <height>42</height>
-                <aspectratio>stretch</aspectratio>
-                <texture>views/other/page-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56) | Control.IsVisible(58)">Conditional</animation>
-            </control>
-            <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[41819] $INFO[Container.CurrentPage] $LOCALIZE[41820] $INFO[Container.NumPages]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <align>left</align>
-            </control>
-        </control>
-    </include>
-
-    <include name="ListHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>262</posx>
-            <posy>100</posy>
-            <width>1397</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Folder Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/folder-icon.png</texture>
-                <visible>!Control.IsVisible(100001) + !Control.IsVisible(100002) + !Window.IsVisible(videoplaylist)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="image" id="100001">
-                <description>Movie Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/movie-icon.png</texture>
-                <visible>substring(Container.FolderPath,videodb://1/) | stringcompare(Container.FolderPath,videodb://4/) | Window.IsVisible(videoplaylist)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="image" id="100002">
-                <description>TV Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/tvshows-icon.png</texture>
-                <visible>substring(Container.FolderPath,videodb://2/) | stringcompare(Container.FolderPath,videodb://5/)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="label" id="511">
-                <description>Movie Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[20342] :</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>substring(Container.FolderPath,videodb://1/) + [Container.Content(movies) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(directors) | Container.Content(studios) | Container.Content(countries)]</visible>
-            </control>
-            <control type="label">
-                <description>TV Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[20343] :</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>substring(Container.FolderPath,videodb://2/) + [Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(genres) | Container.Content(years) | Container.Content(actors) | Container.Content(studios)]</visible>
-            </control>
-            <control type="label">
-                <description>Root Folder Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[41934]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>IsEmpty(Container.FolderPath)</visible>
-            </control>
-            <control type="label">
-                <description>Current Folder Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container.FolderName]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>!IsEmpty(Container.FolderPath) + !Window.IsVisible(videoplaylist) + ![[Container.Content(Seasons) | Container.Content(Episodes)] + !stringcompare(Container.FolderPath,videodb://5/)]</visible>
-            </control>
-            <control type="label">
-                <description>Playlist Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[559]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(videoplaylist)</visible>
-            </control>
-            <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container(50).ListItem.TVShowTitle] $INFO[Container(50).ListItem.Season,($LOCALIZE[20373] ,)]</label>
-                <textcolor>bbwhite</textcolor>
-                <shadowcolor>33000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>[Container.Content(Seasons) | Container.Content(Episodes)] + !stringcompare(Container.FolderPath,videodb://5/)</visible>
-                <animation type="Visible" reversible="false">
-                    <effect type="fade" start="0" end="100" time="350" delay="150" />
-                </animation>
-                <animation type="Hidden" reversible="false">
-                    <effect type="fade" start="100" end="0" time="200" delay="0" />
-                </animation>
-            </control>      
-        </control>
-        <include>ListCenterRightGroup</include>
-    </include>
-
-    <include name="WallHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>22</posx>
-            <posy>30</posy>
-            <width>1861</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Movie Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/movie-icon.png</texture>
-                <visible>Control.IsVisible(56) + Container.Content(Movies)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
-            </control>
-            <control type="image">
-                <description>TV Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/tvshows-icon.png</texture>
-                <visible>Control.IsVisible(56) + [Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
-            </control>
-            <control type="image">
-                <description>Actors Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/actors-icon.png</texture>
-                <visible>Control.IsVisible(56) + Container.Content(Actors)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
-            </control>
-            <control type="image">
-                <description>Folder Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/folder-icon.png</texture>
-                <visible>Control.IsVisible(58)</visible>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(58)">Conditional</animation>
-            </control>
-            <control type="label">
-                <description>Folder Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container.FolderName]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(58)</visible>
-            </control>
-            <control type="label">
-                <description>Movie Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[20342]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(56) + Container.Content(Movies)</visible>
-            </control>
-            <control type="label">
-                <description>TV Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[20343]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(56) + [Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)]</visible>
-            </control>
-            <control type="label">
-                <description>Actors Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$INFO[Container.FolderName]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(56) + Container.Content(Actors)</visible>
-            </control>
-            <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="400">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>: $INFO[Container(56).ListItem.TVShowTitle]</label>
-                <textcolor>bbwhite</textcolor>
-                <shadowcolor>33000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(56) + [Container.Content(Seasons) | Container.Content(Episodes)]</visible>
-                <animation type="Visible" reversible="false">
-                    <effect type="fade" start="0" end="100" time="350" delay="150" />
-                </animation>
-                <animation type="Hidden" reversible="false">
-                    <effect type="fade" start="100" end="0" time="200" delay="0" />
-                </animation>
-            </control>
-            <control type="label">
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="125">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label> ($LOCALIZE[20373] $INFO[Container(56).ListItem.Season])</label>
-                <textcolor>bbwhite</textcolor>
-                <shadowcolor>33000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Control.IsVisible(56) + Container.Content(Episodes)</visible>
-                <animation type="Visible" reversible="false">
-                    <effect type="fade" start="0" end="100" time="350" delay="150" />
-                </animation>
-                <animation type="Hidden" reversible="false">
-                    <effect type="fade" start="100" end="0" time="200" delay="0" />
-                </animation>
-            </control>
-            <control type="label">
-                <width min="50" max="75">auto</width>
-                <label>$INFO[ListItem.SortLetter,: ,]</label>
-                <font>Font-Condensed-S31</font>
-                <textcolor>bbwhite</textcolor>
-                <shadowcolor>33000000</shadowcolor>
-                <scroll>false</scroll>
-                <align>left</align>
-                <visible>Container.Scrolling + !Container.Content(Seasons)</visible>
-                <include>visiblehidefadescrollinfo</include>
-            </control>
-        </control>
-        <include>WallCenterRightGroup</include>
     </include>
     
-    <include name="BannerPosterHeader">
+    <include name="ViewHeaderIconVars">
+        <posx>17</posx>
+        <posy>32</posy>
+        <width>85</width>
+        <height>85</height>
+        <visible>!Container.Scrolling</visible>
+        <animation type="Hidden">
+            <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+            <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
+        </animation>
+        <animation type="Visible">
+            <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" /> 
+            <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" delay="2000" />
+        </animation>
+    </include>
+    
+    <include name="VideoHeader">
         <control type="group">
             <posx>75</posx>
-            <posy>24</posy>
-            <visible>[Control.IsVisible(55) | Control.IsVisible(57) | Control.IsVisible(60) | Control.IsVisible(61)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122)</visible>
+            <posy>26</posy>
+            <visible>!Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
-                <visible>Container.Content(movies) + !stringcompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
                 <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>DefaultMovies.png</texture>
+                    <include>ViewHeaderIconVars</include>
+                    <texture>$VAR[VideoHeaderIcon]</texture>
                 </control>
+                <include>ViewHeaderSortLetter</include>
                 <control type="grouplist">
                     <posx>110</posx>
                     <posy>0</posy>
                     <orientation>horizontal</orientation>
+                    <itemgap>0</itemgap>
                     <control type="label">
-                        <width min="50" max="250">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>$LOCALIZE[20342]</label>
+                        <label>$VAR[VideoHeaderLabel]</label>
                         <font>Font-Condensed-S36-B</font>
                         <textcolor>C0FFFFFF</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
                     </control>
                     <control type="label">
-                        <width min="50" max="75">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>: $INFO[ListItem.SortLetter]</label>
+                        <label>$INFO[Container.FolderName,: ,]</label>
                         <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
+                        <textcolor>aawhite</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[20338]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
+                        <visible>!substring(Container.FolderPath,library,left) + !substring(Container.FolderPath,special,left) + !substring(Container.FolderPath,addons,left) + !substring(Container.FolderPath,sources,left) + !Container.Content(episodes) + !stringcompare(Container.FolderPath,videodb://4/)</visible>
                     </control>
                     <control type="label">
-                        <width min="50" max="400">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[20342]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
+                        <label>$INFO[Container.ListItem.TVShowTitle,: ,]$INFO[Container.ListItem.Season, (,)]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>aawhite</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
+                        <visible>Container.Content(episodes)</visible>
                     </control>
                 </control>
             </control>
+            <include>ViewHeaderItemPageInfo</include>
+        </control>
+    </include>
+
+    <include name="MusicHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(musicinformation) + !Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="image">
+                <include>ViewHeaderIconVars</include>
+                <texture>$VAR[MusicHeaderIcon]</texture>
+            </control>
+            <include>ViewHeaderSortLetter</include>
+            <control type="grouplist">
+                <posx>110</posx>
+                <posy>0</posy>
+                <itemgap>0</itemgap>
+                <orientation>horizontal</orientation>
+                <control type="label">
+                    <width min="0" max="5000">auto</width>
+                    <height>120</height>
+                    <label>$VAR[MusicHeaderLabel]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <width min="0" max="500">auto</width>
+                    <height>120</height>
+                    <label>$INFO[Container.FolderName,: ,]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>aawhite</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>!stringcompare(Container.FolderPath,musicdb://1/) + !stringcompare(Container.FolderPath,musicdb://2/) + !stringcompare(Container.FolderPath,musicdb://3/) + !stringcompare(Container.FolderPath,musicdb://4/) + !stringcompare(Container.FolderPath,musicdb://5/) + !stringcompare(Container.FolderPath,musicdb://6/) + !stringcompare(Container.FolderPath,musicdb://7/) + !stringcompare(Container.FolderPath,musicdb://8/) + !stringcompare(Container.FolderPath,musicdb://9/) + !stringcompare(Container.FolderPath,musicdb://5/1/) + !stringcompare(Container.FolderPath,special://musicplaylists/) + !Container.Content(albums)</visible>
+                </control>
+                <control type="label">
+                    <width min="0" max="500">auto</width>
+                    <height>120</height>
+                    <label>$INFO[ListItem.Artist,: ,]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>aawhite</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>Container.Content(albums)</visible>
+                </control>
+            </control>
+            <include>ViewHeaderItemPageInfo</include>
+        </control>
+    </include>
+    
+    <include name="ProgramHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
             <control type="group">
-                <visible>Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)</visible>
+                <control type="image">
+                    <include>ViewHeaderIconVars</include>
+                    <texture>DefaultProgram.png</texture>
+                </control>
+                <include>ViewHeaderSortLetter</include>
+                <control type="grouplist">
+                    <posx>110</posx>
+                    <posy>0</posy>
+                    <orientation>horizontal</orientation>
+                    <itemgap>0</itemgap>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>$LOCALIZE[41504]</label>
+                        <label>$INFO[ListItem.ActualIcon]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>$INFO[Container.FolderName,: ,]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>aawhite</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                        <visible>!IsEmpty(Container.FolderPath)</visible>
+                    </control>
+                </control>
+            </control>
+            <include>ViewHeaderItemPageInfo</include>
+        </control>
+    </include>
+    
+    <include name="PictureHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
+                <control type="image">
+                    <include>ViewHeaderIconVars</include>
+                    <texture>DefaultPicture.png</texture>
+                </control>
+                <include>ViewHeaderSortLetter</include>
+                <control type="grouplist">
+                    <posx>110</posx>
+                    <posy>0</posy>
+                    <orientation>horizontal</orientation>
+                    <itemgap>0</itemgap>
+                    <control type="label">
+                        <width min="0" max="5000">auto</width>
+                        <height>120</height>
+                        <label>$LOCALIZE[1]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>$INFO[Container.FolderName,: ,]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>aawhite</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                        <visible>!IsEmpty(Container.FolderPath)</visible>
+                    </control>
+                </control>
+            </control>
+            <include>ViewHeaderItemPageInfo</include>
+        </control>
+    </include>
+    
+    <include name="AddonHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
+                <control type="image">
+                    <include>ViewHeaderIconVars</include>
+                    <texture>$VAR[AddonHeaderIcon]</texture>
+                </control>
+                <include>ViewHeaderSortLetter</include>
+                <control type="grouplist">
+                    <posx>110</posx>
+                    <posy>0</posy>
+                    <orientation>horizontal</orientation>
+                    <itemgap>0</itemgap>
+                    <control type="label">
+                        <width min="0" max="5000">auto</width>
+                        <height>120</height>
+                        <label>$VAR[AddonHeaderLabel]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>$INFO[Container.FolderName,: ,]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>aawhite</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                        <visible>!IsEmpty(Container.FolderPath) + !stringcompare(Container.FolderPath,addons://disabled/) + !stringcompare(Container.FolderPath,addons://enabled/) + !stringcompare(Container.FolderPath,addons://repos/)</visible>
+                    </control>
+                </control>
+            </control>
+            <include>ViewHeaderItemPageInfo</include>
+        </control>
+    </include>
+    
+    <include name="FileManagerHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
                 <control type="image">
                     <posx>17</posx>
-                    <posy>35</posy>
+                    <posy>32</posy>
                     <width>85</width>
                     <height>85</height>
+                    <texture>DefaultFile.png</texture>
+                    <visible>!Container(20).Scrolling + !Container(21).Scrolling</visible>
+                    <animation type="Hidden">
+                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
+                    </animation>
+                    <animation type="Visible">
+                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" /> 
+                        <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" delay="2000" />
+                    </animation>
+                </control>
+                <control type="group">
+                    <posx>17</posx>
+                    <posy>32</posy>
+                    <visible>Container(20).Scrolling | Container(21).Scrolling</visible>
+                    <animation type="Visible">
+                        <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                        <effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" />
+                    </animation>
+                    <animation type="Hidden">
+                        <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" delay="2000" />
+                        <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" delay="2000" />
+                    </animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>85</width>
+                        <height>85</height>
+                        <texture>DefaultSortLetter.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>0</posx>
+                        <posy>1</posy>
+                        <width>85</width>
+                        <height>85</height>
+                        <align>center</align>
+                        <font>Font-Condensed-S52-B</font>
+                        <label>$VAR[FileManagerSortLetterLabel]</label>
+                        <textcolor>C0000000</textcolor>
+                        <shadowcolor>white</shadowcolor>
+                    </control>
+                </control>
+                <control type="label">
+                    <posx>110</posx>
+                    <posy>15</posy>
+                    <width>500</width>
+                    <height>120</height>
+                    <label>$LOCALIZE[7]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+    <include name="PlaylistEditorHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(musicinformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
+                <control type="image">
+                    <posx>17</posx>
+                    <posy>32</posy>
+                    <width>85</width>
+                    <height>85</height>
+                    <texture>DefaultPlaylist.png</texture>
+                </control>
+                <control type="label">
+                    <posx>110</posx>
+                    <posy>15</posy>
+                    <width>500</width>
+                    <height>120</height>
+                    <label>$LOCALIZE[10503]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                </control>
+            </control>
+        </control>
+    </include>
+    
+    <include name="SettingsHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
+                <control type="image">
+                    <posx>17</posx>
+                    <posy>32</posy>
+                    <width>85</width>
+                    <height>85</height>
+                    <texture>$VAR[SettingsIcon]</texture>
+                </control>
+                <control type="grouplist">
+                    <posx>110</posx>
+                    <posy>0</posy>
+                    <orientation>horizontal</orientation>
+                    <itemgap>0</itemgap>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>$LOCALIZE[5]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <width min="0" max="500">auto</width>
+                        <height>120</height>
+                        <label>: $VAR[SettingsHeaderLabel]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>aawhite</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                </control>
+            </control>
+            <control type="label">
+                <posx>110</posx>
+                <posy>32</posy>
+                <width>765</width>
+                <height>120</height>
+                <label>$VAR[SettingsHeaderSubLabel]</label>
+                <font>Font-Condensed-S28</font>
+                <textcolor>80FFFFFF</textcolor>
+                <scroll>false</scroll>
+                <align>left</align>
+            </control>
+        </control>
+    </include>
+    
+    <include name="PVRHeader">
+        <control type="group">
+            <posx>75</posx>
+            <posy>26</posy>
+            <visible>!Window.IsActive(addoninformation)</visible>
+            <include>BannerListInfoAnimation</include>
+            <control type="group">
+                <control type="image">
+                    <include>ViewHeaderIconVars</include>
                     <texture>DefaultTVShows.png</texture>
                 </control>
+                <include>ViewHeaderSortLetter</include>
                 <control type="grouplist">
                     <posx>110</posx>
                     <posy>0</posy>
                     <orientation>horizontal</orientation>
+                    <animation effect="slide" end="0,15" time="0" condition="ControlGroup(9001).HasFocus(31) + SubString(Control.GetLabel(31),$LOCALIZE[19032])">Conditional</animation>
+                    <itemgap>0</itemgap>
                     <control type="label">
-                        <width min="50" max="250">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>$LOCALIZE[20343]</label>
+                        <label>$LOCALIZE[19020]</label>
                         <font>Font-Condensed-S36-B</font>
                         <textcolor>C0FFFFFF</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
                     </control>
                     <control type="label">
-                        <width min="50" max="1400">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>: $INFO[Container.ListItem.TVShowTitle]</label>
+                        <label>$INFO[Control.GetLabel(29),: ,]</label>
                         <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
+                        <textcolor>B0FFFFFF</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
-                        <visible>Container.Content(Seasons) | Container.Content(Episodes)</visible>
                     </control>
                     <control type="label">
-                        <width min="50" max="75">auto</width>
+                        <width min="0" max="500">auto</width>
                         <height>120</height>
-                        <label>: $INFO[ListItem.SortLetter]</label>
+                        <label>$INFO[Control.GetLabel(30),: ,]</label>
                         <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
+                        <textcolor>A0FFFFFF</textcolor>
                         <scroll>false</scroll>
                         <align>left</align>
-                        <visible>Container.Scrolling + !Container.Content(Seasons)</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.ListItem.Season,$LOCALIZE[20373] ,:]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(Episodes)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20359]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(Episodes) + !IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20360]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(Episodes) + IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20364]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(TVShows) + !IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20343]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(TVShows) + IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20373]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(Seasons) + !IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[33054]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Content(Seasons) + IntegerGreaterThan(Container.NumItems,1)</visible>
                     </control>
                 </control>
             </control>
-            <control type="group">
-                <visible>Container.Content(actors)</visible>
-                <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>DefaultActor.png</texture>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="250">auto</width>
-                        <height>120</height>
-                        <label>$LOCALIZE[344]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>: $INFO[ListItem.SortLetter]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[20337]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[344]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <visible>stringcompare(Container.FolderPath,plugin://plugin.video.apple.movie.trailers.lite/)</visible>
-                <control type="image">
-                    <posx>0</posx>
-                    <posy>16</posy>
-                    <width>120</width>
+            <control type="grouplist">
+                <posx>110</posx>
+                <posy>32</posy>
+                <orientation>horizontal</orientation>
+                <itemgap>0</itemgap>
+                <visible>![ControlGroup(9001).HasFocus(31) + SubString(Control.GetLabel(31),$LOCALIZE[19032])]</visible>
+                <control type="label">
+                    <width min="50" max="400">auto</width>
                     <height>120</height>
-                    <texture>dialogs/video-info/apple.png</texture>
+                    <label>$INFO[Container.NumItems,, $LOCALIZE[41822]]</label>
+                    <font>Font-Condensed-S28</font>
+                    <textcolor>80FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)</visible>
                 </control>
-                <control type="grouplist">
-                    <posx>115</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>Apple Movie Trailers</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
+                <control type="label">
+                    <width min="50" max="400">auto</width>
+                    <height>120</height>
+                    <label>$INFO[Container.NumItems,, $LOCALIZE[41817]]</label>
+                    <font>Font-Condensed-S28</font>
+                    <textcolor>80FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>!IntegerGreaterThan(Container.NumItems,0) | IntegerGreaterThan(Container.NumItems,1)</visible>
                 </control>
-                <control type="grouplist">
-                    <posx>115</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[20410]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[41821]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <visible>stringcompare(Container.FolderName,Advanced Launcher)</visible>
-                <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>DefaultGames.png</texture>
-                </control>
-                <control type="grouplist">
-                    <posx>115</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>Advanced Launcher</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>115</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[41822]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems] $LOCALIZE[41817]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
+                <control type="label">
+                    <width min="50" max="400">auto</width>
+                    <height>120</height>
+                    <label>$INFO[Container.CurrentPage, • $LOCALIZE[41819] ,]$INFO[Container.NumPages,/,]</label>
+                    <font>Font-Condensed-S28</font>
+                    <textcolor>80FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>IntegerGreaterThan(Container.NumPages,1)</visible>
                 </control>
             </control>
         </control>
     </include>
     
-    <include name="MusicListHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>262</posx>
-            <posy>100</posy>
-            <width>1397</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Music Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/music-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="label">
-                <description>Music database Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="540">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[15101]$INFO[Container.FolderName, : ,]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(musiclibrary)</visible>
-            </control>
-            <control type="label">
-                <description>Music files Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="540">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[1214]$INFO[Container.FolderName, : ,]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(musicfiles)</visible>
-            </control>
-            <control type="label">
-                <description>Music files Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="540">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[559]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(musicplaylist)</visible>
-            </control>          
-        </control>
-        <include>ListCenterRightGroup</include>
-    </include>
-    
-    <include name="MusicWallHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>22</posx>
-            <posy>30</posy>
-            <width>1861</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Music Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/music-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
-            </control>
-            <control type="label">
-                <description>Music Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[15101]$INFO[Container.FolderName, : ,]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-            </control>
-        </control>
-        <include>WallCenterRightGroup</include>
-    </include>
-    
-    <include name="BannerCoverHeader">
+    <include name="WeatherHeader">
         <control type="group">
             <posx>75</posx>
-            <posy>24</posy>
-            <visible>[Control.IsVisible(55) | Control.IsVisible(60)] + !Window.IsActive(musicinformation)</visible>
+            <posy>26</posy>
             <include>BannerListInfoAnimation</include>
             <control type="group">
-                <visible>Container.Content(Albums)</visible>
                 <control type="image">
                     <posx>17</posx>
-                    <posy>35</posy>
+                    <posy>32</posy>
                     <width>85</width>
                     <height>85</height>
-                    <texture>$VAR[BannerCoverHeaderImage]</texture>
+                    <texture>DefaultAddonWeather.png</texture>
                 </control>
-                <control type="grouplist">
-                    <posx>110</posx>
+                <control type="label">
+                    <posx>115</posx>
                     <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="450">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.FolderName]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="1100">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.Artist,: ,]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
+                    <width>1630</width>
+                    <height>120</height>
+                    <label>$INFO[Window.Property(Location)]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
                 </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[558]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[132]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling + !stringcompare(Container.SortMethod,$LOCALIZE[557])</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <visible>Container.Content(Artists)</visible>
-                <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>DefaultMusicArtists.png</texture>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="250">auto</width>
-                        <height>120</height>
-                        <label>$LOCALIZE[133]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>99FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[557]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[133]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <visible>Container.Content(Songs)</visible>
-                <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>$VAR[BannerCoverHeaderImageSongs]</texture>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="1500">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.Album]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[179]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[134]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
-                </control>
-            </control>
-            <control type="group">
-                <visible>Container.Content(Genres)</visible>
-                <control type="image">
-                    <posx>17</posx>
-                    <posy>35</posy>
-                    <width>85</width>
-                    <height>85</height>
-                    <texture>DefaultMusicGenres.png</texture>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>0</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="1500">auto</width>
-                        <height>120</height>
-                        <label>$LOCALIZE[135]</label>
-                        <font>Font-Condensed-S36-B</font>
-                        <textcolor>C0FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                    </control>
-                </control>
-                <control type="grouplist">
-                    <posx>110</posx>
-                    <posy>33</posy>
-                    <orientation>horizontal</orientation>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[515]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>!IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="400">auto</width>
-                        <height>120</height>
-                        <label>$INFO[Container.NumItems,, $LOCALIZE[41922]]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>IntegerGreaterThan(Container.NumItems,1)</visible>
-                    </control>
-                    <control type="label">
-                        <width min="50" max="75">auto</width>
-                        <height>120</height>
-                        <label>$INFO[ListItem.SortLetter,: ,]</label>
-                        <font>Font-Condensed-S28</font>
-                        <textcolor>80FFFFFF</textcolor>
-                        <scroll>false</scroll>
-                        <align>left</align>
-                        <visible>Container.Scrolling</visible>
-                        <include>visiblehidefadescrollinfo</include>
-                    </control>
+                <control type="label">
+                    <posx>115</posx>
+                    <posy>32</posy>
+                    <width>1630</width>
+                    <height>120</height>
+                    <label>$INFO[Window.Property(WeatherProvider)]</label>
+                    <font>Font-Condensed-S28</font>
+                    <textcolor>80FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
                 </control>
             </control>
         </control>
-    </include>
-    
-    <include name="PictureListHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>262</posx>
-            <posy>100</posy>
-            <width>1397</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Picture Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/picture-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(50)">Conditional</animation>
-            </control>
-            <control type="label">
-                <description>Picture Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="540">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[1213]$INFO[Container.FolderName, : ,]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(pictures)</visible>
-            </control>      
-        </control>
-        <include>ListCenterRightGroup</include>
-    </include>
-    
-    <include name="PictureWallHeader">
-        <!-- left group -->
-        <control type="grouplist">
-            <posx>22</posx>
-            <posy>30</posy>
-            <width>1861</width>
-            <align>left</align>
-            <orientation>horizontal</orientation>
-            <control type="image">
-                <description>Picture Icon</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="39" max="52">auto</width>
-                <height>42</height>
-                <texture>views/other/picture-icon.png</texture>
-                <animation effect="slide" start="0,0" end="4,-4" time="0" condition="Control.IsVisible(56)">Conditional</animation>
-            </control>
-            <control type="label">
-                <description>Picture Label</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width min="10" max="1365">auto</width>
-                <font>Font-Condensed-S31</font>
-                <label>$LOCALIZE[1213]$INFO[Container.FolderName, : ,]</label>
-                <textcolor>eewhite</textcolor>
-                <shadowcolor>44000000</shadowcolor>
-                <scroll>false</scroll>
-                <visible>Window.IsVisible(pictures)</visible>
-            </control>  
-        </control>
-        <include>WallCenterRightGroup</include>
     </include>
 </includes>

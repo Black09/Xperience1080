@@ -1,4 +1,4 @@
-<window id="132">
+<window>
     <defaultcontrol always="true">3</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -40,14 +40,12 @@
                         <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                         <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                         <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                        <texturefocus border="2">dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <spinposx>5</spinposx>
                         <onup>8002</onup>
                         <ondown>4</ondown>
@@ -81,35 +79,43 @@
                                     <posy>10</posy>
                                     <width>40</width>
                                     <height>40</height>
-                                    <info>ListItem.Icon</info>
+                                    <info>ListItem.Thumb</info>
                                 </control>
                                 <control type="label">
                                     <posx>75</posx>
-                                    <posy>-4</posy>
-                                    <width>673</width>
+                                    <posy>0</posy>
+                                    <width>633</width>
                                     <height>60</height>
                                     <info>ListItem.Label</info>
-                                    <font>Font-Condensed-S34</font>
+                                    <font>Font-Condensed-S32</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <textcolor>FF585858</textcolor>
-                                    <selectedcolor>MenuBlue</selectedcolor>
+                                    <selectedcolor>FF585858</selectedcolor>
                                     <scroll>false</scroll>
                                     <visible>!IsEmpty(ListItem.Thumb)</visible>
                                 </control>
                                 <control type="label">
                                     <posx>20</posx>
-                                    <posy>-4</posy>
-                                    <width>728</width>
+                                    <posy>0</posy>
+                                    <width>688</width>
                                     <height>60</height>
                                     <info>ListItem.Label</info>
-                                    <font>Font-Condensed-S34</font>
+                                    <font>Font-Condensed-S32</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <textcolor>FF585858</textcolor>
-                                    <selectedcolor>MenuBlue</selectedcolor>
+                                    <selectedcolor>FF585858</selectedcolor>
                                     <scroll>false</scroll>
                                     <visible>IsEmpty(ListItem.Thumb)</visible>
+                                </control>
+                                <control type="image">
+                                    <posx>708</posx>
+                                    <posy>0</posy>
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <texture>dialogs/select/selected.png</texture>
+                                    <visible>ListItem.IsSelected</visible>
                                 </control>
                             </control>
                         </itemlayout>
@@ -117,7 +123,7 @@
                             <control type="image">
                                 <width>768</width>
                                 <height>60</height>
-                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                                <texture border="2">dialogs/default/highlight.png</texture>
                                 <visible>Control.HasFocus(4)</visible>
                             </control>
                             <control type="image">
@@ -125,43 +131,43 @@
                                 <posy>10</posy>
                                 <width>40</width>
                                 <height>40</height>
-                                <info>ListItem.Icon</info>
+                                <info>ListItem.Thumb</info>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <posy>-4</posy>
-                                <width>728</width>
+                                <posy>0</posy>
+                                <width>688</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>FF585858</textcolor>
-                                <selectedcolor>MenuBlue</selectedcolor>
+                                <selectedcolor>FF585858</selectedcolor>
                                 <scroll>false</scroll>
                                 <visible>!Control.HasFocus(4) + IsEmpty(ListItem.Thumb)</visible>
                             </control>
                             <control type="label">
                                 <posx>75</posx>
-                                <posy>-4</posy>
-                                <width>673</width>
+                                <posy>0</posy>
+                                <width>633</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>FF585858</textcolor>
-                                <selectedcolor>MenuBlue</selectedcolor>
+                                <selectedcolor>FF585858</selectedcolor>
                                 <scroll>false</scroll>
                                 <visible>!Control.HasFocus(4) + !IsEmpty(ListItem.Thumb)</visible>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <posy>-4</posy>
-                                <width>728</width>
+                                <posy>0</posy>
+                                <width>688</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>eewhite</textcolor>
@@ -171,17 +177,25 @@
                             </control>  
                             <control type="label">
                                 <posx>75</posx>
-                                <posy>-4</posy>
-                                <width>673</width>
+                                <posy>0</posy>
+                                <width>633</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>eewhite</textcolor>
                                 <selectedcolor>eewhite</selectedcolor>
                                 <scroll>false</scroll>
                                 <visible>Control.HasFocus(4) + !IsEmpty(ListItem.Thumb)</visible>
+                            </control>
+                            <control type="image">
+                                <posx>708</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>dialogs/select/selected.png</texture>
+                                <visible>ListItem.IsSelected</visible>
                             </control>
                         </focusedlayout>
                     </control>
@@ -204,8 +218,8 @@
                         <width>11</width>
                         <height>174</height>
                         <texturesliderbackground>-</texturesliderbackground>
-                        <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-                        <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                        <texturesliderbar border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbar>
+                        <texturesliderbarfocus border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbarfocus>
                         <textureslidernib>-</textureslidernib>
                         <textureslidernibfocus>-</textureslidernibfocus>
                         <onleft>4</onleft>
@@ -231,9 +245,7 @@
                         <description>default</description>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77585858</disabledcolor>
@@ -243,9 +255,7 @@
                         <description>radioButton</description>
                         <height>60</height>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <textoffsetx>20</textoffsetx>
-                        <textoffsety>4</textoffsety>
                         <radioposx>852</radioposx>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
@@ -253,7 +263,7 @@
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
-                        <texturefocus>dialogs/content/highlight-light.png</texturefocus>
+                        <texturefocus>dialogs/default/highlight.png</texturefocus>
                     </control>
                 </control>
                 <control type="group" id="8002">

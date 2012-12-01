@@ -1,13 +1,13 @@
-<window id="2">
+<window>
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>no</allowoverlay>
-    <views>50,55,56</views>
+    <views>50,52,500,55</views>
     <controls>
         
         <include>CommonItems</include>
-        <include>Picture-Views</include>
-        <include>FadeBackgroundInfo</include>
-        <include>FadeBackgroundTwo</include>
+        <include>PictureHeader</include>
+        <include>PictureViews</include>
+        <include>FadeBackgroundContentContext</include>
         
         <control type="group" id="9000">
             <posx>267</posx>
@@ -22,9 +22,8 @@
                     <posy>505</posy>
                     <height>60</height>
                     <width>442</width>
-                    <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+                    <texture>dialogs/shutdown/shadow.png</texture>
                     <aspectratio>stretch</aspectratio>
-                    <include>StageVisibility</include>
                 </control>
                 <control type="image">
                     <description>background image</description>
@@ -190,6 +189,30 @@
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
                 </control>
+                <control type="radiobutton" id="203">
+                    <description>Large thumb list</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>Large thumb list</label>
+                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(52)</onclick>
+                    <selected>Control.IsVisible(52)</selected>
+                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
+                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <radioposx>-19</radioposx>
+                    <visible>Container.HasFiles + !Container.Content(addons)</visible>
+                </control>
+                <control type="radiobutton" id="204">
+                    <description>Thumbnail</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>Thumbnail</label>
+                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(500)</onclick>
+                    <selected>Control.IsVisible(500)</selected>
+                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
+                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <radioposx>-19</radioposx>
+                    <visible>Container.HasFiles + Container.Content(addons)</visible>
+                </control>
                 <control type="radiobutton" id="205">
                     <description>PictureView</description>
                     <include>optionsbuttonsdimensions</include>
@@ -200,17 +223,7 @@
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
-                </control>
-                <control type="radiobutton" id="206">
-                    <description>Wall</description>
-                    <include>optionsbuttonsdimensions</include>
-                    <label>Wall</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
-                    <onclick>Container.SetViewMode(56)</onclick>
-                    <selected>Control.IsVisible(56)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
-                    <radioposx>-19</radioposx>
+                    <visible>Container.HasFiles + !Container.Content(addons)</visible>
                 </control>
             </control>
             
@@ -226,21 +239,13 @@
                 </control>
                 <control type="label">
                     <posx>94</posx>
-                    <posy>470</posy>
+                    <posy>433</posy>
                     <width>300</width>
-                    <height>18</height>
+                    <height>100</height>
                     <label>$LOCALIZE[41600]</label>
                     <font>Font-Condensed-S34-B</font>
-                    <textcolor>66000000</textcolor>
-                </control>
-                <control type="label">
-                    <posx>94</posx>
-                    <posy>471</posy>
-                    <width>300</width>
-                    <height>18</height>
-                    <label>$LOCALIZE[41600]</label>
-                    <font>Font-Condensed-S34-B</font>
-                    <textcolor>ddwhite</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                 </control>
             </control>
             
@@ -256,21 +261,13 @@
                 </control>
                 <control type="label">
                     <posx>94</posx>
-                    <posy>470</posy>
+                    <posy>433</posy>
                     <width>300</width>
-                    <height>18</height>
+                    <height>100</height>
                     <label>$LOCALIZE[42010]</label>
                     <font>Font-Condensed-S34-B</font>
-                    <textcolor>66000000</textcolor>
-                </control>
-                <control type="label">
-                    <posx>94</posx>
-                    <posy>471</posy>
-                    <width>300</width>
-                    <height>18</height>
-                    <label>$LOCALIZE[42010]</label>
-                    <font>Font-Condensed-S34-B</font>
-                    <textcolor>ddwhite</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                 </control>
             </control>
             
@@ -285,22 +282,14 @@
                     <texture>buttons/options_nofo.png</texture>
                 </control>
                 <control type="label">
-                    <posx>94</posx>
-                    <posy>470</posy>
-                    <width>300</width>
-                    <height>18</height>
-                    <label>$LOCALIZE[42021]</label>
-                    <font>Font-Condensed-S34-B</font>
-                    <textcolor>66000000</textcolor>
-                </control>
-                <control type="label">
                     <posx>94</posx> 
-                    <posy>471</posy>
+                    <posy>433</posy>
                     <width>300</width>
-                    <height>18</height>
+                    <height>100</height>
                     <label>$LOCALIZE[42021]</label>
                     <font>Font-Condensed-S34-B</font>
-                    <textcolor>ddwhite</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                 </control>
             </control>              
         </control>
@@ -317,7 +306,7 @@
         <control type="image" id="9772">
             <animation effect="fade" start="0" end="100" time="0">Visible</animation>
             <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
-            <visible>!Control.HasFocus(70) + [Container(50).Scrolling | Container(50).OnScrollNext | Container(50).OnScrollPrevious]</visible>
+            <visible>!Control.HasFocus(70) + [Container.Scrolling | Container.OnScrollNext | Container.OnScrollPrevious]</visible>
         </control>
         
         <include>FadeBackground</include>

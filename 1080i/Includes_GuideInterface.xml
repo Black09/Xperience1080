@@ -56,60 +56,62 @@
     </include>
 
     <include name="GuideList">
-        <posx>637</posx>
-        <posy>325</posy>
-        <width>750</width>
-        <height>464</height>
+        <posx>643</posx>
+        <posy>333</posy>
+        <width>743</width>
+        <height>469</height>
         <orientation>vertical</orientation>
         <scrolltime>0</scrolltime>
         <onleft>9102</onleft>
         <onright>9105</onright>
-        <itemlayout height="64" width="750">
+        <itemlayout height="67" width="743">
             <control type="image">
                 <posx>0</posx>
-                <posy>80</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="label">
-                <posx>30</posx>
-                <posy>17</posy>
-                <width>690</width>
-                <height>60</height>
-                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <posx>26</posx>
+                <posy>0</posy>
+                <width>698</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Label]</label>
                 <textcolor>77white</textcolor>
+                <shadowcolor>22000000</shadowcolor>
                 <font>Font-Condensed-S42</font>
                 <align>left</align>
             </control>
         </itemlayout>
-        <focusedlayout height="64" width="750">
+        <focusedlayout height="67" width="743">
             <control type="button">
                 <onfocus>ClearProperty(left)</onfocus>
                 <onfocus>ClearProperty(right)</onfocus>
             </control>
             <control type="image">
                 <posx>0</posx>
-                <posy>80</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>0</posy>
-                <width>750</width>
-                <height>96</height>
-                <texture>osd/media-guide/mediaguide-fo.png</texture>
+                <width>743</width>
+                <height>66</height>
+                <texture border="150,1,150,1">views/other/focus.png</texture>
                 <include>guidelistfocusanim2</include>
             </control>
             <control type="label">
-                <posx>30</posx>
-                <posy>17</posy>
-                <width>690</width>
-                <height>60</height>
-                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <posx>26</posx>
+                <posy>0</posy>
+                <width>698</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Label]</label>
                 <textcolor>eewhite</textcolor>
+                <shadowcolor>22000000</shadowcolor>
                 <font>Font-Condensed-S42</font>
                 <align>left</align>
                 <include>guidelistfocusanim</include>
@@ -118,13 +120,11 @@
         <content>
             <item id="0">
                 <label>$LOCALIZE[41445]</label>
-                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://1/2/)])</onclick>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videos,movietitles,return)</onclick>
             </item>
             <item id="1">
                 <label>$LOCALIZE[41446]</label>
-                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://2/2/)])</onclick>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videos,tvshowtitles,return)</onclick>
             </item>
@@ -143,7 +143,6 @@
             <item id="4">
                 <label>$INFO[Skin.String(Guide.Custom1.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick>SetProperty(NextStage,0)</onclick>
                 <onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
@@ -152,7 +151,6 @@
             </item>
             <item id="5">
                 <label>$LOCALIZE[41449]</label>
-                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-plugin://plugin.video.apple.movie.trailers.lite/)])</onclick>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videos,plugin://plugin.video.apple.movie.trailers.lite/,return)</onclick>
                 <visible>!Skin.HasSetting(Guide.Custom2) + IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
@@ -160,7 +158,6 @@
             <item id="6">
                 <label>$INFO[Skin.String(Guide.Custom2.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick>SetProperty(NextStage,0)</onclick>
                 <onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
@@ -169,7 +166,6 @@
             </item>
             <item id="7">
                 <label>$LOCALIZE[41450]</label>
-                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://4/)])</onclick>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videos,RecentlyAddedMovies,return)</onclick>
                 <visible>!Skin.HasSetting(Guide.Custom3) + IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
@@ -177,7 +173,6 @@
             <item id="8">
                 <label>$INFO[Skin.String(Guide.Custom3.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick>SetProperty(NextStage,0)</onclick>
                 <onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
@@ -186,7 +181,6 @@
             </item>
             <item id="9">
                 <label>$LOCALIZE[41451]</label>
-                <onclick>SetProperty(NextStage,$INFO[Window(Home).property(10025-videodb://5/)])</onclick>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
                 <visible>!Skin.HasSetting(Guide.Custom4) + IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
@@ -194,7 +188,6 @@
             <item id="10">
                 <label>$INFO[Skin.String(Guide.Custom4.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick>SetProperty(NextStage,0)</onclick>
                 <onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
@@ -205,136 +198,144 @@
     </include>
     
     <include name="GuideSettings">
-        <posx>637</posx>
-        <posy>325</posy>
-        <width>750</width>
-        <height>464</height>
+        <posx>643</posx>
+        <posy>333</posy>
+        <width>743</width>
+        <height>469</height>
         <orientation>vertical</orientation>
-        <scrolltime>250</scrolltime>
-        <itemlayout height="64" width="750">
+        <scrolltime tween="cubic" easing="out">500</scrolltime>
+        <itemlayout height="67" width="743">
             <control type="image">
                 <posx>0</posx>
-                <posy>80</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="image">
                 <posx>670</posx>
-                <posy>23</posy>
+                <posy>8</posy>
                 <width>50</width>
                 <height>50</height>
                 <texture>$INFO[ListItem.Icon]</texture>
                 <colordiffuse>77FFFFFF</colordiffuse>
             </control>
             <control type="label">
-                <posx>30</posx>
-                <posy>17</posy>
-                <width>690</width>
-                <height>60</height>
-                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <posx>26</posx>
+                <posy>0</posy>
+                <width>698</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Label]</label>
                 <textcolor>77white</textcolor>
+                <shadowcolor>22000000</shadowcolor>
                 <font>Font-Condensed-S42</font>
                 <align>left</align>
             </control>
         </itemlayout>
-        <focusedlayout height="64" width="750">
+        <focusedlayout height="67" width="743">
             <control type="button">
                 <onfocus>SetProperty(right,1)</onfocus>
             </control>
             <control type="image">
                 <posx>0</posx>
-                <posy>80</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>0</posy>
-                <width>750</width>
-                <height>96</height>
-                <texture>osd/media-guide/mediaguide-fo.png</texture>
+                <width>743</width>
+                <height>66</height>
+                <texture border="150,1,150,1">views/other/focus.png</texture>
                 <include>guidelistfocusanim2</include>
             </control>
             <control type="image">
                 <posx>670</posx>
-                <posy>23</posy>
+                <posy>8</posy>
                 <width>50</width>
                 <height>50</height>
                 <texture>$INFO[ListItem.Icon]</texture>
-                <colordiffuse>EEFFFFFF</colordiffuse>
+                <colordiffuse>eewhite</colordiffuse>
                 <include>guidelistfocusanim</include>
             </control>
             <control type="label">
-                <posx>30</posx>
-                <posy>17</posy>
-                <width>690</width>
-                <height>60</height>
-                <label>[B]$INFO[ListItem.Label][/B]</label>
+                <posx>26</posx>
+                <posy>0</posy>
+                <width>698</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Label]</label>
                 <textcolor>eewhite</textcolor>
+                <shadowcolor>22000000</shadowcolor>
                 <font>Font-Condensed-S42</font>
                 <align>left</align>
                 <include>guidelistfocusanim</include>
             </control>
         </focusedlayout>
         <content>
-            <item id="0">
-                <label>$LOCALIZE[41706]</label>
+            <item id="1">
+                <label>$LOCALIZE[480]</label>
                 <icon>osd/media-guide/settings/appearance.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(appearancesettings)</onclick>
             </item>
-            <item id="1">
-                <label>$LOCALIZE[41700]</label>
+            <item id="2">
+                <label>$LOCALIZE[157]</label>
                 <icon>osd/media-guide/settings/video.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(videossettings)</onclick>
             </item>
-            <item id="2">
-                <label>$LOCALIZE[41701]</label>
+            <item id="3">
+                <label>$LOCALIZE[2]</label>
                 <icon>osd/media-guide/settings/music.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(musicsettings)</onclick>
             </item>
-            <item id="3">
-                <label>$LOCALIZE[41702]</label>
+            <item id="4">
+                <label>$LOCALIZE[1]</label>
                 <icon>osd/media-guide/settings/pictures.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(picturessettings)</onclick>
             </item>
-            <item id="4">
-                <label>$LOCALIZE[41704]</label>
+            <item id="5">
+                <label>$LOCALIZE[19020]</label>
+                <icon>osd/media-guide/settings/tvshows.png</icon>
+                <include>GuideDialogClose</include>
+                <onclick>ActivateWindow(pvrsettings)</onclick>
+            </item>
+            <item id="6">
+                <label>$LOCALIZE[8]</label>
                 <icon>osd/media-guide/settings/weather.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(weathersettings)</onclick>
             </item>
-            <item id="5">
-                <label>$LOCALIZE[41705]</label>
+            <item id="7">
+                <label>$LOCALIZE[14036]</label>
                 <icon>osd/media-guide/settings/network.png</icon>
                 <include>GuideDialogClose</include>
-                <onclick>ActivateWindow(networksettings)</onclick>
+                <onclick>ActivateWindow(servicesettings)</onclick>
             </item>
-            <item id="6">
-                <label>$LOCALIZE[41703]</label>
+            <item id="8">
+                <label>$LOCALIZE[13200]</label>
                 <icon>osd/media-guide/settings/profiles.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(profiles)</onclick>
             </item>
-            <item id="7">
-                <label>$LOCALIZE[41709]</label>
+            <item id="9">
+                <label>$LOCALIZE[24001]</label>
                 <icon>osd/media-guide/settings/addons.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(addonbrowser)</onclick>
             </item>
-            <item id="8">
+            <item id="10">
                 <label>$LOCALIZE[166]</label>
                 <icon>osd/media-guide/settings/skin.png</icon>
                 <include>GuideDialogClose</include>
-                <onclick>ActivateWindow(1111)</onclick>
+                <onclick>ActivateWindow(skinsettings)</onclick>
             </item>
-            <item id="9">
-                <label>$LOCALIZE[41708]</label>
+            <item id="11">
+                <label>$LOCALIZE[13000]</label>
                 <icon>osd/media-guide/settings/system.png</icon>
                 <include>GuideDialogClose</include>
                 <onclick>ActivateWindow(systemsettings)</onclick>
@@ -343,40 +344,40 @@
     </include>
     
     <include name="GuideRecentlyAdded">
-        <posx>637</posx>
-        <posy>325</posy>
-        <width>750</width>
-        <height>464</height>
+        <posx>643</posx>
+        <posy>333</posy>
+        <width>743</width>
+        <height>469</height>
         <orientation>vertical</orientation>
-        <scrolltime>250</scrolltime>
+        <scrolltime tween="cubic" easing="out">500</scrolltime>
         <onup>9108</onup>
         <ondown>9109</ondown>
         <onleft>9103</onleft>
         <onright>9100</onright>
-        <itemlayout height="64" width="750">
+        <itemlayout height="67" width="743">
             <control type="image">
                 <posx>0</posx>
-                <posy>80</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="label">
-                <posx>30</posx>
-                <posy>16</posy>
-                <width>600</width>
-                <height>60</height>
+                <posx>26</posx>
+                <posy>0</posy>
+                <width>698</width>
+                <height>66</height>
                 <label>$INFO[ListItem.Label]</label>
                 <textcolor>77white</textcolor>
+                <shadowcolor>22000000</shadowcolor>
                 <font>Font-Condensed-S38</font>
                 <align>left</align>
-                <scroll>false</scroll>
             </control>
             <control type="group">
                 <visible>!ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
                 <control type="image">
                     <posx>655</posx>
-                    <posy>-5</posy>
+                    <posy>-20</posy>
                     <width>105</width>
                     <height>105</height>
                     <aspect>keepaspect</aspect>
@@ -384,85 +385,87 @@
                 </control>
                 <control type="label">
                     <posx>680</posx>
-                    <posy>16</posy>
+                    <posy>1</posy>
                     <width>55</width>
-                    <height>60</height>
-                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <height>66</height>
+                    <label>$INFO[ListItem.property(rating)]</label>
                     <textcolor>77white</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <shadowcolor>22000000</shadowcolor>
+                    <font>Font-Condensed-S30-B</font>
                     <align>right</align>
                 </control>
             </control>
             <control type="label">
                 <posx>720</posx>
-                <posy>16</posy>
+                <posy>1</posy>
                 <width>75</width>
-                <height>60</height>
-                <label>[B]$INFO[ListItem.property(year)][/B]</label>
+                <height>66</height>
+                <label>$INFO[ListItem.property(year)]</label>
                 <textcolor>77white</textcolor>
-                <font>Font-Condensed-S34</font>
+                <shadowcolor>22000000</shadowcolor>
+                <font>Font-Condensed-S30-B</font>
                 <align>right</align>
                 <visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
             </control>
         </itemlayout>
-        <focusedlayout height="128" width="750">
+        <focusedlayout height="134" width="743">
             <control type="button">
                 <onfocus>ClearProperty(center)</onfocus>
             </control>
             <control type="image">
                 <posx>0</posx>
-                <posy>144</posy>
-                <width>750</width>
-                <height>2</height>
-                <texture>osd/media-guide/separator.png</texture>
+                <posy>0</posy>
+                <width>743</width>
+                <height>135</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
             </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>0</posy>
-                <width>750</width>
-                <height>162</height>
-                <aspectratio>stretch</aspectratio>
-                <texture>osd/media-guide/mediaguide-big-fo.png</texture>
+                <width>743</width>
+                <height>133</height>
+                <texture border="150,1,150,1">views/other/focus.png</texture>
                 <include>guidelistfocusanim2</include>
-                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <include>visiblehidefadeinfo</include>
+                <visible>!ControlGroup(9108).HasFocus() + !ControlGroup(9109).HasFocus()</visible>
             </control>
             <!-- Latest Movies -->
             <control type="group">
                 <visible>!ControlGroup(9120).HasFocus(91202) + !ControlGroup(9120).HasFocus(91203) + !ControlGroup(9120).HasFocus(91204)</visible>
                 <include>guidelistfocusanim2</include>
-                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
                 <control type="image">
-                    <posx>30</posx>
-                    <posy>27</posy>
+                    <posx>26</posx>
+                    <posy>13</posy>
                     <width>72</width>
                     <height>108</height>
-                    <aspectratio>stretch</aspectratio>
+                    <aspectratio>scale</aspectratio>
                     <texture background="true">$INFO[ListItem.Thumb]</texture>
                 </control>
                 <control type="label">
                     <posx>117</posx>
-                    <posy>19</posy>
+                    <posy>10</posy>
                     <width>605</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S38</font>
                     <align>left</align>
-                    <scroll>false</scroll>
                 </control>
                 <control type="label">
                     <posx>118</posx>
-                    <posy>76</posy>
+                    <posy>57</posy>
                     <width>460</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>$INFO[ListItem.Label2]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S34</font>
                     <align>left</align>
+                    <scroll>false</scroll>
                 </control>
                 <control type="image">
                     <posx>655</posx>
-                    <posy>55</posy>
+                    <posy>37</posy>
                     <width>105</width>
                     <height>105</height>
                     <aspect>keepaspect</aspect>
@@ -472,10 +475,10 @@
                     <posx>680</posx>
                     <posy>76</posy>
                     <width>55</width>
-                    <height>60</height>
-                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <height>30</height>
+                    <label>$INFO[ListItem.property(rating)]</label>
                     <textcolor>eewhite</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <font>Font-Condensed-S30-B</font>
                     <align>right</align>
                 </control>
             </control>
@@ -483,10 +486,10 @@
             <control type="group">
                 <visible>ControlGroup(9120).HasFocus(91202)</visible>
                 <include>guidelistfocusanim2</include>
-                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
                 <control type="image">
-                    <posx>30</posx>
-                    <posy>27</posy>
+                    <posx>26</posx>
+                    <posy>13</posy>
                     <width>192</width>
                     <height>108</height>
                     <aspectratio>stretch</aspectratio>
@@ -494,28 +497,28 @@
                 </control>
                 <control type="label">
                     <posx>237</posx>
-                    <posy>19</posy>
+                    <posy>10</posy>
                     <width>485</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S38</font>
                     <align>left</align>
-                    <scroll>false</scroll>
-                </control>
+                </control>                
                 <control type="label">
                     <posx>238</posx>
-                    <posy>76</posy>
+                    <posy>57</posy>
                     <width>340</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>$INFO[ListItem.Label2]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S34</font>
                     <align>left</align>
+                    <scroll>false</scroll>
                 </control>
                 <control type="image">
                     <posx>655</posx>
-                    <posy>55</posy>
+                    <posy>37</posy>
                     <width>105</width>
                     <height>105</height>
                     <aspect>keepaspect</aspect>
@@ -525,10 +528,10 @@
                     <posx>680</posx>
                     <posy>76</posy>
                     <width>55</width>
-                    <height>60</height>
-                    <label>[B]$INFO[ListItem.property(rating)][/B]</label>
+                    <height>30</height>
+                    <label>$INFO[ListItem.property(rating)]</label>
                     <textcolor>eewhite</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <font>Font-Condensed-S30-B</font>
                     <align>right</align>
                 </control>
             </control>
@@ -536,10 +539,10 @@
             <control type="group">
                 <visible>ControlGroup(9120).HasFocus(91203) | ControlGroup(9120).HasFocus(91204)</visible>
                 <include>guidelistfocusanim2</include>
-                <animation effect="fade" start="100" end="60" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
+                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()">Conditional</animation>
                 <control type="image">
-                    <posx>30</posx>
-                    <posy>27</posy>
+                    <posx>26</posx>
+                    <posy>13</posy>
                     <width>108</width>
                     <height>108</height>
                     <aspectratio>stretch</aspectratio>
@@ -547,33 +550,33 @@
                 </control>
                 <control type="label">
                     <posx>153</posx>
-                    <posy>19</posy>
+                    <posy>10</posy>
                     <width>569</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S38</font>
                     <align>left</align>
-                    <scroll>false</scroll>
                 </control>
                 <control type="label">
                     <posx>154</posx>
-                    <posy>76</posy>
+                    <posy>57</posy>
                     <width>484</width>
-                    <height>60</height>
+                    <height>66</height>
                     <label>$INFO[ListItem.Label2]</label>
                     <textcolor>eewhite</textcolor>
                     <font>Font-Condensed-S34</font>
                     <align>left</align>
+                    <scroll>false</scroll>
                 </control>
                 <control type="label">
-                    <posx>720</posx>
+                    <posx>717</posx>
                     <posy>76</posy>
-                    <width>75</width>
-                    <height>60</height>
+                    <width>100</width>
+                    <height>30</height>
                     <label>[B]$INFO[ListItem.property(year)][/B]</label>
                     <textcolor>eewhite</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <font>Font-Condensed-S30-B</font>
                     <align>right</align>
                 </control>
             </control>
@@ -794,68 +797,76 @@
     
     <include name="GuideSystemInfo">
         <control type="list">
-            <posx>637</posx>
-            <posy>325</posy>
-            <width>750</width>
-            <height>464</height>
+            <posx>643</posx>
+            <posy>333</posy>
+            <width>743</width>
+            <height>469</height>
             <orientation>vertical</orientation>
             <scrolltime>0</scrolltime>
-            <itemlayout height="64" width="750">
+            <itemlayout height="67" width="750">
                 <control type="image">
                     <posx>0</posx>
-                    <posy>80</posy>
-                    <width>750</width>
-                    <height>2</height>
-                    <texture>osd/media-guide/separator.png</texture>
+                    <posy>0</posy>
+                    <width>743</width>
+                    <height>68</height>
+                    <texture border="90,3,90,3">views/list/other/separator.png</texture>
                 </control>
                 <control type="label">
-                    <posx>30</posx>
-                    <posy>17</posy>
-                    <width>690</width>
-                    <height>60</height>
+                    <posx>26</posx>
+                    <posy>0</posy>
+                    <width>691</width>
+                    <height>66</height>
                     <label>$INFO[ListItem.Label]</label>
                     <textcolor>77white</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                     <font>Font-Condensed-S38</font>
                     <align>left</align>
+                    <scroll>false</scroll>
                 </control>
                 <control type="label">
-                    <posx>720</posx>
-                    <posy>17</posy>
-                    <width>690</width>
-                    <height>60</height>
-                    <label>[B]$INFO[ListItem.Label2][/B]</label>
+                    <posx>717</posx>
+                    <posy>0</posy>
+                    <width>691</width>
+                    <height>66</height>
+                    <label>$INFO[ListItem.Label2]</label>
                     <textcolor>77white</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <shadowcolor>22000000</shadowcolor>
+                    <font>Font-Condensed-S34-B</font>
                     <align>right</align>
+                    <scroll>false</scroll>
                 </control>
             </itemlayout>
-            <focusedlayout height="64" width="750">
+            <focusedlayout height="67" width="750">
                 <control type="image">
                     <posx>0</posx>
-                    <posy>80</posy>
-                    <width>750</width>
-                    <height>2</height>
-                    <texture>osd/media-guide/separator.png</texture>
+                    <posy>0</posy>
+                    <width>743</width>
+                    <height>68</height>
+                    <texture border="90,3,90,3">views/list/other/separator.png</texture>
                 </control>
                 <control type="label">
-                    <posx>30</posx>
-                    <posy>17</posy>
-                    <width>690</width>
-                    <height>60</height>
+                    <posx>26</posx>
+                    <posy>0</posy>
+                    <width>691</width>
+                    <height>66</height>
                     <label>$INFO[ListItem.Label]</label>
                     <textcolor>77white</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                     <font>Font-Condensed-S38</font>
                     <align>left</align>
+                    <scroll>false</scroll>
                 </control>
                 <control type="label">
-                    <posx>720</posx>
-                    <posy>17</posy>
-                    <width>690</width>
-                    <height>60</height>
-                    <label>[B]$INFO[ListItem.Label2][/B]</label>
+                    <posx>717</posx>
+                    <posy>0</posy>
+                    <width>691</width>
+                    <height>66</height>
+                    <label>$INFO[ListItem.Label2]</label>
                     <textcolor>77white</textcolor>
-                    <font>Font-Condensed-S34</font>
+                    <shadowcolor>22000000</shadowcolor>
+                    <font>Font-Condensed-S34-B</font>
                     <align>right</align>
+                    <scroll>false</scroll>
                 </control>
             </focusedlayout>
             <content>
@@ -886,7 +897,7 @@
                 </item>
                 <item id="5">
                     <label>$LOCALIZE[41458]</label>
-                    <label2>0.9.7</label2>
+                    <label2>2.0 Beta 1.1</label2>
                     <onclick>-</onclick>
                 </item>
                 <item id="6">
@@ -896,6 +907,225 @@
                 </item>
             </content>
         </control>
+    </include>
+    
+    <include name="GuideUpNext">
+        <posx>643</posx>
+        <posy>333</posy>
+        <width>743</width>
+        <height>469</height>
+        <orientation>vertical</orientation>
+        <scrolltime tween="cubic" easing="out">500</scrolltime>
+        <onup>9105</onup>
+        <ondown>9110</ondown>
+        <onleft>9100</onleft>
+        <onright>9106</onright>
+        <itemlayout height="67" width="743">
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>743</width>
+                <height>68</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>15</posx>
+                <posy>8</posy>
+                <width>50</width>
+                <height>50</height>
+                <texture>$INFO[ListItem.ActualIcon]</texture>
+                <colordiffuse>77FFFFFF</colordiffuse>
+            </control>
+            <control type="label">
+                <posx>70</posx>
+                <posy>0</posy>
+                <width>654</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Label]</label>
+                <textcolor>77white</textcolor>
+                <shadowcolor>22000000</shadowcolor>
+                <font>Font-Condensed-S34</font>
+                <align>left</align>
+                <scroll>false</scroll>
+            </control>
+            <control type="label">
+                <posx>717</posx>
+                <posy>0</posy>
+                <width>654</width>
+                <height>66</height>
+                <label>$INFO[ListItem.Property(Duration)]</label>
+                <textcolor>77white</textcolor>
+                <shadowcolor>22000000</shadowcolor>
+                <font>Font-Condensed-S30-B</font>
+                <align>right</align>
+                <scroll>false</scroll>
+            </control>
+        </itemlayout>
+        <focusedlayout height="134" width="743">
+            <control type="button">
+                <onfocus>SetProperty(center,1)</onfocus>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>743</width>
+                <height>135</height>
+                <texture border="90,3,90,3">views/list/other/separator.png</texture>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>743</width>
+                <height>133</height>
+                <texture border="150,1,150,1">views/other/focus.png</texture>
+                <include>guidelistfocusanim2</include>
+                <include>visiblehidefadeinfo</include>
+                <visible>!Control.HasFocus(9110)</visible>
+            </control>
+            <control type="group">
+                <include>guidelistfocusanim2</include>
+                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="Control.HasFocus(9110)">Conditional</animation>
+                <control type="image">
+                    <posx>26</posx>
+                    <posy>13</posy>
+                    <width>108</width>
+                    <height>108</height>
+                    <aspectratio>stretch</aspectratio>
+                    <texture background="true">$INFO[ListItem.Thumb]</texture>
+                </control>
+                <control type="label">
+                    <posx>153</posx>
+                    <posy>10</posy>
+                    <width>569</width>
+                    <height>66</height>
+                    <label>[B]$INFO[ListItem.Label][/B]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S38</font>
+                    <align>left</align>
+                </control>
+                <control type="label">
+                    <posx>154</posx>
+                    <posy>57</posy>
+                    <width>484</width>
+                    <height>66</height>
+                    <label>$INFO[ListItem.Label2]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S34</font>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                </control>
+                <control type="label">
+                    <posx>717</posx>
+                    <posy>76</posy>
+                    <width>100</width>
+                    <height>30</height>
+                    <label>$INFO[ListItem.Property(Duration)]</label>
+                    <textcolor>eewhite</textcolor>
+                    <font>Font-Condensed-S30-B</font>
+                    <align>right</align>
+                </control>
+            </control>
+        </focusedlayout>
+        <content>
+            <item id="1">
+                <onclick>Playlist.PlayOffset(-5)</onclick>
+                <label>$INFO[MusicPlayer.Offset(-5).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(-5).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(-5).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(-5).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(-5).Cover]</thumb>
+                <icon>osd/media-guide/upnext/prev.png</icon>
+                <visible>MusicPlayer.Offset(-5).Exists</visible>
+            </item>
+            <item id="2">
+                <onclick>Playlist.PlayOffset(-4)</onclick>
+                <label>$INFO[MusicPlayer.Offset(-4).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(-4).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(-4).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(-4).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(-4).Cover]</thumb>
+                <icon>osd/media-guide/upnext/prev.png</icon>
+                <visible>MusicPlayer.Offset(-4).Exists</visible>
+            </item>
+            <item id="3">
+                <onclick>Playlist.PlayOffset(-3)</onclick>
+                <label>$INFO[MusicPlayer.Offset(-3).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(-3).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(-3).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(-3).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(-3).Cover]</thumb>
+                <icon>osd/media-guide/upnext/prev.png</icon>
+                <visible>MusicPlayer.Offset(-3).Exists</visible>
+            </item>
+            <item id="4">
+                <onclick>Playlist.PlayOffset(-2)</onclick>
+                <label>$INFO[MusicPlayer.Offset(-2).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(-2).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(-2).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(-2).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(-2).Cover]</thumb>
+                <icon>osd/media-guide/upnext/prev.png</icon>
+                <visible>MusicPlayer.Offset(-2).Exists</visible>
+            </item>
+            <item id="5">
+                <onclick>Playlist.PlayOffset(-1)</onclick>
+                <label>$INFO[MusicPlayer.Offset(-1).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(-1).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(-1).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(-1).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(-1).Cover]</thumb>
+                <icon>osd/media-guide/upnext/prev.png</icon>
+                <visible>MusicPlayer.Offset(-1).Exists</visible>
+            </item>
+            <item id="6">
+                <onclick>Playlist.PlayOffset(0)</onclick>
+                <label>$INFO[MusicPlayer.PlaylistPosition,, ]$INFO[MusicPlayer.Title]</label>
+                <label2>$INFO[MusicPlayer.Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Duration]</property>
+                <thumb>$INFO[MusicPlayer.Cover]</thumb>
+                <icon>osd/media-guide/upnext/now.png</icon>
+            </item>
+            <item id="7">
+                <onclick>Playlist.PlayOffset(1)</onclick>
+                <label>$INFO[MusicPlayer.Offset(1).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(1).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(1).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(1).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(1).Cover]</thumb>
+                <icon>osd/media-guide/upnext/next.png</icon>
+                <visible>MusicPlayer.Offset(1).Exists</visible>
+            </item>
+            <item id="8">
+                <onclick>Playlist.PlayOffset(2)</onclick>
+                <label>$INFO[MusicPlayer.Offset(2).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(2).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(2).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(2).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(2).Cover]</thumb>
+                <icon>osd/media-guide/upnext/next.png</icon>
+                <visible>MusicPlayer.Offset(2).Exists</visible>
+            </item>
+            <item id="9">
+                <onclick>Playlist.PlayOffset(3)</onclick>
+                <label>$INFO[MusicPlayer.Offset(3).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(3).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(3).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(3).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(3).Cover]</thumb>
+                <icon>osd/media-guide/upnext/next.png</icon>
+                <visible>MusicPlayer.Offset(3).Exists</visible>
+            </item>
+            <item id="10">
+                <onclick>Playlist.PlayOffset(4)</onclick>
+                <label>$INFO[MusicPlayer.Offset(4).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(4).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(4).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(4).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(4).Cover]</thumb>
+                <icon>osd/media-guide/upnext/next.png</icon>
+                <visible>MusicPlayer.Offset(4).Exists</visible>
+            </item>
+            <item id="11">
+                <onclick>Playlist.PlayOffset(5)</onclick>
+                <label>$INFO[MusicPlayer.Offset(5).PlaylistPosition,, ]$INFO[MusicPlayer.Offset(5).Title]</label>
+                <label2>$INFO[MusicPlayer.Offset(5).Artist]</label2>
+                <property name="Duration">$INFO[MusicPlayer.Offset(5).Duration]</property>
+                <thumb>$INFO[MusicPlayer.Offset(5).Cover]</thumb>
+                <icon>osd/media-guide/upnext/next.png</icon>
+                <visible>MusicPlayer.Offset(5).Exists</visible>
+            </item>
+        </content>
     </include>
     
     <include name="GuideNowPlaying">
@@ -927,308 +1157,99 @@
             <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
             <visible>Player.HasVideo</visible>
             <control type="image">
-                <posx>13</posx>
-                <posy>-4</posy>
-                <width>725</width>
-                <height>391</height>
+                <posx>6</posx>
+                <posy>9</posy>
+                <width>743</width>
+                <height>468</height>
                 <aspectratio>stretch</aspectratio>
                 <texture border="1">windows/common/black.png</texture>
                 <colordiffuse>BCFFFFFF</colordiffuse>
             </control>
             <control type="videowindow">
                 <description>video</description>
-                <posx>13</posx>
-                <posy>-4</posy>
-                <width>725</width>
-                <height>391</height>
+                <posx>6</posx>
+                <posy>9</posy>
+                <width>743</width>
+                <height>468</height>
                 <aspectratio>scale</aspectratio>
             </control>
-            <control type="group">
-                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-                <visible>Control.HasFocus(9110)</visible>
-                <control type="image">
-                    <posx>0</posx>
-                    <posy>-4</posy>
-                    <width>750</width>
-                    <height>100</height>
-                    <texture>osd/media-guide/video-overlay.png</texture>
-                </control>
-                <control type="label">
-                    <posx>25</posx>
-                    <posy>9</posy>
-                    <width>700</width>
-                    <label>[B]$INFO[VideoPlayer.Title][/B]</label>
-                    <textcolor>DDFFFFFF</textcolor>
-                    <shadowcolor>88000000</shadowcolor>
-                    <font>Font-Condensed-S34</font>
-                    <align>center</align>
-                    <scroll>false</scroll>
-                </control>
-                <control type="progress" id="1">
-                    <description>Progressbar</description>
-                    <posx>125</posx>
-                    <posy>55</posy>
-                    <width>500</width>
-                    <height>22</height>
-                    <info>Player.Progress</info>
-                    <lefttexture border="10,0,0,0">overlays/volume/volume-bar-left.png</lefttexture>
-                    <midtexture border="1">overlays/volume/volume-bar-mid.png</midtexture>
-                    <righttexture border="0,0,10,0">overlays/volume/volume-bar-right.png</righttexture>
-                    <texturebg border="20,0,20,0">overlays/volume/volume-bar-back.png</texturebg>
-                </control>
-            </control>
-            <control type="image">
-                <posx>0</posx>
-                <posy>387</posy>
-                <width>750</width>
-                <height>100</height>
-                <texture>osd/media-guide/buttons-underlay.png</texture>
-            </control>
-        </control>
-        <control type="group">
-            <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-            <visible>Player.HasAudio</visible>
-            <control type="group">
-                <control type="image">
-                    <posx>0</posx>
-                    <posy>-4</posy>
-                    <width>750</width>
-                    <height>100</height>
-                    <texture>osd/media-guide/title-underlay.png</texture>
-                </control>
-                <control type="label">
-                    <posx>25</posx>
-                    <posy>9</posy>
-                    <width>700</width>
-                    <label>[B]$INFO[MusicPlayer.Title][/B]</label>
-                    <textcolor>99FFFFFF</textcolor>
-                    <font>Font-Condensed-S34</font>
-                    <align>center</align>
-                    <scroll>false</scroll>
-                </control>
-                <control type="label">
-                    <posx>25</posx>
-                    <posy>49</posy>
-                    <width>700</width>
-                    <label>$INFO[MusicPlayer.Artist]</label>
-                    <textcolor>77white</textcolor>
-                    <font>Font-Condensed-S30</font>
-                    <align>center</align>
-                    <scroll>false</scroll>
-                </control>
-                <control type="image">
-                    <posx>0</posx>
-                    <posy>387</posy>
-                    <width>750</width>
-                    <height>100</height>
-                    <texture>osd/media-guide/buttons-underlay.png</texture>
-                    <colordiffuse>BCFFFFFF</colordiffuse>
-                </control>
-            </control>
-            <control type="group">
-                <posx>87</posx>
-                <posy>90</posy>
-                <control type="image">
-                    <posx>-167</posx>
-                    <posy>-68</posy>
-                    <width>633</width>
-                    <height>437</height>
-                    <texture>panel_menu_dvd.png</texture>
-                    <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
-                        <effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
-                    </animation>
-                    <animation effect="fade" start="0" end="100" time="0" delay="500">Visible</animation>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
-                    <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
-                </control>
-                <control type="image">
-                    <posx>35</posx>
-                    <posy>36</posy>
-                    <width>229</width>
-                    <height>229</height>
-                    <texture diffuse="osd/media-guide/cdart-diffuse.png" background="true">$INFO[Player.FolderPath,,cdart.png]</texture>
-                    <animation type="Conditional" condition="[Control.HasFocus(9105) | Control.HasFocus(9110)] + !Player.Paused">
-                        <effect type="slide" start="0" end="-100" tween="sine" easing="inout" time="500" delay="500" />
-                    </animation>
-                    <animation effect="fade" start="0" end="95" time="0" delay="500">Visible</animation>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" reversible="false" condition="Control.HasFocus(9105) | Control.HasFocus(9110)">Conditional</animation>
-                    <visible>Control.HasFocus(9105) | Control.HasFocus(9110)</visible>
-                </control>
-                <control type="image">
-                    <posx>25</posx>
-                    <posy>25</posy>
-                    <width>250</width>
-                    <height>250</height>
-                    <fadetime>300</fadetime>
-                    <texture background="true">$INFO[MusicPlayer.Cover]</texture>
-                </control>
-                <control type="image">
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>300</width>
-                    <height>300</height>
-                    <texture>osd/media-guide/cover-overlay.png</texture>
-                </control>
-                <control type="group">
-                    <posx>300</posx>
-                    <posy>55</posy>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>325</width>
-                        <label>$LOCALIZE[42100][B]$INFO[MusicPlayer.PlaylistPosition] / $INFO[MusicPlayer.PlaylistLength][/B]</label>
-                        <textcolor>77white</textcolor>
-                        <font>Font-Condensed-S30</font>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>50</posy>
-                        <width>325</width>
-                        <label>$LOCALIZE[42103][B]$INFO[MusicPlayer.Time] / $INFO[MusicPlayer.Duration][/B]</label>
-                        <textcolor>77white</textcolor>
-                        <font>Font-Condensed-S30</font>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>100</posy>
-                        <width>325</width>
-                        <label>$LOCALIZE[42104][B]$INFO[MusicPlayer.Year][/B]</label>
-                        <textcolor>77white</textcolor>
-                        <font>Font-Condensed-S30</font>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>150</posy>
-                        <width>325</width>
-                        <label>$LOCALIZE[42101][B]$INFO[MusicPlayer.Genre][/B]</label>
-                        <textcolor>77white</textcolor>
-                        <font>Font-Condensed-S30</font>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                </control>
-            </control>
-        </control>
-        <control type="list" id="9110">
-            <onup>9105</onup>
-            <ondown>9105</ondown>
-            <onleft>9110</onleft>
-            <onright>9110</onright>
-            <visible>Player.HasMedia + [Control.HasFocus(9105) | Control.HasFocus(9110)]</visible>
-            <animation effect="rotate" end="0" time="175">Hidden</animation>
-            <include>NowPlayingControls</include>
         </control>
     </include>
     
+    <variable name="NowPlayingControlsButton">
+        <value condition="!Control.HasFocus(9110)">$INFO[ListItem.Label,osd/media-guide/buttons/,-nf.png]</value>
+        <value>$INFO[ListItem.Label,osd/media-guide/buttons/,-fo.png]</value>
+    </variable>
+    
     <include name="NowPlayingControls">
-        <posx>25</posx>
-        <posy>393</posy>
-        <width>720</width>
-        <height>120</height>
+        <posx>1024</posx>        
+        <posy>726</posy>
+        <width>400</width>
+        <height>100</height>
         <orientation>horizontal</orientation>
-        <itemgap>-25</itemgap>
         <focusposition>3</focusposition>
-        <itemlayout height="100" width="100">
+        <itemlayout height="100" width="50">
             <control type="image">
-                <posx>-10</posx>
-                <posy>-10</posy>
-                <width>120</width>
-                <height>120</height>
-                <texture>$INFO[ListItem.ActualIcon]</texture>
-                <animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
+                <posx>-25</posx>
+                <posy>0</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>$INFO[ListItem.Label,osd/media-guide/buttons/,-nf.png]</texture>
             </control>
         </itemlayout>
-        <focusedlayout height="100" width="100">
+        <focusedlayout height="100" width="50">
             <control type="image">
-                <posx>-10</posx>
-                <posy>-10</posy>
-                <width>120</width>
-                <height>120</height>
-                <texture>$INFO[ListItem.ActualIcon]</texture>
-                <animation effect="fade" start="100" end="35" time="0" condition="true">Conditional</animation>
-                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-                <visible>!Control.HasFocus(9110)</visible>
-            </control>
-            <control type="image">
-                <posx>-10</posx>
-                <posy>-10</posy>
-                <width>120</width>
-                <height>120</height>
-                <texture>$INFO[ListItem.ActualIcon]</texture>
-                <animation type="Focus" reversible="false">
-                    <effect type="fade" start="35" end="100" time="250" tween="sine" easing="inout" />
-                </animation>
-                <animation type="UnFocus" reversible="false">
-                    <effect type="fade" start="100" end="35" time="250" tween="sine" easing="inout" />
-                </animation>
-                <animation effect="fade" start="0" end="100" time="250" tween="sine" easing="inout">Visible</animation>
-                <animation effect="fade" start="100" end="0" time="250" tween="sine" easing="inout">Hidden</animation>
-                <visible>Control.HasFocus(9110)</visible>
+                <posx>-25</posx>
+                <posy>0</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>$VAR[NowPlayingControlsButton]</texture>
             </control>
         </focusedlayout>
         <content>
-            <item id="0">
-                <icon>osd/media-guide/buttons/previous.png</icon>
+            <item id="1">
+                <label>previous</label>
                 <onclick>PlayerControl(Previous)</onclick>
             </item>
-            <item id="1">
-                <icon>osd/media-guide/buttons/rewind.png</icon>
+            <item id="2">
+                <label>rewind</label>
                 <onclick>PlayerControl(Rewind)</onclick>
             </item>
-            <item id="2">
-                <icon>osd/media-guide/buttons/stop.png</icon>
+            <item id="3">
+                <label>stop</label>
                 <onclick>PlayerControl(Stop)</onclick>
                 <onclick>SetFocus(9105)</onclick>
             </item>
-            <item id="3">
-                <icon>osd/media-guide/buttons/play.png</icon>
+            <item id="4">
+                <label>play</label>
                 <onclick>PlayerControl(Play)</onclick>
                 <visible>Player.Paused</visible>
             </item>
-            <item id="4">
-                <icon>osd/media-guide/buttons/pause.png</icon>
+            <item id="5">
+                <label>pause</label>
                 <onclick>PlayerControl(Play)</onclick>
                 <visible>!Player.Paused</visible>
             </item>
-            <item id="5">
-                <icon>osd/media-guide/buttons/forward.png</icon>
+            <item id="6">
+                <label>forward</label>
                 <onclick>PlayerControl(Forward)</onclick>
             </item>
-            <item id="6">
-                <icon>osd/media-guide/buttons/next.png</icon>
+            <item id="7">
+                <label>next</label>
                 <onclick>PlayerControl(Next)</onclick>
             </item>
-            <item id="7">
-                <icon>osd/media-guide/buttons/playlist.png</icon>
-                <onclick>Dialog.Close(musicinformation)</onclick>
-                <onclick>Dialog.Close(movieinformation)</onclick>
-                <onclick>Dialog.Close(playercontrols)</onclick>
-                <onclick>ActivateWindow(videoplaylist)</onclick>
-                <visible>Player.HasVideo</visible>
-            </item>
             <item id="8">
-                <icon>osd/media-guide/buttons/playlist.png</icon>
-                <onclick>Dialog.Close(musicinformation)</onclick>
-                <onclick>Dialog.Close(movieinformation)</onclick>
-                <onclick>Dialog.Close(playercontrols)</onclick>
-                <onclick>ActivateWindow(musicplaylist)</onclick>
-                <visible>Player.HasAudio</visible>
+                <label>playlist</label>
+                <include>GuideDialogClose</include>
+                <onclick condition="Player.HasVideo">ActivateWindow(videoplaylist)</onclick>
+                <onclick condition="Player.HasAudio">ActivateWindow(musicplaylist)</onclick>
             </item>
         </content>
     </include>
     
     <include name="GuideBladeLeft">
         <control type="image">
-            <posx>524</posx>
+            <posx>439</posx>
             <posy>253</posy>
             <width>120</width>
             <height>574</height>
@@ -1239,7 +1260,7 @@
     
     <include name="GuideBladeRight">
         <control type="image">
-            <posx>1276</posx>
+            <posx>1361</posx>
             <posy>253</posy>
             <width>120</width>
             <height>574</height>
@@ -1258,7 +1279,7 @@
             <include>LeftBlade</include>
             <include>GuideBladeLeft</include>
             <control type="label">
-                <posx>428</posx>
+                <posx>343</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1277,7 +1298,7 @@
             <include>LeftBlade2</include>
             <include>GuideBladeLeft</include>
             <control type="label">
-                <posx>428</posx>
+                <posx>343</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1296,7 +1317,7 @@
             <include>LeftBlade3</include>
             <include>GuideBladeLeft</include>
             <control type="label">
-                <posx>428</posx>
+                <posx>343</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1315,7 +1336,7 @@
             <include>LeftBlade4</include>
             <include>GuideBladeLeft</include>
             <control type="label">
-                <posx>428</posx>
+                <posx>343</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1335,7 +1356,7 @@
             <include>RightBlade</include>
             <include>GuideBladeRight</include>
             <control type="label">
-                <posx>1173</posx>
+                <posx>1257</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1354,7 +1375,7 @@
             <include>RightBlade2</include>
             <include>GuideBladeRight</include>
             <control type="label">
-                <posx>1173</posx>
+                <posx>1257</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1373,7 +1394,7 @@
             <include>RightBlade3</include>
             <include>GuideBladeRight</include>
             <control type="label">
-                <posx>1173</posx>
+                <posx>1257</posx>
                 <posy>513</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1392,7 +1413,7 @@
             <include>RightBlade4</include>
             <include>GuideBladeRight</include>
             <control type="label">
-                <posx>1172</posx>
+                <posx>1257</posx>
                 <posy>514</posy>
                 <width>325</width>
                 <height>50</height>
@@ -1404,12 +1425,15 @@
                 <animation effect="rotate" start="0" end="-90" center="auto" time="0">WindowClose</animation>
             </control>
         </control>
-
-        <control type="image"> 
-            <description>Center Panel</description>
-            <include>FullscreenDimensions</include>
-            <texture>osd/media-guide/center.png</texture>
-        </control>      
+        
+        <control type="image">
+            <posx>512</posx>
+            <posy>255</posy>
+            <width>896</width>
+            <height>568</height>
+            <texture border="132,25,25,25">osd/media-guide/center.png</texture>
+        </control>
+         
         <control type="image">
             <posx>539</posx>
             <posy>265</posy>
@@ -1440,7 +1464,7 @@
             <animation type="Hidden" reversible="false">
                 <effect type="fade" end="100" time="0" delay="175" />
             </animation>
-            <animation type="Conditional" condition="Control.HasFocus(9102)" reversible="false">
+            <animation type="Conditional" condition="ControlGroup(9102).HasFocus" reversible="false">
                 <effect type="fade" start="100" end="0" time="175" tween="sine" easing="in" />
                 <effect type="zoom" start="100" end="95" center="590,540" time="175" tween="sine" easing="in" />
                 <effect type="slide" start="0" end="30" time="175" tween="sine" easing="in" />
@@ -1506,13 +1530,13 @@
         <control type="group">
             <width>120</width>
             <height>574</height>
-            <visible>Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
-            <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
+            <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
                 <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
                 <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
                 <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
             </animation>
-            <animation type="Conditional" condition="[Control.HasFocus(9102) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
+            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
                 <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
                 <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
                 <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
@@ -1601,8 +1625,8 @@
         <control type="label">
             <description>Clock</description>
             <posx>560r</posx>
-            <posy>215</posy>
-            <width>170</width>
+            <posy>241</posy>
+            <width>1700</width>
             <label>[B]$INFO[System.Time][/B]</label>
             <font>Font-Condensed-S34</font>
             <textcolor>bbwhite</textcolor>
@@ -1611,38 +1635,39 @@
             <visible>!Skin.HasSetting(Guide.HideClock)</visible>
         </control>
         <control type="rss">
-            <posx>690</posx>
-            <posy>270</posy>
+            <posx>714</posx>
+            <posy>284</posy>
             <height>30</height>
-            <width>685</width>
-            <font>Font-Condensed-S30</font>
+            <width>640</width>
+            <font>Font-Condensed-S31</font>
             <urlset>1</urlset>
             <textcolor>rsstext</textcolor>
             <titlecolor>rsstitle</titlecolor>
-            <shadowcolor>ff0d0d0d</shadowcolor>
+            <shadowcolor>22000000</shadowcolor>
             <headlinecolor>ddwhite</headlinecolor>
         </control>
         <control type="image">
-            <posx>640</posx>
-            <posy>265</posy>
+            <posx>662</posx>
+            <posy>281</posy>
             <width>50</width>
             <height>50</height>
             <texture>osd/media-guide/rssicon.png</texture>
             <aspectratio>stretch</aspectratio>
         </control>
         <control type="image">
-            <posx>650</posx>
-            <posy>320</posy>
-            <width>725</width>
+            <posx>643</posx>
+            <posy>333</posy>
+            <width>742</width>
             <height>1</height>
             <texture>osd/media-guide/line.png</texture>
+            <colordiffuse>aawhite</colordiffuse>
             <aspectratio>stretch</aspectratio>
         </control>
 
         <!-- current user logo -->
         <control type="image">
             <posx>920</posx>
-            <posy>165</posy>
+            <posy>188</posy>
             <width>80</width>
             <height>80</height>
             <info>System.ProfileThumb</info>

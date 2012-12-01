@@ -1,25 +1,36 @@
-<window id="120">
+<window>
     <defaultcontrol>3</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
         <control type="group">
-            <include>NowPlayingFullscreen</include>
-            <animation type="Conditional" condition="Window.Next(musicplaylist)">
-                <effect type="zoom" start="100" end="90" time="300" center="960,540" tween="back" easing="inout" />
-                <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+            <animation type="WindowOpen" condition="Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" delay="100" />
+                <effect type="slide" start="0,70" end="0,0" time="275" tween="cubic" easing="inout" />
             </animation>
-            <include condition="Skin.HasSetting(OSDMusicAlt.Enabled)">OSDWeatherClock</include>
-            <control type="image">
-                <posx>0</posx>
-                <posy>918</posy>
-                <width>1920</width>
-                <height>162</height>
-                <texture>osd/music/osdback.png</texture>
-                <aspectratio>stretch</aspectratio>
-            </control>
+            <animation type="WindowOpen" condition="![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]">
+                <effect type="fade" start="0" end="100" time="200" tween="sine" easing="inout" />
+                <effect type="slide" start="0,85" end="0,0" time="275" tween="cubic" easing="out" />
+            </animation>
+            <animation type="WindowClose" condition="Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding">
+                <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,70" time="300" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="WindowClose" condition="![Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]">
+                <effect type="fade" start="100" end="0" time="200" tween="sine" easing="in" />
+                <effect type="slide" start="0,0" end="0,85" time="300" tween="sine" easing="in" />
+            </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" delay="100" />
+                <effect type="slide" start="0,70" end="0,0" time="275" tween="cubic" easing="inout" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                <effect type="slide" start="0,0" end="0,70" time="300" tween="cubic" easing="inout" />
+            </animation>
+            <animation effect="slide" start="0,0" end="0,-62" time="300" tween="cubic" easing="inout" condition="Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding">Conditional</animation>
             <control type="group">
                 <posx>-90</posx>
-                <posy>950</posy>
+                <posy>989</posy>
                 <control type="button" id="7">
                     <description>Playlist</description>
                     <posx>460</posx>
@@ -27,6 +38,7 @@
                     <width>100</width>
                     <texturefocus>osd/fullscreen/buttons/playlists-fo.png</texturefocus>
                     <texturenofocus>osd/fullscreen/buttons/playlists-nofo.png</texturenofocus>
+                    <onclick>Close</onclick>
                     <onclick>ActivateWindow(musicplaylist)</onclick>
                     <onleft>14</onleft>
                     <onright>12</onright>
@@ -218,7 +230,7 @@
             </control>
             <control type="group">
                 <posx>550</posx>
-                <posy>950</posy>
+                <posy>989</posy>
                 <control type="image">
                     <width>100</width>
                     <height>100</height>

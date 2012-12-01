@@ -1,4 +1,4 @@
-<window id="122">
+<window>
     <defaultcontrol always="true">6</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
@@ -24,10 +24,15 @@
                 <texture>osd/fullscreen/osdsettings.png</texture>
                 <aspectratio>stretch</aspectratio>
             </control>
+            <control type="image">
+                <include>FullscreenDimensions</include>
+                <texture>osd/fullscreen/osdsettings-separators.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
             <control type="label" id="3">
                 <description>Heading</description>
                 <posx>510</posx>
-                <posy>242</posy>
+                <posy>245</posy>
                 <width>900</width>
                 <height>34</height>
                 <align>center</align>
@@ -39,7 +44,7 @@
             <control type="label" id="4">
                 <description>No presets label</description>
                 <posx>455</posx>
-                <posy>480</posy>
+                <posy>482</posy>
                 <width>1010</width>
                 <height>76</height>
                 <align>center</align>

@@ -1,12 +1,12 @@
-<window id="126">
+<window>
     <defaultcontrol always="true">450</defaultcontrol>
     <zorder>3</zorder>
-    <onload condition="Window.IsActive(networksetup)">SetProperty(ShowDialog,1,home)</onload>
+    <onload condition="Window.IsActive(networksetup)">SetProperty(ShowDialog,1,Home)</onload>
     <onload condition="Window.IsActive(networksetup)">SetProperty(ShowDialog,1)</onload>
     <onunload>ClearProperty(ShowDialog,home)</onunload>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(networksetup)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(MediaSource) | Window.IsVisible(3002) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(DialogPeripheralSettings.xml) | Window.IsVisible(networksetup) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(DialogPVRChannelManager.xml)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
             <animation type="WindowOpen" condition="Window.IsVisible(addonsettings)" reversible="false">
@@ -28,7 +28,7 @@
                 <visible>!Window.IsVisible(virtualkeyboard) + ![Window.IsVisible(networksetup) + IsEmpty(Window.Property(ShowDialog))]</visible>
                 <control type="image">
                     <include>FullscreenDimensions</include>
-                    <texture>dialogs/content/filebrowserbg.png</texture>
+                    <texture>dialogs/filebrowser/bg.png</texture>
                 </control>
                             
                 <control type="label" id="411">
@@ -86,11 +86,11 @@
                         </control>
                         <control type="label">
                             <posx>70</posx>
-                            <posy>-4</posy>
+                            <posy>0</posy>
                             <width>574</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
-                            <font>Font-Condensed-S34</font>
+                            <font>Font-Condensed-S32</font>
                             <align>left</align>
                             <aligny>center</aligny>
                             <textcolor>FF585858</textcolor>
@@ -113,11 +113,11 @@
                             </control>
                             <control type="label">
                                 <posx>70</posx>
-                                <posy>-4</posy>
+                                <posy>0</posy>
                                 <width>574</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>FF585858</textcolor>
@@ -132,7 +132,7 @@
                             <control type="image">
                                 <width>644</width>
                                 <height>60</height>
-                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                                <texture border="2">dialogs/default/highlight.png</texture>
                             </control>
                             <control type="image">
                                 <posx>5</posx>
@@ -144,12 +144,12 @@
                             </control>
                             <control type="label">
                                 <posx>70</posx>
-                                <posy>-4</posy>
+                                <posy>0</posy>
                                 <width>574</width>
                                 <height>60</height>
                                 <textcolor>eewhite</textcolor>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
@@ -179,11 +179,11 @@
                         </control>
                         <control type="label">
                             <posx>70</posx>
-                            <posy>-4</posy>
+                            <posy>0</posy>
                             <width>574</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
-                            <font>Font-Condensed-S34</font>
+                            <font>Font-Condensed-S32</font>
                             <align>left</align>
                             <aligny>center</aligny>
                             <textcolor>FF585858</textcolor>
@@ -205,11 +205,11 @@
                             </control>
                             <control type="label">
                                 <posx>70</posx>
-                                <posy>-4</posy>
+                                <posy>0</posy>
                                 <width>574</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>FF585858</textcolor>
@@ -224,7 +224,7 @@
                             <control type="image">
                                 <width>644</width>
                                 <height>60</height>
-                                <texture border="2">dialogs/content/highlight-light.png</texture>
+                                <texture border="2">dialogs/default/highlight.png</texture>
                             </control>
                             <control type="image">
                                 <posx>5</posx>
@@ -236,12 +236,12 @@
                             </control>
                             <control type="label">
                                 <posx>70</posx>
-                                <posy>-4</posy>
+                                <posy>0</posy>
                                 <width>574</width>
                                 <height>60</height>
                                 <textcolor>eewhite</textcolor>
                                 <info>ListItem.Label</info>
-                                <font>Font-Condensed-S34</font>
+                                <font>Font-Condensed-S32</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <animation effect="slide" end="-50" time="0" condition="IsEmpty(ListItem.Icon)">Conditional</animation>
@@ -269,8 +269,8 @@
                     <width>11</width>
                     <height>474</height>
                     <texturesliderbackground>-</texturesliderbackground>
-                    <texturesliderbar border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbar>
-                    <texturesliderbarfocus border="0,6,0,6">dialogs/content/scrollbar-fo.png</texturesliderbarfocus>
+                    <texturesliderbar border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbar>
+                    <texturesliderbarfocus border="0,6,0,6">dialogs/default/scrollbar.png</texturesliderbarfocus>
                     <textureslidernib>-</textureslidernib>
                     <textureslidernibfocus>-</textureslidernibfocus>
                     <onleft>450</onleft>
@@ -311,7 +311,7 @@
                     <control type="button" id="415">
                         <posx>700</posx>
                         <description>Create Folder</description>
-                        <label>$LOCALIZE[41404]</label>
+                        <label>$LOCALIZE[119]</label>
                         <texturefocus>buttons/folder-fo.png</texturefocus>
                         <texturenofocus>buttons/folder-nf.png</texturenofocus>
                         <include>DialogButtonDimensions</include>

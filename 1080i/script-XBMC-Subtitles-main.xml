@@ -1,5 +1,6 @@
 <window>
     <allowoverlay>no</allowoverlay>
+    <zorder>3</zorder>
     <controls>
         <control type="group">
             <include>NowPlayingFullscreen</include>
@@ -16,13 +17,18 @@
                     <texture>osd/fullscreen/osdsettings.png</texture>
                     <aspectratio>stretch</aspectratio>
                 </control>
+                <control type="image">
+                    <include>FullscreenDimensions</include>
+                    <texture>osd/fullscreen/osdsettings-separators.png</texture>
+                    <aspectratio>stretch</aspectratio>
+                </control>
                 <control type="group">
                     <control type="label">
                         <description>Settings</description>
                         <posx>510</posx>
                         <posy>243</posy>
                         <width>900</width>
-                        <height>34</height>
+                        <height>38</height>
                         <align>center</align>
                         <label>XBMC Subtitles ($INFO[Container(150).ListItem.Label])</label>
                         <font>Font-Condensed-S34-B</font>
@@ -83,42 +89,76 @@
                                 <posy>17</posy>
                                 <width>62</width>
                                 <height>42</height>
-                                <texture>dialogs/xbmcsubtitles/$INFO[ListItem.Thumb]/flag.png</texture>
+                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/,/flag.png]</texture>
                             </control>
-                            <control type="group">
+                            <control type="image">
+                                <posx>93</posx>
+                                <posy>10</posy>
+                                <width>80</width>
+                                <height>56</height>
+                                <texture>dialogs/xbmcsubtitles/icon_hi.png</texture>
+                                <visible>ListItem.property(hearing_imp)</visible>
+                            </control>
+                            <control type="image">
+                                <posx>93</posx>
+                                <posy>10</posy>
+                                <width>121</width>
+                                <height>56</height>
+                                <texture>dialogs/xbmcsubtitles/icon_sync.png</texture>
                                 <visible>ListItem.property(sync)</visible>
-                                <control type="image">
-                                    <posx>93</posx>
-                                    <posy>10</posy>
-                                    <width>121</width>
-                                    <height>56</height>
-                                    <texture>dialogs/xbmcsubtitles/icon_sync.png</texture>
-                                </control>
-                                <control type="label">
-                                    <posx>200</posx>
-                                    <posy>0</posy>
-                                    <width>730</width>
-                                    <height>74</height>
-                                    <font>Font-Condensed-S30-B</font>
-                                    <textcolor>96FFFFFF</textcolor>
-                                    <info>ListItem.Label2</info>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                </control>
+                                <animation effect="slide" end="35" time="0" condition="ListItem.property(hearing_imp)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <posx>120</posx>
                                 <posy>0</posy>
                                 <width>810</width>
-                                <height>74</height>
+                                <height>76</height>
                                 <font>Font-Condensed-S30-B</font>
-                                <textcolor>96FFFFFF</textcolor>
+                                <textcolor>99FFFFFF</textcolor>
                                 <info>ListItem.Label2</info>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <scroll>false</scroll>
-                                <visible>!ListItem.property(sync)</visible>
+                                <visible>!ListItem.property(sync) + !ListItem.property(hearing_imp)</visible>
+                            </control>
+                            <control type="label">
+                                <posx>200</posx>
+                                <posy>0</posy>
+                                <width>730</width>
+                                <height>76</height>
+                                <font>Font-Condensed-S30-B</font>
+                                <textcolor>99FFFFFF</textcolor>
+                                <info>ListItem.Label2</info>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <visible>ListItem.property(sync) + !ListItem.property(hearing_imp)</visible>
+                            </control>
+                            <control type="label">
+                                <posx>159</posx>
+                                <posy>0</posy>
+                                <width>771</width>
+                                <height>76</height>
+                                <font>Font-Condensed-S30-B</font>
+                                <textcolor>99FFFFFF</textcolor>
+                                <info>ListItem.Label2</info>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <visible>!ListItem.property(sync) + ListItem.property(hearing_imp)</visible>
+                            </control>
+                            <control type="label">
+                                <posx>235</posx>
+                                <posy>0</posy>
+                                <width>695</width>
+                                <height>76</height>
+                                <font>Font-Condensed-S30-B</font>
+                                <textcolor>99FFFFFF</textcolor>
+                                <info>ListItem.Label2</info>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <visible>ListItem.property(sync) + ListItem.property(hearing_imp)</visible>
                             </control>
                             <control type="group">
                                 <visible>!IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
@@ -134,9 +174,9 @@
                                     <posx>1045</posx>
                                     <posy>0</posy>
                                     <width>100</width>
-                                    <height>74</height>
+                                    <height>76</height>
                                     <font>Font-Condensed-S30-B</font>
-                                    <textcolor>96FFFFFF</textcolor>
+                                    <textcolor>99FFFFFF</textcolor>
                                     <label>$INFO[ListItem.ActualIcon,,.0]</label>
                                     <align>right</align>
                                     <aligny>center</aligny>
@@ -157,9 +197,9 @@
                                     <posx>1045</posx>
                                     <posy>0</posy>
                                     <width>100</width>
-                                    <height>74</height>
+                                    <height>76</height>
                                     <font>Font-Condensed-S30-B</font>
-                                    <textcolor>96FFFFFF</textcolor>
+                                    <textcolor>99FFFFFF</textcolor>
                                     <label>$INFO[ListItem.ActualIcon]</label>
                                     <align>right</align>
                                     <aligny>center</aligny>
@@ -168,192 +208,139 @@
                             </control>
                         </itemlayout>
                         <focusedlayout width="1080" height="76">
-                            <control type="group">
-                                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Visible</animation>
-                                <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Hidden</animation>
-                                <visible>!Control.HasFocus(120)</visible>
-                                <control type="group">
-                                    <visible>ListItem.property(sync)</visible>
-                                    <control type="image">
-                                        <posx>93</posx>
-                                        <posy>10</posy>
-                                        <width>121</width>
-                                        <height>56</height>
-                                        <texture>dialogs/xbmcsubtitles/icon_sync.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>200</posx>
-                                        <posy>0</posy>
-                                        <width>730</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>96FFFFFF</textcolor>
-                                        <info>ListItem.Label2</info>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                                <control type="label">
-                                    <posx>120</posx>
-                                    <posy>0</posy>
-                                    <width>810</width>
-                                    <height>74</height>
-                                    <font>Font-Condensed-S30-B</font>
-                                    <textcolor>96FFFFFF</textcolor>
-                                    <info>ListItem.Label2</info>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                    <visible>!ListItem.property(sync)</visible>
-                                </control>
-                                <control type="group">
-                                    <visible>!IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
-                                    <control type="image">
-                                        <posx>930</posx>
-                                        <posy>-15</posy>
-                                        <width>105</width>
-                                        <height>105</height>
-                                        <aspect>keepaspect</aspect>
-                                        <texture>views/thumb/other/star_nofo.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>1045</posx>
-                                        <posy>0</posy>
-                                        <width>100</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>96FFFFFF</textcolor>
-                                        <label>$INFO[ListItem.ActualIcon,,.0]</label>
-                                        <align>right</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                                <control type="group">
-                                    <visible>IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
-                                    <control type="image">
-                                        <posx>930</posx>
-                                        <posy>-15</posy>
-                                        <width>105</width>
-                                        <height>105</height>
-                                        <aspect>keepaspect</aspect>
-                                        <texture>views/thumb/other/star_fo.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>1045</posx>
-                                        <posy>0</posy>
-                                        <width>100</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>96FFFFFF</textcolor>
-                                        <label>$INFO[ListItem.ActualIcon]</label>
-                                        <align>right</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                            </control>
-                            <control type="group">
-                                <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Visible</animation>
-                                <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(120).Scrolling | Container(120).OnScrollNext | Container(120).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>1080</width>
+                                <height>77</height>
+                                <texture border="150,1,150,1">windows/settings/images/right-focus.png</texture>
+                                <aspectratio>stretch</aspectratio>
                                 <visible>Control.HasFocus(120)</visible>
-                                <control type="image">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width>1080</width>
-                                    <height>77</height>
-                                    <texture border="150,1,150,1">windows/settings/images/right-focus.png</texture>
-                                    <aspectratio>stretch</aspectratio>
-                                </control>
-                                <control type="group">
-                                    <visible>ListItem.property(sync)</visible>
-                                    <control type="image">
-                                        <posx>93</posx>
-                                        <posy>10</posy>
-                                        <width>121</width>
-                                        <height>56</height>
-                                        <texture>dialogs/xbmcsubtitles/icon_sync.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>200</posx>
-                                        <posy>0</posy>
-                                        <width>730</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>white</textcolor>
-                                        <info>ListItem.Label2</info>
-                                        <align>left</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                                <control type="label">
-                                    <posx>120</posx>
-                                    <posy>0</posy>
-                                    <width>810</width>
-                                    <height>74</height>
-                                    <font>Font-Condensed-S30-B</font>
-                                    <textcolor>white</textcolor>
-                                    <info>ListItem.Label2</info>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <scroll>false</scroll>
-                                    <visible>!ListItem.property(sync)</visible>
-                                </control>
-                                <control type="group">
-                                    <visible>!IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
-                                    <control type="image">
-                                        <posx>930</posx>
-                                        <posy>-15</posy>
-                                        <width>105</width>
-                                        <height>105</height>
-                                        <aspect>keepaspect</aspect>
-                                        <texture>views/thumb/other/star_nofo.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>1045</posx>
-                                        <posy>0</posy>
-                                        <width>100</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>white</textcolor>
-                                        <label>$INFO[ListItem.ActualIcon,,.0]</label>
-                                        <align>right</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                                <control type="group">
-                                    <visible>IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
-                                    <control type="image">
-                                        <posx>930</posx>
-                                        <posy>-15</posy>
-                                        <width>105</width>
-                                        <height>105</height>
-                                        <aspect>keepaspect</aspect>
-                                        <texture>views/thumb/other/star_fo.png</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>1045</posx>
-                                        <posy>0</posy>
-                                        <width>100</width>
-                                        <height>74</height>
-                                        <font>Font-Condensed-S30-B</font>
-                                        <textcolor>white</textcolor>
-                                        <label>$INFO[ListItem.ActualIcon]</label>
-                                        <align>right</align>
-                                        <aligny>center</aligny>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
+                                <include>visiblehidefadeinfo</include>
                             </control>
                             <control type="image">
                                 <posx>35</posx>
                                 <posy>17</posy>
                                 <width>62</width>
                                 <height>42</height>
-                                <texture>dialogs/xbmcsubtitles/$INFO[ListItem.Thumb]/flag.png</texture>
+                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/,/flag.png]</texture>
+                            </control>
+                            <control type="image">
+                                <posx>93</posx>
+                                <posy>10</posy>
+                                <width>80</width>
+                                <height>56</height>
+                                <texture>dialogs/xbmcsubtitles/icon_hi.png</texture>
+                                <visible>ListItem.property(hearing_imp)</visible>
+                            </control>
+                            <control type="image">
+                                <posx>93</posx>
+                                <posy>10</posy>
+                                <width>121</width>
+                                <height>56</height>
+                                <texture>dialogs/xbmcsubtitles/icon_sync.png</texture>
+                                <visible>ListItem.property(sync)</visible>
+                                <animation effect="slide" end="35" time="0" condition="ListItem.property(hearing_imp)">Conditional</animation>
+                            </control>
+                            <control type="group">
+                                <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(120)">Conditional</animation>
+                                <control type="label">
+                                    <posx>120</posx>
+                                    <posy>0</posy>
+                                    <width>810</width>
+                                    <height>76</height>
+                                    <font>Font-Condensed-S30-B</font>
+                                    <textcolor>eewhite</textcolor>
+                                    <info>ListItem.Label2</info>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <visible>!ListItem.property(sync) + !ListItem.property(hearing_imp)</visible>
+                                </control>
+                                <control type="label">
+                                    <posx>200</posx>
+                                    <posy>0</posy>
+                                    <width>730</width>
+                                    <height>76</height>
+                                    <font>Font-Condensed-S30-B</font>
+                                    <textcolor>eewhite</textcolor>
+                                    <info>ListItem.Label2</info>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <scroll>false</scroll>
+                                    <visible>ListItem.property(sync) + !ListItem.property(hearing_imp)</visible>
+                                </control>
+                                <control type="label">
+                                    <posx>159</posx>
+                                    <posy>0</posy>
+                                    <width>771</width>
+                                    <height>76</height>
+                                    <font>Font-Condensed-S30-B</font>
+                                    <textcolor>eewhite</textcolor>
+                                    <info>ListItem.Label2</info>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <scroll>false</scroll>
+                                    <visible>!ListItem.property(sync) + ListItem.property(hearing_imp)</visible>
+                                </control>
+                                <control type="label">
+                                    <posx>235</posx>
+                                    <posy>0</posy>
+                                    <width>695</width>
+                                    <height>76</height>
+                                    <font>Font-Condensed-S30-B</font>
+                                    <textcolor>eewhite</textcolor>
+                                    <info>ListItem.Label2</info>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <scroll>false</scroll>
+                                    <visible>ListItem.property(sync) + ListItem.property(hearing_imp)</visible>
+                                </control>
+                                <control type="group">
+                                    <visible>!IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
+                                    <control type="image">
+                                        <posx>930</posx>
+                                        <posy>-15</posy>
+                                        <width>105</width>
+                                        <height>105</height>
+                                        <aspect>keepaspect</aspect>
+                                        <texture>views/thumb/other/star_nofo.png</texture>
+                                    </control>
+                                    <control type="label">
+                                        <posx>1045</posx>
+                                        <posy>0</posy>
+                                        <width>100</width>
+                                        <height>76</height>
+                                        <font>Font-Condensed-S30-B</font>
+                                        <textcolor>eewhite</textcolor>
+                                        <label>$INFO[ListItem.ActualIcon,,.0]</label>
+                                        <align>right</align>
+                                        <aligny>center</aligny>
+                                        <scroll>false</scroll>
+                                    </control>
+                                </control>
+                                <control type="group">
+                                    <visible>IntegerGreaterThan(ListItem.ActualIcon,9)</visible>
+                                    <control type="image">
+                                        <posx>930</posx>
+                                        <posy>-15</posy>
+                                        <width>105</width>
+                                        <height>105</height>
+                                        <aspect>keepaspect</aspect>
+                                        <texture>views/thumb/other/star_fo.png</texture>
+                                    </control>
+                                    <control type="label">
+                                        <posx>1045</posx>
+                                        <posy>0</posy>
+                                        <width>100</width>
+                                        <height>76</height>
+                                        <font>Font-Condensed-S30-B</font>
+                                        <textcolor>eewhite</textcolor>
+                                        <label>$INFO[ListItem.ActualIcon]</label>
+                                        <align>right</align>
+                                        <aligny>center</aligny>
+                                        <scroll>false</scroll>
+                                    </control>
+                                </control>
                             </control>
                         </focusedlayout>
                     </control>
@@ -404,7 +391,7 @@
                         <posx>538</posx>
                         <posy>751</posy>
                         <width>918</width>
-                        <height>96</height>
+                        <height>100</height>
                         <description>notification</description>
                         <font>Font-Condensed-S30-B</font>
                         <textcolor>aawhite</textcolor>
@@ -419,7 +406,7 @@
                         <posx>538</posx>
                         <posy>751</posy>
                         <width>815</width>
-                        <height>96</height>
+                        <height>100</height>
                         <description>notification</description>
                         <font>Font-Condensed-S30-B</font>
                         <textcolor>aawhite</textcolor>
@@ -473,7 +460,7 @@
                         <posx>1465</posx>
                         <posy>751</posy>
                         <width>125</width>
-                        <height>96</height>
+                        <height>100</height>
                         <font>Font-Condensed-S30-B</font>
                         <label>[B]$INFO[Container(120).CurrentPage]/$INFO[Container(120).NumPages][/B]</label>
                         <textcolor>33FFFFFF</textcolor>
@@ -536,7 +523,7 @@
                             <posx>35</posx>
                             <posy>0</posy>
                             <width>318</width>
-                            <height>74</height>
+                            <height>76</height>
                             <font>Font-Condensed-S30-B</font>
                             <textcolor>96FFFFFF</textcolor>
                             <info>ListItem.Label</info>
@@ -549,7 +536,7 @@
                             <posx>35</posx>
                             <posy>0</posy>
                             <width>318</width>
-                            <height>74</height>
+                            <height>76</height>
                             <font>Font-Condensed-S25-B</font>
                             <textcolor>96FFFFFF</textcolor>
                             <info>ListItem.Label</info>
@@ -572,7 +559,7 @@
                             <posx>35</posx>
                             <posy>0</posy>
                             <width>318</width>
-                            <height>74</height>
+                            <height>76</height>
                             <font>Font-Condensed-S30-B</font>
                             <textcolor>white</textcolor>
                             <info>ListItem.Label</info>
@@ -585,7 +572,7 @@
                             <posx>35</posx>
                             <posy>0</posy>
                             <width>318</width>
-                            <height>74</height>
+                            <height>76</height>
                             <font>Font-Condensed-S25-B</font>
                             <textcolor>white</textcolor>
                             <info>ListItem.Label</info>

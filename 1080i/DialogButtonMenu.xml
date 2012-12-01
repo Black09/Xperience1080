@@ -1,4 +1,4 @@
-<window type="buttonMenu" id="111">
+<window type="buttonMenu">
     <defaultcontrol always="true">9000</defaultcontrol>
     <zorder>3</zorder>
     <onload>Dialog.Close(contextmenu)</onload>
@@ -8,7 +8,7 @@
         <posy>0</posy>
     </coordinates>
     <controls>
-        <include>FadeBackgroundThree</include>
+        <include>FadeBackgroundButtonMenu</include>
         <control type="group">
             <include>OpenButtonMenuAnimation</include>
             <posx>0</posx>
@@ -19,9 +19,8 @@
                 <posy>510</posy>
                 <height>60</height>
                 <width>442</width>
-                <texture>dialogs/shutdown/shutdown_shadow.png</texture>
+                <texture>dialogs/shutdown/shadow.png</texture>
                 <aspectratio>stretch</aspectratio>
-                <visible>!Window.IsVisible(programs) + !Window.IsVisible(pictures) + !Window.IsVisible(scripts) + ![Window.IsVisible(videos) + stringcompare(Window(home).property(previousstage),0)]</visible>
             </control>
             <control type="image">
                 <description>background image</description>
@@ -60,9 +59,9 @@
                 <control type="button" id="2">
                     <description>System Info button</description>
                     <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[41350]</label>
+                    <label>$LOCALIZE[130]</label>
                     <include>GuideDialogClose</include>
-                    <onclick>ActivateWindow(7)</onclick>
+                    <onclick>ActivateWindow(systeminfo)</onclick>
                     <texturefocus>dialogs/options/buttons/info-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/info-nf.png</texturenofocus>
                     <visible>System.Loggedon</visible>
@@ -70,9 +69,9 @@
                 <control type="button" id="3">
                     <description>FileManger button</description>
                     <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[41353]</label>
+                    <label>$LOCALIZE[7]</label>
                     <include>GuideDialogClose</include>
-                    <onclick>ActivateWindow(3)</onclick>
+                    <onclick>ActivateWindow(filemanager)</onclick>
                     <texturefocus>dialogs/options/buttons/files-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/files-nf.png</texturenofocus>
                     <visible>System.Loggedon</visible>
@@ -172,9 +171,7 @@
                         <label>-</label>
                         <textcolor>DDFFFFFF</textcolor>
                         <font>Font-Condensed-S34</font>
-                        <textoffsety>3</textoffsety>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <scroll>true</scroll>
                         <visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33) | Control.HasFocus(34) | Control.HasFocus(35)</visible>
                     </control>
@@ -185,9 +182,7 @@
                         <label>$LOCALIZE[41355]</label>
                         <textcolor>FF484848</textcolor>
                         <font>Font-Condensed-S34</font>
-                        <textoffsety>3</textoffsety>
                         <align>left</align>
-                        <aligny>top</aligny>
                         <scroll>true</scroll>
                         <visible>!Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32) + !Control.HasFocus(33) + !Control.HasFocus(34) + !Control.HasFocus(35)</visible>
                     </control>
@@ -242,7 +237,8 @@
                 <control type="button" id="13">
                     <include>optionsbuttonsdimensions</include>
                     <label>Reload Skin</label>
-                    <onclick>ReloadSkin()</onclick>
+                    <onclick>ReloadSkin</onclick>
+                    <onclick>Dialog.Close(111)</onclick> 
                     <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
                 </control>
@@ -258,21 +254,13 @@
                 </control>
                 <control type="label">
                     <posx>157</posx>
-                    <posy>470</posy>
-                    <width>180</width>
-                    <height>18</height>
+                    <posy>433</posy>
+                    <width>100</width>
+                    <height>100</height>
                     <label>$LOCALIZE[41507]</label>
                     <font>Font-Condensed-S34-B</font>
-                    <textcolor>66000000</textcolor>
-                </control>
-                <control type="label">
-                    <posx>157</posx>
-                    <posy>471</posy>
-                    <width>180</width>
-                    <height>18</height>
-                    <label>$LOCALIZE[41507]</label>
-                    <font>Font-Condensed-S34-B</font>
-                    <textcolor>ddwhite</textcolor>
+                    <textcolor>eewhite</textcolor>
+                    <shadowcolor>22000000</shadowcolor>
                 </control>
             </control>          
         </control>
