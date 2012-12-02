@@ -32,6 +32,21 @@
     <include name="OSDDefaultControlLiveTV">
         <defaultcontrol>1</defaultcontrol>
     </include>
+    
+    <variable name="OSDPlot">
+        <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextPlot]</value>
+        <value>$INFO[VideoPlayer.Plot]</value>
+    </variable>
+    
+    <variable name="OSDTitle">
+        <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextTitle]</value>
+        <value>$INFO[VideoPlayer.Title]</value>
+    </variable>
+    
+    <variable name="OSDNextTitle">
+        <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextStartTime,$LOCALIZE[19080] ,]$INFO[VideoPlayer.NextEndTime, • $LOCALIZE[19081] ,]</value>
+        <value>$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ,]$INFO[VideoPlayer.NextStartTime, (,)]</value>
+    </variable>
 
     <include name="OSDWeatherClock">
         <control type="group">
