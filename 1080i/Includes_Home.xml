@@ -19,6 +19,7 @@
                 <onup condition="Container(20).HasFocus(6)">601</onup>
                 <onup condition="Container(20).HasFocus(7)">701</onup>
                 <onup condition="Container(20).HasFocus(8)">801</onup>
+                <onup condition="Container(20).HasFocus(9)">901</onup>
                 <ondown condition="Container(20).HasFocus(1)">125</ondown>
                 <ondown condition="Container(20).HasFocus(2)">525</ondown>
                 <ondown condition="Container(20).HasFocus(3)">225</ondown>
@@ -27,6 +28,7 @@
                 <ondown condition="Container(20).HasFocus(6)">625</ondown>
                 <ondown condition="Container(20).HasFocus(7)">725</ondown>
                 <ondown condition="Container(20).HasFocus(8)">825</ondown>
+                <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>22</onleft>
                 <onright>22</onright>
                 <texturefocus>buttons/shutdown_fo.png</texturefocus>
@@ -63,6 +65,7 @@
                 <onup condition="Container(20).HasFocus(6)">601</onup>
                 <onup condition="Container(20).HasFocus(7)">701</onup>
                 <onup condition="Container(20).HasFocus(8)">801</onup>
+                <onup condition="Container(20).HasFocus(9)">901</onup>
                 <ondown condition="Container(20).HasFocus(1)">125</ondown>
                 <ondown condition="Container(20).HasFocus(2)">525</ondown>
                 <ondown condition="Container(20).HasFocus(3)">225</ondown>
@@ -71,6 +74,7 @@
                 <ondown condition="Container(20).HasFocus(6)">625</ondown>
                 <ondown condition="Container(20).HasFocus(7)">725</ondown>
                 <ondown condition="Container(20).HasFocus(8)">825</ondown>
+                <ondown condition="Container(20).HasFocus(9)">925</ondown>
                 <onleft>21</onleft>
                 <onright>21</onright>
                 <aspect>keep</aspect>
@@ -136,17 +140,6 @@
         <width>12</width>
         <height>12</height>
         <texture>windows/home/dot.png</texture>
-    </include>
- 
-    <include name="HomeOnLeftSearch">
-        <onleft>CancelAlarm(HomeTileMoveTwo,true)</onleft>
-        <onleft>CancelAlarm(HomeTileMoveThree,true)</onleft>
-        <onleft>Control.Move(20,-1)</onleft>
-        <onleft>101</onleft>
-    </include>
- 
-    <include name="HomeOnLeftNoSearch">
-        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
     </include>
      
     <variable name="HomePictureImageSingle">
@@ -280,6 +273,14 @@
                 <visible>System.HasAddon(script.globalsearch)</visible>
             </control>
             <control type="label">
+                <description>Live TV</description>
+                <include>HomeLabel</include>
+                <label>$LOCALIZE[41220]</label>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(9)">Conditional</animation>
+                <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(925)">Conditional</animation>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+            </control>
+            <control type="label">
                 <description>Home</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[41524]</label>
@@ -388,11 +389,15 @@
         </control>
     </include>
     
-    <include name="HomeControlListFocusDefault">
+    <include name="HomeControlListFocus2">
+        <focusposition>2</focusposition>
+    </include>
+    
+    <include name="HomeControlListFocus1">
         <focusposition>1</focusposition>
     </include>
     
-    <include name="HomeControlListFocusNoSearch">
+    <include name="HomeControlListFocus0">
         <focusposition>0</focusposition>
     </include>
     
@@ -405,8 +410,9 @@
             <width>2</width>
             <onup>21</onup>
             <orientation>horizontal</orientation>
-            <include condition="System.HasAddon(script.globalsearch)">HomeControlListFocusDefault</include>
-            <include condition="!System.HasAddon(script.globalsearch)">HomeControlListFocusNoSearch</include>
+            <include condition="System.HasAddon(script.globalsearch) + System.GetBool(pvrmanager.enabled)">HomeControlListFocus2</include>
+            <include condition="!System.HasAddon(script.globalsearch) | !System.GetBool(pvrmanager.enabled)">HomeControlListFocus1</include>
+            <include condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">HomeControlListFocus0</include>
             <scrolltime>0</scrolltime>
             <viewtype>list</viewtype>
             <itemlayout width="2" height="2"/>
@@ -417,6 +423,11 @@
                     <onclick>-</onclick>
                     <property name="search">1</property>
                     <visible>System.HasAddon(script.globalsearch)</visible>
+                </item>
+                <item id="9">
+                    <label>$LOCALIZE[41220]</label>
+                    <onclick>-</onclick>
+                    <visible>System.GetBool(pvrmanager.enabled)</visible>
                 </item>
                 <item id="2">
                     <label>$LOCALIZE[41524]</label>
@@ -457,7 +468,7 @@
                     <visible>!Skin.HasSetting(HomePrograms)</visible>
                 </item>         
                 <item id="7">
-                    <label>$LOCALIZE[8] ($INFO[Window(Weather).Property(Current.Temperature)]$INFO[System.TemperatureUnits])</label>
+                    <label>$LOCALIZE[8]</label>
                     <onclick>-</onclick>
                     <property name="single">$INFO[Skin.String(HomeWeatherSingleImage)]</property>
                     <property name="multi">$INFO[Skin.String(HomeWeatherMultiImage)]</property>
@@ -499,10 +510,11 @@
                 <visible>System.HasAddon(script.globalsearch)</visible>
                 <control type="button" id="125">
                     <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                    <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
-                    <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
+                    <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
+                    <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
-                    <onright>525</onright>
+                    <onright condition="System.GetBool(pvrmanager.enabled)">925</onright>
+                    <onright condition="!System.GetBool(pvrmanager.enabled)">525</onright>
                     <onclick>SetProperty(HomeSearch,1)</onclick>
                     <onclick>RunScript(script.globalsearch)</onclick>
                     <onup>80</onup>
@@ -519,11 +531,11 @@
                         <effect type="zoom" start="100" end="150" center="1160,386" tween="sine" delay="250" easing="out" time="350" /> 
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                     </animation>
-                    <animation type="WindowOpen" condition="Container(20).HasFocus(2)" reversible="true">
+                    <animation type="WindowOpen" condition="[Container(20).HasFocus(2) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="-1500" end="0" tween="cubic" easing="out" time="700" /> 
                         <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
                     </animation>
-                    <animation type="WindowClose" condition="Container(20).HasFocus(2)" reversible="true">
+                    <animation type="WindowClose" condition="[Container(20).HasFocus(2) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                     </animation>
@@ -615,10 +627,11 @@
                         </control>
                         <control type="button" id="101">
                             <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                            <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
-                            <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
+                            <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
+                            <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                             <onright>Control.Move(20,1)</onright>
-                            <onright>501</onright>
+                            <onright condition="System.GetBool(pvrmanager.enabled)">901</onright>
+                            <onright condition="!System.GetBool(pvrmanager.enabled)">501</onright>
                             <onup>125</onup>
                             <ondown>80</ondown>
                             <align>left</align>
@@ -629,18 +642,243 @@
                     </control>
                 </control>
             </control>
+            <control type="group" id="900">
+                <width>2320</width>
+                <height>780</height>
+                <description>Live TV</description>
+                <visible>System.GetBool(pvrmanager.enabled)</visible>
+                <control type="button" id="925">
+                    <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch)">125</onleft>
+                    <onleft conition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
+                    <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
+                    <onright>Control.Move(20,1)</onright>
+                    <onright>525</onright>
+                    <onclick>ActivateWindow(pvr)</onclick>
+                    <onup>80</onup>
+                    <ondown>901</ondown>
+                </control>
+                <control type="group" id="950">
+                    <posy>100</posy>
+                    <posx>535</posx>
+                    <animation type="WindowOpen" condition="Container(20).HasFocus(1)" reversible="true">
+                        <effect type="slide" start="1500" end="0" tween="cubic" easing="out" time="700" /> 
+                        <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
+                    </animation>
+                    <animation type="WindowClose" condition="Container(20).HasFocus(1)" reversible="true">
+                        <effect type="slide" start="0" end="500" tween="sine" delay="250" easing="out" time="350" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
+                    </animation>
+                    <animation type="WindowOpen" condition="Container(20).HasFocus(9)" reversible="true">
+                        <effect type="zoom" start="150" end="100" center="1160,386" tween="sine" easing="out" time="350" /> 
+                        <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" />
+                    </animation>
+                    <animation type="WindowClose" condition="Container(20).HasFocus(9)" reversible="true">
+                        <effect type="zoom" start="100" end="150" center="1160,386" tween="sine" delay="250" easing="out" time="350" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
+                    </animation>
+                    <animation type="WindowOpen" condition="Container(20).HasFocus(2)" reversible="true">
+                        <effect type="slide" start="-1500" end="0" tween="cubic" easing="out" time="700" /> 
+                        <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
+                    </animation>
+                    <animation type="WindowClose" condition="Container(20).HasFocus(2)" reversible="true">
+                        <effect type="slide" start="0" end="-500" tween="sine" delay="250" easing="out" time="350" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
+                    </animation>
+                    <animation effect="slide" end="-156" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(1)">Conditional</animation>
+                    <animation effect="slide" end="156" time="500" tween="cubic" easing="inout" condition="Container(20).HasFocus(2)">Conditional</animation>
+                    <animation type="Conditional" condition="!Container(20).HasFocus(9) | Container(20).OnScrollNext | Container(20).OnScrollPrevious | Container(20).Scrolling | Window.IsVisible(shutdownmenu)">
+                        <effect type="fade" start="100" end="80" time="500" tween="cubic" easing="inout" />
+                        <effect type="zoom" start="100" end="80" time="500" tween="cubic" easing="inout" center="1160,386" />
+                    </animation>
+                    <control type="image">
+                        <decription>Bottom shadow</decription>
+                        <posx>102</posx>
+                        <posy>570</posy>
+                        <width>1052</width>
+                        <height>150</height>
+                        <texture>windows/home/item-shadow.png</texture>
+                    </control>
+                    <control type="panel" id="901">
+                        <posx>170</posx>
+                        <posy>-24</posy>
+                        <width>903</width>
+                        <height>620</height>
+                        <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch)">101</onleft>
+                        <onleft conition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
+                        <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
+                        <onright>Control.Move(20,1)</onright>
+                        <onright>501</onright>
+                        <onup>925</onup>
+                        <ondown>80</ondown>
+                        <scrolltime>0</scrolltime>
+                        <itemlayout width="289" height="289">
+                            <control type="group">
+                                <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
+                                <control type="image">
+                                    <posx>19</posx>
+                                    <posy>19</posy>
+                                    <width>293</width>
+                                    <height>293</height>
+                                    <texture border="7">windows/home/tile.png</texture>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <texture border="1">windows/home/tile-overlay.png</texture>
+                                    <colordiffuse>99FFFFFF</colordiffuse>
+                                </control>
+                                <control type="image">
+                                    <posx>24</posx>
+                                    <posy>24</posy>
+                                    <width>283</width>
+                                    <height>283</height>
+                                    <texture>$INFO[ListItem.Icon]</texture>
+                                </control>
+                                <control type="label">
+                                    <posx>24</posx>
+                                    <posy>241</posy>
+                                    <width>283</width>
+                                    <height>66</height>
+                                    <label>$INFO[ListItem.Label]</label>
+                                    <font>Font-Condensed-S34</font>
+                                    <textcolor>aawhite</textcolor>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textoffsetx>20</textoffsetx>
+                                </control>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="289" height="289">
+                            <control type="group">
+                                <control type="image">
+                                    <posx>3</posx>
+                                    <posy>3</posy>
+                                    <width>325</width>
+                                    <height>325</height>
+                                    <texture border="40">windows/home/tile-fo.png</texture>
+                                    <animation type="Focus">
+                                        <effect type="zoom" start="95" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="zoom" start="100" end="95" time="200" tween="sine" easing="inout" center="auto" />
+                                        <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                </control>
+                                <control type="group">
+                                    <animation type="Focus">
+                                        <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
+                                    </animation>
+                                    <animation type="Unfocus">
+                                        <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
+                                    </animation>
+                                    <control type="image">
+                                        <posx>19</posx>
+                                        <posy>19</posy>
+                                        <width>293</width>
+                                        <height>293</height>
+                                        <texture border="7">windows/home/tile.png</texture>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>283</width>
+                                        <height>66</height>
+                                        <texture border="1">windows/home/tile-overlay.png</texture>
+                                        <colordiffuse>99FFFFFF</colordiffuse>
+                                    </control>
+                                    <control type="image">
+                                        <posx>24</posx>
+                                        <posy>24</posy>
+                                        <width>283</width>
+                                        <height>283</height>
+                                        <texture>$INFO[ListItem.Icon]</texture>
+                                        <animation type="Focus" reversible="false">
+                                            <effect type="zoom" end="115" time="75" tween="sine" easing="out" center="auto" />
+                                            <effect type="zoom" end="86.9565217" time="225" tween="sine" delay="100" easing="out" center="auto" />
+                                        </animation>
+                                    </control>
+                                    <control type="label">
+                                        <posx>24</posx>
+                                        <posy>241</posy>
+                                        <width>246</width>
+                                        <height>66</height>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <font>Font-Condensed-S34</font>
+                                        <textcolor>aawhite</textcolor>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <textoffsetx>20</textoffsetx>
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                        <content>
+                            <item id="1">
+                                <label>$LOCALIZE[19023]</label>
+                                <icon>windows/home/icons/tvshows.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(32)</onclick>
+                                <onclick>SetFocus(11)</onclick>
+                            </item>
+                            <item id="2">
+                                <label>$LOCALIZE[19024]</label>
+                                <icon>windows/home/icons/radio.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(33)</onclick>
+                                <onclick>SetFocus(12)</onclick>
+                            </item>
+                            <item id="3">
+                                <label>$LOCALIZE[19069]</label>
+                                <icon>windows/home/icons/epg.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(31)</onclick>
+                                <onclick>SetFocus(10)</onclick>
+                            </item>
+                            <item id="4">
+                                <label>$LOCALIZE[19163]</label>
+                                <icon>windows/home/icons/recordings.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(34)</onclick>
+                                <onclick>SetFocus(13)</onclick>
+                            </item>
+                            <item id="5">
+                                <label>$LOCALIZE[19040]</label>
+                                <icon>windows/home/icons/timers.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(35)</onclick>
+                                <onclick>SetFocus(14)</onclick>
+                            </item>
+                            <item id="6">
+                                <label>$LOCALIZE[137]</label>
+                                <icon>windows/home/icons/search-tv.png</icon>
+                                <onclick>ActivateWindow(PVR)</onclick>
+                                <onclick>SetFocus(36)</onclick>
+                                <onclick>SetFocus(17)</onclick>
+                            </item>
+                        </content>
+                    </control>
+                </control>
+            </control>
             <control type="group" id="500">
                 <description>Home</description>
                 <width>2320</width>
                 <height>780</height>
                 <description>Home</description>
                 <control type="button" id="525">
-                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMove,true)</onleft>
-                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
-                    <onleft condition="System.HasAddon(script.globalsearch)">CancelAlarm(HomeTileMoveThree,true)</onleft>
-                    <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
-                    <onleft condition="System.HasAddon(script.globalsearch)">125</onleft>
-                    <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMove,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMoveThree,true)</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">Control.Move(20,-1)</onleft>
+                    <onleft condition="System.GetBool(pvrmanager.enabled)">925</onleft>
+                    <onleft condition="System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">125</onleft>
+                    <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
@@ -655,11 +893,11 @@
                 <control type="group" id="550">
                     <posy>100</posy>
                     <posx>535</posx>
-                    <animation type="WindowOpen" condition="Container(20).HasFocus(1)" reversible="true">
+                    <animation type="WindowOpen" condition="[Container(20).HasFocus(1) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="1500" end="0" tween="cubic" easing="out" time="700" /> 
                         <effect type="fade" start="25" end="100" tween="sine" easing="in" time="350" delay="250" />
                     </animation>
-                    <animation type="WindowClose" condition="Container(20).HasFocus(1)" reversible="true">
+                    <animation type="WindowClose" condition="[Container(20).HasFocus(1) + !System.GetBool(pvrmanager.enabled)] | [Container(20).HasFocus(9) + System.GetBool(pvrmanager.enabled)]" reversible="true">
                         <effect type="slide" start="0" end="500" tween="sine" delay="250" easing="out" time="350" /> 
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="350" time="250" />
                     </animation>
@@ -1127,8 +1365,13 @@
                         <posy>-24</posy>
                         <width>331</width>
                         <height>620</height>
-                        <include condition="System.HasAddon(script.globalsearch)">HomeOnLeftSearch</include>
-                        <include condition="!System.HasAddon(script.globalsearch)">HomeOnLeftNoSearch</include>
+                        <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMove,true)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMoveTwo,true)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">CancelAlarm(HomeTileMoveThree,true)</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">Control.Move(20,-1)</onleft>
+                        <onleft condition="System.GetBool(pvrmanager.enabled)">901</onleft>
+                        <onleft condition="System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">101</onleft>
+                        <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
                         <onright>502</onright>
                         <onup>525</onup>
                         <ondown>80</ondown>
@@ -1238,12 +1481,6 @@
                             </control>
                         </focusedlayout>
                         <content>
-                            <item id="0">
-                                <label>$LOCALIZE[41220]</label>
-                                <icon>windows/home/icons/tvshows.png</icon>
-                                <onclick>ActivateWindow(pvr)</onclick>
-                                <visible>System.GetBool(pvrmanager.enabled)</visible>
-                            </item>
                             <item id="1">
                                 <label>$LOCALIZE[41450]</label>
                                 <icon>windows/home/icons/video.png</icon>
@@ -1255,7 +1492,6 @@
                                 <icon>windows/home/icons/tvshows.png</icon>
                                 <onclick condition="!Library.HasContent(tvshows)">ActivateWindow(videos,files,return)</onclick>
                                 <onclick condition="Library.HasContent(tvshows)">ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
-                                <visible>!System.GetBool(pvrmanager.enabled)</visible>
                             </item>
                         </content>
                     </control>
@@ -4622,7 +4858,7 @@
                                 <property name="pos">top</property>
                             </item>
                             <item id="5">
-                                <label>$LOCALIZE[19020]</label>
+                                <label>$LOCALIZE[41220]</label>
                                 <icon>windows/home/icons/tvshows.png</icon>
                                 <onclick>ActivateWindow(pvrsettings)</onclick>
                                 <property name="pos">top</property>
