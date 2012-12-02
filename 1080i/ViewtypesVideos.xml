@@ -1601,9 +1601,9 @@
                     <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
-                <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="!IntegerGreaterThan(Container(53).NumItems,3)">Conditional</animation>
-                <animation effect="slide" end="140" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6)">Conditional</animation>
-                <animation effect="slide" end="70" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9)">Conditional</animation>
+                <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="140" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,2) + !IntegerGreaterThan(Container(53).NumItems,5) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="70" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,5) + !IntegerGreaterThan(Container(53).NumItems,8) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 <control type="panel" id="53">
                     <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)</visible>
                     <posx>500</posx>
@@ -1709,9 +1709,9 @@
                     <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
-                <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="!IntegerGreaterThan(Container(53).NumItems,3)">Conditional</animation>
-                <animation effect="slide" end="140" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6)">Conditional</animation>
-                <animation effect="slide" end="70" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9)">Conditional</animation>
+                <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="140" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,2) + !IntegerGreaterThan(Container(53).NumItems,5) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="70" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,5) + !IntegerGreaterThan(Container(53).NumItems,8) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 <control type="image">
                     <description>Shadow</description>
                     <posx>0</posx>
@@ -1719,9 +1719,9 @@
                     <width>1920</width>
                     <height>150</height>
                     <texture>windows/home/item-shadow.png</texture>
-                    <animation effect="zoom" end="0,870,1500,150" time="400" tween="cubic" easing="inout" condition="!IntegerGreaterThan(Container(53).NumItems,3)">Conditional</animation>
-                    <animation effect="zoom" end="0,870,1640,150" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6)">Conditional</animation>
-                    <animation effect="zoom" end="0,870,1780,150" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9)">Conditional</animation>
+                    <animation effect="zoom" end="0,870,1500,150" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                    <animation effect="zoom" end="0,870,1640,150" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,2) + !IntegerGreaterThan(Container(53).NumItems,5) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                    <animation effect="zoom" end="0,870,1780,150" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,5) + !IntegerGreaterThan(Container(53).NumItems,8) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 </control>
                 <control type="image">
                     <description>Poster</description>
@@ -1754,10 +1754,10 @@
                 <animation type="Hidden" reversible="false">
                     <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
-                </animation>
-                <animation effect="slide" end="-210" time="400" tween="cubic" easing="inout" condition="!IntegerGreaterThan(Container(53).NumItems,3)">Conditional</animation>
-                <animation effect="slide" end="-140" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6)">Conditional</animation>
-                <animation effect="slide" end="-70" time="400" tween="cubic" easing="inout" condition="IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9)">Conditional</animation>
+                </animation>                
+                <animation effect="slide" end="-210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="-140" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,2) + !IntegerGreaterThan(Container(53).NumItems,5) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
+                <animation effect="slide" end="-70" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,5) + !IntegerGreaterThan(Container(53).NumItems,8) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 <control type="group">
                     <description>Fanart + Info</description>
                     <posx>1072</posx>
