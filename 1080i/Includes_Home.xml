@@ -3279,7 +3279,8 @@
                             <item id="1">
                                 <label>$LOCALIZE[41935]</label>
                                 <icon>windows/home/icons/addons.png</icon>
-                                <onclick>ActivateWindow(musiclibrary,addons,return)</onclick>
+                                <onclick condition="!Library.HasContent(music)">ActivateWindow(musicfiles,addons,return)</onclick>
+                                <onclick condition="Library.HasContent(music)">ActivateWindow(musiclibrary,addons,return)</onclick>
                             </item>
                         </content>
                     </control>
