@@ -173,7 +173,20 @@
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <scroll>false</scroll>
-                                <visible>!VideoPlayer.Content(LiveTV)</visible>
+                                <visible>!VideoPlayer.Content(LiveTV) + !Player.Paused</visible>
+                            </control>
+                            <control type="label">
+                                <posx>390</posx>
+                                <posy>818</posy>
+                                <width>1300</width>
+                                <height>56</height>
+                                <label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
+                                <textcolor>99FFFFFF</textcolor>
+                                <font>Font-Condensed-S50</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                                <visible>!VideoPlayer.Content(LiveTV) + Player.Paused</visible>
                             </control>
                             <control type="grouplist">
                                 <posx>390</posx>
