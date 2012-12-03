@@ -885,7 +885,11 @@
                     <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
                     <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
-                    <onright>225</onright>
+                    <onright condition="!Skin.HasSetting(HomeMovies)">225</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HomeTVShows)">325</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">425</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">625</onright>
+                    <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">725</onright>
                     <onup>80</onup>
                     <ondown>501</ondown>
                 </control>
