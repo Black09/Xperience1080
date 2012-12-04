@@ -3747,7 +3747,7 @@
                     <onup>500</onup>
                     <ondown>500</ondown>
                     <preloaditems>2</preloaditems>
-                    <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left)</visible>
+                    <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left) | Container.HasFiles</visible>
                     <animation effect="slide" end="65" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
                     <itemlayout width="344" height="344" condition="!Skin.HasSetting(ThumbnailSmall)">
                         <control type="image">

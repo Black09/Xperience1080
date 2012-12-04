@@ -411,7 +411,7 @@
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
-                        <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left)</visible>
+                        <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left) | Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(genres) | Container.Content(actors) | Container.Content(Sets)]</visible>
                     </control>
                     <control type="radiobutton" id="208">
                         <description>Thumbnail</description>
