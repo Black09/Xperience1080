@@ -44,6 +44,7 @@
                     <loop>yes</loop>
                     <include>Animation_FanartFade</include>
                     <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Weather.FanartCode]</imagepath>
+                    <visible>Skin.HasSetting(ShowWeatherFanart)</visible>
                 </control>
                 <control type="image">
                     <posx>-27</posx>
@@ -198,10 +199,33 @@
                     <height>285</height>
                     <texture border="7">windows/home/tile.png</texture>
                 </control>
+                <control type="group">
+                	<visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowWeatherFanart)</visible>
+	                <control type="multiimage">
+	                    <posx>-16</posx>
+	                    <posy>-97</posy>
+	                    <width>243</width>
+	                    <height>150</height>
+	                    <timeperimage>999999999999999</timeperimage>
+	                    <randomize>true</randomize>
+	                    <fadetime>600</fadetime>
+	                    <loop>yes</loop>
+	                    <include>Animation_FanartFade</include>
+	                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Day0.FanartCode)]</imagepath>
+	                </control>
+	                <control type="image">
+	                    <posx>-16</posx>
+	                    <posy>-7</posy>
+	                    <width>243</width>
+	                    <height>62</height>
+	                    <colordiffuse>99000000</colordiffuse>
+	                    <texture>windows/common/black.png</texture>
+	                </control>
+                </control>
                 <control type="label">
                     <description>day label</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>5</posy>
                     <width>206</width>
                     <height>30</height>
                     <label>$INFO[Window(Weather).Property(Day0.Title)]</label>
@@ -262,10 +286,34 @@
                     <width>255</width>
                     <height>285</height>
                     <texture border="7">windows/home/tile.png</texture>
-                </control>                <control type="label">
+                </control>
+                <control type="group">
+                	<visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowWeatherFanart)</visible>
+	                <control type="multiimage">
+	                    <posx>-16</posx>
+	                    <posy>-97</posy>
+	                    <width>243</width>
+	                    <height>150</height>
+	                    <timeperimage>999999999999999</timeperimage>
+	                    <randomize>true</randomize>
+	                    <fadetime>600</fadetime>
+	                    <loop>yes</loop>
+	                    <include>Animation_FanartFade</include>
+	                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Day1.FanartCode)]</imagepath>
+	                </control>
+	                <control type="image">
+	                    <posx>-16</posx>
+	                    <posy>-7</posy>
+	                    <width>243</width>
+	                    <height>62</height>
+	                    <colordiffuse>99000000</colordiffuse>
+	                    <texture>windows/common/black.png</texture>
+	                </control>
+                </control>      
+                <control type="label">
                     <description>day label</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>5</posy>
                     <width>206</width>
                     <height>30</height>
                     <label>$INFO[Window(Weather).Property(Day1.Title)]</label>
@@ -327,10 +375,33 @@
                     <height>285</height>
                     <texture border="7">windows/home/tile.png</texture>
                 </control>
+                <control type="group">
+                	<visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowWeatherFanart)</visible>
+	                <control type="multiimage">
+	                    <posx>-16</posx>
+	                    <posy>-97</posy>
+	                    <width>243</width>
+	                    <height>150</height>
+	                    <timeperimage>999999999999999</timeperimage>
+	                    <randomize>true</randomize>
+	                    <fadetime>600</fadetime>
+	                    <loop>yes</loop>
+	                    <include>Animation_FanartFade</include>
+	                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Day2.FanartCode)]</imagepath>
+	                </control>
+	                <control type="image">
+	                    <posx>-16</posx>
+	                    <posy>-7</posy>
+	                    <width>243</width>
+	                    <height>62</height>
+	                    <colordiffuse>99000000</colordiffuse>
+	                    <texture>windows/common/black.png</texture>
+	                </control>
+                </control>
                 <control type="label">
                     <description>day label</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>5</posy>
                     <width>206</width>
                     <height>30</height>
                     <label>$INFO[Window(Weather).Property(Day2.Title)]</label>
@@ -392,10 +463,33 @@
                     <height>285</height>
                     <texture border="7">windows/home/tile.png</texture>
                 </control>
+                <control type="group">
+                	<visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowWeatherFanart)</visible>
+	                <control type="multiimage">
+	                    <posx>-16</posx>
+	                    <posy>-97</posy>
+	                    <width>243</width>
+	                    <height>150</height>
+	                    <timeperimage>999999999999999</timeperimage>
+	                    <randomize>true</randomize>
+	                    <fadetime>600</fadetime>
+	                    <loop>yes</loop>
+	                    <include>Animation_FanartFade</include>
+	                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Day3.FanartCode)]</imagepath>
+	                </control>
+	                <control type="image">
+	                    <posx>-16</posx>
+	                    <posy>-7</posy>
+	                    <width>243</width>
+	                    <height>62</height>
+	                    <colordiffuse>99000000</colordiffuse>
+	                    <texture>windows/common/black.png</texture>
+	                </control>
+                </control>
                 <control type="label">
                     <description>day label</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>5</posy>
                     <width>206</width>
                     <height>30</height>
                     <label>$INFO[Window(Weather).Property(Day3.Title)]</label>
@@ -457,10 +551,33 @@
                     <height>285</height>
                     <texture border="7">windows/home/tile.png</texture>
                 </control>
+                <control type="group">
+                	<visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowWeatherFanart)</visible>
+	                <control type="multiimage">
+	                    <posx>-16</posx>
+	                    <posy>-97</posy>
+	                    <width>243</width>
+	                    <height>150</height>
+	                    <timeperimage>999999999999999</timeperimage>
+	                    <randomize>true</randomize>
+	                    <fadetime>600</fadetime>
+	                    <loop>yes</loop>
+	                    <include>Animation_FanartFade</include>
+	                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Day4.FanartCode)]</imagepath>
+	                </control>
+	                <control type="image">
+	                    <posx>-16</posx>
+	                    <posy>-7</posy>
+	                    <width>243</width>
+	                    <height>62</height>
+	                    <colordiffuse>99000000</colordiffuse>
+	                    <texture>windows/common/black.png</texture>
+	                </control>
+                </control>
                 <control type="label">
                     <description>day label</description>
                     <posx>0</posx>
-                    <posy>0</posy>
+                    <posy>5</posy>
                     <width>206</width>
                     <height>30</height>
                     <label>$INFO[Window(Weather).Property(Day4.Title)]</label>
