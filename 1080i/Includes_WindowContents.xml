@@ -19,7 +19,7 @@
     <include name="CommonOverlay">
         <control type="videowindow">
             <include>FullscreenDimensions</include>
-            <visible>[Skin.HasSetting(BackgroundVideo) + Player.HasVideo] | Pvr.IsPlayingTv</visible>
+            <visible>Skin.HasSetting(BackgroundVideo) + Player.HasVideo</visible>
         </control>
         <control type="image">
             <include>FullscreenDimensions</include>
