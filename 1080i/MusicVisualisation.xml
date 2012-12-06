@@ -74,21 +74,6 @@
                         <posy>1027</posy>
                         <width>360</width>
                         <height>25</height>
-                        <label>$LOCALIZE[112]</label>
-                        <scroll>false</scroll>
-                        <textcolor>aawhite</textcolor>
-                        <font>Font-Condensed-S34</font>
-                        <align>right</align>
-                        <visible>Player.Paused + ![Player.Seeking | Player.DisplayAfterSeek | Player.Forwarding | Player.Rewinding]</visible>
-                        <animation effect="fade" start="0" end="100" time="400" tween="sine" easing="inout">Visible</animation>
-                        <animation effect="fade" start="100" end="0" time="400" tween="sine" easing="inout">Hidden</animation>
-                    </control>
-                    <control type="label">
-                        <description>Pause / finish time</description>
-                        <posx>360</posx>
-                        <posy>1027</posy>
-                        <width>360</width>
-                        <height>25</height>
                         <label>$INFO[Player.SeekOffset,$LOCALIZE[773] ,]</label>
                         <scroll>false</scroll>
                         <textcolor>aawhite</textcolor>
@@ -140,6 +125,20 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <scroll>false</scroll>
+                            <visible>!Player.Paused</visible>
+                        </control>
+                        <control type="label">
+                            <posx>390</posx>
+                            <posy>818</posy>
+                            <width>1300</width>
+                            <height>56</height>
+                            <label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
+                            <textcolor>99FFFFFF</textcolor>
+                            <font>Font-Condensed-S50</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>false</scroll>
+                            <visible>Player.Paused</visible>
                         </control>
                         <control type="group">
                             <posy>825</posy>
