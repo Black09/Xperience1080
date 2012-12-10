@@ -2,6 +2,7 @@
     <defaultcontrol always="true">300</defaultcontrol>
     <onunload condition="IsEmpty(Window(virtualkeyboard).Property(Clear))">ClearProperty(HomeSearch,home)</onunload>
     <onunload>ClearProperty(Clear,virtualkeyboard))</onunload>
+    <zorder>3</zorder>
     <controls>
         <control type="group">
             <animation type="WindowOpen" condition="Window.IsVisible(ProfileSettings) | Window.IsVisible(mediasource) | Window.IsVisible(networksetup) | Window.IsVisible(addonsettings) | Window.IsVisible(contextmenu) | Window.IsVisible(smartplaylisteditor) | Window.IsVisible(script-RSS_Editor-rssEditor.xml) | Window.IsVisible(script-RSS_Editor-setEditor.xml) | Window.IsVisible(progressdialog) | Window.IsVisible(3003) | Window.IsVisible(peripheralsettings) | Window.IsVisible(selectdialog) | Window.IsVisible(DialogSelect.xml) | Window.IsVisible(mediafilter) | Window.IsVisible(pvrgroupmanager) | Window.IsVisible(pvrtimersetting) | Window.IsVisible(pvrguidesearch) | Window.IsVisible(pvrchannelmanager)" reversible="false">
@@ -10,6 +11,7 @@
             <animation type="WindowOpen" condition="!IsEmpty(Window(Home).Property(HomeSearch))" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="500" />
             </animation>
+            <include condition="Window.IsActive(fullscreenvideo)">FadeBackgroundDialog</include>
             <control type="group">
                 <posx>424</posx>
                 <posy>294</posy>
