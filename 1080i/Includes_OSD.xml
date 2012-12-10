@@ -111,12 +111,22 @@
                 </control>
             </control>
             <control type="image">
-                <description>Finish time image</description>
+                <description>Clock image</description>
                 <posx>1563</posx>
                 <posy>47</posy>
                 <width>100</width>
                 <height>100</height>
-                <texture>osd/fullscreen/clock-finish.png</texture>
+                <texture>osd/fullscreen/clock.png</texture>
+                <visible>!Control.IsVisible(24)</visible>
+            </control>
+            <control type="image" id="24">
+                <description>Clock image</description>
+                <posx>1563</posx>
+                <posy>47</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>osd/fullscreen/clock-pm.png</texture>
+                <visible>substring(System.Time,Pm,right)</visible>
             </control>
             <control type="label">
                 <description>Clock label</description>
@@ -124,7 +134,7 @@
                 <posy>79</posy>
                 <width>150</width>
                 <height>34</height>
-                <label>$INFO[Player.FinishTime(hh:mm)]</label>
+                <label>$INFO[System.Time(hh)]:$INFO[System.Time(mm)]</label>
                 <font>Font-Condensed-S34</font>
                 <textcolor>aawhite</textcolor>
                 <align>right</align>
@@ -134,22 +144,12 @@
                 <visible>!Player.Forwarding + !Player.Rewinding</visible>
                 <include>visiblehidefadeinfo</include>
                 <control type="image">
-                    <description>Clock image</description>
+                    <description>Finish time image</description>
                     <posx>1730</posx>
                     <posy>47</posy>
                     <width>100</width>
                     <height>100</height>
-                    <texture>osd/fullscreen/clock.png</texture>
-                    <visible>!Control.IsVisible(24)</visible>
-                </control>
-                <control type="image" id="24">
-                    <description>Clock image</description>
-                    <posx>1730</posx>
-                    <posy>47</posy>
-                    <width>100</width>
-                    <height>100</height>
-                    <texture>osd/fullscreen/clock-pm.png</texture>
-                    <visible>substring(System.Time,Pm,right)</visible>
+                    <texture>osd/fullscreen/clock-finish.png</texture>
                 </control>
                 <control type="label">
                     <description>Clock label</description>
@@ -157,7 +157,7 @@
                     <posy>79</posy>
                     <width>150</width>
                     <height>34</height>
-                    <label>$INFO[System.Time(hh)]:$INFO[System.Time(mm)]</label>
+                    <label>$INFO[Player.FinishTime(hh:mm)]</label>
                     <font>Font-Condensed-S34</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
