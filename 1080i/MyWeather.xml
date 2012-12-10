@@ -806,7 +806,7 @@
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(201)">Conditional</animation>
                 </control>
                 <control type="radiobutton" id="202">
-                    <description>Hide fanart</description>
+                    <description>Hide daily fanart</description>
                     <posy>228</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41692]</label>
@@ -818,9 +818,10 @@
                     <radioposx>-19</radioposx>
                     <onleft>99</onleft>
                     <onright>99</onright>
-                    <onup>4</onup>
-                    <ondown>202</ondown>
-                    <visible>Skin.HasSetting(ShowWeatherFanart)</visible>
+                    <onup>201</onup>
+                    <ondown>203</ondown>
+                    <enable>Skin.HasSetting(ShowWeatherFanart)</enable>
+                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(202)">Conditional</animation>
                 </control>
                 <control type="button" id="203">
                     <description>Set fanart path</description>
@@ -835,7 +836,7 @@
                     <onright>99</onright>
                     <onup>201</onup>
                     <ondown>3</ondown>
-                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(202)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(203)">Conditional</animation>
                 </control>
             </control>
             
