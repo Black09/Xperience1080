@@ -1863,97 +1863,98 @@
                 <effect type="zoom" start="100" end="75" center="960,540" easing="in" tween="back" time="300" />
                 <effect type="fade" start="100" end="0" delay="200" time="100" />
             </animation>
-            <visible>!Window.IsVisible(yesnodialog)</visible>
+            <animation effect="slide" end="0,42" time="0" condition="!Window.IsActive(videoosd)">Conditional</animation>
             <control type="label">
                 <description>Header</description>
-                <posx>510</posx>
-                <posy>243</posy>
-                <width>900</width>
+                <posx>100</posx>
+                <posy>73</posy>
+                <width>680</width>
                 <height>38</height>
                 <align>center</align>
+                <textoffsetx>30</textoffsetx>
                 <label>$INFO[ListItem.Title]</label>
                 <font>Font-Condensed-S34-B</font>
                 <textcolor>bbwhite</textcolor>
                 <shadowcolor>66000000</shadowcolor>
             </control>
             <control type="group">
-                <posx>420</posx>
-                <posy>300</posy>
+                <posx>100</posx>
+                <posy>124</posy>
                 <control type="button">
                 	<description>Time</description>
                 	<posx>0</posx>
                 	<posy>0</posy>
-                	<width>1080</width>
-                	<height>60</height>
+                	<width>680</width>
+                	<height>70</height>
                 	<align>left</align>
-                	<textoffsetx>35</textoffsetx>
+                	<textoffsetx>30</textoffsetx>
                 	<textwidth>540</textwidth>
-                	<font>Font-Condensed-S34-B</font>
+                	<font>Font-Condensed-S34</font>
                 	<textcolor>99FFFFFF</textcolor>
                 	<disabledcolor>99FFFFFF</disabledcolor>
                 	<texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                	<label>$LOCALIZE[142]</label>
+                	<label>[B]$LOCALIZE[142][/B]</label>
                 	<label2>[COLOR=AAFFFFFF]$INFO[ListItem.StartTime] - $INFO[ListItem.EndTime] ($INFO[ListItem.StartDate])[/COLOR]</label2>
                 	<enable>false</enable>
                 </control>
                 <control type="button">
                 	<description>Duration</description>
                 	<posx>0</posx>
-                	<posy>60</posy>
-                	<width>1080</width>
-                	<height>60</height>
+                	<posy>70</posy>
+                	<width>680</width>
+                	<height>70</height>
                 	<align>left</align>
-                	<textoffsetx>35</textoffsetx>
+                	<textoffsetx>30</textoffsetx>
                 	<textwidth>540</textwidth>
-                	<font>Font-Condensed-S34-B</font>
+                	<font>Font-Condensed-S34</font>
                 	<textcolor>99FFFFFF</textcolor>
                 	<disabledcolor>99FFFFFF</disabledcolor>
                 	<texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                	<label>$LOCALIZE[180]</label>
+                	<label>[B]$LOCALIZE[180]:[/B]</label>
                 	<label2>[COLOR=AAFFFFFF]$INFO[ListItem.Duration][/COLOR]</label2>
                 	<enable>false</enable>
                 </control>
                 <control type="button">
                 	<description>Channel</description>
                 	<posx>0</posx>
-                	<posy>120</posy>
-                	<width>1080</width>
-                	<height>60</height>
+                	<posy>140</posy>
+                	<width>680</width>
+                	<height>70</height>
                 	<align>left</align>
-                	<textoffsetx>35</textoffsetx>
+                	<textoffsetx>30</textoffsetx>
                 	<textwidth>540</textwidth>
-                	<font>Font-Condensed-S34-B</font>
+                	<font>Font-Condensed-S34</font>
                 	<textcolor>99FFFFFF</textcolor>
                 	<disabledcolor>99FFFFFF</disabledcolor>
                 	<texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                	<label>$LOCALIZE[19148]</label>
+                	<label>[B]$LOCALIZE[19148]:[/B]</label>
                 	<label2>[COLOR=AAFFFFFF]$INFO[ListItem.ChannelName][/COLOR]</label2>
                 	<enable>false</enable>
                 </control>
                 <control type="button">
                 	<description>Genre</description>
                 	<posx>0</posx>
-                	<posy>180</posy>
-                	<width>1080</width>
-                	<height>60</height>
+                	<posy>210</posy>
+                	<width>680</width>
+                	<height>70</height>
                 	<align>left</align>
-                	<textoffsetx>35</textoffsetx>
+                	<textoffsetx>30</textoffsetx>
                 	<textwidth>540</textwidth>
-                	<font>Font-Condensed-S34-B</font>
+                	<font>Font-Condensed-S34</font>
                 	<textcolor>99FFFFFF</textcolor>
                 	<disabledcolor>99FFFFFF</disabledcolor>
                 	<texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                	<label>$LOCALIZE[135]</label>
+                	<label>[B]$LOCALIZE[135]:[/B]</label>
                 	<label2 fallback="161">[COLOR=AAFFFFFF]$INFO[ListItem.Genre][/COLOR]</label2>
                 	<enable>false</enable>
                 </control>
             </control>
             <control type="textbox" id="400">
             	<description>Plot value</description>
-            	<posx>460</posx>
-            	<posy>560</posy>
-            	<width>1010</width>
-            	<height>190</height>
+            	<posx>130</posx>
+            	<posy>430</posy>
+            	<width>620</width>
+            	<height>410</height>
             	<font>Font-Condensed-S34</font>
             	<align>justify</align>
             	<textcolor>aawhite</textcolor>
@@ -1963,10 +1964,10 @@
             </control>
             <control type="scrollbar" id="60">
                 <description>Scrollbar</description>
-                <posx>1476</posx>
-                <posy>560</posy>
+                <posx>759</posx>
+                <posy>430</posy>
                 <width>11</width>
-                <height>190</height>
+                <height>410</height>
                 <onleft>8000</onleft>
                 <onright>8000</onright>
                 <ondown>60</ondown>
@@ -1978,8 +1979,8 @@
                 <animation effect="fade" start="30" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
             </control>
             <control type="group" id="8000">
-                <posx>423</posx>
-                <posy>750</posy>
+                <posx>100</posx>
+                <posy>840</posy>
                 <control type="button" id="7">
                     <description>Select</description>
                     <texturefocus>buttons/cancel-fo.png</texturefocus>
@@ -2008,7 +2009,7 @@
                     <ondown>60</ondown>
                 </control>
                 <control type="button" id="6">
-                    <posx>721</posx>
+                    <posx>327</posx>
                     <description>Record</description>
                     <label>-</label>
                     <textcolor>77white</textcolor>

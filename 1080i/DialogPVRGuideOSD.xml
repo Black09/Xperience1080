@@ -5,9 +5,13 @@
 	    <control type="group">
 	        <include>NowPlayingFullscreen</include>
 	        <include>FullscreenDimensions</include>
+	        <animation effect="slide" end="0,42" time="0" condition="!Window.IsActive(videoosd)">Conditional</animation>
 	        <control type="image">
-	            <include>FullscreenDimensions</include>
-	            <texture>osd/fullscreen/osdsettings.png</texture>
+	            <posx>-320</posx>
+	            <posy>-171</posy>
+	            <width>1520</width>
+	            <height>1339</height>
+	            <texture border="610,340,610,340">osd/fullscreen/osdsettings.png</texture>
 	            <aspectratio>stretch</aspectratio>
 	        </control>
 	        <control type="group">
@@ -15,41 +19,42 @@
 	            <include>visiblehidefadeinfo</include>
 	            <control type="label">
 	                <description>Header</description>
-	                <posx>510</posx>
-	                <posy>243</posy>
-	                <width>900</width>
+	                <posx>100</posx>
+	                <posy>73</posy>
+	                <width>680</width>
 	                <height>38</height>
 	                <align>center</align>
+	                <textoffsetx>30</textoffsetx>
 	                <label>$LOCALIZE[19222]$INFO[VideoPlayer.ChannelName, • ,]$INFO[Container(11).ListItem.StartDate, • ,]</label>
 	                <font>Font-Condensed-S34-B</font>
 	                <textcolor>bbwhite</textcolor>
 	                <shadowcolor>66000000</shadowcolor>
 	            </control>
 	            <control type="list" id="11">
-	                <posx>420</posx>
-	                <posy>294</posy>
-	                <width>1080</width>
-	                <height>505</height>
+	                <posx>100</posx>
+	                <posy>124</posy>
+	                <width>680</width>
+	                <height>761</height>
 	                <onleft>60</onleft>
 	                <onright>60</onright>
 	                <onup>11</onup>
 	                <ondown>11</ondown>
 	                <pagecontrol>60</pagecontrol>
 	                <scrolltime>0</scrolltime>
-	                <itemlayout width="1080" height="72">
+	                <itemlayout width="680" height="76">
 	                    <control type="image">
 	                        <posx>0</posx>
 	                        <posy>0</posy>
-	                        <width>1080</width>
-	                        <height>73</height>
+	                        <width>680</width>
+	                        <height>77</height>
 	                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>35</posx>
+	                        <posx>30</posx>
 	                        <posy>0</posy>
-	                        <width>1010</width>
-	                        <height>72</height>
+	                        <width>620</width>
+	                        <height>76</height>
 	                        <font>Font-Condensed-S34</font>
 	                        <align>left</align>
 	                        <label>$INFO[ListItem.StartTime]</label>
@@ -59,10 +64,10 @@
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>1045</posx>
+	                        <posx>650</posx>
 	                        <posy>0</posy>
-	                        <width>1010</width>
-	                        <height>72</height>
+	                        <width>620</width>
+	                        <height>76</height>
 	                        <font>Font-Condensed-S34-B</font>
 	                        <align>right</align>
 	                        <label>$INFO[ListItem.Label]</label>
@@ -73,10 +78,10 @@
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>999</posx>
+	                        <posx>597</posx>
 	                        <posy>0</posy>
-	                        <width>974</width>
-	                        <height>72</height>
+	                        <width>567</width>
+	                        <height>76</height>
 	                        <font>Font-Condensed-S34-B</font>
 	                        <align>right</align>
 	                        <label>$INFO[ListItem.Label]</label>
@@ -88,15 +93,15 @@
 	                    <control type="group">
 	                        <visible>ListItem.IsRecording</visible>
 	                        <control type="image">
-	                        	<posx>999</posx>
-	                        	<posy>-4</posy>
+	                        	<posx>997</posx>
+	                        	<posy>-2</posy>
 	                        	<width>66</width>
 	                        	<height>80</height>
 	                        	<texture>windows/pvr/epg-recording.png</texture>
 	                        </control>
 	                        <control type="image">
-	                        	<posx>999</posx>
-	                        	<posy>-4</posy>
+	                        	<posx>997</posx>
+	                        	<posy>-2</posy>
 	                        	<width>66</width>
 	                        	<height>80</height>
 	                        	<texture>windows/pvr/epg-recording-pulse.png</texture>
@@ -104,15 +109,15 @@
 	                        </control>
 	                    </control>
 	                    <control type="image">
-	                    	<posx>999</posx>
-	                    	<posy>-4</posy>
+	                    	<posx>997</posx>
+	                    	<posy>-2</posy>
 	                    	<width>66</width>
 	                    	<height>80</height>
 	                    	<texture>windows/pvr/epg-timer.png</texture>
 	                    	<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 	                    </control>
 	                    <control type="image">
-	                        <posx>1051</posx>
+	                        <posx>651</posx>
 	                        <posy>-10</posy>
 	                        <width>39</width>
 	                        <height>39</height>
@@ -120,13 +125,20 @@
 	                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
 	                    </control>
 	                </itemlayout>
-	                <focusedlayout width="1080" height="72">
+	                <focusedlayout width="1080" height="76">
 	                    <control type="image">
 	                        <posx>0</posx>
 	                        <posy>0</posy>
-	                        <width>1080</width>
-	                        <height>71</height>
-	                        <texture border="150,1,150,1">windows/settings/images/right-focus.png</texture>
+	                        <width>680</width>
+	                        <height>77</height>
+	                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
+	                    </control>
+	                    <control type="image">
+	                        <posx>0</posx>
+	                        <posy>0</posy>
+	                        <width>680</width>
+	                        <height>75</height>
+	                        <texture border="150,1,150,1">views/other/focus.png</texture>
 	                        <aspectratio>stretch</aspectratio>
 	                        <visible>Control.HasFocus(11)</visible>
 	                        <include>visiblehidefadeinfo</include>
@@ -135,10 +147,10 @@
 	                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11)">Conditional</animation>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>35</posx>
+	                            <posx>30</posx>
 	                            <posy>0</posy>
-	                            <width>1010</width>
-	                            <height>72</height>
+	                            <width>620</width>
+	                            <height>76</height>
 	                            <font>Font-Condensed-S34</font>
 	                            <align>left</align>
 	                            <label>$INFO[ListItem.StartTime]</label>
@@ -148,10 +160,10 @@
 	                        </control>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>1045</posx>
+	                            <posx>650</posx>
 	                            <posy>0</posy>
-	                            <width>1010</width>
-	                            <height>72</height>
+	                            <width>620</width>
+	                            <height>76</height>
 	                            <font>Font-Condensed-S34-B</font>
 	                            <align>right</align>
 	                            <label>$INFO[ListItem.Label]</label>
@@ -162,10 +174,10 @@
 	                        </control>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>999</posx>
+	                            <posx>597</posx>
 	                            <posy>0</posy>
-	                            <width>974</width>
-	                            <height>72</height>
+	                            <width>567</width>
+	                            <height>76</height>
 	                            <font>Font-Condensed-S34-B</font>
 	                            <align>right</align>
 	                            <label>$INFO[ListItem.Label]</label>
@@ -178,15 +190,15 @@
 	                    <control type="group">
 	                        <visible>ListItem.IsRecording</visible>
 	                        <control type="image">
-	                        	<posx>999</posx>
-	                        	<posy>-4</posy>
+	                        	<posx>597</posx>
+	                        	<posy>-2</posy>
 	                        	<width>66</width>
 	                        	<height>80</height>
 	                        	<texture>windows/pvr/epg-recording.png</texture>
 	                        </control>
 	                        <control type="image">
-	                        	<posx>999</posx>
-	                        	<posy>-4</posy>
+	                        	<posx>597</posx>
+	                        	<posy>-2</posy>
 	                        	<width>66</width>
 	                        	<height>80</height>
 	                        	<texture>windows/pvr/epg-recording-pulse.png</texture>
@@ -194,15 +206,15 @@
 	                        </control>
 	                    </control>
 	                    <control type="image">
-	                    	<posx>999</posx>
-	                    	<posy>-4</posy>
+	                    	<posx>597</posx>
+	                    	<posy>-2</posy>
 	                    	<width>66</width>
 	                    	<height>80</height>
 	                    	<texture>windows/pvr/epg-timer.png</texture>
 	                    	<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
 	                    </control>
 	                    <control type="image">
-	                        <posx>1051</posx>
+	                        <posx>651</posx>
 	                        <posy>-10</posy>
 	                        <width>39</width>
 	                        <height>39</height>
@@ -211,23 +223,36 @@
 	                    </control>
 	                </focusedlayout>
 	            </control>
+	            <control type="image" id="62">
+	                <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
+	            </control>
+	            <control type="image" id="61">
+	                <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+	                <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
+	                <visible>Control.HasFocus(60) | !Control.IsVisible(62)</visible>
+	            </control>
+	            <control type="image" id="61">
+	                <animation effect="fade" start="0" end="100" time="0">Visible</animation>
+	                <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
+	                <visible>!Control.HasFocus(60) + [Container(11).Scrolling | Container(11).OnScrollNext | Container(11).OnScrollPrevious]</visible>
+	            </control>
 	            <control type="scrollbar" id="60">
 	                <description>Scrollbar</description>
-	                <posx>1476</posx>
-	                <posy>304</posy>
+	                <posx>759</posx>
+	                <posy>134</posy>
 	                <width>11</width>
-	                <height>512</height>
+	                <height>741</height>
 	                <onleft>11</onleft>
 	                <onright>11</onright>
 	                <texturesliderbar border="0,6,0,6">views/other/scrollbar.png</texturesliderbar>
 	                <texturesliderbarfocus border="0,6,0,6">views/other/scrollbar.png</texturesliderbarfocus>
 	                <orientation>vertical</orientation>
 	                <showonepage>false</showonepage>
-	                <animation effect="fade" start="30" end="30" time="0" condition="true">Conditional</animation>
+	                <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(61)">Conditional</animation>
 	            </control>
 	            <control type="label">
-	                <posx>1465</posx>
-	                <posy>770</posy>
+	                <posx>750</posx>
+	                <posy>861</posy>
 	                <width>800</width>
 	                <height>100</height>
 	                <font>Font-Condensed-S30</font>

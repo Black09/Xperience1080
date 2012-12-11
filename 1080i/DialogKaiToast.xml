@@ -92,40 +92,42 @@
         <control type="group">
 			<include>BannerListInfoAnimation</include>
 			<visible>Window.IsActive(fullscreenvideo) | [Window.IsActive(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
+			<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
+			<animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar)">Conditional</animation>
 			<control type="image">
-				<posx>43</posx>
+				<posx>1218</posx>
 				<posy>0</posy>
-				<width>624</width>
+				<width>702</width>
 				<height>194</height>
 				<texture>overlays/notification/back-vf.png</texture>
 				<aspectratio>stretch</aspectratio>
 			</control>
 			<control type="label">
-				<posx>205</posx>
+				<posx>1715</posx>
 				<posy>66</posy>
-				<width>385</width>
+				<width>375</width>
 				<height>34</height>
 				<font>Font-Condensed-S34</font>
-				<align>left</align>
+				<align>right</align>
 				<textcolor>aawhite</textcolor>
-				<label>$INFO[Control.GetLabel(401)]</label>
+				<label>$INFO[Control.GetLabel(401)] ewiobgwoiebo wiebgoiwebgoi beowigb oweibgoiwebgoiwbeoiwe</label>
 				<scroll>false</scroll>
 				<animation effect="slide" end="0,14" time="300" tween="sine" easing="inout" condition="IsEmpty(Control.GetLabel(402))">Conditional</animation>
 			</control>
 			<control type="label">
-				<posx>205</posx>
+				<posx>1715</posx>
 				<posy>96</posy>
-				<width>385</width>
+				<width>375</width>
 				<height>34</height>
 				<font>Font-Condensed-S28</font>
-				<align>left</align>
+				<align>right</align>
 				<textcolor>77white</textcolor>
 				<label>$INFO[Control.GetLabel(402)]</label>
 				<scroll>false</scroll>
 			</control>
 			<control type="image" id="400">
 				<description>Icon</description>
-				<posx>112</posx>
+				<posx>1748</posx>
 				<posy>68</posy>
 				<width>58</width>
 				<height>58</height>
@@ -135,7 +137,7 @@
 			</control>
 			<control type="image" id="403">
 				<description>Info</description>
-				<posx>132</posx>
+				<posx>1748</posx>
 				<posy>89</posy>
 				<width>58</width>
 				<height>58</height>
@@ -145,7 +147,7 @@
 			</control>
 			<control type="image" id="404">
 				<description>Warning</description>
-				<posx>132</posx>
+				<posx>1748</posx>
 				<posy>89</posy>
 				<width>58</width>
 				<height>58</height>
@@ -155,7 +157,7 @@
 			</control>
 			<control type="image" id="405">
 				<description>Error</description>
-				<posx>132</posx>
+				<posx>1748</posx>
 				<posy>89</posy>
 				<width>58</width>
 				<height>58</height>
