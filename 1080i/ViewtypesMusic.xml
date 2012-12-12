@@ -31,7 +31,8 @@
                 <height>700</height>
                 <width>1420</width>
                 <pagecontrol>70</pagecontrol>
-                <onleft>9010</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="Skin.HasSetting(KioskMode)">50</onleft>
                 <onright>70</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
@@ -834,8 +835,8 @@
                 <posy>190</posy>
                 <width>6</width>
                 <height>700</height>
-                <onleft condition="!Control.IsVisible(500)">50</onleft>
-                <onleft condition="Control.IsVisible(500)">9010</onleft>
+                <onleft condition="!Control.IsVisible(500) | [Control.IsVisible(500) + Skin.HasSetting(KioskMode)]">50</onleft>
+                <onleft condition="Control.IsVisible(500) + !Skin.HasSetting(KioskMode)">9010</onleft>
                 <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                 <onright condition="Skin.HasSetting(KioskMode)">50</onright>
                 <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
@@ -1057,7 +1058,8 @@
                     <width>630</width>
                     <height>480</height>
                     <pagecontrol>70</pagecontrol>
-                    <onleft>9111</onleft>
+                    <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                    <onleft condition="Skin.HasSetting(KioskMode)">52</onleft>
                     <onright>70</onright>
                     <onup>52</onup>
                     <ondown>52</ondown>
@@ -1421,7 +1423,8 @@
                     <pagecontrol>70</pagecontrol>
                     <onleft>53</onleft>
                     <onright>53</onright>
-                    <onup>9111</onup>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">53</onup>
                     <ondown>70</ondown>
                     <orientation>horizontal</orientation>
                     <viewtype label="Panel">list</viewtype>
@@ -2347,7 +2350,6 @@
                     </control>
                 </control>
             </control>
-            
             <control type="group">      
                 <visible>!Window.IsActive(musicinformation) + Control.IsVisible(55)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
@@ -2364,7 +2366,8 @@
                     <viewtype label="Cover">list</viewtype>
                     <onleft>55</onleft>
                     <onright>55</onright>
-                    <onup>9010</onup>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">55</onup>
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
@@ -2689,7 +2692,8 @@
                     <orientation>vertical</orientation>
                     <viewtype label="$LOCALIZE[21371]">list</viewtype>
                     <onleft>70</onleft>
-                    <onright>9010</onright>
+                    <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+                    <onright condition="Skin.HasSetting(KioskMode)">501</onright>
                     <onup>501</onup>
                     <ondown>501</ondown>
                     <preloaditems>2</preloaditems>
@@ -2896,7 +2900,8 @@
                 <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <orientation>vertical</orientation>
                 <viewtype label="Banner">list</viewtype>
-                <onleft>9010</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="Skin.HasSetting(KioskMode)">60</onleft>
                 <onright>70</onright>
                 <onup>60</onup>
                 <ondown>60</ondown>

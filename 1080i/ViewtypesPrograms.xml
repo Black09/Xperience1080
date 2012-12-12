@@ -31,7 +31,8 @@
                 <height>700</height>
                 <width>1420</width>
                 <pagecontrol>70</pagecontrol>
-                <onleft>9010</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="Skin.HasSetting(KioskMode)">50</onleft>
                 <onright>70</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
@@ -165,8 +166,8 @@
                 <posy>190</posy>
                 <width>6</width>
                 <height>700</height>
-                <onleft condition="!Control.IsVisible(500)">50</onleft>
-                <onleft condition="Control.IsVisible(500)">9010</onleft>
+                <onleft condition="!Control.IsVisible(500) | [Control.IsVisible(500) + Skin.HasSetting(KioskMode)]">50</onleft>
+                <onleft condition="Control.IsVisible(500) + !Skin.HasSetting(KioskMode)">9010</onleft>
                 <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                 <onright condition="Skin.HasSetting(KioskMode)">50</onright>
                 <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>

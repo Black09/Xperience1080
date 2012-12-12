@@ -31,7 +31,8 @@
                 <height>700</height>
                 <width>1420</width>
                 <pagecontrol>70</pagecontrol>
-                <onleft>9010</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="Skin.HasSetting(KioskMode)">50</onleft>
                 <onright>70</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
@@ -884,8 +885,8 @@
                 <posy>190</posy>
                 <width>6</width>
                 <height>700</height>
-                <onleft condition="!Control.IsVisible(500)">50</onleft>
-                <onleft condition="Control.IsVisible(500)">9010</onleft>
+                <onleft condition="!Control.IsVisible(500) | [Control.IsVisible(500) + Skin.HasSetting(KioskMode)]">50</onleft>
+                <onleft condition="Control.IsVisible(500) + !Skin.HasSetting(KioskMode)">9010</onleft>
                 <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                 <onright condition="Skin.HasSetting(KioskMode)">50</onright>
                 <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
@@ -1129,7 +1130,8 @@
                     <width>710</width>
                     <height>600</height>
                     <pagecontrol>70</pagecontrol>
-                    <onleft>9111</onleft>
+                    <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                    <onleft condition="Skin.HasSetting(KioskMode)">52</onleft>
                     <onright>70</onright>
                     <onup>52</onup>
                     <ondown>52</ondown>
@@ -1613,7 +1615,8 @@
                     <pagecontrol>70</pagecontrol>
                     <onleft>53</onleft>
                     <onright>53</onright>
-                    <onup>9111</onup>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">53</onup>
                     <ondown>70</ondown>
                     <viewtype label="Panel">list</viewtype>
                     <preloaditems>2</preloaditems>
@@ -2509,7 +2512,8 @@
                     <viewtype label="Landscape">list</viewtype>
                     <onleft>54</onleft>
                     <onright>54</onright>
-                    <onup>9010</onup>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">54</onup>
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
@@ -3411,7 +3415,8 @@
                     <viewtype label="Poster">list</viewtype>
                     <onleft>55</onleft>
                     <onright>55</onright>
-                    <onup>9010</onup>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">55</onup>
                     <ondown>70</ondown>
                     <focusposition>1</focusposition>
                     <preloaditems>2</preloaditems>
@@ -3743,7 +3748,8 @@
                     <orientation>vertical</orientation>
                     <viewtype label="$LOCALIZE[21371]">list</viewtype>
                     <onleft>70</onleft>
-                    <onright>9010</onright>
+                    <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+                    <onright condition="Skin.HasSetting(KioskMode)">500</onright>
                     <onup>500</onup>
                     <ondown>500</ondown>
                     <preloaditems>2</preloaditems>
@@ -4071,7 +4077,8 @@
                     <orientation>vertical</orientation>
                     <viewtype label="$LOCALIZE[21371]">list</viewtype>
                     <onleft>70</onleft>
-                    <onright>9010</onright>
+                    <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+                    <onright condition="Skin.HasSetting(KioskMode)">501</onright>
                     <onup>501</onup>
                     <ondown>501</ondown>
                     <preloaditems>2</preloaditems>
@@ -4459,7 +4466,8 @@
                 <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <orientation>vertical</orientation>
                 <viewtype label="Banner">list</viewtype>
-                <onleft>9010</onleft>
+                <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="Skin.HasSetting(KioskMode)">60</onleft>
                 <onright>70</onright>
                 <onup>60</onup>
                 <ondown>60</ondown>
