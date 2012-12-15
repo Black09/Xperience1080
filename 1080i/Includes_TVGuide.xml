@@ -490,7 +490,7 @@
                 <visible>!Window.IsActive(movieinformation)</visible>
                 <include>BannerListInfoAnimation</include>
                 <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
-                <animation type="Conditional" condition="Window.IsActive(volumebar) | Window.IsActive(extendedprogressdialog) | Window.IsActive(infodialog) | Player.HasMedia">
+                <animation type="Conditional" condition="Window.IsActive(volumebar) | Window.IsActive(extendedprogressdialog) | Window.IsActive(infodialog) | [Player.HasMedia + IsEmpty(Window(videos).property(TvTunesIsAlive))]">
                     <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
                     <effect type="zoom" start="100" end="50" center="1745,100" tween="sine" easing="inout" time="300" />
                 </animation>
