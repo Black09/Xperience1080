@@ -2006,7 +2006,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb-1]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo-1]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2124,7 +2134,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb3]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo3]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2242,7 +2262,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb2]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo2]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2360,7 +2390,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb1]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo1]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2473,7 +2513,17 @@
                         <width>480</width>
                         <height>270</height>
                         <texture background="true">$VAR[ExtendedViewThumb0]</texture>
+                        <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                        <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>480</width>
+                        <height>270</height>
+                        <texture background="true">$VAR[ExtendedViewLogo0]</texture>
                         <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                        <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -2600,7 +2650,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2709,7 +2769,17 @@
                             <width>480</width>
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb]</texture>
+                            <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
+                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>480</width>
+                            <height>270</height>
+                            <texture background="true">$VAR[ExtendedViewLogo]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
+                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>

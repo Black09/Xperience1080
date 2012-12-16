@@ -276,8 +276,6 @@
     
     <variable name="ExtendedViewThumb">
         <value condition="Container.Content(episodes)">$INFO[ListItem.Art(thumb)]</value>
-        <value condition="[!IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(ListItem.Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[ListItem.Art(clearlogo)]</value>
-        <value condition="!IsEmpty(ListItem.Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[ListItem.Art(clearart)]</value>
         <value condition="!IsEmpty(ListItem.Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[ListItem.Art(landscape)]</value>
         <value condition="!IsEmpty(ListItem.Art(fanart))">$INFO[ListItem.Art(fanart)]</value>    
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/landscape.png]</value>
@@ -285,8 +283,6 @@
     
     <variable name="ExtendedViewThumb0">
         <value condition="Container.Content(episodes)">$INFO[Container(54).ListItem(0).Art(thumb)]</value>
-        <value condition="[!IsEmpty(Container(54).ListItem(0).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(0).Art(clearlogo)]</value>
-        <value condition="!IsEmpty(Container(54).ListItem(0).Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(0).Art(clearart)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(0).Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(0).Art(landscape)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(0).Art(fanart))">$INFO[Container(54).ListItem(0).Art(fanart)]</value>    
         <value>$INFO[Container(54).ListItem(0).ActualIcon,views/fallbacks/,/landscape.png]</value>
@@ -294,8 +290,6 @@
     
     <variable name="ExtendedViewThumb1">
         <value condition="Container.Content(episodes)">$INFO[Container(54).ListItem(1).Art(thumb)]</value>
-        <value condition="[!IsEmpty(Container(54).ListItem(1).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(1).Art(clearlogo)]</value>
-        <value condition="!IsEmpty(Container(54).ListItem(1).Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(1).Art(clearart)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(1).Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(1).Art(landscape)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(1).Art(fanart))">$INFO[Container(54).ListItem(1).Art(fanart)]</value>    
         <value>$INFO[Container(54).ListItem(1).ActualIcon,views/fallbacks/,/landscape.png]</value>
@@ -303,8 +297,6 @@
     
     <variable name="ExtendedViewThumb2">
         <value condition="Container.Content(episodes)">$INFO[Container(54).ListItem(2).Art(thumb)]</value>
-        <value condition="[!IsEmpty(Container(54).ListItem(2).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(2).Art(clearlogo)]</value>
-        <value condition="!IsEmpty(Container(54).ListItem(2).Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(2).Art(clearart)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(2).Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(2).Art(landscape)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(2).Art(fanart))">$INFO[Container(54).ListItem(2).Art(fanart)]</value>    
         <value>$INFO[Container(54).ListItem(2).ActualIcon,views/fallbacks/,/landscape.png]</value>
@@ -312,8 +304,6 @@
     
     <variable name="ExtendedViewThumb3">
         <value condition="Container.Content(episodes)">$INFO[Container(54).ListItem(3).Art(thumb)]</value>
-        <value condition="[!IsEmpty(Container(54).ListItem(3).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(3).Art(clearlogo)]</value>
-        <value condition="!IsEmpty(Container(54).ListItem(3).Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(3).Art(clearart)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(3).Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(3).Art(landscape)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(3).Art(fanart))">$INFO[Container(54).ListItem(3).Art(fanart)]</value>    
         <value>$INFO[Container(54).ListItem(3).ActualIcon,views/fallbacks/,/landscape.png]</value>
@@ -321,11 +311,39 @@
     
     <variable name="ExtendedViewThumb-1">
         <value condition="Container.Content(episodes)">$INFO[Container(54).ListItem(-1).Art(thumb)]</value>
-        <value condition="[!IsEmpty(Container(54).ListItem(-1).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(-1).Art(clearlogo)]</value>
-        <value condition="!IsEmpty(Container(54).ListItem(-1).Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(-1).Art(clearart)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(-1).Art(landscape)) + [Skin.HasSetting(ExtendedUseLandscape) | Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[Container(54).ListItem(-1).Art(landscape)]</value>
         <value condition="!IsEmpty(Container(54).ListItem(-1).Art(fanart))">$INFO[Container(54).ListItem(-1).Art(fanart)]</value>    
         <value>$INFO[Container(54).ListItem(-1).ActualIcon,views/fallbacks/,/landscape.png]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo">
+        <value condition="[!IsEmpty(ListItem.Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(ListItem.Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[ListItem.Art(clearlogo)]</value>
+        <value condition="!IsEmpty(ListItem.Art(clearart)) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">$INFO[ListItem.Art(clearart)]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo0">
+        <value condition="[!IsEmpty(Container(54).ListItem(0).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(0).Art(clearlogo)]</value>
+        <value>$INFO[Container(54).ListItem(0).Art(clearart)]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo1">
+        <value condition="[!IsEmpty(Container(54).ListItem(1).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(1).Art(clearlogo)]</value>
+        <value>$INFO[Container(54).ListItem(1).Art(clearart)]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo2">
+        <value condition="[!IsEmpty(Container(54).ListItem(2).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(2).Art(clearlogo)]</value>
+        <value>$INFO[Container(54).ListItem(2).Art(clearart)]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo3">
+        <value condition="[!IsEmpty(Container(54).ListItem(3).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(3).Art(clearlogo)]</value>
+        <value>$INFO[Container(54).ListItem(3).Art(clearart)]</value>
+    </variable>
+    
+    <variable name="ExtendedViewLogo-1">
+        <value condition="[!IsEmpty(Container(54).ListItem(-1).Art(clearlogo)) + Skin.HasSetting(ExtendedUseClearLogo)] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + Skin.HasSetting(ExtendedUseClearArt)]">$INFO[Container(54).ListItem(-1).Art(clearlogo)]</value>
+        <value>$INFO[Container(54).ListItem(-1).Art(clearart)]</value>
     </variable>
     
     <variable name="WallPoster">
