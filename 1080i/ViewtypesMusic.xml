@@ -2993,14 +2993,13 @@
                             <visible>stringcompare(Container.FolderPath,musicdb://5/1/)</visible>
                         </control>
                         <control type="image">
-                            <posx>0</posx>
-                            <posy>19</posy>
+                            <posx>2</posx>
+                            <posy>16</posy>
                             <width>22</width>
                             <height>24</height>
                             <texture>views/banner/other/playing-nf.png</texture>
                             <colordiffuse>C0FFFFFF</colordiffuse>
                             <visible>ListItem.IsPlaying</visible>
-                            <animation effect="slide" end="-10" time="500" tween="sine" easing="in" condition="true" pulse="true">Conditional</animation>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -3140,17 +3139,10 @@
                                 <visible>substring(ListItem.property(Album_Type),Lyrics Included)</visible>
                             </control>
                             <control type="image">
-                                <posx>508</posx>
+                                <posx>506</posx>
                                 <posy>-20</posy>
-                                <width>202</width>
-                                <height>54</height>
-                                <texture border="12">views/banner/other/rating-back.png</texture>
-                            </control>
-                            <control type="image">
-                                <posx>508</posx>
-                                <posy>-20</posy>
-                                <width>202</width>
-                                <height>54</height>
+                                <width>204</width>
+                                <height>56</height>
                                 <texture fallback="views/banner/other/fo-rating0.png">$INFO[ListItem.StarRating,views/banner/other/fo-,]</texture>
                             </control>
                             <control type="label">
@@ -3243,17 +3235,10 @@
                                 <animation effect="slide" end="-55" time="0" condition="IsEmpty(ListItem.DiscNumber)">Conditional</animation>
                             </control>
                             <control type="image">
-                                <posx>508</posx>
+                                <posx>506</posx>
                                 <posy>-20</posy>
-                                <width>202</width>
-                                <height>54</height>
-                                <texture border="12">views/banner/other/rating-back.png</texture>
-                            </control>
-                            <control type="image">
-                                <posx>508</posx>
-                                <posy>-20</posy>
-                                <width>202</width>
-                                <height>54</height>
+                                <width>204</width>
+                                <height>56</height>
                                 <texture fallback="views/banner/other/fo-rating0.png">$INFO[ListItem.StarRating,views/banner/other/fo-,]</texture>
                             </control>
                             <control type="label">
