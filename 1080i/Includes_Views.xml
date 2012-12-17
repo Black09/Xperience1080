@@ -180,7 +180,7 @@
     </variable>
     
     <variable name="VideoInfoOverlay">
-        <value condition="ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/extended-p.png]</value>
+        <value condition="IntegerGreaterThan(ListItem.PercentPlayed,0) + !IntegerGreaterThan(ListItem.PercentPlayed,99)">$INFO[ListItem.Overlay,overlays/,/extended-p.png]</value>
         <value>$INFO[ListItem.Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
