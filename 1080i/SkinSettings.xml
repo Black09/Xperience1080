@@ -241,7 +241,6 @@
                         <onclick condition="stringcompare(Skin.String(rss.setting.pos),2)">Skin.Reset(GlobalRSS.Bottom)</onclick>
                         <onclick condition="stringcompare(Skin.String(rss.setting.pos),2)">Skin.SetString(rss.setting,$LOCALIZE[1223])</onclick>
                         <onclick condition="stringcompare(Skin.String(rss.setting.pos),2)">Skin.Reset(rss.setting.pos)</onclick>
-                        <onclick>ReloadSkin()</onclick>
                     </control>
                     <control type="button" id="10072">
                         <posx>1147</posx>
@@ -270,7 +269,6 @@
                         <onclick condition="IsEmpty(Skin.String(rss.setting.pos))">Skin.SetBool(GlobalRSS.Bottom)</onclick>
                         <onclick condition="IsEmpty(Skin.String(rss.setting.pos))">Skin.SetString(rss.setting,$LOCALIZE[41114])</onclick>
                         <onclick condition="IsEmpty(Skin.String(rss.setting.pos))">Skin.SetString(rss.setting.pos,2)</onclick>
-                        <onclick>ReloadSkin()</onclick>
                     </control>
                     <control type="button">
                         <posx>0</posx>
