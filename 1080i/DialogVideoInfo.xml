@@ -273,7 +273,7 @@
                     <posx>100</posx>
                     <posy>220</posy>
                     <control type="group">
-                        <visible>!Player.HasVideo | Skin.HasSetting(BackgroundVideo)</visible>
+                        <visible>!Player.HasVideo</visible>
                         <include>visiblehidefadeinfo</include>
                         <control type="image">
                             <posx>0</posx>
@@ -321,7 +321,7 @@
                         </control>
                     </control>
                     <control type="group">
-                        <visible>Player.HasVideo + !Skin.HasSetting(BackgroundVideo)</visible>
+                        <visible>Player.HasVideo</visible>
                         <include>visiblehidefadeinfo</include>
                         <control type="image">
                             <description>black</description>
