@@ -84,7 +84,7 @@
             <include>FullscreenDimensions</include>
             <include>Animation_FanartFade</include>
             <fadetime>600</fadetime>
-            <texture background="true">$INFO[Container(20).ListItem.property(single)]</texture>
+            <texture background="true" fallback=".">$INFO[Container(20).ListItem.property(single)]</texture>
             <visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
         </control> 
         <control type="multiimage">
@@ -94,7 +94,7 @@
             <fadetime>600</fadetime>
             <loop>yes</loop>
             <include>Animation_FanartFade</include>
-            <imagepath background="true">$INFO[Container(20).ListItem.property(multi)]</imagepath>
+            <imagepath background="true" fallback=".">$INFO[Container(20).ListItem.property(multi)]</imagepath>
             <visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
         </control> 
         <control type="image">
