@@ -2007,7 +2007,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb-1]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2016,7 +2016,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo-1]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2025,7 +2025,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(-1).Art(clearart)) + IsEmpty(Container(54).ListItem(-1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2034,7 +2034,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay-1]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <visible>!IsEmpty(Container(54).ListItemNoWrap(-1).Label)</visible>
                     </control>
@@ -2135,7 +2135,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb3]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2144,7 +2144,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo3]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2153,7 +2153,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(3).Art(clearart)) + IsEmpty(Container(54).ListItem(3).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2162,7 +2162,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay3]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <visible>!IsEmpty(Container(54).ListItemNoWrap(3).Label)</visible>
                     </control>
@@ -2263,7 +2263,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb2]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2272,7 +2272,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo2]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2281,7 +2281,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(2).Art(clearart)) + IsEmpty(Container(54).ListItem(2).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2290,7 +2290,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay2]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <visible>!IsEmpty(Container(54).ListItemNoWrap(2).Label)</visible>
                     </control>
@@ -2391,7 +2391,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb1]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2400,7 +2400,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo1]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2409,7 +2409,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(1).Art(clearart)) + IsEmpty(Container(54).ListItem(1).Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2418,7 +2418,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay1]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <visible>!IsEmpty(Container(54).ListItemNoWrap(1).Label)</visible>
                     </control>
@@ -2514,7 +2514,7 @@
                         <height>270</height>
                         <texture background="true">$VAR[ExtendedViewThumb0]</texture>
                         <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                        <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                        <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -2523,7 +2523,7 @@
                         <height>270</height>
                         <texture background="true">$VAR[ExtendedViewLogo0]</texture>
                         <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                        <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                        <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -2532,7 +2532,7 @@
                         <height>1</height>
                         <colordiffuse>99000000</colordiffuse>
                         <texture>windows/common/black.png</texture>
-                        <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
+                        <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(Container(54).ListItem(0).Art(clearart)) + IsEmpty(Container(54).ListItem(0).Art(clearlogo))]</visible>
                     </control>
                     <control type="image">
                         <posx>380</posx>
@@ -2541,7 +2541,7 @@
                         <height>100</height>
                         <aspect>keepaspect</aspect>
                         <texture>$VAR[ExtendedOverlay0]</texture>
-                        <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                        <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                     </control>
                 </control>
             </control>
@@ -2651,7 +2651,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2660,7 +2660,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2669,7 +2669,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2678,7 +2678,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                     </itemlayout>
                     <focusedlayout width="492">
@@ -2770,7 +2770,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewThumb]</texture>
                             <aspectratio align="center" aligny="center" scalediffuse="false">scale</aspectratio>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2779,7 +2779,7 @@
                             <height>270</height>
                             <texture background="true">$VAR[ExtendedViewLogo]</texture>
                             <aspectratio align="center" aligny="bottom" scalediffuse="false">keep</aspectratio>
-                            <visible>[Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]] + ![IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                         <control type="image">
                             <posx>380</posx>
@@ -2788,7 +2788,7 @@
                             <height>100</height>
                             <aspect>keepaspect</aspect>
                             <texture>$VAR[ExtendedOverlay]</texture>
-                            <animation effect="slide" end="0,270" time="0" condition="Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]">Conditional</animation>
+                            <animation effect="slide" end="0,270" time="0" condition="[[Container.Content(tvshows) + [Skin.HasSetting(ExtendedUseClearArt) | Skin.HasSetting(ExtendedUseClearLogo)]] | [Container.Content(movies) + [Skin.HasSetting(ExtendedUseClearMovieArt) | Skin.HasSetting(ExtendedUseClearMovieLogo)]]]">Conditional</animation>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2797,7 +2797,7 @@
                             <height>1</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture>windows/common/black.png</texture>
-                            <visible>!Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo) | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
+                            <visible>[[Container.Content(tvshows) + !Skin.HasSetting(ExtendedUseClearArt) + !Skin.HasSetting(ExtendedUseClearLogo)] | [Container.Content(movies) + !Skin.HasSetting(ExtendedUseClearMovieArt) + !Skin.HasSetting(ExtendedUseClearMovieLogo)]] | [IsEmpty(ListItem.Art(clearart)) + IsEmpty(ListItem.Art(clearlogo))]</visible>
                         </control>
                     </focusedlayout>
                 </control>

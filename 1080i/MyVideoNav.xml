@@ -94,6 +94,15 @@
                         <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
                         <visible>Container.Content(TVShows) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
+                    <control type="button" id="23">
+                        <description>Label</description>
+                        <include>optionsbuttonsdimensions</include>
+                        <label>42025</label>
+                        <onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=movie,landscape,clearlogo,clearart)</onclick>
+                        <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
+                        <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
+                        <visible>Container.Content(Movies) + System.HasAddon(script.artwork.downloader)</visible>
+                    </control>
                     <control type="button" id="3">
                         <description>sort</description>
                         <include>optionsbuttonsdimensions</include>
