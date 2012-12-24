@@ -362,7 +362,7 @@
     <variable name="VideoInfoArt">
         <value condition="!IsEmpty(ListItem.Art(season.fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(season.fanart)]</value>
         <value condition="!IsEmpty(ListItem.Art(fanart)) + !Container.Content(episodes)">$INFO[ListItem.Art(fanart)]</value>
-        <value condition="[Container.Content(episodes) | [IsEmpty(ListItem.Art(season.fanart)) + IsEmpty(ListItem.Art(fanart))]] + !IsEmpty(ListItem.Art(thumb)]">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="[Container.Content(episodes) | [IsEmpty(ListItem.Art(season.fanart)) + IsEmpty(ListItem.Art(fanart))]] + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(tvshows)">views/fallbacks/DefaultFolder.png/landscape.png</value>
         <value>views/fallbacks/DefaultVideo.png/landscape.png</value>
     </variable>
@@ -473,7 +473,7 @@
     </variable>
     
     <variable name="MusicListLabel">
-        <value condition="!IsEmpty(ListItem.Title">$INFO[ListItem.Title]</value>
+        <value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
         <value>$INFO[ListItem.Label]</value>
     </variable>
     

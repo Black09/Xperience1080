@@ -2794,7 +2794,7 @@
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile1.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,five,3003)</onclick>
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile1.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[41136],skinsettings)</onclick>
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile1.Path)) | !IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
-                                <onclick condition="!IsEmpty(Window.Property(EditTile)">ClearProperty(EditTile)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
                                 <icon>$INFO[Skin.String(HomeTVShowTile1.Icon)]</icon>
                                 <property name="showlabel">$INFO[Skin.String(HomeTVShowTile1.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeTVShowTile1.Path)]</property>
@@ -2812,7 +2812,7 @@
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile2.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,six,3003)</onclick>
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile2.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[41136],skinsettings)</onclick>
                                 <onclick condition="IsEmpty(Skin.String(HomeTVShowTile2.Path)) | !IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
-                                <onclick condition="!IsEmpty(Window.Property(EditTile)">ClearProperty(EditTile)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
                                 <icon>$INFO[Skin.String(HomeTVShowTile2.Icon)]</icon>
                                 <property name="showlabel">$INFO[Skin.String(HomeTVShowTile2.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeTVShowTile2.Path)]</property>
@@ -3924,7 +3924,7 @@
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + !stringcompare(Skin.String(HomeProgramTile1.Type),4) + !stringcompare(Skin.String(HomeProgramTile1.Type),5) + !stringcompare(Skin.String(HomeProgramTile1.Type),6) + !stringcompare(Skin.String(HomeProgramTile1.Type),7)">RunAddon($INFO[Skin.String(HomeProgramTile1.Path)])</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + stringcompare(Skin.String(HomeProgramTile1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeProgramTile1.Path)],return)</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + stringcompare(Skin.String(HomeProgramTile1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(HomeProgramTile1.Path)],return)</onclick>
-                                <onclick condition="IsEmpty(Window.Property(EditTile)) + [stringcompare(Skin.String(HomeProgramTile1.Type),6) | stringcompare(Skin.String(HomeProgramTile1.Type),7)[">$INFO[Skin.String(HomeProgramTile1.Path)]</onclick>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + [stringcompare(Skin.String(HomeProgramTile1.Type),6) | stringcompare(Skin.String(HomeProgramTile1.Type),7)]">$INFO[Skin.String(HomeProgramTile1.Path)]</onclick>
                                 <onclick condition="IsEmpty(Skin.String(HomeProgramTile1.Path)) | !IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeProgramTile1)</onclick>
                                 <onclick condition="[IsEmpty(Skin.String(HomeProgramTile1.Path)) | !IsEmpty(Window.Property(EditTile))] + IsEmpty(Skin.String(HomeProgramTile1.Type))">Skin.SetString(HomeProgramTile1.Type,0)</onclick>
                                 <onclick condition="[IsEmpty(Skin.String(HomeProgramTile1.Path)) | !IsEmpty(Window.Property(EditTile))] + IsEmpty(Skin.String(HomeProgramTile1.TypeName))">Skin.SetString(HomeProgramTile1.TypeName,$LOCALIZE[41145])</onclick>
