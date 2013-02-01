@@ -1,6 +1,7 @@
 <window type="dialog" id="3021">
     <defaultcontrol always="true">3</defaultcontrol>
     <onunload>ClearProperty(Close,3021)</onunload>
+    <visible>Window.IsActive(3021) + Window.IsActive(Home)</visible>
     <controls>
         <control type="GroupList">
             <description>Button labels</description>
@@ -28,49 +29,49 @@
                 <description>Root</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[3]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(1)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(1)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(1)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Videos</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[744]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(2)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(2)">Conditional</animation>
             </control>
             <control type="label">
                 <description>TV guide</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[42160]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(3)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(3)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(3)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Genres</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[135]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(4)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(4)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(4)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Years</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[652]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(5)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(5)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="150" tween="sine" easing="inout" center="auto" condition="!Container(3).HasFocus(5)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Actors</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[344]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(6)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(6)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(6)">Conditional</animation>
             </control>
             <control type="label">
                 <description>Studios</description>
                 <include>HomeLabel</include>
                 <label>$LOCALIZE[20388]</label>
-                <animation effect="fade" start="100" end="50" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(7)">Conditional</animation>
+                <animation effect="fade" start="100" end="30" time="300" tween="cubic" easing="inout" condition="!Container(3).HasFocus(7)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Container(3).HasFocus(7)">Conditional</animation>
             </control>
             <control type="image">
