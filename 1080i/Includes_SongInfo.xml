@@ -434,18 +434,11 @@
                         <animation effect="slide" end="-55" time="0" condition="IsEmpty(ListItem.DiscNumber)">Conditional</animation>
                     </control>
                     <control type="image">
-                        <posx>508</posx>
+                        <posx>506</posx>
                         <posy>-20</posy>
-                        <width>202</width>
-                        <height>54</height>
-                        <texture border="12">views/banner/other/rating-back.png</texture>
-                    </control>
-                    <control type="image">
-                        <posx>508</posx>
-                        <posy>-20</posy>
-                        <width>202</width>
-                        <height>54</height>
-                        <texture>$INFO[ListItem.StarRating,views/banner/other/fo-,]</texture>
+                        <width>204</width>
+                        <height>56</height>
+                        <texture fallback="views/banner/other/fo-rating0.png">$INFO[ListItem.StarRating,views/banner/other/fo-,]</texture>
                     </control>
                     <control type="label">
                         <posx>0</posx>
