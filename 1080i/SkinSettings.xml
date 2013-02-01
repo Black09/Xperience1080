@@ -482,12 +482,19 @@
                     <onclick>Skin.ToggleSetting(HideFanart)</onclick>
                     <label>$LOCALIZE[41191]</label>
                 </control>
-                <control type="radiobutton" id="3003">
+                <control type="radiobutton" id="3002">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
                     <selected>Skin.HasSetting(MovieInformation.PlayTrailer)</selected>
                     <onclick>Skin.ToggleSetting(MovieInformation.PlayTrailer)</onclick>
                     <label>$LOCALIZE[41202]</label>
+                </control>
+                <control type="radiobutton" id="3003">
+                    <width>1210</width>
+                    <include>SettingsCategoryRadioButtonVars</include>
+                    <selected>Skin.HasSetting(PlayTrailer.Minimized)</selected>
+                    <onclick>Skin.ToggleSetting(PlayTrailer.Minimized)</onclick>
+                    <label>$LOCALIZE[41203]</label>
                 </control>
             </control>
             
