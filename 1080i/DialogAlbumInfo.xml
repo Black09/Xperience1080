@@ -93,6 +93,7 @@
                 </animation>
             </control>
             
+            <!-- Biography / Discography / Tracks -->
             <control type="grouplist">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
                 <animation type="Conditional" condition="Control.HasFocus(1110)">
@@ -103,6 +104,7 @@
                 <width>600</width>
                 <orientation>horizontal</orientation>
                 <itemgap>20</itemgap>
+                
                 <!-- Biography Label -->
                 <control type="label">
                     <posx>118</posx>
@@ -117,6 +119,7 @@
                     <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
                     <visible>Container.Content(artists)</visible>
                 </control>
+                
                 <!-- Discography Label -->
                 <control type="label">
                     <posx>118</posx>
@@ -128,9 +131,10 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
                     <visible>Container.Content(artists)</visible>
                 </control>
+                
                 <!-- Tracks Label -->
                 <control type="label">
                     <posx>118</posx>
@@ -142,9 +146,10 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition=" Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
                     <visible>Container.Content(albums)</visible>
                 </control>
+                
                 <!-- Review Label -->
                 <control type="label">
                     <posx>118</posx>
@@ -156,7 +161,7 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>  
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
                     <visible>Container.Content(albums)</visible>
                 </control>
             </control>
@@ -164,7 +169,7 @@
             <!-- Review Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
-                <visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(9335)</visible>
+                <visible allowhiddenfocus="true">Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)</visible>
                 <animation type="Visible">
                     <effect type="slide" start="-2000" end="0" time="600" delay="0" tween="sine" easing="inout" />
                 </animation>
@@ -209,8 +214,7 @@
                     <width>440</width>
                     <height>246</height>
                     <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                    <onright>SendClick(2001,5)</onright>
-                    <onright>SetFocus(9334)</onright>
+                    <onright>70</onright>
                     <onup>9333</onup>
                     <ondown>9333</ondown>
                     <scrolltime>0</scrolltime>
@@ -455,10 +459,9 @@
                                 <font>Font-Condensed-S40</font>
                                 <align>justify</align>
                                 <textcolor>bbwhite</textcolor>
-                                <scroll>false</scroll>
+                                <pagecontrol>70</pagecontrol>
+                                <autoscroll time="2000" delay="10000" repeat="10000">!Control.HasFocus(70)</autoscroll>
                                 <label>$INFO[ListItem.Property(Artist_Description)]</label>
-                                <scrollout>false</scrollout>
-                                <autoscroll time="2000" delay="10000" repeat="10000" />
                                 <visible>!IsEmpty(ListItem.Property(Artist_Description))</visible>
                             </control>
                             <control type="label">
@@ -595,10 +598,9 @@
                                 <font>Font-Condensed-S40</font>
                                 <align>justify</align>
                                 <textcolor>bbwhite</textcolor>
-                                <scroll>false</scroll>
+                                <pagecontrol>70</pagecontrol>
+                                <autoscroll time="2000" delay="10000" repeat="10000">!Control.HasFocus(70)</autoscroll>
                                 <label>$INFO[ListItem.Property(Album_Description)]</label>
-                                <scrollout>false</scrollout>
-                                <autoscroll time="2000" delay="10000" repeat="10000" />
                                 <visible>!IsEmpty(ListItem.Property(Album_Description))</visible>
                             </control>
                             <control type="label">
@@ -614,10 +616,36 @@
                             </control>
                         </control>
                     </control>
-                </control>  
+                    <!-- Scrollbar -->
+                    <control type="image">
+                        <description>Scrollbar background</description>
+                        <posx>1260</posx>
+                        <posy>288</posy>
+                        <width>6</width>
+                        <height>300</height>
+                        <texture border="1">views/other/scrollbar-sq.png</texture>
+                        <visible>Control.IsVisible(70)</visible>
+                        <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                    </control>
+                    <control type="scrollbar" id="70">
+                        <description>Scrollbar</description>
+                        <posx>1260</posx>
+                        <posy>288</posy>
+                        <width>6</width>
+                        <height>300</height>                    
+                        <onleft>9333</onleft>
+                        <onright>SendClick(2001,5)</onright>
+                        <onright>SetFocus(9334)</onright>
+                        <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                        <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                        <orientation>vertical</orientation>
+                        <showonepage>false</showonepage>
+                        <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                    </control>
+                </control>
             </control>
 
-            <!-- Tracks/Discography Stuff -->
+            <!-- Tracks / Discography Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <visible allowhiddenfocus="true">Control.HasFocus(9334) | Control.HasFocus(50)</visible>
@@ -740,11 +768,6 @@
         <control type="button" id="5">
             <description>Review/Tracks</description>
             <visible>false</visible>
-        </control>
-        
-        <control type="button" id="9334">
-            <onfocus>Action(left)</onfocus>
-            <onleft>50</onleft>
         </control>
         
         <control type="button" id="50">

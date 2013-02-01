@@ -229,14 +229,14 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>  
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71)">Conditional</animation>
                 </control>
             </control>
             
             <!-- Info Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
-                <visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110)</visible>
+                <visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71)</visible>
                 <include>listEndAnimation</include>
                 <animation type="Visible">
                     <effect type="slide" start="-1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
@@ -392,8 +392,8 @@
                     <width>634</width>
                     <height>332</height>
                     <onleft>1110</onleft>
-                    <onright>SendClick(2003,5)</onright>
-                    <onright>SetFocus(9334)</onright>
+                    <onright condition="Control.IsVisible(70)">70</onright>
+                    <onright condition="!Control.IsVisible(70)">71</onright>
                     <onup condition="!Player.HasVideo">9333</onup>
                     <onup condition="Player.HasVideo">9336</onup>
                     <ondown condition="!Player.HasVideo">9333</ondown>
@@ -630,7 +630,7 @@
                             <height>49</height>
                             <texture>views/other/director-icon.png</texture>
                         </control>
-                        <control type="label">
+                        <control type="button" id="71">
                             <posx>50</posx>
                             <posy>0</posy>
                             <width>950</width>
@@ -638,8 +638,16 @@
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Director]</label>
-                            <textcolor>aawhite</textcolor>
+                            <textcolor>eewhite</textcolor>
+                            <focusedcolor>eewhite</focusedcolor>
                             <scroll>false</scroll>
+                            <onup>70</onup>
+                            <ondown>70</ondown>                  
+                            <onleft>9333</onleft>
+                            <onright>SendClick(2003,5)</onright>
+                            <onright>SetFocus(9334)</onright>
+                            <onclick>SendClick(2003,13)</onclick>
+                            <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
                         </control>
                     </control>
                     <control type="group">
@@ -736,9 +744,36 @@
                         <textcolor>bbwhite</textcolor>
                         <align>justify</align>
                         <font>Font-Condensed-S40</font>
-                        <scroll>false</scroll>
-                        <scrollout>false</scrollout>
-                        <autoscroll time="2000" delay="10000" repeat="10000" />
+                        <autoscroll time="2000" delay="10000" repeat="10000">!Control.HasFocus(70)</autoscroll>
+                        <pagecontrol>70</pagecontrol>
+                    </control>
+                    <!-- Scrollbar -->
+                    <control type="image">
+                        <description>Scrollbar background</description>
+                        <posx>1065</posx>
+                        <posy>13</posy>
+                        <width>6</width>
+                        <height>244</height>
+                        <texture border="1">views/other/scrollbar-sq.png</texture>
+                        <visible>Control.IsVisible(70)</visible>
+                        <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                    </control>
+                    <control type="scrollbar" id="70">
+                        <description>Scrollbar</description>
+                        <posx>1065</posx>
+                        <posy>13</posy>
+                        <width>6</width>
+                        <height>244</height>
+                        <onup>71</onup>
+                        <ondown>71</ondown>                  
+                        <onleft>9333</onleft>
+                        <onright>SendClick(2003,5)</onright>
+                        <onright>SetFocus(9334)</onright>
+                        <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                        <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                        <orientation>vertical</orientation>
+                        <showonepage>false</showonepage>
+                        <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
                     </control>
                 </control>          
             </control>
@@ -887,6 +922,11 @@
         
         <control type="button" id="6">
             <description>Refresh</description>
+            <visible>false</visible>
+        </control>
+        
+        <control type="button" id="13">
+            <description>Show director movies</description>
             <visible>false</visible>
         </control>
 
