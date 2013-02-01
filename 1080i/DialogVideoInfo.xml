@@ -457,6 +457,15 @@
                         <item id="1">
                             <label>$LOCALIZE[41315]</label>
                             <onclick>SendClick(2003,8)</onclick>
+                            <visible>!Container.Content(movies) | [Container.Content(movies) + !System.HasAddon(script.cinema.experience)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin)]</visible>
+                        </item>
+                        <item id="1">
+                            <description>Cinema Experience</description>
+                            <label>$LOCALIZE[41315]</label>
+                            <onclick>Dialog.Close(MovieInformation)</onclick>
+                            <onclick>Playlist.Clear</onclick>
+                            <onclick>XBMC.RunScript(script.cinema.experience)</onclick>
+                            <visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(Container.FolderPath,plugin)</visible>
                         </item>
                         <item id="2">
                             <label>$LOCALIZE[20410]</label>
