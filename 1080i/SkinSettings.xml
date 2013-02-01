@@ -806,27 +806,6 @@
                     <label>$LOCALIZE[41294]</label>
                     <visible>System.HasAddon(script.artwork.downloader)</visible>
                 </control>
-                <control type="radiobutton" id="7011">
-                    <width>1210</width>
-                    <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(ExtraFanart.Enabled)</selected>
-                    <onclick>Skin.ToggleSetting(ExtraFanart.Enabled)</onclick>
-                    <label>$LOCALIZE[41287]</label>
-                </control>
-                <control type="button" id="7012">
-                    <width>1210</width>
-                    <include>SettingsCategoryDefaultButtonVars</include>
-                    <onclick>Addon.OpenSettings(script.artwork.downloader)</onclick>
-                    <label> • $LOCALIZE[41289]</label>
-                    <visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
-                </control>
-                <control type="button" id="7013">
-                    <width>1210</width>
-                    <include>SettingsCategoryDefaultButtonVars</include>
-                    <onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,extrafanart)</onclick>
-                    <label> • $LOCALIZE[41288]</label>
-                    <visible>Skin.HasSetting(ExtraFanart.Enabled)</visible>
-                </control>
             </control>
             
             <control type="image" id="42">

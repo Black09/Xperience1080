@@ -4,7 +4,7 @@
     <onload condition="Skin.HasSetting(MovieInformation.PlayTrailer)">AlarmClock(PlayTrailer,PlayMedia($INFO[ListItem.Trailer],false,1),00:01,silent)</onload>
     <onunload>ClearProperty(fanart_image)</onunload>
     <allowoverlay>no</allowoverlay>
-    <controls>  
+    <controls>
         <!-- Movies, TVShows, Seasons, Episodes -->
         <control type="group">
             <posx>0</posx>
@@ -282,34 +282,6 @@
                             <height>355</height>
                             <aspectratio>scale</aspectratio>
                             <texture background="true">$VAR[VideoInfoArt]</texture>
-                        </control>
-                        <control type="group">
-                            <visible>Skin.HasSetting(ExtraFanart.Enabled) + !Container.Content(episodes)</visible>
-                            <animation effect="fade" start="0" end="100" time="600" delay="7500">WindowOpen</animation>
-                            <control type="multiimage">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>634</width>
-                                <height>355</height>
-                                <timeperimage>7500</timeperimage>
-                                <randomize>true</randomize>
-                                <fadetime>600</fadetime>
-                                <aspectratio align="center">scale</aspectratio>
-                                <imagepath background="true">$INFO[ListItem.FileNameAndPath,,extrafanart]</imagepath>
-                                <visible>Container.Content(TVShows) | Container.Content(Seasons)</visible>
-                            </control>
-                            <control type="multiimage">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>634</width>
-                                <height>355</height>
-                                <fadetime>1500</fadetime>
-                                <timeperimage>7500</timeperimage>
-                                <randomize>true</randomize>
-                                <aspectratio align="center">scale</aspectratio>
-                                <imagepath background="true">$INFO[ListItem.Path,,extrafanart]</imagepath>
-                                <visible>Container.Content(Movies)</visible>
-                            </control>
                         </control>
                         <control type="image">
                             <posx>534</posx>
