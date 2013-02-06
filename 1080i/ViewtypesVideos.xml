@@ -74,6 +74,48 @@
                         <textcolor>99FFFFFF</textcolor>
                         <selectedcolor>99FFFFFF</selectedcolor>
                         <scroll>false</scroll>
+                        <visible>IsEmpty(ListItem.Overlay) + IsEmpty(ListItem.Rating)</visible>
+                    </control>
+                    <control type="label">
+                        <description>Label 2</description>
+                        <posx>1273</posx>
+                        <posy>0</posy>
+                        <width>1270</width>
+                        <height>100</height>
+                        <font>Font-Condensed-S34-B</font>
+                        <align>right</align>
+                        <label>$INFO[ListItem.Label2]</label>
+                        <textcolor>99FFFFFF</textcolor>
+                        <selectedcolor>99FFFFFF</selectedcolor>
+                        <scroll>false</scroll>
+                        <visible>!IsEmpty(ListItem.Overlay) | !IsEmpty(ListItem.Rating)</visible>
+                        <animation effect="slide" end="55" time="0" condition="IsEmpty(ListItem.Overlay)">Conditional</animation>
+                        <animation effect="slide" end="62" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                    </control>
+                    <control type="image">
+                        <description>Watched/unwatched overlay</description>
+                        <posx>1263</posx>
+                        <posy>0</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspect>keepaspect</aspect>
+                        <colordiffuse>7FFFFFFF</colordiffuse>
+                        <texture>$VAR[DefaultListOverlay]</texture>
+                        <visible>!IsEmpty(ListItem.Overlay)</visible>
+                        <animation effect="slide" end="62" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                    </control>
+                    <control type="label">
+                        <posx>1390</posx>
+                        <posy>0</posy>
+                        <width>1220</width>
+                        <height>100</height>
+                        <font>Font-Condensed-S34-B</font>
+                        <align>right</align>
+                        <label fallback="•••">$INFO[ListItem.Rating]</label>
+                        <textcolor>99FFFFFF</textcolor>
+                        <selectedcolor>99FFFFFF</selectedcolor>
+                        <scroll>false</scroll>
+                        <visible>!IsEmpty(ListItem.Rating)</visible>
                     </control>
                     <control type="image">
                         <posx>20</posx>
@@ -495,6 +537,48 @@
                             <textcolor>D4FFFFFF</textcolor>
                             <selectedcolor>D4FFFFFF</selectedcolor>
                             <scroll>false</scroll>
+                            <visible>IsEmpty(ListItem.Overlay) + IsEmpty(ListItem.Rating)</visible>
+                        </control>
+                        <control type="label">
+                            <description>Label 2</description>
+                            <posx>1273</posx>
+                            <posy>0</posy>
+                            <width>1270</width>
+                            <height>100</height>
+                            <font>Font-Condensed-S34-B</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <textcolor>D4FFFFFF</textcolor>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>!IsEmpty(ListItem.Overlay) | !IsEmpty(ListItem.Rating)</visible>
+                            <animation effect="slide" end="62" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <description>Watched/unwatched overlay</description>
+                            <posx>1263</posx>
+                            <posy>0</posy>
+                            <width>100</width>
+                            <height>100</height>
+                            <aspect>keepaspect</aspect>
+                            <colordiffuse>D4FFFFFF</colordiffuse>
+                            <texture>$VAR[DefaultListOverlay]</texture>
+                            <visible>!IsEmpty(ListItem.Overlay)</visible>
+                            <animation effect="slide" end="40" time="0" condition="IsEmpty(ListItem.Overlay)">Conditional</animation>
+                            <animation effect="slide" end="62" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                        </control>
+                        <control type="label">
+                            <posx>1390</posx>
+                            <posy>0</posy>
+                            <width>1220</width>
+                            <height>100</height>
+                            <font>Font-Condensed-S34-B</font>
+                            <align>right</align>
+                            <label fallback="•••">$INFO[ListItem.Rating]</label>
+                            <textcolor>D4FFFFFF</textcolor>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>!IsEmpty(ListItem.Rating)</visible>
                         </control>
                     </control>
                 </focusedlayout>
@@ -1167,6 +1251,44 @@
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
                             <align>right</align>
+                            <visible>IsEmpty(ListItem.Overlay) + IsEmpty(ListItem.Rating)</visible>
+                        </control>
+                        <control type="label">
+                            <posx>603</posx>
+                            <width>670</width>
+                            <height>60</height>
+                            <font>Font-Condensed-S31</font>
+                            <label>$INFO[ListItem.Label2]</label>
+                            <textcolor>77white</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
+                            <align>right</align>
+                            <visible>!IsEmpty(ListItem.Overlay) | !IsEmpty(ListItem.Rating)</visible>
+                            <animation effect="slide" end="40" time="0" condition="IsEmpty(ListItem.Overlay)">Conditional</animation>
+                            <animation effect="slide" end="47" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                        </control>
+                        <control type="label">
+                            <posx>690</posx>
+                            <width>590</width>
+                            <height>60</height>
+                            <font>Font-Condensed-S31</font>
+                            <label fallback="•••">$INFO[ListItem.Rating]</label>
+                            <textcolor>77white</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
+                            <align>right</align>
+                            <visible>!IsEmpty(ListItem.Rating)</visible>
+                        </control>
+                        <control type="image">
+                            <posx>602</posx>
+                            <posy>0</posy>
+                            <width>60</width>
+                            <height>60</height>
+                            <aspect>keepaspect</aspect>
+                            <texture>$VAR[InfoListOverlay]</texture>
+                            <colordiffuse>7FFFFFFF</colordiffuse>
+                            <visible>!IsEmpty(ListItem.Overlay)</visible>
+                            <animation effect="slide" end="47" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
                         </control>
                     </itemlayout>
                     <itemlayout height="60" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)">
@@ -1360,6 +1482,44 @@
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
                                 <align>right</align>
+                                <visible>IsEmpty(ListItem.Overlay) + IsEmpty(ListItem.Rating)</visible>
+                            </control>
+                            <control type="label">
+                                <posx>603</posx>
+                                <width>670</width>
+                                <height>60</height>
+                                <font>Font-Condensed-S31</font>
+                                <label>$INFO[ListItem.Label2]</label>
+                                <textcolor>eewhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>right</align>
+                                <visible>!IsEmpty(ListItem.Overlay) | !IsEmpty(ListItem.Rating)</visible>
+                                <animation effect="slide" end="40" time="0" condition="IsEmpty(ListItem.Overlay)">Conditional</animation>
+                                <animation effect="slide" end="47" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>690</posx>
+                                <width>590</width>
+                                <height>60</height>
+                                <font>Font-Condensed-S31</font>
+                                <label fallback="•••">$INFO[ListItem.Rating]</label>
+                                <textcolor>eewhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>right</align>
+                                <visible>!IsEmpty(ListItem.Rating)</visible>
+                            </control>
+                            <control type="image">
+                                <posx>602</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <aspect>keepaspect</aspect>
+                                <texture>$VAR[InfoListOverlay]</texture>
+                                <colordiffuse>D4FFFFFF</colordiffuse>
+                                <visible>!IsEmpty(ListItem.Overlay)</visible>
+                                <animation effect="slide" end="47" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
                             </control>
                         </control>
                     </focusedlayout>
@@ -3860,6 +4020,16 @@
                             <scroll>false</scroll>
                             <align>left</align>
                         </control>
+                        <control type="image">
+                            <posx>269</posx>
+                            <posy>12</posy>
+                            <width>75</width>
+                            <height>75</height>
+                            <aspect>keepaspect</aspect>
+                            <colordiffuse>eewhite</colordiffuse>
+                            <texture>$VAR[ExtendedOverlay]</texture>
+                            <visible>!IsEmpty(ListItem.Overlay)</visible>
+                        </control>
                     </itemlayout>
                     <itemlayout width="229" height="230" condition="Skin.HasSetting(ThumbnailSmall)">
                         <control type="image">
@@ -3900,6 +4070,16 @@
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
                             <align>left</align>
+                        </control>
+                        <control type="image">
+                            <posx>179</posx>
+                            <posy>12</posy>
+                            <width>50</width>
+                            <height>50</height>
+                            <aspect>keepaspect</aspect>
+                            <colordiffuse>eewhite</colordiffuse>
+                            <texture>$VAR[ExtendedOverlay]</texture>
+                            <visible>!IsEmpty(ListItem.Overlay)</visible>
                         </control>
                     </itemlayout>
                     <focusedlayout width="344" height="344" condition="!Skin.HasSetting(ThumbnailSmall)">
@@ -3953,6 +4133,15 @@
                                     <scroll>false</scroll>
                                     <align>left</align>
                                 </control>
+                            </control>
+                            <control type="image">
+                                <posx>269</posx>
+                                <posy>12</posy>
+                                <width>75</width>
+                                <height>75</height>
+                                <aspect>keepaspect</aspect>
+                                <texture>$VAR[ExtendedOverlay]</texture>
+                                <visible>!IsEmpty(ListItem.Overlay)</visible>
                             </control>
                             <control type="image">
                                 <posx>0</posx>
@@ -4024,6 +4213,15 @@
                                 </control>
                             </control>
                             <control type="image">
+                                <posx>179</posx>
+                                <posy>12</posy>
+                                <width>50</width>
+                                <height>50</height>
+                                <aspect>keepaspect</aspect>
+                                <texture>$VAR[ExtendedOverlay]</texture>
+                                <visible>!IsEmpty(ListItem.Overlay)</visible>
+                            </control>
+                            <control type="image">
                                 <posx>0</posx>
                                 <posy>0</posy>
                                 <width>241</width>
@@ -4047,7 +4245,7 @@
                     <width>1680</width>
                     <height>56</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
-                    <label2>$INFO[ListItem.Label2]</label2>
+                    <label2>$INFO[ListItem.Label2]$INFO[ListItem.Rating, • ,]</label2>
                     <font>Font-Condensed-S45</font>
                     <textcolor>99FFFFFF</textcolor>
                     <shadowcolor>22000000</shadowcolor>
@@ -4061,7 +4259,7 @@
                     <width>1550</width>
                     <height>56</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
-                    <label2>$INFO[ListItem.Label2]</label2>
+                    <label2>$INFO[ListItem.Label2]$INFO[ListItem.Rating, • ,]</label2>
                     <font>Font-Condensed-S45</font>
                     <textcolor>99FFFFFF</textcolor>
                     <shadowcolor>22000000</shadowcolor>
