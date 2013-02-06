@@ -286,7 +286,12 @@
                     </itemlayout>
                     <focusedlayout width="244" height="244">
                         <control type="group">
-                            <visible>!Control.HasFocus(500)</visible>                            
+                            <animation type="Focus">
+                                <effect type="fade" start="93.36" end="100" time="200" tween="sine" easing="in" />
+                            </animation>
+                            <animation type="Unfocus">
+                                <effect type="fade" start="100" end="93.36" time="200" tween="sine" easing="out" />
+                            </animation>
                             <control type="image">
                                 <description>Folder Back</description>
                                 <posx>12</posx>
@@ -294,7 +299,6 @@
                                 <width>232</width>
                                 <height>232</height>
                                 <texture background="true">views/fallbacks/DefaultFolderBack.png/square-small.png</texture>
-                                <colordiffuse>eewhite</colordiffuse>
                                 <aspectratio>scale</aspectratio>
                                 <visible>stringcompare(ListItem.Label,..)</visible>
                             </control>
@@ -306,7 +310,6 @@
                                 <height>232</height>
                                 <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                                 <texture background="true" fallback="views/fallbacks/DefaultAddon.png/square-small.png">$INFO[ListItem.Thumb]</texture>
-                                <colordiffuse>eewhite</colordiffuse>
                                 <aspectratio>scale</aspectratio>
                                 <visible>!stringcompare(ListItem.Label,..)</visible>
                             </control>
@@ -316,43 +319,12 @@
                                 <width>75</width>
                                 <height>75</height>
                                 <texture>$VAR[AddonOverlay]</texture>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <animation type="Focus" reversible="false">
-                                <effect type="zoom" start="80" end="100" time="300" tween="back" easing="out" center="auto" />
-                            </animation>
-                            <animation type="UnFocus" condition="!Container(500).OnNext + !Container(500).OnPrevious" reversible="false">
-                                <effect type="zoom" start="100" end="86.67" time="250" tween="back" easing="in" center="auto" />
-                                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
-                            </animation>
-                            <control type="image">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>256</width>
-                                <height>256</height>
-                                <texture border="31">views/panel/focus.png</texture>
-                            </control>
-                            <control type="image">
-                                <description>Folder Back</description>
-                                <posx>12</posx>
-                                <posy>12</posy>
-                                <width>232</width>
-                                <height>232</height>
-                                <texture background="true">views/fallbacks/DefaultFolderBack.png/square-small.png</texture>
-                                <aspectratio>scale</aspectratio>
-                                <visible>stringcompare(ListItem.Label,..)</visible>
-                            </control>
-                            <control type="image">
-                                <description>Poster</description>
-                                <posx>12</posx>
-                                <posy>12</posy>
-                                <width>232</width>
-                                <height>232</height>
-                                <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <texture background="true" fallback="views/fallbacks/DefaultAddon.png/square-small.png">$INFO[ListItem.Thumb]</texture>
-                                <aspectratio>scale</aspectratio>
-                                <visible>!stringcompare(ListItem.Label,..)</visible>
+                                <!--<animation type="Focus">
+                                    <effect type="fade" start="100" end="0" time="200" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="fade" start="0" end="100" time="200" tween="sine" easing="out" />
+                                </animation>-->
                             </control>
                             <control type="image">
                                 <posx>0</posx>
@@ -360,6 +332,14 @@
                                 <width>256</width>
                                 <height>256</height>
                                 <texture border="31">views/panel/focus.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                </animation>
                             </control>
                         </control>
                     </focusedlayout>
