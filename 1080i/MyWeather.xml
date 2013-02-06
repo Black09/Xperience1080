@@ -1,5 +1,5 @@
 <window>
-    <defaultcontrol always="true">99</defaultcontrol>
+    <defaultcontrol always="true">101</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <controls>
 
@@ -7,680 +7,16 @@
         <include>WeatherHeader</include>
 
         <control type="group">
-            <include>OptionsShutdownAnimation</include>
-            <control type="group">
-                <posy>420</posy>
-                <posx>132</posx>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="zoom" start="65" end="100" center="347,740" tween="sine" easing="out" time="350" /> 
-                    <effect type="fade" start="25" end="100" tween="sine" easing="in" time="250" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="zoom" start="100" end="65" center="347,740" tween="sine" delay="200" easing="out" time="300" /> 
-                    <effect type="fade" start="100" end="0" tween="cubic" easing="inout" delay="200" time="300" />
-                </animation>
-                <control type="image">
-                    <posx>-42</posx>
-                    <posy>472</posy>
-                    <height>50</height>
-                    <width>482</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-32</posx>
-                    <posy>160</posy>
-                    <width>462</width>
-                    <height>320</height>
-                    <texture border="7">windows/home/tile-grey.png</texture>
-                </control>
-                <control type="multiimage">
-                    <posx>-27</posx>
-                    <posy>-96</posy>
-                    <width>452</width>
-                    <height>260</height>
-                    <timeperimage>999999999999999</timeperimage>
-                    <randomize>true</randomize>
-                    <fadetime>600</fadetime>
-                    <loop>yes</loop>
-                    <include>Animation_FanartFade</include>
-                    <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Weather.FanartCode]</imagepath>
-                </control>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>88</posy>
-                    <width>452</width>
-                    <height>76</height>
-                    <colordiffuse>99000000</colordiffuse>
-                    <texture>windows/common/black.png</texture>
-                </control>
-                <control type="image">
-                    <description>Small weather</description>
-                    <posx>323</posx>
-                    <posy>76</posy>
-                    <width>100</width>
-                    <height>100</height>
-                    <texture>$INFO[Weather.FanartCode,weather/small/,.png]</texture>
-                    <visible>Weather.IsFetched</visible>
-                </control>
-                <control type="label">
-                    <description>current temp value</description>
-                    <posx>0</posx>
-                    <posy>88</posy>
-                    <width>400</width>
-                    <height>76</height>
-                    <font>Font-Condensed-S38</font>
-                    <label>$INFO[Window.Property(Current.Temperature)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Current.Condition), • ,]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>current feels like label</description>
-                    <posx>0</posx>
-                    <posy>190</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$LOCALIZE[402]</label>
-                    <textcolor>80FFFFFF</textcolor>
-                </control>
-                <control type="label">
-                    <description>current feels like value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$INFO[Window.Property(Current.FeelsLike)]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>current dew label</description>
-                    <posx>250</posx>
-                    <posy>190</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$LOCALIZE[405]</label>
-                    <textcolor>80FFFFFF</textcolor>
-                </control>
-                <control type="label">
-                    <description>current dew value</description>
-                    <posx>250</posx>
-                    <posy>230</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$INFO[Window.Property(Current.DewPoint)]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>current humidity label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$LOCALIZE[406]</label>
-                    <textcolor>80FFFFFF</textcolor>
-                </control>
-                <control type="label">
-                    <description>current humidity value</description>
-                    <posx>0</posx>
-                    <posy>320</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$INFO[Window.Property(Current.Humidity)]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>current uv label</description>
-                    <posx>250</posx>
-                    <posy>280</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$LOCALIZE[403]</label>
-                    <textcolor>80FFFFFF</textcolor>
-                </control>
-                <control type="label">
-                    <description>current uv value</description>
-                    <posx>250</posx>
-                    <posy>320</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$INFO[Window.Property(Current.UVIndex)]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>current wind label</description>
-                    <posx>0</posx>
-                    <posy>370</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$LOCALIZE[404]</label>
-                    <textcolor>80FFFFFF</textcolor>
-                </control>
-                <control type="label">
-                    <description>current wind value</description>
-                    <posx>0</posx>
-                    <posy>410</posy>
-                    <width>450</width>
-                    <height>34</height>
-                    <font>Font-Condensed-S34</font>
-                    <label>$INFO[Window.Property(Current.Wind)]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-            </control>
-            <control type="group">
-                <posx>580</posx>
-                <posy>500</posy>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-                    <effect type="slide" start="-355" end="0" delay="350" tween="cubic" easing="out" time="450" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="slide" start="0" end="-355" tween="sine" easing="in" time="200" />
-                    <effect type="fade" delay="100" start="100" end="0" time="100" />
-                </animation>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>330</posy>
-                    <height>40</height>
-                    <width>265</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-22</posx>
-                    <posy>48</posy>
-                    <width>255</width>
-                    <height>285</height>
-                    <texture border="7">windows/home/tile.png</texture>
-                </control>
-                <control type="group">
-                    <visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowDailyWeatherFanart)</visible>
-                    <control type="multiimage">
-                        <posx>-17</posx>
-                        <posy>-100</posy>
-                        <width>245</width>
-                        <height>152</height>
-                        <timeperimage>999999999999999</timeperimage>
-                        <randomize>true</randomize>
-                        <fadetime>600</fadetime>
-                        <loop>yes</loop>
-                        <include>Animation_FanartFade</include>
-                        <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window.Property(Day0.FanartCode)]</imagepath>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>-17</posx>
-                        <posy>-3</posy>
-                        <width>245</width>
-                        <height>56</height>
-                        <colordiffuse>99000000</colordiffuse>
-                        <texture border="1">windows/common/black.png</texture>
-                    </control>
-                    <control type="label">
-                        <description>day label</description>
-                        <posx>0</posx>
-                        <posy>-3</posy>
-                        <width>206</width>
-                        <height>56</height>
-                        <label>$INFO[Window(Weather).Property(Day0.Title)]</label>
-                        <font>Font-Condensed-S34</font>
-                        <textcolor>ddwhite</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>day label</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <label>$INFO[Window(Weather).Property(Day0.Title)]</label>
-                    <font>Font-Condensed-S45</font>
-                    <textcolor>ddwhite</textcolor>
-                    <visible>!Skin.HasSetting(ShowDailyWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                </control>
-                <control type="image">
-                    <description>day icon</description>
-                    <posx>-5</posx>
-                    <posy>70</posy>
-                    <height>138</height>
-                    <width>138</width>
-                    <texture>$INFO[Window(Weather).Property(Day0.FanartCode),weather/medium/,.png]</texture>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
-                <control type="label">
-                    <description>low / high value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <font>Font-Condensed-S45</font>
-                    <label>$INFO[Window.Property(Day0.LowTemp)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Day0.HighTemp), / ,]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>conditions label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>206</width>
-                    <label>$INFO[Window.Property(Day0.Outlook)]</label>
-                    <font>Font-Condensed-S34</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                </control>
-            </control>
-            <control type="group">
-                <posx>830</posx>
-                <posy>500</posy>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-                    <effect type="slide" start="-605" end="0" delay="350" tween="cubic" easing="out" time="540" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="slide" start="0" end="-605" tween="sine" easing="in" time="200" />
-                    <effect type="fade" delay="100" start="100" end="0" time="100" />
-                </animation>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>330</posy>
-                    <height>40</height>
-                    <width>265</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-22</posx>
-                    <posy>48</posy>
-                    <width>255</width>
-                    <height>285</height>
-                    <texture border="7">windows/home/tile.png</texture>
-                </control>
-                <control type="group">
-                    <visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowDailyWeatherFanart)</visible>
-                    <control type="multiimage">
-                        <posx>-17</posx>
-                        <posy>-100</posy>
-                        <width>245</width>
-                        <height>152</height>
-                        <timeperimage>999999999999999</timeperimage>
-                        <randomize>true</randomize>
-                        <fadetime>600</fadetime>
-                        <loop>yes</loop>
-                        <include>Animation_FanartFade</include>
-                        <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window.Property(Day1.FanartCode)]</imagepath>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>-17</posx>
-                        <posy>-3</posy>
-                        <width>245</width>
-                        <height>56</height>
-                        <colordiffuse>99000000</colordiffuse>
-                        <texture border="1">windows/common/black.png</texture>
-                    </control>
-                    <control type="label">
-                        <description>day label</description>
-                        <posx>0</posx>
-                        <posy>-3</posy>
-                        <width>206</width>
-                        <height>56</height>
-                        <label>$INFO[Window(Weather).Property(Day1.Title)]</label>
-                        <font>Font-Condensed-S34</font>
-                        <textcolor>ddwhite</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>day label</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <label>$INFO[Window(Weather).Property(Day1.Title)]</label>
-                    <font>Font-Condensed-S45</font>
-                    <textcolor>ddwhite</textcolor>
-                    <visible>!Skin.HasSetting(ShowDailyWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                </control>
-                <control type="image">
-                    <description>day icon</description>
-                    <posx>-5</posx>
-                    <posy>70</posy>
-                    <height>138</height>
-                    <width>138</width>
-                    <texture>$INFO[Window(Weather).Property(Day1.FanartCode),weather/medium/,.png]</texture>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
-                <control type="label">
-                    <description>low / high value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <font>Font-Condensed-S45</font>
-                    <label>$INFO[Window.Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Day1.HighTemp), / ,]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>conditions label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>206</width>
-                    <label>$INFO[Window.Property(Day1.Outlook)]</label>
-                    <font>Font-Condensed-S34</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                </control>
-            </control>
-            <control type="group">
-                <posx>1080</posx>
-                <posy>500</posy>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-                    <effect type="slide" start="-855" end="0" delay="350" tween="cubic" easing="out" time="605" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="slide" start="0" end="-855" tween="sine" easing="in" time="200" />
-                    <effect type="fade" delay="100" start="100" end="0" time="100" />
-                </animation>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>330</posy>
-                    <height>40</height>
-                    <width>265</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-22</posx>
-                    <posy>48</posy>
-                    <width>255</width>
-                    <height>285</height>
-                    <texture border="7">windows/home/tile.png</texture>
-                </control>
-                <control type="group">
-                    <visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowDailyWeatherFanart)</visible>
-                    <control type="multiimage">
-                        <posx>-17</posx>
-                        <posy>-100</posy>
-                        <width>245</width>
-                        <height>152</height>
-                        <timeperimage>999999999999999</timeperimage>
-                        <randomize>true</randomize>
-                        <fadetime>600</fadetime>
-                        <loop>yes</loop>
-                        <include>Animation_FanartFade</include>
-                        <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window.Property(Day2.FanartCode)]</imagepath>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>-17</posx>
-                        <posy>-3</posy>
-                        <width>245</width>
-                        <height>56</height>
-                        <colordiffuse>99000000</colordiffuse>
-                        <texture border="1">windows/common/black.png</texture>
-                    </control>
-                    <control type="label">
-                        <description>day label</description>
-                        <posx>0</posx>
-                        <posy>-3</posy>
-                        <width>206</width>
-                        <height>56</height>
-                        <label>$INFO[Window(Weather).Property(Day2.Title)]</label>
-                        <font>Font-Condensed-S34</font>
-                        <textcolor>ddwhite</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>day label</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <label>$INFO[Window(Weather).Property(Day2.Title)]</label>
-                    <font>Font-Condensed-S45</font>
-                    <textcolor>ddwhite</textcolor>
-                    <visible>!Skin.HasSetting(ShowDailyWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                </control>
-                <control type="image">
-                    <description>day icon</description>
-                    <posx>-5</posx>
-                    <posy>70</posy>
-                    <height>138</height>
-                    <width>138</width>
-                    <texture>$INFO[Window(Weather).Property(Day2.FanartCode),weather/medium/,.png]</texture>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
-                <control type="label">
-                    <description>low / high value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <font>Font-Condensed-S45</font>
-                    <label>$INFO[Window.Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Day2.HighTemp), / ,]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>conditions label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>206</width>
-                    <label>$INFO[Window.Property(Day2.Outlook)]</label>
-                    <font>Font-Condensed-S34</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                </control>
-            </control>
-            <control type="group">
-                <posx>1330</posx>
-                <posy>500</posy>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-                    <effect type="slide" start="-1105" end="0" delay="350" tween="cubic" easing="out" time="635" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="slide" start="0" end="-1105" tween="sine" easing="in" time="200" />
-                    <effect type="fade" delay="100" start="100" end="0" time="100" />
-                </animation>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>330</posy>
-                    <height>40</height>
-                    <width>265</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-22</posx>
-                    <posy>48</posy>
-                    <width>255</width>
-                    <height>285</height>
-                    <texture border="7">windows/home/tile.png</texture>
-                </control>
-                <control type="group">
-                    <visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowDailyWeatherFanart)</visible>
-                    <control type="multiimage">
-                        <posx>-17</posx>
-                        <posy>-100</posy>
-                        <width>245</width>
-                        <height>152</height>
-                        <timeperimage>999999999999999</timeperimage>
-                        <randomize>true</randomize>
-                        <fadetime>600</fadetime>
-                        <loop>yes</loop>
-                        <include>Animation_FanartFade</include>
-                        <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window.Property(Day3.FanartCode)]</imagepath>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>-17</posx>
-                        <posy>-3</posy>
-                        <width>245</width>
-                        <height>56</height>
-                        <colordiffuse>99000000</colordiffuse>
-                        <texture border="1">windows/common/black.png</texture>
-                    </control>
-                    <control type="label">
-                        <description>day label</description>
-                        <posx>0</posx>
-                        <posy>-3</posy>
-                        <width>206</width>
-                        <height>56</height>
-                        <label>$INFO[Window(Weather).Property(Day3.Title)]</label>
-                        <font>Font-Condensed-S34</font>
-                        <textcolor>ddwhite</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>day label</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <label>$INFO[Window(Weather).Property(Day3.Title)]</label>
-                    <font>Font-Condensed-S45</font>
-                    <textcolor>ddwhite</textcolor>
-                    <visible>!Skin.HasSetting(ShowDailyWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                </control>
-                <control type="image">
-                    <description>day icon</description>
-                    <posx>-5</posx>
-                    <posy>70</posy>
-                    <height>138</height>
-                    <width>138</width>
-                    <texture>$INFO[Window(Weather).Property(Day3.FanartCode),weather/medium/,.png]</texture>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
-                <control type="label">
-                    <description>low / high value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <font>Font-Condensed-S45</font>
-                    <label>$INFO[Window.Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Day3.HighTemp), / ,]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>conditions label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>206</width>
-                    <label>$INFO[Window.Property(Day3.Outlook)]</label>
-                    <font>Font-Condensed-S34</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                </control>
-            </control>
-            <control type="group">
-                <posx>1580</posx>
-                <posy>500</posy>
-                <animation type="WindowOpen" reversible="true">
-                    <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
-                    <effect type="slide" start="-1355" end="0" delay="350" tween="cubic" easing="out" time="660" />
-                </animation>
-                <animation type="WindowClose" reversible="true">
-                    <effect type="slide" start="0" end="-1355" tween="sine" easing="in" time="200" />
-                    <effect type="fade" delay="100" start="100" end="0" time="100" />
-                </animation>
-                <control type="image">
-                    <posx>-27</posx>
-                    <posy>330</posy>
-                    <height>40</height>
-                    <width>265</width>
-                    <texture>dialogs/shutdown/shadow.png</texture>
-                </control>
-                <control type="image">
-                    <posx>-22</posx>
-                    <posy>48</posy>
-                    <width>255</width>
-                    <height>285</height>
-                    <texture border="7">windows/home/tile.png</texture>
-                </control>
-                <control type="group">
-                    <visible>!IsEmpty(Skin.String(WeatherFanartDir)) + Skin.HasSetting(ShowDailyWeatherFanart)</visible>
-                    <control type="multiimage">
-                        <posx>-17</posx>
-                        <posy>-100</posy>
-                        <width>245</width>
-                        <height>152</height>
-                        <timeperimage>999999999999999</timeperimage>
-                        <randomize>true</randomize>
-                        <fadetime>600</fadetime>
-                        <loop>yes</loop>
-                        <include>Animation_FanartFade</include>
-                        <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window.Property(Day4.FanartCode)]</imagepath>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>-17</posx>
-                        <posy>-3</posy>
-                        <width>245</width>
-                        <height>56</height>
-                        <colordiffuse>99000000</colordiffuse>
-                        <texture border="1">windows/common/black.png</texture>
-                    </control>
-                    <control type="label">
-                        <description>day label</description>
-                        <posx>0</posx>
-                        <posy>-3</posy>
-                        <width>206</width>
-                        <height>56</height>
-                        <label>$INFO[Window(Weather).Property(Day4.Title)]</label>
-                        <font>Font-Condensed-S34</font>
-                        <textcolor>ddwhite</textcolor>
-                    </control>
-                </control>
-                <control type="label">
-                    <description>day label</description>
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <label>$INFO[Window(Weather).Property(Day4.Title)]</label>
-                    <font>Font-Condensed-S45</font>
-                    <textcolor>ddwhite</textcolor>
-                    <visible>!Skin.HasSetting(ShowDailyWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                </control>
-                <control type="image">
-                    <description>day icon</description>
-                    <posx>-5</posx>
-                    <posy>70</posy>
-                    <height>138</height>
-                    <width>138</width>
-                    <texture>$INFO[Window(Weather).Property(Day4.FanartCode),weather/medium/,.png]</texture>
-                    <aspectratio align="center">keep</aspectratio>
-                </control>
-                <control type="label">
-                    <description>low / high value</description>
-                    <posx>0</posx>
-                    <posy>230</posy>
-                    <width>206</width>
-                    <height>30</height>
-                    <font>Font-Condensed-S45</font>
-                    <label>$INFO[Window.Property(Day4.LowTemp)]$INFO[System.TemperatureUnits]$INFO[Window.Property(Day4.HighTemp), / ,]$INFO[System.TemperatureUnits]</label>
-                    <textcolor>ddwhite</textcolor>
-                </control>
-                <control type="label">
-                    <description>conditions label</description>
-                    <posx>0</posx>
-                    <posy>280</posy>
-                    <width>206</width>
-                    <label>$INFO[Window.Property(Day4.Outlook)]</label>
-                    <font>Font-Condensed-S34</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                </control>
-            </control>
-        </control>
-        
+            <include condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">WeatherDefault</include>
+            <include condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">WeatherWunderground</include>
+        </control>        
         <include>FadeBackgroundContentContext</include>
         
-        <control type="button" id="99">
+        <control type="button" id="101">
             <description>open options</description>
             <onleft>9111</onleft>
             <onright>9111</onright>
+            <visible>!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]</visible>
         </control>
         
         <control type="group" id="9000">
@@ -730,9 +66,11 @@
                     <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
                     <texturefocus>dialogs/options/buttons/location-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/location-nf.png</texturenofocus>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
-                    <onup>203</onup>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
+                    <onup>273</onup>
                     <ondown>2</ondown>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(3)">Conditional</animation>
                 </control>
@@ -767,8 +105,10 @@
                     <include>optionsbuttonsdimensions</include>
                     <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
                     <onup>3</onup>
                     <ondown>4</ondown>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(2)">Conditional</animation>
@@ -781,31 +121,37 @@
                     <texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
                     <texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
                     <onclick>ActivateWindow(MyWeatherSettings)</onclick>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
                     <onup>2</onup>
-                    <ondown>201</ondown>
+                    <ondown>271</ondown>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(4)">Conditional</animation>
                 </control>
-                <control type="radiobutton" id="201">
+                <control type="radiobutton" id="271">
                     <description>Hide fanart</description>
                     <posy>171</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41690]</label>
                     <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(ShowWeatherFanart)</onclick>
-                    <onclick>Skin.SetBool(ShowDailyWeatherFanart)</onclick>
+                    <onclick condition="Skin.HasSetting(ShowWeatherFanart)">Skin.SetBool(ShowDailyWeatherFanart)</onclick>
+                    <onclick condition="!Skin.HasSetting(ShowWeatherFanart)">Skin.Reset(ShowDailyWeatherFanart)</onclick>
+                    <onclick>ReloadSkin</onclick>
                     <selected>!Skin.HasSetting(ShowWeatherFanart)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
                     <onup>4</onup>
-                    <ondown>202</ondown>
-                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(201)">Conditional</animation>
+                    <ondown>272</ondown>
+                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(271)">Conditional</animation>
                 </control>
-                <control type="radiobutton" id="202">
+                <control type="radiobutton" id="272">
                     <description>Hide daily fanart</description>
                     <posy>228</posy>
                     <include>optionsbuttonsdimensions</include>
@@ -816,14 +162,17 @@
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
-                    <onup>201</onup>
-                    <ondown>203</ondown>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
+                    <onup>271</onup>
+                    <ondown>273</ondown>
                     <enable>Skin.HasSetting(ShowWeatherFanart)</enable>
-                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(202)">Conditional</animation>
+                    <visible>!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]</visible>
+                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(272)">Conditional</animation>
                 </control>
-                <control type="button" id="203">
+                <control type="button" id="273">
                     <description>Set fanart path</description>
                     <posy>285</posy>
                     <include>optionsbuttonsdimensions</include>
@@ -832,11 +181,14 @@
                     <texturenofocus>dialogs/options/buttons/bullet-nf.png</texturenofocus>
                     <onclick>Skin.SetPath(WeatherFanartDir)</onclick>
                     <enable>Skin.HasSetting(ShowWeatherFanart)</enable>
-                    <onleft>99</onleft>
-                    <onright>99</onright>
-                    <onup>202</onup>
+                    <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onleft>
+                    <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onleft>
+                    <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)]">101</onright>
+                    <onright condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">40</onright>
+                    <onup>272</onup>
                     <ondown>3</ondown>
-                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(203)">Conditional</animation>
+                    <animation effect="slide" end="0,-57" time="0" condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(273)">Conditional</animation>
                 </control>
             </control>
             
