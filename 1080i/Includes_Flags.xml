@@ -67,35 +67,10 @@
             <width>121</width>
             <visible>Container.Content(movies) + !IsEmpty(ListItem.MPAA)</visible>
             <control type="image">
-                <description>G Rating label</description>
+                <description>Language independent rating</description>
                 <include>MPAADimensionsSmall</include>
-                <texture>flags/mpaa/rating-g.png</texture>
-                <visible>substring(ListItem.MPAA,Rated G) | substring(ListItem.MPAA,USA:G)</visible>
+                <texture>$INFO[ListItem.MPAA,flags/mpaa/movie/,.png]</texture>
             </control>
-            <control type="image">
-                <description>PG Rating label</description>
-                <include>MPAADimensionsSmall</include>
-                <texture>flags/mpaa/rating-pg.png</texture>
-                <visible>[substring(ListItem.MPAA,Rated PG) + !substring(ListItem.MPAA,13)] | substring(ListItem.MPAA,USA:PG)</visible>
-            </control>
-            <control type="image">
-                <description>PG-13 Rating label</description>
-                <include>MPAADimensionsSmall</include>
-                <texture>flags/mpaa/rating-pg13.png</texture>
-                <visible>[substring(ListItem.MPAA,PG-13) | substring(ListItem.MPAA,USA:PG-13)] + [!substring(ListItem.MPAA,USA:R) + !substring(ListItem.MPAA,rated R)]</visible>
-            </control>
-            <control type="image">
-                <description>R Rating label</description>
-                <include>MPAADimensionsSmall</include>
-                <texture>flags/mpaa/rating-r.png</texture>
-                <visible>substring(ListItem.MPAA,Rated R) | substring(ListItem.MPAA,USA:R)</visible>
-            </control>
-            <control type="image">
-                <description>NC-17 Rating label</description>
-                <include>MPAADimensionsSmall</include>
-                <texture>flags/mpaa/rating-nc17.png</texture>
-                <visible>substring(ListItem.MPAA, NC-17) | substring(ListItem.MPAA,USA:NC-17)</visible>
-            </control>  
         </control>
         <control type="group">
             <width>121</width>
@@ -116,72 +91,14 @@
     <include name="TVRatingFlags">
         <control type="image">
             <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-y.png</texture>
-            <visible>substring(listitem.mpaa,TV-Y) + ![substring(listitem.mpaa,TV-Y7) | substring(listitem.mpaa,TV-Y7-FV)]</visible>
-        </control>
-        <control type="image">
-            <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-y7.png</texture>
-            <visible>substring(listitem.mpaa,TV-Y7) | substring(listitem.mpaa,TV-Y7-FV)</visible>
-        </control>
-        <control type="image">
-            <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-g.png</texture>
-            <visible>substring(listitem.mpaa,TV-G)</visible>
-        </control>
-        <control type="image">
-            <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-pg.png</texture>
-            <visible>substring(listitem.mpaa,TV-PG)</visible>
-        </control>
-        <control type="image">
-            <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-14.png</texture>
-            <visible>substring(listitem.mpaa,TV-14)</visible>
-        </control>
-        <control type="image">
-            <include>TVRatingFlagLayout</include>
-            <texture>flags/ratings/tv-ma.png</texture>
-            <visible>substring(listitem.mpaa,TV-MA)</visible>
+            <texture>$INFO[ListItem.MPAA,flags/mpaa/tv/medium/,.png]</texture>
         </control>
     </include>
     
     <include name="TVRatingFlagsSmall">
         <control type="image">
-            <description>TV-Y Rating label</description>
-           <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-y-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-Y) + ![substring(listitem.mpaa,TV-Y7) | substring(listitem.mpaa,TV-Y7-FV)]</visible>
-        </control>
-        <control type="image">
-            <description>TV-Y7 Rating label</description>
             <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-y7-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-Y7) | substring(listitem.mpaa,TV-Y7-FV)</visible>
-        </control>
-        <control type="image">
-            <description>TV-G Rating label</description>
-            <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-g-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-G)</visible>
-        </control>
-        <control type="image">
-            <description>TV-PG Rating label</description>
-            <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-pg-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-PG)</visible>
-        </control>
-        <control type="image">
-            <description>TV-14 Rating label</description>
-            <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-14-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-14)</visible>
-        </control>
-        <control type="image">
-            <description>TV-MA Rating label</description>
-            <include>MPAADimensionsSmall</include>
-            <texture>flags/ratings/tv-ma-s.png</texture>
-            <visible>substring(listitem.mpaa,TV-MA)</visible>
+            <texture>$INFO[ListItem.MPAA,flags/mpaa/tv/small/,.png]</texture>
         </control>
     </include>
 </includes>
