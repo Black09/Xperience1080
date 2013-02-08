@@ -2,8 +2,7 @@
 <!-- ========= -->
 <!-- List (50) -->
 <!-- ========= -->
-<include name="Viewtype-MusicList">
-    
+    <include name="Viewtype-MusicList">
         <control type="group">
             <visible>Control.IsVisible(50) + !Window.IsActive(musicinformation) + !Window.IsActive(addoninformation)</visible>
             <include>CommonViewAnimations</include>
@@ -1076,7 +1075,7 @@
                         </control>
                         <control type="label">
                             <posx>20</posx>
-                            <posy>1</posy>
+                            <posy>0</posy>
                             <height>60</height>
                             <width>590</width>
                             <font>Font-Condensed-S29-B</font>
@@ -1096,7 +1095,7 @@
                         </control>
                         <control type="label">
                             <posx>90</posx>
-                            <posy>1</posy>
+                            <posy>0</posy>
                             <height>60</height>
                             <width>510</width>
                             <font>Font-Condensed-S29-B</font>
@@ -1108,7 +1107,7 @@
                         <control type="label">
                             <posx>46</posx>
                             <width>100</width>
-                            <height>60</height>
+                            <height>58</height>
                             <font>Font-Condensed-S31</font>
                             <label fallback="••••">$INFO[ListItem.Year]</label>
                             <align>center</align>
@@ -1119,7 +1118,7 @@
                         <control type="label">
                             <posx>610</posx>
                             <width>510</width>
-                            <height>60</height>
+                            <height>58</height>
                             <font>Font-Condensed-S31</font>
                             <label fallback="    •••">$INFO[ListItem.Rating,    ,.0]</label>
                             <textcolor>77white</textcolor>
@@ -1157,7 +1156,7 @@
                             <include>visiblehidefadeinfo</include>
                             <control type="label">
                                 <posx>20</posx>
-                                <posy>1</posy>
+                                <posy>0</posy>
                                 <height>60</height>
                                 <width>590</width>
                                 <font>Font-Condensed-S29-B</font>
@@ -1170,7 +1169,7 @@
                             <control type="label">
                                 <posx>610</posx>
                                 <width>590</width>
-                                <height>60</height>
+                                <height>58</height>
                                 <font>Font-Condensed-S31</font>
                                 <label fallback="">$INFO[ListItem.Duration]</label>
                                 <textcolor>77white</textcolor>
@@ -1206,7 +1205,7 @@
                             <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
                             <control type="label">
                                 <posx>20</posx>
-                                <posy>1</posy>
+                                <posy>0</posy>
                                 <height>60</height>
                                 <width>590</width>
                                 <font>Font-Condensed-S29-B</font>
@@ -1242,7 +1241,7 @@
                             <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
                             <control type="label">
                                 <posx>90</posx>
-                                <posy>1</posy>
+                                <posy>0</posy>
                                 <height>60</height>
                                 <width>510</width>
                                 <font>Font-Condensed-S29-B</font>
@@ -1254,7 +1253,7 @@
                             <control type="label">
                                 <posx>46</posx>
                                 <width>100</width>
-                                <height>60</height>
+                                <height>58</height>
                                 <font>Font-Condensed-S31</font>
                                 <label fallback="••••">$INFO[ListItem.Year]</label>
                                 <align>center</align>
@@ -1265,7 +1264,7 @@
                             <control type="label">
                                 <posx>610</posx>
                                 <width>510</width>
-                                <height>60</height>
+                                <height>58</height>
                                 <font>Font-Condensed-S31</font>
                                 <label fallback="    •••">$INFO[ListItem.Rating,    ,.0]</label>
                                 <textcolor>eewhite</textcolor>
@@ -1320,7 +1319,7 @@
                                 <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
                                 <control type="label">
                                     <posx>20</posx>
-                                    <posy>1</posy>
+                                    <posy>0</posy>
                                     <height>60</height>
                                     <width>590</width>
                                     <font>Font-Condensed-S29-B</font>
@@ -1333,7 +1332,7 @@
                                 <control type="label">
                                     <posx>610</posx>
                                     <width>590</width>
-                                    <height>60</height>
+                                    <height>58</height>
                                     <font>Font-Condensed-S31</font>
                                     <label fallback="">$INFO[ListItem.Duration]</label>
                                     <textcolor>eewhite</textcolor>
@@ -1437,32 +1436,18 @@
                             <width>152</width>
                             <height>152</height>
                             <aspectratio>scale</aspectratio>
-                            <colordiffuse>bbwhite</colordiffuse>
+                            <colordiffuse>eewhite</colordiffuse>
                             <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
                             <texture background="true">$VAR[SquareThumbSmall]</texture>
                         </control>
                     </itemlayout>
                     <focusedlayout width="164" height="164">
                         <control type="group">
-                            <visible>!Control.HasFocus(53)</visible>
-                            <control type="image">
-                                <posx>12</posx>
-                                <posy>12</posy>
-                                <width>152</width>
-                                <height>152</height>
-                                <aspectratio>scale</aspectratio>
-                                <colordiffuse>bbwhite</colordiffuse>
-                                <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <texture background="true">$VAR[SquareThumbSmall]</texture>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <animation type="Focus" reversible="false">
-                                <effect type="zoom" start="80" end="100" time="300" tween="back" easing="out" center="auto" />
+                            <animation type="Focus">
+                                <effect type="fade" start="93.36" end="100" time="200" tween="sine" easing="in" />
                             </animation>
-                            <animation type="UnFocus" condition="!Container(53).OnNext + !Container(53).OnPrevious" reversible="false">
-                                <effect type="zoom" start="100" end="86.67" time="250" tween="back" easing="in" center="auto" />
-                                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                            <animation type="Unfocus">
+                                <effect type="fade" start="100" end="93.36" time="200" tween="sine" easing="out" />
                             </animation>
                             <control type="image">
                                 <posx>12</posx>
@@ -1479,6 +1464,14 @@
                                 <width>176</width>
                                 <height>176</height>
                                 <texture border="31">views/panel/focus.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                </animation>
                             </control>
                         </control>
                     </focusedlayout>
@@ -1724,7 +1717,7 @@
                             <posy>458</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -1761,7 +1754,7 @@
                             <posy>10</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(-1).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -1834,7 +1827,7 @@
                             <posy>458</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -1871,7 +1864,7 @@
                             <posy>10</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(4).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -1944,7 +1937,7 @@
                             <posy>458</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -1981,7 +1974,7 @@
                             <posy>10</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(3).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -2054,7 +2047,7 @@
                             <posy>458</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -2091,7 +2084,7 @@
                             <posy>10</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(2).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -2164,7 +2157,7 @@
                             <posy>458</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -2201,7 +2194,7 @@
                             <posy>10</posy>
                             <width>444</width>
                             <height>444</height>
-                            <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
+                            <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(1).Label,musicgenres/,.jpg]</texture>
                             <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                             <visible>Container.Content(Genres)</visible>
                         </control>
@@ -2271,7 +2264,7 @@
                         <posy>458</posy>
                         <width>444</width>
                         <height>444</height>
-                        <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
+                        <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
                         <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                         <visible>Container.Content(Genres)</visible>
                     </control>
@@ -2316,7 +2309,7 @@
                         <posy>10</posy>
                         <width>444</width>
                         <height>444</height>
-                        <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
+                        <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[Container(55).ListItem(0).Label,musicgenres/,.jpg]</texture>
                         <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                         <visible>Container.Content(Genres)</visible>
                     </control>
@@ -2398,7 +2391,7 @@
                                 <posy>458</posy>
                                 <width>444</width>
                                 <height>444</height>
-                                <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
+                                <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
                                 <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                                 <visible>Container.Content(Genres)</visible>
                             </control>
@@ -2434,7 +2427,7 @@
                                 <posy>10</posy>
                                 <width>444</width>
                                 <height>444</height>
-                                <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
+                                <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
                                 <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                                 <visible>Container.Content(Genres)</visible>
                             </control>
@@ -2492,7 +2485,7 @@
                                 <posy>458</posy>
                                 <width>444</width>
                                 <height>444</height>
-                                <texture flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
+                                <texture background="true" flipy="true" diffuse="views/posterview/diffuse-ref-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
                                 <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                                 <visible>Container.Content(Genres)</visible>
                             </control>
@@ -2536,7 +2529,7 @@
                                 <posy>10</posy>
                                 <width>444</width>
                                 <height>444</height>
-                                <texture diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
+                                <texture background="true" diffuse="views/posterview/diffuse-square.png" fallback="musicgenres/default.jpg">$INFO[ListItem.Label,musicgenres/,.jpg]</texture>
                                 <aspectratio align="center" scalediffuse="false">scale</aspectratio>
                                 <visible>Container.Content(Genres)</visible>
                             </control>
@@ -2713,25 +2706,11 @@
                     </itemlayout>
                     <focusedlayout width="244" height="244">
                         <control type="group">
-                            <visible>!Control.HasFocus(501)</visible>
-                            <control type="image">
-                                <posx>12</posx>
-                                <posy>12</posy>
-                                <width>232</width>
-                                <height>232</height>
-                                <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
-                                <texture background="true" fallback="views/panel/fallback-addon.png">$VAR[SquareThumbSmall]</texture>
-                                <aspectratio>scale</aspectratio>
-                                <colordiffuse>eewhite</colordiffuse>
-                            </control>
-                        </control>
-                        <control type="group">
-                            <animation type="Focus" reversible="false">
-                                <effect type="zoom" start="80" end="100" time="300" tween="back" easing="out" center="auto" />
+                            <animation type="Focus">
+                                <effect type="fade" start="93.36" end="100" time="200" tween="sine" easing="in" />
                             </animation>
-                            <animation type="UnFocus" condition="!Container(501).OnNext + !Container(501).OnPrevious" reversible="false">
-                                <effect type="zoom" start="100" end="86.67" time="250" tween="back" easing="in" center="auto" />
-                                <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                            <animation type="Unfocus">
+                                <effect type="fade" start="100" end="93.36" time="200" tween="sine" easing="out" />
                             </animation>
                             <control type="image">
                                 <posx>12</posx>
@@ -2748,6 +2727,14 @@
                                 <width>256</width>
                                 <height>256</height>
                                 <texture border="31">views/panel/focus.png</texture>
+                                <animation type="Focus">
+                                    <effect type="zoom" start="90" end="100" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="0" end="100" time="200" tween="sine" easing="in" />
+                                </animation>
+                                <animation type="Unfocus">
+                                    <effect type="zoom" start="100" end="90" time="200" tween="sine" easing="inout" center="auto" />
+                                    <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+                                </animation>
                             </control>
                         </control>
                     </focusedlayout>
