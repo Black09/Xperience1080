@@ -1,14 +1,14 @@
 <window>
     <defaultcontrol></defaultcontrol>
     <onload condition="Library.IsScanningVideo + Skin.HasSetting(UpdateArt.Enabled)">SetProperty(UpdateArt,1)</onload>
-    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,silent=true,landscape,clearlogo,clearart)</onunload>
+    <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">XBMC.RunScript(script.artwork.downloader,mode=custom,silent=true,landscape,clearlogo,clearart)</onunload>
     <onunload condition="!IsEmpty(Window.Property(UpdateArt)) + Skin.HasSetting(UpdateArt.Enabled)">ClearProperty(UpdateArt)</onunload>
     <controls>
         <control type="group">
             <posx>1745</posx>
             <posy>26</posy>
             <include>BannerListInfoAnimation</include>
-            <visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)</visible>
+            <visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation) + !Window.IsVisible(startup)</visible>
             <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
             <animation type="Conditional" condition="Window.IsActive(infodialog) | Window.IsActive(volumebar)">
                 <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
