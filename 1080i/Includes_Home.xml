@@ -410,7 +410,7 @@
             <onup>21</onup>
             <orientation>horizontal</orientation>
             <include condition="System.HasAddon(script.globalsearch) + System.GetBool(pvrmanager.enabled)">HomeControlListFocus2</include>
-            <include condition="!System.HasAddon(script.globalsearch) | !System.GetBool(pvrmanager.enabled)">HomeControlListFocus1</include>
+            <include condition="[!System.HasAddon(script.globalsearch) + System.GetBool(pvrmanager.enabled)] | [System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)]">HomeControlListFocus1</include>
             <include condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">HomeControlListFocus0</include>
             <scrolltime>0</scrolltime>
             <viewtype>list</viewtype>
