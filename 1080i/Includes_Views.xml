@@ -105,7 +105,7 @@
     </variable>
     
     <variable name="DefaultListOverlay">
-        <value condition="Container(50).ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/default-p.png]</value>
+        <value condition="Container.ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/default-p.png]</value>
         <value>$INFO[ListItem.Overlay,overlays/,/default-w.png]</value>
     </variable>
     
@@ -531,7 +531,9 @@
     </variable>
     
     <variable name="ThumbnailViewDetailInfo">
-        <value condition="Container.Content(episodes)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, ★ ,]</value>
+        <value condition="Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, ★ ,]      </value>
+        <value condition="Container.Content(episodes) + IsEmpty(ListItem.Overlay)">$INFO[ListItem.Premiered]$INFO[ListItem.Rating, ★ ,]</value>
+        <value condition="!Container.Content(episodes) + !IsEmpty(ListItem.Overlay)">$INFO[ListItem.Label2]$INFO[ListItem.Rating, ★ ,]      </value>
         <value>$INFO[ListItem.Label2]$INFO[ListItem.Rating, ★ ,]</value>
     </variable>
     

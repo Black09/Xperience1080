@@ -3964,7 +3964,7 @@
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
                 <control type="panel" id="500">
-                    <posx>88</posx>
+                    <posx>94</posx>
                     <posy>174</posy>
                     <width>1744</width>
                     <height>700</height>
@@ -3979,7 +3979,7 @@
                     <ondown>500</ondown>
                     <preloaditems>2</preloaditems>
                     <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left) | Container.HasFiles</visible>
-                    <animation effect="slide" end="65" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
+                    <animation effect="slide" end="59" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
                     <itemlayout width="344" height="344" condition="!Skin.HasSetting(ThumbnailSmall)">
                         <control type="image">
                             <description>Poster Back</description>
@@ -4002,16 +4002,16 @@
                         </control>
                         <control type="image">
                             <posx>12</posx>
-                            <posy>278</posy>
+                            <posy>272</posy>
                             <width>332</width>
-                            <height>66</height>
+                            <height>72</height>
                             <texture border="1">windows/common/black.png</texture>
                             <colordiffuse>DFFFFFFF</colordiffuse>
                         </control>
                         <control type="label">
                             <posx>27</posx>
-                            <posy>278</posy>
-                            <width>292</width>
+                            <posy>275</posy>
+                            <width>260</width>
                             <height>66</height>
                             <label>$INFO[ListItem.Label]</label>
                             <font>Font-Condensed-S32</font>
@@ -4021,13 +4021,14 @@
                             <align>left</align>
                         </control>
                         <control type="image">
-                            <posx>269</posx>
-                            <posy>12</posy>
-                            <width>75</width>
-                            <height>75</height>
+                            <description>Watched/unwatched overlay</description>
+                            <posx>262</posx>
+                            <posy>258</posy>
+                            <width>100</width>
+                            <height>100</height>
                             <aspect>keepaspect</aspect>
                             <colordiffuse>eewhite</colordiffuse>
-                            <texture>$VAR[ExtendedOverlay]</texture>
+                            <texture>$VAR[DefaultListOverlay]</texture>
                             <visible>!IsEmpty(ListItem.Overlay)</visible>
                         </control>
                     </itemlayout>
@@ -4061,8 +4062,8 @@
                         </control>
                         <control type="label">
                             <posx>27</posx>
-                            <posy>179</posy>
-                            <width>177</width>
+                            <posy>178</posy>
+                            <width>155</width>
                             <height>50</height>
                             <label>$INFO[ListItem.Label]</label>
                             <font>Font-Condensed-S25</font>
@@ -4072,13 +4073,13 @@
                             <align>left</align>
                         </control>
                         <control type="image">
-                            <posx>179</posx>
-                            <posy>12</posy>
-                            <width>50</width>
-                            <height>50</height>
+                            <posx>174</posx>
+                            <posy>174</posy>
+                            <width>60</width>
+                            <height>60</height>
                             <aspect>keepaspect</aspect>
+                            <texture>$VAR[InfoListOverlay]</texture>
                             <colordiffuse>eewhite</colordiffuse>
-                            <texture>$VAR[ExtendedOverlay]</texture>
                             <visible>!IsEmpty(ListItem.Overlay)</visible>
                         </control>
                     </itemlayout>
@@ -4115,33 +4116,35 @@
                                 </animation>
                                 <control type="image">
                                     <posx>12</posx>
-                                    <posy>278</posy>
+                                    <posy>272</posy>
                                     <width>332</width>
-                                    <height>66</height>
+                                    <height>72</height>
                                     <texture border="1">windows/common/black.png</texture>
-                                    <colordiffuse>F0FFFFFF</colordiffuse>
+                                    <colordiffuse>DFFFFFFF</colordiffuse>
                                 </control>
                                 <control type="label">
                                     <posx>27</posx>
-                                    <posy>278</posy>
-                                    <width>292</width>
+                                    <posy>275</posy>
+                                    <width>260</width>
                                     <height>66</height>
                                     <label>$INFO[ListItem.Label]</label>
                                     <font>Font-Condensed-S32</font>
-                                    <textcolor>A5FFFFFF</textcolor>
+                                    <textcolor>99FFFFFF</textcolor>
                                     <shadowcolor>22000000</shadowcolor>
                                     <scroll>false</scroll>
                                     <align>left</align>
                                 </control>
-                            </control>
-                            <control type="image">
-                                <posx>269</posx>
-                                <posy>12</posy>
-                                <width>75</width>
-                                <height>75</height>
-                                <aspect>keepaspect</aspect>
-                                <texture>$VAR[ExtendedOverlay]</texture>
-                                <visible>!IsEmpty(ListItem.Overlay)</visible>
+                                <control type="image">
+                                    <description>Watched/unwatched overlay</description>
+                                    <posx>262</posx>
+                                    <posy>258</posy>
+                                    <width>100</width>
+                                    <height>100</height>
+                                    <aspect>keepaspect</aspect>
+                                    <colordiffuse>eewhite</colordiffuse>
+                                    <texture>$VAR[DefaultListOverlay]</texture>
+                                    <visible>!IsEmpty(ListItem.Overlay)</visible>
+                                </control>
                             </control>
                             <control type="image">
                                 <posx>0</posx>
@@ -4201,25 +4204,26 @@
                                 </control>
                                 <control type="label">
                                     <posx>27</posx>
-                                    <posy>179</posy>
-                                    <width>177</width>
+                                    <posy>178</posy>
+                                    <width>155</width>
                                     <height>50</height>
                                     <label>$INFO[ListItem.Label]</label>
                                     <font>Font-Condensed-S25</font>
-                                    <textcolor>A5FFFFFF</textcolor>
+                                    <textcolor>99FFFFFF</textcolor>
                                     <shadowcolor>22000000</shadowcolor>
                                     <scroll>false</scroll>
                                     <align>left</align>
                                 </control>
-                            </control>
-                            <control type="image">
-                                <posx>179</posx>
-                                <posy>12</posy>
-                                <width>50</width>
-                                <height>50</height>
-                                <aspect>keepaspect</aspect>
-                                <texture>$VAR[ExtendedOverlay]</texture>
-                                <visible>!IsEmpty(ListItem.Overlay)</visible>
+                                <control type="image">
+                                    <posx>174</posx>
+                                    <posy>174</posy>
+                                    <width>60</width>
+                                    <height>60</height>
+                                    <aspect>keepaspect</aspect>
+                                    <texture>$VAR[InfoListOverlay]</texture>
+                                    <colordiffuse>eewhite</colordiffuse>
+                                    <visible>!IsEmpty(ListItem.Overlay)</visible>
+                                </control>
                             </control>
                             <control type="image">
                                 <posx>0</posx>
@@ -4240,7 +4244,7 @@
                     </focusedlayout>
                 </control>
                 <control type="button">
-                    <posx>120</posx>
+                    <posx>126</posx>
                     <posy>874</posy>
                     <width>1680</width>
                     <height>56</height>
@@ -4256,7 +4260,7 @@
                 <control type="button">
                     <posx>185</posx>
                     <posy>874</posy>
-                    <width>1550</width>
+                    <width>1562</width>
                     <height>56</height>
                     <label>[B]$INFO[ListItem.Label][/B]</label>
                     <label2>$VAR[ThumbnailViewDetailInfo]</label2>
@@ -4267,8 +4271,20 @@
                     <align>left</align>
                     <visible>Skin.HasSetting(ThumbnailSmall)</visible>
                 </control>
+                <control type="image">
+                    <description>Watched/unwatched overlay</description>
+                    <posx>1729</posx>
+                    <posy>852</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspect>keepaspect</aspect>
+                    <colordiffuse>eewhite</colordiffuse>
+                    <texture>$VAR[DefaultListOverlay]</texture>
+                    <visible>!IsEmpty(ListItem.Overlay)</visible>
+                    <animation effect="slide" end="-59" time="0" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
+                </control>
                 <control type="group">
-                    <animation effect="slide" end="65" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
+                    <animation effect="slide" end="59" time="400" tween="cubic" easing="inout" condition="Skin.HasSetting(ThumbnailSmall)">Conditional</animation>
                     <control type="image">
                         <description>Scrollbar background (visible on focus)</description>
                         <posx>75</posx>
