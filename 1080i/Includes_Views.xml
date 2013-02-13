@@ -543,4 +543,9 @@
         <value condition="StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)">buttons/radio/radio-button-fo.png</value>
     </variable>
     
+    <variable name="TVNumItemsLabel">
+        <value condition="IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)">$INFO[Container.NumItems,, $LOCALIZE[41822]]</value>
+        <value>$INFO[Container.NumItems,, $LOCALIZE[41817]]</value>
+    </variable>
+    
 </includes>
