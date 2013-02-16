@@ -99,9 +99,7 @@
                     <visible>System.CanPowerDown</visible>
                     <control type="button" id="30">
                         <description>Powerdown button</description>
-                        <width>404</width>
-                        <height>57</height>
-                        <font>-</font>
+                        <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[41355]</label>
                         <onclick>XBMC.Powerdown()</onclick>
                         <onleft>32</onleft>
@@ -110,12 +108,11 @@
                         <ondown>8</ondown>
                         <texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
                         <texturenofocus>dialogs/options/buttons/shutdown-nf.png</texturenofocus>
+                        <visible allowhiddenfocus="true">![Control.HasFocus(31) | Control.HasFocus(32)]</visible>
                     </control>
                     <control type="button" id="31">
                         <description>Custom Shutdown button</description>
-                        <width>404</width>
-                        <height>57</height>
-                        <font>-</font>
+                        <include>optionsbuttonsdimensions</include>
                         <label>20150</label>
                         <onclick>AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
                         <onleft>30</onleft>
@@ -123,20 +120,20 @@
                         <onup>6</onup>
                         <ondown>8</ondown>
                         <texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
+                        <visible allowhiddenfocus="true">Control.HasFocus(31)</visible>
                     </control>
                     <control type="button" id="32">
                         <description>Cancel Shutdown button</description>
-                        <width>404</width>
-                        <height>57</height>
-                        <font>-</font>
+                        <include>optionsbuttonsdimensions</include>
                         <label>20151</label>
                         <onclick>CancelAlarm(shutdowntimer)</onclick>
                         <onleft>31</onleft>
                         <onright>30</onright>
                         <onup>6</onup>
                         <ondown>8</ondown>
-                        <visible>System.HasAlarm(shutdowntimer)</visible>
                         <texturefocus>dialogs/options/buttons/shutdown-fo.png</texturefocus>
+                        <visible allowhiddenfocus="true">Control.HasFocus(32)</visible>
+                        <enable>System.HasAlarm(shutdowntimer)</enable>
                     </control>
                     <!-- Arrows -->
                     <control type="image">
@@ -162,29 +159,6 @@
                             <effect type="slide" start="40" end="35" tween="sine" easing="inout" time="700" />
                         </animation>
                         <visible>ControlGroup(7).HasFocus()</visible>
-                    </control>
-                    <!-- Labels for Shutdown buttons -->
-                    <control type="label" id="3100">
-                        <posx>75</posx>
-                        <width>300</width>
-                        <height>57</height>
-                        <label>-</label>
-                        <textcolor>DDFFFFFF</textcolor>
-                        <font>Font-Condensed-S34</font>
-                        <align>left</align>
-                        <scroll>true</scroll>
-                        <visible>Control.HasFocus(30) | Control.HasFocus(31) | Control.HasFocus(32) | Control.HasFocus(33) | Control.HasFocus(34) | Control.HasFocus(35)</visible>
-                    </control>
-                    <control type="label">
-                        <posx>75</posx>
-                        <width>300</width>
-                        <height>57</height>
-                        <label>$LOCALIZE[41355]</label>
-                        <textcolor>FF484848</textcolor>
-                        <font>Font-Condensed-S34</font>
-                        <align>left</align>
-                        <scroll>true</scroll>
-                        <visible>!Control.HasFocus(30) + !Control.HasFocus(31) + !Control.HasFocus(32) + !Control.HasFocus(33) + !Control.HasFocus(34) + !Control.HasFocus(35)</visible>
                     </control>
                 </control>
                 <control type="button" id="8">
@@ -237,6 +211,7 @@
                 <control type="button" id="13">
                     <include>optionsbuttonsdimensions</include>
                     <label>Reload Skin</label>
+                    <onclick>dialog.close(all,true)</onclick>
                     <onclick>ReloadSkin</onclick>
                     <onclick>Dialog.Close(111)</onclick> 
                     <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
