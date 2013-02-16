@@ -984,6 +984,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <itemlayout width="572" height="501">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1064,6 +1066,40 @@
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
                         </control>
+                        <control type="group">
+                            <visible>IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomEpisode.1.File)) + IsEmpty(Window.Property(RandomMovie.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>212</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>212</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <decription>Title label</decription>
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <width>532</width>
+                                <height>64</height>
+                                <label>$LOCALIZE[41557]</label>
+                                <font>Font-Condensed-S29-B</font>
+                                <textcolor>aawhite</textcolor>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
                         <control type="button">
                             <decription>Title label</decription>
                             <posx>20</posx>
@@ -1078,6 +1114,8 @@
                             <aligny>center</aligny>
                             <scroll>false</scroll>
                             <enabled>false</enabled>
+                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1102,6 +1140,8 @@
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
+                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <decription>Dot #1</decription>
                                 <include>HomeDotIndicator</include>
@@ -1227,6 +1267,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1307,6 +1349,40 @@
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
                         </control>
+                        <control type="group">
+                            <visible>IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>117</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>117</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <decription>Title label</decription>
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <width>342</width>
+                                <height>64</height>
+                                <label>$LOCALIZE[41558]</label>
+                                <font>Font-Condensed-S29-B</font>
+                                <textcolor>aawhite</textcolor>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
                         <control type="button">
                             <decription>Title label</decription>
                             <posx>20</posx>
@@ -1321,6 +1397,8 @@
                             <aligny>center</aligny>
                             <scroll>false</scroll>
                             <enabled>false</enabled>
+                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1344,6 +1422,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
+                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(503).HasFocus">Conditional</animation>
                             <control type="image">
                                 <decription>Dot #1</decription>
@@ -1680,6 +1760,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1760,6 +1842,40 @@
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
                         </control>
+                        <control type="group">
+                            <visible>IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>117</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>117</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <decription>Title label</decription>
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <width>342</width>
+                                <height>64</height>
+                                <label>$LOCALIZE[41559]</label>
+                                <font>Font-Condensed-S29-B</font>
+                                <textcolor>aawhite</textcolor>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
                         <control type="button">
                             <decription>Title label</decription>
                             <posx>20</posx>
@@ -1774,6 +1890,8 @@
                             <aligny>center</aligny>
                             <scroll>false</scroll>
                             <enabled>false</enabled>
+                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1797,6 +1915,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
+                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(202).HasFocus">Conditional</animation>
                             <control type="image">
                                 <decription>Dot #1</decription>
@@ -2380,6 +2500,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <itemlayout width="671" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -2460,6 +2582,40 @@
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
                         </control>
+                        <control type="group">
+                            <visible>IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>261</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>261</posx>
+                                <posy>180</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <decription>Title label</decription>
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <width>342</width>
+                                <height>64</height>
+                                <label>$LOCALIZE[41560]</label>
+                                <font>Font-Condensed-S29-B</font>
+                                <textcolor>aawhite</textcolor>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
                         <control type="button">
                             <decription>Title label</decription>
                             <posx>20</posx>
@@ -2474,6 +2630,8 @@
                             <aligny>center</aligny>
                             <scroll>false</scroll>
                             <enabled>false</enabled>
+                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -2497,6 +2655,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
+                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(302).HasFocus">Conditional</animation>
                             <control type="image">
                                 <decription>Dot #1</decription>
@@ -3052,7 +3212,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <itemgap>6</itemgap>
+                            <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
+                            <include>visiblehidefadeinfo</include>
                             <itemlayout width="477" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -3131,6 +3292,39 @@
                             </content>
                         </control>
                         <control type="group">
+                            <visible>IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>165</posx>
+                                <posy>165</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>165</posx>
+                                <posy>165</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>482</posy>
+                                <height>89</height>
+                                <width>437</width>
+                                <font>Font-Condensed-S31-B</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>bbwhite</textcolor>
+                                <label>$LOCALIZE[41561]</label>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                        <control type="group">
                             <posx>0</posx>
                             <posy>483</posy>
                             <control type="image">
@@ -3140,29 +3334,33 @@
                                 <height>99</height>
                                 <texture border="7">windows/home/tile.png</texture>
                             </control>
-                            <control type="label">
-                                <posx>20</posx>
-                                <posy>-6</posy>
-                                <height>66</height>
-                                <width>437</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textcolor>bbwhite</textcolor>
-                                <label>$INFO[Container(4022).ListItem.Label]</label>
-                                <scroll>false</scroll>
-                            </control>
-                            <control type="label">
-                                <posx>20</posx>
-                                <posy>29</posy>
-                                <height>66</height>
-                                <width>437</width>
-                                <font>Font-Condensed-S30</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textcolor>99FFFFFF</textcolor>
-                                <label>$INFO[Container(4022).ListItem.Label2]</label>
-                                <scroll>false</scroll>
+                            <control type="group">
+                                <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
+                                <include>visiblehidefadeinfo</include>
+                                <control type="label">
+                                    <posx>20</posx>
+                                    <posy>-6</posy>
+                                    <height>66</height>
+                                    <width>437</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textcolor>bbwhite</textcolor>
+                                    <label>$INFO[Container(4022).ListItem.Label]</label>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="label">
+                                    <posx>20</posx>
+                                    <posy>29</posy>
+                                    <height>66</height>
+                                    <width>437</width>
+                                    <font>Font-Condensed-S30</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <textcolor>99FFFFFF</textcolor>
+                                    <label>$INFO[Container(4022).ListItem.Label2]</label>
+                                    <scroll>false</scroll>
+                                </control>
                             </control>
                             <control type="label">
                                 <posx>0</posx>
@@ -3186,6 +3384,8 @@
                                 <height>16</height>
                                 <orientation>horizontal</orientation>
                                 <itemgap>0</itemgap>
+                                <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
+                                <include>visiblehidefadeinfo</include>
                                 <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                                 <control type="image">
                                     <decription>Dot #1</decription>
