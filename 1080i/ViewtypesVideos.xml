@@ -1028,13 +1028,13 @@
                     <posy>277</posy>
                     <width>400</width>
                     <height>600</height>
-                    <texture background="true">$VAR[PosterViewPoster]</texture>
+                    <texture background="true">$VAR[InfoListPoster]</texture>
                     <fadetime>500</fadetime>
                     <aspectratio>scale</aspectratio>
-                    <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)</visible>
+                    <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                 </control>
                 <control type="group">
-                    <visible>!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Sets)</visible>
+                    <visible>!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes) + !Container.Content(Sets)</visible>
                     <control type="image">
                         <description>Thumb</description>
                         <posx>100</posx>
@@ -1056,7 +1056,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)]</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)]</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
@@ -1086,7 +1086,7 @@
                         <width>580</width>
                         <height>604</height>
                         <texture background="true">views/list/panel/panel.png</texture>
-                        <visible>IsEmpty(Container(52).ListItem.Art(fanart)) + IsEmpty(Container(52).ListItem.Art(season.fanart))</visible>
+                        <visible>[IsEmpty(Container(52).ListItem.Art(fanart)) + IsEmpty(Container(52).ListItem.Art(season.fanart))] | Container.Content(Episodes)</visible>
                         <include>visiblehidefadeinfo</include>
                     </control>
                     <control type="image">
@@ -1097,9 +1097,29 @@
                         <texture background="true">$VAR[ListFanart]</texture>
                         <fadetime>500</fadetime>
                         <aspectratio>scale</aspectratio>
+                        <visible>!Container.Content(Episodes)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>1</posy>
+                        <width>576</width>
+                        <height>324</height>
+                        <texture background="true" fallback="views/fallbacks/DefaultVideo.png/landscape.png">$INFO[Container(52).ListItem.Thumb]</texture>
+                        <fadetime>500</fadetime>
+                        <aspectratio>scale</aspectratio>
+                        <visible>Container.Content(Episodes)</visible>
+                    </control>
+                    <control type="image">
+                        <posx>476</posx>
+                        <posy>0</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <aspect>keepaspect</aspect>
+                        <texture>$VAR[ExtendedOverlay]</texture>
+                        <visible>Container.Content(Episodes) + !IsEmpty(ListItem.Overlay)</visible>
                     </control>
                     <control type="group">
-                        <visible>!IsEmpty(Container(52).ListItem.Plot) + Skin.HasSetting(InfoListPlot)</visible>
+                        <visible>!IsEmpty(Container(52).ListItem.Plot) + Skin.HasSetting(InfoListPlot) + !Container.Content(Episodes)</visible>
                         <include>visiblehidefadeinfo</include>
                         <control type="image">
                             <posx>0</posx>
@@ -1136,44 +1156,77 @@
                             <font>Font-Condensed-S34</font>
                         </control>
                     </control>
+                    <control type="group">
+                        <visible>!IsEmpty(Container(52).ListItem.Plot) + Container.Content(Episodes)</visible>
+                        <include>visiblehidefadeinfo</include>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>325</posy>
+                            <width>576</width>
+                            <height>204</height>
+                            <colordiffuse>77white</colordiffuse>
+                            <texture border="3">views/extended/overlay.png</texture>
+                        </control>
+                        <control type="textbox">
+                            <description>Plot</description>
+                            <posx>30</posx>
+                            <posy>338</posy>
+                            <width>516</width>
+                            <height>182</height>
+                            <info>Container(52).ListItem.Plot</info>
+                            <align>justify</align>
+                            <textcolor>CCFFFFFF</textcolor>
+                            <shadowcolor>33000000</shadowcolor>
+                            <pagecontrol>71</pagecontrol>
+                            <autoscroll delay="13000" time="3000" repeat="13000">!Control.HasFocus(71)</autoscroll>
+                            <font>Font-Condensed-S32</font>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>576</width>
+                            <height>528</height>
+                            <texture>views/list/other/fanart-overlay.png</texture>
+                            <colordiffuse>aawhite</colordiffuse>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>324</posy>
+                            <width>576</width>
+                            <height>3</height>
+                            <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                        </control>
+                    </control>
                     <control type="image">
                         <posx>0</posx>
                         <posy>0</posy>
                         <width>576</width>
                         <height>600</height>
                         <texture>views/list/other/fanart-overlay.png</texture>
+                        <include>visiblehidefadeinfo</include>
+                        <visible>!Container.Content(Episodes)</visible>
                     </control>
                     <control type="label">
                         <posx>30</posx>
                         <posy>490</posy>
                         <width>516</width>
                         <font>Font-Condensed-S60</font>
-                        <label>$INFO[Container(52).ListItem.Duration,, $LOCALIZE[12391]]</label>
+                        <label>$VAR[InfoListInfo]</label>
                         <textcolor>aawhite</textcolor>
                         <shadowcolor>22000000</shadowcolor>
                         <scroll>false</scroll>
-                        <visible>Container.Content(movies)</visible>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>490</posy>
-                        <width>516</width>
-                        <font>Font-Condensed-S60</font>
-                        <label>$INFO[Container(52).ListItem.Studio]</label>
-                        <textcolor>aawhite</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
-                        <visible>!Container.Content(movies)</visible>
+                        <visible>!Container.Content(Episodes)</visible>
                     </control>
                     <control type="label">
                         <posx>30</posx>
                         <posy>543</posy>
                         <width>516</width>
                         <font>Font-Condensed-S30</font>
-                        <label>$INFO[Container(52).ListItem.Genre]</label>
+                        <label>$VAR[InfoListSubInfo]</label>
                         <textcolor>aawhite</textcolor>
                         <shadowcolor>22000000</shadowcolor>
                         <scroll>false</scroll>
+                        <animation effect="slide" end="0,5" time="300" tween="sine" easing="inout" condition="Container.Content(Episodes)">Conditional</animation>
                     </control>
                 </control>
             </control>
@@ -1198,7 +1251,7 @@
                     <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
-                <animation effect="slide" end="588" time="400" tween="cubic" easing="inout" condition="![Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)] + substring(Container.FolderPath,plugin,left) + Container.HasFiles">Conditional</animation>
+                <animation effect="slide" end="588" time="400" tween="cubic" easing="inout" condition="![Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)] + substring(Container.FolderPath,plugin,left) + Container.HasFiles">Conditional</animation>
                 <control type="image">
                     <description>List Panel</description>
                     <posx>510</posx>
@@ -1208,7 +1261,7 @@
                     <texture>views/list/panel/panel.png</texture>
                 </control>
                 <control type="list" id="52">
-                    <visible>[Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)] | [substring(Container.FolderPath,plugin,left) + Container.HasFiles]</visible>
+                    <visible>[Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)] | [substring(Container.FolderPath,plugin,left) + Container.HasFiles]</visible>
                     <posx>512</posx>
                     <posy>277</posy>
                     <width>710</width>
@@ -1216,13 +1269,14 @@
                     <pagecontrol>70</pagecontrol>
                     <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
                     <onleft condition="Skin.HasSetting(KioskMode)">52</onleft>
-                    <onright>70</onright>
+                    <onright condition="Control.IsVisible(70) | !Control.IsVisible(71)">70</onright>
+                    <onright condition="!Control.IsVisible(70) + Control.IsVisible(71)">71</onright>
                     <onup>52</onup>
                     <ondown>52</ondown>
                     <viewtype label="Info list">list</viewtype>
                     <preloaditems>2</preloaditems>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
-                    <itemlayout height="60" condition="!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Sets) + Container.HasFiles">
+                    <itemlayout height="60" condition="!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes) + !Container.Content(Sets) + Container.HasFiles">
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
@@ -1291,13 +1345,25 @@
                             <animation effect="slide" end="47" time="0" condition="IsEmpty(ListItem.Rating)">Conditional</animation>
                         </control>
                     </itemlayout>
-                    <itemlayout height="60" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)">
+                    <itemlayout height="60" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Sets)">
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
                             <width>710</width>
                             <height>61</height>
                             <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                        </control>
+                        <control type="label">
+                            <posx>20</posx>
+                            <posy>0</posy>
+                            <height>60</height>
+                            <width>660</width>
+                            <font>Font-Condensed-S29-B</font>
+                            <label>$INFO[ListItem.Label]</label>
+                            <textcolor>77white</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
+                            <visible>Container.Content(Episodes)</visible>
                         </control>
                         <control type="label">
                             <posx>90</posx>
@@ -1309,6 +1375,7 @@
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
+                            <visible>!Container.Content(Episodes)</visible>
                         </control>
                         <control type="label">
                             <posx>46</posx>
@@ -1320,6 +1387,7 @@
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
+                            <visible>!Container.Content(Episodes)</visible>
                         </control>
                         <control type="label">
                             <posx>690</posx>
@@ -1439,7 +1507,7 @@
                             </control>
                         </control>
                     </itemlayout>
-                    <focusedlayout height="60" condition="!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Sets) + Container.HasFiles">
+                    <focusedlayout height="60" condition="!Container.Content(Movies) + !Container.Content(TVShows) + !Container.Content(Seasons) + !Container.Content(Episodes) + !Container.Content(Sets) + Container.HasFiles">
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
@@ -1523,7 +1591,7 @@
                             </control>
                         </control>
                     </focusedlayout>
-                    <focusedlayout height="60" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Sets)">
+                    <focusedlayout height="60" condition="Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Sets)">
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
@@ -1547,6 +1615,17 @@
                             </animation>
                             <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
                             <control type="label">
+                                <posx>20</posx>
+                                <posy>0</posy>
+                                <height>60</height>
+                                <width>660</width>
+                                <font>Font-Condensed-S29-B</font>
+                                <label>$INFO[ListItem.Label]</label>
+                                <textcolor>eewhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <visible>Container.Content(Episodes)</visible>
+                            </control>
+                            <control type="label">
                                 <posx>90</posx>
                                 <posy>0</posy>
                                 <height>60</height>
@@ -1555,6 +1634,7 @@
                                 <label>$INFO[ListItem.Label]</label>
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
+                                <visible>!Container.Content(Episodes)</visible>
                             </control>
                             <control type="label">
                                 <posx>46</posx>
@@ -1566,6 +1646,7 @@
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
+                                <visible>!Container.Content(Episodes)</visible>
                             </control>
                             <control type="label">
                                 <posx>690</posx>
@@ -1668,7 +1749,7 @@
                                 <posx>650</posx>
                                 <posy>0</posy>
                                 <width>60</width>
-                                <height>58</height>
+                                <height>60</height>
                                 <aspect>keepaspect</aspect>
                                 <texture>$VAR[InfoListOverlay]</texture>
                                 <visible>!IsEmpty(ListItem.Overlay)</visible>
@@ -1705,7 +1786,7 @@
                     <width>6</width>
                     <height>600</height>
                     <onleft>52</onleft>
-                    <onright condition="Skin.HasSetting(InfoListPlot)">71</onright>
+                    <onright condition="Control.IsVisible(71)">71</onright>
                     <onright condition="!Skin.HasSetting(KioskMode) + !Skin.HasSetting(InfoListPlot)">9010</onright>
                     <onright condition="Skin.HasSetting(KioskMode) + !Skin.HasSetting(InfoListPlot)">52</onright>
                     <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
@@ -1729,7 +1810,23 @@
                     <orientation>vertical</orientation>
                     <showonepage>false</showonepage>
                     <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
-                    <visible>Control.IsVisible(52)</visible>
+                    <visible>Control.IsVisible(52) + !Container.Content(Episodes) + Skin.HasSetting(InfoListPlot)</visible>
+                </control>
+                <control type="scrollbar" id="71">
+                    <description>Scrollbar</description>
+                    <posx>1804</posx>
+                    <posy>602</posy>
+                    <width>6</width>
+                    <height>203</height>                    
+                    <onleft>70</onleft>
+                    <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
+                    <onright condition="Skin.HasSetting(KioskMode)">52</onright>
+                    <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                    <orientation>vertical</orientation>
+                    <showonepage>false</showonepage>
+                    <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
+                    <visible>Control.IsVisible(52) + Container.Content(Episodes)</visible>
                 </control>
             </control>
         </control>
