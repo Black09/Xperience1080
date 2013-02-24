@@ -1765,12 +1765,13 @@
     <variable name="HomeVideoTile4"><value condition="Skin.HasSetting(HomeVideoTile4)">1</value></variable>
     <variable name="HomeTVShowTile1"><value condition="Skin.HasSetting(HomeTVShowTile1)">1</value></variable>
     <variable name="HomeTVShowTile2"><value condition="Skin.HasSetting(HomeTVShowTile2)">1</value></variable>
+    <variable name="HomeMusicTile1"><value condition="Skin.HasSetting(HomeMusicTile1)">1</value></variable>
     <variable name="HomeProgramTile1"><value condition="Skin.HasSetting(HomeProgramTile1)">1</value></variable>
     <variable name="HomeProgramTile2"><value condition="Skin.HasSetting(HomeProgramTile2)">1</value></variable>
     <variable name="HomeProgramTile3"><value condition="Skin.HasSetting(HomeProgramTile3)">1</value></variable>
     <variable name="HomeProgramTile4"><value condition="Skin.HasSetting(HomeProgramTile4)">1</value></variable>
     
-    <include name="PanelDialogHomeNewVideoTile1">
+    <include name="PanelDialogHomeVideoTile1">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -1933,7 +1934,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewVideoTile2">
+    <include name="PanelDialogHomeVideoTile2">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2096,7 +2097,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewVideoTile3">
+    <include name="PanelDialogHomeVideoTile3">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2259,7 +2260,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewVideoTile4">
+    <include name="PanelDialogHomeVideoTile4">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2422,7 +2423,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewTVShowTile1">
+    <include name="PanelDialogHomeTVShowTile1">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2585,7 +2586,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewTVShowTile2">
+    <include name="PanelDialogHomeTVShowTile2">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2747,8 +2748,171 @@
             <onclick condition="stringcompare(Skin.String(HomeTVShowTile2.Type),7)">Skin.SetString(HomeTVShowTile2.Path)</onclick>
         </control>
     </include>
+    
+    <include name="PanelDialogHomeMusicTile1">
+        <control type="grouplist" id="4">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>532</width>
+            <height>360</height>
+            <itemgap>0</itemgap>
+            <onup>2406</onup>
+            <ondown>2405</ondown>
+            <onleft>5</onleft>
+            <onright>3</onright>
+            <scrolltime>0</scrolltime>
+            <orientation>vertical</orientation>
+            <control type="button" id="2141">
+                <include>SettingsCustomDialogButtonVars</include>
+                <label>$LOCALIZE[41138]</label>
+                <label2>$INFO[Skin.String(HomeMusicTile1.Label)]</label2>
+                <onclick>Skin.SetString(HomeMusicTile1.Label)</onclick>
+            </control>
+            <control type="button" id="2142">
+                <include>SettingsCustomDialogButtonVars</include>
+                <label>$LOCALIZE[41139]</label>
+                <label2>$INFO[Skin.String(HomeMusicTile1.Icon)]</label2>
+                <onclick>Skin.SetImage(HomeMusicTile1.Icon)</onclick>
+            </control>
+            <control type="radiobutton" id="2403">
+                <include>SettingsCustomDialogRadioButtonVars</include>
+                <label>$LOCALIZE[41156]</label>
+                <onclick condition="IsEmpty(Skin.String(HomeMusicTile1.ShowLabel))">Skin.SetString(HomeMusicTile1.ShowLabel,on)</onclick>
+                <onclick condition="!IsEmpty(Skin.String(HomeMusicTile1.ShowLabel))">Skin.Reset(HomeMusicTile1.ShowLabel)</onclick>
+                <selected>!IsEmpty(Skin.String(HomeMusicTile1.ShowLabel))</selected>
+            </control>
+            <control type="radiobutton" id="2404">
+                <include>SettingsCustomDialogRadioButtonVars</include>
+                <label>$LOCALIZE[41160]</label>
+                <onclick condition="IsEmpty(Skin.String(HomeMusicTile1.Animate))">Skin.SetString(HomeMusicTile1.Animate,on)</onclick>
+                <onclick condition="!IsEmpty(Skin.String(HomeMusicTile1.Animate))">Skin.Reset(HomeMusicTile1.Animate)</onclick>
+                <selected>!IsEmpty(Skin.String(HomeMusicTile1.Animate))</selected>
+            </control>
+        </control>
+        
+        <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture border="2">dialogs/default/highlight.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="button">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>455</width>
+                <height>60</height>
+                <align>left</align>
+                <textoffsetx>20</textoffsetx>
+                <font>Font-Condensed-S30</font>
+                <textcolor>FF585858</textcolor>
+                <label>$LOCALIZE[41141]</label>
+                <label2>$INFO[Skin.String(HomeMusicTile1.TypeName)]</label2>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="button">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>455</width>
+                <height>60</height>
+                <align>left</align>
+                <textoffsetx>20</textoffsetx>
+                <font>Font-Condensed-S30</font>
+                <textcolor>eewhite</textcolor>
+                <label>$LOCALIZE[41141]</label>
+                <label2>$INFO[Skin.String(HomeMusicTile1.TypeName)]</label2>
+                <visible>ControlGroup(2405).HasFocus</visible>
+            </control>
+        </control>
+        
+        <control type="grouplist" id="2405">
+            <description>button area</description>
+            <posx>439</posx>
+            <posy>240</posy>
+            <width>120</width>
+            <height>60</height>
+            <itemgap>0</itemgap>
+            <onleft>5</onleft>
+            <onright>3</onright>
+            <onup>2404</onup>
+            <ondown>2406</ondown>
+            <orientation>horizontal</orientation>
+            <control type="button" id="24051">
+                <width>43</width>
+                <height>60</height>
+                <texturefocus>buttons/spinctrl/arrow-light-down-fo.png</texturefocus>
+                <texturenofocus>buttons/spinctrl/arrow-light-down-nf.png</texturenofocus>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.Type,0)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41145])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),6)">Skin.SetString(HomeMusicTile1.Type,7)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),6)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41151])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),5)">Skin.SetString(HomeMusicTile1.Type,6)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),5)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41153])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),4)">Skin.SetString(HomeMusicTile1.Type,5)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),4)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41150])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),3)">Skin.SetString(HomeMusicTile1.Type,4)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),3)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41149])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),2)">Skin.SetString(HomeMusicTile1.Type,3)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),2)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41148])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),1)">Skin.SetString(HomeMusicTile1.Type,2)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),1)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41147])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.Type,1)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41146])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.Type,0)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41145])</onclick>
+            </control>
+            <control type="button" id="24052">
+                <width>43</width>
+                <height>60</height>
+                <texturefocus>buttons/spinctrl/arrow-light-up-fo.png</texturefocus>
+                <texturenofocus>buttons/spinctrl/arrow-light-up-nf.png</texturenofocus>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.Type,7)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41151])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),1)">Skin.SetString(HomeMusicTile1.Type,0)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),1)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41145])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),2)">Skin.SetString(HomeMusicTile1.Type,1)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),2)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41146])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),3)">Skin.SetString(HomeMusicTile1.Type,2)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),3)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41147])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),4)">Skin.SetString(HomeMusicTile1.Type,3)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),4)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41148])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),5)">Skin.SetString(HomeMusicTile1.Type,4)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),5)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41149])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),6)">Skin.SetString(HomeMusicTile1.Type,5)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),6)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41150])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.Type,6)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41153])</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.Type,7)</onclick>
+                <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41151])</onclick>
+            </control>
+        </control>
+        
+        <control type="button" id="2406">
+            <posx>0</posx>
+            <posy>300</posy>
+            <onleft>5</onleft>
+            <onright>3</onright>
+            <onup>2405</onup>
+            <ondown>2141</ondown>
+            <include>SettingsCustomDialogButtonVars</include>
+            <label>$LOCALIZE[41142]</label>
+            <label2>$INFO[Skin.String(HomeMusicTile1.Path)]</label2>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)|stringcompare(Skin.String(HomeMusicTile1.Type),1)|stringcompare(Skin.String(HomeMusicTile1.Type),2)|stringcompare(Skin.String(HomeMusicTile1.Type),3)">SetProperty(Property,HomeMusicTile1,selectdialog)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),0)">Skin.SetAddon(HomeMusicTile1.Path,xbmc.addon.video)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),1)">Skin.SetAddon(HomeMusicTile1.Path,xbmc.addon.audio)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),2)">Skin.SetAddon(HomeMusicTile1.Path,xbmc.addon.image)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),3)">Skin.SetAddon(HomeMusicTile1.Path,xbmc.addon.executable)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),4)">Skin.SetFile(HomeMusicTile1.Path,.xsp|.m3u,special://userdata/playlists/video/)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),5)">Skin.SetFile(HomeMusicTile1.Path,.xsp|.m3u,special://userdata/playlists/music/)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),6)">RunScript(script.favourites,property=HomeMusicTile1)</onclick>
+            <onclick condition="stringcompare(Skin.String(HomeMusicTile1.Type),7)">Skin.SetString(HomeMusicTile1.Path)</onclick>
+        </control>
+    </include>
 
-    <include name="PanelDialogHomeNewProgramTile1">
+    <include name="PanelDialogHomeProgramTile1">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -2911,7 +3075,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewProgramTile2">
+    <include name="PanelDialogHomeProgramTile2">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -3074,7 +3238,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewProgramTile3">
+    <include name="PanelDialogHomeProgramTile3">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -3237,7 +3401,7 @@
         </control>
     </include>
     
-    <include name="PanelDialogHomeNewProgramTile4">
+    <include name="PanelDialogHomeProgramTile4">
         <control type="grouplist" id="4">
             <posx>0</posx>
             <posy>0</posy>
@@ -3584,6 +3748,18 @@
                             <property name="on">$VAR[HomeTVShowTile2]</property>
                         </item>
                         <item id="7">
+                            <label>$LOCALIZE[41161] 1</label>
+                            <onclick>Skin.SetString(HomeMusicTile1.Type,0)</onclick>
+                            <onclick>Skin.SetString(HomeMusicTile1.TypeName,$LOCALIZE[41145])</onclick>
+                            <onclick>Skin.Reset(HomeMusicTile1.Label)</onclick>
+                            <onclick>Skin.Reset(HomeMusicTile1.Icon)</onclick>
+                            <onclick>Skin.Reset(HomeMusicTile1.DimIcon)</onclick>
+                            <onclick>Skin.Reset(HomeMusicTile1.ShowLabel)</onclick>
+                            <onclick>Skin.Reset(HomeMusicTile1.Path)</onclick>
+                            <onclick>Skin.ToggleSetting(HomeMusicTile1)</onclick>
+                            <property name="on">$VAR[HomeMusicTile1]</property>
+                        </item>
+                        <item id="8">
                             <label>$LOCALIZE[41159] 1</label>
                             <onclick>Skin.SetString(HomeProgramTile1.Type,0)</onclick>
                             <onclick>Skin.SetString(HomeProgramTile1.TypeName,$LOCALIZE[41145])</onclick>
@@ -3595,7 +3771,7 @@
                             <onclick>Skin.ToggleSetting(HomeProgramTile1)</onclick>
                             <property name="on">$VAR[HomeProgramTile1]</property>
                         </item>
-                        <item id="8">
+                        <item id="9">
                             <label>$LOCALIZE[41159] 2</label>
                             <onclick>Skin.SetString(HomeProgramTile2.Type,0)</onclick>
                             <onclick>Skin.SetString(HomeProgramTile2.TypeName,$LOCALIZE[41145])</onclick>
@@ -3607,7 +3783,7 @@
                             <onclick>Skin.ToggleSetting(HomeProgramTile2)</onclick>
                             <property name="on">$VAR[HomeProgramTile2]</property>
                         </item>
-                        <item id="9">
+                        <item id="10">
                             <label>$LOCALIZE[41159] 3</label>
                             <onclick>Skin.SetString(HomeProgramTile3.Type,0)</onclick>
                             <onclick>Skin.SetString(HomeProgramTile3.TypeName,$LOCALIZE[41145])</onclick>
@@ -3619,7 +3795,7 @@
                             <onclick>Skin.ToggleSetting(HomeProgramTile3)</onclick>
                             <property name="on">$VAR[HomeProgramTile3]</property>
                         </item>
-                        <item id="10">
+                        <item id="11">
                             <label>$LOCALIZE[41159] 4</label>
                             <onclick>Skin.SetString(HomeProgramTile4.Type,0)</onclick>
                             <onclick>Skin.SetString(HomeProgramTile4.TypeName,$LOCALIZE[41145])</onclick>
@@ -3638,61 +3814,67 @@
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(1) + Skin.HasSetting(HomeVideoTile1)</visible>
-                    <include>PanelDialogHomeNewVideoTile1</include>
+                    <include>PanelDialogHomeVideoTile1</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(2) + Skin.HasSetting(HomeVideoTile2)</visible>
-                    <include>PanelDialogHomeNewVideoTile2</include>
+                    <include>PanelDialogHomeVideoTile2</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(3) + Skin.HasSetting(HomeVideoTile3)</visible>
-                    <include>PanelDialogHomeNewVideoTile3</include>
+                    <include>PanelDialogHomeVideoTile3</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(4) + Skin.HasSetting(HomeVideoTile4)</visible>
-                    <include>PanelDialogHomeNewVideoTile4</include>
+                    <include>PanelDialogHomeVideoTile4</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(5) + Skin.HasSetting(HomeTVShowTile1)</visible>
-                    <include>PanelDialogHomeNewTVShowTile1</include>
+                    <include>PanelDialogHomeTVShowTile1</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
                     <visible>Container(3).HasFocus(6) + Skin.HasSetting(HomeTVShowTile2)</visible>
-                    <include>PanelDialogHomeNewTVShowTile2</include>
+                    <include>PanelDialogHomeTVShowTile2</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
-                    <visible>Container(3).HasFocus(7) + Skin.HasSetting(HomeProgramTile1)</visible>
-                    <include>PanelDialogHomeNewProgramTile1</include>
+                    <visible>Container(3).HasFocus(7) + Skin.HasSetting(HomeMusicTile1)</visible>
+                    <include>PanelDialogHomeMusicTile1</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
-                    <visible>Container(3).HasFocus(8) + Skin.HasSetting(HomeProgramTile2)</visible>
-                    <include>PanelDialogHomeNewProgramTile2</include>
+                    <visible>Container(3).HasFocus(8) + Skin.HasSetting(HomeProgramTile1)</visible>
+                    <include>PanelDialogHomeProgramTile1</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
-                    <visible>Container(3).HasFocus(9) + Skin.HasSetting(HomeProgramTile3)</visible>
-                    <include>PanelDialogHomeNewProgramTile3</include>
+                    <visible>Container(3).HasFocus(9) + Skin.HasSetting(HomeProgramTile2)</visible>
+                    <include>PanelDialogHomeProgramTile2</include>
                 </control>
                 <control type="group">
                     <posx>559</posx>
                     <posy>356</posy>
-                    <visible>Container(3).HasFocus(10) + Skin.HasSetting(HomeProgramTile4)</visible>
-                    <include>PanelDialogHomeNewProgramTile4</include>
+                    <visible>Container(3).HasFocus(10) + Skin.HasSetting(HomeProgramTile3)</visible>
+                    <include>PanelDialogHomeProgramTile3</include>
+                </control>
+                <control type="group">
+                    <posx>559</posx>
+                    <posy>356</posy>
+                    <visible>Container(3).HasFocus(11) + Skin.HasSetting(HomeProgramTile4)</visible>
+                    <include>PanelDialogHomeProgramTile4</include>
                 </control>
                 
                 <control type="group">
@@ -3762,16 +3944,17 @@
                 <control type="group">
                     <posx>694</posx>
                     <posy>360</posy>
-                    <include condition="StringCompare(Window.Property(SingleDialog),one)">PanelDialogHomeNewVideoTile1</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),two)">PanelDialogHomeNewVideoTile2</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),three)">PanelDialogHomeNewVideoTile3</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),four)">PanelDialogHomeNewVideoTile4</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),five)">PanelDialogHomeNewTVShowTile1</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),six)">PanelDialogHomeNewTVShowTile2</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),seven)">PanelDialogHomeNewProgramTile1</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),eight)">PanelDialogHomeNewProgramTile2</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),nine)">PanelDialogHomeNewProgramTile3</include>
-                    <include condition="StringCompare(Window.Property(SingleDialog),ten)">PanelDialogHomeNewProgramTile4</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),one)">PanelDialogHomeVideoTile1</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),two)">PanelDialogHomeVideoTile2</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),three)">PanelDialogHomeVideoTile3</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),four)">PanelDialogHomeVideoTile4</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),five)">PanelDialogHomeTVShowTile1</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),six)">PanelDialogHomeTVShowTile2</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),seven)">PanelDialogHomeProgramTile1</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),eight)">PanelDialogHomeProgramTile2</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),nine)">PanelDialogHomeProgramTile3</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),ten)">PanelDialogHomeProgramTile4</include>
+                    <include condition="StringCompare(Window.Property(SingleDialog),eleven)">PanelDialogHomeMusicTile1</include>
                 </control> 
                 
                 <control type="group">
