@@ -969,8 +969,8 @@
                 <posy>190</posy>
                 <width>6</width>
                 <height>700</height>
-                <onleft condition="!Control.IsVisible(500) | [Control.IsVisible(500) + Skin.HasSetting(KioskMode)]">50</onleft>
-                <onleft condition="Control.IsVisible(500) + !Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="![Control.IsVisible(500) | Control.IsVisible(501)] | [[Control.IsVisible(500) | Control.IsVisible(501)] + Skin.HasSetting(KioskMode)]">50</onleft>
+                <onleft condition="[Control.IsVisible(500) | Control.IsVisible(501)] + !Skin.HasSetting(KioskMode)">9010</onleft>
                 <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                 <onright condition="Skin.HasSetting(KioskMode)">50</onright>
                 <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
