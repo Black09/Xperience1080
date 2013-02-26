@@ -180,14 +180,14 @@
                 <control type="radiobutton" id="1005">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(HideShutdownButton)</selected>
+                    <selected>!Skin.HasSetting(HideShutdownButton)</selected>
                     <onclick>Skin.ToggleSetting(HideShutdownButton)</onclick>
                     <label>$LOCALIZE[41200]</label>
                 </control>
                 <control type="radiobutton" id="1006">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(HideOptionsButton)</selected>
+                    <selected>!Skin.HasSetting(HideOptionsButton)</selected>
                     <onclick>Skin.ToggleSetting(HideOptionsButton)</onclick>
                     <label>$LOCALIZE[41201]</label>
                     <enable>!Skin.HasSetting(KioskMode)</enable>
@@ -330,9 +330,16 @@
                 <control type="radiobutton" id="2002">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(HideHomeProfileInfo)</selected>
+                    <selected>!Skin.HasSetting(HideHomeProfileInfo)</selected>
                     <onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
                     <label>$LOCALIZE[41134]</label>
+                </control>
+                <control type="radiobutton" id="2003">
+                    <width>1210</width>
+                    <include>SettingsCategoryRadioButtonVars</include>
+                    <selected>!Skin.HasSetting(HideHomeSubmenuArrow)</selected>
+                    <onclick>Skin.ToggleSetting(HideHomeSubmenuArrow)</onclick>
+                    <label>$LOCALIZE[41135]</label>
                 </control>
                 <control type="group" id="2007">
                     <description>Fake spin control</description>
@@ -478,7 +485,7 @@
                 <control type="radiobutton" id="3001">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(HideFanart)</selected>
+                    <selected>!Skin.HasSetting(HideFanart)</selected>
                     <onclick>Skin.ToggleSetting(HideFanart)</onclick>
                     <label>$LOCALIZE[41191]</label>
                 </control>
@@ -646,14 +653,14 @@
                 <control type="radiobutton" id="6001">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(Guide.HideClock)</selected>
+                    <selected>!Skin.HasSetting(Guide.HideClock)</selected>
                     <onclick>Skin.ToggleSetting(Guide.HideClock)</onclick>
                     <label>$LOCALIZE[41270]</label>
                 </control>
                 <control type="radiobutton" id="6002">
                     <width>1210</width>
                     <include>SettingsCategoryRadioButtonVars</include>
-                    <selected>Skin.HasSetting(Guide.HideUserImage)</selected>
+                    <selected>!Skin.HasSetting(Guide.HideUserImage)</selected>
                     <onclick>Skin.ToggleSetting(Guide.HideUserImage)</onclick>
                     <label>$LOCALIZE[41271]</label>
                 </control>

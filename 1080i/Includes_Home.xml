@@ -293,7 +293,7 @@
                 <width>-50</width>
                 <height>100</height>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="65,50" condition="!Control.HasFocus(225)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomeMovies)</visible>
+                <visible>!Skin.HasSetting(HomeMovies) + !Skin.HasSetting(HideHomeSubmenuArrow)</visible>
                 <control type="image">
                     <posx>-25</posx>
                     <posy>12</posy>
@@ -318,7 +318,7 @@
                 <width>-50</width>
                 <height>100</height>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="65,50" condition="!Control.HasFocus(325)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomeTVShows)</visible>
+                <visible>!Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HideHomeSubmenuArrow)</visible>
                 <control type="image">
                     <posx>-25</posx>
                     <posy>12</posy>
@@ -342,7 +342,7 @@
                 <width>-50</width>
                 <height>100</height>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="65,50" condition="!Control.HasFocus(425)">Conditional</animation>
-                <visible>!Skin.HasSetting(HomeMusic)</visible>
+                <visible>!Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HideHomeSubmenuArrow)</visible>
                 <control type="image">
                     <posx>-25</posx>
                     <posy>12</posy>
