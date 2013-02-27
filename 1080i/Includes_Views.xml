@@ -202,7 +202,7 @@
     <!-- Thumbnails -->
     <variable name="DefaultListPoster">
         <value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/small.png]</value>
     </variable>
@@ -230,63 +230,63 @@
     <variable name="InfoListPoster">
         <value condition="Container.Content(Episodes) + !IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
        
     <variable name="PosterViewPoster">
         <value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster-1">
         <value condition="!IsEmpty(Container(55).ListItem(-1).Art(poster))">$INFO[Container(55).ListItem(-1).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(-1).Art(thumb))">$INFO[Container(55).ListItem(-1).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(-1).Art(thumb))">$INFO[Container(55).ListItem(-1).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(-1).Art(tvshow.poster))">$INFO[Container(55).ListItem(-1).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(-1).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster0">
         <value condition="!IsEmpty(Container(55).ListItem(0).Art(poster))">$INFO[Container(55).ListItem(0).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(0).Art(thumb))">$INFO[Container(55).ListItem(0).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(0).Art(thumb))">$INFO[Container(55).ListItem(0).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(0).Art(tvshow.poster))">$INFO[Container(55).ListItem(0).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(0).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster1">
         <value condition="!IsEmpty(Container(55).ListItem(1).Art(poster))">$INFO[Container(55).ListItem(1).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(1).Art(thumb))">$INFO[Container(55).ListItem(1).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(1).Art(thumb))">$INFO[Container(55).ListItem(1).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(1).Art(tvshow.poster))">$INFO[Container(55).ListItem(1).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(1).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster2">
         <value condition="!IsEmpty(Container(55).ListItem(2).Art(poster))">$INFO[Container(55).ListItem(2).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(2).Art(thumb))">$INFO[Container(55).ListItem(2).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(2).Art(thumb))">$INFO[Container(55).ListItem(2).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(2).Art(tvshow.poster))">$INFO[Container(55).ListItem(2).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(2).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster3">
         <value condition="!IsEmpty(Container(55).ListItem(3).Art(poster))">$INFO[Container(55).ListItem(3).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(3).Art(thumb))">$INFO[Container(55).ListItem(3).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(3).Art(thumb))">$INFO[Container(55).ListItem(3).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(3).Art(tvshow.poster))">$INFO[Container(55).ListItem(3).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(3).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster4">
         <value condition="!IsEmpty(Container(55).ListItem(4).Art(poster))">$INFO[Container(55).ListItem(4).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(4).Art(thumb))">$INFO[Container(55).ListItem(4).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(4).Art(thumb))">$INFO[Container(55).ListItem(4).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(4).Art(tvshow.poster))">$INFO[Container(55).ListItem(4).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(4).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
     
     <variable name="PosterViewPoster5">
         <value condition="!IsEmpty(Container(55).ListItem(5).Art(poster))">$INFO[Container(55).ListItem(5).Art(poster)]</value>
-        <value condition="!IsEmpty(Container(55).ListItem(5).Art(thumb))">$INFO[Container(55).ListItem(5).Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(Container(55).ListItem(5).Art(thumb))">$INFO[Container(55).ListItem(5).Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(Container(55).ListItem(5).Art(tvshow.poster))">$INFO[Container(55).ListItem(5).Art(tvshow.poster)]</value>
         <value>$INFO[Container(55).ListItem(5).ActualIcon,views/fallbacks/,/large.png]</value>
     </variable>
@@ -365,7 +365,7 @@
     
     <variable name="WallPoster">
         <value condition="!IsEmpty(ListItem.Art(poster))">$INFO[ListItem.Art(poster)]</value>
-        <value condition="!IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
+        <value condition="!Container.Content(Movies) + !IsEmpty(ListItem.Art(thumb))">$INFO[ListItem.Art(thumb)]</value>
         <value condition="Container.Content(Seasons) + !IsEmpty(ListItem.Art(tvshow.poster))">$INFO[ListItem.Art(tvshow.poster)]</value>
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/medium.png]</value>
     </variable>
