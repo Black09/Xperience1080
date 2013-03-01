@@ -470,6 +470,7 @@
                         </item>
                         <item id="2">
                             <label>$LOCALIZE[20410]</label>
+                            <onclick condition="!Skin.HasSetting(PlayTrailer.Minimized)">PreviousMenu</onclick>
                             <onclick condition="!Skin.HasSetting(PlayTrailer.Minimized)">PlayMedia($INFO[ListItem.Trailer])</onclick>
                             <onclick condition="Skin.HasSetting(PlayTrailer.Minimized)">PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
                             <visible>!IsEmpty(ListItem.Trailer)</visible>
