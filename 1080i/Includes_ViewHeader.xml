@@ -741,42 +741,6 @@
                     <animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36) + !ControlGroup(170).HasFocus">Conditional</animation>
                 </control>
             </control>
-            <!--<control type="grouplist">
-                <posx>110</posx>
-                <posy>32</posy>
-                <orientation>horizontal</orientation>
-                <itemgap>0</itemgap>
-                <control type="label">
-                    <width min="50" max="400">auto</width>
-                    <height>120</height>
-                    <label>$INFO[Container.NumItems,, $LOCALIZE[41822]]</label>
-                    <font>Font-Condensed-S28</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                    <align>left</align>
-                    <visible>IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)</visible>
-                </control>
-                <control type="label">
-                    <width min="50" max="400">auto</width>
-                    <height>120</height>
-                    <label>$INFO[Container.NumItems,, $LOCALIZE[41817]]</label>
-                    <font>Font-Condensed-S28</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                    <align>left</align>
-                    <visible>!IntegerGreaterThan(Container.NumItems,0) | IntegerGreaterThan(Container.NumItems,1)</visible>
-                </control>
-                <control type="label">
-                    <width min="50" max="400">auto</width>
-                    <height>120</height>
-                    <label>$INFO[Container.CurrentPage, • $LOCALIZE[41819] ,]$INFO[Container.NumPages,/,]</label>
-                    <font>Font-Condensed-S28</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                    <align>left</align>
-                    <visible>IntegerGreaterThan(Container.NumPages,1)</visible>
-                </control>
-            </control>-->
         </control>
     </include>
     
