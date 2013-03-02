@@ -143,10 +143,10 @@
             <item id="4">
                 <label>$INFO[Skin.String(Guide.Custom1.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom1.Type),4) + !stringcompare(Skin.String(Guide.Custom1.Type),5) + !stringcompare(Skin.String(Guide.Custom1.Type),6) + !stringcompare(Skin.String(Guide.Custom1.Type),7)">RunAddon($INFO[Skin.String(Guide.Custom1.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom1.Path)],return)</onclick>
-                <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),6)">$INFO[Skin.String(Guide.Custom1.Path)]</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom1.Type),6) | stringcompare(Skin.String(Guide.Custom1.Type),7)">$INFO[Skin.String(Guide.Custom1.Path)]</onclick>
                 <visible>Skin.HasSetting(Guide.Custom1) + !IsEmpty(Skin.String(Guide.Custom1.Path))</visible>
             </item>
             <item id="5">
@@ -158,10 +158,10 @@
             <item id="6">
                 <label>$INFO[Skin.String(Guide.Custom2.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom2.Type),4) + !stringcompare(Skin.String(Guide.Custom2.Type),5) + !stringcompare(Skin.String(Guide.Custom2.Type),6) + !stringcompare(Skin.String(Guide.Custom2.Type),7)">RunAddon($INFO[Skin.String(Guide.Custom2.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom2.Path)],return)</onclick>
-                <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),6)">$INFO[Skin.String(Guide.Custom2.Path)]</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom2.Type),6) | stringcompare(Skin.String(Guide.Custom2.Type),7)">$INFO[Skin.String(Guide.Custom2.Path)]</onclick>
                 <visible>Skin.HasSetting(Guide.Custom2) + !IsEmpty(Skin.String(Guide.Custom2.Path))</visible>
             </item>
             <item id="7">
@@ -173,10 +173,10 @@
             <item id="8">
                 <label>$INFO[Skin.String(Guide.Custom3.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom3.Type),4) + !stringcompare(Skin.String(Guide.Custom3.Type),5) + !stringcompare(Skin.String(Guide.Custom3.Type),6) + !stringcompare(Skin.String(Guide.Custom3.Type),7)">RunAddon($INFO[Skin.String(Guide.Custom3.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom3.Path)],return)</onclick>
-                <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),6)">$INFO[Skin.String(Guide.Custom3.Path)]</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom3.Type),6) | stringcompare(Skin.String(Guide.Custom3.Type),7)">$INFO[Skin.String(Guide.Custom3.Path)]</onclick>
                 <visible>Skin.HasSetting(Guide.Custom3) + !IsEmpty(Skin.String(Guide.Custom3.Path))</visible>
             </item>
             <item id="9">
@@ -188,10 +188,10 @@
             <item id="10">
                 <label>$INFO[Skin.String(Guide.Custom4.Label)]</label>
                 <include>GuideDialogClose</include>
-                <onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
+                <onclick condition="!stringcompare(Skin.String(Guide.Custom4.Type),4) + !stringcompare(Skin.String(Guide.Custom4.Type),5) + !stringcompare(Skin.String(Guide.Custom4.Type),6) + !stringcompare(Skin.String(Guide.Custom4.Type),7)">RunAddon($INFO[Skin.String(Guide.Custom4.Path)])</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
                 <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(Guide.Custom4.Path)],return)</onclick>
-                <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),6)">$INFO[Skin.String(Guide.Custom4.Path)]</onclick>
+                <onclick condition="stringcompare(Skin.String(Guide.Custom4.Type),6) | stringcompare(Skin.String(Guide.Custom4.Type),7)">$INFO[Skin.String(Guide.Custom4.Path)]</onclick>
                 <visible>Skin.HasSetting(Guide.Custom4) + !IsEmpty(Skin.String(Guide.Custom4.Path))</visible>
             </item>
         </content>

@@ -1,6 +1,7 @@
 <window type="dialog" id="3001">
     <defaultcontrol always="true">3</defaultcontrol>
     <allowoverlay>no</allowoverlay>
+    <onunload condition="!IsEmpty(Window(skinsettings).property(Guide.Custom))">ClearProperty(Guide.Custom,skinsettings)</onunload>
     <onunload condition="!IsEmpty(Window(Home).Property(ReloadSkin))">SetFocus(2000)</onunload>
     <controls>
         <control type="group">
@@ -67,7 +68,7 @@
             
             <control type="grouplist" id="3">
                 <include>SettingsDialogGrouplistVars</include>
-                <visible>stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41272])</visible>
+                <visible>!IsEmpty(Window(skinsettings).property(Guide.Custom))</visible>
                 <control type="button" id="2400">
                     <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
                     <onfocus>SetFocus(10)</onfocus>
@@ -75,9 +76,9 @@
                 <control type="button" id="2401">
                     <width>1210</width>
                     <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel1.Type)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Path],$INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Label],$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Type],$INFO[Skin.String(CustomHomePanel1.Type)])</onclick>
                     <onclick>Action(close)</onclick>
                     <label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
                     <visible>Skin.HasSetting(CustomHomePanel1)</visible>
@@ -85,9 +86,9 @@
                 <control type="button" id="2402">
                     <width>1210</width>
                     <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel2.Type)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Path],$INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Label],$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Type],$INFO[Skin.String(CustomHomePanel2.Type)])</onclick>
                     <onclick>Action(close)</onclick>
                     <label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
                     <visible>Skin.HasSetting(CustomHomePanel2)</visible>
@@ -95,9 +96,9 @@
                 <control type="button" id="2403">
                     <width>1210</width>
                     <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel3.Type)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Path],$INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Label],$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Type],$INFO[Skin.String(CustomHomePanel3.Type)])</onclick>
                     <onclick>Action(close)</onclick>
                     <label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
                     <visible>Skin.HasSetting(CustomHomePanel3)</visible>
@@ -105,239 +106,12 @@
                 <control type="button" id="2404">
                     <width>1210</width>
                     <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel4.Type)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Path],$INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Label],$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
+                    <onclick>Skin.SetString($INFO[Window(skinsettings).Property(Guide.Custom),Guide.Custom,.Type],$INFO[Skin.String(CustomHomePanel4.Type)])</onclick>
                     <onclick>Action(close)</onclick>
                     <label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
                     <visible>Skin.HasSetting(CustomHomePanel4)</visible>
-                </control>
-                <control type="button" id="2405">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel5.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel5)</visible>
-                </control>
-                <control type="button" id="2406">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom1.Path,$INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Label,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom1.Type,$INFO[Skin.String(CustomHomePanel6.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel6)</visible>
-                </control>
-            </control>
-            
-            <control type="grouplist" id="3">
-                <include>SettingsDialogGrouplistVars</include>
-                <visible>stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41273])</visible>
-                <control type="button" id="2500">
-                    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
-                    <onfocus>SetFocus(10)</onfocus>
-                </control>
-                <control type="button" id="2501">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel1.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel1)</visible>
-                </control>
-                <control type="button" id="2502">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel2.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel2)</visible>
-                </control>
-                <control type="button" id="2503">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel3.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel3)</visible>
-                </control>
-                <control type="button" id="2504">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel4.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel4)</visible>
-                </control>
-                <control type="button" id="2505">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel5.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel5)</visible>
-                </control>
-                <control type="button" id="2506">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom2.Path,$INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Label,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom2.Type,$INFO[Skin.String(CustomHomePanel6.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel6)</visible>
-                </control>
-            </control>
-            
-            <control type="grouplist" id="3">
-                <include>SettingsDialogGrouplistVars</include>
-                <visible>stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41274])</visible>
-                <control type="button" id="2600">
-                    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
-                    <onfocus>SetFocus(10)</onfocus>
-                </control>
-                <control type="button" id="2601">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel1.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel1)</visible>
-                </control>
-                <control type="button" id="2602">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel2.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel2)</visible>
-                </control>
-                <control type="button" id="2603">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel3.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel3)</visible>
-                </control>
-                <control type="button" id="2604">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel4.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel4)</visible>
-                </control>
-                <control type="button" id="2605">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel5.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel5)</visible>
-                </control>
-                <control type="button" id="2606">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom3.Path,$INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Label,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom3.Type,$INFO[Skin.String(CustomHomePanel6.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel6)</visible>
-                </control>
-            </control>
-            
-            <control type="grouplist" id="3">
-                <include>SettingsDialogGrouplistVars</include>
-                <visible>stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41275])</visible>
-                <control type="button" id="2700">
-                    <visible>!Skin.HasSetting(CustomHomePanel1) + !Skin.HasSetting(CustomHomePanel2) + !Skin.HasSetting(CustomHomePanel3) + !Skin.HasSetting(CustomHomePanel4) + !Skin.HasSetting(CustomHomePanel5) + !Skin.HasSetting(CustomHomePanel6)</visible>
-                    <onfocus>SetFocus(10)</onfocus>
-                </control>
-                <control type="button" id="2701">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel1.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel1.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel1.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel1.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel1)</visible>
-                </control>
-                <control type="button" id="2702">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel2.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel2.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel2.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel2.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel2)</visible>
-                </control>
-                <control type="button" id="2703">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel3.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel3.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel3.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel3.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel3)</visible>
-                </control>
-                <control type="button" id="2704">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel4.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel4.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel4.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel4.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel4)</visible>
-                </control>
-                <control type="button" id="2705">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel5.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel5.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel5.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel5.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel5)</visible>
-                </control>
-                <control type="button" id="2706">
-                    <width>1210</width>
-                    <include>SettingsDialogRadioButtonVars</include>
-                    <onclick>Skin.SetString(Guide.Custom4.Path,$INFO[Skin.String(CustomHomePanel6.Path)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Label,$INFO[Skin.String(CustomHomePanel6.Label)])</onclick>
-                    <onclick>Skin.SetString(Guide.Custom4.Type,$INFO[Skin.String(CustomHomePanel6.Type)])</onclick>
-                    <onclick>Action(close)</onclick>
-                    <label>$INFO[Skin.String(CustomHomePanel6.Label)]</label>
-                    <visible>Skin.HasSetting(CustomHomePanel6)</visible>
                 </control>
             </control>
             
