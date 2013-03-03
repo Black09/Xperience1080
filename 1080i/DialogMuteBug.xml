@@ -3,7 +3,7 @@
     <zorder>5</zorder>
     <controls>
         <control type="group">
-            <visible>Window.IsActive(fullscreenvideo) | [Window.IsActive(musicosd) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
+            <visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
             <animation type="WindowOpen">
                 <effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" />
                 <effect type="slide" start="50" end="0" time="300" tween="sine" easing="inout" />
@@ -20,7 +20,6 @@
                 <effect type="fade" start="100" end="0" time="200" tween="sine" easing="inout" />
                 <effect type="slide" start="0" end="50" time="200" tween="sine" easing="inout" />
             </animation>
-            <animation effect="slide" start="0,0" end="0,886" time="400" tween="sine" easing="inout" condition="Skin.HasSetting(VideoOSD.OnTop)">Conditional</animation>
             <control type="image">
                 <posx>1683</posx>
                 <posy>0</posy>
