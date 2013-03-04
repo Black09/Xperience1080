@@ -54,7 +54,7 @@
             <animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar)">Conditional</animation>
             <include condition="Window.IsActive(fullscreenvideo)">BannerListInfoAnimation</include>
             <include condition="!Window.IsActive(fullscreenvideo)">BannerListInfoAnimationMusicOSD</include>
-            <visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(fullscreenvideo)] + !Player.ShowCodec</visible>
+            <visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(fullscreenvideo)] + !Player.ShowCodec + !Window.IsActive(script-XBMC_Lyrics-main.xml)</visible>
             <animation type="Conditional" condition="Window.IsActive(infodialog)">
                 <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
                 <effect type="zoom" start="100" end="50" center="1569,97" tween="sine" easing="inout" time="300" />
