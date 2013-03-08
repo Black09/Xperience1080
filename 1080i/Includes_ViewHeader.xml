@@ -42,11 +42,13 @@
     
     <variable name="VideoHeaderIcon">
         <value condition="stringcompare(Container.FolderPath,library://video/movies/) | substring(Container.FolderPath,videodb://1/,left)">DefaultMovies.png</value>
-        <value condition="stringcompare(Container.FolderPath,library://video/tvshows/) | stringcompare(Container.FolderPath,library://video/inprogressshows.xml/) | substring(Container.FolderPath,videodb://2/,left)">DefaultTVShows.png</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/tvshows/) | substring(Container.FolderPath,videodb://2/,left)">DefaultTVShows.png</value>
+        <value condition="stringcompare(Container.FolderPath,library://video/inprogressshows.xml/)">DefaultInProgressShows.png</value>
         <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedmovies.xml/) | stringcompare(Container.FolderPath,videodb://4/)">DefaultRecentlyAddedMovies.png</value>
         <value condition="stringcompare(Container.FolderPath,library://video/recentlyaddedepisodes.xml/) | stringcompare(Container.FolderPath,videodb://5/)">DefaultRecentlyAddedEpisodes.png</value>
         <value condition="stringcompare(Container.FolderPath,special://videoplaylists/) | substring(Container.FolderPath,special://profile/playlists/video/,left)">DefaultPlaylist.png</value>
         <value condition="stringcompare(Container.FolderPath,addons://sources/video/) | substring(Container.FolderPath,plugin://plugin.video,left)">DefaultAddonVideo.png</value>
+        <value condition="substring(Container.FolderPath,videodb://6/,left)">DefaultRecentlyAddedMusicVideos.png</value>
         <value>DefaultFolder.png</value>
     </variable>
     
