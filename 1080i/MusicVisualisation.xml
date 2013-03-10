@@ -44,10 +44,10 @@
                 </control>
                 <control type="group">
                     <animation effect="slide" start="0,0" end="0,213" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Player.Paused] + !Window.IsActive(musicosd)">Conditional</animation>
-                    <animation effect="slide" start="0,0" end="0,70" time="300" tween="cubic" easing="inout" condition="Window.IsActive(musicosd)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,72" time="300" tween="cubic" easing="inout" condition="Window.IsActive(musicosd)">Conditional</animation>
                     <control type="progress">
                         <posx>388</posx>
-                        <posy>1028</posy>
+                        <posy>1027</posy>
                         <width>1144</width>
                         <height>25</height>
                         <info>Player.Progress</info>
@@ -59,13 +59,13 @@
                         <overlaytexture>-</overlaytexture>
                     </control>
                     <control type="label">
-                        <posx>1560</posx>
+                        <posx>1551</posx>
                         <posy>1027</posy>
                         <width>360</width>
                         <height>25</height>
                         <label>$INFO[Player.Time(hh:mm:ss)]$INFO[Player.Duration(hh:mm:ss), / ,]</label>
                         <textcolor>aawhite</textcolor>
-                        <font>Font-Condensed-S34</font>
+                        <font>Font-Condensed-S36</font>
                         <align>left</align>
                     </control>
                     <control type="label">
@@ -94,25 +94,13 @@
                     </animation>
                     <control type="group">
                         <posy>117</posy>
-                        <control type="group">
-                            <posx>1438</posx>
+                        <control type="image">
+                            <posx>1665</posx>
                             <posy>885</posy>
-                            <control type="image">
-                                <posx>227</posx>
-                                <posy>0</posy>
-                                <width>140</width>
-                                <height>100</height>
-                                <colordiffuse>bbwhite</colordiffuse>
-                                <texture fallback="flags/audioosd/na.png">$INFO[MusicPlayer.Codec,flags/audioosd/,.png]</texture>
-                            </control>
-                            <control type="image">
-                                <posx>0</posx>
-                                <posy>27</posy>
-                                <width>223</width>
-                                <height>47</height>
-                                <texture>$INFO[Player.StarRating,views/banner/other/,]</texture>
-                                <visible>!IsEmpty(MusicPlayer.Rating)</visible>
-                            </control>
+                            <width>140</width>
+                            <height>100</height>
+                            <colordiffuse>bbwhite</colordiffuse>
+                            <texture fallback="flags/audioosd/na.png">$INFO[MusicPlayer.Codec,flags/audioosd/,.png]</texture>
                         </control>
                         <control type="label">
                             <posx>390</posx>
@@ -210,21 +198,23 @@
                                 <texture background="true" fallback="views/fallbacks/DefaultAudio.png/square-small.png">$INFO[Player.Art(thumb)]</texture>
                                 <aspectratio>scale</aspectratio>
                             </control>
-                            <control type="label">
+                            <control type="button">
                                 <posx>390</posx>
                                 <posy>83</posy>
-                                <width>1030</width>
+                                <width>1262</width>
                                 <height>56</height>
                                 <label>$INFO[MusicPlayer.PlaylistPosition,,. ]$INFO[MusicPlayer.Title]</label>
-                                <textcolor>bbwhite</textcolor>
+                                <label2>$INFO[MusicPlayer.Rating,★ ,.0]</label2>
+                                <disabledcolor>bbwhite</disabledcolor>
                                 <font>Font-Condensed-S50-B</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <scroll>false</scroll>
+                                <enable>false</enable>
                             </control>
                             <control type="label">
                                 <posx>390</posx>
-                                <posy>142</posy>
+                                <posy>145</posy>
                                 <width>1100</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ,]$INFO[MusicPlayer.Year, • ,]</label>
@@ -236,7 +226,7 @@
                             </control>
                             <control type="label">
                                 <posx>390</posx>
-                                <posy>192</posy>
+                                <posy>193</posy>
                                 <width>1100</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Genre]</label>
@@ -248,7 +238,7 @@
                             </control>
                             <control type="label">
                                 <posx>390</posx>
-                                <posy>242</posy>
+                                <posy>241</posy>
                                 <width>1100</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Offset(1).Artist,$LOCALIZE[19031]: ,]$INFO[MusicPlayer.Offset(1).Title, - ,]</label>
