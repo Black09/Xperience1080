@@ -4098,17 +4098,11 @@
                             </item>
                             <item id="2">
                                 <label>-</label>
-                                <onclick>CancelAlarm(HomeTileMove,true)</onclick>
-                                <onclick>SetProperty(ShowRecentAlbums,1)</onclick>
-                                <onclick>SetFocus(4023)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">CancelAlarm(HomeTileMove,true)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">SetProperty(ShowRecentAlbums,1)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">SetFocus(4023)</onclick>
                                 <property name="recent">1</property>
-                                <visible>System.HasAddon(service.skin.widgets) + !IsEmpty(Window.Property(RecentAlbum.1.Play)) + IsEmpty(Window(Home).Property(SkinWidgets_Running))</visible>visible>
-                            </item>
-                            <item id="2">
-                                <label>-</label>
-                                <onclick>-</onclick>
-                                <property name="recent">1</property>
-                                <visible>System.HasAddon(service.skin.widgets) + [IsEmpty(Window.Property(RecentAlbum.1.Thumb)) | IsEmpty(Window(Home).Property(SkinWidgets_Running))]</visible>visible>
+                                <visible>System.HasAddon(service.skin.widgets)</visible>visible>
                             </item>
                             <item id="2">
                                 <label>service.skin.widgets[CR]$LOCALIZE[416] /[CR]$LOCALIZE[1223]</label>
