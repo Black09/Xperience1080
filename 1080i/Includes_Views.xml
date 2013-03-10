@@ -400,6 +400,11 @@
         <value>$INFO[Container(55).ListItem(4).ActualIcon,views/fallbacks/,/square-large.png]</value>
     </variable>
     
+    <variable name="SquareThumbLarge5">
+        <value condition="!IsEmpty(Container(55).ListItem(5).Art(thumb))">$INFO[Container(55).ListItem(5).Art(thumb)]</value>
+        <value>$INFO[Container(55).ListItem(5).ActualIcon,views/fallbacks/,/square-large.png]</value>
+    </variable>
+    
     <variable name="AlbumInfoThumb">
         <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value condition="Container.Content(Artists)">views/fallbacks/DefaultArtist.png/square-large.png</value>

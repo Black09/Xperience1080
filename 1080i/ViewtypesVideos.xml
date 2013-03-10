@@ -3229,6 +3229,19 @@
                     <animation type="Conditional" condition="true">
                         <effect type="zoom" start="100" end="94.7368421" time="0" center="2046,301" />
                     </animation>
+                    <animation type="WindowOpen">
+                        <effect type="fade" start="0" end="200" delay="100" tween="sine" easing="in" time="300" />
+                        <effect type="slide" start="1600" end="0" delay="100" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="400" tween="sine" easing="in" time="300"/>
+                        <effect type="slide" start="1600" end="0" delay="400" tween="cubic" easing="out" time="600" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
                     <animation type="WindowClose" reversible="false">
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
