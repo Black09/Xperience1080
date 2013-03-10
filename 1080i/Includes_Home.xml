@@ -2136,7 +2136,7 @@
                                 <onclick condition="Library.HasContent(movies)">ActivateWindow(videos,movietitles,return)</onclick>
                             </item>
                             <item id="1">
-                                <label>$LOCALIZE[41932]</label>
+                                <label>$LOCALIZE[1037]</label>
                                 <icon>windows/home/icons/videoaddons.png</icon>
                                 <onclick>ActivateWindow(videos,addons,return)</onclick>
                                 <visible>!System.HasMediaDVD</visible>
@@ -2878,7 +2878,7 @@
                                 <onclick condition="Library.HasContent(tvshows)">ActivateWindow(videos,tvshowtitles,return)</onclick>
                             </item>
                             <item id="1">
-                                <label>$LOCALIZE[41932]</label>
+                                <label>$LOCALIZE[1037]</label>
                                 <icon>windows/home/icons/videoaddons.png</icon>
                                 <onclick>ActivateWindow(videos,addons,return)</onclick>
                                 <visible>!System.HasAddon(script.tv.show.next.aired)</visible>
@@ -3808,7 +3808,7 @@
                                 <onclick condition="Library.HasContent(music) + !IsEmpty(Skin.String(music.path))">ActivateWindow(musiclibrary,$INFO[Skin.String(music.path)],return)</onclick>
                             </item>
                             <item id="1">
-                                <label>$LOCALIZE[41935]</label>
+                                <label>$LOCALIZE[1038]</label>
                                 <icon>windows/home/icons/addons.png</icon>
                                 <onclick condition="!Library.HasContent(music)">ActivateWindow(musicfiles,addons,return)</onclick>
                                 <onclick condition="Library.HasContent(music)">ActivateWindow(musiclibrary,addons,return)</onclick>
@@ -4478,7 +4478,7 @@
                                 <property name="custom">1</property>
                             </item>
                             <item id="5">
-                                <label>$LOCALIZE[41937]</label>
+                                <label>$LOCALIZE[1043]</label>
                                 <icon>windows/home/icons/addons.png</icon>
                                 <onclick>ActivateWindow(programs,addons,return)</onclick>
                             </item>
