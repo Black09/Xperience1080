@@ -1,10 +1,45 @@
 <includes>
 
-<!-- ========== -->
-<!-- Dimensions -->
-<!-- ========== -->
-
-    <!-- Small -->
+    <variable name="MovieMPAAVar">
+        <value condition="StringCompare(Skin.String(MovieMPAALang),DE)">$VAR[MovieMPAAVar_DE]</value>
+        <value condition="StringCompare(Skin.String(MovieMPAALang),IT)">$VAR[MovieMPAAVar_DE]</value>
+        <value condition="StringCompare(Skin.String(MovieMPAALang),UK)">$VAR[MovieMPAAVar_DE]</value>
+        <value>$VAR[MovieMPAAVar_US]</value>
+    </variable>
+    
+    <variable name="MovieMPAAVar_DE">
+        <value condition="SubString(ListItem.MPAA,0)">de/0</value>
+        <value condition="SubString(ListItem.MPAA,6)">de/6</value>
+        <value condition="SubString(ListItem.MPAA,12)">de/12</value>
+        <value condition="SubString(ListItem.MPAA,16)">de/16</value>
+        <value condition="SubString(ListItem.MPAA,18)">de/18</value>
+    </variable>
+    
+    <variable name="MovieMPAAVar_IT">
+        <value condition="SubString(ListItem.MPAA,T)">it/t</value>
+        <value condition="SubString(ListItem.MPAA,14)">it/vm14</value>
+        <value condition="SubString(ListItem.MPAA,18)">it/vm18</value>
+    </variable>
+    
+    <variable name="MovieMPAAVar_UK">
+        <value condition="SubString(ListItem.MPAA,PG)">uk/pg</value>
+        <value condition="SubString(ListItem.MPAA,12A)">uk/12a</value>
+        <value condition="SubString(ListItem.MPAA,12)">uk/12</value>
+        <value condition="SubString(ListItem.MPAA,15)">uk/15</value>
+        <value condition="SubString(ListItem.MPAA,R18)">uk/r18</value>
+        <value condition="SubString(ListItem.MPAA,18)">uk/18</value>
+        <value condition="SubString(ListItem.MPAA,UC)">uk/uc</value>
+        <value condition="SubString(ListItem.MPAA,U)">uk/u</value>
+    </variable>
+    
+    <variable name="MovieMPAAVar_US">
+        <value condition="SubString(ListItem.MPAA,PG-13)">us/pg-13</value>
+        <value condition="SubString(ListItem.MPAA,PG) | SubString(ListItem.MPAA,Approved)">us/pg</value>
+        <value condition="SubString(ListItem.MPAA,G)">us/g</value>
+        <value condition="StringCompare(ListItem.MPAA,R) | SubString(ListItem.MPAA,Rated R) | SubString(ListItem.MPAA,USA:R)">us/r</value>
+        <value condition="SubString(ListItem.MPAA,17)">us/nc-17</value>
+        <value condition="SubString(ListItem.MPAA,Not Rated) | SubString(ListItem.MPAA,Unrated)">us/nr</value>
+    </variable>
 
     <include name="AspectDimensionsSmall">
         <width>122</width>
@@ -69,7 +104,7 @@
             <control type="image">
                 <description>Language independent rating</description>
                 <include>MPAADimensionsSmall</include>
-                <texture>$INFO[ListItem.MPAA,flags/mpaa/movie/,.png]</texture>
+                <texture>$VAR[MovieMPAAVar,flags/mpaa/movie/,.png]</texture>
             </control>
         </control>
         <control type="group">
@@ -78,10 +113,6 @@
             <include>TVRatingFlagsSmall</include>
         </control>
     </include>
-
-<!-- =============== -->
-<!-- TV Studio flags -->
-<!-- =============== -->
 
     <include name="TVRatingFlagLayout">
         <width>150</width>
