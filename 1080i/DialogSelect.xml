@@ -12,6 +12,9 @@
             <animation type="WindowOpen" condition="Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(script-LibraryEditor-genre.xml) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
+            <animation type="WindowOpen" condition="Window.IsVisible(contextmenu)" reversible="false">
+                <effect type="fade" start="0" end="100" time="0" delay="550" />
+            </animation>
             <include condition="!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)">DialogSelect</include>
             <include condition="Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)">DialogSelectOSD</include>
         </control>

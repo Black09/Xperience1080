@@ -1,4 +1,15 @@
 <includes>
+    <variable name="LibraryEditorLabel">
+        <value condition="Container.Content(movies)">$LOCALIZE[42205]</value>
+        <value condition="Container.Content(tvshows)">$LOCALIZE[42206]</value>
+        <value condition="Container.Content(seasons)">$LOCALIZE[42207]</value>
+        <value condition="Container.Content(episodes)">$LOCALIZE[42208]</value>
+        <value condition="Container.Content(musicvideos)">$LOCALIZE[42209]</value>
+        <value condition="Container.Content(artists)">$LOCALIZE[42210]</value>
+        <value condition="Container.Content(albums)">$LOCALIZE[42211]</value>
+        <value condition="Container.Content(songs)">$LOCALIZE[42212]</value>
+    </variable>
+
     <include name="ContextMenuBackgroundVars">
         <posx>0</posx>
         <texture>-</texture>
@@ -70,6 +81,22 @@
                 <width>404</width>
                 <itemgap>0</itemgap>
                 <height min="399" max="399">auto</height>
+                <control type="button" id="995">
+                    <description>Library editor</description>
+                    <width>404</width>
+                    <height>57</height>
+                    <font>Font-Condensed-S34</font>
+                    <align>left</align>
+                    <textcolor>FF484848</textcolor>
+                    <focusedcolor>DDFFFFFF</focusedcolor>
+                    <disabledcolor>FF484848</disabledcolor>
+                    <textoffsetx>25</textoffsetx>
+                    <scroll>false</scroll>
+                    <label>$VAR[LibraryEditorLabel]</label>
+                    <onclick>XBMC.RunScript(script.libraryeditor,DBID=$INFO[ListItem.DBID])</onclick>
+                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <visible>[Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(episodes) | Container.Content(musicvideos) | Container.Content(artists) | Container.Content(albums) | Container.Content(songs)] + System.HasAddon(script.libraryeditor)</visible>
+                </control>
             </control>
             <control type="group">
                 <control type="image">
