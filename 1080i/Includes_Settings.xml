@@ -75,18 +75,17 @@
     </include>
     
     <include name="SettingsCategoryButtonVars">
-        <height>91</height>
-        <width>500</width>
+        <height>77</height>
+        <width>338</width>
         <align>right</align>
         <aligny>center</aligny>
-        <textcolor>white</textcolor>
+        <textcolor>aawhite</textcolor>
         <focusedcolor>white</focusedcolor>
         <disabledcolor>77FFFFFF</disabledcolor>
-        <font>Font-Condensed-S37-B</font>
-        <textwidth>400</textwidth>
-        <textoffsetx>0</textoffsetx>
-        <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="!ControlGroup(4001).HasFocus" reversible="false">Conditional</animation>
-        <animation effect="fade" start="60" end="100" tween="sine" easing="inout" time="200" condition="ControlGroup(4001).HasFocus" reversible="false"> Conditional</animation>
+        <font>Font-Condensed-S30-B</font>
+        <textoffsetx>35</textoffsetx>
+        <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
+        <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
     </include>
     
     <include name="SettingsCategoryDefaultButtonVars">
@@ -97,6 +96,7 @@
         <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
         <textcolor>96FFFFFF</textcolor>
         <focusedcolor>white</focusedcolor>
+        <selectedcolor>white</selectedcolor>
         <disabledcolor>96FFFFFF</disabledcolor>
         <font>Font-Condensed-S30-B</font>
         <textoffsetx>35</textoffsetx>
@@ -122,11 +122,12 @@
         <width>1210</width>
         <height>609</height>
         <itemgap>-1</itemgap>
-        <onup>4001</onup>
-        <ondown>4001</ondown>
-        <pagecontrol>40</pagecontrol>
+        <onleft>3</onleft>
         <onright>40</onright>
-        <scrolltime tween="sine" easing="out">500</scrolltime>
+        <onup>5</onup>
+        <ondown>5</ondown>
+        <pagecontrol>40</pagecontrol>
+        <scrolltime tween="cubic" easing="out">500</scrolltime>
         <orientation>vertical</orientation>
     </include>
     
