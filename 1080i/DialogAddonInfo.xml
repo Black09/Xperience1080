@@ -95,26 +95,7 @@
                     <effect type="zoom" start="100" end="75" center="440,540" time="300" tween="sine" easing="inout" />
                     <effect type="slide" start="0" end="-1920" time="600" delay="0" tween="sine" easing="inout" />
                 </animation>
-                
-                <!-- Shadow -->                
-                <control type="image">
-                    <description>Shadow</description>
-                    <posx>57</posx>
-                    <posy>900</posy>
-                    <width>522</width>
-                    <height>125</height>
-                    <texture>windows/home/item-shadow.png</texture>
-                </control>
-                
-                <!-- Panel -->
-                <control type="image">
-                    <posx>98</posx>
-                    <posy>654</posy>
-                    <width>440</width>
-                    <height>254</height>
-                    <texture border="3">views/list/panel/panel.png</texture>
-                </control>
-                
+
                 <!-- Icon -->
                 <control type="image">
                     <posx>100</posx>
@@ -126,50 +107,62 @@
                     <texture background="true">$VAR[AddonInfoThumb]</texture>
                 </control>
                 
+                <!-- Shadow -->                
+                <control type="image">
+                    <description>Shadow</description>
+                    <posx>57</posx>
+                    <posy>900</posy>
+                    <width>526</width>
+                    <height>125</height>
+                    <texture>windows/home/item-shadow.png</texture>
+                </control>
+                
+                <!-- Panel -->
+                <control type="image">
+                    <posx>98</posx>
+                    <posy>658</posy>
+                    <width>444</width>
+                    <height>250</height>
+                    <texture border="3">views/list/panel/panel.png</texture>
+                </control>
+                
+                <!-- Icon -->
+                <control type="image">
+                    <posx>100</posx>
+                    <posy>220</posy>
+                    <width>440</width>
+                    <height>440</height>
+                    <aspectratio>scale</aspectratio>
+                    <bordertexture border="1">windows/common/darkgrey.png</bordertexture>
+                    <texture background="true">$VAR[AddonInfoThumb]</texture>
+                </control>
+                
                 <control type="group">
                     <visible>!Window.IsActive(contextmenu)</visible>
                     <include>visiblehidefadeinfo</include>
                     
                     <control type="grouplist" id="9333">
                         <posx>100</posx>
-                        <posy>657</posy>
-                        <width>436</width>
-                        <height>251</height>
+                        <posy>660</posy>
+                        <width>440</width>
+                        <height>247</height>
                         <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
                         <onright>9334</onright>
                         <onup>9333</onup>
                         <ondown>9333</ondown>
-                        <scrolltime>0</scrolltime>
-                        <focusposition>0</focusposition>
+                        <scrolltime tween="cubic" easing="out">500</scrolltime>
                         <itemgap>-1</itemgap>
                         <orientation>vertical</orientation>
-                        <control type="button" id="8">
-                            <description>Update Addon button</description>
-                            <label>$LOCALIZE[24069]</label>
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>436</width>
-                            <height>51</height>
-                            <textoffsetx>20</textoffsetx>
-                            <align>left</align>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>99FFFFFF</textcolor>
-                            <focusedcolor>eewhite</focusedcolor>
-                            <disabledcolor>44FFFFFF</disabledcolor>
-                            <shadowcolor>33000000</shadowcolor>
-                            <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                            <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
-                        </control>
                         <control type="button" id="9">
                             <description>Addon Settings</description>
                             <label>$LOCALIZE[24020]</label>
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>436</width>
-                            <height>51</height>
-                            <textoffsetx>20</textoffsetx>
+                            <width>440</width>
+                            <height>83</height>
+                            <textoffsetx>25</textoffsetx>
                             <align>left</align>
-                            <font>Font-Condensed-S30</font>
+                            <font>Font-Condensed-S40</font>
                             <textcolor>99FFFFFF</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>44FFFFFF</disabledcolor>
@@ -181,11 +174,11 @@
                             <description>Enable/Disable Addon button</description>
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>436</width>
-                            <height>51</height>
-                            <textoffsetx>20</textoffsetx>
+                            <width>440</width>
+                            <height>83</height>
+                            <textoffsetx>25</textoffsetx>
                             <align>left</align>
-                            <font>Font-Condensed-S30</font>
+                            <font>Font-Condensed-S40</font>
                             <textcolor>99FFFFFF</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>44FFFFFF</disabledcolor>
@@ -197,11 +190,28 @@
                             <description>Deinstall Addon button</description>
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>436</width>
-                            <height>51</height>
-                            <textoffsetx>20</textoffsetx>
+                            <width>440</width>
+                            <height>83</height>
+                            <textoffsetx>25</textoffsetx>
                             <align>left</align>
-                            <font>Font-Condensed-S30</font>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>99FFFFFF</textcolor>
+                            <focusedcolor>eewhite</focusedcolor>
+                            <disabledcolor>44FFFFFF</disabledcolor>
+                            <shadowcolor>33000000</shadowcolor>
+                            <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
+                            <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
+                        </control>
+                        <control type="button" id="8">
+                            <description>Update Addon button</description>
+                            <label>$LOCALIZE[24069]</label>
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>440</width>
+                            <height>83</height>
+                            <textoffsetx>25</textoffsetx>
+                            <align>left</align>
+                            <font>Font-Condensed-S40</font>
                             <textcolor>99FFFFFF</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>44FFFFFF</disabledcolor>
@@ -214,11 +224,11 @@
                             <label>$LOCALIZE[24048]</label>
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>436</width>
-                            <height>51</height>
-                            <textoffsetx>20</textoffsetx>
+                            <width>440</width>
+                            <height>83</height>
+                            <textoffsetx>25</textoffsetx>
                             <align>left</align>
-                            <font>Font-Condensed-S30</font>
+                            <font>Font-Condensed-S40</font>
                             <textcolor>99FFFFFF</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
                             <disabledcolor>44FFFFFF</disabledcolor>
@@ -237,7 +247,7 @@
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
-                    <posx>570</posx>
+                    <posx>575</posx>
                     <posy>246</posy>
                     <width>1150</width>
                     <height>700</height>
