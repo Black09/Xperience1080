@@ -26,15 +26,40 @@
                 <include>KeyboardAnimations</include>
                 <include>OptionsShutdownAnimation</include>
                 <visible>!Window.IsVisible(virtualkeyboard) + ![Window.IsVisible(networksetup) + IsEmpty(Window.Property(ShowDialog))]</visible>
+                
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>dialogs/filebrowser/bg.png</texture>
+                    <posx>920</posx>
+                    <posy>246</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>445</posx>
+                    <posy>266</posy>
+                    <width>1030</width>
+                    <height>548</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
+                </control>
+                <control type="image">
+                	<posx>479</posx>
+                	<posy>300</posy>
+                	<width>644</width>
+                	<height>481</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
+                </control>
+                <control type="image">
+                	<posx>1122</posx>
+                	<posy>300</posy>
+                	<width>319</width>
+                	<height>481</height>
+                	<texture border="5">dialogs/default/inner-dark.png</texture>
                 </control>
                             
                 <control type="label" id="411">
                     <description>Heading</description>
                     <posx>473</posx>
-                    <posy>220</posy>
+                    <posy>218</posy>
                     <width>974</width>
                     <font>Font-Condensed-S34</font>
                     <label>-</label>
@@ -73,9 +98,16 @@
                     <onright>60</onright>
                     <onup>450</onup>
                     <ondown>450</ondown>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <pagecontrol>60</pagecontrol>
                     <itemlayout height="60">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>644</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="image">
                             <posx>5</posx>
                             <posy>0</posy>
@@ -103,6 +135,13 @@
                             <visible>!Control.HasFocus(450)</visible>
                             <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Visible</animation>
                             <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>644</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="image">
                                 <posx>5</posx>
                                 <posy>0</posy>
@@ -170,6 +209,13 @@
                     <pagecontrol>60</pagecontrol>
                     <itemlayout height="60">
                         <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>644</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
+                        <control type="image">
                             <posx>5</posx>
                             <posy>0</posy>
                             <width>60</width>
@@ -195,6 +241,13 @@
                             <visible>!Control.HasFocus(451)</visible>
                             <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(451).Scrolling | Container(451).OnScrollNext | Container(451).OnScrollPrevious]">Visible</animation>
                             <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(451).Scrolling | Container(451).OnScrollNext | Container(451).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>644</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="image">
                                 <posx>5</posx>
                                 <posy>0</posy>

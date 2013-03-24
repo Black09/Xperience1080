@@ -1,7 +1,6 @@
 <window>
     <defaultcontrol always="true">3</defaultcontrol>
     <zorder>2</zorder>
-    <onload condition="Window.IsActive(script-LibraryEditor-genre.xml)">SetProperty(ShowDialog,1)</onload>
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">Skin.SetString($INFO[Window(selectdialog).Property(Property),,.Label],$INFO[Window(selectdialog).Property(Label)])</onunload>
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">Skin.SetString($INFO[Window(selectdialog).Property(Property),,.Icon],$INFO[Window(selectdialog).Property(Icon)])</onunload>
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">ClearProperty(Label,selectdialog)</onunload>
@@ -9,7 +8,7 @@
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">ClearProperty(Property,selectdialog)</onunload>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(script-LibraryEditor-genre.xml) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings)" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
             <animation type="WindowOpen" condition="Window.IsVisible(contextmenu)" reversible="false">

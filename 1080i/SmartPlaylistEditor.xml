@@ -7,13 +7,23 @@
             <include>OptionsShutdownAnimation</include>
             <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(smartplaylistrule) + !Window.IsVisible(selectdialog)</visible>
             <control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>dialogs/smartplaylist/bg.png</texture>
+                <posx>920</posx>
+                <posy>158</posy>
+                <width>80</width>
+                <height>60</height>
+                <texture>dialogs/default/arrow.png</texture>
+            </control>
+            <control type="image">
+                <posx>445</posx>
+                <posy>178</posy>
+                <width>1030</width>
+                <height>724</height>
+                <texture border="39">dialogs/default/bg.png</texture>
             </control>
             <control type="label" id="2">
                 <description>Heading</description>
                 <posx>473</posx>
-                <posy>132</posy>
+                <posy>130</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
                 <label>$LOCALIZE[21432]</label>
@@ -22,7 +32,14 @@
             </control>
             <control type="group">
                 <posx>479</posx>
-                <posy>214</posy>
+                <posy>212</posy>
+                <control type="image">
+                	<posx>0</posx>
+                	<posy>0</posy>
+                	<width>962</width>
+                	<height>61</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
+                </control>
                 <control type="spincontrolex" id="22">
                     <description>Set Playlist type</description>
                     <posx>0</posx>
@@ -59,6 +76,13 @@
                         <textcolor>FF585858</textcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <font>Font-Condensed-S30</font>
+                    </control>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>40</posy>
+                    	<width>962</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
                     </control>
                     <control type="edit" id="12">
                         <description>Name Button</description>
@@ -103,7 +127,7 @@
                     <control type="label">
                         <description>Rules label</description>
                         <posx>0</posx>
-                        <posy>188</posy>
+                        <posy>190</posy>
                         <width>922</width>
                         <height>34</height>
                         <align>left</align>
@@ -113,10 +137,17 @@
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <font>Font-Condensed-S30</font>
                     </control>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>230</posy>
+                    	<width>691</width>
+                    	<height>181</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
                     <control type="list" id="10">
                         <posx>0</posx>
-                        <posy>228</posy>
-                        <width>691</width>
+                        <posy>230</posy>
+                        <width>690</width>
                         <height>180</height>
                         <onup>12</onup>
                         <onleft>8002</onleft>
@@ -125,9 +156,16 @@
                         <pagecontrol>60</pagecontrol>
                         <scrolltime>0</scrolltime>
                         <itemlayout height="60">
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>690</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <width>597</width>
+                                <width>596</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
                                 <textcolor>FF585858</textcolor>
@@ -135,7 +173,7 @@
                                 <scroll>false</scroll>
                             </control>
                             <control type="image">
-                                <posx>617</posx>
+                                <posx>616</posx>
                                 <width>74</width>
                                 <height>60</height>
                                 <texture>dialogs/mediasource/rules-nf.png</texture>
@@ -144,9 +182,16 @@
                         <focusedlayout height="60">
                             <control type="group">
                                 <visible>!Control.HasFocus(10)</visible>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>1</posy>
+                                    <width>690</width>
+                                    <height>60</height>
+                                    <texture>dialogs/default/separator.png</texture>
+                                </control>
                                 <control type="label">
                                     <posx>20</posx>
-                                    <width>597</width>
+                                    <width>596</width>
                                     <height>60</height>
                                     <info>ListItem.Label</info>
                                     <textcolor>FF585858</textcolor>
@@ -154,7 +199,7 @@
                                     <scroll>false</scroll>
                                 </control>
                                 <control type="image">
-                                    <posx>617</posx>
+                                    <posx>616</posx>
                                     <width>74</width>
                                     <height>60</height>
                                     <texture>dialogs/mediasource/rules-nf.png</texture>
@@ -164,13 +209,13 @@
                             <control type="group">
                                 <visible>Control.HasFocus(10)</visible>
                                 <control type="image">
-                                    <width>691</width>
+                                    <width>690</width>
                                     <height>60</height>
                                     <texture border="2">dialogs/default/highlight.png</texture>
                                 </control>
                                 <control type="label">
                                     <posx>20</posx>
-                                    <width>597</width>
+                                    <width>596</width>
                                     <height>60</height>
                                     <info>ListItem.Label</info>
                                     <textcolor>eewhite</textcolor>
@@ -178,7 +223,7 @@
                                     <scroll>false</scroll>
                                 </control>
                                 <control type="image">
-                                    <posx>617</posx>
+                                    <posx>616</posx>
                                     <width>74</width>
                                     <height>60</height>
                                     <texture>dialogs/mediasource/rules-fo.png</texture>
@@ -186,7 +231,7 @@
                                 </control>
                             </control>
                             <control type="image">
-                                <posx>624</posx>
+                                <posx>623</posx>
                                 <width>60</width>
                                 <height>60</height>
                                 <texture>dialogs/select/selected.png</texture>
@@ -206,7 +251,7 @@
                         <visible>!Control.HasFocus(60) + [Container(10).Scrolling | Container(10).OnScrollNext | Container(10).OnScrollPrevious]</visible>
                     </control>
                     <control type="scrollbar" id="60">
-                        <posx>1156</posx>
+                        <posx>1155</posx>
                         <posy>416</posy>
                         <width>11</width>
                         <height>174</height>
@@ -223,12 +268,19 @@
                     </control>
     
                     <control type="group" id="8002">
-                        <posx>705</posx>
+                        <posx>704</posx>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>230</posy>
+                        	<width>258</width>
+                        	<height>181</height>
+                        	<texture border="5">dialogs/default/inner.png</texture>
+                        </control>
                         <control type="button" id="13">
                             <description>Add Rule Button</description>
-                            <posy>228</posy>
+                            <posy>230</posy>
                             <label>$LOCALIZE[15019]</label>
-                            <texturefocus>dialogs/mediasource/add-fo.png</texturefocus>
+                            <texturefocus border="54,2,2,2">dialogs/mediasource/add-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/add-nf.png</texturenofocus>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
@@ -237,7 +289,7 @@
                             <align>left</align>
                             <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
-                            <width>257</width>
+                            <width>258</width>
                             <height>60</height> 
                             <onup>12</onup>
                             <onleft>10</onleft>
@@ -247,9 +299,9 @@
                         </control>
                         <control type="button" id="14">
                             <description>Remove Rule Button</description>
-                            <posy>288</posy>
+                            <posy>290</posy>
                             <label>$LOCALIZE[1210]</label>
-                            <texturefocus>dialogs/mediasource/remove-fo.png</texturefocus>
+                            <texturefocus border="54,2,2,2">dialogs/mediasource/remove-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/remove-nf.png</texturenofocus>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
@@ -268,9 +320,9 @@
                         </control>
                         <control type="button" id="15">
                             <description>Edit Rule Button</description>
-                            <posy>348</posy>
+                            <posy>350</posy>
                             <label>$LOCALIZE[21435]</label>
-                            <texturefocus>dialogs/mediasource/edit-fo.png</texturefocus>
+                            <texturefocus border="54,2,2,2">dialogs/mediasource/edit-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/edit-nf.png</texturenofocus>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
@@ -290,7 +342,7 @@
                     </control>
                 </control>
                 <control type="group">
-                    <posy>422</posy>
+                    <posy>424</posy>
                     <control type="label">
                         <description>Name label</description>
                         <posx>0</posx>
@@ -303,6 +355,20 @@
                         <textcolor>FF585858</textcolor>
                         <shadowcolor>20FFFFFF</shadowcolor>
                         <font>Font-Condensed-S30</font>
+                    </control>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>40</posy>
+                    	<width>962</width>
+                    	<height>121</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>41</posy>
+                        <width>962</width>
+                        <height>60</height>
+                        <texture border="5">dialogs/default/separator.png</texture>
                     </control>
                     <control type="spincontrolex" id="16">
                         <posx>0</posx>
@@ -350,10 +416,17 @@
                     </control>
                     <control type="group" id="8003">
                         <posy>174</posy>
+                        <control type="image">
+                        	<posx>0</posx>
+                        	<posy>0</posy>
+                        	<width>690</width>
+                        	<height>61</height>
+                        	<texture border="5">dialogs/default/inner.png</texture>
+                        </control>
                         <control type="spincontrolex" id="18">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>691</width>
+                            <width>690</width>
                             <label>$LOCALIZE[21429]</label>
                             <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
                             <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
@@ -372,14 +445,21 @@
                             <onright>19</onright>
                             <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(18)" reversible="false">Conditional</animation>
                         </control>
+                        <control type="image">
+                        	<posx>704</posx>
+                        	<posy>0</posy>
+                        	<width>258</width>
+                        	<height>61</height>
+                        	<texture border="5">dialogs/default/inner.png</texture>
+                        </control>
                         <control type="togglebutton" id="19">
                             <posx>705</posx>
                             <posy>0</posy>
-                            <width>257</width>
+                            <width>258</width>
                             <height>60</height> 
-                            <texturefocus>dialogs/mediasource/desc-fo.png</texturefocus>
+                            <texturefocus border="54,2,2,2">dialogs/mediasource/desc-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/desc-nf.png</texturenofocus>
-                            <alttexturefocus>dialogs/mediasource/asc-fo.png</alttexturefocus>
+                            <alttexturefocus border="54,2,2,2">dialogs/mediasource/asc-fo.png</alttexturefocus>
                             <alttexturenofocus>dialogs/mediasource/asc-nf.png</alttexturenofocus>
                             <textcolor>FF585858</textcolor>
                             <focusedcolor>eewhite</focusedcolor>
@@ -401,7 +481,7 @@
             </control>
             <control type="group" id="8000">
                 <posx>466</posx>
-                <posy>866</posy>
+                <posy>864</posy>
                 <control type="button" id="20">
                     <description>Select</description>
                     <label>$LOCALIZE[42000]</label>

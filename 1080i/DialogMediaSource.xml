@@ -6,10 +6,7 @@
             <include>KeyboardAnimations</include>
             <include>OptionsShutdownAnimation</include>
             <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(filebrowser)</visible>
-            <control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>dialogs/mediasource/bg.png</texture>
-            </control>
+            
             <control type="label" id="2">
                 <description>Heading</description>
                 <posx>473</posx>
@@ -20,6 +17,42 @@
                 <textcolor>ddwhite</textcolor>
                 <align>center</align>
             </control>
+            <control type="image">
+                <posx>920</posx>
+                <posy>320</posy>
+                <width>80</width>
+                <height>60</height>
+                <texture>dialogs/default/arrow.png</texture>
+            </control>
+            <control type="image">
+                <posx>445</posx>
+                <posy>340</posy>
+                <width>1030</width>
+                <height>401</height>
+                <texture border="39">dialogs/default/bg.png</texture>
+            </control>
+            <control type="image">
+            	<posx>479</posx>
+            	<posy>413</posy>
+            	<width>690</width>
+            	<height>181</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
+            	<posx>1183</posx>
+            	<posy>413</posy>
+            	<width>258</width>
+            	<height>181</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
+            	<posx>479</posx>
+            	<posy>647</posy>
+            	<width>962</width>
+            	<height>61</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            
             <control type="group" id="9002">
                 <control type="label">
                     <description>Path label</description>
@@ -37,25 +70,32 @@
                 <control type="list" id="10">
                     <posx>479</posx>
                     <posy>413</posy>
-                    <width>691</width>
+                    <width>690</width>
                     <height>180</height>
                     <onup>9001</onup>
                     <onleft>9004</onleft>
                     <onright>60</onright>
                     <ondown>9003</ondown>
                     <pagecontrol>60</pagecontrol>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <itemlayout height="60">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>690</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="label">
                             <posx>20</posx>
-                            <width>597</width>
+                            <width>596</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <textcolor>FF585858</textcolor>
                             <scroll>false</scroll>
                         </control>
                         <control type="image">
-                            <posx>617</posx>
+                            <posx>616</posx>
                             <width>74</width>
                             <height>60</height>
                             <texture>dialogs/mediasource/keyboard-nf.png</texture>
@@ -64,9 +104,16 @@
                     <focusedlayout height="60">
                         <control type="group">
                             <visible>!Control.HasFocus(10)</visible>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>690</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <width>597</width>
+                                <width>596</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
                                 <textcolor>FF585858</textcolor>
@@ -74,7 +121,7 @@
                                 <scroll>false</scroll>
                             </control>
                             <control type="image">
-                                <posx>617</posx>
+                                <posx>616</posx>
                                 <width>74</width>
                                 <height>60</height>
                                 <texture>dialogs/mediasource/rules-nf.png</texture>
@@ -84,13 +131,13 @@
                         <control type="group">
                             <visible>Control.HasFocus(10)</visible>
                             <control type="image">
-                                <width>691</width>
+                                <width>690</width>
                                 <height>60</height>
                                 <texture border="2">dialogs/default/highlight.png</texture>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <width>597</width>
+                                <width>596</width>
                                 <height>60</height>
                                 <info>ListItem.Label</info>
                                 <textcolor>eewhite</textcolor>
@@ -98,7 +145,7 @@
                                 <scroll>false</scroll>
                             </control>
                             <control type="image">
-                                <posx>617</posx>
+                                <posx>616</posx>
                                 <width>74</width>
                                 <height>60</height>
                                 <texture>dialogs/mediasource/rules-fo.png</texture>
@@ -106,7 +153,7 @@
                             </control>
                         </control>
                         <control type="image">
-                            <posx>624</posx>
+                            <posx>623</posx>
                             <width>60</width>
                             <height>60</height>
                             <texture>dialogs/select/selected.png</texture>
@@ -126,7 +173,7 @@
                     <visible>!Control.HasFocus(60) + [Container(10).Scrolling | Container(10).OnScrollNext | Container(10).OnScrollPrevious]</visible>
                 </control>
                 <control type="scrollbar" id="60">
-                    <posx>1156</posx>
+                    <posx>1155</posx>
                     <posy>416</posy>
                     <width>11</width>
                     <height>174</height>
@@ -143,12 +190,12 @@
                 </control>
 
                 <control type="group" id="9004">
-                    <posx>1184</posx>
+                    <posx>1183</posx>
                     <control type="button" id="11">
                         <description>Browse</description>
                         <posy>413</posy>
                         <label>$LOCALIZE[1024]</label>
-                        <texturefocus>dialogs/mediasource/browse-fo.png</texturefocus>
+                        <texturefocus border="54,2,2,2">dialogs/mediasource/browse-fo.png</texturefocus>
                         <texturenofocus>dialogs/mediasource/browse-nf.png</texturenofocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
@@ -157,7 +204,7 @@
                         <align>left</align>
                         <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <width>257</width>
+                        <width>258</width>
                         <height>60</height> 
                         <onup>18</onup>
                         <onleft>10</onleft>
@@ -169,7 +216,7 @@
                         <description>Add</description>
                         <posy>473</posy>
                         <label>$LOCALIZE[15019]</label>
-                        <texturefocus>dialogs/mediasource/add-fo.png</texturefocus>
+                        <texturefocus border="54,2,2,2">dialogs/mediasource/add-fo.png</texturefocus>
                         <texturenofocus>dialogs/mediasource/add-nf.png</texturenofocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
@@ -178,7 +225,7 @@
                         <align>left</align>
                         <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <width>257</width>
+                        <width>258</width>
                         <height>60</height> 
                         <onup>11</onup>
                         <onleft>10</onleft>
@@ -190,7 +237,7 @@
                         <description>remove</description>
                         <posy>533</posy>
                         <label>$LOCALIZE[1210]</label>
-                        <texturefocus>dialogs/mediasource/remove-fo.png</texturefocus>
+                        <texturefocus border="54,2,2,2">dialogs/mediasource/remove-fo.png</texturefocus>
                         <texturenofocus>dialogs/mediasource/remove-nf.png</texturenofocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>
@@ -199,7 +246,7 @@
                         <align>left</align>
                         <font>Font-Condensed-S32</font>
                         <textoffsetx>60</textoffsetx>
-                        <width>257</width>
+                        <width>258</width>
                         <height>60</height>
                         <onup>13</onup>
                         <onleft>10</onleft>

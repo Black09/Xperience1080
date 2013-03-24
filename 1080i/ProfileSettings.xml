@@ -8,12 +8,25 @@
             <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(locksettings)</visible>  
         
             <control type="image">
-                <description>background image</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>1920</width>
-                <height>1080</height>
-                <texture>dialogs/profile/profilebg.png</texture>
+                <posx>920</posx>
+                <posy>306</posy>
+                <width>80</width>
+                <height>60</height>
+                <texture>dialogs/default/arrow.png</texture>
+            </control>
+            <control type="image">
+                <posx>544</posx>
+                <posy>326</posy>
+                <width>832</width>
+                <height>428</height>
+                <texture border="39">dialogs/default/bg.png</texture>
+            </control>
+            <control type="image">
+            	<posx>578</posx>
+            	<posy>360</posy>
+            	<width>764</width>
+            	<height>361</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
             </control>
 
             <control type="image" id="2">
@@ -29,7 +42,7 @@
             
             <control type="label">
                 <posx>473</posx>
-                <posy>281</posy>
+                <posy>278</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
                 <textcolor>ddwhite</textcolor>
@@ -41,7 +54,7 @@
             <control type="grouplist" id="5">
                 <description>Control Area</description>
                 <posx>578</posx>
-                <posy>361</posy>
+                <posy>360</posy>
                 <width>764</width>
                 <height>360</height>
                 <itemgap>0</itemgap>
@@ -51,12 +64,13 @@
                 <onright>1004</onright>
                 <onup>1004</onup>
                 <ondown>1004</ondown>
+                <scrolltime tween="cubic" easing="out">500</scrolltime>
             </control>
             
             <control type="label" id="1000">
                 <description>profile name</description>
                 <posx>1322</posx>
-                <posy>361</posy>
+                <posy>360</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
@@ -68,7 +82,7 @@
             <control type="label">
                 <description>profile name</description>
                 <posx>1322</posx>
-                <posy>361</posy>
+                <posy>360</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
@@ -81,7 +95,7 @@
             <control type="image">
                 <description>profile image</description>
                 <posx>1282</posx>
-                <posy>431</posy>
+                <posy>430</posy>
                 <width>40</width>
                 <height>40</height>
                 <texture>$INFO[Control.GetLabel(2)]</texture>
@@ -90,7 +104,7 @@
             <control type="label" id="1001">
                 <description>profile location</description>
                 <posx>1322</posx>
-                <posy>481</posy>
+                <posy>480</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
@@ -102,7 +116,7 @@
             <control type="label">
                 <description>profile location</description>
                 <posx>1322</posx>
-                <posy>481</posy>
+                <posy>480</posy>
                 <width>352</width>
                 <height>60</height>
                 <align>right</align>
@@ -123,8 +137,8 @@
                 <focusedcolor>eewhite</focusedcolor>
                 <disabledcolor>77585858</disabledcolor>
                 <shadowcolor>20FFFFFF</shadowcolor>
-                <texturefocus>dialogs/default/highlight.png</texturefocus>
-                <texturenofocus>-</texturenofocus>
+                <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+                <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
             </control>
             
             <control type="radiobutton" id="8">
@@ -141,8 +155,8 @@
                 <shadowcolor>20FFFFFF</shadowcolor>
                 <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
                 <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
-                <texturefocus>dialogs/default/highlight.png</texturefocus>
-                <texturenofocus>-</texturenofocus>
+                <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+                <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
             </control>
             
             <control type="spincontrolex" id="9">
@@ -151,8 +165,8 @@
                 <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                 <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                 <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                <texturefocus>dialogs/default/highlight.png</texturefocus>
-                <texturenofocus>-</texturenofocus>
+                <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+                <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 <textcolor>FF585858</textcolor>
                 <focusedcolor>eewhite</focusedcolor>
                 <disabledcolor>77585858</disabledcolor>
@@ -181,7 +195,7 @@
             
             <control type="group" id="1004">
                 <posx>565</posx>
-                <posy>719</posy>
+                <posy>716</posy>
                 <control type="button" id="28">
                     <description>Select</description>
                     <include>DialogButtonDimensions</include>

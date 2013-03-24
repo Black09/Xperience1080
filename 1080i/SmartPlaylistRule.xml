@@ -11,8 +11,18 @@
                 <include>OptionsShutdownAnimation</include>
                 <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(filebrowser)</visible>
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>dialogs/smartplaylist/bgrule.png</texture>
+                    <posx>920</posx>
+                    <posy>419</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>445</posx>
+                    <posy>439</posy>
+                    <width>1030</width>
+                    <height>202</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
                 </control>
                 <control type="label">
                     <description>Heading</description>
@@ -27,6 +37,13 @@
                 <control type="group" id="8001">
                     <posx>479</posx>
                     <posy>473</posy>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>0</posy>
+                    	<width>474</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
                     <control type="spincontrolex" id="15">
                         <description>Set Playlist type</description>
                         <posx>0</posx>
@@ -48,6 +65,13 @@
                         <ondown>8002</ondown>
                         <onleft>16</onleft>
                         <onright>16</onright>
+                    </control>
+                    <control type="image">
+                    	<posx>488</posx>
+                    	<posy>0</posy>
+                    	<width>474</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
                     </control>
                     <control type="spincontrolex" id="16">
                         <description>Set Playlist type</description>
@@ -75,11 +99,18 @@
                 <control type="group" id="8002">
                     <posx>479</posx>
                     <posy>547</posy>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>0</posy>
+                    	<width>690</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
                     <control type="button" id="17">
                         <description>Name Button</description>
                         <posx>0</posx>
                         <posy>0</posy>
-                        <width>639</width>
+                        <width>638</width>
                         <height>60</height>
                         <align>left</align>
                         <textoffsetx>20</textoffsetx>
@@ -95,6 +126,13 @@
                         <onright>20</onright>
                         <ondown>8000</ondown>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(17)" reversible="false">Conditional</animation>
+                    </control>
+                    <control type="image">
+                    	<posx>704</posx>
+                    	<posy>0</posy>
+                    	<width>258</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
                     </control>
                     <control type="image">
                         <posx>617</posx>
@@ -113,11 +151,11 @@
                         <visible>Control.HasFocus(17)</visible>
                     </control>
                     <control type="button" id="20">
-                        <posx>705</posx>
+                        <posx>704</posx>
                         <posy>0</posy>
-                        <width>257</width>
+                        <width>258</width>
                         <height>60</height> 
-                        <texturefocus>dialogs/mediasource/browse-fo.png</texturefocus>
+                        <texturefocus border="54,2,2,2">dialogs/mediasource/browse-fo.png</texturefocus>
                         <texturenofocus>dialogs/mediasource/browse-nf.png</texturenofocus>
                         <textcolor>FF585858</textcolor>
                         <focusedcolor>eewhite</focusedcolor>

@@ -11,17 +11,37 @@
             <include>OptionsShutdownAnimation</include>
             <visible>!Window.IsVisible(DialogPeripheralSettings.xml)</visible>
             <control type="image">
-                <description>background image</description>
-                <posx>0</posx>
-                <posy>0</posy>
-                <width>1920</width>
-                <height>1080</height>
-                <texture>dialogs/peripherals/bg.png</texture>
+                <posx>920</posx>
+                <posy>336</posy>
+                <width>80</width>
+                <height>60</height>
+                <texture>dialogs/default/arrow.png</texture>
+            </control>
+            <control type="image">
+                <posx>445</posx>
+                <posy>356</posy>
+                <width>1030</width>
+                <height>368</height>
+                <texture border="39">dialogs/default/bg.png</texture>
+            </control>
+            <control type="image">
+            	<posx>479</posx>
+            	<posy>390</posy>
+            	<width>474</width>
+            	<height>301</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
+            	<posx>967</posx>
+            	<posy>390</posy>
+            	<width>474</width>
+            	<height>301</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
             </control>
             <control type="label">
                 <description>Heading</description>
                 <posx>473</posx>
-                <posy>309</posy>
+                <posy>308</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
                 <label>$LOCALIZE[35000]</label>
@@ -37,9 +57,16 @@
                 <onright>60</onright>
                 <onup>20</onup>
                 <ondown>20</ondown>
-                <scrolltime>0</scrolltime>
+                <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <pagecontrol>60</pagecontrol>
                 <itemlayout height="60">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>1</posy>
+                        <width>474</width>
+                        <height>60</height>
+                        <texture>dialogs/default/separator.png</texture>
+                    </control>
                     <control type="label">
                         <posx>20</posx>
                         <posy>0</posy>
@@ -58,10 +85,17 @@
                         <visible>!Control.HasFocus(20)</visible>
                         <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Visible</animation>
                         <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(20).Scrolling | Container(20).OnScrollNext | Container(20).OnScrollPrevious]">Hidden</animation>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>474</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="label">
                             <posx>20</posx>
                             <posy>0</posy>
-                            <width>434</width>
+                            <width>354</width>
                             <height>60</height>
                             <info>ListItem.Label</info>
                             <font>Font-Condensed-S32</font>
@@ -69,7 +103,14 @@
                             <aligny>center</aligny>
                             <textcolor>FF585858</textcolor>
                             <scroll>false</scroll>
-                        </control>  
+                        </control>
+                        <control type="image">
+                            <posx>414</posx>
+                            <posy>0</posy>
+                            <width>60</width>
+                            <height>60</height>
+                            <texture>dialogs/select/selected.png</texture>
+                        </control>
                     </control>
                     <control type="group">
                         <visible>Control.HasFocus(20)</visible>
@@ -125,7 +166,7 @@
             </control>
             <control type="group" id="8001">
                 <posx>967</posx>
-                <posy>386</posy>
+                <posy>390</posy>
                 <control type="button">
                     <description>Name</description>
                     <posx>0</posx>
@@ -140,6 +181,7 @@
                     <aligny>center</aligny>
                     <textcolor>FF787878</textcolor>
                     <scroll>false</scroll>
+                    <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
                 <control type="button">
                     <description>Bus / Location</description>
@@ -155,6 +197,7 @@
                     <aligny>center</aligny>
                     <textcolor>FF787878</textcolor>
                     <scroll>false</scroll>
+                    <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
                 <control type="button">
                     <description>Class</description>
@@ -170,6 +213,7 @@
                     <aligny>center</aligny>
                     <textcolor>FF787878</textcolor>
                     <scroll>false</scroll>
+                    <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
                 <control type="button">
                     <description>Vendor</description>
@@ -185,6 +229,7 @@
                     <aligny>center</aligny>
                     <textcolor>FF787878</textcolor>
                     <scroll>false</scroll>
+                    <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
                 <control type="button">
                     <description>Product</description>
@@ -200,6 +245,7 @@
                     <aligny>center</aligny>
                     <textcolor>FF787878</textcolor>
                     <scroll>false</scroll>
+                    <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
             </control>
             <control type="group" id="8000">

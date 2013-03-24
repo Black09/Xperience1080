@@ -10,17 +10,23 @@
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(addonsettings)</visible>
                 <control type="image">
-                    <posx>0</posx>
-                    <posy>0</posy>
-                    <width>1920</width>
-                    <height>1080</height>
-                    <texture>dialogs/content/bg.png</texture>
-                    <aspectratio>scale</aspectratio>
+                    <posx>920</posx>
+                    <posy>232</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>445</posx>
+                    <posy>252</posy>
+                    <width>1030</width>
+                    <height>576</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
                 </control>
                 <control type="label" id="1">
                     <description>Heading</description>
                     <posx>473</posx>
-                    <posy>174</posy>
+                    <posy>204</posy>
                     <width>974</width>
                     <font>Font-Condensed-S34</font>
                     <label>20333</label>
@@ -29,7 +35,35 @@
                 </control>
                 <control type="group" id="8001">
                     <posx>479</posx>
-                    <posy>256</posy>
+                    <posy>286</posy>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>0</posy>
+                    	<width>962</width>
+                    	<height>61</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>74</posy>
+                    	<width>768</width>
+                    	<height>181</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
+                    <control type="image">
+                    	<posx>782</posx>
+                    	<posy>74</posy>
+                    	<width>180</width>
+                    	<height>181</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
+                    <control type="image">
+                    	<posx>0</posx>
+                    	<posy>268</posy>
+                    	<width>962</width>
+                    	<height>241</height>
+                    	<texture border="5">dialogs/default/inner.png</texture>
+                    </control>
                     <control type="spincontrolex" id="3">
                         <description>Directory Content</description>
                         <posx>0</posx>
@@ -71,55 +105,67 @@
                         <onright>60</onright>
                         <ondown>5</ondown>
                         <pagecontrol>60</pagecontrol>
-                        <scrolltime>0</scrolltime>
+                        <scrolltime tween="cubic" easing="out">500</scrolltime>
                         <itemlayout height="60">
-                            <control type="group">
-                                <control type="image">
-                                    <posx>20</posx>
-                                    <posy>10</posy>
-                                    <width>40</width>
-                                    <height>40</height>
-                                    <info>ListItem.Thumb</info>
-                                </control>
-                                <control type="label">
-                                    <posx>75</posx>
-                                    <posy>0</posy>
-                                    <width>633</width>
-                                    <height>60</height>
-                                    <info>ListItem.Label</info>
-                                    <font>Font-Condensed-S32</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <textcolor>FF585858</textcolor>
-                                    <selectedcolor>FF585858</selectedcolor>
-                                    <scroll>false</scroll>
-                                    <visible>!IsEmpty(ListItem.Thumb)</visible>
-                                </control>
-                                <control type="label">
-                                    <posx>20</posx>
-                                    <posy>0</posy>
-                                    <width>688</width>
-                                    <height>60</height>
-                                    <info>ListItem.Label</info>
-                                    <font>Font-Condensed-S32</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <textcolor>FF585858</textcolor>
-                                    <selectedcolor>FF585858</selectedcolor>
-                                    <scroll>false</scroll>
-                                    <visible>IsEmpty(ListItem.Thumb)</visible>
-                                </control>
-                                <control type="image">
-                                    <posx>708</posx>
-                                    <posy>0</posy>
-                                    <width>60</width>
-                                    <height>60</height>
-                                    <texture>dialogs/select/selected.png</texture>
-                                    <visible>ListItem.IsSelected</visible>
-                                </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>768</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>20</posx>
+                                <posy>10</posy>
+                                <width>40</width>
+                                <height>40</height>
+                                <info>ListItem.Thumb</info>
+                            </control>
+                            <control type="label">
+                                <posx>75</posx>
+                                <posy>0</posy>
+                                <width>633</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S32</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF585858</textcolor>
+                                <selectedcolor>FF585858</selectedcolor>
+                                <scroll>false</scroll>
+                                <visible>!IsEmpty(ListItem.Thumb)</visible>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>0</posy>
+                                <width>688</width>
+                                <height>60</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S32</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>FF585858</textcolor>
+                                <selectedcolor>FF585858</selectedcolor>
+                                <scroll>false</scroll>
+                                <visible>IsEmpty(ListItem.Thumb)</visible>
+                            </control>
+                            <control type="image">
+                                <posx>708</posx>
+                                <posy>0</posy>
+                                <width>60</width>
+                                <height>60</height>
+                                <texture>dialogs/select/selected.png</texture>
+                                <visible>ListItem.IsSelected</visible>
                             </control>
                         </itemlayout>
                         <focusedlayout height="60">
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>768</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="image">
                                 <width>768</width>
                                 <height>60</height>
@@ -240,6 +286,7 @@
                         <ondown>8002</ondown>
                         <onleft>8002</onleft>
                         <onright>8002</onright>
+                        <scrolltime tween="cubic" easing="out">500</scrolltime>
                     </control>
                     <control type="button" id="7">
                         <description>default</description>
@@ -264,11 +311,12 @@
                         <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
                         <texturefocus>dialogs/default/highlight.png</texturefocus>
+                        <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                     </control>
                 </control>
                 <control type="group" id="8002">
                     <posx>466</posx>
-                    <posy>823</posy>
+                    <posy>793</posy>
                     <control type="button" id="28">
                         <description>Select</description>
                         <label>$LOCALIZE[42000]</label>

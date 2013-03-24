@@ -31,8 +31,39 @@
             </control>
             
             <control type="image">
-                <include>FullscreenDimensions</include>
-                <texture>windows/settings/settings-bgdialog.png</texture>
+                <posx>920</posx>
+                <posy>299</posy>
+                <width>80</width>
+                <height>60</height>
+                <texture>dialogs/default/arrow.png</texture>
+            </control>
+            <control type="image">
+                <posx>524</posx>
+                <posy>319</posy>
+                <width>872</width>
+                <height>442</height>
+                <texture border="39">dialogs/default/bg.png</texture>
+            </control>
+            <control type="image">
+            	<posx>558</posx>
+            	<posy>353</posy>
+            	<width>532</width>
+            	<height>301</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
+            	<posx>1104</posx>
+            	<posy>353</posy>
+            	<width>258</width>
+            	<height>301</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
+            	<posx>558</posx>
+            	<posy>667</posy>
+            	<width>804</width>
+            	<height>61</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
             </control>
             
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41251])">SettingsBackgroundDialogGlobal</include>

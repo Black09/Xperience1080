@@ -145,6 +145,7 @@
         <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
         <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
         <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+        <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
     </include>
     
     <include name="SettingsDialogGrouplistVars">
@@ -173,6 +174,7 @@
         <disabledcolor>FF585858</disabledcolor>
         <shadowcolor>20FFFFFF</shadowcolor>
         <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+        <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
     </include>
     
     <include name="SettingsCustomDialogRadioButtonVars">
@@ -189,12 +191,13 @@
         <textureradiofocus>buttons/radio/radio-light-fo.png</textureradiofocus>
         <textureradionofocus>buttons/radio/radio-light-nf.png</textureradionofocus>
         <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+        <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
     </include>
     
     <include name="SettingsBackgroundDialogButtonVars">
         <posx>559</posx>
         <posy>667</posy>
-        <width>803</width>
+        <width>804</width>
         <height>60</height>
         <onup>3</onup>
         <ondown>3</ondown>
@@ -212,7 +215,7 @@
     </include>
     
     <include name="SettingsBackgroundDialogRadioButtonVars">
-        <width>257</width>
+        <width>258</width>
         <height>60</height>
         <align>left</align>
         <textwidth>200</textwidth>
@@ -226,10 +229,11 @@
         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
         <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+        <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
     </include>
     
     <include name="SettingsBackgroundDialogImageVars">
-        <posx>560</posx>
+        <posx>559</posx>
         <posy>354</posy>
         <width>530</width>
         <height>298</height>
@@ -762,7 +766,7 @@
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
-                    <posy>274</posy>
+                    <posy>278</posy>
                     <width>974</width>
                     <font>Font-Condensed-S34</font>
                     <label>$INFO[Window(skinsettings).property(Dialog)]</label>
@@ -771,13 +775,37 @@
                 </control>
                 
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>windows/settings/settings-customdialog.png</texture>
+                    <posx>920</posx>
+                    <posy>306</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>524</posx>
+                    <posy>326</posy>
+                    <width>872</width>
+                    <height>428</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
+                </control>
+                <control type="image">
+                	<posx>558</posx>
+                	<posy>360</posy>
+                	<width>532</width>
+                	<height>361</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
+                </control>
+                <control type="image">
+                	<posx>1104</posx>
+                	<posy>360</posy>
+                	<width>258</width>
+                	<height>361</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 
                 <control type="image">
                     <posx>1105</posx>
-                    <posy>356</posy>
+                    <posy>360</posy>
                     <width>257</width>
                     <height>60</height>
                     <texture>windows/common/black.png</texture>
@@ -786,14 +814,12 @@
                     <animation effect="slide" end="0,60" time="0" condition="ControlGroup(3).HasFocus(2102)">Conditional</animation>
                     <animation effect="slide" end="0,120" time="0" condition="ControlGroup(3).HasFocus(2103)">Conditional</animation>
                     <animation effect="slide" end="0,180" time="0" condition="ControlGroup(3).HasFocus(2104)">Conditional</animation>
-                    <animation effect="slide" end="0,240" time="0" condition="ControlGroup(3).HasFocus(2105)">Conditional</animation>
-                    <animation effect="slide" end="0,300" time="0" condition="ControlGroup(3).HasFocus(2106)">Conditional</animation>
                 </control>
                 
                 <control type="grouplist" id="3">
-                    <posx>1105</posx>
-                    <posy>356</posy>
-                    <width>257</width>
+                    <posx>1104</posx>
+                    <posy>360</posy>
+                    <width>258</width>
                     <height>360</height>
                     <itemgap>0</itemgap>
                     <onup>3</onup>
@@ -845,8 +871,8 @@
                 </control>
                 
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>ControlGroup(3).HasFocus(2101) + Skin.HasSetting(CustomHomePanel1)</visible>
                     <control type="grouplist" id="4">
                         <posx>0</posx>
@@ -869,6 +895,14 @@
                     </control>
                     
                     <control type="group">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>60</posy>
+                            <width>532</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator-btn.png</texture>
+                            <visible>!ControlGroup(2405).HasFocus</visible>
+                        </control>
                         <control type="image">
                             <posx>0</posx>
                             <posy>60</posy>
@@ -1019,6 +1053,14 @@
                             <posy>60</posy>
                             <width>532</width>
                             <height>60</height>
+                            <texture>dialogs/default/separator-btn.png</texture>
+                            <visible>!ControlGroup(2405).HasFocus</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>60</posy>
+                            <width>532</width>
+                            <height>60</height>
                             <texture border="2">dialogs/default/highlight.png</texture>
                             <aspectratio>stretch</aspectratio>
                             <visible>ControlGroup(2405).HasFocus</visible>
@@ -1164,6 +1206,14 @@
                             <posy>60</posy>
                             <width>532</width>
                             <height>60</height>
+                            <texture>dialogs/default/separator-btn.png</texture>
+                            <visible>!ControlGroup(2405).HasFocus</visible>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>60</posy>
+                            <width>532</width>
+                            <height>60</height>
                             <texture border="2">dialogs/default/highlight.png</texture>
                             <aspectratio>stretch</aspectratio>
                             <visible>ControlGroup(2405).HasFocus</visible>
@@ -1304,6 +1354,14 @@
                     </control>
                     
                     <control type="group">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>60</posy>
+                            <width>532</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator-btn.png</texture>
+                            <visible>!ControlGroup(2405).HasFocus</visible>
+                        </control>
                         <control type="image">
                             <posx>0</posx>
                             <posy>60</posy>
@@ -1514,6 +1572,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -1672,6 +1739,15 @@
         </control>
         
         <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>240</posy>
@@ -1840,6 +1916,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -1998,6 +2083,15 @@
         </control>
         
         <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>240</posy>
@@ -2166,6 +2260,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -2324,6 +2427,15 @@
         </control>
         
         <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>240</posy>
@@ -2492,6 +2604,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -2650,6 +2771,15 @@
         </control>
         
         <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>240</posy>
@@ -2818,6 +2948,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -2976,6 +3115,15 @@
         </control>
         
         <control type="group">
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
             <control type="image">
                 <posx>0</posx>
                 <posy>240</posy>
@@ -3144,6 +3292,15 @@
                 <posy>240</posy>
                 <width>532</width>
                 <height>60</height>
+                <texture>dialogs/default/separator-btn.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>!ControlGroup(2405).HasFocus</visible>
+            </control>
+            <control type="image">
+                <posx>0</posx>
+                <posy>240</posy>
+                <width>532</width>
+                <height>60</height>
                 <texture border="2">dialogs/default/highlight.png</texture>
                 <aspectratio>stretch</aspectratio>
                 <visible>ControlGroup(2405).HasFocus</visible>
@@ -3277,7 +3434,7 @@
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
-                    <posy>274</posy>
+                    <posy>278</posy>
                     <width>974</width>
                     <font>Font-Condensed-S34</font>
                     <label>$INFO[Window(skinsettings).property(Dialog)]</label>
@@ -3286,22 +3443,53 @@
                 </control>
                 
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>windows/settings/settings-customdialog.png</texture>
+                    <posx>920</posx>
+                    <posy>306</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>524</posx>
+                    <posy>326</posy>
+                    <width>872</width>
+                    <height>428</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
+                </control>
+                <control type="image">
+                	<posx>558</posx>
+                	<posy>360</posy>
+                	<width>532</width>
+                	<height>361</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
+                </control>
+                <control type="image">
+                	<posx>1104</posx>
+                	<posy>360</posy>
+                	<width>258</width>
+                	<height>361</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 
                 <control type="list" id="3">
-                    <posx>1105</posx>
-                    <posy>356</posy>
-                    <width>257</width>
+                    <posx>1104</posx>
+                    <posy>360</posy>
+                    <width>258</width>
                     <height>360</height>
                     <onup>3</onup>
                     <ondown>3</ondown>
                     <onleft>4</onleft>
                     <onright>5</onright>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <orientation>vertical</orientation>
                     <itemlayout width="257" height="60">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>644</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="label">
                             <posx>60</posx>
                             <width>187</width>
@@ -3330,6 +3518,13 @@
                         </control>
                     </itemlayout>
                     <focusedlayout width="257" height="60">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>644</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="image">
                             <width>257</width>
                             <height>60</height>
@@ -3507,68 +3702,68 @@
                 </control>
                 
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(1) + Skin.HasSetting(HomeVideoTile1)</visible>
                     <include>PanelDialogHomeVideoTile1</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(2) + Skin.HasSetting(HomeVideoTile2)</visible>
                     <include>PanelDialogHomeVideoTile2</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(3) + Skin.HasSetting(HomeVideoTile3)</visible>
                     <include>PanelDialogHomeVideoTile3</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(4) + Skin.HasSetting(HomeVideoTile4)</visible>
                     <include>PanelDialogHomeVideoTile4</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(5) + Skin.HasSetting(HomeTVShowTile1)</visible>
                     <include>PanelDialogHomeTVShowTile1</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(6) + Skin.HasSetting(HomeTVShowTile2)</visible>
                     <include>PanelDialogHomeTVShowTile2</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(7) + Skin.HasSetting(HomeMusicTile1)</visible>
                     <include>PanelDialogHomeMusicTile1</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(8) + Skin.HasSetting(HomeProgramTile1)</visible>
                     <include>PanelDialogHomeProgramTile1</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(9) + Skin.HasSetting(HomeProgramTile2)</visible>
                     <include>PanelDialogHomeProgramTile2</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(10) + Skin.HasSetting(HomeProgramTile3)</visible>
                     <include>PanelDialogHomeProgramTile3</include>
                 </control>
                 <control type="group">
-                    <posx>559</posx>
-                    <posy>356</posy>
+                    <posx>558</posx>
+                    <posy>360</posy>
                     <visible>Container(3).HasFocus(11) + Skin.HasSetting(HomeProgramTile4)</visible>
                     <include>PanelDialogHomeProgramTile4</include>
                 </control>
@@ -3633,8 +3828,25 @@
                 </control>
                 
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>windows/settings/settings-customdialog-single.png</texture>
+                    <posx>920</posx>
+                    <posy>306</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
+                </control>
+                <control type="image">
+                    <posx>660</posx>
+                    <posy>326</posy>
+                    <width>600</width>
+                    <height>428</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
+                </control>
+                <control type="image">
+                	<posx>694</posx>
+                	<posy>360</posy>
+                	<width>532</width>
+                	<height>361</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 
                 <control type="group">

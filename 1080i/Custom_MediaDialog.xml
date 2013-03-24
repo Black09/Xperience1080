@@ -17,13 +17,25 @@
                 </control>
                 
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>dialogs/select/background.png</texture>
+                    <posx>920</posx>
+                    <posy>247</posy>
+                    <width>80</width>
+                    <height>60</height>
+                    <texture>dialogs/default/arrow.png</texture>
                 </control>
-                
                 <control type="image">
-                    <include>FullscreenDimensions</include>
-                    <texture>dialogs/select/separators-small.png</texture>
+                    <posx>604</posx>
+                    <posy>266</posy>
+                    <width>712</width>
+                    <height>548</height>
+                    <texture border="39">dialogs/default/bg.png</texture>
+                </control>
+                <control type="image">
+                	<posx>638</posx>
+                	<posy>300</posy>
+                	<width>644</width>
+                	<height>481</height>
+                	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
                 
                 <control type="button" id="2">
@@ -38,25 +50,30 @@
                     <textcolor>FF585858</textcolor>
                     <focusedcolor>eewhite</focusedcolor>
                     <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+                    <texturenofocus>dialogs/default/separator.png</texturenofocus>
                     <align>left</align>
                     <onclick>SendClick(2003,10)</onclick>
                     <onup>3</onup>
                     <ondown>3</ondown>
-                    <onleft>5</onleft>
-                    <onright>5</onright>
+                    <onleft>7</onleft>
+                    <onright>7</onright>
                 </control>
                 
-                <control type="label">
-                    <posx>658</posx>
+                <control type="button">
+                    <posx>638</posx>
                     <posy>368</posy>
-                    <width>604</width>
-                    <height>60</height>
+                    <width>644</width>
+                    <height>53</height>
                     <label>Artwork Downloader</label>
                     <font>Font-Condensed-S30-B</font>
                     <align>left</align>
                     <aligny>center</aligny>
                     <textcolor>FF797979</textcolor>
+                    <disabledcolor>FF797979</disabledcolor>
+                    <textoffsetx>20</textoffsetx>
                     <scroll>false</scroll>
+                    <enabled>false</enabled>
+                    <texturenofocus border="0,0,0,2">dialogs/default/separator.png</texturenofocus>
                     <visible>System.HasAddon(script.artwork.downloader)</visible>
                 </control>
                             
@@ -65,14 +82,21 @@
                     <posy>420</posy>
                     <width>644</width>
                     <height>360</height>
-                    <onleft>5</onleft>
-                    <onright>5</onright>
+                    <onleft>7</onleft>
+                    <onright>7</onright>
                     <onup>2</onup>
                     <ondown>2</ondown>
                     <pagecontrol>61</pagecontrol>
-                    <scrolltime>0</scrolltime>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <visible>System.HasAddon(script.artwork.downloader)</visible>
                     <itemlayout height="60">
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>644</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="label">
                             <posx>20</posx>
                             <posy>0</posy>
@@ -89,8 +113,13 @@
                     <focusedlayout height="60">
                         <control type="group">
                             <visible>!Control.HasFocus(3)</visible>
-                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
-                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>644</width>
+                                <height>60</height>
+                                <texture>dialogs/default/separator.png</texture>
+                            </control>
                             <control type="label">
                                 <posx>20</posx>
                                 <posy>0</posy>
@@ -107,8 +136,6 @@
                         </control>
                         <control type="group">
                             <visible>Control.HasFocus(3)</visible>
-                            <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Visible</animation>
-                            <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(3).Scrolling | Container(3).OnScrollNext | Container(3).OnScrollPrevious]">Hidden</animation>
                             <control type="image">
                                 <width>644</width>
                                 <height>60</height>
@@ -131,12 +158,14 @@
                         <item id="1">
                             <description>Get poster</description>
                             <label>Poster</label>
-                            <onclick>RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],poster)</onclick>
+                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID],poster)</onclick>
+                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],poster)</onclick>
                         </item>
                         <item id="2">
                             <description>Get fanart</description>
                             <label>Fanart</label>
-                            <onclick>RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],fanart)</onclick>
+                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID],fanart)</onclick>
+                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],fanart)</onclick>
                         </item>
                         <item id="3">
                             <description>Get banner</description>
@@ -147,21 +176,20 @@
                         <item id="4">
                             <description>Get landscape</description>
                             <label>Landscape</label>
-                            <onclick>RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],landscape)</onclick>
-                            <visible>Container.Content(TVShows)</visible>
+                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID],landscape)</onclick>
+                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],landscape)</onclick>
                         </item>
                         <item id="5">
-                            <description>Get clearart</description>
-                            <label>ClearArt</label>
-                            <onclick>RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],clearart)</onclick>
-                            <visible>Container.Content(TVShows)</visible>
+                            <description>Get clearlogo</description>
+                            <label>Logo</label>
+                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID],clearlogo)</onclick>
+                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],clearlogo)</onclick>
                         </item>
                         <item id="6">
-                            <description>Get extra fanart</description>
-                            <label>Extrafanart</label>
-                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,dbid=$INFO[ListItem.DBID],extrafanart)</onclick>
-                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=custom,mediatype=movie,dbid=$INFO[ListItem.DBID],extrafanart)</onclick>
-                            <visible>[Container.Content(Movies) | Container.Content(TVShows)] + Skin.HasSetting(ExtraFanart.Enabled)</visible>
+                            <description>Get clearart</description>
+                            <label>ClearArt</label>
+                            <onclick condition="Container.Content(Movies)">RunScript(script.artwork.downloader,mode=gui,mediatype=movie,dbid=$INFO[ListItem.DBID],clearart)</onclick>
+                            <onclick condition="Container.Content(TVShows)">RunScript(script.artwork.downloader,mode=gui,mediatype=tvshow,dbid=$INFO[ListItem.DBID],clearart)</onclick>
                         </item>
                     </content>
                 </control>

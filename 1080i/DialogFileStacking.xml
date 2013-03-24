@@ -3,10 +3,18 @@
     <include>KeyboardAnimations</include>
     <controls>
         <control type="image">
-            <description>background image</description>
-            <include>FullscreenDimensions</include>
-            <texture>dialogs/filestacking/bg.png</texture>
-            <aspectratio>stretch</aspectratio>
+            <posx>920</posx>
+            <posy>396</posy>
+            <width>80</width>
+            <height>60</height>
+            <texture>dialogs/default/arrow.png</texture>
+        </control>
+        <control type="image">
+            <posx>704</posx>
+            <posy>416</posy>
+            <width>512</width>
+            <height>248</height>
+            <texture border="39">dialogs/default/bg.png</texture>
         </control>
         <control type="label">
             <description>Heading</description>
@@ -22,13 +30,27 @@
             <posx>738</posx>
             <posy>450</posy>
             <control type="image">
+            	<posx>324</posx>
+            	<posy>0</posy>
+            	<width>120</width>
+            	<height>181</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
+            </control>
+            <control type="image">
                 <description>Poster</description>
                 <posx>325</posx>
                 <posy>1</posy>
                 <width>118</width>
                 <height>178</height>
                 <texture>$INFO[ListItem.Icon]</texture>
-                <aspectratio>stretch</aspectratio>
+                <aspectratio>scale</aspectratio>
+            </control>
+            <control type="image">
+            	<posx>0</posx>
+            	<posy>0</posy>
+            	<width>310</width>
+            	<height>181</height>
+            	<texture border="5">dialogs/default/inner.png</texture>
             </control>
             <control type="list" id="450">
                 <posx>0</posx>
@@ -39,9 +61,16 @@
                 <onright>60</onright>
                 <onup>450</onup>
                 <ondown>450</ondown>
-                <scrolltime>0</scrolltime>
+                <scrolltime tween="cubic" easing="out">500</scrolltime>
                 <pagecontrol>60</pagecontrol>
                 <itemlayout height="60">
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>1</posy>
+                        <width>270</width>
+                        <height>60</height>
+                        <texture>dialogs/default/separator.png</texture>
+                    </control>
                     <control type="label">
                         <posx>20</posx>
                         <posy>0</posy>
@@ -60,6 +89,13 @@
                         <visible>!Control.HasFocus(450)</visible>
                         <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Visible</animation>
                         <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="![Container(450).Scrolling | Container(450).OnScrollNext | Container(450).OnScrollPrevious]">Hidden</animation>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>1</posy>
+                            <width>270</width>
+                            <height>60</height>
+                            <texture>dialogs/default/separator.png</texture>
+                        </control>
                         <control type="label">
                             <posx>20</posx>
                             <posy>0</posy>
