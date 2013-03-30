@@ -227,6 +227,18 @@
                         <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-back-fo.png</texturefocus>
                         <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-back-nf.png</texturenofocus>
                     </control>
+                    <control type="radiobutton" id="116">
+                        <description>Show info in Info List</description>
+                        <include>optionsbuttonsdimensions</include>
+                        <label>$LOCALIZE[42015]</label>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                        <onclick>Skin.ToggleSetting(InfoListHideInfo)</onclick>
+                        <selected>!Skin.HasSetting(InfoListHideInfo)</selected>
+                        <visible>Control.IsVisible(52)</visible>
+                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
+                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <radioposx>-19</radioposx>
+                    </control>
                     <control type="radiobutton" id="104">
                         <description>Show plot in Info List</description>
                         <include>optionsbuttonsdimensions</include>
@@ -235,6 +247,20 @@
                         <onclick>Skin.ToggleSetting(InfoListPlot)</onclick>
                         <selected>Skin.HasSetting(InfoListPlot)</selected>
                         <visible>Control.IsVisible(52)</visible>
+                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
+                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <radioposx>-19</radioposx>
+                        <enable>!Skin.HasSetting(InfoListHideInfo)</enable>
+                        <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(104)">Conditional</animation>
+                    </control>
+                    <control type="radiobutton" id="117">
+                        <description>Show info in Info Panel</description>
+                        <include>optionsbuttonsdimensions</include>
+                        <label>$LOCALIZE[42015]</label>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                        <onclick>Skin.ToggleSetting(InfoPanelHideInfo)</onclick>
+                        <selected>!Skin.HasSetting(InfoPanelHideInfo)</selected>
+                        <visible>Control.IsVisible(53)</visible>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
@@ -250,6 +276,8 @@
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
+                        <enable>!Skin.HasSetting(InfoPanelHideInfo)</enable>
+                        <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(105)">Conditional</animation>
                     </control>
                     <control type="radiobutton" id="106">
                         <description>Posters in Banner view</description>
@@ -371,6 +399,18 @@
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
                     </control>
+                    <control type="radiobutton" id="118">
+                        <description>Show info in thumbnail view</description>
+                        <include>optionsbuttonsdimensions</include>
+                        <label>$LOCALIZE[42015]</label>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                        <onclick>Skin.ToggleSetting(ThumbnailHideInfo)</onclick>
+                        <selected>!Skin.HasSetting(ThumbnailHideInfo)</selected>
+                        <visible>Control.IsVisible(501)</visible>
+                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
+                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <radioposx>-19</radioposx>
+                    </control>
                     <control type="radiobutton" id="115">
                         <description>Show plot in thumbnail view</description>
                         <include>optionsbuttonsdimensions</include>
@@ -382,6 +422,8 @@
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
+                        <enable>!Skin.HasSetting(ThumbnailHideInfo)</enable>
+                        <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(115)">Conditional</animation>
                     </control>
                 </control>
                 <control type="grouplist" id="9223">

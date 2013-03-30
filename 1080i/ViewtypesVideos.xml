@@ -1119,114 +1119,118 @@
                         <visible>Container.Content(Episodes) + !IsEmpty(ListItem.Overlay)</visible>
                     </control>
                     <control type="group">
-                        <visible>!IsEmpty(Container(52).ListItem.Plot) + Skin.HasSetting(InfoListPlot) + !Container.Content(Episodes)</visible>
+                        <visible>!Skin.HasSetting(InfoListHideInfo)</visible>
                         <include>visiblehidefadeinfo</include>
+                        <control type="group">
+                            <visible>!IsEmpty(Container(52).ListItem.Plot) + Skin.HasSetting(InfoListPlot) + !Container.Content(Episodes)</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>576</width>
+                                <height>600</height>
+                                <texture>windows/common/grey.png</texture>
+                                <colordiffuse>DF222222</colordiffuse>
+                                <visible>!IsEmpty(Container(52).ListItem.Art(fanart)) | !IsEmpty(Container(52).ListItem.Art(season.fanart))</visible>
+                                <include>visiblehidefadeinfo</include>
+                            </control>
+                            <control type="label">
+                                <posx>30</posx>
+                                <posy>30</posy>
+                                <width>516</width>
+                                <font>Font-Condensed-S60</font>
+                                <label>$LOCALIZE[207]</label>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>30</posx>
+                                <posy>86</posy>
+                                <width>516</width>
+                                <height>375</height>
+                                <info>Container(52).ListItem.Plot</info>
+                                <align>justify</align>
+                                <textcolor>CCFFFFFF</textcolor>
+                                <shadowcolor>33000000</shadowcolor>
+                                <pagecontrol>71</pagecontrol>
+                                <autoscroll delay="13000" time="3000" repeat="13000">!Control.HasFocus(71)</autoscroll>
+                                <font>Font-Condensed-S34</font>
+                            </control>
+                        </control>
+                        <control type="group">
+                            <visible>!IsEmpty(Container(52).ListItem.Plot) + Container.Content(Episodes)</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>325</posy>
+                                <width>576</width>
+                                <height>204</height>
+                                <colordiffuse>77white</colordiffuse>
+                                <texture border="3">views/extended/overlay.png</texture>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>30</posx>
+                                <posy>338</posy>
+                                <width>516</width>
+                                <height>182</height>
+                                <info>Container(52).ListItem.Plot</info>
+                                <align>justify</align>
+                                <textcolor>CCFFFFFF</textcolor>
+                                <shadowcolor>33000000</shadowcolor>
+                                <pagecontrol>71</pagecontrol>
+                                <autoscroll delay="13000" time="3000" repeat="13000">!Control.HasFocus(71)</autoscroll>
+                                <font>Font-Condensed-S32</font>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>576</width>
+                                <height>528</height>
+                                <texture>views/list/other/fanart-overlay.png</texture>
+                                <colordiffuse>aawhite</colordiffuse>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>324</posy>
+                                <width>576</width>
+                                <height>3</height>
+                                <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                            </control>
+                        </control>
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
                             <width>576</width>
                             <height>600</height>
-                            <texture>windows/common/grey.png</texture>
-                            <colordiffuse>DF222222</colordiffuse>
-                            <visible>!IsEmpty(Container(52).ListItem.Art(fanart)) | !IsEmpty(Container(52).ListItem.Art(season.fanart))</visible>
+                            <texture>views/list/other/fanart-overlay.png</texture>
                             <include>visiblehidefadeinfo</include>
+                            <visible>!Container.Content(Episodes)</visible>
                         </control>
                         <control type="label">
                             <posx>30</posx>
-                            <posy>30</posy>
+                            <posy>490</posy>
                             <width>516</width>
                             <font>Font-Condensed-S60</font>
-                            <label>$LOCALIZE[207]</label>
+                            <label>$VAR[InfoListInfo]</label>
                             <textcolor>aawhite</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
+                            <visible>!Container.Content(Episodes)</visible>
                         </control>
-                        <control type="textbox">
-                            <description>Plot</description>
+                        <control type="label">
                             <posx>30</posx>
-                            <posy>86</posy>
+                            <posy>543</posy>
                             <width>516</width>
-                            <height>375</height>
-                            <info>Container(52).ListItem.Plot</info>
-                            <align>justify</align>
-                            <textcolor>CCFFFFFF</textcolor>
-                            <shadowcolor>33000000</shadowcolor>
-                            <pagecontrol>71</pagecontrol>
-                            <autoscroll delay="13000" time="3000" repeat="13000">!Control.HasFocus(71)</autoscroll>
-                            <font>Font-Condensed-S34</font>
+                            <font>Font-Condensed-S30</font>
+                            <label>$VAR[InfoListSubInfo]</label>
+                            <textcolor>aawhite</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
+                            <animation effect="slide" end="0,5" time="300" tween="sine" easing="inout" condition="Container.Content(Episodes)">Conditional</animation>
                         </control>
-                    </control>
-                    <control type="group">
-                        <visible>!IsEmpty(Container(52).ListItem.Plot) + Container.Content(Episodes)</visible>
-                        <include>visiblehidefadeinfo</include>
-                        <control type="image">
-                            <posx>0</posx>
-                            <posy>325</posy>
-                            <width>576</width>
-                            <height>204</height>
-                            <colordiffuse>77white</colordiffuse>
-                            <texture border="3">views/extended/overlay.png</texture>
-                        </control>
-                        <control type="textbox">
-                            <description>Plot</description>
-                            <posx>30</posx>
-                            <posy>338</posy>
-                            <width>516</width>
-                            <height>182</height>
-                            <info>Container(52).ListItem.Plot</info>
-                            <align>justify</align>
-                            <textcolor>CCFFFFFF</textcolor>
-                            <shadowcolor>33000000</shadowcolor>
-                            <pagecontrol>71</pagecontrol>
-                            <autoscroll delay="13000" time="3000" repeat="13000">!Control.HasFocus(71)</autoscroll>
-                            <font>Font-Condensed-S32</font>
-                        </control>
-                        <control type="image">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>576</width>
-                            <height>528</height>
-                            <texture>views/list/other/fanart-overlay.png</texture>
-                            <colordiffuse>aawhite</colordiffuse>
-                        </control>
-                        <control type="image">
-                            <posx>0</posx>
-                            <posy>324</posy>
-                            <width>576</width>
-                            <height>3</height>
-                            <texture border="90,3,90,3">views/list/other/separator.png</texture>
-                        </control>
-                    </control>
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>576</width>
-                        <height>600</height>
-                        <texture>views/list/other/fanart-overlay.png</texture>
-                        <include>visiblehidefadeinfo</include>
-                        <visible>!Container.Content(Episodes)</visible>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>490</posy>
-                        <width>516</width>
-                        <font>Font-Condensed-S60</font>
-                        <label>$VAR[InfoListInfo]</label>
-                        <textcolor>aawhite</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
-                        <visible>!Container.Content(Episodes)</visible>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>543</posy>
-                        <width>516</width>
-                        <font>Font-Condensed-S30</font>
-                        <label>$VAR[InfoListSubInfo]</label>
-                        <textcolor>aawhite</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
-                        <animation effect="slide" end="0,5" time="300" tween="sine" easing="inout" condition="Container.Content(Episodes)">Conditional</animation>
                     </control>
                 </control>
             </control>
@@ -2036,80 +2040,84 @@
                         <aspectratio>scale</aspectratio>
                     </control>
                     <control type="group">
-                        <visible>!IsEmpty(Container(53).ListItem.Plot) + Skin.HasSetting(InfoPanelPlot)</visible>
+                        <visible>!Skin.HasSetting(InfoPanelHideInfo)</visible>
                         <include>visiblehidefadeinfo</include>
+                        <control type="group">
+                            <visible>!IsEmpty(Container(53).ListItem.Plot) + Skin.HasSetting(InfoPanelPlot)</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <posx>0</posx>
+                                <posy>0</posy>
+                                <width>738</width>
+                                <height>600</height>
+                                <texture>windows/common/grey.png</texture>
+                                <colordiffuse>DF222222</colordiffuse>
+                                <visible>!IsEmpty(Container(53).ListItem.Art(fanart)) | !IsEmpty(Container(53).ListItem.Art(season.fanart))</visible>
+                                <include>visiblehidefadeinfo</include>
+                            </control>
+                            <control type="label">
+                                <posx>30</posx>
+                                <posy>30</posy>
+                                <width>678</width>
+                                <font>Font-Condensed-S60</font>
+                                <label>$LOCALIZE[207]</label>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="textbox">
+                                <description>Plot</description>
+                                <posx>30</posx>
+                                <posy>90</posy>
+                                <width>678</width>
+                                <height>330</height>
+                                <info>Container(53).ListItem.Plot</info>
+                                <align>justify</align>
+                                <textcolor>CCFFFFFF</textcolor>
+                                <shadowcolor>33000000</shadowcolor>
+                                <pagecontrol>71</pagecontrol>
+                                <autoscroll delay="13000" time="3000" repeat="13000" />
+                                <font>Font-Condensed-S34</font>
+                            </control>
+                        </control>
                         <control type="image">
                             <posx>0</posx>
-                            <posy>0</posy>
+                            <posy>-100</posy>
                             <width>738</width>
-                            <height>600</height>
-                            <texture>windows/common/grey.png</texture>
-                            <colordiffuse>DF222222</colordiffuse>
-                            <visible>!IsEmpty(Container(53).ListItem.Art(fanart)) | !IsEmpty(Container(53).ListItem.Art(season.fanart))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <height>700</height>
+                            <texture>views/list/other/fanart-overlay.png</texture>
                         </control>
                         <control type="label">
                             <posx>30</posx>
-                            <posy>30</posy>
+                            <posy>455</posy>
                             <width>678</width>
-                            <font>Font-Condensed-S60</font>
-                            <label>$LOCALIZE[207]</label>
-                            <textcolor>aawhite</textcolor>
+                            <font>Font-Condensed-S45</font>
+                            <label>$INFO[Container(53).ListItem.Label]</label>
+                            <textcolor>bbwhite</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
+                            <animation effect="slide" end="0,40" time="0" condition="IsEmpty(Container(53).ListItem.Genre)">Conditional</animation>
+                        </control>
+                        <control type="label">
+                            <posx>30</posx>
+                            <posy>503</posy>
+                            <width>678</width>
+                            <font>Font-Condensed-S30</font>
+                            <label>$INFO[Container(53).ListItem.Genre]</label>
+                            <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
                         </control>
-                        <control type="textbox">
-                            <description>Plot</description>
+                        <control type="label">
                             <posx>30</posx>
-                            <posy>90</posy>
+                            <posy>543</posy>
                             <width>678</width>
-                            <height>330</height>
-                            <info>Container(53).ListItem.Plot</info>
-                            <align>justify</align>
-                            <textcolor>CCFFFFFF</textcolor>
-                            <shadowcolor>33000000</shadowcolor>
-                            <pagecontrol>71</pagecontrol>
-                            <autoscroll delay="13000" time="3000" repeat="13000" />
-                            <font>Font-Condensed-S34</font>
+                            <font>Font-Condensed-S30</font>
+                            <label>$VAR[VideoPanelThumbInfo]</label>
+                            <textcolor>77white</textcolor>
+                            <shadowcolor>22000000</shadowcolor>
+                            <scroll>false</scroll>
                         </control>
-                    </control>
-                    <control type="image">
-                        <posx>0</posx>
-                        <posy>-100</posy>
-                        <width>738</width>
-                        <height>700</height>
-                        <texture>views/list/other/fanart-overlay.png</texture>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>455</posy>
-                        <width>678</width>
-                        <font>Font-Condensed-S45</font>
-                        <label>$INFO[Container(53).ListItem.Label]</label>
-                        <textcolor>bbwhite</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
-                        <animation effect="slide" end="0,40" time="0" condition="IsEmpty(Container(53).ListItem.Genre)">Conditional</animation>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>503</posy>
-                        <width>678</width>
-                        <font>Font-Condensed-S30</font>
-                        <label>$INFO[Container(53).ListItem.Genre]</label>
-                        <textcolor>77white</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
-                    </control>
-                    <control type="label">
-                        <posx>30</posx>
-                        <posy>543</posy>
-                        <width>678</width>
-                        <font>Font-Condensed-S30</font>
-                        <label>$VAR[VideoPanelThumbInfo]</label>
-                        <textcolor>77white</textcolor>
-                        <shadowcolor>22000000</shadowcolor>
-                        <scroll>false</scroll>
                     </control>
                     <control type="image">
                         <posx>638</posx>
@@ -4537,6 +4545,8 @@
                 <control type="group">
                     <posx>1304</posx>
                     <posy>186</posy>
+                    <visible>!Skin.HasSetting(ThumbnailHideInfo)</visible>
+                    <include>visiblehidefadeinfo</include>
                     <control type="group">
                         <visible>!IsEmpty(Container(501).ListItem.Plot) + Skin.HasSetting(ThumbnailPlot)</visible>
                         <include>visiblehidefadeinfo</include>
@@ -4613,15 +4623,15 @@
                         <shadowcolor>22000000</shadowcolor>
                         <scroll>false</scroll>
                     </control>
-                    <control type="image">
-                        <posx>380</posx>
-                        <posy>0</posy>
-                        <width>100</width>
-                        <height>100</height>
-                        <aspect>keepaspect</aspect>
-                        <texture>$VAR[ExtendedOverlay]</texture>
-                        <visible>!IsEmpty(ListItem.Overlay)</visible>
-                    </control>
+                </control>
+                <control type="image">
+                    <posx>380</posx>
+                    <posy>0</posy>
+                    <width>100</width>
+                    <height>100</height>
+                    <aspect>keepaspect</aspect>
+                    <texture>$VAR[ExtendedOverlay]</texture>
+                    <visible>!IsEmpty(ListItem.Overlay)</visible>
                 </control>
             </control>
         </control>
