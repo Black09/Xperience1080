@@ -1,162 +1,91 @@
-<window>
-    <defaultcontrol always="true">9333</defaultcontrol>
-    <onload condition="System.HasAddon(script.videolanguage)">RunScript(script.videolanguage,movieid=$INFO[ListItem.DBID])</onload>
-    <onload>SetProperty(fanart_image,$INFO[ListItem.Art(fanart)],home)</onload>
-    <onload condition="Skin.HasSetting(MovieInformation.PlayTrailer)">AlarmClock(PlayTrailer,PlayMedia($INFO[ListItem.Trailer],false,1),00:01,silent)</onload>
-    <onunload>ClearProperty(fanart_image,home)</onunload>
-    <allowoverlay>no</allowoverlay>
-    <controls>
-        <!-- Movies, TVShows, Seasons, Episodes -->
+<window id="3003">
+	<defaultcontrol always="true">51</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+	<onload condition="Skin.HasSetting(MovieInformation.PlayTrailer)">AlarmClock(PlayTrailer,PlayMedia($INFO[ListItem.Trailer],false,1),00:01,silent)</onload>
+	<onunload>ClearProperty(fanart_image,home)</onunload>
+	<controls>
+	
+	    <control type="button" id="51">
+	        <onfocus>SetProperty(fanart_image,$INFO[ListItem.Property(Fanart_Image)],home)</onfocus>
+	        <onfocus condition="System.HasAddon(script.videolanguage)">RunScript(script.videolanguage,movieid=$INFO[ListItem.Property(dbid)],type=movie)</onfocus>
+	        <onfocus>SetFocus(9333)</onfocus>
+	        <animation effect="fade" start="0" end="100" time="0" delay="300">Focus</animation>
+	    </control>
+	
+		<control type="list" id="50">
+			<description>container movie properties</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1</width>
+			<height>1</height>
+			<onleft>9000</onleft>
+			<onright>9000</onright>
+			<onup>9000</onup>
+			<ondown>9000</ondown>
+			<viewtype label="Movie">list</viewtype>
+			<pagecontrol>-</pagecontrol>
+			<itemlayout height="1" width="1" />
+			<focusedlayout height="1" width="1" />
+		</control>
+		
+		<!-- Movies, TVShows, Seasons, Episodes -->
         <control type="group">
             <posx>0</posx>
             <posy>0</posy>
             <width>1920</width>
             <height>1080</height>
-            <animation type="WindowOpen">
+
+            <animation type="WindowOpen" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">
                 <effect type="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="out" />
                 <effect type="zoom" start="335,125,1440,810" end="0,0,1920,1080" time="400" delay="300" tween="cubic" easing="out" />
             </animation>
-            <animation type="WindowClose">
+            <animation type="WindowClose" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">
                 <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                 <effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
             </animation>
-            <visible></visible>
-            <animation type="Visible">
+            <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+                <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
+            </animation>
+            <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
                 <effect type="slide" start="-1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
             </animation>
-            <animation type="Hidden">
+            <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+                <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
+                <effect type="slide" end="2320" time="500" delay="0" tween="sine" easing="inout" />
+            </animation>
+            <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
                 <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
                 <effect type="slide" start="0" end="-2320" time="500" delay="0" tween="sine" easing="inout" />
             </animation>
-
-            <visible>!Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + [Container.Content(movies) | Container.Content(tvshows) | Container.Content(episodes)]</visible>
-            
-            <!-- Title Label -->
-            <control type="group">
+ 
+            <!-- Title Label -->            
+            <control type="label">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
+                <posx>118</posx>
+                <posy>51</posy>
+                <width>1490</width>
+                <height>100</height>
+                <label>$INFO[ListItem.Title]</label>
+                <font>Font-Condensed-S75</font>
+                <textcolor>aawhite</textcolor>
+                <align>left</align>
+                <scroll>false</scroll>
                 <visible>!Player.HasMedia + !Window.IsActive(infodialog) + !Window.IsActive(extendedprogressdialog)</visible>
                 <include>visiblehidefadeinfo</include>
-                <control type="grouplist">
-                    <posx>87</posx>
-                    <posy>51</posy>
-                    <width>1490</width>
-                    <height>100</height>
-                    <aligny>center</aligny>
-                    <orientation>horizontal</orientation>
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <visible>Container.Content(tvshows) + !IsEmpty(listitem.mpaa)</visible>
-                    <control type="group">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>130</width>
-                        <visible>!IsEmpty(ListItem.MPAA) + Container.Content(TVShows)</visible>
-                        <include>TVRatingFlags</include>
-                    </control>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <height>100</height>
-                        <width min="0" max="1360">auto</width>
-                        <label>$INFO[ListItem.Title]</label>
-                        <font>Font-Condensed-S75</font>
-                        <textcolor>aawhite</textcolor>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                </control>
-                
-                <!-- Title Label -->            
-                <control type="label">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>118</posx>
-                    <posy>51</posy>
-                    <width>1490</width>
-                    <height>100</height>
-                    <label>$INFO[ListItem.Title]</label>
-                    <font>Font-Condensed-S75</font>
-                    <textcolor>aawhite</textcolor>
-                    <align>left</align>
-                    <scroll>false</scroll>
-                    <visible>!Container.Content(episodes) + ![Container.Content(tvshows) + !IsEmpty(listitem.mpaa)]</visible>
-                </control>
-    
-                <!-- Title Label -->            
-                <control type="label">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>118</posx>
-                    <posy>51</posy>
-                    <width>1490</width>
-                    <height>100</height>
-                    <label>$INFO[ListItem.TVShowTitle]</label>
-                    <font>Font-Condensed-S75</font>
-                    <textcolor>aawhite</textcolor>
-                    <align>left</align>
-                    <scroll>false</scroll>
-                    <visible>Container.Content(episodes)</visible>
-                </control>
-            </control>
-            
-            <!-- Title Label -->
-            <control type="group">
+            </control>       
+            <control type="label">
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
+                <posx>118</posx>
+                <posy>51</posy>
+                <width>832</width>
+                <height>100</height>
+                <label>$INFO[ListItem.Title]</label>
+                <font>Font-Condensed-S75</font>
+                <textcolor>aawhite</textcolor>
+                <align>left</align>
+                <scroll>false</scroll>
                 <visible>Player.HasMedia | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)</visible>
                 <include>visiblehidefadeinfo</include>
-                <control type="grouplist">
-                    <posx>87</posx>
-                    <posy>51</posy>
-                    <width>832</width>
-                    <height>100</height>
-                    <aligny>center</aligny>
-                    <orientation>horizontal</orientation>
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <visible>Container.Content(tvshows) + !IsEmpty(listitem.mpaa)</visible>
-                    <control type="group">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <width>130</width>
-                        <visible>!IsEmpty(ListItem.MPAA) + Container.Content(TVShows)</visible>
-                        <include>TVRatingFlags</include>
-                    </control>
-                    <control type="label">
-                        <posx>0</posx>
-                        <posy>0</posy>
-                        <height>100</height>
-                        <width min="0" max="702">auto</width>
-                        <label>$INFO[ListItem.Title]</label>
-                        <font>Font-Condensed-S75</font>
-                        <textcolor>aawhite</textcolor>
-                        <align>left</align>
-                        <scroll>false</scroll>
-                    </control>
-                </control>
-                
-                <!-- Title Label -->            
-                <control type="label">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>118</posx>
-                    <posy>51</posy>
-                    <width>832</width>
-                    <height>100</height>
-                    <label>$INFO[ListItem.Title]</label>
-                    <font>Font-Condensed-S75</font>
-                    <textcolor>aawhite</textcolor>
-                    <align>left</align>
-                    <scroll>false</scroll>
-                    <visible>!Container.Content(episodes) + ![Container.Content(tvshows) + !IsEmpty(listitem.mpaa)]</visible>
-                </control>
-    
-                <!-- Title Label -->            
-                <control type="label">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>118</posx>
-                    <posy>51</posy>
-                    <width>832</width>
-                    <height>100</height>
-                    <label>$INFO[ListItem.TVShowTitle]</label>
-                    <font>Font-Condensed-S75</font>
-                    <textcolor>aawhite</textcolor>
-                    <align>left</align>
-                    <scroll>false</scroll>
-                    <visible>Container.Content(episodes)</visible>
-                </control>
             </control>
             
             <!-- Rating -->
@@ -167,7 +96,7 @@
                 </animation>
                 <visible>!IsEmpty(ListItem.Rating)</visible>
                 <control type="image">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
                     <posx>1725</posx>
                     <posy>41</posy>
                     <width>120</width>
@@ -175,7 +104,7 @@
                     <texture>dialogs/video-info/rating.png</texture>
                 </control>  
                 <control type="label">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
                     <posx>1735</posx>
                     <posy>51</posy>
                     <width>250</width>
@@ -187,9 +116,9 @@
                     <scroll>false</scroll>
                 </control>
             </control>
-
+            
             <control type="grouplist">
-                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
                 <animation type="Conditional" condition="Control.HasFocus(1110)">
                     <effect type="slide" start="0" end="510" time="400" delay="0" tween="sine" easing="inout" />
                 </animation>
@@ -212,7 +141,7 @@
                     <align>left</align>
                     <scroll>false</scroll>
                     <include>visiblehidefadeinfo</include>
-                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="Control.HasFocus(1110) | Control.HasFocus(50)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="Control.HasFocus(1110) | Control.HasFocus(150)">Conditional</animation>
                 </control>
                 <!-- Plot Label -->
                 <control type="label">
@@ -225,7 +154,7 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50) | Control.HasFocus(1110) | Window.IsActive(script-Actors-DialogInfo.xml)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(150) | Control.HasFocus(1110)">Conditional</animation>
                 </control>
                 <!-- Cast Label -->
                 <control type="label">
@@ -238,7 +167,8 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>  
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71) | Window.IsActive(script-Actors-DialogInfo.xml)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71) | Control.HasFocus(51)">Conditional</animation>
+                    <visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>
                 </control>
                 <!-- Right Arrow Label -->
                 <control type="label">
@@ -252,15 +182,14 @@
                     <align>left</align>
                     <scroll>false</scroll>
                     <include>visiblehidefadeinfo</include>
-                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="!Control.HasFocus(50)">Conditional</animation>
-                    <visible>System.HasAddon(script.metadata.actors)</visible>
+                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="!Control.HasFocus(150)">Conditional</animation>
                 </control>
             </control>
             
             <!-- Info Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
-                <visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71)</visible>
+                <visible allowhiddenfocus="true">Control.HasFocus(9333) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71) | Control.HasFocus(51) | Control.HasFocus(8)</visible>
                 <include>listEndAnimation</include>
                 <animation type="Visible">
                     <effect type="slide" start="-1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
@@ -305,7 +234,15 @@
                             <width>634</width>
                             <height>355</height>
                             <aspectratio>scale</aspectratio>
-                            <texture background="true">$VAR[VideoInfoArt]</texture>
+                            <texture>views/fallbacks/DefaultVideo.png/landscape.png</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>634</width>
+                            <height>355</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$INFO[ListItem.Property(Fanart_Image)]</texture>
                         </control>
                         <control type="image">
                             <posx>534</posx>
@@ -313,7 +250,7 @@
                             <width>100</width>
                             <height>100</height>
                             <aspect>keepaspect</aspect>
-                            <texture>$VAR[VideoInfoOverlay]</texture>
+                            <texture>$VAR[ActorsVideoInfoOverlay]</texture>
                         </control>
                     </control>
                     <control type="group">
@@ -398,8 +335,7 @@
                         <width>59</width>
                         <height>59</height>
                         <onleft>1104</onleft>
-                        <onright>SendClick(2003,5)</onright>
-                        <onright>SetFocus(9334)</onright>
+                        <onright>SetFocus(150)</onright>
                         <onup>9333</onup>
                         <ondown>9333</ondown>
                         <onclick>Action(fullscreen)</onclick>
@@ -480,16 +416,8 @@
                     <content>
                         <item id="1">
                             <label>$LOCALIZE[41315]</label>
-                            <onclick>SendClick(2003,8)</onclick>
-                            <visible>!Container.Content(movies) | [Container.Content(movies) + !System.HasAddon(script.cinema.experience)] | [Container.Content(movies) + SubString(Container.FolderPath,plugin)]</visible>
-                        </item>
-                        <item id="1">
-                            <description>Cinema Experience</description>
-                            <label>$LOCALIZE[41315]</label>
-                            <onclick>Dialog.Close(MovieInformation)</onclick>
-                            <onclick>Playlist.Clear</onclick>
-                            <onclick>XBMC.RunScript(script.cinema.experience)</onclick>
-                            <visible>System.HasAddon(script.cinema.experience) + Container.Content(movies) + !SubString(Container.FolderPath,plugin)</visible>
+                            <onclick>SetFocus(8)</onclick>
+                            <visible>Control.IsEnabled(8)</visible>
                         </item>
                         <item id="2">
                             <label>$LOCALIZE[20410]</label>
@@ -499,19 +427,8 @@
                             <visible>!IsEmpty(ListItem.Trailer)</visible>
                         </item>
                         <item id="3">
-                            <description>Get Artwork</description>
-                            <label>$LOCALIZE[13511]</label>
-                            <onclick>ActivateWindow(3004)</onclick>
-                        </item>
-                        <item id="4">
-                            <description>Get theme</description>
-                            <label>$LOCALIZE[41333]</label>
-                            <onclick>RunScript(script.tvtunes,mode=solo&amp;tvpath=$INFO[ListItem.FilenameAndPath]&amp;tvname=$INFO[ListItem.TVShowTitle])</onclick>
-                            <visible>[Container.Content(TVShows) | Container.Content(Seasons)] + System.HasAddon(script.tvtunes)</visible>
-                        </item>
-                        <item id="5">
                             <label>$LOCALIZE[41307]</label>
-                            <onclick>SendClick(2003,6)</onclick>
+                            <onclick>SendClick(6)</onclick>
                         </item>
                     </content>
                 </control>
@@ -526,89 +443,73 @@
                     <align>right</align>
                     <itemgap>10</itemgap>
                     <orientation>horizontal</orientation>
-                    <visible>Container.Content(movies) | Container.Content(episodes)</visible>
                     <control type="image">
                         <width>48</width>
                         <height>48</height>
                         <aspectratio>center</aspectratio>
-                        <texture>$INFO[Window.Property(AudioLanguage.1),flags/language/,.png]</texture>
+                        <texture>$INFO[Window(movieinformation).Property(AudioLanguage.1),flags/language/,.png]</texture>
                         <include>visiblehidefadeflags</include>
-                        <visible>!IsEmpty(Window.Property(AudioLanguage.1))</visible>
+                        <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.1))</visible>
                     </control>
                     <control type="image">
                         <width>48</width>
                         <height>48</height>
                         <aspectratio>center</aspectratio>
-                        <texture>$INFO[Window.Property(AudioLanguage.2),flags/language/,.png]</texture>
+                        <texture>$INFO[Window(movieinformation).Property(AudioLanguage.2),flags/language/,.png]</texture>
                         <include>visiblehidefadeflags</include>
-                        <visible>!IsEmpty(Window.Property(AudioLanguage.2))</visible>
+                        <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.2))</visible>
                     </control>
                     <control type="image">
                         <width>48</width>
                         <height>48</height>
                         <aspectratio>center</aspectratio>
-                        <texture>$INFO[Window.Property(AudioLanguage.3),flags/language/,.png]</texture>
+                        <texture>$INFO[Window(movieinformation).Property(AudioLanguage.3),flags/language/,.png]</texture>
                         <include>visiblehidefadeflags</include>
-                        <visible>!IsEmpty(Window.Property(AudioLanguage.3))</visible>
+                        <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.3))</visible>
                     </control>
                     <control type="image">
                         <width>48</width>
                         <height>48</height>
                         <aspectratio>center</aspectratio>
-                        <texture>$INFO[Window.Property(AudioLanguage.4),flags/language/,.png]</texture>
+                        <texture>$INFO[Window(movieinformation).Property(AudioLanguage.4),flags/language/,.png]</texture>
                         <include>visiblehidefadeflags</include>
-                        <visible>!IsEmpty(Window.Property(AudioLanguage.4))</visible>
+                        <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.4))</visible>
                     </control>
                     <control type="image">
                         <width>48</width>
                         <height>48</height>
                         <aspectratio>center</aspectratio>
-                        <texture>$INFO[Window.Property(AudioLanguage.5),flags/language/,.png]</texture>
+                        <texture>$INFO[Window(movieinformation).Property(AudioLanguage.5),flags/language/,.png]</texture>
                         <include>visiblehidefadeflags</include>
-                        <visible>!IsEmpty(Window.Property(AudioLanguage.5))</visible>
+                        <visible>!IsEmpty(Window(movieinformation).Property(AudioLanguage.5))</visible>
                     </control>
                 </control>
                 
                 <!-- Info -->
                 <control type="grouplist">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
                     <posx>760</posx>
                     <posy>245</posy>
-                    <width>1054</width>
+                    <width>1050</width>
                     <height>700</height>
                     <orientation>vertical</orientation>
                     <usecontrolcoords>true</usecontrolcoords>
-                    <control type="group">
+                    <control type="label">
                         <posx>10</posx>
                         <width>1044</width>
                         <height>70</height>
-                        <control type="label">
-                            <width min="0" max="1044">auto</width>
-                            <height>70</height>
-                            <font>Font-Condensed-S45</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Title]</label>
-                            <textcolor>eewhite</textcolor>
-                            <scroll>false</scroll>
-                            <visible>!Container.Content(episodes)</visible>
-                        </control>
-                        <control type="label">
-                            <width min="0" max="1044">auto</width>
-                            <height>70</height>
-                            <font>Font-Condensed-S45</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Season,,x]$INFO[ListItem.Episode,,. ]$INFO[ListItem.Title]</label>
-                            <textcolor>eewhite</textcolor>
-                            <scroll>false</scroll>
-                            <visible>Container.Content(episodes)</visible>
-                        </control>
+                        <font>Font-Condensed-S45</font>
+                        <align>left</align>
+                        <label>$INFO[ListItem.Title]</label>
+                        <textcolor>eewhite</textcolor>
+                        <scroll>false</scroll>
                     </control>
                     <control type="group">
                         <width>1044</width>
                         <height>40</height>
-                        <visible>!Container.Content(TVShows)</visible>
+                        <visible>!IsEmpty(ListItem.Year) | !IsEmpty(ListItem.Duration) | !IsEmpty(ListItem.RatingAndVotes)</visible>
                         <!-- Year | Runtime -->
                         <control type="label">
                             <posx>8</posx>
@@ -618,40 +519,6 @@
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Year,, • ]$INFO[ListItem.Duration,, $LOCALIZE[12391]]$INFO[ListItem.RatingAndVotes, • ,]</label>
-                            <textcolor>aawhite</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </control>
-                    <control type="group">
-                        <width>1044</width>
-                        <height>40</height>
-                        <visible>Container.Content(TVShows) + !IsEmpty(ListItem.Premiered)</visible>
-                        <!-- Premiered -->
-                        <control type="label">
-                            <posx>8</posx>
-                            <posy>0</posy>
-                            <width>1044</width>
-                            <height>36</height>
-                            <font>Font-Condensed-S34</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Premiered,$LOCALIZE[41314],]</label>
-                            <textcolor>aawhite</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </control>
-                    <control type="group">
-                        <width>1044</width>
-                        <height>40</height>
-                        <visible>Container.Content(TVShows) + !IsEmpty(ListItem.Studio)</visible>
-                        <!-- Studio -->
-                        <control type="label">
-                            <posx>8</posx>
-                            <posy>0</posy>
-                            <width>1044</width>
-                            <height>36</height>
-                            <font>Font-Condensed-S34</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Studio]</label>
                             <textcolor>aawhite</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -684,7 +551,7 @@
                         <!-- Director -->
                         <width>1044</width>
                         <height>40</height>
-                        <visible>!Container.Content(tvshows) + !IsEmpty(ListItem.Director)</visible>
+                        <visible>!IsEmpty(ListItem.Director)</visible>
                         <control type="image">
                             <posx>0</posx>
                             <posy>-6</posy>
@@ -706,9 +573,8 @@
                             <onup>70</onup>
                             <ondown>70</ondown>                  
                             <onleft>9333</onleft>
-                            <onright>SendClick(2003,5)</onright>
-                            <onright>SetFocus(9334)</onright>
-                            <onclick>SendClick(2003,13)</onclick>
+                            <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onright>
+                            <onright condition="!IntegerGreaterThan(Container(150).NumItems,0)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
                             <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
                         </control>
                     </control>
@@ -716,7 +582,7 @@
                         <!-- Writer -->
                         <width>1044</width>
                         <height>59</height>
-                        <visible>!Container.Content(tvshows) + !IsEmpty(ListItem.Writer)</visible>
+                        <visible>!IsEmpty(ListItem.Writer)</visible>
                         <control type="image">
                             <posx>0</posx>
                             <posy>-5</posy>
@@ -736,40 +602,6 @@
                             <scroll>false</scroll>
                         </control>
                     </control>
-                    <control type="group">
-                        <width>1044</width>
-                        <height>40</height>
-                        <visible>Container.Content(TVShows) + !IsEmpty(ListItem.Property(TotalEpisodes))</visible>
-                        <!-- Episodes -->
-                        <control type="label">
-                            <posx>8</posx>
-                            <posy>0</posy>
-                            <width>1044</width>
-                            <height>36</height>
-                            <font>Font-Condensed-S34</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Property(TotalEpisodes),$LOCALIZE[41813]: ,]</label>
-                            <textcolor>aawhite</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </control>
-                    <control type="group">
-                        <width>1044</width>
-                        <height>40</height>
-                        <visible>Container.Content(TVShows) + !IsEmpty(ListItem.Property(unWatchedepisodes))</visible>
-                        <!-- Unwatched -->
-                        <control type="label">
-                            <posx>8</posx>
-                            <posy>0</posy>
-                            <width>1044</width>
-                            <height>36</height>
-                            <font>Font-Condensed-S34</font>
-                            <align>left</align>
-                            <label>$INFO[ListItem.Property(unWatchedepisodes),$LOCALIZE[41311],]</label>
-                            <textcolor>aawhite</textcolor>
-                            <scroll>false</scroll>
-                        </control>
-                    </control>
                 </control>
                 
                 <!-- Flags -->
@@ -781,7 +613,6 @@
                     <align>left</align>
                     <itemgap>-9</itemgap>
                     <orientation>horizontal</orientation>
-                    <visible>!Container.Content(tvshows)</visible>
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
@@ -829,8 +660,8 @@
                         <onup>71</onup>
                         <ondown>71</ondown>                  
                         <onleft>9333</onleft>
-                        <onright>SendClick(2003,5)</onright>
-                        <onright>SetFocus(9334)</onright>
+                        <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onright>
+                        <onright condition="!IntegerGreaterThan(Container(150).NumItems,0)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
                         <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
                         <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
                         <orientation>vertical</orientation>
@@ -845,7 +676,7 @@
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <include>listEndAnimation</include>
-                <visible allowhiddenfocus="true">Control.HasFocus(9334) | Control.HasFocus(50)</visible>
+                <visible allowhiddenfocus="true">Control.HasFocus(150)</visible>
                 <animation type="Visible">
                     <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
@@ -854,105 +685,92 @@
                     <effect type="slide" end="2320" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
 
-                <control type="group">
-
-                    <control type="button" id="9334">
-                        <onfocus>Action(left)</onfocus>
-                        <onleft>50</onleft>
-                    </control>
-                                    
-                    <control type="list" id="50">
-                        <posx>118</posx>
-                        <posy>234</posy>
-                        <width>1180</width>
-                        <height>660</height>
-                        <onleft>SetFocus(9335)</onleft>
-                        <onright condition="!System.HasAddon(script.metadata.actors)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
-                        <onright condition="System.HasAddon(script.metadata.actors)">SetProperty(script.metadata.actors.push,1,home)</onright>
-                        <onright condition="System.HasAddon(script.metadata.actors)">RunScript(script.metadata.actors,$INFO[Container(50).ListItem.Label])</onright>
-                        <onup>50</onup>
-                        <ondown>50</ondown>
-                        <pagecontrol>151</pagecontrol>
-                        <scrolltime tween="cubic" easing="out">500</scrolltime>
-                        <orientation>vertical</orientation>
-                        <focusposition>0</focusposition>
-                        <viewtype label="actor list">list</viewtype>
-                        <itemlayout height="60">
-                            <control type="label">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>1180</width>
-                                <height>60</height>
-                                <label>$INFO[ListItem.label]</label>
-                                <font>Font-Condensed-S40</font>
-                                <textcolor>aawhite</textcolor>
-                                <selectedcolor>white</selectedcolor>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <scroll>false</scroll>
-                            </control>  
-                        </itemlayout>
-                        <focusedlayout height="60">
-                            <control type="label">
-                                <posx>0</posx>
-                                <posy>0</posy>
-                                <width>1180</width>
-                                <height>60</height>
-                                <label>$INFO[ListItem.Label]</label>
-                                <textcolor>eewhite</textcolor>
-                                <font>Font-Condensed-S40</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                            </control>  
-                        </focusedlayout>
-                    </control>
-                    
-                    <control type="image">
-                        <description>Scrollbar background</description>
-                        <posx>1330</posx>
-                        <posy>220</posy>
-                        <width>6</width>
-                        <height>687</height>
-                        <texture border="1">views/other/scrollbar-sq.png</texture>
-                        <visible>Control.IsVisible(151)</visible>
-                        <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(151)">Conditional</animation>
-                    </control>
-                    <control type="scrollbar" id="151">
-                        <description>Scrollbar</description>
-                        <posx>1330</posx>
-                        <posy>220</posy>
-                        <width>6</width>
-                        <height>687</height>                    
-                        <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
-                        <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
-                        <orientation>vertical</orientation>
-                        <showonepage>false</showonepage>
-                        <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(151)">Conditional</animation>
-                    </control>
-                    
-                    <control type="image">
-                        <description>Actor image</description>
-                        <posx>1348</posx>
-                        <posy>220</posy>
-                        <width>458</width>
-                        <height>687</height>
-                        <texture background="true">$INFO[Container(50).ListItem.Art(thumb)]</texture>
-                        <fadetime>300</fadetime>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="image">
-                        <description>Shadow</description>
-                        <posx>1305</posx>
-                        <posy>900</posy>
-                        <width>544</width>
-                        <height>125</height>
-                        <texture>windows/home/item-shadow.png</texture>
-                        <visible>!IsEmpty(Container(50).ListItem.Art(thumb))</visible>
-                        <include>visiblehidefadeinfo</include>
-                    </control>
-                    
+                <control type="list" id="150">
+                    <posx>118</posx>
+                    <posy>234</posy>
+                    <width>1180</width>
+                    <height>660</height>
+                    <onleft>SetFocus(9333)</onleft>
+                    <onright>Action(select)</onright>
+                    <onup>150</onup>
+                    <ondown>150</ondown>
+                    <pagecontrol>151</pagecontrol>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
+                    <orientation>vertical</orientation>
+                    <focusposition>0</focusposition>
+                    <viewtype label="actor list">list</viewtype>
+                    <itemlayout height="60">
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1180</width>
+                            <height>60</height>
+                            <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+                            <font>Font-Condensed-S40</font>
+                            <textcolor>aawhite</textcolor>
+                            <selectedcolor>white</selectedcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <scroll>false</scroll>
+                        </control>  
+                    </itemlayout>
+                    <focusedlayout height="60">
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>1180</width>
+                            <height>60</height>
+                            <label>$INFO[ListItem.label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
+                            <textcolor>eewhite</textcolor>
+                            <font>Font-Condensed-S40</font>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                        </control>  
+                    </focusedlayout>
                 </control>
                 
+                <control type="image">
+                    <description>Scrollbar background</description>
+                    <posx>1330</posx>
+                    <posy>220</posy>
+                    <width>6</width>
+                    <height>687</height>
+                    <texture border="1">views/other/scrollbar-sq.png</texture>
+                    <visible>Control.IsVisible(151)</visible>
+                    <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(151)">Conditional</animation>
+                </control>
+                <control type="scrollbar" id="151">
+                    <description>Scrollbar</description>
+                    <posx>1330</posx>
+                    <posy>220</posy>
+                    <width>6</width>
+                    <height>687</height>                    
+                    <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                    <orientation>vertical</orientation>
+                    <showonepage>false</showonepage>
+                    <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(151)">Conditional</animation>
+                </control>
+                
+                <control type="image">
+                    <description>Actor image</description>
+                    <posx>1348</posx>
+                    <posy>220</posy>
+                    <width>458</width>
+                    <height>687</height>
+                    <texture background="true" fallback="views/fallbacks/DefaultActor.png/large.png">$INFO[Container(150).ListItem.Icon]</texture>
+                    <fadetime>300</fadetime>
+                    <aspectratio>scale</aspectratio>
+                </control>
+                <control type="image">
+                    <description>Shadow</description>
+                    <posx>1305</posx>
+                    <posy>900</posy>
+                    <width>544</width>
+                    <height>125</height>
+                    <texture>windows/home/item-shadow.png</texture>
+                </control>
+
             </control>
             
             <control type="group">
@@ -964,6 +782,20 @@
                 <animation type="Hidden">
                     <effect type="slide" start="0" end="-650" time="400" tween="sine" easing="inout" />
                 </animation>
+                <!-- Left Arrow Label -->
+                <control type="label">
+                    <posx>65</posx>
+                    <posy>144</posy>
+                    <width>45</width>
+                    <height>60</height>
+                    <label>←</label>
+                    <font>Font-Condensed-S45</font>
+                    <textcolor>eewhite</textcolor>
+                    <align>left</align>
+                    <scroll>false</scroll>
+                    <include>visiblehidefadeinfo</include>
+                    <visible>!IsEmpty(Container(50).Property(ParentDir))</visible>
+                </control>
                 <control type="label">
                     <posx>118</posx>
                     <posy>144</posy>
@@ -981,7 +813,17 @@
                     <posy>220</posy>
                     <width>458</width>
                     <height>687</height>
-                    <texture background="true">$VAR[VideoInfoThumb]</texture>
+                    <texture>views/fallbacks/DefaultVideo.png/large.png</texture>
+                    <include>listEndAnimation</include>
+                    <aspectratio>scale</aspectratio>
+                </control>
+                <control type="image">
+                    <description>Cover</description>
+                    <posx>100</posx>
+                    <posy>220</posy>
+                    <width>458</width>
+                    <height>687</height>
+                    <texture background="true">$INFO[ListItem.Icon]</texture>
                     <include>listEndAnimation</include>
                     <aspectratio>scale</aspectratio>
                 </control>
@@ -997,43 +839,35 @@
             
         </control>
         
-        <!-- Invisible Buttons -->
-        <control type="button" id="5">
-            <description>Cast/Crew</description>
-            <visible>false</visible>
-        </control>
-        
         <control type="button" id="8">
-            <description>Play</description>
-            <visible>false</visible>
+        	<description>Play</description>
+        	<onfocus>Action(select)</onfocus>
+        	<onfocus condition="IsEmpty(ListItem.FilenameAndPath)">SetFocus(9333)</onfocus>
+        	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">SetProperty(script.metadata.actors.path,$ESCINFO[ListItem.FilenameAndPath],home)</onclick>
+        	<onclick condition="!IsEmpty(ListItem.FilenameAndPath) + Window.IsActive(movieinformation)">Dialog.Close(movieinformation)</onclick>
+        	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">PreviousMenu</onclick>
+        	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">AlarmClock(ActorsPlay,PlayMedia($INFO[Window(Home).Property(script.metadata.actors.path)]),00:01,silent)</onclick>
+        	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">AlarmClock(ActorsClear,ClearProperty(script.metadata.actors.path,home),00:01,silent)</onclick>
+        	<enabled>!IsEmpty(ListItem.FilenameAndPath)</enabled>
+        	<visible allowhiddenfocus="true">false</visible>
         </control>
-        
-        <control type="button" id="10">
-            <description>Get Thumb</description>
-            <visible>false</visible>
-        </control>
-        
         <control type="button" id="6">
-            <description>Refresh</description>
-            <visible>false</visible>
+        	<description>Refresh</description>
+        	<visible>false</visible>
         </control>
-        
-        <control type="button" id="13">
-            <description>Show director movies</description>
-            <visible>false</visible>
-        </control>
-
         <control type="button" id="1110">
-            <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+            <onleft condition="!IsEmpty(Container(50).Property(ParentDir))">ParentDir</onleft>
+            <onleft condition="Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">PreviousMenu</onleft>
+            <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
             <onright>9333</onright>
         </control>
         
-        <control type="button" id="9335">
-            <onfocus>SendClick(2003,5)</onfocus>
-            <onfocus>SetFocus(9333)</onfocus>
-            <animation effect="fade" start="0" end="100" time="0" delay="725">Focus</animation>
+        <control type="button" id="5">
+        	<visible>false</visible>
+        </control>
+        <control type="button" id="10">
+        	<visible>false</visible>
         </control>
         
-        <include>FadeBackgroundMovieInfo</include>
-    </controls>
+	</controls>
 </window>

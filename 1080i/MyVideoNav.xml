@@ -2,8 +2,8 @@
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <views>50,52,53,54,55,500,501,60</views>
-    <onload condition="Library.HasContent(TVShows) + !Player.HasMedia + Skin.HasSetting(TVTunes.Enabled)">RunScript(script.tvtunes,backend=True&amp;loop=False)</onload>
-    <onload condition="Library.HasContent(TVShows) + Skin.HasSetting(NextAired.Enabled)">RunScript(script.tv.show.next.aired,backend=True)</onload>
+    <onload condition="System.HasAddon(script.tvtunes) + Library.HasContent(TVShows) + !Player.HasMedia + Skin.HasSetting(TVTunes.Enabled)">RunScript(script.tvtunes,backend=True&amp;loop=False)</onload>
+    <onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + Skin.HasSetting(NextAired.Enabled)">RunScript(script.tv.show.next.aired,backend=True)</onload>
     <controls>
         
         <control type="group">
@@ -61,8 +61,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>$INFO[Control.GetLabel(2)]</label>
                         <onclick>setfocus(201)</onclick>
-                        <texturefocus>dialogs/options/buttons/view-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/view-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/view-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/view-nf.png</texturenofocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(2)">Conditional</animation>
                     </control>
                     <control type="button" id="21">
@@ -71,8 +71,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>14018</label>
                         <onclick>setfocus(101)</onclick>
-                        <texturefocus>dialogs/options/buttons/custom-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/custom-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-nf.png</texturenofocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(21)">Conditional</animation>
                         <enable>[Control.IsVisible(52) + !Container.Content(Episodes)] | Control.IsVisible(53) | [Control.IsVisible(60) + Container.Content(TVShows)] | [Control.IsVisible(54) + [Container.Content(movies) | Container.Content(tvshows)] + System.HasAddon(script.artwork.downloader)] | Control.IsVisible(500) | Control.IsVisible(501)</enable>
                     </control>
@@ -81,8 +81,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>42160</label>
                         <onclick>RunAddon(script.tv.show.next.aired)</onclick>
-                        <texturefocus>dialogs/options/buttons/tvguide-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/tvguide-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/tvguide-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/tvguide-nf.png</texturenofocus>
                         <visible>[Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes)] + System.HasAddon(script.tv.show.next.aired)</visible>
                     </control>
                     <control type="button" id="22">
@@ -90,8 +90,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>42025</label>
                         <onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=tvshow,landscape,clearlogo,clearart)</onclick>
-                        <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/refresh-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/refresh-nf.png</texturenofocus>
                         <visible>Container.Content(TVShows) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
                     <control type="button" id="23">
@@ -99,15 +99,27 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>42025</label>
                         <onclick>XBMC.RunScript(script.artwork.downloader,mode=custom,mediatype=movie,landscape,clearlogo,clearart)</onclick>
-                        <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/refresh-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/refresh-nf.png</texturenofocus>
                         <visible>Container.Content(Movies) + System.HasAddon(script.artwork.downloader)</visible>
+                    </control>
+                    <control type="button" id="97">
+                        <description>Metadata actors</description>
+                        <include>optionsbuttonsdimensions</include>
+                        <label>344</label>
+                        <onclick>Action(left)</onclick>
+                        <onclick>SetProperty(metadata.actors,1,home)</onclick>
+                        <onclick>RunScript(script.metadata.actors)</onclick>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/user-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/user-nf.png</texturenofocus>
+                        <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(97)">Conditional</animation>
+                        <visible>System.HasAddon(script.metadata.actors)</visible>
                     </control>
                     <control type="button" id="3">
                         <description>sort</description>
                         <include>optionsbuttonsdimensions</include>
-                        <texturefocus>dialogs/options/buttons/sort-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/sort-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/sort-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/sort-nf.png</texturenofocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(3)">Conditional</animation>
                     </control>
                     <control type="togglebutton" id="4">
@@ -115,18 +127,18 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>584</label>
                         <altlabel>585</altlabel>
-                        <texturefocus>dialogs/options/buttons/up-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/up-nf.png</texturenofocus>
-                        <alttexturenofocus>dialogs/options/buttons/down-nf.png</alttexturenofocus>
-                        <alttexturefocus>dialogs/options/buttons/down-fo.png</alttexturefocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/up-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/up-nf.png</texturenofocus>
+                        <alttexturenofocus border="70,2,2,2">dialogs/options/buttons/down-nf.png</alttexturenofocus>
+                        <alttexturefocus border="70,2,2,2">dialogs/options/buttons/down-fo.png</alttexturefocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(4)">Conditional</animation>
                     </control>
                     <control type="button" id="8">
                         <description>Search</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>137</label>
-                        <texturefocus>dialogs/options/buttons/search-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/search-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/search-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/search-nf.png</texturenofocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(8)">Conditional</animation>
                     </control>
                     <control type="edit" id="19">
@@ -143,8 +155,8 @@
                         <scroll>false</scroll>  
                         <label>587</label>
                         <pulseonselect>false</pulseonselect>
-                        <texturefocus>dialogs/options/buttons/filter-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/filter-nf.png</texturenofocus>
+                        <texturefocus border="62,2,62,2">dialogs/options/buttons/filter-fo.png</texturefocus>
+                        <texturenofocus border="62,2,62,2">dialogs/options/buttons/filter-nf.png</texturenofocus>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(19)">Conditional</animation>
                         <visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
                     </control>
@@ -152,7 +164,7 @@
                         <description>Advanced Filter</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>587</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
@@ -166,8 +178,8 @@
                         <description>Files</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>744</label>
-                        <texturefocus>dialogs/options/buttons/files-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/files-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/files-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/files-nf.png</texturenofocus>
                         <onclick>ActivateWindow(Videos,Files,return)</onclick>
                         <onclick>setfocus(50)</onclick>
                         <selected>Window.IsVisible(Videos)</selected>
@@ -177,7 +189,7 @@
                         <description>Watched Toggle</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>20367</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
@@ -187,7 +199,7 @@
                         <description>Flatten</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>20411</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                         <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                         <radioposx>-19</radioposx>
@@ -212,14 +224,14 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42017]</label>
                         <onclick>setfocus(9111)</onclick>
-                        <texturefocus>dialogs/options/buttons/custom-back-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/custom-back-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-back-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-back-nf.png</texturenofocus>
                     </control>
                     <control type="radiobutton" id="104">
                         <description>Show plot in Info List</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42018]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(InfoListPlot)</onclick>
                         <selected>Skin.HasSetting(InfoListPlot)</selected>
                         <visible>Control.IsVisible(52)</visible>
@@ -231,7 +243,7 @@
                         <description>Show plot in Info Panel</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42018]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(InfoPanelPlot)</onclick>
                         <selected>Skin.HasSetting(InfoPanelPlot)</selected>
                         <visible>Control.IsVisible(53)</visible>
@@ -243,7 +255,7 @@
                         <description>Posters in Banner view</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42019]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(posterstv)</onclick>
                         <selected>Skin.HasSetting(posterstv)</selected>
                         <visible>Control.IsVisible(60) + Container.Content(TVShows)</visible>
@@ -255,7 +267,7 @@
                         <description>Use landscape in landscape view (tvshows)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42022]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearLogo)</onclick>
@@ -269,7 +281,7 @@
                         <description>Use logo in landscape view (tvshows)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42026]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseClearLogo)</onclick>
                         <onclick>Skin.Reset(ExtendedUseLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearArt)</onclick>
@@ -283,7 +295,7 @@
                         <description>Use clearart in landscape view (tvshows)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42023]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseClearArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearLogo)</onclick>
@@ -297,7 +309,7 @@
                         <description>Use landscape in landscape view (movies)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42022]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseMovieLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieLogo)</onclick>
@@ -311,7 +323,7 @@
                         <description>Use logo in landscape view (movies)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42026]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseClearMovieLogo)</onclick>
                         <onclick>Skin.Reset(ExtendedUseMovieLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieArt)</onclick>
@@ -325,7 +337,7 @@
                         <description>Use clearart in landscape view (movies)</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42023]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ExtendedUseClearMovieArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseMovieLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieLogo)</onclick>
@@ -339,7 +351,7 @@
                         <description>Use small thumbs in thumbnail view</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42024]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ThumbnailSmall)</onclick>
                         <selected>Skin.HasSetting(ThumbnailSmall)</selected>
                         <visible>Control.IsVisible(500)</visible>
@@ -351,7 +363,7 @@
                         <description>Use small thumbs in thumbnail video view</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42024]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ThumbnailVideoSmall)</onclick>
                         <selected>Skin.HasSetting(ThumbnailVideoSmall)</selected>
                         <visible>Control.IsVisible(501)</visible>
@@ -363,7 +375,7 @@
                         <description>Show plot in thumbnail view</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42018]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Skin.ToggleSetting(ThumbnailPlot)</onclick>
                         <selected>Skin.HasSetting(ThumbnailPlot)</selected>
                         <visible>Control.IsVisible(501)</visible>
@@ -390,14 +402,14 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[42017]</label>
                         <onclick>setfocus(9111)</onclick>
-                        <texturefocus>dialogs/options/buttons/custom-back-fo.png</texturefocus>
-                        <texturenofocus>dialogs/options/buttons/custom-back-nf.png</texturenofocus>
+                        <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-back-fo.png</texturefocus>
+                        <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-back-nf.png</texturenofocus>
                     </control>
                     <control type="radiobutton" id="202">
                         <description>List</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>List</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(50)</onclick>
                         <selected>Control.IsVisible(50)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -408,7 +420,7 @@
                         <description>Info List</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>Info list</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(52)</onclick>
                         <selected>Control.IsVisible(52)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -420,7 +432,7 @@
                         <description>Panel</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>Panel</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(53)</onclick>
                         <selected>Control.IsVisible(53)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -432,7 +444,7 @@
                         <description>Landscape</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>Landscape</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(54)</onclick>
                         <selected>Control.IsVisible(54)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -444,7 +456,7 @@
                         <description>Poster</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>Poster</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(55)</onclick>
                         <selected>Control.IsVisible(55)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -456,7 +468,7 @@
                         <description>Thumbnail</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[21371]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(500)</onclick>
                         <selected>Control.IsVisible(500)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -468,7 +480,7 @@
                         <description>Thumbnail</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>$LOCALIZE[21371]</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(501)</onclick>
                         <selected>Control.IsVisible(501)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -480,7 +492,7 @@
                         <description>Banner</description>
                         <include>optionsbuttonsdimensions</include>
                         <label>Banner</label>
-                        <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(60)</onclick>
                         <selected>Control.IsVisible(60)</selected>
                         <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>

@@ -5,7 +5,7 @@
     <include name="Viewtype-ProgramList">
     
         <control type="group">
-            <visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+            <visible>Control.IsVisible(50) + !Window.IsActive(addoninformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
         

@@ -47,6 +47,12 @@
         <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextStartTime,$LOCALIZE[19080] ,]$INFO[VideoPlayer.NextEndTime, • $LOCALIZE[19081] ,]</value>
         <value>$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ,]$INFO[VideoPlayer.NextStartTime, (,)]</value>
     </variable>
+    
+    <variable name="OSDMusicFanart">
+        <value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
+        <value condition="IsEmpty(Player.Art(fanart)) + !IsEmpty(Skin.String(GlobalBackdropSingle))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
+        <value>special://skin/extras/backgrounds/01.jpg</value>
+    </variable>
 
     <include name="OSDWeatherClock">
         <control type="group">

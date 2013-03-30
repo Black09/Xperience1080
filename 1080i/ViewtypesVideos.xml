@@ -5,7 +5,7 @@
     <include name="Viewtype-List">
     
         <control type="group">
-            <visible>Control.IsVisible(50) + !Window.IsActive(movieinformation) + !Window.IsActive(addoninformation)</visible>
+            <visible>Control.IsVisible(50) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation)</visible>
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
         
@@ -994,7 +994,7 @@
             <include>OptionsShutdownAnimation</include>
             <!-- List Panel -->
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="750" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -1056,7 +1056,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)]</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)]</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
@@ -1231,7 +1231,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
@@ -1840,7 +1840,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
@@ -1944,7 +1944,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="750" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -1990,7 +1990,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
@@ -2149,29 +2149,13 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             
-            <visible>!Window.IsActive(movieinformation)</visible>
-            
-            <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
-                <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="in" />
-                <effect type="zoom" start="115" end="100" time="300" delay="300" center="auto" tween="sine" easing="out" />
-            </animation>
-            <include>GuideNoAnimation</include>
-            <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" /> 
-                <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
-            </animation>
-            <animation type="WindowClose" reversible="false">
-                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
-                <effect type="zoom" start="100" end="85" time="300" center="auto" tween="sine" easing="out" />
-            </animation>
-            
             <control type="image" id="81">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="100" delay="700" time="0" />
                 </animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
             </control>
             
             <control type="group">
@@ -2197,7 +2181,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                     <control type="group">
                         <posx>-492</posx>
                         <control type="group">
@@ -2328,7 +2312,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                     <control type="group">
                         <posx>1476</posx>
                         <control type="group">
@@ -2459,7 +2443,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                     <control type="group">
                         <posx>984</posx>
                         <control type="group">
@@ -2590,7 +2574,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                     <control type="group">
                         <posx>492</posx>
                         <control type="group">
@@ -2723,7 +2707,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                     <control type="image">
                         <posx>-10</posx>
                         <posy>625</posy>
@@ -2829,7 +2813,7 @@
             </control>
 
             <control type="group">      
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>                           
                 <control type="fixedlist" id="54">
@@ -3107,7 +3091,7 @@
                 <animation type="Hidden" reversible="true">
                     <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
                 </animation>
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
                 <!--Scrollbar-->
                 <control type="image">
                     <description>Scrollbar background (visible on focus)</description>
@@ -3130,9 +3114,9 @@
                     <texturesliderbar border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbar>
                     <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
-                    <onup>55</onup>
+                    <onup>54</onup>
                     <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
-                    <ondown condition="Skin.HasSetting(KioskMode)">55</ondown>
+                    <ondown condition="Skin.HasSetting(KioskMode)">54</ondown>
                     <animation effect="fade" start="40" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
                     <visible>Control.IsVisible(54)</visible>
                 </control>
@@ -3154,7 +3138,7 @@
                 </animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
             </control>
             
             <control type="group">
@@ -3183,7 +3167,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>-372</posx>
                         <control type="image">
@@ -3246,7 +3230,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>1860</posx>
                         <control type="image">
@@ -3301,7 +3285,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>1488</posx>
                         <control type="image">
@@ -3364,7 +3348,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>1116</posx>
                         <control type="image">
@@ -3427,7 +3411,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>744</posx>
                         <control type="image">
@@ -3490,7 +3474,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="group">
                         <posx>372</posx>
                         <control type="image">
@@ -3552,7 +3536,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                     <control type="image">
                         <description>Reflection</description>
                         <posx>-4</posx>
@@ -3614,7 +3598,7 @@
             </control>
             
             <control type="group">      
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>       
                 <control type="fixedlist" id="55">
@@ -3774,7 +3758,7 @@
                 <animation type="WindowClose" reversible="false">
                     <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
                 </animation>
-                <visible>!Window.IsActive(movieinformation) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
                 <control type="group">
                     <control type="group">
                         <animation type="Visible" reversible="false">
@@ -3899,7 +3883,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(500) + !Window.IsActive(movieinformation) + !Window.IsActive(addoninformation)</visible>
+                <visible>Control.IsVisible(500) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="650" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -4289,7 +4273,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <include>ThumbnailAnimationsPanel</include>
                 <control type="image">
                     <description>Shadow</description>
@@ -4526,7 +4510,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation)</visible>
+                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <include>ThumbnailAnimationsPoster</include>
                 <control type="image">
                     <description>Poster</description>
@@ -4827,7 +4811,7 @@
                                     <height>52</height>
                                     <font>Font-Condensed-S36</font>
                                     <label>[B]$INFO[ListItem.Property(unWatchedEpisodes)][/B]</label>
-                                    <textcolor>eewhite</textcolor>
+                                    <textcolor>FFE90000</textcolor>
                                     <shadowcolor>22000000</shadowcolor>
                                     <align>center</align>
                                     <scroll>false</scroll>

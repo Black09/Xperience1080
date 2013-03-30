@@ -57,8 +57,8 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$INFO[Control.GetLabel(2)]</label>
                     <onclick>setfocus(9223)</onclick>
-                    <texturefocus>dialogs/options/buttons/view-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/view-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/view-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/view-nf.png</texturenofocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(2)">Conditional</animation>
                 </control>
                 <control type="button" id="21">
@@ -67,16 +67,16 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41620]</label>
                     <onclick>setfocus(9222)</onclick>
-                    <texturefocus>dialogs/options/buttons/custom-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/custom-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-nf.png</texturenofocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(21)">Conditional</animation>
                     <enable>[[Container.Content(Artists) | Container.Content(Albums)] + [Control.IsVisible(52) | Control.IsVisible(53)]] | Control.IsVisible(500)</enable>
                 </control>
                 <control type="button" id="3">
                     <description>sort</description>
                     <include>optionsbuttonsdimensions</include>
-                    <texturefocus>dialogs/options/buttons/sort-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/sort-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/sort-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/sort-nf.png</texturenofocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(3)">Conditional</animation>
                 </control>
                 <control type="togglebutton" id="4">
@@ -84,18 +84,18 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[584]</label>
                     <altlabel>$LOCALIZE[585]</altlabel>
-                    <texturefocus>dialogs/options/buttons/up-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/up-nf.png</texturenofocus>
-                    <alttexturenofocus>dialogs/options/buttons/down-nf.png</alttexturenofocus>
-                    <alttexturefocus>dialogs/options/buttons/down-fo.png</alttexturefocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/up-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/up-nf.png</texturenofocus>
+                    <alttexturenofocus border="70,2,2,2">dialogs/options/buttons/down-nf.png</alttexturenofocus>
+                    <alttexturefocus border="70,2,2,2">dialogs/options/buttons/down-fo.png</alttexturefocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(4)">Conditional</animation>
                 </control>
                 <control type="button" id="99">
                     <description>Files</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[744]</label>
-                    <texturefocus>dialogs/options/buttons/files-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/files-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/files-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/files-nf.png</texturenofocus>
                     <onclick>replacewindow(musicfiles)</onclick>
                     <onclick>setfocus(50)</onclick>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(99)">Conditional</animation>
@@ -104,15 +104,15 @@
                     <description>Search</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[137]</label>
-                    <texturefocus>dialogs/options/buttons/search-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/search-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/search-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/search-nf.png</texturenofocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(8)">Conditional</animation>
                 </control>
                 <control type="radiobutton" id="16">
                     <description>Party Mode</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[589]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
@@ -133,8 +133,8 @@
                     <scroll>false</scroll>  
                     <label>587</label>
                     <pulseonselect>false</pulseonselect>
-                    <texturefocus>dialogs/options/buttons/filter-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/filter-nf.png</texturenofocus>
+                    <texturefocus border="62,2,62,2">dialogs/options/buttons/filter-fo.png</texturefocus>
+                    <texturenofocus border="62,2,62,2">dialogs/options/buttons/filter-nf.png</texturenofocus>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(19)">Conditional</animation>
                     <visible>Container.CanFilter + !Container.CanFilterAdvanced</visible>
                 </control>
@@ -142,7 +142,7 @@
                     <description>Advanced Filter</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>587</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
                     <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
                     <radioposx>-19</radioposx>
@@ -171,14 +171,14 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42017]</label>
                     <onclick>setfocus(9111)</onclick>
-                    <texturefocus>dialogs/options/buttons/custom-back-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/custom-back-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-back-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-back-nf.png</texturenofocus>
                 </control>
                 <control type="radiobutton" id="102">
                     <description>Show review in Info List</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42018]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(MusicInfoListReview)</onclick>
                     <selected>Skin.HasSetting(MusicInfoListReview)</selected>
                     <visible>Container.Content(Albums) + Control.IsVisible(52)</visible>
@@ -190,7 +190,7 @@
                     <description>Show review in Info Panel</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42018]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(MusicPanelReview)</onclick>
                     <selected>Skin.HasSetting(MusicPanelReview)</selected>
                     <visible>Container.Content(Albums) + Control.IsVisible(53)</visible>
@@ -202,7 +202,7 @@
                     <description>Show biography in Info List</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42018]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(MusicInfoListBiography)</onclick>
                     <selected>Skin.HasSetting(MusicInfoListBiography)</selected>
                     <visible>Container.Content(Artists) + Control.IsVisible(52)</visible>
@@ -214,7 +214,7 @@
                     <description>Show biography in Info List / Panel</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42018]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(MusicPanelBiography)</onclick>
                     <selected>Skin.HasSetting(MusicPanelBiography)</selected>
                     <visible>Container.Content(Artists) +Control.IsVisible(53)</visible>
@@ -226,7 +226,7 @@
                     <description>Use small thumbs in thumbnail view</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42022]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(ThumbnailSmall)</onclick>
                     <selected>Skin.HasSetting(ThumbnailSmall)</selected>
                     <visible>Control.IsVisible(500)</visible>
@@ -253,14 +253,14 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42017]</label>
                     <onclick>setfocus(9111)</onclick>
-                    <texturefocus>dialogs/options/buttons/custom-back-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/custom-back-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/custom-back-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/custom-back-nf.png</texturenofocus>
                 </control>
                 <control type="radiobutton" id="202">
                     <description>List</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>List</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(50)</onclick>
                     <selected>Control.IsVisible(50)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -271,7 +271,7 @@
                     <description>Info List</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>Info list</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(52)</onclick>
                     <selected>Control.IsVisible(52)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -283,7 +283,7 @@
                     <description>Panel</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>Panel</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(53)</onclick>
                     <selected>Control.IsVisible(53)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -295,7 +295,7 @@
                     <description>Cover</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>Cover</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(55)</onclick>
                     <selected>Control.IsVisible(55)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -307,7 +307,7 @@
                     <description>Thumbnail</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[21371]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(500)</onclick>
                     <selected>Control.IsVisible(500)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -319,7 +319,7 @@
                     <description>Thumbnail</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[21371]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(501)</onclick>
                     <selected>Control.IsVisible(501)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -331,7 +331,7 @@
                     <description>Banner</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>Banner</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(60)</onclick>
                     <selected>Control.IsVisible(60)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>

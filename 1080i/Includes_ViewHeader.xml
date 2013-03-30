@@ -128,7 +128,7 @@
         <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[24029]</value>
         <value condition="Control.HasFocus(109) | Window.IsActive(systemsettings)">$LOCALIZE[291]/$LOCALIZE[337] • $LOCALIZE[14094] • $LOCALIZE[798] • $LOCALIZE[14095]</value>
         <value condition="Control.HasFocus(108) | Window.IsActive(pvrsettings)">$LOCALIZE[19181] • $LOCALIZE[19222] • $LOCALIZE[14086] • $LOCALIZE[19043]</value>
-        <value condition="Control.HasFocus(107) | Window.IsActive(skinsettings)">$LOCALIZE[10000] • $LOCALIZE[41190] • $LOCALIZE[478] • $LOCALIZE[33069] • $LOCALIZE[22020] • $LOCALIZE[24001]</value>
+        <value condition="Control.HasFocus(107) | Window.IsActive(skinsettings)">$LOCALIZE[10000] • $LOCALIZE[41190] • $LOCALIZE[478] • $LOCALIZE[33069] • $LOCALIZE[41460] • $LOCALIZE[41220] • $LOCALIZE[24001]</value>
         <value condition="Control.HasFocus(106) | Window.IsActive(picturessettings)">$LOCALIZE[14081] • $LOCALIZE[108]</value>
         <value condition="Control.HasFocus(105) | Window.IsActive(addonbrowser)">$LOCALIZE[1024] • $LOCALIZE[24038] • $LOCALIZE[24020]</value>
         <value condition="Control.HasFocus(104) | Window.IsActive(musicsettings)">$LOCALIZE[14022] • $LOCALIZE[14086] • $LOCALIZE[15200] • $LOCALIZE[620] • $LOCALIZE[13327]</value>
@@ -245,7 +245,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(1122) + !Window.IsActive(addoninformation)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -347,7 +347,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -678,6 +678,7 @@
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(32)]</label>
                 	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32) + !ControlGroup(110).HasFocus">Conditional</animation>
+                    <animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -690,6 +691,7 @@
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(33)]</label>
                 	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33) + !ControlGroup(120).HasFocus">Conditional</animation>
+                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -702,6 +704,7 @@
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(31)]</label>
                 	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31) + !ControlGroup(100).HasFocus + !ControlGroup(150).HasFocus + !ControlGroup(160).HasFocus">Conditional</animation>
+                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -714,6 +717,7 @@
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(34)]</label>
                 	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34) + !ControlGroup(130).HasFocus">Conditional</animation>
+                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -726,6 +730,7 @@
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(35)]</label>
                 	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35) + !ControlGroup(140).HasFocus">Conditional</animation>
+                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -741,6 +746,7 @@
                     <height>20</height>
                     <texture>windows/pvr/search.png</texture>
                     <animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36) + !ControlGroup(170).HasFocus">Conditional</animation>
+                    <animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36)">Conditional</animation>
                 </control>
             </control>
         </control>

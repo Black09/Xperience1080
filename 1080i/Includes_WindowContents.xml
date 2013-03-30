@@ -38,8 +38,8 @@
         <include>CommonOverlay</include>
     </include>
     <include name="CommonItemsMusicOSD">
-        <include>BackgroundFanartMusicOSD</include>
         <include condition="Skin.HasSetting(OSDVisualisation.Enabled) + ![System.HasAddon(script.artistslideshow) + Skin.HasSetting(ArtistSlideShow.Enabled)]">OSDVisualisation</include>
+        <include>BackgroundFanartMusicOSD</include>
     </include>
     <include name="CommonSettingsItems">
         <include>CommonContent</include>
@@ -139,6 +139,12 @@
 <!-- Fanart -->
 <!-- ====== -->
 
+    <variable name="ViewFanart">
+        <value condition="!IsEmpty(Window(home).property(fanart_image)) + !Window.IsActive(script-Actors-DialogInfo.xml) + [Window.IsActive(movieinformation) | Window.IsActive(script-Actors-DialogVideoInfo.xml)]">$INFO[Window(home).property(fanart_image)]</value>
+        <value condition="!Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">$INFO[ListItem.Art(fanart)]</value>
+        <value>-</value>
+    </variable>
+
     <include name="BackgroundFanart">
         <control type="image">
             <description>List Panel fanart</description>
@@ -152,27 +158,20 @@
         <control type="image">
             <description>List Panel fanart</description>
             <include>FullscreenDimensions</include>
-            <texture background="true">$INFO[ListItem.Art(fanart)]</texture>
+            <texture background="true">$VAR[ViewFanart]</texture>
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
             <visible>!Skin.HasSetting(HideFanart) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
-        </control>
-        <control type="image">
-            <description>List Panel fanart</description>
-            <include>FullscreenDimensions</include>
-            <texture background="true">$INFO[Window(movieinformation).property(fanart_image)]</texture>
-            <fadetime>500</fadetime>
-            <include>Animation_FanartFade</include>
-            <visible>!IsEmpty(Window(movieinformation).property(fanart_image)) + Window.IsActive(movieinformation) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
         </control>
     </include>
     <include name="BackgroundFanartMusicOSD">
         <control type="image">
             <description>Music OSD fanart</description>
             <include>FullscreenDimensions</include>
-            <texture background="true" fallback="special://skin/extras/backgrounds/09.jpg">$INFO[Player.Art(fanart)]</texture>
+            <texture background="true">$VAR[OSDMusicFanart]</texture>
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
+            <animation effect="fade" start="100" end="65" time="0" condition="Skin.HasSetting(OSDVisualisation.ShowFanart)">Conditional</animation>
             <visible>!Skin.HasSetting(ArtistSlideShow.Enabled) + ![Skin.HasSetting(OSDVisualisation.Enabled) + !Skin.HasSetting(OSDVisualisation.ShowFanart)]</visible>
         </control>
         <control type="multiimage">
@@ -211,10 +210,10 @@
         <control type="image">
             <include>FullscreenDimensions</include>
             <texture>windows/common/black_content.png</texture>
-            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="!Window.IsActive(mediafilter) + !Window.IsVisible(contextmenu)">Visible</animation>
-            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="550" condition="Window.IsActive(mediafilter) | Window.IsVisible(contextmenu)">Visible</animation>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="!Window.IsActive(mediafilter) + !Window.IsVisible(contextmenu) + IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
+            <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="550" condition="Window.IsActive(mediafilter) | Window.IsVisible(contextmenu) | !IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-            <visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | [Window.IsActive(virtualkeyboard) + IsEmpty(Window(Home).Property(HomeSearch))] | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(3006) | Window.IsActive(peripherals) | Window.IsActive(peripheralsettings) | Window.IsActive(mediafilter) | Window.IsActive(mediafilter) | Window.IsActive(pvrgroupmanager) | Window.IsActive(pvrtimersetting) | Window.IsActive(pvrguidesearch) | Window.IsActive(pvrchannelmanager) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo)</visible>
+            <visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | [Window.IsActive(virtualkeyboard) + IsEmpty(Window(Home).Property(HomeSearch))] | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(3006) | Window.IsActive(peripherals) | Window.IsActive(peripheralsettings) | Window.IsActive(mediafilter) | Window.IsActive(mediafilter) | Window.IsActive(pvrgroupmanager) | Window.IsActive(pvrtimersetting) | Window.IsActive(pvrguidesearch) | Window.IsActive(pvrchannelmanager) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(DialogSelect.xml)</visible>
         </control>
     </include>
     <include name="FadeBackgroundMovieInfo">

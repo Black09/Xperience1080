@@ -6,12 +6,13 @@
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">ClearProperty(Label,selectdialog)</onunload>
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">ClearProperty(Icon,selectdialog)</onunload>
     <onunload condition="!IsEmpty(Window(selectdialog).Property(Property))">ClearProperty(Property,selectdialog)</onunload>
+    <onunload condition="!IsEmpty(Window(Home).Property(metadata.actors))">ClearProperty(metadata.actors,home)</onunload>
     <controls>
         <control type="group">
-            <animation type="WindowOpen" condition="Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings)" reversible="false">
+            <animation type="WindowOpen" condition="IsEmpty(Window(Home).Property(metadata.actors)) + [Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings) | Window.IsVisible(script-XBMC-Subtitles-main.xml)]" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="300" />
             </animation>
-            <animation type="WindowOpen" condition="Window.IsVisible(contextmenu)" reversible="false">
+            <animation type="WindowOpen" condition="Window.IsVisible(contextmenu) | !IsEmpty(Window(Home).Property(metadata.actors))" reversible="false">
                 <effect type="fade" start="0" end="100" time="0" delay="550" />
             </animation>
             <include condition="!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation)">DialogSelect</include>

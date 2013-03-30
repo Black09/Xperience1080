@@ -64,8 +64,8 @@
                     <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
                     <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
                     <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
-                    <texturefocus>dialogs/options/buttons/location-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/location-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/location-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/location-nf.png</texturenofocus>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
                     <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))">40</onleft>
                     <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onright>
@@ -103,8 +103,8 @@
                     <description>Refresh</description>
                     <posy>57</posy>
                     <include>optionsbuttonsdimensions</include>
-                    <texturefocus>dialogs/options/buttons/refresh-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/refresh-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/refresh-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/refresh-nf.png</texturenofocus>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
                     <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))">40</onleft>
                     <onright condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onright>
@@ -118,8 +118,8 @@
                     <posy>114</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[5]</label>
-                    <texturefocus>dialogs/options/buttons/settings-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/settings-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/settings-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/settings-nf.png</texturenofocus>
                     <onclick>ActivateWindow(MyWeatherSettings)</onclick>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
                     <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))">40</onleft>
@@ -134,7 +134,7 @@
                     <posy>171</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41690]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(ShowWeatherFanart)</onclick>
                     <onclick condition="Skin.HasSetting(ShowWeatherFanart)">Skin.SetBool(ShowDailyWeatherFanart)</onclick>
                     <onclick condition="!Skin.HasSetting(ShowWeatherFanart)">Skin.Reset(ShowDailyWeatherFanart)</onclick>
@@ -156,7 +156,7 @@
                     <posy>228</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41692]</label>
-                    <texturefocus>dialogs/options/buttons/default-fo.png</texturefocus>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(ShowDailyWeatherFanart)</onclick>
                     <selected>!Skin.HasSetting(ShowDailyWeatherFanart)</selected>
                     <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
@@ -177,8 +177,8 @@
                     <posy>285</posy>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[41691]</label>
-                    <texturefocus>dialogs/options/buttons/bullet-fo.png</texturefocus>
-                    <texturenofocus>dialogs/options/buttons/bullet-nf.png</texturenofocus>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/bullet-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/bullet-nf.png</texturenofocus>
                     <onclick>Skin.SetPath(WeatherFanartDir)</onclick>
                     <enable>Skin.HasSetting(ShowWeatherFanart)</enable>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
