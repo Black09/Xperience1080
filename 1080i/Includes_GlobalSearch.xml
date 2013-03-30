@@ -54,6 +54,7 @@
             <!-- Title Label -->
             <control type="group">
                 <visible>!Player.HasMedia + !Window.IsActive(infodialog) + !Window.IsActive(extendedprogressdialog)</visible>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                 <include>visiblehidefadeinfo</include>
                 <control type="grouplist">
                     <posx>87</posx>
@@ -62,7 +63,6 @@
                     <height>100</height>
                     <aligny>center</aligny>
                     <orientation>horizontal</orientation>
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <visible>Control.IsVisible(120) + !IsEmpty(Container(100).ListItem.Property(MPAA))</visible>
                     <control type="group">
                         <posx>0</posx>
@@ -146,6 +146,7 @@
             <!-- Title Label -->
             <control type="group">
                 <visible>Player.HasMedia | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)</visible>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                 <include>visiblehidefadeinfo</include>
                 <control type="grouplist">
                     <posx>87</posx>
@@ -154,7 +155,6 @@
                     <height>100</height>
                     <aligny>center</aligny>
                     <orientation>horizontal</orientation>
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <visible>Control.IsVisible(120) + !IsEmpty(Container(100).ListItem.Property(MPAA))</visible>
                     <control type="group">
                         <posx>0</posx>
@@ -263,7 +263,7 @@
                     <scroll>false</scroll>
                 </control>
             </control>
-            
+ 
             <!-- Arrow -->
             <control type="image">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
@@ -277,7 +277,7 @@
                 <width>20</width>
                 <height>31</height>
                 <texture>dialogs/video-info/arrow.png</texture>
-                <visible>!Control.HasFocus(1110) + !Control.IsVisible(140)</visible>
+                <visible>!Control.HasFocus(1110) + !Control.HasFocus(140)</visible>
             </control>
             
             <control type="grouplist">
@@ -309,7 +309,7 @@
             <!-- Info Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
-                <visible allowhiddenfocus="true">ControlGroup(9333).HasFocus | Control.HasFocus(1110) | Control.HasFocus(191) | Control.HasFocus(192) | Control.HasFocus(193)</visible>
+                <visible allowhiddenfocus="true">ControlGroup(9333).HasFocus | Control.HasFocus(1110) | Control.HasFocus(191) | Control.HasFocus(192) | Control.HasFocus(193) | Control.HasFocus(70)</visible>
                 <include>listEndAnimation</include>
                 <animation type="Conditional" condition="Control.HasFocus(1110)">
                     <effect type="slide" start="0" end="494" time="400" delay="0" tween="sine" easing="inout" />
@@ -370,7 +370,7 @@
                     <animation effect="slide" start="0,83" end="0,0" time="300" tween="back" easing="out" condition="!IsEmpty(Window.Property(Movement)) + ControlGroup(9333).HasFocus(192)" reversible="false">Conditional</animation>
                     <animation effect="slide" start="0,-83" end="0,0" time="300" tween="back" easing="out" condition="IsEmpty(Window.Property(Movement)) + ControlGroup(9333).HasFocus(193)" reversible="false">Conditional</animation>
                     <animation effect="slide" start="0,83" end="0,0" time="300" tween="back" easing="out" condition="!IsEmpty(Window.Property(Movement)) + ControlGroup(9333).HasFocus(193)" reversible="false">Conditional</animation>
-                    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
+                    <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110) | Control.HasFocus(70)">Conditional</animation>
                 </control>
                 
                 <control type="group" id="9333">
@@ -386,21 +386,20 @@
                         <font>Font-Condensed-S40</font>
                         <align>left</align>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>77white</textcolor>
-                        <selectedcolor>eewhite</selectedcolor>
+                        <textcolor>eewhite</textcolor>
+                        <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
                         <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>191</onup>
                         <ondown>ClearProperty(Movement)</ondown>
                         <ondown>193</ondown>
                         <texturefocus border="90,3,90,3">views/list/other/separator.png</texturefocus>
                         <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
-                        <animation effect="fade" start="50" end="100" time="300" tween="sine" easing="inout" reversible="false">Focus</animation>
+                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(192)">Conditional</animation>
                     </control>
                     <control type="button" id="193">
                         <posx>0</posx>
@@ -410,21 +409,20 @@
                         <font>Font-Condensed-S40</font>
                         <align>left</align>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>77white</textcolor>
-                        <selectedcolor>eewhite</selectedcolor>
+                        <textcolor>eewhite</textcolor>
+                        <focusedcolor>eewhite</focusedcolor>>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
                         <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>192</onup>
                         <ondown>ClearProperty(Movement)</ondown>
                         <ondown>191</ondown>
                         <texturefocus border="90,3,90,3">views/list/other/separator.png</texturefocus>
                         <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
-                        <animation effect="fade" start="50" end="100" time="300" tween="sine" easing="inout" reversible="false">Focus</animation>
+                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(193)">Conditional</animation>
                         <animation effect="slide" end="0,-83" time="0" condition="!Control.IsVisible(192)">Conditional</animation>
                     </control>
                     <control type="button" id="191">
@@ -436,21 +434,20 @@
                         <font>Font-Condensed-S40</font>
                         <align>left</align>
                         <textoffsetx>30</textoffsetx>
-                        <textcolor>77white</textcolor>
-                        <selectedcolor>eewhite</selectedcolor>
+                        <textcolor>eewhite</textcolor>
+                        <focusedcolor>eewhite</focusedcolor>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
                         <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>193</onup>
                         <ondown>ClearProperty(Movement)</ondown>
                         <ondown>192</ondown>
                         <texturefocus border="90,3,90,3">views/list/other/separator.png</texturefocus>
                         <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
-                        <animation effect="fade" start="50" end="100" time="300" tween="sine" easing="inout" reversible="false">Focus</animation>
+                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(191)">Conditional</animation>
                         <animation effect="slide" end="0,-83" time="0" condition="!Control.IsVisible(192)">Conditional</animation>
                         <animation effect="slide" end="0,-83" time="0" condition="!Control.IsVisible(193)">Conditional</animation>
                     </control>
@@ -462,7 +459,7 @@
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <posx>760</posx>
                     <posy>245</posy>
-                    <width>1050</width>
+                    <width>1054</width>
                     <height>700</height>
                     <orientation>vertical</orientation>
                     <visible>Control.IsVisible(110) | Control.IsVisible(120) | Control.IsVisible(130) | Control.IsVisible(140) | Control.IsVisible(150)</visible>
@@ -471,9 +468,9 @@
                         <height>70</height>
                         <visible>!Control.IsVisible(140)</visible>
                         <control type="label">
-                            <posx>8</posx>
+                            <posx>10</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>45</height>
                             <font>Font-Condensed-S45</font>
                             <align>left</align>
@@ -487,9 +484,9 @@
                         <height>70</height>
                         <visible>Control.IsVisible(140)</visible>
                         <control type="label">
-                            <posx>8</posx>
+                            <posx>10</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>45</height>
                             <font>Font-Condensed-S45</font>
                             <align>left</align>
@@ -505,7 +502,7 @@
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -521,7 +518,7 @@
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -537,7 +534,7 @@
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -553,7 +550,7 @@
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1044</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -576,7 +573,7 @@
                         <control type="label">
                             <posx>50</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1002</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -600,7 +597,7 @@
                         <control type="label">
                             <posx>50</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1002</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -624,7 +621,7 @@
                         <control type="label">
                             <posx>50</posx>
                             <posy>0</posy>
-                            <width>950</width>
+                            <width>1002</width>
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
@@ -686,35 +683,10 @@
                         <width>121</width>
                         <visible>Control.IsVisible(110) + !IsEmpty(Container(100).ListItem.Property(MPAA))</visible>
                         <control type="image">
-                            <description>G Rating label</description>
+                            <description>Language independent rating</description>
                             <include>MPAADimensionsSmall</include>
-                            <texture>flags/mpaa/rating-g.png</texture>
-                            <visible>substring(Container(100).ListItem.Property(MPAA),Rated G) | substring(Container(100).ListItem.Property(MPAA),USA:G)</visible>
+                            <texture>$VAR[MovieMPAAVar,flags/mpaa/movie/,.png]</texture>
                         </control>
-                        <control type="image">
-                            <description>PG Rating label</description>
-                            <include>MPAADimensionsSmall</include>
-                            <texture>flags/mpaa/rating-pg.png</texture>
-                            <visible>[substring(Container(100).ListItem.Property(MPAA),Rated PG) + !substring(Container(100).ListItem.Property(MPAA),13)] | substring(Container(100).ListItem.Property(MPAA),USA:PG)</visible>
-                        </control>
-                        <control type="image">
-                            <description>PG-13 Rating label</description>
-                            <include>MPAADimensionsSmall</include>
-                            <texture>flags/mpaa/rating-pg13.png</texture>
-                            <visible>[substring(Container(100).ListItem.Property(MPAA),PG-13) | substring(Container(100).ListItem.Property(MPAA),USA:PG-13)] + [!substring(Container(100).ListItem.Property(MPAA),USA:R) + !substring(Container(100).ListItem.MPAA,rated R)]</visible>
-                        </control>
-                        <control type="image">
-                            <description>R Rating label</description>
-                            <include>MPAADimensionsSmall</include>
-                            <texture>flags/mpaa/rating-r.png</texture>
-                            <visible>substring(Container(100).ListItem.Property(MPAA),Rated R) | substring(Container(100).ListItem.Property(MPAA),USA:R)</visible>
-                        </control>
-                        <control type="image">
-                            <description>NC-17 Rating label</description>
-                            <include>MPAADimensionsSmall</include>
-                            <texture>flags/mpaa/rating-nc17.png</texture>
-                            <visible>substring(Container(100).ListItem.Property(MPAA), NC-17) | substring(Container(100).ListItem.Property(MPAA),USA:NC-17)</visible>
-                        </control>  
                     </control>
                 </control>
                 
@@ -736,11 +708,38 @@
                         <textcolor>bbwhite</textcolor>
                         <align>justify</align>
                         <font>Font-Condensed-S40</font>
-                        <scroll>false</scroll>
-                        <scrollout>false</scrollout>
-                        <autoscroll time="2000" delay="10000" repeat="10000" />
+                        <autoscroll time="2000" delay="10000" repeat="10000">!Control.HasFocus(70)</autoscroll>
+                        <pagecontrol>70</pagecontrol>
                     </control>
-                </control>          
+                    <!-- Scrollbar -->
+                    <control type="image">
+                        <description>Scrollbar background</description>
+                        <posx>1065</posx>
+                        <posy>15</posy>
+                        <width>6</width>
+                        <height>244</height>
+                        <texture border="1">views/other/scrollbar-sq.png</texture>
+                        <visible>Control.IsVisible(70)</visible>
+                        <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                    </control>
+                    <control type="scrollbar" id="70">
+                        <description>Scrollbar</description>
+                        <posx>1065</posx>
+                        <posy>15</posy>
+                        <width>6</width>
+                        <height>244</height>
+                        <onup>70</onup>
+                        <ondown>70</ondown>                  
+                        <onleft>9333</onleft>
+                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                        <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                        <orientation>vertical</orientation>
+                        <showonepage>false</showonepage>
+                        <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                        <visible>!IsEmpty(Container(100).ListItem.Property(Plot))</visible>
+                    </control>
+                </control>      
             </control>
             
             <control type="group">
