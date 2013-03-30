@@ -4,7 +4,7 @@
     <controls>
         <control type="group">
             <include>NowPlayingFullscreen</include>
-            <visible>!Window.IsVisible(addonsettings)</visible>
+            <visible>!Window.IsVisible(addonsettings) + !Window.IsVisible(selectdialog)</visible>
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <animation type="Conditional" condition="Control.HasFocus(150) | Window.IsVisible(addonsettings)">
