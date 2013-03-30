@@ -421,9 +421,11 @@
                         </item>
                         <item id="2">
                             <label>$LOCALIZE[20410]</label>
-                            <onclick condition="!Skin.HasSetting(PlayTrailer.Minimized)">PreviousMenu</onclick>
-                            <onclick condition="!Skin.HasSetting(PlayTrailer.Minimized)">PlayMedia($INFO[ListItem.Trailer])</onclick>
-                            <onclick condition="Skin.HasSetting(PlayTrailer.Minimized)">PlayMedia($INFO[ListItem.Trailer],false,1)</onclick>
+                            <onclick>SetProperty(script.metadata.actors.path,$INFO[ListItem.Trailer],home)</onclick>
+                            <onclick condition="Window.IsActive(movieinformation)">Dialog.Close(movieinformation)</onclick>
+                            <onclick>PreviousMenu</onclick>
+                            <onclick>AlarmClock(ActorsPlay,PlayMedia($INFO[Window(Home).Property(script.metadata.actors.path)]),00:01,silent)</onclick>
+                            <onclick>AlarmClock(ActorsClear,ClearProperty(script.metadata.actors.path,home),00:01,silent)</onclick>
                             <visible>!IsEmpty(ListItem.Trailer)</visible>
                         </item>
                         <item id="3">
@@ -848,7 +850,7 @@
         	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">PreviousMenu</onclick>
         	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">AlarmClock(ActorsPlay,PlayMedia($INFO[Window(Home).Property(script.metadata.actors.path)]),00:01,silent)</onclick>
         	<onclick condition="!IsEmpty(ListItem.FilenameAndPath)">AlarmClock(ActorsClear,ClearProperty(script.metadata.actors.path,home),00:01,silent)</onclick>
-        	<enabled>!IsEmpty(ListItem.FilenameAndPath)</enabled>
+        	<enable>!IsEmpty(ListItem.FilenameAndPath)</enable>
         	<visible allowhiddenfocus="true">false</visible>
         </control>
         <control type="button" id="6">
