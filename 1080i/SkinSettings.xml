@@ -4,6 +4,7 @@
     <backgroundcolor>0</backgroundcolor>
     <onload condition="IsEmpty(Skin.String(music.name))">Skin.SetString(music.name,$LOCALIZE[14022])</onload>
     <onload condition="IsEmpty(Skin.String(rss.setting))">Skin.SetString(rss.setting,$LOCALIZE[1223])</onload>
+    <onload condition="IsEmpty(Skin.String(pvr.channelguideosd.pos.label))">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41223])</onload>
     <controls>
         <include>CommonSettingsItems</include>
         <include>SettingsHeader</include>
@@ -814,6 +815,92 @@
                         <onclick>Skin.ToggleSetting(EPGGenreColors.Enabled)</onclick>
                         <label>$LOCALIZE[41221]</label>
                     </control>
+                    <control type="group" id="1008">
+                    <description>Fake spin control</description>
+                    <width>1210</width>
+                    <height>77</height>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1210</width>
+                        <height>77</height>
+                        <texture border="90,3,90,3">views/list/other/separator.png</texture>
+                        <visible>!ControlGroup(1008).HasFocus</visible>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1210</width>
+                        <height>77</height>
+                        <texture border="150,3,150,3">windows/settings/images/right-focus.png</texture>
+                        <aspectratio>stretch</aspectratio>
+                        <visible>ControlGroup(1008).HasFocus</visible>
+                    </control>
+                    <control type="button" id="10002">
+                        <posx>1104</posx>
+                        <posy>8</posy>
+                        <width>43</width>
+                        <height>60</height>
+                        <onleft>10003</onleft>
+                        <onright>10003</onright>
+                        <onup>10001</onup>
+                        <ondown>10001</ondown>
+                        <texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
+                        <texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41223])</onclick>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.Reset(pvr.channelguideosd.pos)</onclick>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41224])</onclick>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos,1)</onclick>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41223])</onclick>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.Reset(pvr.channelguideosd.pos)</onclick>
+                    </control>
+                    <control type="button" id="10003">
+                        <posx>1147</posx>
+                        <posy>8</posy>
+                        <width>43</width>
+                        <height>60</height>
+                        <onleft>10002</onleft>
+                        <onright>10002</onright>
+                        <onup>10001</onup>
+                        <ondown>10001</ondown>
+                        <texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
+                        <texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41224])</onclick>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos,1)</onclick>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41223])</onclick>
+                        <onclick condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Skin.Reset(pvr.channelguideosd.pos)</onclick>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos.label,$LOCALIZE[41224])</onclick>
+                        <onclick condition="IsEmpty(Skin.String(pvr.channelguideosd.pos))">Skin.SetString(pvr.channelguideosd.pos,1)</onclick>
+                    </control>
+                    <control type="button">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1120</width>
+                        <height>77</height>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textoffsetx>35</textoffsetx>
+                        <font>Font-Condensed-S30-B</font>
+                        <textcolor>96FFFFFF</textcolor>
+                        <label>$LOCALIZE[41222]</label>
+                        <label2>$INFO[Skin.String(pvr.channelguideosd.pos.label)]</label2>
+                        <visible>!ControlGroup(1008).HasFocus</visible>
+                    </control>
+                    <control type="button">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>1120</width>
+                        <height>77</height>
+                        <align>left</align>
+                        <aligny>center</aligny>
+                        <textoffsetx>35</textoffsetx>
+                        <font>Font-Condensed-S30-B</font>
+                        <textcolor>white</textcolor>
+                        <label>$LOCALIZE[41222]</label>
+                        <label2>$INFO[Skin.String(pvr.channelguideosd.pos.label)]</label2>
+                        <visible>ControlGroup(1008).HasFocus</visible>
+                    </control>
+                </control>
                 </control>
                 
                 <!-- =============== -->    

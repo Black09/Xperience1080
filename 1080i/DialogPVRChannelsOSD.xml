@@ -3,6 +3,7 @@
 	<zorder>3</zorder>
 	<controls>
 	    <control type="group">
+	    	<visible>!Window.IsActive(pvrguideinfo)</visible>
 	        <include>NowPlayingFullscreen</include>
 	        <include>FullscreenDimensions</include>
 	        <animation effect="slide" end="0,42" time="0" condition="!Window.IsActive(videoosd)">Conditional</animation>
@@ -13,10 +14,20 @@
                 <height>1339</height>
                 <texture border="610,340,610,340">osd/fullscreen/osdsettings.png</texture>
                 <aspectratio>stretch</aspectratio>
+                <visible>IsEmpty(Skin.String(pvr.channelguideosd.pos))</visible>
+            </control>
+            <control type="image">
+                <posx>720</posx>
+                <posy>-171</posy>
+                <width>1520</width>
+                <height>1339</height>
+                <texture border="610,340,610,340">osd/fullscreen/osdsettings.png</texture>
+                <aspectratio>stretch</aspectratio>
+                <visible>stringcompare(Skin.String(pvr.channelguideosd.pos),1)</visible>
             </control>
             <control type="group">
-                <visible>!Window.IsActive(DialogPVRGuideInfo.xml)</visible>
                 <include>visiblehidefadeinfo</include>
+                <animation effect="slide" end="1040,0" time="0" condition="stringcompare(Skin.String(pvr.channelguideosd.pos),1)">Conditional</animation>
                 <control type="label">
                     <description>Header</description>
                     <posx>100</posx>
@@ -50,7 +61,7 @@
                             <texture border="90,3,90,3">views/list/other/separator.png</texture>
                         </control>
                         <control type="image">
-                            <posx>30</posx>
+                            <posx>20</posx>
                             <posy>6</posy>
                             <width>83</width>
                             <height>83</height>
@@ -73,7 +84,7 @@
                         </control>
                         <control type="label">
                             <description>Label</description>
-                            <posx>133</posx>
+                            <posx>123</posx>
                             <posy>0</posy>
                             <width>517</width>
                             <height>58</height>
@@ -195,7 +206,7 @@
                             <include>visiblehidefadeinfo</include>
                         </control>
                         <control type="image">
-                            <posx>30</posx>
+                            <posx>20</posx>
                             <posy>6</posy>
                             <width>83</width>
                             <height>83</height>
@@ -220,7 +231,7 @@
 	                        </control>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>133</posx>
+	                            <posx>123</posx>
 	                            <posy>0</posy>
 	                            <width>517</width>
 	                            <height>58</height>
