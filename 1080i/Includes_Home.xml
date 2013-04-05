@@ -151,76 +151,139 @@
         <value condition="IsEmpty(Skin.String(HomePicturesMultiImage))">$INFO[Skin.String(GlobalBackdropMulti)]</value>
         <value>$INFO[Skin.String(HomePicturesMultiImage)]</value>
     </variable>
+    
+    <variable name="HomeDVDLabel">
+        <value condition="System.HasMediaDVD">$LOCALIZE[208]</value>
+        <value>$LOCALIZE[41524]</value>
+    </variable>
  
     <include name="HomeProfileInfo">
         <control type="group">
-            <visible>!Window.IsActive(favourites) + !Window.IsActive(script-globalsearch-main.xml) + !Window.IsActive(script-globalsearch-infodialog.xml) + !Window.IsActive(script-globalsearch-contextmenu.xml) + ![Window.IsVisible(virtualkeyboard) + !IsEmpty(Window.Property(HomeSearch))] + !Skin.HasSetting(HideHomeProfileInfo)</visible>
+            <visible>!Window.IsActive(favourites) + !Window.IsActive(script-globalsearch-main.xml) + !Window.IsActive(script-globalsearch-infodialog.xml) + !Window.IsActive(script-globalsearch-contextmenu.xml) + ![Window.IsVisible(virtualkeyboard) + !IsEmpty(Window.Property(HomeSearch))]</visible>
             <posx>75</posx>
             <posy>24</posy>
             <include>BannerListInfoAnimation</include>
-            <control type="image">
-                <posx>25</posx>
-                <posy>46</posy>
-                <width>60</width>
-                <height>60</height>
-                <texture>$INFO[System.ProfileThumb]</texture>
+            <control type="group">
+                <visible>!Skin.HasSetting(HideHomeProfileInfo)</visible>
+                <animation type="Conditional" condition="System.HasMediaDVD">
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="zoom" start="100" end="50" center="125,80" tween="sine" easing="inout" time="300" />
+                </animation>
+                <control type="image">
+                    <posx>25</posx>
+                    <posy>46</posy>
+                    <width>60</width>
+                    <height>60</height>
+                    <texture>$INFO[System.ProfileThumb]</texture>
+                </control>
+                <control type="image">
+                    <posx>13</posx>
+                    <posy>34</posy>
+                    <width>84</width>
+                    <height>84</height>
+                    <texture>windows/home/ava-overlay.png</texture>
+                </control>
+                <control type="label">
+                    <include>HomeProfileInfoLabel</include>
+                    <label>[B]$INFO[System.ProfileName][/B]</label>
+                    <visible>Container(30).HasFocus(1)</visible>
+                </control>
+                <control type="label">
+                    <include>HomeProfileInfoLabel</include>
+                    <label>$INFO[Window.Property(Movies.Count),, $LOCALIZE[342]]</label>
+                    <visible>Container(30).HasFocus(2)</visible>
+                </control>
+                <control type="label">
+                    <include>HomeProfileInfoLabel</include>
+                    <label>$INFO[Window.Property(TVShows.Count),, $LOCALIZE[20343]]</label>
+                    <visible>Container(30).HasFocus(3)</visible>
+                </control>
+                <control type="label">
+                    <include>HomeProfileInfoLabel</include>
+                    <label>$INFO[Window.Property(Music.SongsCount),, $LOCALIZE[134]]</label>
+                    <visible>Container(30).HasFocus(4)</visible>
+                </control>
+                <control type="wraplist" id="30">
+                    <posx>0</posx>
+                    <posy>0</posy>
+                    <height>2</height>
+                    <width>2</width>
+                    <orientation>horizontal</orientation>
+                    <focusposition>0</focusposition>
+                    <scrolltime>0</scrolltime>
+                    <viewtype>list</viewtype>
+                    <itemlayout width="2" height="2"/>
+                    <focusedlayout width="2" height="2"/>
+                    <content>
+                        <item id="1">
+                            <label>-</label>
+                            <onclick>-</onclick>
+                        </item>
+                        <item id="2">
+                            <label>-</label>
+                            <onclick>-</onclick>
+                        </item>
+                        <item id="3">
+                            <label>-</label>
+                            <onclick>-</onclick>
+                        </item>
+                        <item id="4">
+                            <label>-</label>
+                            <onclick>-</onclick>
+                        </item>
+                    </content>
+                </control>
             </control>
-            <control type="image">
-                <posx>13</posx>
-                <posy>34</posy>
-                <width>84</width>
-                <height>84</height>
-                <texture>windows/home/ava-overlay.png</texture>
-            </control>
-            <control type="label">
-                <include>HomeProfileInfoLabel</include>
-                <label>[B]$INFO[System.ProfileName][/B]</label>
-                <visible>Container(30).HasFocus(1)</visible>
-            </control>
-            <control type="label">
-                <include>HomeProfileInfoLabel</include>
-                <label>$INFO[Window.Property(Movies.Count),, $LOCALIZE[342]]</label>
-                <visible>Container(30).HasFocus(2)</visible>
-            </control>
-            <control type="label">
-                <include>HomeProfileInfoLabel</include>
-                <label>$INFO[Window.Property(TVShows.Count),, $LOCALIZE[20343]]</label>
-                <visible>Container(30).HasFocus(3)</visible>
-            </control>
-            <control type="label">
-                <include>HomeProfileInfoLabel</include>
-                <label>$INFO[Window.Property(Music.SongsCount),, $LOCALIZE[134]]</label>
-                <visible>Container(30).HasFocus(4)</visible>
-            </control>
-            <control type="wraplist" id="30">
-                <posx>0</posx>
-                <posy>0</posy>
-                <height>2</height>
-                <width>2</width>
-                <orientation>horizontal</orientation>
-                <focusposition>0</focusposition>
-                <scrolltime>0</scrolltime>
-                <viewtype>list</viewtype>
-                <itemlayout width="2" height="2"/>
-                <focusedlayout width="2" height="2"/>
-                <content>
-                    <item id="1">
-                        <label>-</label>
-                        <onclick>-</onclick>
-                    </item>
-                    <item id="2">
-                        <label>-</label>
-                        <onclick>-</onclick>
-                    </item>
-                    <item id="3">
-                        <label>-</label>
-                        <onclick>-</onclick>
-                    </item>
-                    <item id="4">
-                        <label>-</label>
-                        <onclick>-</onclick>
-                    </item>
-                </content>
+            <control type="group">
+                <visible>System.HasMediaDVD</visible>
+                <animation type="Visible">
+                    <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+                    <effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" />
+                </animation>
+                <animation type="Hidden">
+                    <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+                    <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+                </animation>
+                <control type="image">
+                    <posx>17</posx>
+                    <posy>34</posy>
+                    <width>85</width>
+                    <height>85</height>
+                    <texture>DefaultMediaDVD.png</texture>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="System.HasMediaDVD">Conditional</animation>
+                </control>
+                <control type="label">
+                    <posx>115</posx>
+                    <posy>2</posy>
+                    <width>1630</width>
+                    <height>120</height>
+                    <label>$INFO[System.DVDLabel]</label>
+                    <font>Font-Condensed-S36-B</font>
+                    <textcolor>C0FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <animation effect="slide" end="0,14" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(2)">Conditional</animation>
+                </control>
+                <control type="label">
+                    <posx>115</posx>
+                    <posy>33</posy>
+                    <width>1630</width>
+                    <height>120</height>
+                    <label>Press 'up' to eject</label>
+                    <font>Font-Condensed-S28</font>
+                    <textcolor>80FFFFFF</textcolor>
+                    <scroll>false</scroll>
+                    <align>left</align>
+                    <visible>Container(20).HasFocus(2)</visible>
+                    <animation type="Visible">
+                        <effect type="fade" start="0" end="100" time="300" tween="cubic" easing="inout" />
+                        <effect type="slide" start="0,7" end="0,0" time="300" tween="cubic" easing="inout" />
+                    </animation>
+                    <animation type="Hidden">
+                        <effect type="fade" start="100" end="0" time="300" tween="cubic" easing="inout" />
+                        <effect type="slide" start="0,0" end="0,7" time="300" tween="cubic" easing="inout" />
+                    </animation>
+                </control>
             </control>
         </control>
     </include>
@@ -283,7 +346,7 @@
             <control type="label">
                 <description>Home</description>
                 <include>HomeLabel</include>
-                <label>$LOCALIZE[41524]</label>
+                <label>$VAR[HomeDVDLabel]</label>
                 <animation effect="fade" start="100" end="40" time="300" tween="cubic" easing="inout" condition="!Container(20).HasFocus(2)">Conditional</animation>
                 <animation effect="zoom"  start="100" end="80" time="300" tween="cubic" easing="inout" center="auto" condition="!Control.HasFocus(525)">Conditional</animation>
             </control>
@@ -890,8 +953,10 @@
                     <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + !Skin.HasSetting(HomeMusic)">425</onright>
                     <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + !Skin.HasSetting(HomePrograms)">625</onright>
                     <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">725</onright>
-                    <onup>80</onup>
+                    <onup condition="!System.HasMediaDVD">80</onup>
+                    <onup condition="System.HasMediaDVD">EjectTray</onup>
                     <ondown>501</ondown>
+                    <onclick condition="System.HasMediaDVD">PlayDVD</onclick>
                 </control>
                 <control type="group" id="550">
                     <posy>100</posy>
@@ -2156,13 +2221,6 @@
                                 <label>$LOCALIZE[1037]</label>
                                 <icon>windows/home/icons/videoaddons.png</icon>
                                 <onclick>ActivateWindow(videos,addons,return)</onclick>
-                                <visible>!System.HasMediaDVD</visible>
-                            </item>
-                            <item id="3">
-                                <label>$INFO[System.DVDLabel]</label>
-                                <icon>windows/home/icons/dvd.png</icon>
-                                <onclick>PlayDVD()</onclick>
-                                <visible>System.HasMediaDVD</visible>
                             </item>
                         </content>
                     </control>
