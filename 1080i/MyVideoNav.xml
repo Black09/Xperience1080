@@ -165,8 +165,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>587</label>
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <selected>Container.Filtered</selected>
                         <onclick>SetFocus(50)</onclick>
@@ -182,7 +182,6 @@
                         <texturenofocus border="70,2,2,2">dialogs/options/buttons/files-nf.png</texturenofocus>
                         <onclick>ActivateWindow(Videos,Files,return)</onclick>
                         <onclick>setfocus(50)</onclick>
-                        <selected>Window.IsVisible(Videos)</selected>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(99)">Conditional</animation>
                     </control>
                     <control type="radiobutton" id="14">
@@ -190,8 +189,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>20367</label>
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(14)">Conditional</animation>
                     </control>
@@ -200,8 +199,8 @@
                         <include>optionsbuttonsdimensions</include>
                         <label>20411</label>
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(17)">Conditional</animation>
                     </control>
@@ -235,8 +234,8 @@
                         <onclick>Skin.ToggleSetting(InfoListHideInfo)</onclick>
                         <selected>!Skin.HasSetting(InfoListHideInfo)</selected>
                         <visible>Control.IsVisible(52)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="104">
@@ -247,8 +246,8 @@
                         <onclick>Skin.ToggleSetting(InfoListPlot)</onclick>
                         <selected>Skin.HasSetting(InfoListPlot)</selected>
                         <visible>Control.IsVisible(52)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <enable>!Skin.HasSetting(InfoListHideInfo)</enable>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(104)">Conditional</animation>
@@ -261,8 +260,8 @@
                         <onclick>Skin.ToggleSetting(InfoPanelHideInfo)</onclick>
                         <selected>!Skin.HasSetting(InfoPanelHideInfo)</selected>
                         <visible>Control.IsVisible(53)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="105">
@@ -273,8 +272,8 @@
                         <onclick>Skin.ToggleSetting(InfoPanelPlot)</onclick>
                         <selected>Skin.HasSetting(InfoPanelPlot)</selected>
                         <visible>Control.IsVisible(53)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <enable>!Skin.HasSetting(InfoPanelHideInfo)</enable>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(105)">Conditional</animation>
@@ -287,8 +286,8 @@
                         <onclick>Skin.ToggleSetting(posterstv)</onclick>
                         <selected>Skin.HasSetting(posterstv)</selected>
                         <visible>Control.IsVisible(60) + Container.Content(TVShows)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="107">
@@ -300,8 +299,8 @@
                         <onclick>Skin.Reset(ExtendedUseClearArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearLogo)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseLandscape)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(tvshows) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -314,8 +313,8 @@
                         <onclick>Skin.Reset(ExtendedUseLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearArt)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseClearLogo)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(tvshows) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -328,8 +327,8 @@
                         <onclick>Skin.Reset(ExtendedUseLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearLogo)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseClearArt)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(tvshows) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -342,8 +341,8 @@
                         <onclick>Skin.Reset(ExtendedUseClearMovieArt)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieLogo)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseMovieLandscape)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(movies) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -356,8 +355,8 @@
                         <onclick>Skin.Reset(ExtendedUseMovieLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieArt)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseClearMovieLogo)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(movies) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -370,8 +369,8 @@
                         <onclick>Skin.Reset(ExtendedUseMovieLandscape)</onclick>
                         <onclick>Skin.Reset(ExtendedUseClearMovieLogo)</onclick>
                         <selected>Skin.HasSetting(ExtendedUseClearMovieArt)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Control.IsVisible(54) + Container.Content(movies) + System.HasAddon(script.artwork.downloader)</visible>
                     </control>
@@ -383,8 +382,8 @@
                         <onclick>Skin.ToggleSetting(ThumbnailSmall)</onclick>
                         <selected>Skin.HasSetting(ThumbnailSmall)</selected>
                         <visible>Control.IsVisible(500)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="114">
@@ -395,8 +394,8 @@
                         <onclick>Skin.ToggleSetting(ThumbnailVideoSmall)</onclick>
                         <selected>Skin.HasSetting(ThumbnailVideoSmall)</selected>
                         <visible>Control.IsVisible(501)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="118">
@@ -407,8 +406,8 @@
                         <onclick>Skin.ToggleSetting(ThumbnailHideInfo)</onclick>
                         <selected>!Skin.HasSetting(ThumbnailHideInfo)</selected>
                         <visible>Control.IsVisible(501)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="115">
@@ -419,8 +418,8 @@
                         <onclick>Skin.ToggleSetting(ThumbnailPlot)</onclick>
                         <selected>Skin.HasSetting(ThumbnailPlot)</selected>
                         <visible>Control.IsVisible(501)</visible>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <enable>!Skin.HasSetting(ThumbnailHideInfo)</enable>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(115)">Conditional</animation>
@@ -454,8 +453,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(50)</onclick>
                         <selected>Control.IsVisible(50)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                     </control>
                     <control type="radiobutton" id="203">
@@ -465,8 +464,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(52)</onclick>
                         <selected>Control.IsVisible(52)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>[Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)] | [substring(Container.FolderPath,plugin,left) + Container.HasFiles]</visible>
                     </control>
@@ -477,8 +476,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(53)</onclick>
                         <selected>Control.IsVisible(53)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Sets)</visible>
                     </control>
@@ -489,8 +488,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(54)</onclick>
                         <selected>Control.IsVisible(54)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                     </control>
@@ -501,8 +500,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(55)</onclick>
                         <selected>Control.IsVisible(55)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors) | Container.Content(Sets)</visible>
                     </control>
@@ -513,8 +512,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(500)</onclick>
                         <selected>Control.IsVisible(500)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left) | Container.HasFiles + ![Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(genres) | Container.Content(actors) | Container.Content(Sets)]</visible>
                     </control>
@@ -525,8 +524,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(501)</onclick>
                         <selected>Control.IsVisible(501)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(movies) | Container.Content(tvshows) | Container.Content(seasons) | Container.Content(genres) | Container.Content(actors) | Container.Content(Sets)</visible>
                     </control>
@@ -537,8 +536,8 @@
                         <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                         <onclick>Container.SetViewMode(60)</onclick>
                         <selected>Control.IsVisible(60)</selected>
-                        <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                        <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                     </control>
@@ -551,7 +550,6 @@
                         <posy>433</posy>
                         <width>100</width>
                         <height>100</height>
-                        <aspect>keep</aspect>
                         <texture>buttons/options_nofo.png</texture>
                     </control>
                     <control type="label">
@@ -573,7 +571,6 @@
                         <posy>433</posy>
                         <width>100</width>
                         <height>100</height>
-                        <aspect>keep</aspect>
                         <texture>buttons/options_nofo.png</texture>
                     </control>
                     <control type="label">
@@ -595,7 +592,6 @@
                         <posy>433</posy>
                         <width>100</width>
                         <height>100</height>
-                        <aspect>keep</aspect>
                         <texture>buttons/options_nofo.png</texture>
                     </control>
                     <control type="label">

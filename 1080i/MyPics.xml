@@ -128,8 +128,8 @@
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[13319]</label>
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(9)">Conditional</animation>
                 </control>
@@ -184,8 +184,8 @@
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(50)</onclick>
                     <selected>Control.IsVisible(50)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                 </control>
                 <control type="radiobutton" id="203">
@@ -195,8 +195,8 @@
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(52)</onclick>
                     <selected>Control.IsVisible(52)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <visible>Container.HasFiles + !Container.Content(addons)</visible>
                 </control>
@@ -207,8 +207,8 @@
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(500)</onclick>
                     <selected>Control.IsVisible(500)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <visible>Container.HasFiles + Container.Content(addons)</visible>
                 </control>
@@ -219,8 +219,8 @@
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Container.SetViewMode(55)</onclick>
                     <selected>Control.IsVisible(55)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <visible>Container.HasFiles + !Container.Content(addons)</visible>
                 </control>
@@ -233,7 +233,6 @@
                     <posy>433</posy>
                     <width>100</width>
                     <height>100</height>
-                    <aspect>keep</aspect>
                     <texture>buttons/options_nofo.png</texture>
                 </control>
                 <control type="label">
@@ -255,7 +254,6 @@
                     <posy>433</posy>
                     <width>100</width>
                     <height>100</height>
-                    <aspect>keep</aspect>
                     <texture>buttons/options_nofo.png</texture>
                 </control>
                 <control type="label">
@@ -277,7 +275,6 @@
                     <posy>433</posy>
                     <width>100</width>
                     <height>100</height>
-                    <aspect>keep</aspect>
                     <texture>buttons/options_nofo.png</texture>
                 </control>
                 <control type="label">

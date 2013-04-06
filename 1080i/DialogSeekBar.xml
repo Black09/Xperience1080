@@ -21,7 +21,7 @@
                 <effect type="slide" start="0,0" end="0,85" time="300" tween="sine" easing="in" />
             </animation>
             <control type="group">
-                <animation effect="slide" start="0,0" end="0,-275" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Player.Paused | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)">Conditional</animation>
+                <animation effect="slide" start="0,0" end="0,-275" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)">Conditional</animation>
                 <animation effect="slide" start="0,0" end="0,-70" time="300" tween="cubic" easing="inout" condition="Window.IsActive(videoosd) + [Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding]">Conditional</animation>
                 <control type="image">
                     <posx>0</posx>
@@ -31,7 +31,7 @@
                     <texture border="1,401,1,45">osd/fullscreen/osd-back-info.png</texture>
                 </control>
                 <control type="group">
-                    <animation effect="slide" start="0,0" end="0,213" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Player.Paused | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)">Conditional</animation>
+                    <animation effect="slide" start="0,0" end="0,213" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,70" time="300" tween="cubic" easing="inout" condition="Window.IsActive(videoosd)">Conditional</animation>
                     <visible>IsEmpty(Window.Property(ExtendPlot)) | Window.IsActive(videoosd)</visible>
                     <include>visiblehidefadeinfo</include>
@@ -120,7 +120,7 @@
                     </control>
                 </control>
                 <control type="group">
-                    <visible>[Player.ShowInfo | Player.Paused | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)</visible>
+                    <visible>[Player.ShowInfo | Window.IsVisible(fullscreeninfo)] + !Window.IsActive(videoosd)</visible>
                     <animation type="Visible" reversible="false">
                         <effect type="fade" start="0" end="100" time="300" tween="sine" easing="inout" delay="150" />
                     </animation>

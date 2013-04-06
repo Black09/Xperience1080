@@ -16,17 +16,17 @@
 		        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
 		        <effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
 		    </animation>
-		    <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+		    <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
 		        <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
 		    </animation>
-		    <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+		    <animation type="WindowOpen" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
 		        <effect type="slide" start="-1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
 		    </animation>
-		    <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+		    <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">
 		        <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
 		        <effect type="slide" end="2320" time="500" delay="0" tween="sine" easing="inout" />
 		    </animation>
-		    <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))]] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
+		    <animation type="WindowClose" condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + !IsEmpty(Window(Home).Property(script.metadata.actors.push))">
 		        <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
 		        <effect type="slide" start="0" end="-2320" time="500" delay="0" tween="sine" easing="inout" />
 		    </animation>

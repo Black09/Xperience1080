@@ -140,8 +140,8 @@
                     <onclick condition="!Skin.HasSetting(ShowWeatherFanart)">Skin.Reset(ShowDailyWeatherFanart)</onclick>
                     <onclick>ReloadSkin</onclick>
                     <selected>!Skin.HasSetting(ShowWeatherFanart)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
                     <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))">40</onleft>
@@ -159,8 +159,8 @@
                     <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
                     <onclick>Skin.ToggleSetting(ShowDailyWeatherFanart)</onclick>
                     <selected>!Skin.HasSetting(ShowDailyWeatherFanart)</selected>
-                    <textureradiofocus>buttons/radio/options-radio-button-fo.png</textureradiofocus>
-                    <textureradionofocus>buttons/radio/options-radio-button-nf.png</textureradionofocus>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                     <radioposx>-19</radioposx>
                     <onleft condition="!StringCompare(Weather.Plugin,weather.wunderground) | ![Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))]">101</onleft>
                     <onleft condition="StringCompare(Weather.Plugin,weather.wunderground) + Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))">40</onleft>
@@ -199,7 +199,6 @@
                     <posy>433</posy>
                     <width>100</width>
                     <height>100</height>
-                    <aspect>keep</aspect>
                     <texture>buttons/options_nofo.png</texture>
                 </control>
                 <control type="label">
