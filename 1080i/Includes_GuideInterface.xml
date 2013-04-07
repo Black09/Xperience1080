@@ -5,6 +5,7 @@
 
     <!-- This needs something like Dialog.Close(all) with animations in the future -->
     <include name="GuideDialogClose">
+        <onclick condition="!IsEmpty(Window(3004).Property(ChooseArt))">ClearProperty(ChooseArt,3004)</onclick>
         <onclick condition="Window.IsActive(script-Actors-DialogInfo.xml) | Window.IsActive(script-DialogVideoInfo.xml)">ClearProperty(script.metadata.actors.hasparent,home)</onclick>
         <onclick condition="Window.IsActive(script-Actors-DialogInfo.xml) | Window.IsActive(script-DialogVideoInfo.xml)">ClearProperty(script.metadata.actors.push,home)</onclick>
         <onclick condition="Window.IsActive(yesnodialog)">Dialog.Close(yesnodialog)</onclick>
@@ -1627,13 +1628,13 @@
         <control type="group">
             <width>120</width>
             <height>574</height>
-            <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
-            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
+            <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus</visible>
+            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))" reversible="false">
                 <effect type="fade" start="0" end="100" time="175" tween="sine" easing="inout" />
                 <effect type="zoom" start="80" end="100" center="590,540" time="175" tween="sine" easing="inout" />
                 <effect type="slide" start="-106" end="0" time="175" tween="sine" easing="inout" />
             </animation>
-            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
+            <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))" reversible="false">
                 <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
                 <effect type="zoom" start="95" end="100" center="590,540" time="175" tween="sine" easing="out" />
                 <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />

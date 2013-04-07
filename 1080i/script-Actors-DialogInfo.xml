@@ -196,9 +196,9 @@
 			        <height>164</height>
 			        <onleft condition="!IsEmpty(Container(50).Property(ParentDir))">ParentDir</onleft>
 			        <onleft condition="Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">PreviousMenu</onleft>
-			        <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-			        <onright condition="!Control.IsVisible(70)">SetProperty(script.metadata.actors.showmovies,1,home)</onright>
-			        <onright condition="!Control.IsVisible(70)">150</onright>
+			        <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir)) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
+			        <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(150).NumItems,0)">SetProperty(script.metadata.actors.showmovies,1,home)</onright>
+			        <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(150).NumItems,0)">150</onright>
 			        <onright condition="Control.IsVisible(70)">70</onright>
 			        <onup>9000</onup>
 			        <ondown>9000</ondown>
@@ -459,8 +459,8 @@
 				            <width>6</width>
 				            <height>244</height>                    
 				            <onleft>9000</onleft>
-				            <onright>SetProperty(script.metadata.actors.showmovies,1,home)</onright>
-				            <onright>150</onright>
+				            <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetProperty(script.metadata.actors.showmovies,1,home)</onright>
+				            <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">150</onright>
 				            <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
 				            <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
 				            <orientation>vertical</orientation>
@@ -509,6 +509,10 @@
 			    </animation>
 			    <include>listEndAnimation</include>
 			    <visible allowhiddenfocus="true">ControlGroup(9301).HasFocus</visible>
+			    
+			    <control type="button" id="152">
+			        <visible allowhiddenfocus="true">false</visible>
+			    </control>
 				
 				<control type="list" id="150">
 				    <posx>83</posx>
@@ -518,6 +522,8 @@
 				    <onleft>ClearProperty(script.metadata.actors.showmovies,home)</onleft>
 				    <onleft>SetFocus(9000)</onleft>
 				    <onright>Action(select)</onright>
+				    <!-- Prevent multiple selections -->
+				    <onright>SetFocus(152)</onright>
 				    <onup>150</onup>
 				    <ondown>150</ondown>
 				    <pagecontrol>151</pagecontrol>
@@ -590,9 +596,9 @@
 				    <posx>1330</posx>
 				    <posy>220</posy>
 				    <width>6</width>
-				    <height>687</height>                    
+				    <height>687</height>
 				    <onleft>150</onleft>
-				    <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+				    <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
 				    <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
 				    <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
 				    <orientation>vertical</orientation>

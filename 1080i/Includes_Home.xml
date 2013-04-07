@@ -569,7 +569,7 @@
                 <description>Search</description>
                 <visible>System.HasAddon(script.globalsearch)</visible>
                 <control type="button" id="125">
-                    <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                     <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
                     <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
@@ -686,7 +686,7 @@
                             </control>
                         </control>
                         <control type="button" id="101">
-                            <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                            <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                             <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
                             <onright condition="!System.GetBool(pvrmanager.enabled)">AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                             <onright>Control.Move(20,1)</onright>
@@ -710,7 +710,7 @@
                 <control type="button" id="925">
                     <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
                     <onleft condition="System.HasAddon(script.globalsearch)">125</onleft>
-                    <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onleft condition="!System.HasAddon(script.globalsearch) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                     <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
                     <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                     <onright>Control.Move(20,1)</onright>
@@ -767,7 +767,7 @@
                         <height>620</height>
                         <onleft condition="System.HasAddon(script.globalsearch)">Control.Move(20,-1)</onleft>
                         <onleft condition="System.HasAddon(script.globalsearch)">101</onleft>
-                        <onleft condition="!System.HasAddon(script.globalsearch)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="!System.HasAddon(script.globalsearch) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>AlarmClock(HomeTileMoveThree,Control.Move(5032,1),00:04,silent,loop)</onright>
                         <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                         <onright>Control.Move(20,1)</onright>
@@ -937,7 +937,7 @@
                     <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">Control.Move(20,-1)</onleft>
                     <onleft condition="System.GetBool(pvrmanager.enabled)">925</onleft>
                     <onleft condition="System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">125</onleft>
-                    <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                     <onright>CancelAlarm(HomeTileMove,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveTwo,true)</onright>
                     <onright>CancelAlarm(HomeTileMoveThree,true)</onright>
@@ -1172,7 +1172,7 @@
                             <label>$INFO[Container(5022).ListItem.Label]</label>
                             <label2>$INFO[Container(5022).ListItem.Label2, ★ ,]</label2>
                             <font>Font-Condensed-S29-B</font>
-                            <textcolor>aawhite</textcolor>
+                            <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
@@ -1455,7 +1455,7 @@
                             <label>$INFO[Container(5032).ListItem.Label]</label>
                             <label2>$INFO[Container(5032).ListItem.Label2, ★ ,]</label2>
                             <font>Font-Condensed-S29-B</font>
-                            <textcolor>aawhite</textcolor>
+                            <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
@@ -1564,7 +1564,7 @@
                         <onleft condition="System.HasAddon(script.globalsearch) | System.GetBool(pvrmanager.enabled)">Control.Move(20,-1)</onleft>
                         <onleft condition="System.GetBool(pvrmanager.enabled)">901</onleft>
                         <onleft condition="System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">101</onleft>
-                        <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="!System.HasAddon(script.globalsearch) + !System.GetBool(pvrmanager.enabled) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>502</onright>
                         <onup>525</onup>
                         <ondown>80</ondown>
@@ -1962,7 +1962,7 @@
                             <label>$INFO[Container(2022).ListItem.Label]</label>
                             <label2>$INFO[Container(2022).ListItem.Label2, ★ ,]</label2>
                             <font>Font-Condensed-S29-B</font>
-                            <textcolor>aawhite</textcolor>
+                            <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
@@ -2709,7 +2709,7 @@
                             <label>$INFO[Container(3022).ListItem.Label]</label>
                             <label2>$INFO[Container(3022).ListItem.Label2, ★ ,]</label2>
                             <font>Font-Condensed-S29-B</font>
-                            <textcolor>aawhite</textcolor>
+                            <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
@@ -3437,7 +3437,7 @@
                             <label>[B]$INFO[Container(4022).ListItem.Label][/B]</label>
                             <label2>$INFO[Container(4022).ListItem.Label2]</label2>
                             <font>Font-Condensed-S29</font>
-                            <textcolor>aawhite</textcolor>
+                            <disabledcolor>aawhite</disabledcolor>
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
@@ -5063,17 +5063,54 @@
                                 <label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
                                 <textcolor>ddC6C6C8</textcolor>
                             </control>
-                            <control type="label">
-                                <description>current time</description>
+                            <control type="grouplist">
                                 <posx>178</posx>
                                 <posy>114</posy>
                                 <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day1.LowTemp),, - ]$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                <textcolor>ddC6C6C8</textcolor>
+                                <width>208</width>
+                                <itemgap>0</itemgap>
+                                <usecontrolcoords>true</usecontrolcoords>
+                                <orientation>horizontal</orientation>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-high-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>high temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="image">
+                                    <posx>15</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-low-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>low temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
                             </control>
                         </control>
                         <control type="group">
@@ -5120,17 +5157,54 @@
                                 <label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
                                 <textcolor>ddC6C6C8</textcolor>
                             </control>
-                            <control type="label">
-                                <description>current time</description>
+                            <control type="grouplist">
                                 <posx>178</posx>
                                 <posy>114</posy>
                                 <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day2.LowTemp),, - ]$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                <textcolor>ddC6C6C8</textcolor>
+                                <width>208</width>
+                                <itemgap>0</itemgap>
+                                <usecontrolcoords>true</usecontrolcoords>
+                                <orientation>horizontal</orientation>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-high-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>high temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="image">
+                                    <posx>15</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-low-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>low temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
                             </control>
                         </control>
                         <control type="group">
@@ -5177,17 +5251,54 @@
                                 <label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
                                 <textcolor>ddC6C6C8</textcolor>
                             </control>
-                            <control type="label">
-                                <description>current time</description>
+                            <control type="grouplist">
                                 <posx>178</posx>
                                 <posy>114</posy>
                                 <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day3.LowTemp),, - ]$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                <textcolor>ddC6C6C8</textcolor>
+                                <width>208</width>
+                                <itemgap>0</itemgap>
+                                <usecontrolcoords>true</usecontrolcoords>
+                                <orientation>horizontal</orientation>
+                                <control type="image">
+                                    <posx>0</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-high-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>high temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="image">
+                                    <posx>15</posx>
+                                    <posy>8</posy>
+                                    <width>12</width>
+                                    <height>24</height>
+                                    <texture>weather/temp-low-small.png</texture>
+                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                </control>
+                                <control type="label">
+                                    <description>low temp</description>
+                                    <posx>4</posx>
+                                    <posy>0</posy>
+                                    <height>40</height>
+                                    <width min="0" max="80">auto</width>
+                                    <font>Font-Condensed-S31-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>ddC6C6C8</textcolor>
+                                </control>
                             </control>
                         </control>
                     </control>
@@ -5339,7 +5450,7 @@
                 <control type="button" id="825">
                     <onleft>Control.Move(20,-1)</onleft>
                     <onleft>725</onleft>
-                    <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                    <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                     <onclick>ActivateWindow(4)</onclick>
                     <onup>80</onup>
                     <ondown>801</ondown>

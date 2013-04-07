@@ -22,7 +22,7 @@
                     <effect type="zoom" start="100" end="75" center="960,540" easing="in" tween="back" time="300" />
                     <effect type="fade" start="100" end="0" delay="200" time="100" />
                 </animation>
-                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(okdialog)</visible>
+                <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(okdialog) + IsEmpty(Window(3004).Property(ChooseArt))</visible>
                 <control type="image">
                     <posx>602</posx>
                     <posy>345</posy>

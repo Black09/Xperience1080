@@ -146,7 +146,7 @@
                         <posy>660</posy>
                         <width>440</width>
                         <height>247</height>
-                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>9334</onright>
                         <onup>9333</onup>
                         <ondown>9333</ondown>

@@ -213,7 +213,7 @@
                     <posy>660</posy>
                     <width>440</width>
                     <height>246</height>
-                    <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                    <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                     <onright>70</onright>
                     <onup>9333</onup>
                     <ondown>9333</ondown>
@@ -663,7 +663,7 @@
                     <width>980</width>
                     <height>660</height>
                     <onleft>SetFocus(9335)</onleft>
-                    <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                    <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                     <onup>-</onup>
                     <ondown>-</ondown>
                     <scrolltime>200</scrolltime>

@@ -390,7 +390,7 @@
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
-                        <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="Control.IsVisible(140) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>191</onup>
@@ -413,7 +413,7 @@
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
-                        <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="Control.IsVisible(140) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>192</onup>
@@ -438,7 +438,7 @@
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
                         <onleft condition="!Control.IsVisible(140)">1110</onleft>
-                        <onleft condition="Control.IsVisible(140)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+                        <onleft condition="Control.IsVisible(140) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
                         <onright>70</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>193</onup>
@@ -730,7 +730,7 @@
                         <onup>70</onup>
                         <ondown>70</ondown>                  
                         <onleft>9333</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
                         <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
                         <orientation>vertical</orientation>
@@ -974,8 +974,8 @@
                         <selectedcolor>eewhite</selectedcolor>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
-                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
+                        <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>191</onup>
                         <ondown>ClearProperty(Movement)</ondown>
@@ -996,8 +996,8 @@
                         <selectedcolor>eewhite</selectedcolor>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
-                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
+                        <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>192</onup>
                         <ondown>ClearProperty(Movement)</ondown>
@@ -1020,8 +1020,8 @@
                         <selectedcolor>eewhite</selectedcolor>
                         <disabledcolor>77white</disabledcolor>
                         <shadowcolor>33000000</shadowcolor>
-                        <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
-                        <onright>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
+                        <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <onup>SetProperty(Movement,1)</onup>
                         <onup>193</onup>
                         <ondown>ClearProperty(Movement)</ondown>

@@ -4,11 +4,12 @@
     <onload condition="Window.IsVisible(fullscreenvideo) | [Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)] | Window.IsVisible(progressdialog) | Window.IsVisible(pvr)">Action(close)</onload>
     <onload>SetProperty(NoAnimation,1,10000)</onload>
     <onunload>ClearProperty(NoAnimation,10000)</onunload>
+    <onunload>ClearProperty(GroupListMove)</onunload>
     <controls>
         <control type="group">
             <visible>!Window.IsVisible(fullscreenvideo) + ![Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)] + !Window.IsVisible(progressdialog) + !Window.IsVisible(pvr)</visible>
             <control type="group">
-                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus</visible>
                 <posx>625</posx>
                 <posy>726</posy>
                 <animation type="Visible" reversible="false">
@@ -33,7 +34,8 @@
                         <onup>Control.Move(91022,-1)</onup>
                         <onup>SetFocus(9102)</onup>
                         <ondown>SetFocus(9102)</ondown>
-                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,9120,91081)</onclick>
+                        <onclick>SetProperty(GroupListMove,91081)</onclick>
+                        <onclick>SetFocus(9120)</onclick>
                     </control>
                     <control type="button" id="91082">
                         <posx>426</posx>
@@ -47,8 +49,8 @@
                         <onup>Control.Move(91022,-1)</onup>
                         <onup>SetFocus(9102)</onup>
                         <ondown>SetFocus(9102)</ondown>
-                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,9120,91082)</onclick>
-                        <visible>IsEmpty(Window.property(move))</visible>
+                        <onclick>SetProperty(GroupListMove,91082)</onclick>
+                        <onclick>SetFocus(9120)</onclick>
                     </control>
                 </control>
                 <control type="group" id="9109">
@@ -65,7 +67,8 @@
                         <onup>SetFocus(9102)</onup>
                         <ondown>Control.Move(91022,1)</ondown>
                         <ondown>SetFocus(9102)</ondown>
-                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Down,9120,91091)</onclick>
+                        <onclick>SetProperty(GroupListMove,91091)</onclick>
+                        <onclick>SetFocus(9120)</onclick>
                     </control>
                     <control type="button" id="91092">
                         <posx>426</posx>
@@ -79,7 +82,8 @@
                         <onup>SetFocus(9102)</onup>
                         <ondown>Control.Move(91022,1)</ondown>
                         <ondown>SetFocus(9102)</ondown>
-                        <onclick>RunScript(special://skin/extras/scripts/groupListMove.py,Up,9120,91092)</onclick>
+                        <onclick>SetProperty(GroupListMove,91092)</onclick>
+                        <onclick>SetFocus(9120)</onclick>
                     </control>
                 </control>
                 <control type="grouplist" id="9120">
@@ -96,18 +100,34 @@
                     <control type="button" id="91201">
                         <label>$LOCALIZE[342]</label>
                         <include>DialogButtonDimensionsRightAlign</include>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91091)">Action(down)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91082) | stringcompare(Window.Property(GroupListMove),91092)">Action(up)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91082)">SetFocus(9108)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91091) | stringcompare(Window.Property(GroupListMove),91092)">SetFocus(9109)</onfocus>
                     </control>
                     <control type="button" id="91202">
                         <label>$LOCALIZE[20343]</label>
                         <include>DialogButtonDimensionsRightAlign</include>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91091)">Action(down)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91082) | stringcompare(Window.Property(GroupListMove),91092)">Action(up)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91082)">SetFocus(9108)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91091) | stringcompare(Window.Property(GroupListMove),91092)">SetFocus(9109)</onfocus>
                     </control>
                     <control type="button" id="91203">
                         <label>$LOCALIZE[132]</label>
                         <include>DialogButtonDimensionsRightAlign</include>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91091)">Action(down)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91082) | stringcompare(Window.Property(GroupListMove),91092)">Action(up)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91082)">SetFocus(9108)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91091) | stringcompare(Window.Property(GroupListMove),91092)">SetFocus(9109)</onfocus>
                     </control>
                     <control type="button" id="91204">
                         <label>$LOCALIZE[134]</label>
                         <include>DialogButtonDimensionsRightAlign</include>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91091)">Action(down)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91082) | stringcompare(Window.Property(GroupListMove),91092)">Action(up)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91081) | stringcompare(Window.Property(GroupListMove),91082)">SetFocus(9108)</onfocus>
+                        <onfocus condition="stringcompare(Window.Property(GroupListMove),91091) | stringcompare(Window.Property(GroupListMove),91092)">SetFocus(9109)</onfocus>
                     </control>
                 </control>
             </control>
@@ -167,13 +187,13 @@
                     <visible>!IntegerGreaterThan(Container(91022).NumItems,0)</visible>
                 </control>
                 <control type="list" id="91022">
-                    <visible allowhiddenfocus="true">ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus</visible>
-                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))" reversible="false">
+                    <visible allowhiddenfocus="true">ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus</visible>
+                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))" reversible="false">
                         <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
                         <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
                         <effect type="slide" start="30" end="0" time="175" tween="sine" easing="out" />
                     </animation>
-                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))" reversible="false">
+                    <animation type="Conditional" condition="[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))" reversible="false">
                         <effect type="fade" start="0" end="100" time="175" tween="sine" easing="in" />
                         <effect type="zoom" start="95" end="100" center="960,325" time="175" tween="sine" easing="out" />
                         <effect type="slide" start="-30" end="0" time="175" tween="sine" easing="out" />
@@ -411,7 +431,7 @@
                 <height>100</height>
                 <texture>osd/media-guide/recentlyaddedicon.png</texture>
                 <aspectratio>stretch</aspectratio>
-                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()</visible>
+                <visible>ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus</visible>
                 <animation type="Visible" reversible="false">
                     <effect type="fade" start="15" end="100" delay="75" time="100" />
                 </animation>

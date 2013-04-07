@@ -334,7 +334,7 @@
                         <width>59</width>
                         <height>59</height>
                         <onleft>1104</onleft>
-                        <onright>SetFocus(150)</onright>
+                        <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onright>
                         <onup>9333</onup>
                         <ondown>9333</ondown>
                         <onclick>Action(fullscreen)</onclick>
@@ -574,7 +574,7 @@
                             <ondown>70</ondown>                  
                             <onleft>9333</onleft>
                             <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onright>
-                            <onright condition="!IntegerGreaterThan(Container(150).NumItems,0)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                            <onright condition="!IntegerGreaterThan(Container(150).NumItems,0) + !Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                             <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
                         </control>
                     </control>
@@ -661,7 +661,7 @@
                         <ondown>71</ondown>                  
                         <onleft>9333</onleft>
                         <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onright>
-                        <onright condition="!IntegerGreaterThan(Container(150).NumItems,0)">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceRight)</onright>
+                        <onright condition="!IntegerGreaterThan(Container(150).NumItems,0) + !Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
                         <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
                         <orientation>vertical</orientation>
@@ -684,6 +684,10 @@
                     <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
                     <effect type="slide" end="2320" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
+                
+                <control type="button" id="152">
+                    <visible allowhiddenfocus="true">false</visible>
+                </control>
 
                 <control type="list" id="150">
                     <posx>118</posx>
@@ -692,6 +696,8 @@
                     <height>660</height>
                     <onleft>SetFocus(9333)</onleft>
                     <onright>Action(select)</onright>
+                    <onright>SetFocus(152)</onright>
+                    <!-- Prevent mulitple selections -->
                     <onup>150</onup>
                     <ondown>150</ondown>
                     <pagecontrol>151</pagecontrol>
@@ -858,7 +864,7 @@
         <control type="button" id="1110">
             <onleft condition="!IsEmpty(Container(50).Property(ParentDir))">ParentDir</onleft>
             <onleft condition="Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">PreviousMenu</onleft>
-            <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+            <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir)) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
             <onright>9333</onright>
         </control>
         

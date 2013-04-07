@@ -494,7 +494,7 @@
             <effect type="slide" start="-55" end="0" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="95" end="100" center="439,540" time="175" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="0" end="59" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="100" end="105.2631579" center="439,540" time="175" tween="sine" easing="in" />
         </animation>
@@ -503,7 +503,7 @@
             <effect type="zoom" start="105.263" end="105.263" center="439,540" time="0" />
             <effect type="slide" start="59" end="129" time="175" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="fade" start="0" end="100" time="100" tween="sine" easing="out" />
             <effect type="zoom" start="105.2631579" end="105.2631579" center="439,540" time="0" />
             <effect type="slide" start="129" end="59" time="175" tween="sine" easing="out" />
@@ -539,11 +539,11 @@
             <effect type="slide" start="-59" end="0" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="95" end="100" center="499,540" time="175" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))]" reversible="false">
             <effect type="fade" start="100" end="0" time="100" delay="75" tween="sine" easing="in" />
             <effect type="slide" start="0" end="70" time="175" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="Control.HasFocus(9103) | [[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="Control.HasFocus(9103) | [[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="fade" start="100" end="0" time="0" />
         </animation>
         <animation type="Conditional" condition="Control.HasFocus(9100) + IsEmpty(Window.Property(center))" reversible="false">
@@ -553,7 +553,7 @@
     </include>
     
     <include name="LeftBlade3">
-        <animation type="Conditional" condition="[Control.HasFocus(9100) + IsEmpty(Window.Property(center))] | ControlGroup(9102).HasFocus | Control.HasFocus(9103) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()" reversible="false">
+        <animation type="Conditional" condition="[Control.HasFocus(9100) + IsEmpty(Window.Property(center))] | ControlGroup(9102).HasFocus | Control.HasFocus(9103) | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus" reversible="false">
             <effect type="fade" start="100" end="0" time="0" />
         </animation>
         <animation type="WindowClose" reversible="false">
@@ -579,7 +579,7 @@
     </include>
     
     <include name="LeftBlade4">
-        <animation type="Conditional" condition="Control.HasFocus(9100) | ControlGroup(9102).HasFocus | Control.HasFocus(9103) | [[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))] | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()" reversible="false">
+        <animation type="Conditional" condition="Control.HasFocus(9100) | ControlGroup(9102).HasFocus | Control.HasFocus(9103) | [[Control.HasFocus(9105) | Control.HasFocus(9110)] + IsEmpty(Window.property(right))] | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus" reversible="false">
             <effect type="fade" start="100" end="0" time="0" />
         </animation>
         <animation type="WindowClose" reversible="false">
@@ -606,7 +606,7 @@
             <effect type="fade" start="100" end="0" time="100" tween="sine" easing="in" />
             <effect type="slide" start="0" end="-200" time="100" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="0" end="55" time="175" tween="sine" easing="out" />
             <effect type="zoom" start="100" end="95" center="1481,540" time="175" tween="sine" easing="out" />
         </animation>
@@ -614,7 +614,7 @@
             <effect type="slide" start="55" end="106" time="175" tween="sine" easing="out" />
             <effect type="zoom" start="95" end="90" center="1481,540" time="175" tween="sine" easing="out" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="106" end="55" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="90" end="95" center="1481,540" time="175" tween="sine" easing="in" />
         </animation>
@@ -651,7 +651,7 @@
             <effect type="fade" start="100" end="0" time="100" tween="sine" easing="in" />
             <effect type="slide" start="0" end="-200" time="100" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="0" end="59" time="175" tween="sine" easing="out" />
             <effect type="zoom" start="100" end="95" center="1421,540" time="175" tween="sine" easing="out" />
         </animation>
@@ -659,7 +659,7 @@
             <effect type="slide" start="59" end="114" time="175" tween="sine" easing="out" />
             <effect type="zoom" start="95" end="90" center="1421,540" time="175" tween="sine" easing="out" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="114" end="59" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="90" end="95" center="1421,540" time="175" tween="sine" easing="in" />
         </animation>
@@ -688,7 +688,7 @@
             <effect type="fade" start="100" end="0" time="100" tween="sine" easing="in" />
             <effect type="slide" start="0" end="-200" time="100" tween="sine" easing="in" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + IsEmpty(Window.property(left))]" reversible="false">
             <effect type="fade" start="0" end="100" time="100" tween="sine" easing="out" />
             <effect type="slide" start="-70" end="0" time="175" tween="sine" easing="out" />
         </animation>
@@ -696,7 +696,7 @@
             <effect type="slide" start="0" end="59" time="175" tween="sine" easing="out" />
             <effect type="zoom" start="100" end="95" center="1421,540" time="175" tween="sine" easing="out" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="slide" start="59" end="0" time="175" tween="sine" easing="in" />
             <effect type="zoom" start="95" end="100" center="1421,540" time="175" tween="sine" easing="in" />
         </animation>
@@ -707,7 +707,7 @@
     </include>
     
     <include name="RightBlade4">
-        <animation type="Conditional" condition="Control.HasFocus(9100) | [[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))] | Control.HasFocus(9105) | Control.HasFocus(9110) | Control.HasFocus(9106) | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()" reversible="false">
+        <animation type="Conditional" condition="Control.HasFocus(9100) | [[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + IsEmpty(Window.property(left))] | Control.HasFocus(9105) | Control.HasFocus(9110) | Control.HasFocus(9106) | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus" reversible="false">
             <effect type="fade" start="100" end="0" time="0" />
         </animation>
         <animation type="WindowClose" reversible="false">
@@ -718,7 +718,7 @@
             <effect type="fade" start="0" end="100" time="100" tween="sine" easing="out" />
             <effect type="slide" start="-70" end="0" time="175" tween="sine" easing="out" />
         </animation>
-        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus() | ControlGroup(9109).HasFocus()] + !IsEmpty(Window.property(left))]" reversible="false">
+        <animation type="Conditional" condition="[[ControlGroup(9102).HasFocus | ControlGroup(9108).HasFocus | ControlGroup(9109).HasFocus | ControlGroup(9120).HasFocus] + !IsEmpty(Window.property(left))]" reversible="false">
             <effect type="fade" start="100" end="0" time="100" delay="75" tween="sine" easing="in" />
             <effect type="slide" start="0" end="-70" time="175" tween="sine" easing="in" />
         </animation>
@@ -832,11 +832,11 @@
     <!-- ===== -->
     
     <include name="listEndAnimation">
-        <animation type="Conditional" condition="!IsEmpty(Window(Home).Property(BounceLeft))" reversible="false">
+        <animation type="Conditional" condition="Window.IsVisible(3008)" reversible="false">
             <effect type="slide" start="0" end="-30" time="75" tween="sine" easing="out" />
             <effect type="slide" start="0" end="30" time="225" tween="sine" delay="100" easing="out" />
         </animation>        
-        <animation type="Conditional" condition="!IsEmpty(Window(Home).Property(BounceRight))" reversible="false">
+        <animation type="Conditional" condition="Window.IsVisible(3009)" reversible="false">
             <effect type="slide" start="0" end="30" time="75" tween="sine" easing="out" />
             <effect type="slide" start="0" end="-30" time="225" tween="sine" delay="100" easing="out" />
         </animation>

@@ -117,7 +117,7 @@
                     <width>100</width>
                     <height>100</height>
                     <texture>osd/fullscreen/weather-loading.png</texture>
-                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="true">Conditional</animation>
+                    <animation effect="rotate" center="auto" start="360" end="0" time="1000" loop="true" condition="stringcompare(Weather.FanartCode,na) + substring(Weather.Conditions,/)">Conditional</animation>
                 </control>
             </control>
             <control type="image">

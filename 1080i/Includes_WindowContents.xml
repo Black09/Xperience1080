@@ -213,7 +213,7 @@
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="!Window.IsActive(mediafilter) + !Window.IsVisible(contextmenu) + IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="550" condition="Window.IsActive(mediafilter) | Window.IsVisible(contextmenu) | !IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-            <visible>[[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | [Window.IsActive(virtualkeyboard) + IsEmpty(Window(Home).Property(HomeSearch))] | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)] | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(3006) | Window.IsActive(peripherals) | Window.IsActive(peripheralsettings) | Window.IsActive(mediafilter) | Window.IsActive(mediafilter) | Window.IsActive(pvrgroupmanager) | Window.IsActive(pvrtimersetting) | Window.IsActive(pvrguidesearch) | Window.IsActive(pvrchannelmanager) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(DialogSelect.xml)</visible>
+            <visible>[Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | [Window.IsActive(virtualkeyboard) + IsEmpty(Window(Home).Property(HomeSearch))] | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(mediasource) | Window.IsActive(screencalibration) | Window.IsActive(numericinput) | Window.IsActive(filestackingdialog) | Window.IsActive(LockSettings) | Window.IsActive(smartplaylisteditor) | Window.IsActive(smartplaylistrule) | Window.IsActive(pictureinfo) | Window.IsActive(script-RSS_Editor-rssEditor.xml) | Window.IsActive(script-RSS_Editor-setEditor.xml) | Window.IsActive(3001) | Window.IsActive(3002) | Window.IsActive(3003) | Window.IsActive(3006) | Window.IsActive(peripherals) | Window.IsActive(peripheralsettings) | Window.IsActive(mediafilter) | Window.IsActive(mediafilter) | Window.IsActive(pvrgroupmanager) | Window.IsActive(pvrtimersetting) | Window.IsActive(pvrguidesearch) | Window.IsActive(pvrchannelmanager) | Window.IsActive(pvrguideinfo) | Window.IsActive(pvrrecordinginfo) | Window.IsActive(DialogSelect.xml)] + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation) + !Window.IsActive(script-globalsearch-infodialog.xml)</visible>
         </control>
     </include>
     <include name="FadeBackgroundMovieInfo">
@@ -222,7 +222,7 @@
             <texture>windows/common/black_content.png</texture>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
-            <visible>Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(filebrowser) | Window.IsActive(yesnodialog) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(selectdialog) | Window.IsActive(progressdialog) | Window.IsActive(okdialog) | Window.IsActive(numericinput) | Window.IsActive(3004) | Window.IsActive(DialogSelect.xml)</visible>
+            <visible>[[IsEmpty(Window(3004).Property(ChooseArt)) | ![Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml) | Window.IsActive(progressdialog)]] + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml) | Window.IsActive(progressdialog)]] | Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(numericinput)</visible>
         </control>
     </include>
     <include name="FadeBackgroundContentContext">
@@ -272,7 +272,7 @@
                 <font>Font-Condensed-S80-B</font>
                 <align>center</align>
                 <textcolor>MenuGrey</textcolor>
-                <textshadow>white</textshadow>
+                <shadowcolor>white</shadowcolor>
                 <label>$INFO[Container(450).ListItem.SortLetter]</label>
             </control>
             <visible>Container(450).Scrolling</visible>
@@ -314,5 +314,17 @@
         <value condition="Window.IsActive(songinformation)">$LOCALIZE[658]</value>
         <value>$LOCALIZE[1214]$INFO[Container.FolderName,: ,]</value>
     </variable>
+    
+    <include name="ZOrder0">
+        <zorder>0</zorder>
+    </include>
+    
+    <include name="ZOrder2">
+        <zorder>2</zorder>
+    </include>
+    
+    <include name="ZOrder3">
+        <zorder>3</zorder>
+    </include>
     
 </includes>

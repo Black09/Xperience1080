@@ -169,6 +169,7 @@
                         <font>Font-Condensed-S34-B</font>
                         <align>left</align>
                         <label>$INFO[ListItem.Label]</label>
+                        <selectedcolor>aawhite</selectedcolor>
                         <textcolor>aawhite</textcolor>
                         <scroll>false</scroll>
                     </control>
@@ -181,6 +182,7 @@
                         <font>Font-Condensed-S28</font>
                         <align>left</align>
                         <label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ,]</label>
+                        <selectedcolor>99FFFFFF</selectedcolor>
                         <textcolor>99FFFFFF</textcolor>
                         <scroll>false</scroll>
                     </control>
@@ -221,8 +223,17 @@
                         <font>Font-Condensed-S34-B</font>
                         <align>right</align>
                         <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                        <selectedcolor>99FFFFFF</selectedcolor>
                         <textcolor>99FFFFFF</textcolor>
                         <scroll>false</scroll>
+                    </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                     </control>
                 </itemlayout>
                 <itemlayout height="100" condition="Container.Content(tvshows) + !Skin.HasSetting(posterstv)">
@@ -411,6 +422,7 @@
                         <font>Font-Condensed-S34-B</font>
                         <align>left</align>
                         <label>$INFO[ListItem.Label]</label>
+                        <selectedcolor>aawhite</selectedcolor>
                         <textcolor>aawhite</textcolor>
                         <scroll>false</scroll>
                     </control>
@@ -423,6 +435,7 @@
                         <font>Font-Condensed-S28</font>
                         <align>left</align>
                         <label>$INFO[ListItem.Premiered]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</label>
+                        <selectedcolor>99FFFFFF</selectedcolor>
                         <textcolor>99FFFFFF</textcolor>
                         <scroll>false</scroll>
                     </control>
@@ -453,8 +466,17 @@
                         <font>Font-Condensed-S34-B</font>
                         <align>right</align>
                         <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                        <selectedcolor>99FFFFFF</selectedcolor>
                         <textcolor>99FFFFFF</textcolor>
                         <scroll>false</scroll>
+                    </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout height="100" condition="!Container.Content(movies) + !Container.Content(tvshows) + !Container.Content(seasons) + !Container.Content(episodes)">
@@ -503,9 +525,9 @@
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
-                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                            <effect type="fade" start="71.5" end="100" time="500" tween="sine" easing="inout" />
                         </animation>
-                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
                         <control type="label">
                             <description>Label</description>
                             <posx>120</posx>
@@ -603,11 +625,19 @@
                         <texture background="true">$VAR[DefaultListPoster]</texture>
                         <aspectratio>scale</aspectratio>
                     </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
+                    </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
-                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                            <effect type="fade" start="71.5" end="100" time="500" tween="sine" easing="inout" />
                         </animation>
-                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
                         <control type="label">
                             <description>Label</description>
                             <posx>100</posx>
@@ -617,6 +647,7 @@
                             <font>Font-Condensed-S34-B</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Label]</label>
+                            <selectedcolor>eewhite</selectedcolor>
                             <textcolor>eewhite</textcolor>
                         </control>
                         <control type="label">
@@ -628,6 +659,7 @@
                             <font>Font-Condensed-S28</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Year]$INFO[ListItem.Genre, • ,]</label>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
                             <textcolor>D4FFFFFF</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -668,6 +700,7 @@
                             <font>Font-Condensed-S34-B</font>
                             <align>right</align>
                             <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
                             <textcolor>D4FFFFFF</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -703,9 +736,9 @@
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
-                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                            <effect type="fade" start="71.5" end="100" time="500" tween="sine" easing="inout" />
                         </animation>
-                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
                         <control type="label">
                             <description>Label</description>
                             <posx>376</posx>
@@ -803,9 +836,9 @@
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
-                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                            <effect type="fade" start="71.5" end="100" time="500" tween="sine" easing="inout" />
                         </animation>
-                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
                         <control type="label">
                             <description>Label</description>
                             <posx>100</posx>
@@ -889,11 +922,19 @@
                         <texture background="true">$VAR[DefaultListLandscape]</texture>
                         <aspectratio>scale</aspectratio>
                     </control>
+                    <control type="image">
+                        <posx>1391</posx>
+                        <posy>-10</posy>
+                        <width>39</width>
+                        <height>39</height>
+                        <texture>windows/filemanager/selected.png</texture>
+                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
+                    </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
-                            <effect type="fade" start="64" end="100" time="500" tween="sine" easing="inout" />
+                            <effect type="fade" start="71.5" end="100" time="500" tween="sine" easing="inout" />
                         </animation>
-                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
+                        <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(50)">Conditional</animation>
                         <control type="label">
                             <description>Label</description>
                             <posx>182</posx>
@@ -903,6 +944,7 @@
                             <font>Font-Condensed-S34-B</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Label]</label>
+                            <selectedcolor>eewhite</selectedcolor>
                             <textcolor>eewhite</textcolor>
                         </control>
                         <control type="label">
@@ -914,6 +956,7 @@
                             <font>Font-Condensed-S28</font>
                             <align>left</align>
                             <label>$INFO[ListItem.Premiered]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]</label>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
                             <textcolor>D4FFFFFF</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -944,6 +987,7 @@
                             <font>Font-Condensed-S34-B</font>
                             <align>right</align>
                             <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                            <selectedcolor>D4FFFFFF</selectedcolor>
                             <textcolor>D4FFFFFF</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -1350,6 +1394,7 @@
                             <width>660</width>
                             <font>Font-Condensed-S29-B</font>
                             <label>$INFO[ListItem.Label]</label>
+                            <selectedcolor>77white</selectedcolor>
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
@@ -1362,6 +1407,7 @@
                             <width>590</width>
                             <font>Font-Condensed-S29-B</font>
                             <label>$INFO[ListItem.Label]</label>
+                            <selectedcolor>77white</selectedcolor>
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
@@ -1374,6 +1420,7 @@
                             <font>Font-Condensed-S31</font>
                             <label fallback="••••">$INFO[ListItem.Year]</label>
                             <align>center</align>
+                            <selectedcolor>77white</selectedcolor>
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
@@ -1385,6 +1432,7 @@
                             <height>58</height>
                             <font>Font-Condensed-S31</font>
                             <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                            <selectedcolor>77white</selectedcolor>
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
@@ -1438,6 +1486,14 @@
                                 <align>center</align>
                                 <scroll>false</scroll>
                             </control>
+                        </control>
+                        <control type="image">
+                            <posx>681</posx>
+                            <posy>-10</posy>
+                            <width>39</width>
+                            <height>39</height>
+                            <texture>windows/filemanager/selected.png</texture>
+                            <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                         </control>
                     </itemlayout>
                     <itemlayout height="60" condition="Container.Content(Seasons)">
@@ -1592,6 +1648,14 @@
                             <include>visiblehidefadeinfo</include>
                             <visible>Control.HasFocus(52)</visible>
                         </control>
+                        <control type="image">
+                            <posx>681</posx>
+                            <posy>-10</posy>
+                            <width>39</width>
+                            <height>39</height>
+                            <texture>windows/filemanager/selected.png</texture>
+                            <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
+                        </control>
                         <control type="group">
                             <animation type="Focus" condition="Container(52).OnNext | Container(52).OnPrevious" reversible="false">
                                 <effect type="fade" start="50" end="100" time="500" tween="sine" easing="inout" />
@@ -1604,6 +1668,7 @@
                                 <width>660</width>
                                 <font>Font-Condensed-S29-B</font>
                                 <label>$INFO[ListItem.Label]</label>
+                                <selectedcolor>eewhite</selectedcolor>
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <visible>Container.Content(Episodes)</visible>
@@ -1615,6 +1680,7 @@
                                 <width>590</width>
                                 <font>Font-Condensed-S29-B</font>
                                 <label>$INFO[ListItem.Label]</label>
+                                <selectedcolor>eewhite</selectedcolor>
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <visible>!Container.Content(Episodes)</visible>
@@ -1626,6 +1692,7 @@
                                 <font>Font-Condensed-S31</font>
                                 <label fallback="••••">$INFO[ListItem.Year]</label>
                                 <align>center</align>
+                                <selectedcolor>eewhite</selectedcolor>
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
@@ -1637,6 +1704,7 @@
                                 <height>58</height>
                                 <font>Font-Condensed-S31</font>
                                 <label fallback="                 •••">$INFO[ListItem.Rating,                 ,]</label>
+                                <selectedcolor>eewhite</selectedcolor>
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>

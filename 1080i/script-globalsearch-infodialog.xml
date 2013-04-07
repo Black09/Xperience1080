@@ -5,7 +5,7 @@
         <include condition="StringCompare(Window(Home).Property(search_list),161) | StringCompare(Window(Home).Property(search_list),171) | StringCompare(Window(Home).Property(search_list),181)">GlobalSearchInfoAudio</include>
         
         <control type="button" id="1110">
-            <onleft>RunScript(special://skin/extras/scripts/setClearProperty.py,BounceLeft)</onleft>
+            <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
             <onright>9333</onright>
         </control>
         
