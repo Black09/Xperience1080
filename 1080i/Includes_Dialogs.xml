@@ -2461,15 +2461,19 @@
             
             <control type="label">
                 <description>Heading</description>
-                <posx>118</posx>
+                <posx>88</posx>
                 <posy>144</posy>
-                <width>932</width>
                 <height>60</height>
                 <label>$INFO[Control.GetLabel(411),,: ]$INFO[Container(450).ListItem.Label,[COLOR=99FFFFFF],[/COLOR]]</label>
                 <font>Font-Condensed-S45</font>
                 <textcolor>eewhite</textcolor>
                 <align>left</align>
                 <scroll>false</scroll>
+                <textoffsetx>30</textoffsetx>
+                <include condition="!StringCompare(Window(3004).Property(ChooseArt),poster) + !StringCompare(Window(3004).Property(ChooseArt),fanart) + !StringCompare(Window(3004).Property(ChooseArt),banner) + !StringCompare(Window(3004).Property(ChooseArt),landscape)">ArtDialogPanelWidthSquare</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),poster)">ArtDialogPanelWidthPoster</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),banner)">ArtDialogPanelWidthBanner</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),fanart) | StringCompare(Window(3004).Property(ChooseArt),landscape)">ArtDialogPanelWidthLandscape</include>
             </control>
             
             <control type="label">
@@ -2552,7 +2556,7 @@
                         <height>100</height>
                         <texture>overlays/addons/enabled.png</texture>
                         <colordiffuse>eewhite</colordiffuse>
-                        <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                        <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                     </control>
                 </itemlayout>
                 <itemlayout width="248" height="357" condition="StringCompare(Window(3004).Property(ChooseArt),poster)">
@@ -2582,7 +2586,7 @@
                         <height>100</height>
                         <texture>overlays/addons/enabled.png</texture>
                         <colordiffuse>eewhite</colordiffuse>
-                        <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                        <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                     </control>
                 </itemlayout>
                 <itemlayout width="615" height="357" condition="StringCompare(Window(3004).Property(ChooseArt),fanart) | StringCompare(Window(3004).Property(ChooseArt),landscape)">
@@ -2612,7 +2616,7 @@
                         <height>100</height>
                         <texture>overlays/addons/enabled.png</texture>
                         <colordiffuse>eewhite</colordiffuse>
-                        <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                        <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                     </control>
                 </itemlayout>
                 <itemlayout width="846" height="178" condition="StringCompare(Window(3004).Property(ChooseArt),banner)">
@@ -2642,7 +2646,7 @@
                         <height>100</height>
                         <texture>overlays/addons/enabled.png</texture>
                         <colordiffuse>eewhite</colordiffuse>
-                        <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                        <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                     </control>
                 </itemlayout>
                 <focusedlayout width="358" height="357" condition="!StringCompare(Window(3004).Property(ChooseArt),poster) + !StringCompare(Window(3004).Property(ChooseArt),fanart) + !StringCompare(Window(3004).Property(ChooseArt),banner) + !StringCompare(Window(3004).Property(ChooseArt),landscape)">
@@ -2676,7 +2680,7 @@
                             <width>100</width>
                             <height>100</height>
                             <texture>overlays/addons/enabled.png</texture>
-                            <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                            <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2726,7 +2730,7 @@
                             <width>100</width>
                             <height>100</height>
                             <texture>overlays/addons/enabled.png</texture>
-                            <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                            <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2776,7 +2780,7 @@
                             <width>100</width>
                             <height>100</height>
                             <texture>overlays/addons/enabled.png</texture>
-                            <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                            <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2821,12 +2825,12 @@
                             <aspectratio>scale</aspectratio>
                         </control>
                         <control type="image">
-                            <posx>132</posx>
+                            <posx>730</posx>
                             <posy>12</posy>
                             <width>100</width>
                             <height>100</height>
                             <texture>overlays/addons/enabled.png</texture>
-                            <visible>substring(ListItem.Label,$LOCALIZE[13512])</visible>
+                            <visible>substring(ListItem.Label,$LOCALIZE[13512]) | substring(ListItem.Label,$LOCALIZE[20440])</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -2907,15 +2911,19 @@
             
             <control type="label">
                 <description>Heading</description>
-                <posx>118</posx>
+                <posx>88</posx>
                 <posy>144</posy>
-                <width>932</width>
                 <height>60</height>
                 <label>$INFO[Control.GetLabel(1),,: ]$INFO[Container(6).ListItem.Label,[COLOR=99FFFFFF],[/COLOR]]</label>
                 <font>Font-Condensed-S45</font>
                 <textcolor>eewhite</textcolor>
                 <align>left</align>
                 <scroll>false</scroll>
+                <textoffsetx>30</textoffsetx>
+                <include condition="!StringCompare(Window(3004).Property(ChooseArt),poster) + !StringCompare(Window(3004).Property(ChooseArt),fanart) + !StringCompare(Window(3004).Property(ChooseArt),banner) + !StringCompare(Window(3004).Property(ChooseArt),landscape)">ArtDialogPanelWidthSquare</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),poster)">ArtDialogPanelWidthPoster</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),banner)">ArtDialogPanelWidthBanner</include>
+                <include condition="StringCompare(Window(3004).Property(ChooseArt),fanart) | StringCompare(Window(3004).Property(ChooseArt),landscape)">ArtDialogPanelWidthLandscape</include>
             </control>
             
             <control type="label">

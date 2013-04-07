@@ -253,10 +253,10 @@
                     <visible>Window.IsActive(progressdialog)</visible>
                     <include>visiblehidefadeinfo</include>
                     <animation effect="slide" end="0,83" time="0" condition="Container(3).HasFocus(2)">Conditional</animation>
-                    <animation effect="slide" end="0,166" time="0" condition="Container(3).HasFocus(3)">Conditional</animation>
-                    <animation effect="slide" end="0,249" time="0" condition="Container(3).HasFocus(4)">Conditional</animation>
-                    <animation effect="slide" end="0,332" time="0" condition="Container(3).HasFocus(5)">Conditional</animation>
-                    <animation effect="slide" end="0,415" time="0" condition="Container(3).HasFocus(6)">Conditional</animation>
+                    <animation effect="slide" end="0,166" time="0" condition="Container(3).HasFocus(3) | [Container(3).HasFocus(4) + !Container.Content(tvshows)]">Conditional</animation>
+                    <animation effect="slide" end="0,249" time="0" condition="[Container(3).HasFocus(4) + Container.Content(tvshows)] | [Container(3).HasFocus(5) + !Container.Content(tvshows)]">Conditional</animation>
+                    <animation effect="slide" end="0,332" time="0" condition="[Container(3).HasFocus(5) + Container.Content(tvshows)] | [Container(3).HasFocus(6) + !Container.Content(tvshows)]">Conditional</animation>
+                    <animation effect="slide" end="0,415" time="0" condition="Container(3).HasFocus(6) + Container.Content(tvshows)">Conditional</animation>
                     <control type="image">
                         <description>Weather loading background</description>
                         <posx>358</posx>
