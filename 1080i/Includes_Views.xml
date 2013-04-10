@@ -113,7 +113,7 @@
     
     <variable name="InfoPanelOverlay">
         <value condition="ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/panel-p.png]</value>
-        <value>$INFO[ListItem.Overlay,overlays/,/panel-w.png]</value>
+        <value condition="!IntegerGreaterThan(ListItem.PlayCount,0)">$INFO[ListItem.Overlay,overlays/,/panel-w.png]</value>
     </variable>
     
     <variable name="DefaultListOverlay">
@@ -123,42 +123,42 @@
     
     <variable name="ExtendedOverlay">
         <value condition="Container.ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[ListItem.Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(ListItem.PlayCount,0)">$INFO[ListItem.Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay0">
         <value condition="Container.ListItem(0).IsResumable">$INFO[Container.ListItem(0).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(0).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(0).PlayCount,0)">$INFO[Container.ListItem(0).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay1">
         <value condition="Container.ListItem(1).IsResumable">$INFO[Container.ListItem(1).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(1).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(1).PlayCount,0)">$INFO[Container.ListItem(1).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay2">
         <value condition="Container.ListItem(2).IsResumable">$INFO[Container.ListItem(2).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(2).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(2).PlayCount,0)">$INFO[Container.ListItem(2).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay3">
         <value condition="Container.ListItem(3).IsResumable">$INFO[Container.ListItem(3).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(3).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(3).PlayCount,0)">$INFO[Container.ListItem(3).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay4">
-        <value condition="Container.ListItem(3).IsResumable">$INFO[Container.ListItem(4).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(4).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="Container.ListItem(4).IsResumable">$INFO[Container.ListItem(4).Overlay,overlays/,/extended-p.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(4).PlayCount,0)">$INFO[Container.ListItem(4).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ExtendedOverlay-1">
         <value condition="Container.ListItem(-1).IsResumable">$INFO[Container.ListItem(-1).Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[Container.ListItem(-1).Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(Container.ListItem(-1).PlayCount,0)">$INFO[Container.ListItem(-1).Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="VideoInfoOverlay">
         <value condition="IntegerGreaterThan(ListItem.PercentPlayed,0) + !IntegerGreaterThan(ListItem.PercentPlayed,99)">$INFO[ListItem.Overlay,overlays/,/extended-p.png]</value>
-        <value>$INFO[ListItem.Overlay,overlays/,/extended-w.png]</value>
+        <value condition="!IntegerGreaterThan(ListItem.PlayCount,0)">$INFO[ListItem.Overlay,overlays/,/extended-w.png]</value>
     </variable>
     
     <variable name="ActorsVideoInfoOverlay">
