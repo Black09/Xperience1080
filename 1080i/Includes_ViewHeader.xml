@@ -347,7 +347,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(1122) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -364,7 +364,6 @@
                         <width min="0" max="500">auto</width>
                         <height>120</height>
                         <label>$LOCALIZE[41504]</label>
-                        <label>$INFO[ListItem.ActualIcon]</label>
                         <font>Font-Condensed-S36-B</font>
                         <textcolor>C0FFFFFF</textcolor>
                         <scroll>false</scroll>
