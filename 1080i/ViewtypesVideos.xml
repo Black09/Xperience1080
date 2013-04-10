@@ -3139,8 +3139,8 @@
                     <posx>104</posx>
                     <posy>135r</posy>
                     <width>1712</width>
-                    <height>11</height>
-                    <texture border="6,0,6,0">views/other/scrollbar-h.png</texture>
+                    <height>6</height>
+                    <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
                     <visible>Control.IsVisible(54) + Control.HasFocus(70)</visible>
                     <animation effect="fade" start="0" end="25" time="300" tween="sine" easing="inout">Visible</animation>
                     <animation effect="fade" start="25" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
@@ -3150,10 +3150,10 @@
                     <posx>104</posx>
                     <posy>135r</posy>
                     <width>1712</width>
-                    <height>11</height>
+                    <height>6</height>
                     <orientation>horizontal</orientation>
-                    <texturesliderbar border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbar>
-                    <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-h.png</texturesliderbarfocus>
+                    <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
                     <showonepage>false</showonepage>
                     <onup>54</onup>
                     <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
@@ -4534,6 +4534,7 @@
             <control type="group">
                 <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
                 <include>ThumbnailAnimationsPoster</include>
+                <animation effect="slide" end="36" time="400" tween="cubic" easing="inout" condition="!Skin.HasSetting(ThumbnailVideoSmall)">Conditional</animation>
                 <control type="image">
                     <description>Poster</description>
                     <posx>1304</posx>
