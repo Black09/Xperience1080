@@ -727,7 +727,7 @@
             </animation>
             <include>MoonPhaseDummyLabels</include>
             <control type="group">
-                <visible>!IsEmpty(Window.Property(Today.IsFetched))</visible>
+                <visible>!IsEmpty(Window.Property(Today.IsFetched)) + !IsEmpty(Window(Weather).Property(Today.moonphase))</visible>
                 <control type="image">
                     <posx>0</posx>
                     <posy>32</posy>
@@ -738,7 +738,7 @@
                 <control type="label">
                     <posx>0</posx>
                     <posy>0</posy>
-                    <width>5000</width>
+                    <width>500</width>
                     <height>120</height>
                     <label>$LOCALIZE[41693]</label>
                     <font>Font-Condensed-S36-B</font>
@@ -746,7 +746,7 @@
                     <scroll>false</scroll>
                     <align>right</align>
                 </control>
-                <control type="label" id="1337">
+                <control type="label">
                     <posx>0</posx>
                     <posy>33</posy>
                     <width>500</width>
