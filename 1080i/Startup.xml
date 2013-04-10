@@ -6,7 +6,8 @@
         <include>Common-Info-NoOptions</include>
         <control type="button" id="10">
             <onfocus condition="IsEmpty(Skin.String(GlobalBackdropSingle))">Skin.SetString(GlobalBackdropSingle,special://skin/extras/backgrounds/01.jpg)</onfocus>
-            <onfocus condition="Skin.HasSetting(NextAired.Update)">RunScript(script.tv.show.next.aired,silent=True)</onfocus>
+            <onfocus condition="Skin.HasSetting(NextAired.Update) + Library.HasContent(tvshows)">RunScript(script.tv.show.next.aired,silent=True)</onfocus>
+            <onfocus condition="Skin.HasSetting(StartupPlaylist)">PlayMedia($ESCINFO[Skin.String(StartupPlaylist.Path)])</onfocus>
             <onfocus>ReplaceWindow(Home)</onfocus>
         </control>
     </controls>
