@@ -142,7 +142,7 @@
                         <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                     </control>
                 </itemlayout>
-                <itemlayout height="100" condition="Container.Content(movies) | [Container.Content(tvshows) + Skin.HasSetting(posterstv)]">
+                <itemlayout height="100" condition="Container.Content(movies)">
                     <control type="image">
                         <description>List separator</description>
                         <posx>0</posx>
@@ -236,7 +236,7 @@
                         <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                     </control>
                 </itemlayout>
-                <itemlayout height="100" condition="Container.Content(tvshows) + !Skin.HasSetting(posterstv)">
+                <itemlayout height="100" condition="Container.Content(tvshows)">
                     <control type="image">
                         <description>List separator</description>
                         <posx>0</posx>
@@ -597,7 +597,7 @@
                         </control>
                     </control>
                 </focusedlayout>
-                <focusedlayout height="100" condition="Container.Content(movies) | [Container.Content(tvshows) + Skin.HasSetting(posterstv)]">
+                <focusedlayout height="100" condition="Container.Content(movies)">
                     <control type="image">
                         <description>List separator</description>
                         <posx>0</posx>
@@ -706,7 +706,7 @@
                         </control>
                     </control>
                 </focusedlayout>
-                <focusedlayout height="100" condition="Container.Content(tvshows) + !Skin.HasSetting(posterstv)">
+                <focusedlayout height="100" condition="Container.Content(tvshows)">
                     <control type="image">
                         <description>List separator</description>
                         <posx>0</posx>
