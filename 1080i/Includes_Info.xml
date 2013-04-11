@@ -79,6 +79,15 @@
         </control>
     </include>
     
+    <variable name="OptionsButtonTexture">
+        <value condition="Window.IsActive(programs) + [Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(60) | Control.IsVisible(61) | [Control.IsVisible(50) + substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)]]">buttons/options-right.png</value>
+        <value condition="Window.IsActive(programs) + [Control.IsVisible(56) | Control.IsVisible(57) | Control.IsVisible(58)]">buttons/options-down.png</value>
+        <value condition="Control.IsVisible(50) | Control.IsVisible(52) | Control.IsVisible(60) | Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(502)">buttons/options-leftright.png</value>
+        <value condition="Control.IsVisible(53) | Control.IsVisible(54) | Control.IsVisible(55) | Window.IsActive(weather)">buttons/options-updown.png</value>
+        <value condition="Window.IsActive(script-NextAired-TVGuide.xml">buttons/options-left.png</value>
+        <value>buttons/options_nofo.png</value>
+    </variable>
+    
     <!-- Options Button -->
     <include name="Common-Options">
         <control type="group">
@@ -95,11 +104,18 @@
                 <onright>50</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
-                <texturefocus>buttons/options_nofo.png</texturefocus>
-                <texturenofocus>buttons/options_nofo.png</texturenofocus>
+                <texturefocus>-</texturefocus>
+                <texturenofocus>-</texturenofocus>
                 <onfocus>SetFocus(9111)</onfocus>
+                <visible allowhiddenfocus="true">!Skin.HasSetting(HideOptionsButton)</visible>
+            </control>
+            <control type="image">
+                <description>Options Button texture</description>
+                <width>100</width>
+                <height>100</height>
+                <texture>$VAR[OptionsButtonTexture]</texture>
                 <include>homebuttonsanim3</include>
-                <visible allowhiddenfocus="true">!Skin.HasSetting(HideOptionsButton) + !Window.IsVisible(movieinformation) + !Window.IsVisible(script-Actors-DialogInfo.xml) + !Window.IsVisible(script-Actors-DialogVideoInfo.xml) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog) + !Window.IsVisible(1122) + !Window.IsVisible(smartplaylisteditor) + !Window.IsVisible(pvrgroupmanager) + !Window.IsVisible(pvrtimersetting) + !Window.IsVisible(pvrguidesearch) + !Window.IsVisible(pvrchannelmanager) + !Window.IsVisible(pvrguideinfo) + !Window.IsVisible(pvrrecordinginfo)</visible>
+                <visible>!Skin.HasSetting(HideOptionsButton) + !Window.IsVisible(movieinformation) + !Window.IsVisible(script-Actors-DialogInfo.xml) + !Window.IsVisible(script-Actors-DialogVideoInfo.xml) + !Window.IsVisible(addoninformation) + !Window.IsVisible(musicinformation) + !Window.IsVisible(playercontrols) + !Window.IsVisible(yesnodialog) + !Window.IsVisible(progressdialog) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(numericinput) + !Window.IsVisible(filebrowser) + !Window.IsVisible(networksetup) + !Window.IsVisible(mediasource) + !Window.IsVisible(ProfileSettings) + !Window.IsVisible(LockSettings) + !Window.IsVisible(contentsettings) + !Window.IsVisible(songinformation) + !Window.IsVisible(addonsettings) + !Window.IsVisible(textviewer) + !Window.IsVisible(selectdialog) + !Window.IsVisible(okdialog) + !Window.IsVisible(filestackingdialog) + !Window.IsVisible(1122) + !Window.IsVisible(smartplaylisteditor) + !Window.IsVisible(pvrgroupmanager) + !Window.IsVisible(pvrtimersetting) + !Window.IsVisible(pvrguidesearch) + !Window.IsVisible(pvrchannelmanager) + !Window.IsVisible(pvrguideinfo) + !Window.IsVisible(pvrrecordinginfo)</visible>
             </control>
             <control type="label">
                 <description>Options Label</description>

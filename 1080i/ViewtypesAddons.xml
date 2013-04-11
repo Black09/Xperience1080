@@ -35,7 +35,8 @@
                 <pagecontrol>70</pagecontrol>
                 <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
                 <onleft condition="Skin.HasSetting(KioskMode)">50</onleft>
-                <onright>70</onright>
+                <onright condition="Control.IsVisible(70)">70</onright>
+                <onright condition="!Control.IsVisible(70) + !Skin.HasSetting(KioskMode)">9010</onright>
                 <onup>50</onup>
                 <ondown>50</ondown>
                 <viewtype label="List">List</viewtype>
@@ -319,12 +320,6 @@
                                 <width>75</width>
                                 <height>75</height>
                                 <texture>$VAR[AddonOverlay]</texture>
-                                <!--<animation type="Focus">
-                                    <effect type="fade" start="100" end="0" time="200" tween="sine" easing="in" />
-                                </animation>
-                                <animation type="Unfocus">
-                                    <effect type="fade" start="0" end="100" time="200" tween="sine" easing="out" />
-                                </animation>-->
                             </control>
                             <control type="image">
                                 <posx>0</posx>
