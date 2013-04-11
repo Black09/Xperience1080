@@ -201,7 +201,7 @@
     <include name="FadeBackgroundDialog">
         <control type="image">
             <include>FullscreenDimensions</include>
-            <texture>windows/common/black_content.png</texture>
+            <texture background="true">special://skin/extras/fade/black_content.png</texture>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">WindowOpen</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">WindowClose</animation>
         </control>
@@ -209,7 +209,7 @@
     <include name="FadeBackground">
         <control type="image">
             <include>FullscreenDimensions</include>
-            <texture>windows/common/black_content.png</texture>
+            <texture background="true">special://skin/extras/fade/black_content.png</texture>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" condition="!Window.IsActive(mediafilter) + !Window.IsVisible(contextmenu) + IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out" delay="550" condition="Window.IsActive(mediafilter) | Window.IsVisible(contextmenu) | !IsEmpty(Window(Home).Property(metadata.actors))">Visible</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
@@ -219,7 +219,7 @@
     <include name="FadeBackgroundMovieInfo">
         <control type="image">
             <include>FullscreenDimensions</include>
-            <texture>windows/common/black_content.png</texture>
+            <texture background="true">special://skin/extras/fade/black_content.png</texture>
             <animation effect="fade" time="300" start="0" end="95" tween="sine" easing="out">Visible</animation>
             <animation effect="fade" time="300" start="95" end="0" tween="sine" easing="in">Hidden</animation>
             <visible>[[IsEmpty(Window(3004).Property(ChooseArt)) | ![Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml) | Window.IsActive(progressdialog)]] + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml) | Window.IsActive(progressdialog)]] | Window.IsActive(contentsettings) | Window.IsActive(addonsettings) | Window.IsActive(virtualkeyboard) | Window.IsActive(playercontrols) | Window.IsActive(profilesettings) | Window.IsActive(numericinput)</visible>
@@ -228,7 +228,7 @@
     <include name="FadeBackgroundContentContext">
         <control type="image">
             <include>FullscreenDimensions</include>
-            <texture>windows/common/black2.png</texture>
+            <texture background="true">special://skin/extras/fade/black2.png</texture>
             <include>OpenCloseAnimationTwo</include>
             <visible>[ControlGroup(9000).HasFocus() | Window.IsActive(contextmenu)] + !Window.IsActive(shutdownmenu) + !Window.IsActive(movieinformation) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(musicinformation)</visible>
         </control>
@@ -236,7 +236,7 @@
     <include name="FadeBackgroundButtonMenu">
         <control type="image">
             <include>FullscreenDimensions</include>
-            <texture>windows/common/black2.png</texture>
+            <texture background="true">special://skin/extras/fade/black2.png</texture>
             <include>OpenCloseAnimationThree</include>
         </control>
     </include>
