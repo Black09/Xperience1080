@@ -763,29 +763,76 @@
                     <width>85</width>
                     <height>85</height>
                     <texture>DefaultAddonWeather.png</texture>
+                    <visible>Weather.IsFetched</visible>
+                    <animation type="Hidden">
+                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
+                    </animation>
+                    <animation type="Visible">
+                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" /> 
+                        <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" />
+                    </animation>
                 </control>
                 <control type="label">
                     <posx>115</posx>
-                    <posy>0</posy>
-                    <width>1630</width>
-                    <height>120</height>
-                    <label>$INFO[Window.Property(Location)]</label>
+                    <posy>25</posy>
+                    <width>770</width>
+                    <height>100</height>
+                    <label>$LOCALIZE[41562]</label>
                     <font>Font-Condensed-S36-B</font>
                     <textcolor>C0FFFFFF</textcolor>
                     <scroll>false</scroll>
                     <align>left</align>
+                    <visible>!Weather.IsFetched</visible>
+                    <include>visiblehidefadeinfo</include>
                 </control>
-                <control type="label">
-                    <posx>115</posx>
-                    <posy>32</posy>
-                    <width>1630</width>
-                    <height>120</height>
-                    <label>$INFO[Window.Property(WeatherProvider)]</label>
-                    <font>Font-Condensed-S28</font>
-                    <textcolor>80FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                    <align>left</align>
+                <control type="group">
+                    <visible>Weather.IsFetched</visible>
+                    <include>visiblehidefadeinfo</include>
+                    <control type="label">
+                        <posx>115</posx>
+                        <posy>0</posy>
+                        <width>770</width>
+                        <height>120</height>
+                        <label fallback="41563">$INFO[Window.Property(Location)]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <posx>115</posx>
+                        <posy>32</posy>
+                        <width>770</width>
+                        <height>120</height>
+                        <label>$INFO[Window.Property(WeatherProvider)]</label>
+                        <font>Font-Condensed-S28</font>
+                        <textcolor>80FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
                 </control>
+            </control>
+        </control>
+        <control type="group" id="102">
+            <posx>75</posx>
+            <posy>26</posy>
+            <include>BannerListInfoAnimation</include>
+            <visible>!Weather.IsFetched</visible>
+            <control type="image">
+                <posx>10</posx>
+                <posy>25</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/extendedprogress/loading-back-busy.png</texture>
+            </control>
+            <control type="image">
+                <posx>10</posx>
+                <posy>25</posy>
+                <width>100</width>
+                <height>100</height>
+                <texture>dialogs/search/loading.png</texture>
+                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(102)">Conditional</animation>
             </control>
         </control>
     </include>

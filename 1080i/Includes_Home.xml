@@ -1129,7 +1129,7 @@
                             <texture border="1">windows/common/black.png</texture>
                             <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
-                        <control type="group">
+                        <control type="group" id="5023">
                             <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomEpisode.1.File)) + IsEmpty(Window.Property(RandomMovie.1.File))</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
@@ -1147,7 +1147,7 @@
                                 <width>148</width>
                                 <height>148</height>
                                 <texture>windows/home/loading.png</texture>
-                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(5023)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <description>Title label</description>
@@ -1412,7 +1412,7 @@
                             <texture border="1">windows/common/black.png</texture>
                             <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
-                        <control type="group">
+                        <control type="group" id="5033">
                             <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
@@ -1430,7 +1430,7 @@
                                 <width>148</width>
                                 <height>148</height>
                                 <texture>windows/home/loading.png</texture>
-                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(5033)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <description>Title label</description>
@@ -1919,7 +1919,7 @@
                             <texture border="1">windows/common/black.png</texture>
                             <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
-                        <control type="group">
+                        <control type="group" id="2023">
                             <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentMovie.1.File))</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
@@ -1937,7 +1937,7 @@
                                 <width>148</width>
                                 <height>148</height>
                                 <texture>windows/home/loading.png</texture>
-                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(2023)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <description>Title label</description>
@@ -2666,7 +2666,7 @@
                             <texture border="1">windows/common/black.png</texture>
                             <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
-                        <control type="group">
+                        <control type="group" id="3023">
                             <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
@@ -2684,7 +2684,7 @@
                                 <width>148</width>
                                 <height>148</height>
                                 <texture>windows/home/loading.png</texture>
-                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(3023)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <description>Title label</description>
@@ -3395,7 +3395,7 @@
                             <texture border="1">windows/common/black.png</texture>
                             <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
-                        <control type="group">
+                        <control type="group" id="4023">
                             <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
@@ -3413,12 +3413,12 @@
                                 <width>148</width>
                                 <height>148</height>
                                 <texture>windows/home/loading.png</texture>
-                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="true">Conditional</animation>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(4023)">Conditional</animation>
                             </control>
                             <control type="label">
                                 <posx>20</posx>
-                                <posy>482</posy>
-                                <height>89</height>
+                                <posy>508</posy>
+                                <height>64</height>
                                 <width>437</width>
                                 <font>Font-Condensed-S31-B</font>
                                 <align>left</align>
@@ -4733,8 +4733,64 @@
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
                         </control>
+                        <control type="label">
+                            <posx>0</posx>
+                            <posy>574</posy>
+                            <width>477</width>
+                            <height>25</height>
+                            <font>Font-Condensed-S20</font>
+                            <shadowcolor>11000000</shadowcolor>
+                            <textcolor>77white</textcolor>
+                            <align>left</align>
+                            <aligny>center</aligny>
+                            <textoffsetx>5</textoffsetx>
+                            <label>[UPPERCASE][B]$INFO[Window(Weather).Property(WeatherProvider),$LOCALIZE[21870]: ,][/B]$INFO[Window(Weather).Property(Updated), (,)][/UPPERCASE]</label>
+                        </control>
+                        <control type="group" id="7023">
+                            <visible>!Weather.IsFetched</visible>
+                            <include>visiblehidefadeinfo</include>
+                            <control type="image">
+                                <description>Loading Back</description>
+                                <posx>212</posx>
+                                <posy>212</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading-back.png</texture>
+                            </control>
+                            <control type="image">
+                                <description>Loading</description>
+                                <posx>212</posx>
+                                <posy>212</posy>
+                                <width>148</width>
+                                <height>148</height>
+                                <texture>windows/home/loading.png</texture>
+                                <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(7023)">Conditional</animation>
+                            </control>
+                            <control type="image">
+                                <description>Title overlay</description>
+                                <posx>0</posx>
+                                <posy>508</posy>
+                                <width>572</width>
+                                <height>64</height>
+                                <colordiffuse>99000000</colordiffuse>
+                                <texture border="1">windows/common/black.png</texture>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>508</posy>
+                                <height>64</height>
+                                <width>437</width>
+                                <font>Font-Condensed-S31-B</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>bbwhite</textcolor>
+                                <label>$LOCALIZE[41562]</label>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
                         <control type="group">
-                            <visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir))</visible>
+                            <visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + Weather.IsFetched</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="multiimage">
                                 <width>572</width>
                                 <height>572</height>
@@ -4756,19 +4812,6 @@
                                 <height>187</height>
                                 <colordiffuse>99000000</colordiffuse>
                                 <texture border="1">windows/common/black.png</texture>
-                            </control>
-                            <control type="label">
-                                <posx>0</posx>
-                                <posy>574</posy>
-                                <width>477</width>
-                                <height>25</height>
-                                <font>Font-Condensed-S20-B</font>
-                                <shadowcolor>11000000</shadowcolor>
-                                <textcolor>77white</textcolor>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textoffsetx>5</textoffsetx>
-                                <label>[UPPERCASE]$INFO[Window(Weather).Property(WeatherProvider),$LOCALIZE[21870]: ,][/UPPERCASE]</label>
                             </control>
                             <control type="group">
                                 <posx>30</posx>
@@ -4843,20 +4886,8 @@
                             </control>
                         </control>
                         <control type="group">
-                            <visible>!Skin.HasSetting(ShowWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))</visible>
-                            <control type="label">
-                                <posx>0</posx>
-                                <posy>572</posy>
-                                <width>572</width>
-                                <height>25</height>
-                                <font>Font-Condensed-S20-B</font>
-                                <shadowcolor>11000000</shadowcolor>
-                                <textcolor>77white</textcolor>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textoffsetx>5</textoffsetx>
-                                <label>[UPPERCASE]$LOCALIZE[21870]: [B]$INFO[Window(Weather).Property(WeatherProvider)][/B]$INFO[Window(Weather).Property(Updated), (,)][/UPPERCASE]</label>
-                            </control>
+                            <visible>[!Skin.HasSetting(ShowWeatherFanart) | IsEmpty(Skin.String(WeatherFanartDir))] + Weather.IsFetched</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>current weather icon</description>
                                 <posx>38</posx>
@@ -4878,7 +4909,7 @@
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <textcolor>eewhite</textcolor>
-                                    <label>$INFO[Window(Weather).Property(Location)]</label>
+                                    <label fallback="41563">$INFO[Window(Weather).Property(Location)]</label>
                                     <scroll>false</scroll>
                                 </control>
                                 <control type="label">
@@ -5029,87 +5060,89 @@
                                 <height>197</height>
                                 <texture border="7">windows/home/tile.png</texture>
                             </control>
-                            <control type="image">
-                                <description>day icon</description>
-                                <posx>15</posx>
-                                <posy>25</posy>
-                                <height>138</height>
-                                <width>138</width>
-                                <texture>$INFO[Window(Weather).Property(Day1.FanartCode),weather/medium/,.png]</texture>
-                                <aspectratio align="center">keep</aspectratio>
-                            </control>
-                            <control type="label">
-                                <description></description>
-                                <posx>178</posx>
-                                <posy>34</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textcolor>eewhite</textcolor>
-                                <label>$INFO[Window(Weather).Property(Day1.Title)]</label>
-                                <scroll>false</scroll>
-                            </control>
-                            <control type="label">
-                                <description>current date</description>
-                                <posx>178</posx>
-                                <posy>74</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S25-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
-                                <textcolor>ddC6C6C8</textcolor>
-                            </control>
-                            <control type="grouplist">
-                                <posx>178</posx>
-                                <posy>114</posy>
-                                <height>40</height>
-                                <width>208</width>
-                                <itemgap>0</itemgap>
-                                <usecontrolcoords>true</usecontrolcoords>
-                                <orientation>horizontal</orientation>
+                            <control type="group">
+                                <visible>Weather.IsFetched</visible>
+                                <include>visiblehidefadeinfo</include>
                                 <control type="image">
-                                    <posx>0</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-high-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
-                                </control>
-                                <control type="label">
-                                    <description>high temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
-                                    <height>40</height>
-                                    <width min="0" max="80">auto</width>
-                                    <font>Font-Condensed-S31-B</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                    <textcolor>ddC6C6C8</textcolor>
-                                </control>
-                                <control type="image">
+                                    <description>day icon</description>
                                     <posx>15</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-low-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                    <posy>25</posy>
+                                    <height>138</height>
+                                    <width>138</width>
+                                    <texture>$INFO[Window(Weather).Property(Day1.FanartCode),weather/medium/,.png]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
                                 </control>
                                 <control type="label">
-                                    <description>low temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
+                                    <posx>178</posx>
+                                    <posy>34</posy>
                                     <height>40</height>
-                                    <width min="0" max="80">auto</width>
+                                    <width>204</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>eewhite</textcolor>
+                                    <label>$INFO[Window(Weather).Property(Day1.Title)]</label>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="label">
+                                    <posx>178</posx>
+                                    <posy>74</posy>
+                                    <height>40</height>
+                                    <width>204</width>
+                                    <font>Font-Condensed-S25-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
                                     <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="grouplist">
+                                    <posx>178</posx>
+                                    <posy>114</posy>
+                                    <height>40</height>
+                                    <width>208</width>
+                                    <itemgap>0</itemgap>
+                                    <usecontrolcoords>true</usecontrolcoords>
+                                    <orientation>horizontal</orientation>
+                                    <control type="image">
+                                        <posx>0</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-high-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>high temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day1.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
+                                    <control type="image">
+                                        <posx>15</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-low-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>low temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day1.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
                                 </control>
                             </control>
                         </control>
@@ -5123,87 +5156,89 @@
                                 <height>197</height>
                                 <texture border="7">windows/home/tile.png</texture>
                             </control>
-                            <control type="image">
-                                <description>day icon</description>
-                                <posx>15</posx>
-                                <posy>25</posy>
-                                <height>138</height>
-                                <width>138</width>
-                                <texture>$INFO[Window(Weather).Property(Day2.FanartCode),weather/medium/,.png]</texture>
-                                <aspectratio align="center">keep</aspectratio>
-                            </control>
-                            <control type="label">
-                                <description></description>
-                                <posx>178</posx>
-                                <posy>34</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textcolor>eewhite</textcolor>
-                                <label>$INFO[Window(Weather).Property(Day2.Title)]</label>
-                                <scroll>false</scroll>
-                            </control>
-                            <control type="label">
-                                <description>current date</description>
-                                <posx>178</posx>
-                                <posy>74</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S25-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
-                                <textcolor>ddC6C6C8</textcolor>
-                            </control>
-                            <control type="grouplist">
-                                <posx>178</posx>
-                                <posy>114</posy>
-                                <height>40</height>
-                                <width>208</width>
-                                <itemgap>0</itemgap>
-                                <usecontrolcoords>true</usecontrolcoords>
-                                <orientation>horizontal</orientation>
+                            <control type="group">
+                                <visible>Weather.IsFetched</visible>
+                                <include>visiblehidefadeinfo</include>
                                 <control type="image">
-                                    <posx>0</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-high-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
-                                </control>
-                                <control type="label">
-                                    <description>high temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
-                                    <height>40</height>
-                                    <width min="0" max="80">auto</width>
-                                    <font>Font-Condensed-S31-B</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                    <textcolor>ddC6C6C8</textcolor>
-                                </control>
-                                <control type="image">
+                                    <description>day icon</description>
                                     <posx>15</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-low-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                    <posy>25</posy>
+                                    <height>138</height>
+                                    <width>138</width>
+                                    <texture>$INFO[Window(Weather).Property(Day2.FanartCode),weather/medium/,.png]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
                                 </control>
                                 <control type="label">
-                                    <description>low temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
+                                    <posx>178</posx>
+                                    <posy>34</posy>
                                     <height>40</height>
-                                    <width min="0" max="80">auto</width>
+                                    <width>204</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>eewhite</textcolor>
+                                    <label>$INFO[Window(Weather).Property(Day2.Title)]</label>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="label">
+                                    <posx>178</posx>
+                                    <posy>74</posy>
+                                    <height>40</height>
+                                    <width>204</width>
+                                    <font>Font-Condensed-S25-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
                                     <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="grouplist">
+                                    <posx>178</posx>
+                                    <posy>114</posy>
+                                    <height>40</height>
+                                    <width>208</width>
+                                    <itemgap>0</itemgap>
+                                    <usecontrolcoords>true</usecontrolcoords>
+                                    <orientation>horizontal</orientation>
+                                    <control type="image">
+                                        <posx>0</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-high-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>high temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day2.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
+                                    <control type="image">
+                                        <posx>15</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-low-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>low temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day2.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
                                 </control>
                             </control>
                         </control>
@@ -5217,87 +5252,89 @@
                                 <height>197</height>
                                 <texture border="7">windows/home/tile.png</texture>
                             </control>
-                            <control type="image">
-                                <description>day icon</description>
-                                <posx>15</posx>
-                                <posy>25</posy>
-                                <height>138</height>
-                                <width>138</width>
-                                <texture>$INFO[Window(Weather).Property(Day3.FanartCode),weather/medium/,.png]</texture>
-                                <aspectratio align="center">keep</aspectratio>
-                            </control>
-                            <control type="label">
-                                <description></description>
-                                <posx>178</posx>
-                                <posy>34</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S31-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <textcolor>eewhite</textcolor>
-                                <label>$INFO[Window(Weather).Property(Day3.Title)]</label>
-                                <scroll>false</scroll>
-                            </control>
-                            <control type="label">
-                                <description>current date</description>
-                                <posx>178</posx>
-                                <posy>74</posy>
-                                <height>40</height>
-                                <width>204</width>
-                                <font>Font-Condensed-S25-B</font>
-                                <align>left</align>
-                                <aligny>center</aligny>
-                                <label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
-                                <textcolor>ddC6C6C8</textcolor>
-                            </control>
-                            <control type="grouplist">
-                                <posx>178</posx>
-                                <posy>114</posy>
-                                <height>40</height>
-                                <width>208</width>
-                                <itemgap>0</itemgap>
-                                <usecontrolcoords>true</usecontrolcoords>
-                                <orientation>horizontal</orientation>
+                            <control type="group">
+                                <visible>Weather.IsFetched</visible>
+                                <include>visiblehidefadeinfo</include>
                                 <control type="image">
-                                    <posx>0</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-high-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
-                                </control>
-                                <control type="label">
-                                    <description>high temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
-                                    <height>40</height>
-                                    <width min="0" max="80">auto</width>
-                                    <font>Font-Condensed-S31-B</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
-                                    <textcolor>ddC6C6C8</textcolor>
-                                </control>
-                                <control type="image">
+                                    <description>day icon</description>
                                     <posx>15</posx>
-                                    <posy>8</posy>
-                                    <width>12</width>
-                                    <height>24</height>
-                                    <texture>weather/temp-low-small.png</texture>
-                                    <colordiffuse>ddC6C6C8</colordiffuse>
+                                    <posy>25</posy>
+                                    <height>138</height>
+                                    <width>138</width>
+                                    <texture>$INFO[Window(Weather).Property(Day3.FanartCode),weather/medium/,.png]</texture>
+                                    <aspectratio align="center">keep</aspectratio>
                                 </control>
                                 <control type="label">
-                                    <description>low temp</description>
-                                    <posx>4</posx>
-                                    <posy>0</posy>
+                                    <posx>178</posx>
+                                    <posy>34</posy>
                                     <height>40</height>
-                                    <width min="0" max="80">auto</width>
+                                    <width>204</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
-                                    <label>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                    <textcolor>eewhite</textcolor>
+                                    <label>$INFO[Window(Weather).Property(Day3.Title)]</label>
+                                    <scroll>false</scroll>
+                                </control>
+                                <control type="label">
+                                    <posx>178</posx>
+                                    <posy>74</posy>
+                                    <height>40</height>
+                                    <width>204</width>
+                                    <font>Font-Condensed-S25-B</font>
+                                    <align>left</align>
+                                    <aligny>center</aligny>
+                                    <label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
                                     <textcolor>ddC6C6C8</textcolor>
+                                </control>
+                                <control type="grouplist">
+                                    <posx>178</posx>
+                                    <posy>114</posy>
+                                    <height>40</height>
+                                    <width>208</width>
+                                    <itemgap>0</itemgap>
+                                    <usecontrolcoords>true</usecontrolcoords>
+                                    <orientation>horizontal</orientation>
+                                    <control type="image">
+                                        <posx>0</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-high-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>high temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day3.HighTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
+                                    <control type="image">
+                                        <posx>15</posx>
+                                        <posy>8</posy>
+                                        <width>12</width>
+                                        <height>24</height>
+                                        <texture>weather/temp-low-small.png</texture>
+                                        <colordiffuse>ddC6C6C8</colordiffuse>
+                                    </control>
+                                    <control type="label">
+                                        <description>low temp</description>
+                                        <posx>4</posx>
+                                        <posy>0</posy>
+                                        <height>40</height>
+                                        <width min="0" max="80">auto</width>
+                                        <font>Font-Condensed-S31-B</font>
+                                        <align>left</align>
+                                        <aligny>center</aligny>
+                                        <label>$INFO[Window(Weather).Property(Day3.LowTemp)]$INFO[System.TemperatureUnits]</label>
+                                        <textcolor>ddC6C6C8</textcolor>
+                                    </control>
                                 </control>
                             </control>
                         </control>
