@@ -245,7 +245,7 @@
 <!-- Sort letters -->
 <!-- ============== -->
 
-    <include name="ScrollLetterFileBrowser">
+    <include name="SortLetterFileBrowser">
         <control type="group">
             <posx>275</posx>
             <posy>440</posy>
@@ -262,7 +262,7 @@
                 <posy>0</posy>
                 <width>200</width>
                 <height>200</height>
-                <texture flipx="true">dialogs/other/alphapanel.png</texture>
+                <texture>dialogs/other/sortletter.png</texture>
             </control>
             <control type="label">
                 <posx>26</posx>
@@ -276,6 +276,46 @@
                 <label>$INFO[Container(450).ListItem.SortLetter]</label>
             </control>
             <visible>Container(450).Scrolling</visible>
+        </control>
+    </include>
+    
+    <variable name="SortLetterSelectDialogLabel">
+        <value condition="Control.IsVisible(6)">$INFO[Container(6).ListItem.SortLetter]</value>
+        <value>$INFO[Container(3).ListItem.SortLetter]</value>
+    </variable>
+    
+    <include name="SortLetterSelectDialog">
+        <control type="group">
+            <posx>434</posx>
+            <posy>440</posy>
+            <animation type="Visible" reversible="false">
+                <effect type="slide" start="-10" end="0" time="300" delay="0" tween="sine" easing="in" />
+                <effect type="fade" start="0" end="100" time="200" delay="100" tween="sine" easing="in" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="slide" start="0" end="-10" delay="1500" time="300" tween="sine" easing="in" />
+                <effect type="fade" start="100" end="0" delay="1500" time="300" tween="sine" easing="out" />
+            </animation>
+            <animation effect="slide" end="-217" time="0" condition="Control.IsVisible(6)">Conditional</animation>
+            <control type="image">
+                <posx>0</posx>
+                <posy>0</posy>
+                <width>200</width>
+                <height>200</height>
+                <texture>dialogs/other/sortletter.png</texture>
+            </control>
+            <control type="label">
+                <posx>26</posx>
+                <posy>34</posy>
+                <width>132</width>
+                <height>132</height>
+                <font>Font-Condensed-S80-B</font>
+                <align>center</align>
+                <textcolor>MenuGrey</textcolor>
+                <shadowcolor>white</shadowcolor>
+                <label>$VAR[SortLetterSelectDialogLabel]</label>
+            </control>
+            <visible>Container(3).Scrolling | Container(6).Scrolling</visible>
         </control>
     </include>
     
