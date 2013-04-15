@@ -93,7 +93,8 @@
 			<include>BannerListInfoAnimation</include>
 			<visible>Window.IsActive(fullscreenvideo) | [Window.IsActive(visualisation) + Skin.HasSetting(OSDMusicAlt.Enabled)]</visible>
 			<animation effect="slide" end="-100" time="300" tween="sine" easing="inout" condition="Player.Muted | substring(Player.Volume,-60.0)">Conditional</animation>
-			<animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar)">Conditional</animation>
+			<animation effect="slide" end="-213" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar) + !Player.Passthrough">Conditional</animation>
+			<animation effect="slide" end="-463" time="300" tween="sine" easing="inout" condition="Window.IsActive(volumebar) + Player.Passthrough">Conditional</animation>
 			<control type="image">
 				<posx>1218</posx>
 				<posy>0</posy>
