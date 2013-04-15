@@ -22,24 +22,54 @@
                     <height>100</height>
                     <texture>overlays/volume/volume-back.png</texture>
                 </control>
-                <control type="image">
-                    <posx>-4</posx>
-                    <posy>27</posy>
-                    <width>100</width>
-                    <height>100</height>
-                    <texture>$INFO[Player.Volume,overlays/volume/progress/,.png]</texture>
+                <control type="group">
+                    <visible>!Player.Passthrough</visible>
+                    <control type="progress" id="20">
+                        <visible>false</visible>
+                        <info>Player.Volume</info>
+                    </control>
+                    <control type="image">
+                        <posx>-4</posx>
+                        <posy>27</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texture>$INFO[Control.GetLabel(20),overlays/volume/progress/p,.png]</texture>
+                    </control>
+                    <control type="label">
+                        <description>Volume label</description>
+                        <posx>0</posx>
+                        <posy>27</posy>
+                        <width>750</width>
+                        <height>100</height>
+                        <label>$INFO[Player.Volume]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>right</align>
+                    </control>
                 </control>
-                <control type="label">
-                    <description>Line 1</description>
-                    <posx>0</posx>
-                    <posy>27</posy>
-                    <width>750</width>
-                    <height>100</height>
-                    <label>$INFO[Player.Volume]</label>
-                    <font>Font-Condensed-S36-B</font>
-                    <textcolor>C0FFFFFF</textcolor>
-                    <scroll>false</scroll>
-                    <align>right</align>
+                <control type="group">
+                    <visible>Player.Passthrough</visible>
+                    <control type="label">
+                        <description>Passthrough label</description>
+                        <posx>0</posx>
+                        <posy>27</posy>
+                        <width>750</width>
+                        <height>100</height>
+                        <label>$LOCALIZE[29802]</label>
+                        <font>Font-Condensed-S36-B</font>
+                        <textcolor>C0FFFFFF</textcolor>
+                        <scroll>false</scroll>
+                        <align>right</align>
+                    </control>
+                    <control type="image">
+                        <posx>-4</posx>
+                        <posy>27</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <texture>dialogs/search/loading.png</texture>
+                        <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Window.IsVisible(volumebar) + Player.Passthrough">Conditional</animation>
+                    </control>
                 </control>
             </control>
         </control>
