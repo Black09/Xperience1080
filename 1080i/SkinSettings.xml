@@ -370,14 +370,23 @@
                         <onclick>ActivateWindow(3003)</onclick>
                         <label>$LOCALIZE[41136]</label>
                     </control>
-                    <control type="radiobutton" id="2002">
+                    <control type="button" id="2002">
+                        <width>1210</width>
+                        <texturefocus border="150,3,150,3">windows/settings/images/right-focus-arrow-fo.png</texturefocus>
+                        <texturenofocus border="150,3,150,3">windows/settings/images/right-focus-arrow-nf.png</texturenofocus>
+                        <include>SettingsCategoryDefaultButtonVars</include>
+                        <onclick>SetProperty(Dialog,$LOCALIZE[41140])</onclick>
+                        <onclick>ActivateWindow(3003)</onclick>
+                        <label>$LOCALIZE[41140]</label>
+                    </control>
+                    <control type="radiobutton" id="2003">
                         <width>1210</width>
                         <include>SettingsCategoryRadioButtonVars</include>
                         <selected>!Skin.HasSetting(HideHomeProfileInfo)</selected>
                         <onclick>Skin.ToggleSetting(HideHomeProfileInfo)</onclick>
                         <label>$LOCALIZE[41134]</label>
                     </control>
-                    <control type="radiobutton" id="2003">
+                    <control type="radiobutton" id="2004">
                         <width>1210</width>
                         <include>SettingsCategoryRadioButtonVars</include>
                         <selected>!Skin.HasSetting(HideHomeSubmenuArrow)</selected>
@@ -411,7 +420,7 @@
                             <height>60</height>
                             <onleft>20072</onleft>
                             <onright>20072</onright>
-                            <onup>2003</onup>
+                            <onup>2004</onup>
                             <ondown>4001</ondown>
                             <texturefocus>buttons/spinctrl/arrow-down-fo.png</texturefocus>
                             <texturenofocus>buttons/spinctrl/arrow-down-nf.png</texturenofocus>
@@ -453,7 +462,7 @@
                             <height>60</height>
                             <onleft>20071</onleft>
                             <onright>20071</onright>
-                            <onup>2003</onup>
+                            <onup>2004</onup>
                             <ondown>4001</ondown>
                             <texturefocus>buttons/spinctrl/arrow-up-fo.png</texturefocus>
                             <texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>

@@ -154,6 +154,36 @@
         <value condition="System.HasMediaDVD">$LOCALIZE[208]</value>
         <value>$LOCALIZE[41524]</value>
     </variable>
+    
+    <variable name="SpotlightLabelVAR">
+        <value condition="stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget1.Name))">$INFO[Window.Property(HomeWidget1.Name)]</value>
+        <value condition="!IsEmpty(Skin.String(HomeWidget.1.TypeName))">$INFO[Skin.String(HomeWidget.1.TypeName]</value>
+        <value>$LOCALIZE[41550]</value>
+    </variable>
+    
+    <variable name="OngoingTVShowsLabelVAR">
+    <value condition="stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.Name))">$INFO[Window.Property(HomeWidget2.Name)]</value>
+        <value condition="!IsEmpty(Skin.String(HomeWidget.2.TypeName))">$INFO[Skin.String(HomeWidget.2.TypeName]</value>
+        <value>$LOCALIZE[41551]</value>
+    </variable>
+    
+    <variable name="NewMoviesLabelVAR">
+    <value condition="stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.Name))">$INFO[Window.Property(HomeWidget3.Name)]</value>
+        <value condition="!IsEmpty(Skin.String(HomeWidget.3.TypeName))">$INFO[Skin.String(HomeWidget.3.TypeName]</value>
+        <value>$LOCALIZE[41552]</value>
+    </variable>
+    
+    <variable name="NewShowsLabelVAR">
+    <value condition="stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.Name))">$INFO[Window.Property(HomeWidget4.Name)]</value>
+        <value condition="!IsEmpty(Skin.String(HomeWidget.4.TypeName))">$INFO[Skin.String(HomeWidget.4.TypeName]</value>
+        <value>$LOCALIZE[41553]</value>
+    </variable>
+    
+    <variable name="FeaturedAlbumsLabelVAR">
+    <value condition="stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.Name))">$INFO[Window.Property(HomeWidget5.Name)]</value>
+        <value condition="!IsEmpty(Skin.String(HomeWidget.5.TypeName))">$INFO[Skin.String(HomeWidget.5.TypeName]</value>
+        <value>$LOCALIZE[41556]</value>
+    </variable>
  
     <include name="HomeProfileInfo">
         <control type="group">
@@ -1013,6 +1043,9 @@
                             <onright>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onright>
                             <onright>503</onright>
                             <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(5022).ListItem.Property(Play)]</onclick>
+                            <onback>SetProperty(SingleDialog,widget1,3003)</onback>
+                            <onback>SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback>ActivateWindow(3003)</onback>
                         </control>
                         <control type="image">
                             <posx>-5</posx>
@@ -1046,8 +1079,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="572" height="501">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1055,7 +1088,7 @@
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="572" height="501">
@@ -1065,58 +1098,11 @@
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true">$INFO[ListItem.ActualIcon]</texture>
+                                    <texture background="true">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
-                                <item id="1">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomMovie.1.Art(fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomMovie.1.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomMovie.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomMovie.1.File))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomEpisode.1.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomEpisode.1.Season),,x]$INFO[Window.Property(RandomEpisode.1.Episode),, ]$INFO[Window.Property(RandomEpisode.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomEpisode.1.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomEpisode.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomMovie.2.Art(fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomMovie.2.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomMovie.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomMovie.2.File))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomEpisode.2.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomEpisode.2.Season),,x]$INFO[Window.Property(RandomEpisode.2.Episode),, ]$INFO[Window.Property(RandomEpisode.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomEpisode.2.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomEpisode.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomEpisode.2.File))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomMovie.3.Art(fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomMovie.3.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomMovie.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomMovie.3.File))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomEpisode.3.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RandomEpisode.3.Season),,x]$INFO[Window.Property(RandomEpisode.3.Episode),, ]$INFO[Window.Property(RandomEpisode.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomEpisode.3.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RandomEpisode.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomEpisode.3.File))</visible>
-                                </item>
+                                <include>HomeWidget.1</include>
                             </content>
                         </control>
                         <control type="image">
@@ -1127,11 +1113,10 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                            <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="group" id="5023">
-                            <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomEpisode.1.File)) + IsEmpty(Window.Property(RandomMovie.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>!IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayhidden</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>212</posx>
@@ -1150,12 +1135,12 @@
                                 <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(5023)">Conditional</animation>
                             </control>
                             <control type="label">
-                                <description>Title label</description>
+                                <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
                                 <width>532</width>
                                 <height>64</height>
-                                <label>$LOCALIZE[41557]</label>
+                                <label>$LOCALIZE[41564] "$VAR[SpotlightLabelVAR]"...</label>
                                 <font>Font-Condensed-S29-B</font>
                                 <textcolor>aawhite</textcolor>
                                 <align>left</align>
@@ -1176,8 +1161,8 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1190,7 +1175,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41550][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[SpotlightLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                         </control>
                         <control type="grouplist">
@@ -1202,8 +1187,8 @@
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
-                            <visible>!IsEmpty(Window.Property(RandomMovie.1.File)) + !IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
                                 <description>Dot #1</description>
                                 <include>HomeDotIndicator</include>
@@ -1211,7 +1196,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomMovie.1.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.1.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.1.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #2</description>
@@ -1220,7 +1205,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomEpisode.1.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.2.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.2.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #3</description>
@@ -1229,7 +1214,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomMovie.2.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.3.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.3.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #4</description>
@@ -1238,7 +1223,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomEpisode.2.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.4.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.4.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.4.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #5</description>
@@ -1247,7 +1232,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomMovie.3.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.5.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.5.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.5.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #6</description>
@@ -1256,7 +1241,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomEpisode.3.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.6.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.6.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.6.Art(fanart)))]</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -1296,6 +1281,9 @@
                             <onright condition="Skin.HasSetting(HomeMovies) + Skin.HasSetting(HomeTVShows) + Skin.HasSetting(HomeMusic) + Skin.HasSetting(HomePrograms)">701</onright>
                             <onright>Control.Move(20,1)</onright>
                             <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(5032).ListItem.Property(Play)]</onclick>
+                            <onback>SetProperty(SingleDialog,widget2,3003)</onback>
+                            <onback>SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback>ActivateWindow(3003)</onback>
                         </control>
                         <control type="image">
                             <posx>-5</posx>
@@ -1303,20 +1291,6 @@
                             <width>392</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>382</width>
-                            <height>572</height>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>77white</textcolor>
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <wrapmultiline>true</wrapmultiline>
-                            <label>service.skin.widgets[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
-                            <visible>!System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="wraplist" id="5032">
                             <posx>0</posx>
@@ -1329,8 +1303,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1352,54 +1326,7 @@
                                 </control>
                             </focusedlayout>
                             <content>
-                                <item id="1">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.1.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.1.Season),,x]$INFO[Window.Property(RecommendedEpisode.1.Episode),, ]$INFO[Window.Property(RecommendedEpisode.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.1.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.2.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.2.Season),,x]$INFO[Window.Property(RecommendedEpisode.2.Episode),, ]$INFO[Window.Property(RecommendedEpisode.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.2.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.2.File))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.3.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.3.Season),,x]$INFO[Window.Property(RecommendedEpisode.3.Episode),, ]$INFO[Window.Property(RecommendedEpisode.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.3.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.3.File))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.4.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.4.Season),,x]$INFO[Window.Property(RecommendedEpisode.4.Episode),, ]$INFO[Window.Property(RecommendedEpisode.4.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.4.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.4.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.4.File))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.5.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.5.Season),,x]$INFO[Window.Property(RecommendedEpisode.5.Episode),, ]$INFO[Window.Property(RecommendedEpisode.5.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.5.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.5.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.5.File))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecommendedEpisode.6.Art(tvshow.poster))]</icon>
-                                    <label>$INFO[Window.Property(RecommendedEpisode.6.Season),,x]$INFO[Window.Property(RecommendedEpisode.6.Episode),, ]$INFO[Window.Property(RecommendedEpisode.6.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecommendedEpisode.6.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecommendedEpisode.6.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecommendedEpisode.6.File))</visible>
-                                </item>
+                                <include>HomeWidget.2</include>
                             </content>
                         </control>
                         <control type="image">
@@ -1410,11 +1337,10 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                            <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="group" id="5033">
-                            <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>!IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayhidden</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>117</posx>
@@ -1433,12 +1359,12 @@
                                 <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(5033)">Conditional</animation>
                             </control>
                             <control type="label">
-                                <description>Title label</description>
+                                <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
                                 <width>342</width>
                                 <height>64</height>
-                                <label>$LOCALIZE[41558]</label>
+                                <label>$LOCALIZE[41564] "$VAR[OngoingTVShowsLabelVAR]"...</label>
                                 <font>Font-Condensed-S29-B</font>
                                 <textcolor>aawhite</textcolor>
                                 <align>left</align>
@@ -1459,8 +1385,8 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1473,7 +1399,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41551][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[OngoingTVShowsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(503).HasFocus">Conditional</animation>
                         </control>
                         <control type="grouplist">
@@ -1484,8 +1410,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
-                            <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(503).HasFocus">Conditional</animation>
                             <control type="image">
                                 <description>Dot #1</description>
@@ -1494,7 +1420,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.1.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.1.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.1.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #2</description>
@@ -1503,7 +1429,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.2.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.2.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.2.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #3</description>
@@ -1512,7 +1438,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.3.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.3.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.3.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #4</description>
@@ -1521,7 +1447,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.4.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.4.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.4.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.4.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #5</description>
@@ -1530,7 +1456,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.5.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.5.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.5.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.5.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #6</description>
@@ -1539,7 +1465,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecommendedEpisode.6.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.6.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.6.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.6.Art(fanart)))]</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -1803,6 +1729,9 @@
                             <onright>AlarmClock(HomeTileMove,Control.Move(2022,1),00:07,silent,loop)</onright>
                             <onright>203</onright>
                             <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(2022).ListItem.Property(Play)]</onclick>
+                            <onback>SetProperty(SingleDialog,widget3,3003)</onback>
+                            <onback>SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback>ActivateWindow(3003)</onback>
                         </control>
                         <control type="image">
                             <posx>-5</posx>
@@ -1810,20 +1739,6 @@
                             <width>392</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>382</width>
-                            <height>572</height>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>77white</textcolor>
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <wrapmultiline>true</wrapmultiline>
-                            <label>service.skin.widgets[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
-                            <visible>!System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="wraplist" id="2022">
                             <posx>0</posx>
@@ -1836,8 +1751,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(2022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -1859,54 +1774,7 @@
                                 </control>
                             </focusedlayout>
                             <content>
-                                <item id="1">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.1.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.1.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.2.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.2.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.2.File))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.3.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.3.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.3.File))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.4.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.4.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.4.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.4.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.4.File))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.5.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.5.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.5.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.5.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.5.File))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentMovie.6.Art(poster))]</icon>
-                                    <label>$INFO[Window.Property(RecentMovie.6.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentMovie.6.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentMovie.6.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentMovie.6.File))</visible>
-                                </item>
+                                <include>HomeWidget.3</include>
                             </content>
                         </control>
                         <control type="image">
@@ -1917,11 +1785,10 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                            <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="group" id="2023">
-                            <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentMovie.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>!IntegerGreaterThan(Container(2022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayhidden</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>117</posx>
@@ -1940,12 +1807,12 @@
                                 <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(2023)">Conditional</animation>
                             </control>
                             <control type="label">
-                                <description>Title label</description>
+                                <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
                                 <width>342</width>
                                 <height>64</height>
-                                <label>$LOCALIZE[41559]</label>
+                                <label>$LOCALIZE[41564] "$VAR[NewMoviesLabelVAR]"...</label>
                                 <font>Font-Condensed-S29-B</font>
                                 <textcolor>aawhite</textcolor>
                                 <align>left</align>
@@ -1966,8 +1833,8 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(2022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -1980,7 +1847,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41552][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[NewMoviesLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(202).HasFocus">Conditional</animation>
                         </control>
                         <control type="grouplist">
@@ -1991,8 +1858,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
-                            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(2022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(202).HasFocus">Conditional</animation>
                             <control type="image">
                                 <description>Dot #1</description>
@@ -2001,7 +1868,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.1.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.1.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.1.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #2</description>
@@ -2010,7 +1877,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.2.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.2.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.2.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget3.TrendingShows.2.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #3</description>
@@ -2019,7 +1886,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.3.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.3.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.3.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.3.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #4</description>
@@ -2028,7 +1895,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.4.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.4.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.4.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.4.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #5</description>
@@ -2037,16 +1904,16 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.5.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.5.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.5.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.5.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #6</description>
                                 <include>HomeDotIndicator</include>
                                 <animation type="Conditional" condition="!Container(2022).HasFocus(6)">
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="back" easing="out" /> 
+                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentMovie.6.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.6.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.6.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.6.Art(fanart)))]</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -2550,6 +2417,9 @@
                             <onright>AlarmClock(HomeTileMove,Control.Move(3022,1),00:07,silent,loop)</onright>
                             <onright>303</onright>
                             <onclick condition="System.HasAddon(service.skin.widgets)">$INFO[Container(3022).ListItem.Property(Play)]</onclick>
+                            <onback>SetProperty(SingleDialog,widget4,3003)</onback>
+                            <onback>SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback>ActivateWindow(3003)</onback>
                         </control>
                         <control type="image">
                             <posx>-5</posx>
@@ -2557,20 +2427,6 @@
                             <width>681</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>671</width>
-                            <height>572</height>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>77white</textcolor>
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <wrapmultiline>true</wrapmultiline>
-                            <label>service.skin.widgets[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
-                            <visible>!System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="wraplist" id="3022">
                             <posx>0</posx>
@@ -2583,8 +2439,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(3022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="671" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -2606,54 +2462,7 @@
                                 </control>
                             </focusedlayout>
                             <content>
-                                <item id="1">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.1.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.1.Season),,x]$INFO[Window.Property(RecentEpisode.1.Episode),, ]$INFO[Window.Property(RecentEpisode.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.1.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.2.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.2.Season),,x]$INFO[Window.Property(RecentEpisode.2.Episode),, ]$INFO[Window.Property(RecentEpisode.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.2.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.2.File))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.3.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.3.Season),,x]$INFO[Window.Property(RecentEpisode.3.Episode),, ]$INFO[Window.Property(RecentEpisode.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.3.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.3.File))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.4.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.4.Season),,x]$INFO[Window.Property(RecentEpisode.4.Episode),, ]$INFO[Window.Property(RecentEpisode.4.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.4.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.4.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.4.File))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.5.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.5.Season),,x]$INFO[Window.Property(RecentEpisode.5.Episode),, ]$INFO[Window.Property(RecentEpisode.5.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.5.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.5.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.5.File))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RecentEpisode.6.Art(tvshow.fanart))]</icon>
-                                    <label>$INFO[Window.Property(RecentEpisode.6.Season),,x]$INFO[Window.Property(RecentEpisode.6.Episode),, ]$INFO[Window.Property(RecentEpisode.6.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentEpisode.6.Rating)]</label2>
-                                    <property name="Play">$INFO[Window.Property(RecentEpisode.6.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentEpisode.6.File))</visible>
-                                </item>
+                                <include>HomeWidget.4</include>
                             </content>
                         </control>
                         <control type="image">
@@ -2664,11 +2473,10 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                            <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="group" id="3023">
-                            <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>!IntegerGreaterThan(Container(3022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayhidden</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>261</posx>
@@ -2687,12 +2495,12 @@
                                 <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(3023)">Conditional</animation>
                             </control>
                             <control type="label">
-                                <description>Title label</description>
+                                <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
-                                <width>342</width>
+                                <width>631</width>
                                 <height>64</height>
-                                <label>$LOCALIZE[41560]</label>
+                                <label>$LOCALIZE[41564] "$VAR[NewShowsLabelVAR]"...</label>
                                 <font>Font-Condensed-S29-B</font>
                                 <textcolor>aawhite</textcolor>
                                 <align>left</align>
@@ -2713,8 +2521,8 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(3022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -2727,7 +2535,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41553][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[NewShowsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(302).HasFocus">Conditional</animation>
                         </control>
                         <control type="grouplist">
@@ -2738,8 +2546,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
-                            <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(3022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(302).HasFocus">Conditional</animation>
                             <control type="image">
                                 <description>Dot #1</description>
@@ -2748,7 +2556,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.1.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.1.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.1.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #2</description>
@@ -2757,7 +2565,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.2.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.2.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.2.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #3</description>
@@ -2766,7 +2574,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.3.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.3.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.3.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #4</description>
@@ -2775,7 +2583,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.4.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.4.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.4.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.4.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #5</description>
@@ -2784,7 +2592,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.5.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.5.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.5.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.5.Art(fanart)))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #6</description>
@@ -2793,7 +2601,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RecentEpisode.6.File))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.6.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.6.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.6.Art(fanart)))]</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -3254,15 +3062,6 @@
                     <control type="group" id="402">
                         <description>Featured albums</description>
                         <posx>339</posx>
-                        <visible>IsEmpty(Window(Home).Property(ShowRecentAlbums))</visible>
-                        <animation type="Visible">
-                            <effect type="rotatey" start="-180" end="0" center="625,0" time="300" tween="sine" easing="inout" />
-                            <effect type="fade" start="0" end="100" time="10" delay="150" />
-                        </animation>
-                        <animation type="Hidden">
-                            <effect type="rotatey" start="0" end="-180" center="625,0" time="300" tween="sine" easing="inout" />
-                            <effect type="fade" start="100" end="0" time="10" delay="150" />
-                        </animation>
                         <control type="button" id="4021">
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onup>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onup>
@@ -3273,6 +3072,9 @@
                             <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
                             <onright>403</onright>
                             <onclick>$INFO[Container(4022).ListItem.Property(Play)]</onclick>
+                            <onback>SetProperty(SingleDialog,widget5,3003)</onback>
+                            <onback>SetProperty(Dialog,$LOCALIZE[41168],skinsettings)</onback>
+                            <onback>ActivateWindow(3003)</onback>
                         </control>
                         <control type="image">
                             <posx>-5</posx>
@@ -3280,20 +3082,6 @@
                             <width>582</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>572</width>
-                            <height>572</height>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>77white</textcolor>
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <wrapmultiline>true</wrapmultiline>
-                            <label>service.skin.widgets[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
-                            <visible>!System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="wraplist" id="4022">
                             <posx>0</posx>
@@ -3306,8 +3094,8 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
-                            <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible allowhiddenfocus="true">IntegerGreaterThan(Container(4022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="572" height="572">
                                 <control type="image">
                                     <posx>0</posx>
@@ -3315,7 +3103,7 @@
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true" fallback="views/fallbacks/DefaultAlbumCover.png/square-large.png">$INFO[ListItem.ActualIcon]</texture>
+                                    <texture background="true" fallback="views/fallbacks/DefaultAlbumCover.png/square-large.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </itemlayout>
                             <focusedlayout width="572" height="572">
@@ -3325,64 +3113,11 @@
                                     <width>572</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
-                                    <texture background="true" fallback="views/fallbacks/DefaultAlbumCover.png/square-large.png">$INFO[ListItem.ActualIcon]</texture>
+                                    <texture background="true" fallback="views/fallbacks/DefaultAlbumCover.png/square-large.png">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </focusedlayout>
                             <content>
-                                <item id="1">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.1.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.1.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.1.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.2.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.2.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.2.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.2.Play))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.3.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.3.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.3.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.3.Play))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.4.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.4.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.4.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.4.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.4.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.4.Play))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.5.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.5.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.5.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.5.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.5.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.5.Play))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>-</onclick>
-                                    <icon>$INFO[Window.Property(RandomAlbum.6.Art(thumb))]</icon>
-                                    <label>$INFO[Window.Property(RandomAlbum.6.Title)]</label>
-                                    <label2>$INFO[Window.Property(RandomAlbum.6.Artist)]</label2>
-                                    <property name="year">$INFO[Window.Property(RandomAlbum.6.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RandomAlbum.6.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RandomAlbum.6.Play))</visible>
-                                </item>
+                                <include>HomeWidget.5</include>
                             </content>
                         </control>
                         <control type="image">
@@ -3393,11 +3128,10 @@
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
-                            <visible>System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="group" id="4023">
-                            <visible>System.HasAddon(service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running)) + IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>!IntegerGreaterThan(Container(4022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayhidden</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>212</posx>
@@ -3416,15 +3150,16 @@
                                 <animation effect="rotate" center="auto" start="360" end="0" time="1500" loop="true" condition="Control.IsVisible(4023)">Conditional</animation>
                             </control>
                             <control type="label">
+                                <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
                                 <height>64</height>
-                                <width>437</width>
+                                <width>532</width>
                                 <font>Font-Condensed-S31-B</font>
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>bbwhite</textcolor>
-                                <label>$LOCALIZE[41561]</label>
+                                <label>$LOCALIZE[41564] "$VAR[FeaturedAlbumsLabelVAR]"...</label>
                                 <scroll>false</scroll>
                             </control>
                         </control>
@@ -3441,8 +3176,8 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(4022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
                             <posx>0</posx>
@@ -3455,7 +3190,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41556][/UPPERCASE]</label>
+                            <label>[UPPERCASE]$VAR[FeaturedAlbumsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                         </control>
                         <control type="grouplist">
@@ -3466,8 +3201,8 @@
                             <height>16</height>
                             <orientation>horizontal</orientation>
                             <itemgap>0</itemgap>
-                            <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
-                            <include>visiblehidefadeinfo</include>
+                            <visible>IntegerGreaterThan(Container(4022).NumItems,0)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                             <control type="image">
                                 <description>Dot #1</description>
@@ -3476,7 +3211,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.1.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.1.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.1.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.1.Play))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #2</description>
@@ -3485,7 +3220,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.2.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.2.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.2.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.2.Play))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #3</description>
@@ -3494,7 +3229,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.3.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.3.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.3.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.3.Play))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #4</description>
@@ -3503,7 +3238,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.4.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.4.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.4.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.4.Play))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #5</description>
@@ -3512,7 +3247,7 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.5.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.5.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.5.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.5.Play))]</visible>
                             </control>
                             <control type="image">
                                 <description>Dot #6</description>
@@ -3521,216 +3256,8 @@
                                     <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
                                     <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
                                 </animation>
-                                <visible>!IsEmpty(Window.Property(RandomAlbum.6.Play))</visible>
+                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.6.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.6.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.6.Play))]</visible>
                             </control>
-                        </control>
-                    </control>
-                    <control type="group" id="402">
-                        <description>New albums</description>
-                        <posx>339</posx>
-                        <visible>!IsEmpty(Window(Home).Property(ShowRecentAlbums))</visible>
-                        <animation type="Visible">
-                            <effect type="rotatey" start="180" end="0" center="625,0" time="300" tween="sine" easing="inout" />
-                            <effect type="fade" start="0" end="100" time="10" delay="150" />
-                        </animation>                                
-                        <animation type="Hidden">
-                            <effect type="rotatey" start="0" end="180" center="625,0" time="300" tween="sine" easing="inout" />
-                            <effect type="fade" start="100" end="0" time="10" delay="150" />
-                        </animation>
-                        <control type="image">
-                            <posx>-5</posx>
-                            <posy>-5</posy>
-                            <width>582</width>
-                            <height>582</height>
-                            <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="list" id="4023">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>572</width>
-                            <height>572</height>
-                            <onup>4023</onup>
-                            <ondown>4023</ondown>
-                            <onleft>ClearProperty(ShowRecentAlbums)</onleft>
-                            <onleft>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onleft>
-                            <onleft>401</onleft>
-                            <onright>ClearProperty(ShowRecentAlbums)</onright>
-                            <onright>AlarmClock(HomeTileMove,Control.Move(4022,1),00:07,silent,loop)</onright>
-                            <onright>403</onright>
-                            <viewtype label="List">List</viewtype>
-                            <scrolltime tween="cubic" easing="out">500</scrolltime>
-                            <orientation>vertical</orientation>
-                            <include>visiblehidefadeinfo</include>
-                            <itemlayout width="572" height="64">
-                                <control type="image">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width>572</width>
-                                    <height>65</height>
-                                    <texture border="90,3,90,3">views/list/other/separator.png</texture>
-                                </control>
-                                <control type="label">
-                                    <posx>90</posx>
-                                    <posy>0</posy>
-                                    <height>64</height>
-                                    <width>462</width>
-                                    <font>Font-Condensed-S29-B</font>
-                                    <label>$INFO[ListItem.Label]</label>
-                                    <textcolor>77white</textcolor>
-                                    <shadowcolor>22000000</shadowcolor>
-                                    <scroll>false</scroll>
-                                </control>
-                                <control type="label">
-                                    <posx>46</posx>
-                                    <width>100</width>
-                                    <height>62</height>
-                                    <font>Font-Condensed-S31</font>
-                                    <label fallback="••••">$INFO[ListItem.Property(Year)]</label>
-                                    <align>center</align>
-                                    <textcolor>77white</textcolor>
-                                    <shadowcolor>22000000</shadowcolor>
-                                    <scroll>false</scroll>
-                                </control>
-                            </itemlayout>
-                            <focusedlayout width="572" height="124">
-                                <control type="image">
-                                    <posx>0</posx>
-                                    <posy>0</posy>
-                                    <width>572</width>
-                                    <height>125</height>
-                                    <texture border="90,3,90,3">views/list/other/separator.png</texture>
-                                </control>
-                                <control type="group">
-                                    <animation effect="slide" start="0,71" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(4023).OnPrevious">focus</animation>
-                                    <animation effect="slide" start="0,-71" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(4023).OnNext">focus</animation>
-                                    <control type="image">
-                                        <posx>0</posx>
-                                        <posy>0</posy>
-                                        <width>572</width>
-                                        <height>123</height>
-                                        <texture border="150,1,150,1">views/other/focus.png</texture>
-                                        <include>visiblehidefadeinfo</include>
-                                        <visible>Control.HasFocus(4023)</visible>
-                                    </control>
-                                    <control type="image">
-                                        <posx>20</posx>
-                                        <posy>15</posy>
-                                        <width>94</width>
-                                        <height>94</height>
-                                        <texture background="true" fallback="views/fallbacks/DefaultAlbumCover.png/square-small.png">$INFO[ListItem.Thumb]</texture>
-                                    </control>
-                                    <control type="label">
-                                        <posx>129</posx>
-                                        <posy>8</posy>
-                                        <height>70</height>
-                                        <width>423</width>
-                                        <font>Font-Condensed-S32</font>
-                                        <label>[B]$INFO[ListItem.Label][/B]</label>
-                                        <textcolor>eewhite</textcolor>
-                                        <shadowcolor>22000000</shadowcolor>
-                                        <scroll>false</scroll>
-                                    </control>
-                                    <control type="label">
-                                        <posx>129</posx>
-                                        <posy>47</posy>
-                                        <height>70</height>
-                                        <width>423</width>
-                                        <font>Font-Condensed-S29</font>
-                                        <label>$INFO[ListItem.Label2]</label>
-                                        <textcolor>eewhite</textcolor>
-                                        <shadowcolor>22000000</shadowcolor>
-                                        <scroll>false</scroll>
-                                    </control>
-                                </control>
-                            </focusedlayout>
-                            <content>
-                                <item id="1">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.1.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.1.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.1.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.1.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.1.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.1.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.1.Play))</visible>
-                                </item>
-                                <item id="2">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.2.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.2.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.2.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.2.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.2.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.2.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.2.Play))</visible>
-                                </item>
-                                <item id="3">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.3.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.3.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.3.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.3.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.3.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.3.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.3.Play))</visible>
-                                </item>
-                                <item id="4">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.4.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.4.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.4.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.4.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.4.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.4.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.4.Play))</visible>
-                                </item>
-                                <item id="5">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.5.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.5.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.5.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.5.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.5.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.5.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.5.Play))</visible>
-                                </item>
-                                <item id="6">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.6.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.6.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.6.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.6.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.6.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.6.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.6.Play))</visible>
-                                </item>
-                                <item id="7">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.7.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.7.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.7.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.7.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.7.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.7.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.7.Play))</visible>
-                                </item>
-                                <item id="8">
-                                    <onclick>$INFO[Window.Property(RecentAlbum.8.Play)]</onclick>
-                                    <label>$INFO[Window.Property(RecentAlbum.8.Title)]</label>
-                                    <label2>$INFO[Window.Property(RecentAlbum.8.Artist)]</label2>
-                                    <thumb>$INFO[Window.Property(RecentAlbum.8.Thumb)]</thumb>
-                                    <property name="Year">$INFO[Window.Property(RecentAlbum.8.Year)]</property>
-                                    <property name="Play">$INFO[Window.Property(RecentAlbum.8.Play)]</property>
-                                    <visible>!IsEmpty(Window.Property(RecentAlbum.8.Play))</visible>
-                                </item>
-                            </content>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>576</posy>
-                            <width>477</width>
-                            <height>25</height>
-                            <font>Font-Condensed-S20-B</font>
-                            <shadowcolor>11000000</shadowcolor>
-                            <textcolor>77white</textcolor>
-                            <align>left</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <label>[UPPERCASE]$LOCALIZE[41554][/UPPERCASE]</label>
-                            <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                         </control>
                     </control>
                     <control type="panel" id="401">
@@ -3898,51 +3425,6 @@
                             </item>
                         </content>
                     </control>
-                    <control type="fadelabel" id="404">
-                        <posx>-1</posx>
-                        <posy>-1</posy>
-                        <width>500</width>
-                        <height>1</height>
-                        <scroll>false</scroll>
-                        <scrollout>false</scrollout>
-                        <pauseatend>10000</pauseatend>
-                        <aligny>center</aligny>
-                        <font>Font-Condensed-S1</font>
-                        <textcolor>00000000</textcolor>
-                        <label>$INFO[Window.Property(RecentAlbum.1.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.2.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.3.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.4.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.5.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.6.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.7.Thumb)]</label>
-                        <label>$INFO[Window.Property(RecentAlbum.8.Thumb)]</label>
-                        <visible>Container(20).HasFocus(5)</visible>
-                        <animation effect="fade" start="100" end="0" time="0" condition="true">Conditional</animation>
-                    </control>
-                    <control type="image">
-                        <posx>917</posx>
-                        <posy>289</posy>
-                        <width>283</width>
-                        <height>283</height>
-                        <texture background="true">$INFO[Control.GetLabel(404)]</texture>
-                        <fadetime>300</fadetime>
-                        <aspectratio>scale</aspectratio>
-                    </control>
-                    <control type="label">
-                        <posx>917</posx>
-                        <posy>576</posy>
-                        <width>477</width>
-                        <height>25</height>
-                        <font>Font-Condensed-S20-B</font>
-                        <shadowcolor>11000000</shadowcolor>
-                        <textcolor>77white</textcolor>
-                        <align>left</align>
-                        <aligny>center</aligny>
-                        <textoffsetx>5</textoffsetx>
-                        <label>[UPPERCASE]$LOCALIZE[41554][/UPPERCASE]</label>
-                        <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="Control.HasFocus(403) + Container(403).HasFocus(2)">Conditional</animation>
-                    </control>
                     <control type="panel" id="403">
                         <posx>893</posx>
                         <posy>-24</posy>
@@ -3967,22 +3449,8 @@
                                 <texture border="7">windows/home/tile.png</texture>
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
                             </control>
-                            <control type="label">
-                                <posx>164</posx>
-                                <posy>24</posy>
-                                <width>328</width>
-                                <height>283</height>
-                                <font>Font-Condensed-S30</font>
-                                <textcolor>77white</textcolor>
-                                <align>center</align>
-                                <aligny>center</aligny>
-                                <wrapmultiline>true</wrapmultiline>
-                                <label>$INFO[ListItem.Label]</label>
-                                <visible>!IsEmpty(ListItem.Property(noaddon))</visible>
-                            </control>
                             <control type="group">
                                 <animation effect="fade" end="90" time="0" condition="true">Conditional</animation>
-                                <visible>IsEmpty(ListItem.Property(recent))</visible>
                                 <control type="image">
                                     <posx>24</posx>
                                     <posy>24</posy>
@@ -4055,19 +3523,6 @@
                                         <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
                                     </animation>
                                 </control>
-                                <control type="label">
-                                    <posx>164</posx>
-                                    <posy>24</posy>
-                                    <width>328</width>
-                                    <height>283</height>
-                                    <font>Font-Condensed-S30</font>
-                                    <textcolor>77white</textcolor>
-                                    <align>center</align>
-                                    <aligny>center</aligny>
-                                    <wrapmultiline>true</wrapmultiline>
-                                    <label>$INFO[ListItem.Label]</label>
-                                    <visible>!IsEmpty(ListItem.Property(noaddon))</visible>
-                                </control>
                                 <control type="group">
                                     <animation type="Focus">
                                         <effect type="fade" start="90" end="100" time="200" tween="sine" easing="in" />
@@ -4075,7 +3530,6 @@
                                     <animation type="Unfocus">
                                         <effect type="fade" start="100" end="90" time="200" tween="sine" easing="out" />
                                     </animation>
-                                    <visible>IsEmpty(ListItem.Property(recent))</visible>
                                     <control type="image">
                                         <posx>24</posx>
                                         <posy>24</posy>
@@ -4147,19 +3601,22 @@
                                 <property name="animate">$INFO[Skin.String(HomeMusicTile1.Animate)]</property>
                             </item>
                             <item id="2">
-                                <label>-</label>
-                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">CancelAlarm(HomeTileMove,true)</onclick>
-                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">SetProperty(ShowRecentAlbums,1)</onclick>
-                                <onclick condition="!IsEmpty(Window.Property(RecentAlbum.1.Play)) + !IsEmpty(Window(Home).Property(SkinWidgets_Running))">SetFocus(4023)</onclick>
-                                <property name="recent">1</property>
-                                <visible>System.HasAddon(service.skin.widgets)</visible>visible>
-                            </item>
-                            <item id="2">
-                                <label>service.skin.widgets[CR]$LOCALIZE[416] /[CR]$LOCALIZE[1223]</label>
-                                <onclick>-</onclick>
-                                <property name="recent">1</property>
-                                <property name="noaddon">1</property>
-                                <visible>!System.HasAddon(service.skin.widgets)</visible>
+                                <label>$INFO[Skin.String(HomeMusicTile2.Label)]</label>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + !stringcompare(Skin.String(HomeMusicTile2.Type),4) + !stringcompare(Skin.String(HomeMusicTile2.Type),5) + !stringcompare(Skin.String(HomeMusicTile2.Type),6) + !stringcompare(Skin.String(HomeMusicTile2.Type),7)">RunAddon($INFO[Skin.String(HomeMusicTile2.Path)])</onclick>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + stringcompare(Skin.String(HomeMusicTile2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeMusicTile1.Path)],return)</onclick>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + stringcompare(Skin.String(HomeMusicTile2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(HomeMusicTile2.Path)],return)</onclick>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + [stringcompare(Skin.String(HomeMusicTile2.Type),6) | stringcompare(Skin.String(HomeMusicTile2.Type),7)]">$INFO[Skin.String(HomeMusicTile2.Path)]</onclick>
+                                <onclick condition="IsEmpty(Skin.String(HomeMusicTile1.Path)) | !IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeMusicTile2)</onclick>
+                                <onclick condition="[IsEmpty(Skin.String(HomeMusicTile2.Path)) | !IsEmpty(Window.Property(EditTile))] + IsEmpty(Skin.String(HomeMusicTile2.Type))">Skin.SetString(HomeMusicTile2.Type,0)</onclick>
+                                <onclick condition="[IsEmpty(Skin.String(HomeMusicTile2.Path)) | !IsEmpty(Window.Property(EditTile))] + IsEmpty(Skin.String(HomeMusicTile2.TypeName))">Skin.SetString(HomeMusicTile2.TypeName,$LOCALIZE[41145])</onclick>
+                                <onclick condition="IsEmpty(Skin.String(HomeMusicTile2.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(SingleDialog,twelve,3003)</onclick>
+                                <onclick condition="IsEmpty(Skin.String(HomeMusicTile2.Path)) | !IsEmpty(Window.Property(EditTile))">SetProperty(Dialog,$LOCALIZE[41136],skinsettings)</onclick>
+                                <onclick condition="IsEmpty(Skin.String(HomeMusicTile2.Path)) | !IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
+                                <onclick condition="!IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
+                                <icon>$INFO[Skin.String(HomeMusicTile2.Icon)]</icon>
+                                <property name="showlabel">$INFO[Skin.String(HomeMusicTile2.ShowLabel)]</property>
+                                <property name="path">$INFO[Skin.String(HomeMusicTile2.Path)]</property>
+                                <property name="animate">$INFO[Skin.String(HomeMusicTile2.Animate)]</property>
                             </item>
                         </content>
                     </control>
@@ -5076,7 +4533,7 @@
                                     <posx>178</posx>
                                     <posy>34</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
@@ -5088,11 +4545,12 @@
                                     <posx>178</posx>
                                     <posy>74</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S25-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <label>$INFO[Window(Weather).Property(Day1.Outlook)]</label>
+                                    <scroll>false</scroll>
                                     <textcolor>ddC6C6C8</textcolor>
                                 </control>
                                 <control type="grouplist">
@@ -5172,7 +4630,7 @@
                                     <posx>178</posx>
                                     <posy>34</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
@@ -5184,11 +4642,12 @@
                                     <posx>178</posx>
                                     <posy>74</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S25-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <label>$INFO[Window(Weather).Property(Day2.Outlook)]</label>
+                                    <scroll>false</scroll>
                                     <textcolor>ddC6C6C8</textcolor>
                                 </control>
                                 <control type="grouplist">
@@ -5268,7 +4727,7 @@
                                     <posx>178</posx>
                                     <posy>34</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S31-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
@@ -5280,11 +4739,12 @@
                                     <posx>178</posx>
                                     <posy>74</posy>
                                     <height>40</height>
-                                    <width>204</width>
+                                    <width>190</width>
                                     <font>Font-Condensed-S25-B</font>
                                     <align>left</align>
                                     <aligny>center</aligny>
                                     <label>$INFO[Window(Weather).Property(Day3.Outlook)]</label>
+                                    <scroll>false</scroll>
                                     <textcolor>ddC6C6C8</textcolor>
                                 </control>
                                 <control type="grouplist">
