@@ -1079,6 +1079,7 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <pagecontrol>5024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="572" height="501">
@@ -1115,8 +1116,8 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="5023">
-                            <visible>!IntegerGreaterThan(Container(5022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayhidden</include>
+                            <visible>!Control.IsVisible(5022)</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>212</posx>
@@ -1161,7 +1162,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <visible>Control.IsVisible(5022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
@@ -1178,70 +1179,29 @@
                             <label>[UPPERCASE]$VAR[SpotlightLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
                         </control>
-                        <control type="grouplist">
-                            <posx>471</posx>
-                            <posy>580</posy>
-                            <align>right</align>
-                            <width>96</width>
-                            <height>16</height>
-                            <orientation>horizontal</orientation>
-                            <itemgap>0</itemgap>
+                        <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(502).HasFocus">Conditional</animation>
-                            <visible>IntegerGreaterThan(Container(5022).NumItems,0)</visible>
+                            <visible>Control.IsVisible(5022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
-                                <description>Dot #1</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(1)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.1.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.1.Art(fanart)))]</visible>
+                                <description>Scrollbar background</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
                             </control>
-                            <control type="image">
-                                <description>Dot #2</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(2)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.2.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.2.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #3</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(3)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.3.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.3.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #4</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(4)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.4.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.4.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.4.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #5</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(5)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomMovie.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.5.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.5.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.5.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #6</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5022).HasFocus(6)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !IsEmpty(Window.Property(RandomEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.6.File))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.1.SubType),Music) + !IsEmpty(Window.Property(HomeWidget1.6.Play))] | [stringcompare(Skin.String(HomeWidget.1.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget1.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),incinema) + !IsEmpty(Window.Property(HomeWidget1.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),popular) + !IsEmpty(Window.Property(HomeWidget1.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),toprated) + !IsEmpty(Window.Property(HomeWidget1.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget1.TrendingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.1.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget1.TrendingShows.6.Art(fanart)))]</visible>
+                            <control type="scrollbar" id="5024">
+                                <description>Scrollbar</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
                             </control>
                         </control>
                         <control type="image">
@@ -1303,6 +1263,7 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <pagecontrol>5034</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5032).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="382" height="572">
@@ -1339,8 +1300,8 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="5033">
-                            <visible>!IntegerGreaterThan(Container(5032).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayhidden</include>
+                            <visible>!Control.IsVisible(5032)</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>117</posx>
@@ -1385,7 +1346,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
+                            <visible>Control.IsVisible(5032)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
@@ -1402,70 +1363,29 @@
                             <label>[UPPERCASE]$VAR[OngoingTVShowsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(503).HasFocus">Conditional</animation>
                         </control>
-                        <control type="grouplist">
-                            <posx>275</posx>
-                            <posy>580</posy>
-                            <align>right</align>
-                            <width>96</width>
-                            <height>16</height>
-                            <orientation>horizontal</orientation>
-                            <itemgap>0</itemgap>
-                            <visible>IntegerGreaterThan(Container(5032).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayvisible</include>
+                        <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(503).HasFocus">Conditional</animation>
+                            <visible>Control.IsVisible(5032)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
-                                <description>Dot #1</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(1)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.1.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.1.Art(fanart)))]</visible>
+                                <description>Scrollbar background</description>
+                                <posx>281</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
                             </control>
-                            <control type="image">
-                                <description>Dot #2</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(2)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.2.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.2.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #3</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(3)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.3.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.3.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #4</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(4)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.4.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.4.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.4.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #5</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(5)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.5.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.5.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.5.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #6</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(5032).HasFocus(6)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecommendedEpisode.6.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget2.6.File))] | [stringcompare(Skin.String(HomeWidget.2.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget2.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),incinema) + !IsEmpty(Window.Property(HomeWidget2.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),popular) + !IsEmpty(Window.Property(HomeWidget2.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),toprated) + !IsEmpty(Window.Property(HomeWidget2.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget2.TrendingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.2.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget2.TrendingShows.6.Art(fanart)))]</visible>
+                            <control type="scrollbar" id="5034">
+                                <description>Scrollbar</description>
+                                <posx>281</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
                             </control>
                         </control>
                         <control type="image">
@@ -1751,6 +1671,7 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <pagecontrol>2024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(2022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="382" height="572">
@@ -1787,8 +1708,8 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="2023">
-                            <visible>!IntegerGreaterThan(Container(2022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayhidden</include>
+                            <visible>!Control.IsVisible(2022)</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>117</posx>
@@ -1833,7 +1754,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>IntegerGreaterThan(Container(2022).NumItems,0)</visible>
+                            <visible>Control.IsVisible(2022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
@@ -1850,70 +1771,29 @@
                             <label>[UPPERCASE]$VAR[NewMoviesLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(202).HasFocus">Conditional</animation>
                         </control>
-                        <control type="grouplist">
-                            <posx>281</posx>
-                            <posy>580</posy>
-                            <align>right</align>
-                            <width>96</width>
-                            <height>16</height>
-                            <orientation>horizontal</orientation>
-                            <itemgap>0</itemgap>
-                            <visible>IntegerGreaterThan(Container(2022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayvisible</include>
+                        <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(202).HasFocus">Conditional</animation>
+                            <visible>Control.IsVisible(2022)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
-                                <description>Dot #1</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(1)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.1.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.1.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.1.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.1.Art(fanart)))]</visible>
+                                <description>Scrollbar background</description>
+                                <posx>281</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
                             </control>
-                            <control type="image">
-                                <description>Dot #2</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(2)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.2.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.2.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.2.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget3.TrendingShows.2.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #3</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(3)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.3.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.3.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.3.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.3.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #4</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(4)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.4.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.4.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.4.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.4.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #5</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(5)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.5.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.5.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.5.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.5.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #6</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(2022).HasFocus(6)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentMovie.6.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget3.6.File))] | [stringcompare(Skin.String(HomeWidget.3.Type),upcoming) + !IsEmpty(Window.Property(HomeWidget3.UpcomingMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),incinema) + !IsEmpty(Window.Property(HomeWidget3.InCinemaMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),popular) + !IsEmpty(Window.Property(HomeWidget3.PopularMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),toprated) + !IsEmpty(Window.Property(HomeWidget3.TopRatedMovies.6.Art(fanart)))] | [stringcompare(Skin.String(HomeWidget.3.Type),trendingmovies) + !IsEmpty(Window.Property(HomeWidget3.TrendingMovies.6.Art(fanart)))]</visible>
+                            <control type="scrollbar" id="2024">
+                                <description>Scrollbar</description>
+                                <posx>281</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
                             </control>
                         </control>
                         <control type="image">
@@ -2439,6 +2319,7 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <pagecontrol>3024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(3022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="671" height="572">
@@ -2475,8 +2356,8 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="3023">
-                            <visible>!IntegerGreaterThan(Container(3022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayhidden</include>
+                            <visible>!Control.IsVisible(3022)</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>261</posx>
@@ -2521,7 +2402,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>IntegerGreaterThan(Container(3022).NumItems,0)</visible>
+                            <visible>Control.IsVisible(3022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
@@ -2538,70 +2419,29 @@
                             <label>[UPPERCASE]$VAR[NewShowsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(302).HasFocus">Conditional</animation>
                         </control>
-                        <control type="grouplist">
-                            <posx>570</posx>
-                            <posy>580</posy>
-                            <align>right</align>
-                            <width>96</width>
-                            <height>16</height>
-                            <orientation>horizontal</orientation>
-                            <itemgap>0</itemgap>
-                            <visible>IntegerGreaterThan(Container(3022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayvisible</include>
+                        <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(302).HasFocus">Conditional</animation>
+                            <visible>Control.IsVisible(3022)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
-                                <description>Dot #1</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(1)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.1.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.1.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.1.Art(fanart)))]</visible>
+                                <description>Scrollbar background</description>
+                                <posx>570</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
                             </control>
-                            <control type="image">
-                                <description>Dot #2</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(2)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.2.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.2.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.2.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #3</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(3)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.3.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.3.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.3.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #4</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(4)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.4.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.4.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.4.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #5</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(5)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.5.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.5.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.5.Art(fanart)))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #6</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(3022).HasFocus(6)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !IsEmpty(Window.Property(RecentEpisode.6.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget4.6.File))] | [stringcompare(Skin.String(HomeWidget.4.Type),trendingshows) + !IsEmpty(Window.Property(HomeWidget4.TrendingShows.6.Art(fanart)))]</visible>
+                            <control type="scrollbar" id="3024">
+                                <description>Scrollbar</description>
+                                <posx>570</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
                             </control>
                         </control>
                         <control type="image">
@@ -3094,6 +2934,7 @@
                             <scrolltime tween="cubic" easing="out">800</scrolltime>
                             <orientation>horizontal</orientation>
                             <preloaditems>2</preloaditems>
+                            <pagecontrol>4024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(4022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                             <itemlayout width="572" height="572">
@@ -3130,8 +2971,8 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="4023">
-                            <visible>!IntegerGreaterThan(Container(4022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayhidden</include>
+                            <visible>!Control.IsVisible(4022)</visible>
+                            <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
                                 <posx>212</posx>
@@ -3176,7 +3017,7 @@
                             <align>left</align>
                             <aligny>center</aligny>
                             <enable>false</enable>
-                            <visible>IntegerGreaterThan(Container(4022).NumItems,0)</visible>
+                            <visible>Control.IsVisible(4022)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
                         </control>
                         <control type="label">
@@ -3193,70 +3034,29 @@
                             <label>[UPPERCASE]$VAR[FeaturedAlbumsLabelVAR][/UPPERCASE]</label>
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
                         </control>
-                        <control type="grouplist">
-                            <posx>471</posx>
-                            <posy>580</posy>
-                            <align>right</align>
-                            <width>96</width>
-                            <height>16</height>
-                            <orientation>horizontal</orientation>
-                            <itemgap>0</itemgap>
-                            <visible>IntegerGreaterThan(Container(4022).NumItems,0)</visible>
-                            <include>visiblehidefadeinfodelayvisible</include>
+                        <control type="group">
                             <animation effect="slide" end="0,6" time="100" tween="sine" easing="out" condition="ControlGroup(402).HasFocus">Conditional</animation>
+                            <visible>Control.IsVisible(4022)</visible>
+                            <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
-                                <description>Dot #1</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(1)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.1.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.1.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.1.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.1.Play))]</visible>
+                                <description>Scrollbar background</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                                <colordiffuse>55FFFFFF</colordiffuse>
                             </control>
-                            <control type="image">
-                                <description>Dot #2</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(2)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.2.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.2.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.2.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.2.Play))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #3</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(3)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.3.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.3.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.3.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.3.Play))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #4</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(4)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.4.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.4.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.4.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.4.Play))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #5</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(5)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.5.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.5.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.5.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.5.Play))]</visible>
-                            </control>
-                            <control type="image">
-                                <description>Dot #6</description>
-                                <include>HomeDotIndicator</include>
-                                <animation type="Conditional" condition="!Container(4022).HasFocus(6)">
-                                    <effect type="fade" start="100" end="30" time="300" tween="sine" easing="inout" />
-                                    <effect type="zoom" center="auto" start="100" end="57" time="300" tween="sine" easing="inout" /> 
-                                </animation>
-                                <visible>[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended) + !IsEmpty(Window.Property(RecommendedAlbum.6.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random) + !IsEmpty(Window.Property(RandomAlbum.6.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent) + !IsEmpty(Window.Property(RecentAlbum.6.Play))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window.Property(HomeWidget5.6.Play))]</visible>
+                            <control type="scrollbar" id="4024">
+                                <description>Scrollbar</description>
+                                <posx>471</posx>
+                                <posy>585</posy>
+                                <width>96</width>
+                                <height>6</height>
+                                <orientation>horizontal</orientation>
+                                <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                                <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                                <showonepage>false</showonepage>
                             </control>
                         </control>
                     </control>
