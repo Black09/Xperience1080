@@ -91,6 +91,7 @@
     <include name="HomeWidget.5">
         <include condition="stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.random)">HomeWidget.5.Widgets.Random</include>
         <include condition="stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recent)">HomeWidget.5.Widgets.Recent</include>
+        <include condition="stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets.recommended)">HomeWidget.5.Widgets.Recommended</include>
         <include condition="stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + stringcompare(Skin.String(HomeWidget.5.SubType),Music)">HomeWidget.5.Playlist.Music</include>
     </include>
     
@@ -1768,4 +1769,62 @@
             <visible>!IsEmpty(Window.Property(HomeWidget5.6.Play))</visible>
         </item>
     </include>
+
+    <include name="HomeWidget.5.Widgets.Recommended">
+        <item id="1">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.1.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.1.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.1.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.1.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.1.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.1.Play))</visible>
+        </item>
+        <item id="2">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.2.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.2.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.2.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.2.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.2.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.2.Play))</visible>
+        </item>
+        <item id="3">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.3.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.3.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.3.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.3.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.3.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.3.Play))</visible>
+        </item>
+        <item id="4">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.4.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.4.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.4.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.4.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.4.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.4.Play))</visible>
+        </item>
+        <item id="5">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.5.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.5.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.5.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.5.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.5.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.5.Play))</visible>
+        </item>
+        <item id="6">
+            <onclick>-</onclick>
+            <icon>$INFO[Window.Property(RecommendedAlbum.6.Art(thumb))]</icon>
+            <label>$INFO[Window.Property(RecommendedAlbum.6.Title)]</label>
+            <label2>$INFO[Window.Property(RecommendedAlbum.6.Artist)]</label2>
+            <property name="year">$INFO[Window.Property(RecommendedAlbum.6.Year)]</property>
+            <property name="Play">$INFO[Window.Property(RecommendedAlbum.6.Play)]</property>
+            <visible>!IsEmpty(Window.Property(RecommendedAlbum.6.Play))</visible>
+        </item>
+    </include>
+
 </includes>
