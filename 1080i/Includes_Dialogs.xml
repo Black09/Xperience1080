@@ -1908,11 +1908,19 @@
                 <effect type="fade" start="100" end="0" delay="200" time="100" />
             </animation>
             <animation effect="slide" end="0,42" time="0" condition="!Window.IsActive(videoosd)">Conditional</animation>
+            <control type="image">
+                <posx>0</posx>
+                <posy>-171</posy>
+                <width>1920</width>
+                <height>1339</height>
+                <texture border="610,340,610,340">osd/fullscreen/osdsettings.png</texture>
+                <aspectratio>stretch</aspectratio>
+            </control>
             <control type="label">
                 <description>Header</description>
-                <posx>100</posx>
+                <posx>420</posx>
                 <posy>73</posy>
-                <width>680</width>
+                <width>1080</width>
                 <height>38</height>
                 <align>center</align>
                 <textoffsetx>30</textoffsetx>
@@ -1922,13 +1930,13 @@
                 <shadowcolor>66000000</shadowcolor>
             </control>
             <control type="group">
-                <posx>100</posx>
+                <posx>420</posx>
                 <posy>124</posy>
                 <control type="button">
                 	<description>Time</description>
                 	<posx>0</posx>
                 	<posy>0</posy>
-                	<width>680</width>
+                	<width>1080</width>
                 	<height>70</height>
                 	<align>left</align>
                 	<textoffsetx>30</textoffsetx>
@@ -1945,7 +1953,7 @@
                 	<description>Duration</description>
                 	<posx>0</posx>
                 	<posy>70</posy>
-                	<width>680</width>
+                	<width>1080</width>
                 	<height>70</height>
                 	<align>left</align>
                 	<textoffsetx>30</textoffsetx>
@@ -1962,7 +1970,7 @@
                 	<description>Channel</description>
                 	<posx>0</posx>
                 	<posy>140</posy>
-                	<width>680</width>
+                	<width>1080</width>
                 	<height>70</height>
                 	<align>left</align>
                 	<textoffsetx>30</textoffsetx>
@@ -1979,7 +1987,7 @@
                 	<description>Genre</description>
                 	<posx>0</posx>
                 	<posy>210</posy>
-                	<width>680</width>
+                	<width>1080</width>
                 	<height>70</height>
                 	<align>left</align>
                 	<textoffsetx>30</textoffsetx>
@@ -1995,9 +2003,9 @@
             </control>
             <control type="textbox" id="400">
             	<description>Plot value</description>
-            	<posx>130</posx>
+            	<posx>450</posx>
             	<posy>422</posy>
-            	<width>620</width>
+            	<width>1020</width>
             	<height>415</height>
             	<font>Font-Condensed-S34</font>
             	<align>justify</align>
@@ -2008,7 +2016,7 @@
             </control>
             <control type="scrollbar" id="60">
                 <description>Scrollbar</description>
-                <posx>759</posx>
+                <posx>1079</posx>
                 <posy>422</posy>
                 <width>11</width>
                 <height>415</height>
@@ -2023,7 +2031,7 @@
                 <animation effect="fade" start="30" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(60)">Conditional</animation>
             </control>
             <control type="group" id="8000">
-                <posx>100</posx>
+                <posx>420</posx>
                 <posy>840</posy>
                 <defaultcontrol>5</defaultcontrol>
                 <control type="button" id="7">
@@ -2054,7 +2062,7 @@
                     <ondown>60</ondown>
                 </control>
                 <control type="button" id="6">
-                    <posx>327</posx>
+                    <posx>745</posx>
                     <description>Record</description>
                     <label>-</label>
                     <textcolor>77white</textcolor>
