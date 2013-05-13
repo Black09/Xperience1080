@@ -53,6 +53,26 @@
         <value condition="IsEmpty(Player.Art(fanart)) + !IsEmpty(Skin.String(GlobalBackdropSingle))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
         <value>special://skin/extras/backgrounds/01.jpg</value>
     </variable>
+    
+    <include name="OSDChapterInfo">
+        <control type="group">
+            <include>BannerListInfoAnimation</include>
+            <visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(fullscreenvideo)] + !Player.ShowCodec + !Window.IsActive(script-XBMC_Lyrics-main.xml) + !IsEmpty(Player.Chapter) + IntegerGreaterThan(Player.ChapterCount,0)</visible>
+            <control type="button">
+                <posx>45</posx>
+                <posy>0</posy>
+                <width>355</width>
+                <height>194</height>
+                <label>$INFO[Player.Chapter,$LOCALIZE[21396] , / ]$INFO[Player.ChapterCount]</label>
+                <font>Font-Condensed-S34</font>
+                <disabledcolor>aawhite</disabledcolor>
+                <texturefocus>-</texturefocus>
+                <texturenofocus border="150,90,150,90">overlays/volume/back-vf.png</texturenofocus>
+                <align>center</align>
+                <enable>false</enable>
+            </control>
+        </control>
+    </include>
 
     <include name="OSDWeatherClock">
         <control type="group">

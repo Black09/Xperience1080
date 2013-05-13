@@ -46,9 +46,9 @@
                     <animation effect="slide" start="0,0" end="0,213" time="300" tween="cubic" easing="inout" condition="[Player.ShowInfo | Player.Paused] + !Window.IsActive(musicosd)">Conditional</animation>
                     <animation effect="slide" start="0,0" end="0,72" time="300" tween="cubic" easing="inout" condition="Window.IsActive(musicosd)">Conditional</animation>
                     <control type="progress">
-                        <posx>388</posx>
+                        <posx>358</posx>
                         <posy>1027</posy>
-                        <width>1144</width>
+                        <width>1204</width>
                         <height>25</height>
                         <info>Player.Progress</info>
                         <reveal>true</reveal>
@@ -59,18 +59,18 @@
                         <overlaytexture>-</overlaytexture>
                     </control>
                     <control type="label">
-                        <posx>1551</posx>
+                        <posx>1590</posx>
                         <posy>1027</posy>
                         <width>360</width>
                         <height>25</height>
                         <label>$INFO[Player.Time(hh:mm:ss)]$INFO[Player.Duration(hh:mm:ss), / ,]</label>
                         <textcolor>aawhite</textcolor>
-                        <font>Font-Condensed-S36</font>
+                        <font>Font-Condensed-S34</font>
                         <align>left</align>
                     </control>
                     <control type="label">
                         <description>Pause / finish time</description>
-                        <posx>360</posx>
+                        <posx>330</posx>
                         <posy>1027</posy>
                         <width>360</width>
                         <height>25</height>
@@ -95,7 +95,7 @@
                     <control type="group">
                         <posy>117</posy>
                         <control type="image">
-                            <posx>1665</posx>
+                            <posx>1692</posx>
                             <posy>885</posy>
                             <width>140</width>
                             <height>100</height>
@@ -103,9 +103,9 @@
                             <texture fallback="flags/audioosd/na.png">$INFO[MusicPlayer.Codec,flags/audioosd/,.png]</texture>
                         </control>
                         <control type="label">
-                            <posx>390</posx>
+                            <posx>360</posx>
                             <posy>818</posy>
-                            <width>1300</width>
+                            <width>1360</width>
                             <height>56</height>
                             <label>[UPPERCASE]$LOCALIZE[13350][/UPPERCASE]</label>
                             <textcolor>99FFFFFF</textcolor>
@@ -116,9 +116,9 @@
                             <visible>!Pvr.IsPlayingRadio + !Player.Paused</visible>
                         </control>
                         <control type="label">
-                            <posx>390</posx>
+                            <posx>360</posx>
                             <posy>818</posy>
-                            <width>1300</width>
+                            <width>1360</width>
                             <height>56</height>
                             <label>[UPPERCASE]$LOCALIZE[112][/UPPERCASE]</label>
                             <textcolor>99FFFFFF</textcolor>
@@ -129,7 +129,7 @@
                             <visible>!Pvr.IsPlayingRadio + Player.Paused</visible>
                         </control>
                         <control type="grouplist">
-                            <posx>390</posx>
+                            <posx>360</posx>
                             <posy>779</posy>
                             <width>1300</width>
                             <height>100</height>
@@ -167,7 +167,7 @@
                             <control type="group">
                                 <visible>Skin.HasSetting(CDArt.Enabled)</visible>
                                 <control type="image">
-                                    <posx>130</posx>
+                                    <posx>100</posx>
                                     <posy>-10</posy>
                                     <width>236</width>
                                     <height>236</height>
@@ -175,33 +175,28 @@
                                     <animation effect="rotate" center="auto" start="360" end="0" time="2500" loop="true" condition="!Player.Paused">Conditional</animation>
                                 </control>
                                 <control type="image">
-                                    <posx>138</posx>
+                                    <posx>108</posx>
                                     <posy>-2</posy>
                                     <width>220</width>
                                     <height>220</height>
                                     <texture diffuse="osd/fullscreen/cd-diffuse.png" background="true">$INFO[Player.FolderPath,,cdart.png]</texture>
                                     <animation effect="rotate" center="auto" start="360" end="0" time="2500" loop="true" condition="!Player.Paused">Conditional</animation>
                                 </control>
-                            </control>
+                            </control>             
                             <control type="image">
-                                <posx>110</posx>
+                                <posx>80</posx>
                                 <posy>67</posy>
                                 <width>276</width>
                                 <height>276</height>
-                                <texture border="30">osd/fullscreen/cover-shadow.png</texture>
-                            </control>                    
-                            <control type="image">
-                                <posx>130</posx>
-                                <posy>87</posy>
-                                <width>236</width>
-                                <height>236</height>
                                 <texture background="true" fallback="views/fallbacks/DefaultAudio.png/square-small.png">$INFO[Player.Art(thumb)]</texture>
+                                <bordertexture border="30">osd/fullscreen/cover-shadow.png</bordertexture>
+                                <bordersize>20</bordersize>
                                 <aspectratio>scale</aspectratio>
                             </control>
                             <control type="button">
-                                <posx>390</posx>
+                                <posx>360</posx>
                                 <posy>83</posy>
-                                <width>1262</width>
+                                <width>1320</width>
                                 <height>56</height>
                                 <label>$INFO[MusicPlayer.PlaylistPosition,,. ]$INFO[MusicPlayer.Title]</label>
                                 <label2>$INFO[MusicPlayer.Rating,★ ,.0]</label2>
@@ -212,9 +207,9 @@
                                 <enable>false</enable>
                             </control>
                             <control type="label">
-                                <posx>390</posx>
+                                <posx>360</posx>
                                 <posy>145</posy>
-                                <width>1100</width>
+                                <width>1460</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Artist]$INFO[MusicPlayer.Album, • ,]$INFO[MusicPlayer.Year, • ,]</label>
                                 <textcolor>aawhite</textcolor>
@@ -224,9 +219,9 @@
                                 <scroll>false</scroll>
                             </control>
                             <control type="label">
-                                <posx>390</posx>
+                                <posx>360</posx>
                                 <posy>193</posy>
-                                <width>1100</width>
+                                <width>1460</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Genre]</label>
                                 <textcolor>88FFFFFF</textcolor>
@@ -236,9 +231,9 @@
                                 <scroll>false</scroll>
                             </control>
                             <control type="label">
-                                <posx>390</posx>
+                                <posx>360</posx>
                                 <posy>241</posy>
-                                <width>1100</width>
+                                <width>1460</width>
                                 <height>44</height>
                                 <label>$INFO[MusicPlayer.Offset(1).Artist,$LOCALIZE[19031]: ,]$INFO[MusicPlayer.Offset(1).Title, - ,]</label>
                                 <textcolor>88FFFFFF</textcolor>
