@@ -1035,7 +1035,7 @@
                             <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
-                            <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5032,1),00:07,silent,loop)</onup>
+                            <onup>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onup>
                             <onup>525</onup>
                             <ondown>Control.Move(5022,1)</ondown>
                             <onleft>AlarmClock(HomeTileMoveTwo,Control.Move(5022,1),00:07,silent,loop)</onleft>
@@ -1053,20 +1053,6 @@
                             <width>582</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
-                        </control>
-                        <control type="label">
-                            <posx>0</posx>
-                            <posy>0</posy>
-                            <width>572</width>
-                            <height>572</height>
-                            <font>Font-Condensed-S30</font>
-                            <textcolor>77white</textcolor>
-                            <align>center</align>
-                            <aligny>center</aligny>
-                            <textoffsetx>5</textoffsetx>
-                            <wrapmultiline>true</wrapmultiline>
-                            <label>service.skin.widgets[CR]$LOCALIZE[416] / $LOCALIZE[1223]</label>
-                            <visible>!System.HasAddon(service.skin.widgets)</visible>
                         </control>
                         <control type="wraplist" id="5022">
                             <posx>0</posx>
