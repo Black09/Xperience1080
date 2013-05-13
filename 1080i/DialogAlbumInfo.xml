@@ -96,18 +96,15 @@
             <!-- Biography / Discography / Tracks -->
             <control type="grouplist">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
-                <animation type="Conditional" condition="Control.HasFocus(1110)">
-                    <effect type="slide" start="0" end="510" time="400" delay="0" tween="sine" easing="inout" />
-                </animation>
+                <animation effect="slide" start="0" end="1441" time="400" tween="sine" easing="inout" condition="!IsEmpty(Window(3004).Property(ChooseArt)) + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml)]">Conditional</animation>
                 <posx>118</posx>
                 <posy>144</posy>
                 <width>600</width>
                 <orientation>horizontal</orientation>
                 <itemgap>20</itemgap>
-                
-                <!-- Biography Label -->
                 <control type="label">
-                    <posx>118</posx>
+                    <description>Biography Label</description>
+                    <posx>0</posx>
                     <posy>0</posy>
                     <width min="50" max="400">auto</width>
                     <height>60</height>
@@ -116,13 +113,12 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9334) | Control.HasFocus(50) | [!IsEmpty(Window(3004).Property(ChooseArt)) + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml)]]">Conditional</animation>
                     <visible>Container.Content(artists)</visible>
                 </control>
-                
-                <!-- Discography Label -->
                 <control type="label">
-                    <posx>118</posx>
+                    <description>Discography Label</description>
+                    <posx>0</posx>
                     <posy>0</posy>
                     <width min="50" max="400">auto</width>
                     <height>60</height>
@@ -132,12 +128,11 @@
                     <align>left</align>
                     <scroll>false</scroll>
                     <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
-                    <visible>Container.Content(artists)</visible>
+                    <visible>Container.Content(artists) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
                 </control>
-                
-                <!-- Tracks Label -->
                 <control type="label">
-                    <posx>118</posx>
+                    <description>Tracks Label</description>
+                    <posx>0</posx>
                     <posy>0</posy>
                     <width min="50" max="400">auto</width>
                     <height>60</height>
@@ -146,13 +141,12 @@
                     <textcolor>eewhite</textcolor>
                     <align>left</align>
                     <scroll>false</scroll>
-                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition=" Control.HasFocus(9334) | Control.HasFocus(50)">Conditional</animation>
+                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition=" Control.HasFocus(9334) | Control.HasFocus(50) | [!IsEmpty(Window(3004).Property(ChooseArt)) + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml)]]">Conditional</animation>
                     <visible>Container.Content(albums)</visible>
                 </control>
-                
-                <!-- Review Label -->
                 <control type="label">
-                    <posx>118</posx>
+                    <description>Review Label</description>
+                    <posx>0</posx>
                     <posy>0</posy>
                     <width min="50" max="400">auto</width>
                     <height>60</height>
@@ -162,7 +156,7 @@
                     <align>left</align>
                     <scroll>false</scroll>  
                     <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)">Conditional</animation>
-                    <visible>Container.Content(albums)</visible>
+                    <visible>Container.Content(albums) + IntegerGreaterThan(Container(50).NumItems,0)</visible>
                 </control>
             </control>
             
@@ -171,15 +165,14 @@
                 <include>FullscreenDimensions</include>
                 <visible allowhiddenfocus="true">Control.HasFocus(70) | Control.HasFocus(9333) | Control.HasFocus(9335)</visible>
                 <animation type="Visible">
-                    <effect type="slide" start="-2000" end="0" time="600" delay="0" tween="sine" easing="inout" />
+                    <effect type="slide" start="-1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
                 <animation type="Hidden">
-                    <effect type="zoom" start="100" end="75" center="440,540" time="300" tween="sine" easing="inout" />
-                    <effect type="slide" start="0" end="-2000" time="600" delay="0" tween="sine" easing="inout" />
+                    <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
+                    <effect type="slide" start="0" end="-2320" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
-                <include>listEndAnimation</include>
-                
-                <!-- Shadow -->                
+                <animation effect="slide" start="0" end="1441" time="400" tween="sine" easing="inout" condition="!IsEmpty(Window(3004).Property(ChooseArt)) + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml)]">Conditional</animation>
+                <include>listEndAnimation</include>        
                 <control type="image">
                     <description>Shadow</description>
                     <posx>57</posx>
@@ -188,18 +181,16 @@
                     <height>125</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-                
-                <!-- Panel -->
                 <control type="image">
+                    <description>Panel</description>
                     <posx>98</posx>
                     <posy>658</posy>
                     <width>444</width>
                     <height>250</height>
                     <texture border="3">views/list/panel/panel.png</texture>
                 </control>
-                
-                <!-- Artist/Album Thumb -->
                 <control type="image">
+                    <description>Artist/Album Thumb</description>
                     <posx>100</posx>
                     <posy>220</posy>
                     <width>440</width>
@@ -207,14 +198,16 @@
                     <aspectratio>scale</aspectratio>
                     <texture background="true">$VAR[AlbumInfoThumb]</texture>
                 </control>
-                
                 <control type="list" id="9333">
                     <posx>100</posx>
                     <posy>660</posy>
                     <width>440</width>
                     <height>246</height>
                     <onleft condition="!Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
-                    <onright>70</onright>
+                    <onright condition="Control.IsVisible(70)">70</onright>
+                    <onright condition="!Control.IsVisible(70) + !IntegerGreaterThan(Container(50).NumItems,0)">SetProperty(BounceRight,1,Home)</onright>
+                    <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(50).NumItems,0)">SendClick(2001,5)</onright>
+                    <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(50).NumItems,0)">SetFocus(9334)</onright>
                     <onup>9333</onup>
                     <ondown>9333</ondown>
                     <scrolltime>0</scrolltime>
@@ -282,12 +275,14 @@
                         <item id="2">
                             <description>Get poster</description>
                             <label>13405</label>
+                            <onclick>SetProperty(ChooseArt,1,3004)</onclick>
                             <onclick>SendClick(albuminformation,10)</onclick>
                             <visible>Control.IsEnabled(10)</visible>
                         </item>
                         <item id="3">
                             <description>Get fanart</description>
                             <label>20413</label>
+                            <onclick>SetProperty(ChooseArt,1,3004)</onclick>
                             <onclick>SendClick(albuminformation,12)</onclick>
                             <visible>Control.IsEnabled(12)</visible>
                         </item>
@@ -627,6 +622,7 @@
                         <visible>Control.IsVisible(70)</visible>
                         <animation effect="fade" start="25" end="10" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
                     </control>
+                    <onright condition="!IntegerGreaterThan(Container(50).NumItems,0)">SetProperty(BounceRight,1,Home)</onright>
                     <control type="scrollbar" id="70">
                         <description>Scrollbar</description>
                         <posx>1260</posx>
@@ -641,6 +637,7 @@
                         <orientation>vertical</orientation>
                         <showonepage>false</showonepage>
                         <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
+                        <visible>![IsEmpty(ListItem.Property(Artist_Description)) + IsEmpty(ListItem.Property(Album_Description))]</visible>
                     </control>
                 </control>
             </control>
@@ -650,11 +647,11 @@
                 <include>FullscreenDimensions</include>
                 <visible allowhiddenfocus="true">Control.HasFocus(9334) | Control.HasFocus(50)</visible>
                 <animation type="Visible">
-                    <effect type="slide" start="1920" end="0" time="600" delay="0" tween="sine" easing="inout" />
+                    <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
                 <animation type="Hidden">
-                    <effect type="zoom" start="100" end="75" center="640,540" time="300" tween="sine" easing="inout" />
-                    <effect type="slide" end="2320" time="600" delay="0" tween="sine" easing="inout" />
+                    <effect type="zoom" start="100" end="75" center="640,540" time="250" tween="sine" easing="inout" />
+                    <effect type="slide" end="2320" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
                 <include>listEndAnimation</include>
                 <control type="list" id="50">
@@ -716,6 +713,9 @@
                         </control>  
                     </focusedlayout>
                     <focusedlayout condition="Container.Content(Albums)" height="60">
+                        <control type="button">
+                            <onfocus>SetFocus(9334)</onfocus>
+                        </control>
                         <control type="label">
                             <posx>0</posx>
                             <posy>0</posy>
@@ -776,8 +776,12 @@
         </control>
         
         <control type="button" id="9334">
-            <onfocus>Action(left)</onfocus>
-            <onleft>50</onleft>
+            <onfocus condition="Container.Content(Artists)">SetFocus(50)</onfocus>
+            <!--<onleft condition="Container.Content(Artists)">50</onleft>-->
+            <onleft condition="Container.Content(Albums)">SetFocus(9335)</onleft>
+            <onup condition="Container.Content(Albums)">Control.Move(50,-1)</onup>
+            <ondown condition="Container.Content(Albums)">Control.Move(50,1)</ondown>
+            <onclick condition="Container.Content(Albums) + System.HasAddon(script.playalbum)">RunScript(script.playalbum,albumid=$INFO[ListItem.DBID]&amp;tracknr=$INFO[Container(50).ListItem.TrackNumber])</onclick>
         </control>
         
         <control type="button" id="9335">
