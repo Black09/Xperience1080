@@ -5,7 +5,7 @@
     <include name="Viewtype-List">
     
         <control type="group">
-            <visible>Control.IsVisible(50) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation)</visible>
+            <visible>Control.IsVisible(50) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
         
@@ -1026,7 +1026,7 @@
             <include>OptionsShutdownAnimation</include>
             <!-- List Panel -->
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="750" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -1088,7 +1088,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)]</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + [Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)] + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
@@ -1266,7 +1266,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
@@ -1885,7 +1885,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
@@ -1989,7 +1989,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="750" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -2035,7 +2035,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(53) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
@@ -2203,7 +2203,7 @@
                 </animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
             </control>
             
             <control type="group">
@@ -2229,7 +2229,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>-492</posx>
                         <control type="group">
@@ -2271,7 +2271,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[Container(54).ListItem(-1).Year]$INFO[Container(54).ListItem(-1).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(-1).Rating, • ,]</label>
+                                <label>$INFO[Container(54).ListItem(-1).Year]$INFO[Container(54).ListItem(-1).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(-1).Rating, • ,]$VAR[LandscapeHDSD3DLabel-1]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -2359,7 +2359,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1476</posx>
                         <control type="group">
@@ -2401,7 +2401,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[Container(54).ListItem(3).Year]$INFO[Container(54).ListItem(3).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(3).Rating, • ,]</label>
+                                <label>$INFO[Container(54).ListItem(3).Year]$INFO[Container(54).ListItem(3).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(3).Rating, • ,]$VAR[LandscapeHDSD3DLabel3]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -2489,7 +2489,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>984</posx>
                         <control type="group">
@@ -2531,7 +2531,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[Container(54).ListItem(2).Year]$INFO[Container(54).ListItem(2).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(2).Rating, • ,]</label>
+                                <label>$INFO[Container(54).ListItem(2).Year]$INFO[Container(54).ListItem(2).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(2).Rating, • ,]$VAR[LandscapeHDSD3DLabel2]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -2619,7 +2619,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>492</posx>
                         <control type="group">
@@ -2661,7 +2661,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[Container(54).ListItem(1).Year]$INFO[Container(54).ListItem(1).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(1).Rating, • ,]</label>
+                                <label>$INFO[Container(54).ListItem(1).Year]$INFO[Container(54).ListItem(1).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(1).Rating, • ,]$VAR[LandscapeHDSD3DLabel1]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -2751,7 +2751,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                     <control type="image">
                         <posx>-10</posx>
                         <posy>625</posy>
@@ -2788,7 +2788,7 @@
                         <posx>20</posx>
                         <posy>329</posy>
                         <width>440</width>
-                        <label>$INFO[Container(54).ListItem(0).Year]$INFO[Container(54).ListItem(0).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(0).Rating, • ,]</label>
+                        <label>$INFO[Container(54).ListItem(0).Year]$INFO[Container(54).ListItem(0).Duration, • , $LOCALIZE[12391]]$INFO[Container(54).ListItem(0).Rating, • ,]$VAR[LandscapeHDSD3DLabel0]</label>
                         <font>Font-Condensed-S32</font>
                         <textcolor>aawhite</textcolor>
                         <shadowcolor>22000000</shadowcolor>
@@ -2856,7 +2856,7 @@
             </control>
 
             <control type="group">      
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>                           
                 <control type="fixedlist" id="54">
@@ -2923,7 +2923,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,]</label>
+                                <label>$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,]$VAR[LandscapeHDSD3DLabel]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -3043,7 +3043,7 @@
                                 <posx>20</posx>
                                 <posy>329</posy>
                                 <width>440</width>
-                                <label>$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,]</label>
+                                <label>$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,]$VAR[LandscapeHDSD3DLabel]</label>
                                 <font>Font-Condensed-S32</font>
                                 <textcolor>aawhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
@@ -3132,7 +3132,7 @@
                 <animation type="Hidden" reversible="true">
                     <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
                 </animation>
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                 <!--Scrollbar-->
                 <control type="image">
                     <description>Scrollbar background (visible on focus)</description>
@@ -3179,7 +3179,7 @@
                 </animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
             </control>
             
             <control type="group">
@@ -3208,7 +3208,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>-372</posx>
                         <control type="image">
@@ -3270,7 +3270,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1860</posx>
                         <control type="image">
@@ -3325,7 +3325,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1488</posx>
                         <control type="image">
@@ -3387,7 +3387,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1116</posx>
                         <control type="image">
@@ -3449,7 +3449,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>744</posx>
                         <control type="image">
@@ -3511,7 +3511,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>372</posx>
                         <control type="image">
@@ -3572,7 +3572,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,360" tween="sine" easing="out" />
                     </animation>
-                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                    <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="image">
                         <description>Reflection</description>
                         <posx>-4</posx>
@@ -3633,7 +3633,7 @@
             </control>
             
             <control type="group">      
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>       
                 <control type="fixedlist" id="55">
@@ -3791,7 +3791,7 @@
                 <animation type="WindowClose" reversible="false">
                     <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
                 </animation>
-                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55)</visible>
+                <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                 <control type="group">
                     <control type="group">
                         <animation type="Visible" reversible="false">
@@ -3819,6 +3819,7 @@
                                 <width>140</width>
                                 <height>100</height>
                                 <texture>$VAR[ListHDSDFlag]</texture>
+                                <colordiffuse>aawhite</colordiffuse>
                                 <visible>!Skin.HasSetting(nohdflag) + !IsEmpty(Container(55).ListItem.VideoResolution)</visible>
                             </control>
                             <control type="label">
@@ -3916,7 +3917,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(500) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation)</visible>
+                <visible>Control.IsVisible(500) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="650" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -4299,7 +4300,7 @@
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <control type="group">
-                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <include>ThumbnailAnimationsPanel</include>
                 <control type="image">
                     <description>Shadow</description>
@@ -4532,7 +4533,7 @@
                 </control>
             </control>
             <control type="group">
-                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+                <visible>Control.IsVisible(501) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
                 <include>ThumbnailAnimationsPoster</include>
                 <animation effect="slide" end="36" time="400" tween="cubic" easing="inout" condition="!Skin.HasSetting(ThumbnailVideoSmall)">Conditional</animation>
                 <control type="image">
@@ -4840,7 +4841,7 @@
                             </control>
                             <control type="image">
                                 <posx>0</posx>
-                                <posy>61</posy>
+                                <posy>60</posy>
                                 <width>42</width>
                                 <height>28</height>
                                 <texture>$VAR[BannerListHDSDFlag]</texture>

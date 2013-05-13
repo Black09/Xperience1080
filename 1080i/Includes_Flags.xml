@@ -65,6 +65,15 @@
     
     <include name="InfoFlags">
         <control type="image">
+            <posx>0</posx>
+            <posy>0</posy>
+            <width>77</width>
+            <height>56</height>
+            <texture>flags/other/3d-info.png</texture>
+            <include>visiblehidefadeflags</include>
+            <visible>substring(ListItem.FileNameAndPath,.3D.) | substring(ListItem.FileNameAndPath,-3D.)</visible>
+        </control>
+        <control type="image">
             <include>ResDimensionsSmall</include>
             <texture>$INFO[ListItem.VideoResolution,flags/res/,.png]</texture>
             <include>visiblehidefadeflags</include>
