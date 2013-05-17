@@ -162,7 +162,7 @@
             <control type="group">
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
                     <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
-                    <effect type="zoom" start="100" end="50" center="1665,101" tween="sine" easing="inout" time="300" />
+                    <effect type="zoom" start="100" end="50" center="1765,101" tween="sine" easing="inout" time="300" />
                 </animation>
                 <visible>![IsEmpty(ListItem.Rating) + IsEmpty(ListItem.Studio)]</visible>
                 <control type="image" id="9340">
@@ -177,7 +177,6 @@
                 </control>
                 <control type="label">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <!--<animation effect="fade" start="0" end="100" time="300" tween="sine" easing="in">Visible</animation>-->
                     <posx>1820</posx>
                     <posy>51</posy>
                     <width>250</width>
@@ -246,6 +245,7 @@
                     <align>left</align>
                     <scroll>false</scroll>  
                     <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(9333) | Control.HasFocus(9335) | Control.HasFocus(1101) | Control.HasFocus(1104) | Control.HasFocus(1105) | Control.HasFocus(1110) | Control.HasFocus(70) | Control.HasFocus(71) | Window.IsActive(script-Actors-DialogInfo.xml) | [!IsEmpty(Window(3004).Property(ChooseArt)) + [Window.IsActive(filebrowser) | Window.IsActive(selectdialog) | Window.IsActive(DialogSelect.xml)]]">Conditional</animation>
+                     <visible>IntegerGreaterThan(Container(50).NumItems,0)</visible>
                 </control>
                 <!-- Right Arrow Label -->
                 <control type="label">
@@ -408,8 +408,7 @@
                         <width>59</width>
                         <height>59</height>
                         <onleft>1104</onleft>
-                        <onright>SendClick(2003,5)</onright>
-                        <onright>SetFocus(9334)</onright>
+                        <onright>1101</onright>
                         <onup>9333</onup>
                         <ondown>9333</ondown>
                         <onclick>Action(fullscreen)</onclick>
@@ -427,7 +426,10 @@
                     <height>332</height>
                     <onleft>1110</onleft>
                     <onright condition="Control.IsVisible(70)">70</onright>
-                    <onright condition="!Control.IsVisible(70)">71</onright>
+                    <onright condition="!Control.IsVisible(70) + Control.IsVisible(71)">71</onright>
+                    <onright condition="!Control.IsVisible(70) + !Control.IsVisible(71) + !IntegerGreaterThan(Container(50).NumItems,0)">SetProperty(BounceRight,1,Home)</onright>
+                    <onright condition="!Control.IsVisible(70) + !Control.IsVisible(71) + IntegerGreaterThan(Container(50).NumItems,0)">SendClick(2003,5)</onright>
+                    <onright condition="!Control.IsVisible(70) + !Control.IsVisible(71) + IntegerGreaterThan(Container(50).NumItems,0)">SetFocus(9334)</onright>
                     <onup condition="!Player.HasVideo">9333</onup>
                     <onup condition="Player.HasVideo">9336</onup>
                     <ondown condition="!Player.HasVideo">9333</ondown>
@@ -657,10 +659,44 @@
                         </control>
                     </control>
                     <control type="group">
+                        <width>1044</width>
+                        <height>40</height>
+                        <visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Artist)</visible>
+                        <!-- Artist -->
+                        <control type="label">
+                            <posx>8</posx>
+                            <posy>0</posy>
+                            <width>1044</width>
+                            <height>36</height>
+                            <font>Font-Condensed-S34</font>
+                            <align>left</align>
+                            <label>$INFO[ListItem.Artist]</label>
+                            <textcolor>aawhite</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
+                        <width>1044</width>
+                        <height>40</height>
+                        <visible>Container.Content(musicvideos) + !IsEmpty(ListItem.Album)</visible>
+                        <!-- Album -->
+                        <control type="label">
+                            <posx>8</posx>
+                            <posy>0</posy>
+                            <width>1044</width>
+                            <height>36</height>
+                            <font>Font-Condensed-S34</font>
+                            <align>left</align>
+                            <label>$INFO[ListItem.Album]</label>
+                            <textcolor>aawhite</textcolor>
+                            <scroll>false</scroll>
+                        </control>
+                    </control>
+                    <control type="group">
                         <!-- Genre -->
                         <width>1044</width>
                         <height>40</height>
-                        <visible>!IsEmpty(ListItem.Genre) + !Container.Content(tvshows)</visible>
+                        <visible>!IsEmpty(ListItem.Genre) + !Container.Content(tvshows) + !Container.Content(musicvideos)</visible>
                         <control type="image">
                             <posx>0</posx>
                             <posy>-6</posy>
@@ -684,7 +720,7 @@
                         <!-- Genre -->
                         <width>1044</width>
                         <height>40</height>
-                        <visible>!IsEmpty(ListItem.Genre) + Container.Content(tvshows)</visible>
+                        <visible>!IsEmpty(ListItem.Genre) + [Container.Content(tvshows) | Container.Content(musicvideos)]</visible>
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
@@ -756,10 +792,12 @@
                             <onup>70</onup>
                             <ondown>70</ondown>                  
                             <onleft>9333</onleft>
-                            <onright>SendClick(2003,5)</onright>
-                            <onright>SetFocus(9334)</onright>
+                            <onright condition="!IntegerGreaterThan(Container(50).NumItems,0)">SetProperty(BounceRight,1,Home)</onright>
+                            <onright condition="IntegerGreaterThan(Container(50).NumItems,0)">SendClick(2003,5)</onright>
+                            <onright condition="IntegerGreaterThan(Container(50).NumItems,0)">SetFocus(9334)</onright>
                             <onclick>SendClick(2003,13)</onclick>
                             <animation effect="fade" start="100" end="71.5" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
+                            <visible>!IsEmpty(ListItem.Director)</visible>
                         </control>
                     </control>
                     <control type="group">
@@ -888,8 +926,9 @@
                         <onup>71</onup>
                         <ondown>71</ondown>                  
                         <onleft>9333</onleft>
-                        <onright>SendClick(2003,5)</onright>
-                        <onright>SetFocus(9334)</onright>
+                        <onright condition="!IntegerGreaterThan(Container(50).NumItems,0)">SetProperty(BounceRight,1,Home)</onright>
+                        <onright condition="IntegerGreaterThan(Container(50).NumItems,0)">SendClick(2003,5)</onright>
+                        <onright condition="IntegerGreaterThan(Container(50).NumItems,0)">SetFocus(9334)</onright>
                         <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
                         <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
                         <orientation>vertical</orientation>
@@ -940,7 +979,7 @@
                             <control type="label">
                                 <posx>0</posx>
                                 <posy>0</posy>
-                                <width>1180</width>
+                                <width>1190</width>
                                 <height>60</height>
                                 <label>$INFO[ListItem.label]</label>
                                 <font>Font-Condensed-S40</font>
@@ -955,7 +994,7 @@
                             <control type="label">
                                 <posx>0</posx>
                                 <posy>0</posy>
-                                <width>1180</width>
+                                <width>1190</width>
                                 <height>60</height>
                                 <label>$INFO[ListItem.Label]</label>
                                 <textcolor>eewhite</textcolor>
@@ -968,7 +1007,7 @@
                     
                     <control type="image">
                         <description>Scrollbar background</description>
-                        <posx>1330</posx>
+                        <posx>1340</posx>
                         <posy>220</posy>
                         <width>6</width>
                         <height>687</height>
@@ -978,7 +1017,7 @@
                     </control>
                     <control type="scrollbar" id="151">
                         <description>Scrollbar</description>
-                        <posx>1330</posx>
+                        <posx>1340</posx>
                         <posy>220</posy>
                         <width>6</width>
                         <height>687</height>                    
@@ -991,7 +1030,7 @@
                     
                     <control type="image">
                         <description>Actor image</description>
-                        <posx>1348</posx>
+                        <posx>1362</posx>
                         <posy>220</posy>
                         <width>458</width>
                         <height>687</height>
@@ -1001,7 +1040,7 @@
                     </control>
                     <control type="image">
                         <description>Shadow</description>
-                        <posx>1305</posx>
+                        <posx>1319</posx>
                         <posy>900</posy>
                         <width>544</width>
                         <height>125</height>

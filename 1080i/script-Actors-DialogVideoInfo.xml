@@ -1,7 +1,10 @@
 <window id="3003">
 	<defaultcontrol always="true">51</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
+	<onload>ClearProperty(script.metadata.actors.showactors,home)</onload>
 	<onload condition="Skin.HasSetting(MovieInformation.PlayTrailer)">AlarmClock(PlayTrailer,PlayMedia($INFO[ListItem.Trailer],false,1),00:01,silent)</onload>
+	<onload condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">SetProperty(script.metadata.actors.showactors,1,home)</onload>
+	<onload condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">SetFocus(9301)</onload>
 	<onunload>ClearProperty(fanart_image,home)</onunload>
 	<controls>
 	
@@ -88,32 +91,35 @@
                 <include>visiblehidefadeinfo</include>
             </control>
             
-            <!-- Rating -->
+            <!-- Studio / Rating -->
             <control type="group">
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
                     <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
-                    <effect type="zoom" start="100" end="50" center="1665,101" tween="sine" easing="inout" time="300" />
+                    <effect type="zoom" start="100" end="50" center="1765,101" tween="sine" easing="inout" time="300" />
                 </animation>
-                <visible>!IsEmpty(ListItem.Rating)</visible>
-                <control type="image">
+                <visible>![IsEmpty(ListItem.Rating) + IsEmpty(ListItem.Studio)]</visible>
+                <control type="image" id="9340">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
-                    <posx>1725</posx>
+                    <posx>1659</posx>
                     <posy>41</posy>
-                    <width>120</width>
+                    <width>161</width>
+                    <aspectratio align="right" aligny="center">center</aspectratio>
                     <height>120</height>
-                    <texture>dialogs/video-info/rating.png</texture>
-                </control>  
+                    <texture background="true" fallback=".">$INFO[ListItem.Studio,special://skin/extras/studioflags/,.png]</texture>
+                    <colordiffuse>aawhite</colordiffuse>
+                </control>
                 <control type="label">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in" condition="!Window.IsActive(movieinformation) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))">WindowOpen</animation>
-                    <posx>1735</posx>
+                    <posx>1820</posx>
                     <posy>51</posy>
                     <width>250</width>
                     <height>100</height>
-                    <label>$INFO[ListItem.Rating]</label>
+                    <label>$INFO[ListItem.Rating,, ★]</label>
                     <font>Font-Condensed-S75</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
                     <scroll>false</scroll>
+                    <visible>stringcompare(Control.GetLabel(9340),.)</visible>
                 </control>
             </control>
             
@@ -503,7 +509,7 @@
                         <height>70</height>
                         <font>Font-Condensed-S45</font>
                         <align>left</align>
-                        <label>$INFO[ListItem.Title]</label>
+                        <label>$VAR[VideoInfoTitleLabel]</label>
                         <textcolor>eewhite</textcolor>
                         <scroll>false</scroll>
                     </control>
@@ -673,11 +679,11 @@
             </control>
 
             <!-- Cast Stuff -->
-            <control type="group">
+            <control type="group" id="9301">
                 <include>FullscreenDimensions</include>
                 <include>listEndAnimation</include>
-                <visible allowhiddenfocus="true">Control.HasFocus(150)</visible>
-                <animation type="Visible">
+                <visible allowhiddenfocus="true">ControlGroup(9301).HasFocus</visible>
+                <animation type="Visible" condition="IsEmpty(Window(Home).Property(script.metadata.actors.showactors))">
                     <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
                 </animation>
                 <animation type="Hidden">
@@ -687,6 +693,9 @@
                 
                 <control type="button" id="152">
                     <visible allowhiddenfocus="true">false</visible>
+                    <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showactors)) + !IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(152)</onfocus>
+                    <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showactors)) + IntegerGreaterThan(Container(150).NumItems,0)">ClearProperty(script.metadata.actors.showactors,Home)</onfocus>
+                    <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showactors)) + IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onfocus>
                 </control>
 
                 <control type="list" id="150">
@@ -696,8 +705,8 @@
                     <height>660</height>
                     <onleft>SetFocus(9333)</onleft>
                     <onright>Action(select)</onright>
+                    <!-- Prevent mulitple selections by changing focus -->
                     <onright>SetFocus(152)</onright>
-                    <!-- Prevent mulitple selections -->
                     <onup>150</onup>
                     <ondown>150</ondown>
                     <pagecontrol>151</pagecontrol>
@@ -709,7 +718,7 @@
                         <control type="label">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>1180</width>
+                            <width>1190</width>
                             <height>60</height>
                             <label>$INFO[ListItem.Label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
                             <font>Font-Condensed-S40</font>
@@ -724,7 +733,7 @@
                         <control type="label">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>1180</width>
+                            <width>1190</width>
                             <height>60</height>
                             <label>$INFO[ListItem.label]$INFO[ListItem.Label2, $LOCALIZE[20347] ,]</label>
                             <textcolor>eewhite</textcolor>
@@ -737,7 +746,7 @@
                 
                 <control type="image">
                     <description>Scrollbar background</description>
-                    <posx>1330</posx>
+                    <posx>1340</posx>
                     <posy>220</posy>
                     <width>6</width>
                     <height>687</height>
@@ -747,7 +756,7 @@
                 </control>
                 <control type="scrollbar" id="151">
                     <description>Scrollbar</description>
-                    <posx>1330</posx>
+                    <posx>1340</posx>
                     <posy>220</posy>
                     <width>6</width>
                     <height>687</height>                    
@@ -760,7 +769,7 @@
                 
                 <control type="image">
                     <description>Actor image</description>
-                    <posx>1348</posx>
+                    <posx>1362</posx>
                     <posy>220</posy>
                     <width>458</width>
                     <height>687</height>
@@ -770,7 +779,7 @@
                 </control>
                 <control type="image">
                     <description>Shadow</description>
-                    <posx>1305</posx>
+                    <posx>1319</posx>
                     <posy>900</posy>
                     <width>544</width>
                     <height>125</height>

@@ -2,6 +2,8 @@
 	<defaultcontrol always="true">9000</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<onload>ClearProperty(script.metadata.actors.showmovies,home)</onload>
+	<onload condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">SetProperty(script.metadata.actors.showmovies,1,home)</onload>
+	<onload condition="[Window.IsActive(movieinformation) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))] + IsEmpty(Window(Home).Property(script.metadata.actors.push))">SetFocus(9301)</onload>
 	<controls>
 		<control type="group">
 		    <posx>0</posx>
@@ -95,7 +97,7 @@
 	                    <align>left</align>
 	                    <scroll>false</scroll>
 	                    <include>visiblehidefadeinfo</include>
-	                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="Control.HasFocus(150) | [IsEmpty(Container(50).Property(ParentDir)) + !Window.IsActive(movieinformation)]">Conditional</animation>
+	                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="ControlGroup(9301).HasFocus | [IsEmpty(Container(50).Property(ParentDir)) + !Window.IsActive(movieinformation)]">Conditional</animation>
 	                </control>
 	                <!-- Biography Label -->
 	                <control type="label">
@@ -108,7 +110,7 @@
 	                    <textcolor>eewhite</textcolor>
 	                    <align>left</align>
 	                    <scroll>false</scroll>  
-	                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showmovies))">Conditional</animation>
+	                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="ControlGroup(9301).HasFocus">Conditional</animation>
 	                </control>
 	                <!-- Known Movies Label -->
 	                <control type="label">
@@ -121,7 +123,7 @@
 	                    <textcolor>eewhite</textcolor>
 	                    <align>left</align>
 	                    <scroll>false</scroll>  
-	                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="IsEmpty(Window(Home).Property(script.metadata.actors.showmovies))">Conditional</animation>
+	                    <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="!ControlGroup(9301).HasFocus">Conditional</animation>
 	                    <visible>IntegerGreaterThan(Container(150).NumItems,0)</visible>
 	                </control>
 	                <!-- Right Arrow Label -->
@@ -136,7 +138,7 @@
 	                    <align>left</align>
 	                    <scroll>false</scroll>
 	                    <include>visiblehidefadeinfo</include>
-	                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="!Control.HasFocus(150)">Conditional</animation>
+	                    <animation effect="fade" start="100" end="0" tween="sine" easing="inout" time="300" condition="!ControlGroup(9301).HasFocus">Conditional</animation>
 	                </control>
 	            </control>
 			</control>
@@ -197,7 +199,6 @@
 			        <onleft condition="!IsEmpty(Container(50).Property(ParentDir))">ParentDir</onleft>
 			        <onleft condition="Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir))">PreviousMenu</onleft>
 			        <onleft condition="!Window.IsActive(movieinformation) + IsEmpty(Container(50).Property(ParentDir)) + !Window.IsVisible(3008)">SetProperty(BounceLeft,1,Home)</onleft>
-			        <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(150).NumItems,0)">SetProperty(script.metadata.actors.showmovies,1,home)</onright>
 			        <onright condition="!Control.IsVisible(70) + IntegerGreaterThan(Container(150).NumItems,0)">150</onright>
 			        <onright condition="Control.IsVisible(70)">70</onright>
 			        <onup>9000</onup>
@@ -459,7 +460,6 @@
 				            <width>6</width>
 				            <height>244</height>                    
 				            <onleft>9000</onleft>
-				            <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">SetProperty(script.metadata.actors.showmovies,1,home)</onright>
 				            <onright condition="IntegerGreaterThan(Container(150).NumItems,0)">150</onright>
 				            <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
 				            <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
@@ -500,7 +500,7 @@
 			
 			<!-- Known movies -->
 			<control type="group" id="9301">
-			    <animation type="Visible">
+			    <animation type="Visible" condition="IsEmpty(Window(Home).Property(script.metadata.actors.showmovies))">
 			        <effect type="slide" start="1920" end="0" time="500" delay="0" tween="sine" easing="inout" />
 			    </animation>
 			    <animation type="Hidden">
@@ -512,6 +512,9 @@
 			    
 			    <control type="button" id="152">
 			        <visible allowhiddenfocus="true">false</visible>
+			        <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showmovies)) + !IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(152)</onfocus>
+			        <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showmovies)) + IntegerGreaterThan(Container(150).NumItems,0)">ClearProperty(script.metadata.actors.showmovies,Home)</onfocus>
+			        <onfocus condition="!IsEmpty(Window(Home).Property(script.metadata.actors.showmovies)) + IntegerGreaterThan(Container(150).NumItems,0)">SetFocus(150)</onfocus>
 			    </control>
 				
 				<control type="list" id="150">
@@ -519,10 +522,9 @@
 				    <posy>234</posy>
 				    <width>1215</width>
 				    <height>660</height>
-				    <onleft>ClearProperty(script.metadata.actors.showmovies,home)</onleft>
 				    <onleft>SetFocus(9000)</onleft>
 				    <onright>Action(select)</onright>
-				    <!-- Prevent multiple selections -->
+				    <!-- Prevent mulitple selections by changing focus -->
 				    <onright>SetFocus(152)</onright>
 				    <onup>150</onup>
 				    <ondown>150</ondown>
