@@ -93,19 +93,19 @@
     <variable name="ListHDSDFlag">
         <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-default.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd.png</value>
-        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd.png</value>
+        <value condition="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd.png</value>
     </variable>
     
     <variable name="ListHDSDFlagSmall">
         <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-ilist.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd-ilist.png</value>
-        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-ilist.png</value>
+        <value condition="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-ilist.png</value>
     </variable>
     
     <variable name="BannerListHDSDFlag">
         <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-black.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd-black.png</value>
-        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-black.png</value>
+        <value condition="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-black.png</value>
     </variable>
     
     <variable name="LandscapeHDSD3DLabel">
