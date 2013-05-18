@@ -132,14 +132,7 @@
             <effect type="slide" start="0,0" end="0,-55" time="500" tween="cubic" easing="inout" />
         </animation>
     </include>
- 
-    <include name="HomeDotIndicator">
-        <posy>0</posy>
-        <width>16</width>
-        <height>16</height>
-        <texture>windows/home/dot.png</texture>
-    </include>
-     
+
     <variable name="HomePictureImageSingle">
         <value condition="IsEmpty(Skin.String(HomePicturesSingleImage))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
         <value>$INFO[Skin.String(HomePicturesSingleImage)]</value>
