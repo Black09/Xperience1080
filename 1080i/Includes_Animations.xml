@@ -274,10 +274,10 @@
         </animation>
     </include>
     <include name="defaultfocusanim3">
-        <animation type="Focus" condition="Container(50).OnNext | Container(52).OnNext" reversible="false">
+        <animation type="Focus" condition="[Container(50).OnNext + !Container(50).ListItem.IsPlaying] | [Container(52).OnNext + !Container(52).ListItem.IsPlaying]" reversible="false">
             <effect type="fade" start="10" end="100" tween="sine" easing="inout" time="800" />
         </animation>
-        <animation type="Focus" condition="Container(50).OnPrevious | Container(52).OnPrevious" reversible="false">
+        <animation type="Focus" condition="[Container(50).OnPrevious + !Container(50).ListItem.IsPlaying] | [Container(52).OnPrevious + !Container(52).ListItem.IsPlaying]" reversible="false">
             <effect type="fade" start="10" end="100" tween="sine" easing="inout" time="800" />
         </animation>
     </include>
@@ -413,11 +413,11 @@
             <effect type="fade" start="100" end="0" tween="sine" easing="out" time="300" /> 
             <effect type="zoom" start="100" end="50" center="960,540" tween="sine" easing="inout" time="300" />
         </animation>
-        <animation type="Conditional" condition="!Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))" reversible="false">
+        <animation type="Conditional" condition="!Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(1122) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)" reversible="false">
             <effect type="fade" start="0" end="100" time="300" delay="350" tween="sine" easing="in" />
             <effect type="zoom" start="115" end="100" time="300" delay="350" center="auto" tween="sine" easing="out" />
         </animation>
-        <animation type="Conditional" condition="Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(1122) | Window.IsActive(script-Actors-DialogInfo.xml) | Window.IsActive(script-Actors-DialogVideoInfo.xml) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))" reversible="false">
+        <animation type="Conditional" condition="Window.IsActive(movieinformation) | Window.IsActive(musicinformation) | Window.IsActive(1122) | Window.IsActive(script-Actors-DialogInfo.xml) | Window.IsActive(script-Actors-DialogVideoInfo.xml) | !IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) | Window.IsActive(favourites)" reversible="false">
             <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" /> 
             <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
         </animation>

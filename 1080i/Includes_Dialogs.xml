@@ -34,11 +34,6 @@
         <value>$INFO[Container(11).NumItems,, $LOCALIZE[19019]]$INFO[Container(11).CurrentPage, • $LOCALIZE[41819] ,]$INFO[Container(11).NumPages,/,]</value>
     </variable>
     
-    <variable name="PVRChannelsOSDTitleLabel">
-        <value condition="PVR.IsPlayingRadio">$LOCALIZE[19024]$INFO[VideoPlayer.ChannelGroup, • ,]</value>
-        <value>$LOCALIZE[19023]$INFO[VideoPlayer.ChannelGroup, • ,]</value>
-    </variable>
-    
     <variable name="FileBrowserArtThumb">
         <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
         <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/medium.png]</value>

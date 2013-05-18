@@ -91,18 +91,57 @@
     
     <!-- HD/SD flag -->
     <variable name="ListHDSDFlag">
+        <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-default.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd.png</value>
-        <value>flags/defs/sd.png</value>
+        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd.png</value>
     </variable>
     
     <variable name="ListHDSDFlagSmall">
+        <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-ilist.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd-ilist.png</value>
-        <value>flags/defs/sd-ilist.png</value>
+        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-ilist.png</value>
     </variable>
     
     <variable name="BannerListHDSDFlag">
+        <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)">flags/other/3d-black.png</value>
         <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)">flags/defs/hd-black.png</value>
-        <value>flags/defs/sd-black.png</value>
+        <value condidion="!IsEmpty(ListItem.VideoResolution)">flags/defs/sd-black.png</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel">
+        <value condition="SubString(ListItem.FileNameAndPath,.3D.) | SubString(ListItem.FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(ListItem.VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(ListItem.VideoResolution)"> • SD</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel0">
+        <value condition="SubString(Container(54).ListItem(0).FileNameAndPath,.3D.) | SubString(Container(54).ListItem(0).FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(Container(54).ListItem(0).VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(Container(54).ListItem(0).VideoResolution)"> • SD</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel1">
+        <value condition="SubString(Container(54).ListItem(1).FileNameAndPath,.3D.) | SubString(Container(54).ListItem(1).FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(Container(54).ListItem(1).VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(Container(54).ListItem(1).VideoResolution)"> • SD</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel2">
+        <value condition="SubString(Container(54).ListItem(2).FileNameAndPath,.3D.) | SubString(Container(54).ListItem(2).FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(Container(54).ListItem(2).VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(Container(54).ListItem(2).VideoResolution)"> • SD</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel3">
+        <value condition="SubString(Container(54).ListItem(3).FileNameAndPath,.3D.) | SubString(Container(54).ListItem(3).FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(Container(54).ListItem(3).VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(Container(54).ListItem(3).VideoResolution)"> • SD</value>
+    </variable>
+    
+    <variable name="LandscapeHDSD3DLabel-1">
+        <value condition="SubString(Container(54).ListItem(-1).FileNameAndPath,.3D.) | SubString(Container(54).ListItem(-1).FileNameAndPath,-3D.)"> • 3D</value>
+        <value condition="IntegerGreaterThan(Container(54).ListItem(-1).VideoResolution,719)"> • HD</value>
+        <value condition="!IsEmpty(Container(54).ListItem(-1).VideoResolution)"> • SD</value>
     </variable>
     
     <!-- Overlays -->
@@ -167,7 +206,8 @@
     </variable>
     
     <variable name="BannerOverlayFo">
-        <value condition="Container.ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/banner-p-fo.png]</value>
+        <value condition="ListItem.IsPlaying">views/banner/other/playing-top.png</value>
+        <value condition="ListItem.IsResumable">$INFO[ListItem.Overlay,overlays/,/banner-p-fo.png]</value>
         <value>$INFO[ListItem.Overlay,overlays/,/banner-w-fo.png]</value>
     </variable>
     
@@ -438,19 +478,46 @@
         <value>$INFO[ListItem.Thumb]</value>
     </variable>
     
-    <variable name="PvrRecordingsIcon">
-        <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-        <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/landscape.png]</value>
-    </variable>
-    
-    <variable name="PvrRecordingsIconSmall">
-        <value condition="!IsEmpty(ListItem.Thumb)">$INFO[ListItem.Thumb]</value>
-        <value>$INFO[ListItem.ActualIcon,views/fallbacks/,/landscape-small.png]</value>
-    </variable>
-    
     <!-- Info -->
+    <variable name="ListItem.Label">
+        <value condition="ListItem.IsPlaying">[COLOR=SelectedGreen]$INFO[ListItem.Label][/COLOR]</value>
+        <value>$INFO[ListItem.Label]</value>
+    </variable>
+    
+    <variable name="ListItem.Title">
+        <value condition="ListItem.IsPlaying">[COLOR=SelectedGreen]$INFO[ListItem.Title][/COLOR]</value>
+        <value>$INFO[ListItem.Title]</value>
+    </variable>
+    
+    <variable name="ListItem.ChannelNumber">
+        <value condition="ListItem.IsPlaying">[COLOR=SelectedGreen]$INFO[ListItem.ChannelNumber][/COLOR]</value>
+        <value>$INFO[ListItem.ChannelNumber]</value>
+    </variable>
+    
+    <variable name="Colordiffuse.Color">
+        <value condition="ListItem.IsPlaying">D4FFFFFF</value>
+        <value>99FFFFFF</value>
+    </variable>
+    
+    <variable name="Colordiffuse.Color.2">
+        <value condition="ListItem.IsPlaying">D4FFFFFF</value>
+        <value>77white</value>
+    </variable>
+    
+    <variable name="Colordiffuse.Color.3">
+        <value condition="ListItem.IsPlaying">FFFFFFFF</value>
+        <value>7FFFFFFF</value>
+    </variable>
+    
+    <variable name="SelectedColor.Open">
+        <value condition="ListItem.IsPlaying">[COLOR=SelectedGreen]</value>
+    </variable>
+    
+    <variable name="SelectedColor.Close">
+        <value condition="ListItem.IsPlaying">[/COLOR]</value>
+    </variable>
+    
     <variable name="CoverViewBottomInfo">
-        <value condition="Container.Content(Albums)">$INFO[Container(55).ListItem.Album]</value>
         <value condition="Container.Content(Artists)">$INFO[Container(55).ListItem.Artist]</value>
         <value condition="Container.Content(Songs) | Window.IsVisible(MusicPlaylist)">$INFO[Container(55).ListItem.Title]$INFO[ListItem.Duration, (,)]</value>
         <value>$INFO[Container(55).ListItem.Label]</value>
@@ -478,16 +545,33 @@
     </variable>
     
     <variable name="MusicListLabel">
-        <value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.Title]</value>
-        <value>$INFO[ListItem.Label]</value>
+        <value condition="!IsEmpty(ListItem.Title)">$VAR[SelectedColor.Open]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
+        <value>$VAR[SelectedColor.Open]$INFO[ListItem.Label]$VAR[SelectedColor.Close]</value>
+    </variable>
+    
+    <variable name="MusicListStar">
+        <value condition="ListItem.IsPlaying">views/thumb/other/star_pl.png</value>
+        <value>views/thumb/other/star_nofo.png</value>
+    </variable>
+    
+    <variable name="MusicListStarFo">
+        <value condition="ListItem.IsPlaying">views/thumb/other/star_pl.png</value>
+        <value>views/thumb/other/star_fo.png</value>
     </variable>
     
     <variable name="MusicListSongLabel">
-        <value condition="stringcompare(Container.FolderPath,musicdb://5/1/)">$INFO[ListItem.Title]</value>
-        <value condition="!IntegerGreaterThan(ListItem.TrackNumber,9)">$INFO[ListItem.TrackNumber,0,. ]$INFO[ListItem.Title]</value>
-        <value>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+        <value condition="stringcompare(Container.FolderPath,musicdb://5/1/)">$VAR[SelectedColor.Open]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
+        <value condition="!IsEmpty(ListItem.Title) + !IntegerGreaterThan(ListItem.TrackNumber,9)">$VAR[SelectedColor.Open]$INFO[ListItem.TrackNumber,0,. ]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
+        <value condition="!IsEmpty(ListItem.Title)">$VAR[SelectedColor.Open]$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
+        <value>$VAR[SelectedColor.Open]$INFO[ListItem.Label]$VAR[SelectedColor.Close]</value>
     </variable>
     
+    <variable name="MusicListSongLabel2">
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) | stringcompare(Container.SortMethod,$LOCALIZE[576])">$INFO[ListItem.PlayCount, [,] ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[562])">$INFO[ListItem.Year, [,] ]$INFO[ListItem.Duration]</value>
+        <value condiiton="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration, ,]</value>
+    </variable>
+
     <variable name="MusicInfoListDescriptionHeader">
         <value condition="Container.Content(artists)">$LOCALIZE[21887]</value>
         <value>$LOCALIZE[183]</value>
@@ -509,9 +593,16 @@
     </variable>
     
     <variable name="MusicInfoListSongLabel">
-        <value condition="stringcompare(Container.FolderPath,musicdb://5/1/)">$INFO[ListItem.PlayCount,, • ]$INFO[ListItem.Title]</value>
-        <value condition="!IntegerGreaterThan(ListItem.TrackNumber,9)">$INFO[ListItem.TrackNumber,0,. ]$INFO[ListItem.Title]</value>
-        <value>$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+        <value condition="!IsEmpty(ListItem.Title) + !IntegerGreaterThan(ListItem.TrackNumber,9)">$INFO[ListItem.TrackNumber,0,. ]$INFO[ListItem.Title]</value>
+        <value condition="!IsEmpty(ListItem.Title)">$INFO[ListItem.TrackNumber,,. ]$INFO[ListItem.Title]</value>
+        <value>$INFO[ListItem.Label]</value>
+    </variable>
+    
+    <variable name="MusicInfoListSongLabel2">
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) | stringcompare(Container.SortMethod,$LOCALIZE[576])">$INFO[ListItem.PlayCount, [,] ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[562])">$INFO[ListItem.Year, [,] ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[563])">$INFO[ListItem.Rating, [,★] ]$INFO[ListItem.Duration]</value>
+        <value condiiton="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration, ,]</value>
     </variable>
     
     <variable name="MusicPanelInfo">
@@ -530,8 +621,7 @@
     </variable>
     
     <variable name="VideoPanelThumbInfo">
-        <value condition="Container.Content(movies) + IntegerGreaterThan(ListItem.VideoResolution,719)">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,] • HD</value>
-        <value condition="Container.Content(movies) + !IntegerGreaterThan(ListItem.VideoResolution,719)">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ,] • SD</value>
+        <value condition="Container.Content(movies)">$INFO[ListItem.Year]$INFO[ListItem.Duration, • , $LOCALIZE[12391]]$INFO[ListItem.Rating, • ★ ,]$VAR[LandscapeHDSD3DLabel]</value>
         <value>$INFO[ListItem.Property(UnWatchedEpisodes),$LOCALIZE[41311],]</value>
     </variable>
     
@@ -552,6 +642,16 @@
         <value>$INFO[Container(52).ListItem.Genre]</value>
     </variable>
     
+    <variable name="CastLabel">
+        <value condition="Container.Content(musicvideos)">$LOCALIZE[133]</value>
+        <value>$LOCALIZE[41316]</value>
+    </variable>
+    
+    <variable name="VideoInfoTitleLabel">
+        <value condition="!IsEmpty(ListItem.TagLine)">$INFO[ListItem.TagLine]</value>
+        <value>$INFO[ListItem.Title]</value>
+    </variable>
+    
     <!-- Other -->
     <variable name="TVTimerRadioButtonTexture">
         <value condition="!StringCompare(ListItem.Comment,$LOCALIZE[305]) + !IsEmpty(ListItem.ChannelName)">buttons/radio/radio-button-nf.png</value>
@@ -560,7 +660,7 @@
     
     <variable name="TVNumItemsLabel">
         <value condition="IntegerGreaterThan(Container.NumItems,0) + !IntegerGreaterThan(Container.NumItems,1)">$INFO[Container.NumItems,, $LOCALIZE[41822]]</value>
-        <value>$INFO[Container.NumItems,, $LOCALIZE[41817]]</value>
+        <value condition="IntegerGreaterThan(Container.NumItems,0)">$INFO[Container.NumItems,, $LOCALIZE[41817]]</value>
     </variable>
     
 </includes>

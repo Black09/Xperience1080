@@ -106,6 +106,25 @@
                         <onclick>IncreaseRating</onclick>
                         <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(15)">Conditional</animation>
                     </control>
+                    <control type="image">
+                        <posx>1167</posx>
+                        <posy>-3</posy>
+                        <width>105</width>
+                        <height>105</height>
+                        <texture>views/thumb/other/star_fo.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>1296</posx>
+                        <posy>0</posy>
+                        <width>100</width>
+                        <height>100</height>
+                        <font>Font-Condensed-S34-B</font>
+                        <align>right</align>
+                        <label fallback="[COLOR=47FFFFFF]0.0[/COLOR]">$INFO[ListItem.Rating,,.0]</label>
+                        <textcolor>eewhite</textcolor>
+                        <selectedcolor>eewhite</selectedcolor>
+                        <scroll>false</scroll>
+                    </control>
                 </control>
             </control>
         </control>

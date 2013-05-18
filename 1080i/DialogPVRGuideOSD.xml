@@ -51,44 +51,87 @@
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>30</posx>
+	                        <posx>102</posx>
 	                        <posy>0</posy>
-	                        <width>620</width>
+	                        <width>90</width>
 	                        <height>76</height>
-	                        <font>Font-Condensed-S34</font>
-	                        <align>left</align>
+	                        <font>Font-Condensed-S33-B</font>
+	                        <align>right</align>
 	                        <label>$INFO[ListItem.StartTime]</label>
 	                        <textcolor>99FFFFFF</textcolor>
 	                        <selectedcolor>99FFFFFF</selectedcolor>
 	                        <scroll>false</scroll>
+	                        <visible>!substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>650</posx>
+	                        <posx>152</posx>
 	                        <posy>0</posy>
-	                        <width>620</width>
+	                        <width>130</width>
 	                        <height>76</height>
-	                        <font>Font-Condensed-S34-B</font>
+	                        <font>Font-Condensed-S33-B</font>
 	                        <align>right</align>
-	                        <label>$INFO[ListItem.Label]</label>
-	                        <textcolor>77white</textcolor>
-	                        <selectedcolor>77white</selectedcolor>
+	                        <label>$INFO[ListItem.StartTime]</label>
+	                        <textcolor>99FFFFFF</textcolor>
+	                        <selectedcolor>99FFFFFF</selectedcolor>
 	                        <scroll>false</scroll>
-	                        <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+	                        <visible>substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)</visible>
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
-	                        <posx>597</posx>
+	                        <posx>122</posx>
 	                        <posy>0</posy>
-	                        <width>567</width>
+	                        <width>530</width>
 	                        <height>76</height>
-	                        <font>Font-Condensed-S34-B</font>
-	                        <align>right</align>
+	                        <font>Font-Condensed-S34</font>
+	                        <align>left</align>
 	                        <label>$INFO[ListItem.Label]</label>
-	                        <textcolor>77white</textcolor>
-	                        <selectedcolor>77white</selectedcolor>
+	                        <textcolor>99FFFFFF</textcolor>
+	                        <selectedcolor>99FFFFFF</selectedcolor>
 	                        <scroll>false</scroll>
-	                        <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
+	                        <visible>!ListItem.HasTimer + !ListItem.IsRecording + !substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
+	                    </control>
+	                    <control type="label">
+	                        <description>Label</description>
+	                        <posx>122</posx>
+	                        <posy>0</posy>
+	                        <width>477</width>
+	                        <height>76</height>
+	                        <font>Font-Condensed-S34</font>
+	                        <align>left</align>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>99FFFFFF</textcolor>
+	                        <selectedcolor>99FFFFFF</selectedcolor>
+	                        <scroll>false</scroll>
+	                        <visible>[ListItem.HasTimer | ListItem.IsRecording] + !substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
+	                    </control>
+	                    <control type="label">
+	                        <description>Label</description>
+	                        <posx>172</posx>
+	                        <posy>0</posy>
+	                        <width>480</width>
+	                        <height>76</height>
+	                        <font>Font-Condensed-S34</font>
+	                        <align>left</align>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>99FFFFFF</textcolor>
+	                        <selectedcolor>99FFFFFF</selectedcolor>
+	                        <scroll>false</scroll>
+	                        <visible>!ListItem.HasTimer + !ListItem.IsRecording + [substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)]</visible>
+	                    </control>
+	                    <control type="label">
+	                        <description>Label</description>
+	                        <posx>172</posx>
+	                        <posy>0</posy>
+	                        <width>427</width>
+	                        <height>76</height>
+	                        <font>Font-Condensed-S34</font>
+	                        <align>left</align>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>99FFFFFF</textcolor>
+	                        <selectedcolor>99FFFFFF</selectedcolor>
+	                        <scroll>false</scroll>
+	                        <visible>[ListItem.HasTimer | ListItem.IsRecording] + [substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)]</visible>
 	                    </control>
 	                    <control type="group">
 	                        <visible>ListItem.IsRecording</visible>
@@ -115,14 +158,6 @@
 	                    	<height>80</height>
 	                    	<texture>windows/pvr/epg-timer.png</texture>
 	                    	<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
-	                    </control>
-	                    <control type="image">
-	                        <posx>651</posx>
-	                        <posy>-10</posy>
-	                        <width>39</width>
-	                        <height>39</height>
-	                        <texture>windows/filemanager/selected.png</texture>
-	                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
 	                    </control>
 	                </itemlayout>
 	                <focusedlayout width="1080" height="76">
@@ -147,44 +182,87 @@
 	                        <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11)">Conditional</animation>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>30</posx>
+	                            <posx>102</posx>
 	                            <posy>0</posy>
-	                            <width>620</width>
+	                            <width>90</width>
 	                            <height>76</height>
-	                            <font>Font-Condensed-S34</font>
-	                            <align>left</align>
+	                            <font>Font-Condensed-S33-B</font>
+	                            <align>right</align>
 	                            <label>$INFO[ListItem.StartTime]</label>
 	                            <textcolor>eewhite</textcolor>
 	                            <selectedcolor>eewhite</selectedcolor>
 	                            <scroll>false</scroll>
+	                            <visible>!substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
 	                        </control>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>650</posx>
+	                            <posx>152</posx>
 	                            <posy>0</posy>
-	                            <width>620</width>
+	                            <width>130</width>
 	                            <height>76</height>
-	                            <font>Font-Condensed-S34-B</font>
+	                            <font>Font-Condensed-S33-B</font>
 	                            <align>right</align>
-	                            <label>$INFO[ListItem.Label]</label>
-	                            <textcolor>D4FFFFFF</textcolor>
-	                            <selectedcolor>77white</selectedcolor>
+	                            <label>$INFO[ListItem.StartTime]</label>
+	                            <textcolor>eewhite</textcolor>
+	                            <selectedcolor>eewhite</selectedcolor>
 	                            <scroll>false</scroll>
-	                            <visible>!ListItem.HasTimer + !ListItem.IsRecording</visible>
+	                            <visible>substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)</visible>
 	                        </control>
 	                        <control type="label">
 	                            <description>Label</description>
-	                            <posx>597</posx>
+	                            <posx>122</posx>
 	                            <posy>0</posy>
-	                            <width>567</width>
+	                            <width>530</width>
 	                            <height>76</height>
-	                            <font>Font-Condensed-S34-B</font>
-	                            <align>right</align>
+	                            <font>Font-Condensed-S34</font>
+	                            <align>left</align>
 	                            <label>$INFO[ListItem.Label]</label>
-	                            <textcolor>D4FFFFFF</textcolor>
-	                            <selectedcolor>D4FFFFFF</selectedcolor>
+	                            <textcolor>eewhite</textcolor>
+	                            <selectedcolor>eewhite</selectedcolor>
 	                            <scroll>false</scroll>
-	                            <visible>ListItem.HasTimer | ListItem.IsRecording</visible>
+	                            <visible>!ListItem.HasTimer + !ListItem.IsRecording + !substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
+	                        </control>
+	                        <control type="label">
+	                            <description>Label</description>
+	                            <posx>122</posx>
+	                            <posy>0</posy>
+	                            <width>477</width>
+	                            <height>76</height>
+	                            <font>Font-Condensed-S34</font>
+	                            <align>left</align>
+	                            <label>$INFO[ListItem.Label]</label>
+	                            <textcolor>eewhite</textcolor>
+	                            <selectedcolor>eewhite</selectedcolor>
+	                            <scroll>false</scroll>
+	                            <visible>[ListItem.HasTimer | ListItem.IsRecording] + !substring(ListItem.StartTime,AM) + !substring(ListItem.StartTime,PM)</visible>
+	                        </control>
+	                        <control type="label">
+	                            <description>Label</description>
+	                            <posx>172</posx>
+	                            <posy>0</posy>
+	                            <width>480</width>
+	                            <height>76</height>
+	                            <font>Font-Condensed-S34</font>
+	                            <align>left</align>
+	                            <label>$INFO[ListItem.Label]</label>
+	                            <textcolor>eewhite</textcolor>
+	                            <selectedcolor>eewhite</selectedcolor>
+	                            <scroll>false</scroll>
+	                            <visible>!ListItem.HasTimer + !ListItem.IsRecording + [substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)]</visible>
+	                        </control>
+	                        <control type="label">
+	                            <description>Label</description>
+	                            <posx>172</posx>
+	                            <posy>0</posy>
+	                            <width>427</width>
+	                            <height>76</height>
+	                            <font>Font-Condensed-S34</font>
+	                            <align>left</align>
+	                            <label>$INFO[ListItem.Label]</label>
+	                            <textcolor>eewhite</textcolor>
+	                            <selectedcolor>eewhite</selectedcolor>
+	                            <scroll>false</scroll>
+	                            <visible>[ListItem.HasTimer | ListItem.IsRecording] + [substring(ListItem.StartTime,AM) | substring(ListItem.StartTime,PM)]</visible>
 	                        </control>
 	                    </control>
 	                    <control type="group">
@@ -212,14 +290,6 @@
 	                    	<height>80</height>
 	                    	<texture>windows/pvr/epg-timer.png</texture>
 	                    	<visible>ListItem.HasTimer + !ListItem.IsRecording</visible>
-	                    </control>
-	                    <control type="image">
-	                        <posx>651</posx>
-	                        <posy>-10</posy>
-	                        <width>39</width>
-	                        <height>39</height>
-	                        <texture>windows/filemanager/selected.png</texture>
-	                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
 	                    </control>
 	                </focusedlayout>
 	            </control>
