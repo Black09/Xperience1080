@@ -34,6 +34,11 @@
         <value condition="Control.HasFocus(171)">$INFO[Container(171).ListItem.SortLetter]</value>
         <value condition="Control.HasFocus(181)">$INFO[Container(181).ListItem.SortLetter]</value>
     </variable>
+    
+    <variable name="GlobalSearchInfoTitleLabel">
+        <value condition="!IsEmpty(Container(100).ListItem.Property(TagLine))">$INFO[Container(100).ListItem.Property(TagLine)]</value>
+        <value>$INFO[Container(100).ListItem.Label]</value>
+    </variable>
 
     <include name="GlobalSearchInfoVideo">
         <control type="group">
@@ -234,32 +239,36 @@
                 </control>
             </control>
             
-            <!-- Rating -->
+            <!-- Studio / Rating -->
             <control type="group">
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
                     <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
                     <effect type="zoom" start="100" end="50" center="1665,101" tween="sine" easing="inout" time="300" />
                 </animation>
-                <visible>!IsEmpty(Container(100).ListItem.Property(Rating))</visible>
-                <control type="image">
+                <visible>![IsEmpty(Container(100).ListItem.Property(Rating)) + IsEmpty(Container(100).ListItem.Property(Studio))]</visible>
+                <control type="image" id="9340">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>1725</posx>
+                    <posx>1659</posx>
                     <posy>41</posy>
-                    <width>120</width>
+                    <width>161</width>
+                    <aspectratio align="right" aligny="center">center</aspectratio>
                     <height>120</height>
-                    <texture>dialogs/video-info/rating.png</texture>
-                </control>  
+                    <texture background="true" fallback=".">$INFO[Container(100).ListItem.Property(Studio),special://skin/extras/studioflags/,.png]</texture>
+                    <colordiffuse>aawhite</colordiffuse>
+                </control>
                 <control type="label">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
-                    <posx>1735</posx>
+                    <animation effect="fade" start="0" end="100" time="300" tween="sine" easing="in">Visible</animation>
+                    <posx>1820</posx>
                     <posy>51</posy>
                     <width>250</width>
                     <height>100</height>
-                    <label>$INFO[Container(100).ListItem.Property(Rating)]</label>
+                    <label>$INFO[Container(100).ListItem.Property(Rating),, ★]</label>
                     <font>Font-Condensed-S75</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
                     <scroll>false</scroll>
+                    <visible>stringcompare(Control.GetLabel(9340),.)</visible>
                 </control>
             </control>
 
@@ -471,7 +480,7 @@
                             <height>45</height>
                             <font>Font-Condensed-S45</font>
                             <align>left</align>
-                            <label>$INFO[Container(100).ListItem.Label]</label>
+                            <label>$VAR[GlobalSearchInfoTitleLabel]</label>
                             <textcolor>eewhite</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -495,7 +504,7 @@
                     <control type="group">
                         <width>950</width>
                         <height>40</height>
-                        <visible>!Control.IsVisible(120) + !Control.IsVisible(140) + ![IsEmpty(Container(100).ListItem.Property(Year)) + IsEmpty(Container(100).ListItem.Property(Duration))]</visible>
+                        <visible>!Control.IsVisible(120) + !Control.IsVisible(140) + ![IsEmpty(Container(100).ListItem.Property(Year)) + IsEmpty(Container(100).ListItem.Property(Duration)) + IsEmpty(Container(100).ListItem.Property(Rating))]</visible>
                         <control type="label">
                             <posx>8</posx>
                             <posy>0</posy>
@@ -503,7 +512,7 @@
                             <height>36</height>
                             <font>Font-Condensed-S34</font>
                             <align>left</align>
-                            <label>$INFO[Container(100).ListItem.Property(Year),, • ]$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]</label>
+                            <label>$INFO[Container(100).ListItem.Property(Year),, • ]$INFO[Container(100).ListItem.Property(Duration),, $LOCALIZE[12391]]$INFO[Container(100).ListItem.Property(Rating), • ★ ,]</label>
                             <textcolor>aawhite</textcolor>
                             <scroll>false</scroll>
                         </control>
@@ -642,6 +651,15 @@
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="500" easing="in">Visible</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" delay="500" easing="out">Hidden</animation>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>77</width>
+                        <height>56</height>
+                        <texture>flags/other/3d-info.png</texture>
+                        <include>visiblehidefadeflags</include>
+                        <visible>substring(Container(100).ListItem.Property(Path),.3D.) | substring(Container(100).ListItem.Property(Path),-3D.)</visible>
+                    </control>
                     <control type="image">
                         <include>ResDimensionsSmall</include>
                         <texture>$INFO[Container(100).ListItem.Property(VideoResolution),flags/res/,.png]</texture>
