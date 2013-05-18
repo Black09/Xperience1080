@@ -10,6 +10,7 @@
     <onunload condition="!IsEmpty(Window(Home).Property(metadata.actors))">ClearProperty(metadata.actors,home)</onunload>
     <onunload condition="!IsEmpty(Window(3004).Property(ChooseArt)) + !IsEmpty(Window(3004).Property(ChooseArtType))">SetProperty(ChooseArt,$INFO[Window(3004).Property(ChooseArtType)],3004)</onunload>
     <onunload condition="!IsEmpty(Window(3004).Property(ChooseArt)) + !IsEmpty(Window(3004).Property(ChooseArtType))">ClearProperty(ChooseArtType,3004)</onunload>
+    <onunload condition="!IsEmpty(Window(3004).Property(ChooseArt)) + Container.Content(musicvideos) + !Window.Next(filebrowser)">ClearProperty(ChooseArt,3004)</onunload>
     <controls>
         <control type="group">
             <animation type="WindowOpen" condition="IsEmpty(Window(Home).Property(metadata.actors)) + [Window.IsVisible(progressdialog) | Window.IsVisible(smartplaylistrule) | Window.IsVisible(3003) | Window.IsVisible(3004) | Window.IsVisible(mediafilter) | Window.IsVisible(addonsettings) | Window.IsVisible(script-XBMC-Subtitles-main.xml)]" reversible="false">
