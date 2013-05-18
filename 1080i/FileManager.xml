@@ -12,6 +12,15 @@
                     <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
+                <animation type="Visible">
+                    <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="out" />
+                    <effect type="zoom" start="85" end="100" time="300" delay="300" center="960,600" tween="sine" easing="out" />
+                </animation>
+                <animation type="Hidden">
+                    <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                    <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
+                </animation>
+                <visible>!Window.IsActive(favourites)</visible>
                 <!-- Left -->
                 <control type="group">
                     <posx>200</posx>
@@ -125,20 +134,22 @@
                                 <texture border="90,3,90,3">views/list/other/separator.png</texture>
                             </control>
                             <control type="image">
+                                <posx>0</posx>
+                                <posy>1</posy>
+                                <width>752</width>
+                                <height>60</height>
+                                <texture>selected.png</texture>
+                                <colordiffuse>08FFFFFF</colordiffuse>
+                                <aspectratio aligny="top">keep</aspectratio>
+                                <visible>ListItem.IsSelected</visible>
+                            </control>
+                            <control type="image">
                                 <posx>5</posx>
                                 <posy>0</posy>
                                 <width>60</width>
                                 <height>60</height>
                                 <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
                                 <aspectratio>keep</aspectratio>
-                            </control>
-                            <control type="image">
-                                <posx>723</posx>
-                                <posy>-10</posy>
-                                <width>39</width>
-                                <height>39</height>
-                                <texture>windows/filemanager/selected.png</texture>
-                                <visible>ListItem.IsSelected</visible>
                             </control>
                             <control type="label">
                                 <posx>70</posx>
@@ -150,7 +161,7 @@
                                 <align>left</align>
                                 <aligny>center</aligny>
                                 <textcolor>77white</textcolor>
-                                <selectedcolor>77white</selectedcolor>
+                                <selectedcolor>SelectedGreen</selectedcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
@@ -164,7 +175,7 @@
                                 <align>right</align>
                                 <aligny>center</aligny>
                                 <textcolor>77white</textcolor>
-                                <selectedcolor>77white</selectedcolor>
+                                <selectedcolor>SelectedGreen</selectedcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
                             </control>
@@ -185,6 +196,16 @@
                             </control>
                             <control type="image">
                                 <posx>0</posx>
+                                <posy>1</posy>
+                                <width>752</width>
+                                <height>60</height>
+                                <texture>selected.png</texture>
+                                <colordiffuse>08FFFFFF</colordiffuse>
+                                <aspectratio aligny="top">keep</aspectratio>
+                                <visible>ListItem.IsSelected</visible>
+                            </control>
+                            <control type="image">
+                                <posx>0</posx>
                                 <posy>0</posy>
                                 <width>752</width>
                                 <height>59</height>
@@ -199,54 +220,48 @@
                                 <visible>Control.HasFocus(20)</visible>
                             </control>
                             <control type="image">
-                                <posx>723</posx>
-                                <posy>-10</posy>
-                                <width>39</width>
-                                <height>39</height>
-                                <texture>windows/filemanager/selected.png</texture>
-                                <visible>ListItem.IsSelected</visible>
-                            </control>
-                            <control type="image">
                                 <posx>5</posx>
                                 <posy>0</posy>
                                 <width>60</width>
                                 <height>60</height>
                                 <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
                                 <aspectratio>keep</aspectratio>
-                            </control>
-                            <control type="group">
-                                <animation type="Focus" condition="Container(20).OnNext | Container(20).OnPrevious" reversible="false">
+                            </control> 
+                            <control type="label">
+                                <posx>70</posx>
+                                <posy>0</posy>
+                                <width>662</width>
+                                <height>59</height>
+                                <info>ListItem.Label</info>
+                                <font>Font-Condensed-S30</font>
+                                <align>left</align>
+                                <aligny>center</aligny>
+                                <textcolor>eewhite</textcolor>
+                                <selectedcolor>SelectedGreen</selectedcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <animation type="Focus" condition="[Container(20).OnNext | Container(20).OnPrevious] + !Container(20).ListItem.IsSelected" reversible="false">
                                     <effect type="fade" start="50" end="100" time="500" tween="sine" easing="inout" />
                                 </animation>
-                                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(20)">Conditional</animation>
-                                <control type="label">
-                                    <posx>70</posx>
-                                    <posy>0</posy>
-                                    <width>662</width>
-                                    <height>59</height>
-                                    <info>ListItem.Label</info>
-                                    <font>Font-Condensed-S30</font>
-                                    <align>left</align>
-                                    <aligny>center</aligny>
-                                    <textcolor>eewhite</textcolor>
-                                    <selectedcolor>eewhite</selectedcolor>
-                                    <shadowcolor>22000000</shadowcolor>
-                                    <scroll>false</scroll>
-                                </control>
-                                <control type="label">
-                                    <posx>732</posx>
-                                    <posy>0</posy>
-                                    <width>662</width>
-                                    <height>59</height>
-                                    <info>ListItem.Label2</info>
-                                    <font>Font-Condensed-S27</font>
-                                    <align>right</align>
-                                    <aligny>center</aligny>
-                                    <textcolor>eewhite</textcolor>
-                                    <selectedcolor>eewhite</selectedcolor>
-                                    <shadowcolor>22000000</shadowcolor>
-                                    <scroll>false</scroll>
-                                </control>
+                                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(20) + !ListItem.IsSelected">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>732</posx>
+                                <posy>0</posy>
+                                <width>662</width>
+                                <height>59</height>
+                                <info>ListItem.Label2</info>
+                                <font>Font-Condensed-S27</font>
+                                <align>right</align>
+                                <aligny>center</aligny>
+                                <textcolor>eewhite</textcolor>
+                                <selectedcolor>SelectedGreen</selectedcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <animation type="Focus" condition="[Container(20).OnNext | Container(20).OnPrevious] + !Container(20).ListItem.IsSelected" reversible="false">
+                                    <effect type="fade" start="50" end="100" time="500" tween="sine" easing="inout" />
+                                </animation>
+                                <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(20) + !Container(20).ListItem.IsSelected">Conditional</animation>
                             </control>
                         </focusedlayout>
                     </control>
