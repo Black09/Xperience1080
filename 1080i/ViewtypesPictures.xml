@@ -6,7 +6,7 @@
     <include name="Viewtype-PictureList">
         
         <control type="group">
-            <visible>Control.IsVisible(50) + !Window.IsActive(addoninformation)</visible>
+            <visible>Control.IsVisible(50) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
         
@@ -112,14 +112,6 @@
                         <texture background="true">$INFO[ListItem.Icon]</texture>
                         <aspectratio>keep</aspectratio>
                     </control>
-                    <control type="image">
-                        <posx>1391</posx>
-                        <posy>-10</posy>
-                        <width>39</width>
-                        <height>39</height>
-                        <texture>windows/filemanager/selected.png</texture>
-                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
-                    </control>
                 </itemlayout>
                 <focusedlayout height="100">
                     <control type="image">
@@ -147,14 +139,6 @@
                         <height>85</height>
                         <texture background="true">$INFO[ListItem.Icon]</texture>
                         <aspectratio>keep</aspectratio>
-                    </control>
-                    <control type="image">
-                        <posx>1391</posx>
-                        <posy>-10</posy>
-                        <width>39</width>
-                        <height>39</height>
-                        <texture>windows/filemanager/selected.png</texture>
-                        <visible>ListItem.IsSelected | ListItem.IsPlaying</visible>
                     </control>
                     <control type="group">
                         <animation type="Focus" condition="Container(50).OnNext | Container(50).OnPrevious" reversible="false">
@@ -249,7 +233,7 @@
             <include>OptionsShutdownAnimation</include>
             <!-- List Panel -->
             <control type="group">
-                <visible>Control.IsVisible(52) + !Window.IsActive(addoninformation)</visible>
+                <visible>Control.IsVisible(52) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="750" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
@@ -466,7 +450,7 @@
                 </animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <visible>Control.IsVisible(55)</visible>
+                <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
             </control>
             
             <control type="group">
@@ -495,7 +479,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>-372</posx>
                         <control type="image">
@@ -552,7 +536,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1860</posx>
                         <control type="image">
@@ -609,7 +593,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1488</posx>
                         <control type="image">
@@ -666,7 +650,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>1116</posx>
                         <control type="image">
@@ -723,7 +707,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>744</posx>
                         <control type="image">
@@ -780,7 +764,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="group">
                         <posx>372</posx>
                         <control type="image">
@@ -836,7 +820,7 @@
                         <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                         <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
                     </animation>
-                    <visible>Control.IsVisible(55)</visible>
+                    <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                     <control type="image">
                         <description>Reflection</description>
                         <posx>-4</posx>
@@ -892,7 +876,7 @@
             </control>
             
             <control type="group">      
-                <visible>Control.IsVisible(55)</visible>
+                <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>       
                 <control type="fixedlist" id="55">
@@ -1039,7 +1023,7 @@
                 <animation type="WindowClose" reversible="false">
                     <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
                 </animation>
-                <visible>Control.IsVisible(55)</visible>
+                <visible>Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                 <control type="group">
                     <animation type="Visible" reversible="false">
                         <effect type="fade" start="0" end="100" time="150" delay="150" tween="sine" easing="in" />

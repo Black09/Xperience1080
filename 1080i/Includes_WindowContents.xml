@@ -52,7 +52,7 @@
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
             <texture background="true">$VAR[PlaylistEditorFanart]</texture>
-            <visible>Skin.HasSetting(BackgroundVideo) + Player.HasVideo</visible>
+            <visible>Skin.HasSetting(BackgroundVideo) + Player.HasVideo + !Window.IsActive(favourites)</visible>
         </control>
         <include>CommonOverlay</include>
     </include>
@@ -70,7 +70,7 @@
             <loop>yes</loop>
             <include>Animation_FanartFade</include>
             <imagepath background="true">$INFO[Skin.String(WeatherFanartDir)]$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
-            <visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + Weather.IsFetched</visible>
+            <visible>Skin.HasSetting(ShowWeatherFanart) + !IsEmpty(Skin.String(WeatherFanartDir)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + Weather.IsFetched + !Window.IsActive(favourites)</visible>
         </control>
         <include>CommonOverlay</include>
     </include>
@@ -85,7 +85,7 @@
             <include>Animation_FanartFade</include>
             <fadetime>600</fadetime>
             <texture background="true" fallback=".">$INFO[Container(20).ListItem.property(single)]</texture>
-            <visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
+            <visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling + !Window.IsActive(favourites)</visible>
         </control> 
         <control type="multiimage">
             <include>FullscreenDimensions</include>
@@ -95,7 +95,7 @@
             <loop>yes</loop>
             <include>Animation_FanartFade</include>
             <imagepath background="true" fallback=".">$INFO[Container(20).ListItem.property(multi)]</imagepath>
-            <visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling</visible>
+            <visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling + !Window.IsActive(favourites)</visible>
         </control> 
         <control type="image">
             <description>Search results fanart</description>
@@ -103,7 +103,7 @@
             <texture background="true">$INFO[Window(Home).Property(fanart_image)]</texture>
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
-            <visible>!IsEmpty(Window(Home).property(fanart_image)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+            <visible>!IsEmpty(Window(Home).property(fanart_image)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Window.IsActive(favourites)</visible>
         </control>
     </include>
 
@@ -153,7 +153,7 @@
             <texture background="true">$INFO[ListItem.FileNameAndPath]</texture>
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
-            <visible>Window.IsVisible(pictures) + Container.HasFiles + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+            <visible>Window.IsVisible(pictures) + Container.HasFiles + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Window.IsActive(favourites)</visible>
         </control>
         <control type="image">
             <description>List Panel fanart</description>
@@ -161,7 +161,7 @@
             <texture background="true">$VAR[ViewFanart]</texture>
             <fadetime>500</fadetime>
             <include>Animation_FanartFade</include>
-            <visible>!Skin.HasSetting(HideFanart) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo]</visible>
+            <visible>!Skin.HasSetting(HideFanart) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Window.IsActive(favourites)</visible>
         </control>
     </include>
     <include name="BackgroundFanartMusicOSD">

@@ -14,6 +14,15 @@
                 <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                 <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
             </animation>
+            <animation type="Visible">
+                <effect type="fade" start="0" end="100" time="300" delay="300" tween="sine" easing="out" />
+                <effect type="zoom" start="85" end="100" time="300" delay="300" center="960,600" tween="sine" easing="out" />
+            </animation>
+            <animation type="Hidden">
+                <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
+            </animation>
+            <visible>!Window.IsActive(favourites)</visible>
             <control type="group">
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="650" />

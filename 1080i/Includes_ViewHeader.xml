@@ -245,7 +245,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(1122) + !Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(1122) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -297,7 +297,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(musicinformation) + !Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(musicinformation) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="image">
                 <include>ViewHeaderIconVars</include>
@@ -310,7 +310,7 @@
                 <itemgap>0</itemgap>
                 <orientation>horizontal</orientation>
                 <control type="label">
-                    <width min="0" max="5000">auto</width>
+                    <width min="0" max="500">auto</width>
                     <height>120</height>
                     <label>$VAR[MusicHeaderLabel]</label>
                     <font>Font-Condensed-S36-B</font>
@@ -347,7 +347,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(1122) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent))</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(1122) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -389,7 +389,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -431,7 +431,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -473,7 +473,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -542,7 +542,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(musicinformation)</visible>
+            <visible>!Window.IsActive(musicinformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -571,6 +571,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
+            <visible>!Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -624,7 +625,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
-            <visible>!Window.IsActive(addoninformation)</visible>
+            <visible>!Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
@@ -676,8 +677,7 @@
                 	<description>TV Channels</description>
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(32)]</label>
-                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32) + !ControlGroup(110).HasFocus">Conditional</animation>
-                    <animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32)">Conditional</animation>
+                    <animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(32)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -689,8 +689,7 @@
                 	<description>Radio Channels</description>
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(33)]</label>
-                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33) + !ControlGroup(120).HasFocus">Conditional</animation>
-                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33)">Conditional</animation>
+                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(33)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -702,8 +701,7 @@
                 	<description>TV Guide</description>
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(31)]</label>
-                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31) + !ControlGroup(100).HasFocus + !ControlGroup(150).HasFocus + !ControlGroup(160).HasFocus">Conditional</animation>
-                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31)">Conditional</animation>
+                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(31)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -715,8 +713,7 @@
                 	<description>Recordings</description>
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(34)]</label>
-                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34) + !ControlGroup(130).HasFocus">Conditional</animation>
-                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34)">Conditional</animation>
+                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(34)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -728,8 +725,7 @@
                 	<description>Timers</description>
                 	<include>PVRSubLabel</include>
                 	<label>$INFO[Control.GetLabel(35)]</label>
-                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35) + !ControlGroup(140).HasFocus">Conditional</animation>
-                	<animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35)">Conditional</animation>
+                	<animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(35)">Conditional</animation>
                 </control>
                 <control type="label">
                     <description>Spacer</description>
@@ -744,8 +740,7 @@
                     <width>20</width>
                     <height>20</height>
                     <texture>windows/pvr/search.png</texture>
-                    <animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36) + !ControlGroup(170).HasFocus">Conditional</animation>
-                    <animation effect="fade" start="100" end="75" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36)">Conditional</animation>
+                    <animation effect="fade" start="100" end="55" time="300" tween="cubic" easing="inout" condition="!Control.HasFocus(36)">Conditional</animation>
                 </control>
             </control>
         </control>
@@ -755,6 +750,7 @@
         <control type="group">
             <posx>75</posx>
             <posy>26</posy>
+            <visible>!Window.IsActive(favourites)</visible>
             <include>BannerListInfoAnimation</include>
             <control type="group">
                 <control type="image">
