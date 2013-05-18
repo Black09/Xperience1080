@@ -164,9 +164,8 @@
                     <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
                     <effect type="zoom" start="100" end="50" center="1765,101" tween="sine" easing="inout" time="300" />
                 </animation>
-                <visible>![IsEmpty(ListItem.Rating) + IsEmpty(ListItem.Studio)]</visible>
+                <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                 <control type="image" id="9340">
-                    <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                     <posx>1659</posx>
                     <posy>41</posy>
                     <width>161</width>
@@ -174,6 +173,7 @@
                     <height>120</height>
                     <texture background="true" fallback=".">$INFO[ListItem.Studio,special://skin/extras/studioflags/,.png]</texture>
                     <colordiffuse>aawhite</colordiffuse>
+                    <visible>!IsEmpty(ListItem.Studio)</visible>
                 </control>
                 <control type="label">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
@@ -187,6 +187,7 @@
                     <align>right</align>
                     <scroll>false</scroll>
                     <visible>stringcompare(Control.GetLabel(9340),.)</visible>
+                    <visible>!IsEmpty(ListItem.Rating)</visible>
                 </control>
             </control>
 
