@@ -432,7 +432,7 @@
                         <width>88</width>
                         <height>88</height>
                         <texture>views/banner/other/playing.png</texture>
-                        <visible>ListItem.IsPlaying</visible>
+                        <visible>stringcompare(Player.FileNameAndPath,ListItem.FileNameAndPath)</visible>
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -460,7 +460,7 @@
                         <posx>0</posx>
                         <posy>50</posy>
                         <width>690</width>
-                        <label>$INFO[ListItem.Title]</label>
+                        <label>$VAR[MusicInfoListSongLabel]</label>
                         <font>Font-Condensed-S34-B</font>
                         <textcolor>FF333333</textcolor>
                         <scroll>false</scroll>
