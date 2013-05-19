@@ -3796,7 +3796,8 @@
                             <item id="2">
                                 <label>$LOCALIZE[15016]</label>
                                 <icon>windows/home/icons/games.png</icon>
-                                <onclick>ActivateWindow(10001,plugin://plugin.program.advanced.launcher,return)</onclick>
+                                <onclick condition="IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,plugin://plugin.program.advanced.launcher,return)</onclick>
+                                <onclick condition="!IsEmpty(Skin.String(GameTile.Path))">ActivateWindow(10001,$INFO[Skin.String(GameTile.Path)],return)</onclick>
                                 <property name="wide">1</property>
                             </item>
                             <item id="3">
