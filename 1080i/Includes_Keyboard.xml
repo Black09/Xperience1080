@@ -2,6 +2,8 @@
     <include name="Key">
         <height>90</height>
         <align>center</align>
+        <aligny>top</aligny>
+        <textoffsety>23</textoffsety>
         <font>Font-Condensed-S32</font>
         <texturefocus border="20">dialogs/keyboard/key-fo.png</texturefocus>
         <texturenofocus border="20">dialogs/keyboard/key-nf.png</texturenofocus>
@@ -23,7 +25,21 @@
     </include>
     <include name="BackSpace">
         <width>333</width>
-        <include>Key</include>
+        <height>90</height>
+        <texturefocus border="81,20,20,20">dialogs/keyboard/backspacefocus.png</texturefocus>
+        <texturenofocus border="81,20,20,20">dialogs/keyboard/backspacenofocus.png</texturenofocus>
+    </include>
+    <include name="ShiftKey">
+        <width>199</width>
+        <height>90</height>
+        <texturefocus>dialogs/keyboard/shiftfocus.png</texturefocus>
+        <texturenofocus>dialogs/keyboard/shiftnofocus.png</texturenofocus>
+    </include>
+    <include name="CapsKey">
+        <width>199</width>
+        <height>90</height>
+        <texturefocus>dialogs/keyboard/capsfocus.png</texturefocus>
+        <texturenofocus>dialogs/keyboard/capsnofocus.png</texturenofocus>
     </include>
     <include name="MediumKeyLarr">
         <width>104</width>
@@ -51,7 +67,8 @@
     <include name="DoubleKeyCancel">
         <width>171</width>
         <height>90</height>
-        <align>center</align>
+        <aligny>top</aligny>
+        <textoffsety>23</textoffsety>
         <font>Font-Condensed-S32</font>
         <texturefocus border="20">dialogs/keyboard/cancelfocus.png</texturefocus>
         <texturenofocus border="20">dialogs/keyboard/key-nf.png</texturenofocus>

@@ -2,8 +2,8 @@
     <defaultcontrol always="true">9100</defaultcontrol>
     <zorder>3</zorder>
     <onload condition="Window.IsVisible(fullscreenvideo) | [Window.IsVisible(script-XBMC_Lyrics-main.xml) + Window.IsVisible(visualisation)] | Window.IsVisible(progressdialog) | Window.IsVisible(pvr)">Action(close)</onload>
-    <onload>SetProperty(NoAnimation,1,10000)</onload>
-    <onunload>ClearProperty(NoAnimation,10000)</onunload>
+    <onload>SetProperty(NoAnimation,1,Home)</onload>
+    <onunload>ClearProperty(NoAnimation,Home)</onunload>
     <onunload>ClearProperty(GroupListMove)</onunload>
     <controls>
         <control type="group">
@@ -92,8 +92,8 @@
                     <width>350</width>
                     <height>100</height>
                     <itemgap>0</itemgap>
-                    <onleft>-</onleft>
-                    <onright>-</onright>
+                    <onleft>noop</onleft>
+                    <onright>noop</onright>
                     <onup>9120</onup>
                     <ondown>9120</ondown>
                     <scrolltime>0</scrolltime>
@@ -133,7 +133,7 @@
             </control>
             <control type="list" id="9110">
                 <onup>9105</onup>
-                <ondown>-</ondown>
+                <ondown>noop</ondown>
                 <onleft>9110</onleft>
                 <onright>9110</onright>
                 <visible>Player.HasMedia + [Control.HasFocus(9105) | Control.HasFocus(9110)]</visible>
@@ -215,8 +215,8 @@
             <control type="button" id="9103">
                 <onleft>9103</onleft>
                 <onright>9102</onright>
-                <onup>-</onup>
-                <ondown>-</ondown>
+                <onup>noop</onup>
+                <ondown>noop</ondown>
                 <onfocus>SetProperty(left,1)</onfocus>
             </control>
             <!-- Onright Buttons -->
