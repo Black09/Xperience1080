@@ -1,8 +1,10 @@
 <window id="601">
 	<defaultcontrol always="true">8000</defaultcontrol>
+	<onload condition="Window.IsActive(fullscreenvideo) + Skin.HasSetting(PVRExtendedOSD.Enabled)">SendClick(6)</onload>
 	<include condition="Window.IsActive(fullscreenvideo)">PVRGuideInfoZOrder</include>
 	<controls>
 	    <include condition="!Window.IsActive(fullscreenvideo)">PVRGuideInfo</include>
-	    <include condition="Window.IsActive(fullscreenvideo)">PVRGuideInfoOSD</include>
+	    <include condition="Window.IsActive(fullscreenvideo) + !Skin.HasSetting(PVRExtendedOSD.Enabled)">PVRGuideInfoOSD</include>
+	    <include condition="Window.IsActive(fullscreenvideo) + Skin.HasSetting(PVRExtendedOSD.Enabled)">PVRGuideInfoOSDExtended</include>
 	</controls>
 </window>
