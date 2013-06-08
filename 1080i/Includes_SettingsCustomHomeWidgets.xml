@@ -1178,7 +1178,7 @@
                     <onup>3</onup>
                     <ondown>3</ondown>
                     <onleft>4</onleft>
-                    <onright>5</onright>
+                    <onright>6</onright>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
                     <orientation>vertical</orientation>
                     <itemlayout width="257" height="60">
@@ -1288,19 +1288,94 @@
                 </control>
                                
                 <control type="group">
-                    <posx>547</posx>
-                    <posy>712</posy>
+                    <posx>546</posx>
+                    <posy>716</posy>
                     <control type="button" id="5">
                         <description>Close</description>
                         <texturefocus>buttons/cancel-fo.png</texturefocus>
                         <texturenofocus>buttons/cancel-nf.png</texturenofocus>
                         <include>DialogButtonDimensions</include>
-                        <onleft>3</onleft>
-                        <onright>3</onright>
+                        <onleft>6</onleft>
+                        <onright>6</onright>
                         <onup>3</onup>
                         <ondown>3</ondown>
                         <label>$LOCALIZE[42002]</label>
                         <onclick>PreviousMenu</onclick>
+                    </control>
+                    <control type="button" id="6">
+                        <posx>60</posx>
+                        <description>Default settings</description>
+                        <label>$LOCALIZE[409]</label>
+                        <width>500</width>
+                        <include>DialogButtonDimensionsRightAlign</include>
+                        <texturefocus border="0,0,100,0">buttons/options-right-fo.png</texturefocus>
+                        <texturenofocus border="0,0,100,0">buttons/options-right-nf.png</texturenofocus>
+                        <onup>3</onup>
+                        <ondown>3</ondown>
+                        <onleft>5</onleft>
+                        <onright>5</onright>
+                        <onclick condition="Container(3).HasFocus(1)">SetFocus(11)</onclick>
+                        <onclick condition="Container(3).HasFocus(2)">SetFocus(12)</onclick>
+                        <onclick condition="Container(3).HasFocus(3)">SetFocus(13)</onclick>
+                        <onclick condition="Container(3).HasFocus(4)">SetFocus(14)</onclick>
+                        <onclick condition="Container(3).HasFocus(5)">SetFocus(15)</onclick>
+                        <visible>!Control.HasFocus(2142)</visible>
+                        <include>visiblehidefadeinfo</include>
+                    </control>
+                    <control type="button" id="11">
+                        <onfocus>Skin.SetString(HomeWidget.1.Type,service.skin.widgets)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.TypeName,$LOCALIZE[41550])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.SubType,Movie)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.SubTypeName,$LOCALIZE[342])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.Method,Playlist)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.UnWatched,False)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.1.Resume,False)</onfocus>
+                        <onfocus>SetFocus(6)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
+                    </control>
+                    <control type="button" id="12">
+                        <onfocus>Skin.SetString(HomeWidget.2.Type,service.skin.widgets)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.TypeName,$LOCALIZE[41551])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.SubType,Movie)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.SubTypeName,$LOCALIZE[342])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.Method,Playlist)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.UnWatched,False)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.2.Resume,False)</onfocus>
+                        <onfocus>SetFocus(6)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
+                    </control>
+                    <control type="button" id="13">
+                        <onfocus>Skin.SetString(HomeWidget.3.Type,service.skin.widgets)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.TypeName,$LOCALIZE[41552])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.SubType,Movie)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.SubTypeName,$LOCALIZE[342])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.Method,Playlist)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.UnWatched,False)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.3.Resume,False)</onfocus>
+                        <onfocus>SetFocus(6)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
+                    </control>
+                    <control type="button" id="14">
+                        <onfocus>Skin.SetString(HomeWidget.4.Type,service.skin.widgets)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.TypeName,$LOCALIZE[41553])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.SubType,Episode)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.SubTypeName,$LOCALIZE[20360])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.Method,Playlist)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.UnWatched,False)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.4.Resume,False)</onfocus>
+                        <onfocus>SetFocus(6)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
+                    </control>
+                    <control type="button" id="15">
+                        <onfocus>Skin.SetString(HomeWidget.5.Type,service.skin.widgets.random)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.TypeName,$LOCALIZE[41556])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.SubType,Music)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.SubTypeName,$LOCALIZE[2])</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.Method,Playlist)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.UnWatched,False)</onfocus>
+                        <onfocus>Skin.SetString(HomeWidget.5.Resume,False)</onfocus>
+                        <onfocus>SetFocus(6)</onfocus>
+                        <visible allowhiddenfocus="true">false</visible>
                     </control>
                 </control>              
             </control>
