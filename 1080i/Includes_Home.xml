@@ -1095,7 +1095,7 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="5023">
-                            <visible>!Control.IsVisible(5022)</visible>
+                            <visible>!Control.IsVisible(5022) + [[stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget1.Loaded))] | [!stringcompare(Skin.String(HomeWidget.1.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.1.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
@@ -1279,7 +1279,7 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="5033">
-                            <visible>!Control.IsVisible(5032)</visible>
+                            <visible>!Control.IsVisible(5032) + [[stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget2.Loaded))] | [!stringcompare(Skin.String(HomeWidget.2.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.2.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
@@ -1737,7 +1737,7 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="2023">
-                            <visible>!Control.IsVisible(2022)</visible>
+                            <visible>!Control.IsVisible(2022) + [[stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget3.Loaded))] | [!stringcompare(Skin.String(HomeWidget.3.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.3.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
@@ -2451,7 +2451,7 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="3023">
-                            <visible>!Control.IsVisible(3022)</visible>
+                            <visible>!Control.IsVisible(3022) + [[stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget4.Loaded))] | [!stringcompare(Skin.String(HomeWidget.4.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.4.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
@@ -3117,7 +3117,7 @@
                             <texture border="1">windows/common/black.png</texture>
                         </control>
                         <control type="group" id="4023">
-                            <visible>!Control.IsVisible(4022)</visible>
+                            <visible>!Control.IsVisible(4022) + [[stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets) + IsEmpty(Window(Home).Property(SkinWidgets_Running))] | [stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + IsEmpty(Window(Home).Property(HomeWidget5.Loaded))] | [!stringcompare(Skin.String(HomeWidget.5.Type),service.skin.widgets) + !stringcompare(Skin.String(HomeWidget.5.Type),script.randomandlastitems) + !IsEmpty(Window(Home).Property(extendedinfo_running))]]</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
