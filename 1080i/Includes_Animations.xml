@@ -855,5 +855,16 @@
             <effect type="fade" start="0" end="100" delay="1000" />
         </animation>
     </include>
+    
+    <include name="PVRVisibleHiddenAnimation">
+        <animation type="Visible">
+            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" />
+            <effect type="slide" start="150" end="0" time="300" center="960,600" tween="quadratic" easing="out" />
+        </animation>
+        <animation type="Hidden">
+            <effect type="fade" start="100" end="0" time="200" tween="sine" easing="out" />
+            <effect type="zoom" start="100" end="85" time="200" center="960,600" tween="sine" easing="out" />
+        </animation>
+    </include>
 
 </includes>
