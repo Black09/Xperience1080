@@ -25,9 +25,9 @@
                     <height>38</height>
                     <align>left</align>
                     <label>[COLOR=BBFFFFFF][B]$INFO[VideoPlayer.ChannelGroup][/B][/COLOR]</label>
-                    <label2>$INFO[System.Time]$INFO[Container(11).ListItem.EndTime, → ,]</label2>
+                    <label2>$INFO[System.Time]</label2>
                     <font>Font-Condensed-S34</font>
-                    <textcolor>77white</textcolor>
+                    <textcolor>BBFFFFFF</textcolor>
                     <shadowcolor>66000000</shadowcolor>
                 </control>
                 <control type="list" id="11">
@@ -128,6 +128,34 @@
                             <selectedcolor>SelectedGreen</selectedcolor>
                             <scroll>false</scroll>
                             <visible>ListItem.HasEpg</visible>
+                        </control>
+                        <control type="label">
+                            <description>EndTime</description>
+                            <posx>650</posx>
+                            <posy>0</posy>
+                            <width>200</width>
+                            <height>56</height>
+                            <font>Font-Condensed-S28</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.EndTime,→ ,]</label>
+                            <textcolor>77white</textcolor>
+                            <selectedcolor>SelectedGreen</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>ListItem.HasEpg + !ListItem.IsRecording</visible>
+                        </control>
+                        <control type="label">
+                            <description>EndTime</description>
+                            <posx>600</posx>
+                            <posy>0</posy>
+                            <width>200</width>
+                            <height>56</height>
+                            <font>Font-Condensed-S28</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.EndTime,→ ,]</label>
+                            <textcolor>77white</textcolor>
+                            <selectedcolor>SelectedGreen</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>ListItem.HasEpg + ListItem.IsRecording</visible>
                         </control>
                         <control type="label">
                             <description>Title</description>
@@ -240,6 +268,36 @@
                             <selectedcolor>SelectedGreen</selectedcolor>
                             <scroll>false</scroll>
                             <visible>ListItem.HasEpg</visible>
+                            <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11) + !Container(11).ListItem.IsPlaying">Conditional</animation>
+                        </control>
+                        <control type="label">
+                            <description>EndTime</description>
+                            <posx>650</posx>
+                            <posy>0</posy>
+                            <width>200</width>
+                            <height>56</height>
+                            <font>Font-Condensed-S28</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.EndTime,→ ,]</label>
+                            <textcolor>eewhite</textcolor>
+                            <selectedcolor>SelectedGreen</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>ListItem.HasEpg + !ListItem.IsRecording</visible>
+                            <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11) + !Container(11).ListItem.IsPlaying">Conditional</animation>
+                        </control>
+                        <control type="label">
+                            <description>EndTime</description>
+                            <posx>600</posx>
+                            <posy>0</posy>
+                            <width>200</width>
+                            <height>56</height>
+                            <font>Font-Condensed-S28</font>
+                            <align>right</align>
+                            <label>$INFO[ListItem.EndTime,→ ,]</label>
+                            <textcolor>eewhite</textcolor>
+                            <selectedcolor>SelectedGreen</selectedcolor>
+                            <scroll>false</scroll>
+                            <visible>ListItem.HasEpg + ListItem.IsRecording</visible>
                             <animation effect="fade" start="100" end="64" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(11) + !Container(11).ListItem.IsPlaying">Conditional</animation>
                         </control>
                         <control type="label">
