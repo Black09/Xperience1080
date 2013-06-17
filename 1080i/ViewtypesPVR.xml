@@ -2080,6 +2080,8 @@
 	                    	<righttexture>windows/pvr/progress-leftright.png</righttexture>
 	                    	<info>ListItem.Progress</info>
 	                    	<colordiffuse>77white</colordiffuse>
+	                    	<animation effect="fade" start="100" end="25" time="0" condition="substring(Control.GetLabel(31),$LOCALIZE[19031],right)">Conditional</animation>
+	                    	<visible>ListItem.HasEpg</visible>
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
@@ -2119,6 +2121,21 @@
 	                        <textcolor>77white</textcolor>
 	                        <selectedcolor>D4FFFFFF</selectedcolor>
 	                        <scroll>false</scroll>
+	                        <visible>ListItem.HasEpg</visible>
+	                    </control>
+	                    <control type="label">
+	                        <description>Title</description>
+	                        <posx>210</posx>
+	                        <posy>0</posy>
+	                        <width>787</width>
+	                        <height>96</height>
+	                        <font>Font-Condensed-S28</font>
+	                        <align>left</align>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>77white</textcolor>
+	                        <selectedcolor>D4FFFFFF</selectedcolor>
+	                        <scroll>false</scroll>
+	                        <visible>!ListItem.HasEpg</visible>
 	                    </control>
 	                </itemlayout>
 	                <itemlayout height="96" condition="substring(System.Time,AM,right) | substring(System.Time,PM,right)">
@@ -2162,6 +2179,8 @@
 	                    	<righttexture>windows/pvr/progress-leftright.png</righttexture>
 	                    	<info>ListItem.Progress</info>
 	                    	<colordiffuse>77white</colordiffuse>
+	                    	<animation effect="fade" start="100" end="25" time="0" condition="substring(Control.GetLabel(31),$LOCALIZE[19031],right)">Conditional</animation>
+	                    	<visible>ListItem.HasEpg</visible>
 	                    </control>
 	                    <control type="label">
 	                        <description>Label</description>
@@ -2201,6 +2220,21 @@
 	                        <textcolor>77white</textcolor>
 	                        <selectedcolor>D4FFFFFF</selectedcolor>
 	                        <scroll>false</scroll>
+	                        <visible>ListItem.HasEpg</visible>
+	                    </control>
+	                    <control type="label">
+	                        <description>Title</description>
+	                        <posx>255</posx>
+	                        <posy>0</posy>
+	                        <width>742</width>
+	                        <height>96</height>
+	                        <font>Font-Condensed-S28</font>
+	                        <align>left</align>
+	                        <label>$INFO[ListItem.Label]</label>
+	                        <textcolor>77white</textcolor>
+	                        <selectedcolor>D4FFFFFF</selectedcolor>
+	                        <scroll>false</scroll>
+	                        <visible>!ListItem.HasEpg</visible>
 	                    </control>
 	                </itemlayout>
 	                <focusedlayout height="96" condition="![substring(System.Time,AM,right) | substring(System.Time,PM,right)]">
@@ -2286,6 +2320,8 @@
 	                        	<righttexture>windows/pvr/progress-leftright.png</righttexture>
 	                        	<info>ListItem.Progress</info>
 	                        	<colordiffuse>D4FFFFFF</colordiffuse>
+	                        	<animation effect="fade" start="100" end="25" time="0" condition="substring(Control.GetLabel(31),$LOCALIZE[19031],right)">Conditional</animation>
+	                        	<visible>ListItem.HasEpg</visible>
 	                        </control>
 	                        <control type="label">
 	                            <description>Title</description>
@@ -2299,6 +2335,21 @@
 	                            <textcolor>D4FFFFFF</textcolor>
 	                            <selectedcolor>D4FFFFFF</selectedcolor>
 	                            <scroll>false</scroll>
+	                            <visible>ListItem.HasEpg</visible>
+	                        </control>
+	                        <control type="label">
+	                            <description>Title</description>
+	                            <posx>210</posx>
+	                            <posy>0</posy>
+	                            <width>787</width>
+	                            <height>96</height>
+	                            <font>Font-Condensed-S28</font>
+	                            <align>left</align>
+	                            <label>$INFO[ListItem.Label]</label>
+	                            <textcolor>D4FFFFFF</textcolor>
+	                            <selectedcolor>D4FFFFFF</selectedcolor>
+	                            <scroll>false</scroll>
+	                            <visible>!ListItem.HasEpg</visible>
 	                        </control>
 	                    </control>
 	                </focusedlayout>
@@ -2385,6 +2436,8 @@
 	                        	<righttexture>windows/pvr/progress-leftright.png</righttexture>
 	                        	<info>ListItem.Progress</info>
 	                        	<colordiffuse>D4FFFFFF</colordiffuse>
+	                        	<animation effect="fade" start="100" end="25" time="0" condition="substring(Control.GetLabel(31),$LOCALIZE[19031],right)">Conditional</animation>
+	                        	<visible>ListItem.HasEpg</visible>
 	                        </control>
 	                        <control type="label">
 	                            <description>Title</description>
@@ -2398,6 +2451,21 @@
 	                            <textcolor>D4FFFFFF</textcolor>
 	                            <selectedcolor>D4FFFFFF</selectedcolor>
 	                            <scroll>false</scroll>
+	                            <visible>ListItem.HasEpg</visible>
+	                        </control>
+	                        <control type="label">
+	                            <description>Title</description>
+	                            <posx>255</posx>
+	                            <posy>0</posy>
+	                            <width>742</width>
+	                            <height>96</height>
+	                            <font>Font-Condensed-S28</font>
+	                            <align>left</align>
+	                            <label>$INFO[ListItem.Label]</label>
+	                            <textcolor>D4FFFFFF</textcolor>
+	                            <selectedcolor>D4FFFFFF</selectedcolor>
+	                            <scroll>false</scroll>
+	                            <visible>!ListItem.HasEpg</visible>
 	                        </control>
 	                    </control>
 	                </focusedlayout>
