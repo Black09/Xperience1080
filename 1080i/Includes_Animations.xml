@@ -463,6 +463,17 @@
         </animation>
     </include>
     
+    <include name="BannerListInfoAnimationNoOpenClose">
+        <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+            <effect type="fade" start="0" end="100" time="300" tween="sine" easing="in" delay="300" />
+            <effect type="slide" start="0,-75" end="0,0" time="350" tween="sine" easing="out" delay="300" />
+        </animation>
+        <animation type="Hidden" reversible="false">
+            <effect type="fade" start="100" end="0" time="250" tween="sine" easing="out" />
+            <effect type="slide" start="0,0" end="0,-75" time="300" tween="sine" easing="out" />
+        </animation>
+    </include>
+    
     <!-- ====================== -->
     <!-- Media Guide Animations -->
     <!-- ====================== -->
