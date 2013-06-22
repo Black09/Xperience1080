@@ -41,7 +41,7 @@
                         <posy>27</posy>
                         <width>750</width>
                         <height>100</height>
-                        <label>$INFO[Control.GetLabel(20),,%]</label>
+                        <label>$INFO[Player.Volume]</label>
                         <font>Font-Condensed-S36-B</font>
                         <textcolor>C0FFFFFF</textcolor>
                         <scroll>false</scroll>
@@ -87,10 +87,6 @@
             <visible>Window.IsActive(fullscreenvideo) | Window.IsActive(visualisation)</visible>
             <control type="group">
                 <visible>!Player.Passthrough</visible>
-                <control type="progress" id="21">
-                    <visible>false</visible>
-                    <info>Player.Volume</info>
-                </control>
                 <control type="image">
                     <posx>1570</posx>
                     <posy>0</posy>
@@ -105,7 +101,7 @@
                     <posy>79</posy>
                     <width>150</width>
                     <height>34</height>
-                    <label>$INFO[Control.GetLabel(21),,%]</label>
+                    <label>$INFO[Player.Volume]</label>
                     <font>Font-Condensed-S34</font>
                     <textcolor>aawhite</textcolor>
                     <align>right</align>
