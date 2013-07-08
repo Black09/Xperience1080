@@ -2,7 +2,7 @@
     <defaultcontrol always="true">50</defaultcontrol>
     <allowoverlay>yes</allowoverlay>
     <backgroundcolor>0</backgroundcolor>
-    <views>50,52,53,55,500,501,60</views>
+    <views>50,52,53,54,55,500,501,60</views>
     <controls>
         
         <include>CommonItems</include>
@@ -293,6 +293,18 @@
                     <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                 </control>
                 <control type="radiobutton" id="205">
+                    <description>Landscape</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[42226]</label>
+                    <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                    <onclick>Container.SetViewMode(54)</onclick>
+                    <selected>Control.IsVisible(54)</selected>
+                    <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                    <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                    <radioposx>-19</radioposx>
+                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
+                </control>
+                <control type="radiobutton" id="206">
                     <description>Cover</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42233]</label>
@@ -304,7 +316,7 @@
                     <radioposx>-19</radioposx>
                     <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
                 </control>
-                <control type="radiobutton" id="206">
+                <control type="radiobutton" id="207">
                     <description>Thumbnail</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42229]</label>
@@ -316,7 +328,7 @@
                     <radioposx>-19</radioposx>
                     <visible>substring(Container.FolderPath,addons,left) | substring(Container.FolderPath,plugin,left)</visible>
                 </control>
-                <control type="radiobutton" id="207">
+                <control type="radiobutton" id="208">
                     <description>Thumbnail</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42229]</label>
@@ -328,7 +340,7 @@
                     <radioposx>-19</radioposx>
                     <visible>Container.Content(artists) | Container.Content(albums) | Container.Content(genres)</visible>
                 </control>
-                <control type="radiobutton" id="208">
+                <control type="radiobutton" id="209">
                     <description>Banner</description>
                     <include>optionsbuttonsdimensions</include>
                     <label>$LOCALIZE[42231]</label>

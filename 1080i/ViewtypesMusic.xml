@@ -1679,6 +1679,722 @@
         </control>
     </include>
 
+<!-- ============== -->
+<!-- Landscape (54) -->
+<!-- ============== -->
+    <include name="Viewtype-MusicLandscape">
+        <control type="group">
+            <include>FullscreenDimensions</include>
+            <include>OptionsShutdownAnimation</include>
+            
+            <control type="image" id="81">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" start="0" end="100" delay="955" time="0" />
+                </animation>
+                <animation effect="fade" start="0" end="100" time="0" delay="1255" reversible="false">Visible</animation>
+                <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
+                <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+            </control>
+            
+            <control type="group">
+                <posx>100</posx>
+                <posy>400</posy>
+                <animation effect="fade" start="0" end="100" time="0" reversible="false">Visible</animation>
+                <visible>Window.Next(Home) | Window.Next(programs) | Window.Next(pictures) | Window.Next(filemanager) | Window.Next(settings) | Window.Next(music) | Window.Next(systeminfo) | Window.Next(screencalibration) | Window.Next(picturessettings) | Window.Next(programssettings) | Window.Next(weathersettings) | Window.Next(musicsettings) | Window.Next(systemsettings) | Window.Next(videossettings) | Window.Next(servicesettings) | Window.Next(appearancesettings) | Window.Next(pvrsettings) | Window.Next(videos) | Window.Next(videoplaylist) | Window.Next(LoginScreen) | Window.Next(profiles) | Window.Next(addonbrowser) | Window.Next(filebrowser) | Window.Next(ProfileSettings) | Window.Next(LockSettings) | Window.Next(smartplaylisteditor) | Window.Next(smartplaylistrule) | Window.Next(musicplaylist) | Window.Next(musicfiles) | Window.Next(musiclibrary) | Window.Next(fullscreenvideo) | Window.Next(visualisation) | Window.Next(slideshow) | Window.Next(karaoke) | Window.Next(weather) | Window.Next(pvr) | Window.Next(script-NextAired-TVGuide.xml) | !Control.IsVisible(81)</visible>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="392" end="0" delay="350" tween="cubic" easing="out" time="450" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="650" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="392" end="0" delay="650" tween="cubic" easing="out" time="450" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="group">
+                        <posx>-392</posx>
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[Container(54).ListItem(-1).Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo-1]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge-1]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(-1).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-1568" end="0" delay="350" tween="cubic" easing="out" time="635" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="650" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-1568" end="0" delay="650" tween="cubic" easing="out" time="635" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="group">
+                        <posx>1568</posx>
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[Container(54).ListItem(4).Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo4]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge4]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(4).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-1176" end="0" delay="350" tween="cubic" easing="out" time="605" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="650" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-1176" end="0" delay="650" tween="cubic" easing="out" time="605" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="group">
+                        <posx>1176</posx>
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[Container(54).ListItem(3).Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo3]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge3]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(3).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-784" end="0" delay="350" tween="cubic" easing="out" time="540" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="650" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-784" end="0" delay="650" tween="cubic" easing="out" time="540" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="group">
+                        <posx>784</posx>
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[Container(54).ListItem(2).Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo2]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge2]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(2).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="fade" start="0" end="100" delay="350" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-392" end="0" delay="350" tween="cubic" easing="out" time="450" />
+                    </animation>
+                    <animation type="Visible" reversible="false">
+                        <effect type="fade" start="0" end="100" delay="650" tween="sine" easing="in" time="350" />
+                        <effect type="slide" start="-392" end="0" delay="650" tween="cubic" easing="out" time="450" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="group">
+                        <posx>392</posx>
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[Container(54).ListItem(1).Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo1]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge1]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                        <visible>!IsEmpty(Container(54).ListItemNoWrap(1).Label)</visible>
+                    </control>
+                </control>
+                <control type="group">
+                    <animation type="WindowOpen" reversible="true">
+                        <effect type="zoom" start="65" end="100" center="190,400" tween="sine" easing="out" time="350" /> 
+                        <effect type="fade" start="25" end="100" tween="sine" easing="in" time="250" />
+                    </animation>
+                    <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
+                        <effect type="zoom" start="175" end="100" delay="300" center="190,400" tween="sine" easing="out" time="350" /> 
+                        <effect type="fade" start="25" end="100" delay="300" tween="sine" easing="in" time="350" />
+                    </animation>
+                    <include>GuideNoAnimation</include>
+                    <animation type="Hidden" reversible="false">
+                        <effect type="zoom" start="100" end="115" center="960,260" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
+                        <effect type="zoom" start="100" end="85" time="300" center="960,260" tween="sine" easing="out" />
+                    </animation>
+                    <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                    <control type="image">
+                        <posx>-10</posx>
+                        <posy>485</posy>
+                        <height>50</height>
+                        <width>400</width>
+                        <texture>dialogs/shutdown/shadow.png</texture>
+                    </control>
+                    <control type="image">
+                        <posx>-5</posx>
+                        <posy>375</posy>
+                        <width>390</width>
+                        <height>110</height>
+                        <texture border="7">windows/home/tile-grey.png</texture>
+                    </control>
+                    <control type="label">
+                        <posx>20</posx>
+                        <posy>393</posy>
+                        <width>340</width>
+                        <height>40</height>
+                        <label>$INFO[Container(54).ListItem(0).Label]</label>
+                        <font>Font-Condensed-S32-B</font>
+                        <textcolor>ddwhite</textcolor>
+                        <shadowcolor>22000000</shadowcolor>
+                        <scroll>true</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="label">
+                        <posx>20</posx>
+                        <posy>429</posy>
+                        <width>340</width>
+                        <height>40</height>
+                        <label>$VAR[MusicPanelSubInfo0]</label>
+                        <font>Font-Condensed-S28</font>
+                        <textcolor>aawhite</textcolor>
+                        <shadowcolor>22000000</shadowcolor>
+                        <scroll>false</scroll>
+                        <align>left</align>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>0</posy>
+                        <width>380</width>
+                        <height>380</height>
+                        <aspectratio>scale</aspectratio>
+                        <texture background="true">$VAR[SquareThumbLarge0]</texture>
+                    </control>
+                    <control type="image">
+                        <posx>0</posx>
+                        <posy>379</posy>
+                        <width>380</width>
+                        <height>1</height>
+                        <colordiffuse>99000000</colordiffuse>
+                        <texture>windows/common/black.png</texture>
+                    </control>
+                </control>
+            </control>
+            
+            <control type="group">      
+                <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
+                <animation effect="fade" start="0" end="100" time="0" delay="1255" reversible="false">Visible</animation>    
+                <control type="fixedlist" id="54">
+                    <visible>Container.Content(Artists) | Container.Content(Albums)</visible>
+                    <posx>-292</posx>
+                    <posy>400</posy>
+                    <width>2352</width>
+                    <height>550</height>
+                    <pagecontrol>70</pagecontrol>
+                    <scrolltime tween="cubic" easing="out">500</scrolltime>
+                    <orientation>horizontal</orientation>
+                    <viewtype label="Landscape">list</viewtype>
+                    <onleft>54</onleft>
+                    <onright>54</onright>
+                    <onup condition="!Skin.HasSetting(KioskMode)">9010</onup>
+                    <onup condition="Skin.HasSetting(KioskMode)">54</onup>
+                    <ondown>70</ondown>
+                    <focusposition>1</focusposition>
+                    <preloaditems>2</preloaditems>
+                    <animation type="WindowOpen" reversible="false">
+                        <effect type="fade" start="0" end="100" time="0" />
+                        <effect type="slide" start="0,-1500" end="0,0" delay="955" time="0" />
+                    </animation>
+                    <animation type="WindowClose" reversible="false">
+                        <effect type="fade" start="100" end="0" time="0" />
+                    </animation>
+                    <itemlayout width="392">
+                        <control type="group">
+                            <animation effect="fade" start="100" end="50" time="0" condition="true">Conditional</animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="image">
+                                <posx>-5</posx>
+                                <posy>375</posy>
+                                <width>390</width>
+                                <height>110</height>
+                                <texture border="7">windows/home/tile-grey.png</texture>
+                                <animation effect="fade" end="60" time="0" condition="true">Conditional</animation>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="392">
+                        <control type="group">
+                            <animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                <effect type="fade" start="100" end="50" time="300" tween="sine" easing="inout" />
+                            </animation>
+                            <control type="image">
+                                <posx>-10</posx>
+                                <posy>485</posy>
+                                <height>50</height>
+                                <width>400</width>
+                                <texture>dialogs/shutdown/shadow.png</texture>
+                            </control>
+                            <control type="group">
+                                <animation type="Focus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                    <effect type="fade" start="60" end="100" time="300" tween="sine" easing="inout" />
+                                </animation>
+                                <animation type="Unfocus" condition="Container(54).OnNext | Container(54).OnPrevious">
+                                    <effect type="fade" start="100" end="60" time="300" tween="sine" easing="inout" />
+                                </animation>
+                                <control type="image">
+                                    <posx>-5</posx>
+                                    <posy>375</posy>
+                                    <width>390</width>
+                                    <height>110</height>
+                                    <texture border="7">windows/home/tile-grey.png</texture>
+                                </control>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>393</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$INFO[ListItem.Label]</label>
+                                <font>Font-Condensed-S32-B</font>
+                                <textcolor>ddwhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>true</scroll>
+                                <align>left</align>
+                            </control>
+                            <control type="label">
+                                <posx>20</posx>
+                                <posy>429</posy>
+                                <width>340</width>
+                                <height>40</height>
+                                <label>$VAR[MusicPanelSubInfo]</label>
+                                <font>Font-Condensed-S28</font>
+                                <textcolor>aawhite</textcolor>
+                                <shadowcolor>22000000</shadowcolor>
+                                <scroll>false</scroll>
+                                <align>left</align>
+                            </control>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>380</width>
+                            <height>380</height>
+                            <aspectratio>scale</aspectratio>
+                            <texture background="true">$VAR[SquareThumbLarge]</texture>
+                        </control>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>379</posy>
+                            <width>380</width>
+                            <height>1</height>
+                            <colordiffuse>99000000</colordiffuse>
+                            <texture>windows/common/black.png</texture>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+            <control type="group">
+                <animation type="WindowOpen" reversible="false">
+                    <effect type="fade" start="0" end="100" delay="450" time="300" tween="sine" easing="inout" />
+                </animation>
+                <animation type="WindowClose" reversible="false">
+                    <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Visible" reversible="true">
+                    <effect type="fade" start="0" end="100" delay="750" time="300" tween="sine" easing="inout" />
+                </animation>
+                <animation type="Hidden" reversible="true">
+                    <effect type="fade" start="100" end="0" time="250" tween="sine" easing="inout" />
+                </animation>
+                <visible>!Window.IsActive(musicinformation) + Control.IsVisible(54)</visible>
+                <!--Scrollbar-->
+                <control type="image">
+                    <description>Scrollbar background (visible on focus)</description>
+                    <posx>104</posx>
+                    <posy>135r</posy>
+                    <width>1712</width>
+                    <height>6</height>
+                    <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                    <visible>Control.HasFocus(70)</visible>
+                    <animation effect="fade" start="0" end="25" time="300" tween="sine" easing="inout">Visible</animation>
+                    <animation effect="fade" start="25" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+                </control>
+                <control type="scrollbar" id="70">
+                    <description>Scrollbar</description>
+                    <posx>104</posx>
+                    <posy>135r</posy>
+                    <width>1712</width>
+                    <height>6</height>
+                    <orientation>horizontal</orientation>
+                    <texturesliderbar border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="6,0,6,0">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                    <showonepage>false</showonepage>
+                    <onup>54</onup>
+                    <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+                    <ondown condition="Skin.HasSetting(KioskMode)">54</ondown>
+                    <animation effect="fade" start="40" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772)">Conditional</animation>
+                    <visible>Control.IsVisible(54)</visible>
+                </control>
+            </control>
+        </control>
+    </include>    
+
 <!-- ========== -->
 <!-- Cover (55) -->
 <!-- ========== -->
