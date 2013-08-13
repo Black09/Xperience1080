@@ -221,7 +221,7 @@
                         <width>90</width>
                         <height>60</height>
                         <texture>flags/other/set-list.png</texture>
-                        <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                        <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                         <colordiffuse>$VAR[Colordiffuse.Color]</colordiffuse>
                     </control>
                     <control type="label">
@@ -670,7 +670,7 @@
                             <width>90</width>
                             <height>60</height>
                             <texture>flags/other/set-list.png</texture>
-                            <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                            <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                             <colordiffuse>D4FFFFFF</colordiffuse>
                         </control>
                         <control type="image">
@@ -1439,7 +1439,7 @@
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
-                            <visible>!substring(ListItem.Path,videodb://1/7,left) + !IsEmpty(ListItem.Year)</visible>
+                            <visible>!substring(ListItem.Path,videodb://movies/sets,left) + !IsEmpty(ListItem.Year)</visible>
                         </control>
                         <control type="image">
                             <posx>0</posx>
@@ -1456,7 +1456,7 @@
                             <width>90</width>
                             <height>60</height>
                             <texture>flags/other/set-list.png</texture>
-                            <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                            <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                             <colordiffuse>$VAR[Colordiffuse.Color.2]</colordiffuse>
                         </control>
                     </itemlayout>
@@ -1490,7 +1490,7 @@
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
-                            <visible>!substring(ListItem.Path,videodb://1/7,left) + !IsEmpty(ListItem.Year)</visible>
+                            <visible>!substring(ListItem.Path,videodb://movies/sets,left) + !IsEmpty(ListItem.Year)</visible>
                         </control>
                         <control type="label">
                             <posx>690</posx>
@@ -1772,7 +1772,7 @@
                                 <textcolor>eewhite</textcolor>
                                 <shadowcolor>22000000</shadowcolor>
                                 <scroll>false</scroll>
-                                <visible>!substring(ListItem.Path,videodb://1/7,left) + !Container.Content(Episodes) + !IsEmpty(ListItem.Year)</visible>
+                                <visible>!substring(ListItem.Path,videodb://movies/sets,left) + !Container.Content(Episodes) + !IsEmpty(ListItem.Year)</visible>
                             </control>
                             <control type="image">
                                 <posx>0</posx>
@@ -1788,7 +1788,7 @@
                                 <width>90</width>
                                 <height>60</height>
                                 <texture>flags/other/set-list.png</texture>
-                                <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                                 <colordiffuse>D4FFFFFF</colordiffuse>
                             </control>
                         </control>
@@ -2495,7 +2495,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(Container(54).ListItem(-1).Path,videodb://1/7,left)</visible>
+                                <visible>substring(Container(54).ListItem(-1).Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -2625,7 +2625,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(Container(54).ListItem(3).Path,videodb://1/7,left)</visible>
+                                <visible>substring(Container(54).ListItem(3).Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -2755,7 +2755,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(Container(54).ListItem(2).Path,videodb://1/7,left)</visible>
+                                <visible>substring(Container(54).ListItem(2).Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -2885,7 +2885,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(Container(54).ListItem(1).Path,videodb://1/7,left)</visible>
+                                <visible>substring(Container(54).ListItem(1).Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -3012,7 +3012,7 @@
                         <width>214</width>
                         <height>120</height>
                         <texture>flags/other/set-landscape.png</texture>
-                        <visible>substring(Container(54).ListItem(0).Path,videodb://1/7,left)</visible>
+                        <visible>substring(Container(54).ListItem(0).Path,videodb://movies/sets,left)</visible>
                     </control>
                     <control type="image">
                         <posx>0</posx>
@@ -3147,7 +3147,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="image">
@@ -3267,7 +3267,7 @@
                                 <width>214</width>
                                 <height>120</height>
                                 <texture>flags/other/set-landscape.png</texture>
-                                <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                             </control>
                         </control>
                         <control type="group">
@@ -5091,7 +5091,7 @@
                                 <width>44</width>
                                 <height>28</height>
                                 <texture>flags/other/set-banner.png</texture>
-                                <visible>substring(ListItem.Path,videodb://1/7,left)</visible>
+                                <visible>substring(ListItem.Path,videodb://movies/sets,left)</visible>
                             </control>
                             <control type="label">
                                 <posx>0</posx>
