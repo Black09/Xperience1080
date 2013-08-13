@@ -219,6 +219,7 @@
     <variable name="AddonOverlay">
         <value condition="stringcompare(ListItem.Label2,$LOCALIZE[24098])">overlays/addons/broken.png</value>
         <value condition="stringcompare(ListItem.Label2,$LOCALIZE[305])">overlays/addons/enabled.png</value>
+        <value condition="stringcompare(ListItem.Label2,$LOCALIZE[24068])">overlays/addons/update.png</value>
     </variable>
 
     <!-- Thumbnails -->
@@ -479,6 +480,13 @@
     </variable>
     
     <!-- Info -->
+    <variable name="AddonLabel2">
+        <value condition="stringcompare(ListItem.Label2,$LOCALIZE[24098])">[COLOR=SelectedRed]$INFO[ListItem.Label2, ,][/COLOR]</value>
+        <value condition="stringcompare(ListItem.Label2,$LOCALIZE[305])">[COLOR=SelectedGreen]$INFO[ListItem.Label2, ,][/COLOR]</value>
+        <value condition="stringcompare(ListItem.Label2,$LOCALIZE[24068])">[COLOR=SelectedBlue]$INFO[ListItem.Label2, ,][/COLOR]</value>
+        <value>$INFO[ListItem.Label2, ,]</value>
+    </variable>
+    
     <variable name="ListItem.Label">
         <value condition="ListItem.IsPlaying">[COLOR=SelectedGreen]$INFO[ListItem.Label][/COLOR]</value>
         <value>$INFO[ListItem.Label]</value>
@@ -611,7 +619,7 @@
     </variable>
     
     <variable name="MusicListLabel">
-        <value condition="!IsEmpty(ListItem.Title)">$VAR[SelectedColor.Open]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
+        <value condition="!IsEmpty(ListItem.Title) + !ListItem.IsFolder">$VAR[SelectedColor.Open]$INFO[ListItem.Title]$VAR[SelectedColor.Close]</value>
         <value>$VAR[SelectedColor.Open]$INFO[ListItem.Label]$VAR[SelectedColor.Close]</value>
     </variable>
     
@@ -633,8 +641,8 @@
     </variable>
     
     <variable name="MusicListSongLabel2">
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) | stringcompare(Container.SortMethod,$LOCALIZE[576])">$INFO[ListItem.PlayCount, [,] ]$INFO[ListItem.Duration]</value>
-        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[562])">$INFO[ListItem.Year, [,] ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[567]) | stringcompare(Container.SortMethod,$LOCALIZE[576])">$INFO[ListItem.PlayCount, »,«   ]$INFO[ListItem.Duration]</value>
+        <value condition="stringcompare(Container.SortMethod,$LOCALIZE[562])">$INFO[ListItem.Year, »,«   ]$INFO[ListItem.Duration]</value>
         <value condiiton="!IsEmpty(ListItem.Duration)">$INFO[ListItem.Duration, ,]</value>
     </variable>
 

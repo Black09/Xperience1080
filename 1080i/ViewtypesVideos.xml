@@ -988,15 +988,14 @@
                     </control>
                 </focusedlayout>
             </control>
-
             <control type="scrollbar" id="70">
                 <description>Scrollbar</description>
                 <posx>1664</posx>
                 <posy>190</posy>
                 <width>6</width>
                 <height>700</height>
-                <onleft condition="![Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(60)] | [[Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(60)] + Skin.HasSetting(KioskMode)]">50</onleft>
-                <onleft condition="[Control.IsVisible(500) | Control.IsVisible(501) | Control.IsVisible(60)] + !Skin.HasSetting(KioskMode)">9010</onleft>
+                <onleft condition="![Control.IsVisible(500) | Control.IsVisible(501)] | [[Control.IsVisible(500) | Control.IsVisible(501)] + Skin.HasSetting(KioskMode)]">50</onleft>
+                <onleft condition="[Control.IsVisible(500) | Control.IsVisible(501)] + !Skin.HasSetting(KioskMode)">9010</onleft>
                 <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                 <onright condition="Skin.HasSetting(KioskMode)">50</onright>
                 <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
@@ -1136,10 +1135,10 @@
                         <visible>Container.Content(Episodes)</visible>
                     </control>
                     <control type="group">
-                        <visible>!Skin.HasSetting(InfoListHideInfo)</visible>
+                        <visible>!Skin.HasSetting(InfoListHideInfo) | [Skin.HasSetting(InfoListShowPlotOnFocus) + Control.HasFocus(71)]</visible>
                         <include>visiblehidefadeinfo</include>
                         <control type="group">
-                            <visible>!IsEmpty(Container(52).ListItem.Plot) + Skin.HasSetting(InfoListPlot) + !Container.Content(Episodes)</visible>
+                            <visible>!IsEmpty(Container(52).ListItem.Plot) + [Skin.HasSetting(InfoListPlot) | [Skin.HasSetting(InfoListShowPlotOnFocus) + Control.HasFocus(71)]] + !Container.Content(Episodes)</visible>
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <posx>0</posx>
@@ -1328,7 +1327,7 @@
                     <onleft condition="!Skin.HasSetting(KioskMode)">9010</onleft>
                     <onleft condition="Skin.HasSetting(KioskMode)">52</onleft>
                     <onright condition="Control.IsVisible(70) | !Control.IsVisible(71)">70</onright>
-                    <onright condition="!Control.IsVisible(70) + Control.IsVisible(71)">71</onright>
+                    <onright condition="!Control.IsVisible(70) + [Control.IsVisible(71) | [Skin.HasSetting(InfoListShowPlotOnFocus) + !IsEmpty(Container(52).ListItem.Plot)]]">71</onright>
                     <onup>52</onup>
                     <ondown>52</ondown>
                     <viewtype label="42222">list</viewtype>
@@ -2025,9 +2024,9 @@
                     <width>6</width>
                     <height>600</height>
                     <onleft>52</onleft>
-                    <onright condition="Control.IsVisible(71)">71</onright>
-                    <onright condition="!Skin.HasSetting(KioskMode) + !Skin.HasSetting(InfoListPlot)">9010</onright>
-                    <onright condition="Skin.HasSetting(KioskMode) + !Skin.HasSetting(InfoListPlot)">52</onright>
+                    <onright condition="Control.IsVisible(71) | [Skin.HasSetting(InfoListShowPlotOnFocus) + !IsEmpty(Container(52).ListItem.Plot)]">71</onright>
+                    <onright condition="!Control.IsVisible(71) + !Skin.HasSetting(KioskMode)">9010</onright>
+                    <onright condition="!Control.IsVisible(71) + Skin.HasSetting(KioskMode)">52</onright>
                     <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
                     <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
                     <orientation>vertical</orientation>
@@ -2041,7 +2040,7 @@
                     <posy>357</posy>
                     <width>6</width>
                     <height>370</height>                    
-                    <onleft>70</onleft>
+                    <onleft>52</onleft>
                     <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                     <onright condition="Skin.HasSetting(KioskMode)">52</onright>
                     <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
@@ -2049,7 +2048,7 @@
                     <orientation>vertical</orientation>
                     <showonepage>false</showonepage>
                     <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(71)">Conditional</animation>
-                    <visible>Control.IsVisible(52) + !Container.Content(Episodes) + Skin.HasSetting(InfoListPlot)</visible>
+                    <visible allowhiddenfocus="!Container.Content(Episodes) + Skin.HasSetting(InfoListShowPlotOnFocus) + !IsEmpty(Container(52).ListItem.Plot)">[Control.HasFocus(71) + !Container.Content(Episodes)] | [!Skin.HasSetting(InfoListHideInfo) + Control.IsVisible(52) + !Container.Content(Episodes) + Skin.HasSetting(InfoListPlot) + !IsEmpty(Container(52).ListItem.Plot)]</visible>
                 </control>
                 <control type="scrollbar" id="71">
                     <description>Scrollbar</description>
@@ -2057,7 +2056,7 @@
                     <posy>602</posy>
                     <width>6</width>
                     <height>203</height>                    
-                    <onleft>70</onleft>
+                    <onleft>52</onleft>
                     <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                     <onright condition="Skin.HasSetting(KioskMode)">52</onright>
                     <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
@@ -2180,6 +2179,34 @@
                             </control>
                         </control>
                     </focusedlayout>
+                </control>
+                <!--Scrollbar-->
+                <control type="image">
+                    <description>Scrollbar background (visible on focus)</description>
+                    <posx>512</posx>
+                    <posy>895</posy>
+                    <width>548</width>
+                    <height>6</height>
+                    <texture border="6,0,6,0">views/other/scrollbar-sq.png</texture>
+                    <visible>Control.IsVisible(53) + Control.HasFocus(70)</visible>
+                    <animation effect="fade" start="0" end="25" time="300" tween="sine" easing="inout">Visible</animation>
+                    <animation effect="fade" start="25" end="0" time="300" tween="sine" easing="inout">Hidden</animation>
+                </control>
+                <control type="scrollbar" id="70">
+                    <description>Scrollbar</description>
+                    <posx>512</posx>
+                    <posy>895</posy>
+                    <width>548</width>
+                    <height>6</height>
+                    <onup>53</onup>
+                    <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
+                    <ondown condition="Skin.HasSetting(KioskMode)">53</ondown>
+                    <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
+                    <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
+                    <orientation>horizontal</orientation>
+                    <showonepage>false</showonepage>
+                    <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772) + !Control.HasFocus(70)">Conditional</animation>
+                    <visible>Control.IsVisible(53)</visible>
                 </control>
             </control>
             <control type="group">
@@ -2354,22 +2381,6 @@
                             <scroll>false</scroll>
                         </control>
                     </control>
-                </control>
-                <control type="scrollbar" id="70">
-                    <description>Scrollbar</description>
-                    <posx>1072</posx>
-                    <posy>871</posy>
-                    <width>738</width>
-                    <height>6</height>
-                    <onup>53</onup>
-                    <ondown condition="!Skin.HasSetting(KioskMode)">9010</ondown>
-                    <ondown condition="Skin.HasSetting(KioskMode)">53</ondown>
-                    <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
-                    <texturesliderbarfocus border="1">views/other/scrollbar-sq.png</texturesliderbarfocus>
-                    <orientation>horizontal</orientation>
-                    <showonepage>false</showonepage>
-                    <animation effect="fade" start="35" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(9772) + !Control.HasFocus(70)">Conditional</animation>
-                    <visible>Control.IsVisible(53)</visible>
                 </control>
             </control>
         </control>
