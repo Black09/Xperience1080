@@ -4966,7 +4966,7 @@
                 </itemlayout>
                 <itemlayout height="64" condition="Container.Content(Episodes)">
                     <control type="group">
-                        <posx>800</posx>
+                        <posx>762</posx>
                         <control type="image">
                             <posx>743</posx>
                             <posy>17</posy>
@@ -5350,27 +5350,27 @@
                 </focusedlayout>
                 <focusedlayout height="428" condition="Container.Content(Episodes)">
                     <control type="group">
-                        <posx>305</posx>
+                        <posx>68</posx>
                         <animation effect="slide" start="0,64" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(60).OnPrevious">Focus</animation>
                         <animation effect="slide" start="0,-64" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(60).OnNext">Focus</animation>
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>1312</width>
+                            <width>1512</width>
                             <height>428</height>
                             <texture border="60">views/banner/other/panel.png</texture>
                         </control>
                         <control type="image">
                             <posx>33</posx>
                             <posy>35</posy>
-                            <width>436</width>
+                            <width>636</width>
                             <height>358</height>
                             <texture diffuse="views/banner/diffuse/episode.png" background="true">$VAR[BannerLandscape]</texture>
                             <aspectratio scalediffuse="false">scale</aspectratio>
                         </control>
                         <control type="group">
                             <posy>55</posy>
-                            <posx>494</posx>
+                            <posx>694</posx>
                             <control type="label">
                                 <posx>0</posx>
                                 <posy>4</posy>
@@ -5443,7 +5443,7 @@
                         </control>
                         <control type="image">
                             <description>Scrollbar underlay</description>
-                            <posx>466</posx>
+                            <posx>666</posx>
                             <posy>35</posy>
                             <width>6</width>
                             <height>358</height>
@@ -5454,7 +5454,7 @@
             </control>
             <control type="group">
                 <animation effect="slide" start="0" end="-265" time="0" condition="Container.Content(TVShows) + !Skin.HasSetting(posterstv)">Conditional</animation>
-                <animation effect="slide" start="0" end="172" time="0" condition="Container.Content(Episodes)">Conditional</animation>
+                <animation effect="slide" start="0" end="135" time="0" condition="Container.Content(Episodes)">Conditional</animation>
                 <animation effect="slide" start="0" end="250" time="0" condition="Container.Content(Seasons)">Conditional</animation>
                 <control type="image">
                     <description>Scrollbar background (visible on focus)</description>
