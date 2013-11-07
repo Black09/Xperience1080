@@ -4,6 +4,7 @@
         <value condition="StringCompare(Skin.String(MovieMPAALang),DE)">$VAR[MovieMPAAVar_DE]</value>
         <value condition="StringCompare(Skin.String(MovieMPAALang),IT)">$VAR[MovieMPAAVar_IT]</value>
         <value condition="StringCompare(Skin.String(MovieMPAALang),UK)">$VAR[MovieMPAAVar_UK]</value>
+        <value condition="StringCompare(Skin.String(MovieMPAALang),FR)">$VAR[MovieMPAAVar_FR]</value>
         <value>$VAR[MovieMPAAVar_US]</value>
     </variable>
     
@@ -19,6 +20,13 @@
         <value condition="SubString(ListItem.MPAA,T) | SubString(Container(100).ListItem.Property(MPAA),T)">it/t</value>
         <value condition="SubString(ListItem.MPAA,14) | SubString(Container(100).ListItem.Property(MPAA),14)">it/vm14</value>
         <value condition="SubString(ListItem.MPAA,18) | SubString(Container(100).ListItem.Property(MPAA),18)">it/vm18</value>
+    </variable>
+	
+	<variable name="MovieMPAAVar_FR">
+        <value condition="SubString(ListItem.MPAA,10) | SubString(Container(100).ListItem.Property(MPAA),10)">fr/10</value>
+        <value condition="SubString(ListItem.MPAA,12) | SubString(Container(100).ListItem.Property(MPAA),12)">fr/12</value>
+        <value condition="SubString(ListItem.MPAA,16) | SubString(Container(100).ListItem.Property(MPAA),16)">fr/16</value>
+        <value condition="SubString(ListItem.MPAA,18) | SubString(Container(100).ListItem.Property(MPAA),18)">fr/18</value>
     </variable>
     
     <variable name="MovieMPAAVar_UK">
