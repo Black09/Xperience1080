@@ -1541,8 +1541,7 @@
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + stringcompare(Skin.String(HomeHomeTile2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeHomeTile2.Path)],return)</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + stringcompare(Skin.String(HomeHomeTile2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(HomeHomeTile2.Path)],return)</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + [stringcompare(Skin.String(HomeHomeTile2.Type),6) | stringcompare(Skin.String(HomeHomeTile2.Type),7)]">$INFO[Skin.String(HomeHomeTile2.Path)]</onclick>
-                                <onclick condition="IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeHomeTile2) + Library.HasContent(tvshows)">ActivateWindow(videos,RecentlyAddedEpisodes,return)</onclick>
-                                <onclick condition="IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeHomeTile2) + !Library.HasContent(tvshows)">ActivateWindow(videos,files,return)</onclick>
+                                <onclick condition="IsEmpty(Window.Property(EditTile)) + !Skin.HasSetting(HomeHomeTile2)">ActivateWindow(pictures)</onclick>
                                 <onclick condition="!IsEmpty(Window.Property(EditTile))">Skin.SetBool(HomeHomeTile2)</onclick>
                                 <onclick condition="!IsEmpty(Window.Property(EditTile)) + IsEmpty(Skin.String(HomeHomeTile2.Type))">Skin.SetString(HomeHomeTile2.Type,0)</onclick>
                                 <onclick condition="!IsEmpty(Window.Property(EditTile)) + IsEmpty(Skin.String(HomeHomeTile2.TypeName))">Skin.SetString(HomeHomeTile2.TypeName,$LOCALIZE[41145])</onclick>
@@ -1555,7 +1554,7 @@
                                 <onclick condition="!IsEmpty(Window.Property(EditTile))">ActivateWindow(3003)</onclick>
                                 <onclick condition="!IsEmpty(Window.Property(EditTile))">ClearProperty(EditTile)</onclick>
                                 <thumb>$INFO[Skin.String(HomeHomeTile2.Icon)]</thumb>
-                                <icon>windows/home/icons/tvshows.png</icon>
+                                <icon>windows/home/icons/pictures.png</icon>
                                 <property name="pos">top</property>
                                 <property name="showlabel">$INFO[Skin.String(HomeHomeTile2.ShowLabel)]</property>
                                 <property name="path">$INFO[Skin.String(HomeHomeTile2.Path)]</property>
