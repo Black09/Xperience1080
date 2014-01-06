@@ -1024,7 +1024,7 @@
                         <control type="button" id="5021">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>572</width>
+                            <width>382</width>
                             <height>572</height>
                             <onfocus>CancelAlarm(HomeTileMove,true)</onfocus>
                             <onfocus>CancelAlarm(HomeTileMoveTwo,true)</onfocus>
@@ -1043,14 +1043,14 @@
                         <control type="image">
                             <posx>-5</posx>
                             <posy>-5</posy>
-                            <width>582</width>
+                            <width>392</width>
                             <height>582</height>
                             <texture border="7">windows/home/tile.png</texture>
                         </control>
                         <control type="wraplist" id="5022">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>572</width>
+                            <width>382</width>
                             <height>572</height>
                             <onup>525</onup>
                             <ondown>80</ondown>
@@ -1061,21 +1061,21 @@
                             <pagecontrol>5024</pagecontrol>
                             <visible allowhiddenfocus="true">IntegerGreaterThan(Container(5022).NumItems,0)</visible>
                             <include>visiblehidefadeinfodelayvisible</include>
-                            <itemlayout width="572" height="501">
+                            <itemlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
                                     <posy>0</posy>
-                                    <width>572</width>
+                                    <width>382</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.Icon]</texture>
                                 </control>
                             </itemlayout>
-                            <focusedlayout width="572" height="501">
+                            <focusedlayout width="382" height="572">
                                 <control type="image">
                                     <posx>0</posx>
                                     <posy>0</posy>
-                                    <width>572</width>
+                                    <width>382</width>
                                     <height>572</height>
                                     <aspectratio>scale</aspectratio>
                                     <texture background="true">$INFO[ListItem.Icon]</texture>
@@ -1089,7 +1089,7 @@
                             <description>Title overlay</description>
                             <posx>0</posx>
                             <posy>508</posy>
-                            <width>572</width>
+                            <width>382</width>
                             <height>64</height>
                             <colordiffuse>99000000</colordiffuse>
                             <texture border="1">windows/common/black.png</texture>
@@ -1099,7 +1099,7 @@
                             <include>visiblehidefadeinfo</include>
                             <control type="image">
                                 <description>Loading Back</description>
-                                <posx>212</posx>
+                                <posx>117</posx>
                                 <posy>180</posy>
                                 <width>148</width>
                                 <height>148</height>
@@ -1107,7 +1107,7 @@
                             </control>
                             <control type="image">
                                 <description>Loading</description>
-                                <posx>212</posx>
+                                <posx>117</posx>
                                 <posy>180</posy>
                                 <width>148</width>
                                 <height>148</height>
@@ -1118,7 +1118,7 @@
                                 <description>Loading label</description>
                                 <posx>20</posx>
                                 <posy>508</posy>
-                                <width>532</width>
+                                <width>342</width>
                                 <height>64</height>
                                 <label>$LOCALIZE[41564] "$VAR[SpotlightLabelVAR]"...</label>
                                 <font>Font-Condensed-S29-B</font>
@@ -1132,7 +1132,7 @@
                             <description>Title label</description>
                             <posx>20</posx>
                             <posy>508</posy>
-                            <width>532</width>
+                            <width>342</width>
                             <height>64</height>
                             <label>$INFO[Container(5022).ListItem.Label]</label>
                             <label2>$INFO[Container(5022).ListItem.Label2, ★ ,]</label2>
@@ -1147,7 +1147,7 @@
                         <control type="label">
                             <posx>0</posx>
                             <posy>576</posy>
-                            <width>572</width>
+                            <width>382</width>
                             <height>25</height>
                             <font>Font-Condensed-S20-B</font>
                             <shadowcolor>11000000</shadowcolor>
@@ -1164,7 +1164,7 @@
                             <include>visiblehidefadeinfodelayvisible</include>
                             <control type="image">
                                 <description>Scrollbar background</description>
-                                <posx>471</posx>
+                                <posx>281</posx>
                                 <posy>585</posy>
                                 <width>96</width>
                                 <height>6</height>
@@ -1173,7 +1173,7 @@
                             </control>
                             <control type="scrollbar" id="5024">
                                 <description>Scrollbar</description>
-                                <posx>471</posx>
+                                <posx>281</posx>
                                 <posy>585</posy>
                                 <width>96</width>
                                 <height>6</height>
@@ -1186,7 +1186,7 @@
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
-                            <width>572</width>
+                            <width>382</width>
                             <height>572</height>
                             <texture border="1">windows/common/darkgrey.png</texture>
                             <visible>Window.IsActive(contextmenu) + Control.HasFocus(5021)</visible>
