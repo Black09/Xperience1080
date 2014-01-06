@@ -6,7 +6,7 @@
 
     <include name="HomeWidgets.Initialization">
         <onload condition="IsEmpty(Skin.String(HomeWidget.1.Type))">Skin.SetString(HomeWidget.1.Type,service.skin.widgets)</onload>
-        <onload condition="IsEmpty(Skin.String(HomeWidget.1.TypeName))">Skin.SetString(HomeWidget.1.TypeName,$LOCALIZE[41550])</onload>
+        <onload condition="IsEmpty(Skin.String(HomeWidget.1.TypeName))">Skin.SetString(HomeWidget.1.TypeName,$LOCALIZE[41552])</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.1.SubType))">Skin.SetString(HomeWidget.1.SubType,Movie)</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.1.SubTypeName))">Skin.SetString(HomeWidget.1.SubTypeName,$LOCALIZE[342])</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.1.Method))">Skin.SetString(HomeWidget.1.Method,Playlist)</onload>
@@ -20,7 +20,7 @@
         <onload condition="IsEmpty(Skin.String(HomeWidget.2.UnWatched))">Skin.SetString(HomeWidget.2.UnWatched,False)</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.2.Resume))">Skin.SetString(HomeWidget.2.Resume,False)</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.3.Type))">Skin.SetString(HomeWidget.3.Type,service.skin.widgets)</onload>
-        <onload condition="IsEmpty(Skin.String(HomeWidget.3.TypeName))">Skin.SetString(HomeWidget.3.TypeName,$LOCALIZE[41552])</onload>
+        <onload condition="IsEmpty(Skin.String(HomeWidget.3.TypeName))">Skin.SetString(HomeWidget.3.TypeName,$LOCALIZE[41550])</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.3.SubType))">Skin.SetString(HomeWidget.3.SubType,Movie)</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.3.SubTypeName))">Skin.SetString(HomeWidget.3.SubTypeName,$LOCALIZE[342])</onload>
         <onload condition="IsEmpty(Skin.String(HomeWidget.3.Method))">Skin.SetString(HomeWidget.3.Method,Playlist)</onload>
@@ -103,83 +103,83 @@
     <include name="HomeWidget.1.Widgets">
         <item id="1">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.1.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.1.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.1.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.1.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.1.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.1.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.1.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.1.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
         </item>
         <item id="2">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.2.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.2.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.2.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.2.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.2.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.2.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.2.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.2.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.2.File))</visible>
         </item>
         <item id="3">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.3.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.3.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.3.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.3.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.3.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.3.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.3.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.3.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.3.File))</visible>
         </item>
         <item id="4">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.4.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.4.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.4.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.4.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.4.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.4.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.4.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.4.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.4.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.4.File))</visible>
         </item>
         <item id="5">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.5.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.5.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.5.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.5.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.5.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.5.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.5.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.5.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.5.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.5.File))</visible>
         </item>
         <item id="6">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.6.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.6.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.6.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.6.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.6.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.6.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.6.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.6.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.6.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.6.File))</visible>
         </item>
         <item id="7">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.7.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.7.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.7.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.7.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.7.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.7.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.7.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.7.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.7.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.7.File))</visible>
         </item>
         <item id="8">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.8.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.8.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.8.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.8.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.8.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.8.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.8.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.8.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.8.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.8.File))</visible>
         </item>
         <item id="9">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.9.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.9.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.9.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.9.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.9.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.9.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.9.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.9.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.9.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.9.File))</visible>
         </item>
         <item id="10">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RandomMovie.10.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RandomMovie.10.Title)]</label>
-            <label2>$INFO[Window.Property(RandomMovie.10.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.10.File)])</property>
-            <visible>!IsEmpty(Window.Property(RandomMovie.10.File))</visible>
+            <icon>$INFO[Window.Property(RecentMovie.10.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RecentMovie.10.Title)]</label>
+            <label2>$INFO[Window.Property(RecentMovie.10.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.10.File)])</property>
+            <visible>!IsEmpty(Window.Property(RecentMovie.10.File))</visible>
         </item>
     </include>
     
@@ -1698,85 +1698,85 @@
 <!-- ================= -->
     
     <include name="HomeWidget.3.Widgets">
-        <item id="1">
+            <item id="1">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.1.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.1.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.1.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.1.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.1.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.1.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.1.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.1.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.1.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.1.File))</visible>
         </item>
         <item id="2">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.2.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.2.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.2.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.2.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.2.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.2.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.2.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.2.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.2.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.2.File))</visible>
         </item>
         <item id="3">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.3.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.3.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.3.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.3.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.3.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.3.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.3.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.3.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.3.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.3.File))</visible>
         </item>
         <item id="4">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.4.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.4.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.4.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.4.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.4.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.4.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.4.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.4.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.4.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.4.File))</visible>
         </item>
         <item id="5">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.5.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.5.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.5.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.5.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.5.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.5.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.5.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.5.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.5.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.5.File))</visible>
         </item>
         <item id="6">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.6.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.6.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.6.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.6.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.6.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.6.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.6.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.6.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.6.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.6.File))</visible>
         </item>
         <item id="7">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.7.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.7.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.7.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.7.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.7.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.7.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.7.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.7.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.7.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.7.File))</visible>
         </item>
         <item id="8">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.8.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.8.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.8.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.8.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.8.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.8.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.8.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.8.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.8.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.8.File))</visible>
         </item>
         <item id="9">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.9.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.9.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.9.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.9.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.9.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.9.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.9.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.9.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.9.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.9.File))</visible>
         </item>
         <item id="10">
             <onclick>noop</onclick>
-            <icon>$INFO[Window.Property(RecentMovie.10.Art(poster))]</icon>
-            <label>$INFO[Window.Property(RecentMovie.10.Title)]</label>
-            <label2>$INFO[Window.Property(RecentMovie.10.Rating)]</label2>
-            <property name="Play">PlayMedia($ESCINFO[Window.Property(RecentMovie.10.File)])</property>
-            <visible>!IsEmpty(Window.Property(RecentMovie.10.File))</visible>
+            <icon>$INFO[Window.Property(RandomMovie.10.Art(poster))]</icon>
+            <label>$INFO[Window.Property(RandomMovie.10.Title)]</label>
+            <label2>$INFO[Window.Property(RandomMovie.10.Rating)]</label2>
+            <property name="Play">PlayMedia($ESCINFO[Window.Property(RandomMovie.10.File)])</property>
+            <visible>!IsEmpty(Window.Property(RandomMovie.10.File))</visible>
         </item>
     </include>
     
