@@ -1536,7 +1536,7 @@
                                 <property name="animate">$INFO[Skin.String(HomeHomeTile1.Animate)]</property>
                             </item>
                             <item id="2">
-                                <label fallback="41451">$INFO[Skin.String(HomeHomeTile2.Label)]</label>
+                                <label fallback="41448">$INFO[Skin.String(HomeHomeTile2.Label)]</label>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + !stringcompare(Skin.String(HomeHomeTile2.Type),4) + !stringcompare(Skin.String(HomeHomeTile2.Type),5) + !stringcompare(Skin.String(HomeHomeTile2.Type),6) + !stringcompare(Skin.String(HomeHomeTile2.Type),7)">RunAddon($INFO[Skin.String(HomeHomeTile2.Path)])</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + stringcompare(Skin.String(HomeHomeTile2.Type),4)">ActivateWindow(Videos,$INFO[Skin.String(HomeHomeTile2.Path)],return)</onclick>
                                 <onclick condition="IsEmpty(Window.Property(EditTile)) + Skin.HasSetting(HomeHomeTile2) + stringcompare(Skin.String(HomeHomeTile2.Type),5)">ActivateWindow(MusicLibrary,$INFO[Skin.String(HomeHomeTile2.Path)],return)</onclick>
