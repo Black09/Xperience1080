@@ -56,44 +56,6 @@
                     <alttexturenofocus border="70,2,2,2">dialogs/options/buttons/nolock-nf.png</alttexturenofocus>
                     <visible>System.HasLocks + System.Loggedon</visible>
                 </control>
-                <control type="button" id="2">
-                    <description>System Info button</description>
-                    <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[130]</label>
-                    <include>GuideDialogClose</include>
-                    <onclick>ActivateWindow(systeminfo)</onclick>
-                    <texturefocus border="70,2,2,2">dialogs/options/buttons/info-fo.png</texturefocus>
-                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/info-nf.png</texturenofocus>
-                    <visible>System.Loggedon</visible>
-                </control>
-                <control type="button" id="3">
-                    <description>FileManger button</description>
-                    <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[7]</label>
-                    <include>GuideDialogClose</include>
-                    <onclick>ActivateWindow(filemanager)</onclick>
-                    <texturefocus border="70,2,2,2">dialogs/options/buttons/files-fo.png</texturefocus>
-                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/files-nf.png</texturenofocus>
-                    <visible>System.Loggedon</visible>
-                </control>
-                <control type="button" id="5">
-                    <description>Quit XBMC button</description>
-                    <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[13012]</label>
-                    <onclick>XBMC.Quit()</onclick>
-                    <texturefocus border="70,2,2,2">dialogs/options/buttons/quit-fo.png</texturefocus>
-                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/quit-nf.png</texturenofocus>
-                    <visible>System.ShowExitButton</visible>
-                </control>
-                <control type="button" id="6">
-                    <description>Restart PC button</description>
-                    <include>optionsbuttonsdimensions</include>
-                    <label>$LOCALIZE[13013]</label>
-                    <onclick>XBMC.Reset()</onclick>
-                    <texturefocus border="70,2,2,2">dialogs/options/buttons/reboot-fo.png</texturefocus>
-                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/reboot-nf.png</texturenofocus>
-                    <visible>System.CanReboot</visible>
-                </control>
                 <control type="group" id="7">
                     <height>57</height>
                     <defaultcontrol always="true">30</defaultcontrol>
@@ -162,6 +124,44 @@
                         </animation>
                         <visible>ControlGroup(7).HasFocus()</visible>
                     </control>
+                </control>
+                <control type="button" id="2">
+                    <description>System Info button</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[130]</label>
+                    <include>GuideDialogClose</include>
+                    <onclick>ActivateWindow(systeminfo)</onclick>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/info-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/info-nf.png</texturenofocus>
+                    <visible>System.Loggedon</visible>
+                </control>
+                <control type="button" id="3">
+                    <description>FileManger button</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[7]</label>
+                    <include>GuideDialogClose</include>
+                    <onclick>ActivateWindow(filemanager)</onclick>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/files-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/files-nf.png</texturenofocus>
+                    <visible>System.Loggedon</visible>
+                </control>
+                <control type="button" id="5">
+                    <description>Quit XBMC button</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[13012]</label>
+                    <onclick>XBMC.Quit()</onclick>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/quit-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/quit-nf.png</texturenofocus>
+                    <visible>System.ShowExitButton</visible>
+                </control>
+                <control type="button" id="6">
+                    <description>Restart PC button</description>
+                    <include>optionsbuttonsdimensions</include>
+                    <label>$LOCALIZE[13013]</label>
+                    <onclick>XBMC.Reset()</onclick>
+                    <texturefocus border="70,2,2,2">dialogs/options/buttons/reboot-fo.png</texturefocus>
+                    <texturenofocus border="70,2,2,2">dialogs/options/buttons/reboot-nf.png</texturenofocus>
+                    <visible>System.CanReboot</visible>
                 </control>
                 <control type="button" id="8">
                     <description>Suspend Computer button</description>
