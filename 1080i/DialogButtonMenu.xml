@@ -68,8 +68,8 @@
                         <onclick condition="!System.CanPowerDown">XBMC.Shutdown()</onclick>
                         <onleft>32</onleft>
                         <onright>31</onright>
-                        <onup>6</onup>
-                        <ondown>8</ondown>
+                        <onup>15</onup>
+                        <ondown>2</ondown>
                         <texturefocus border="70,2,2,2">dialogs/options/buttons/shutdown-fo.png</texturefocus>
                         <texturenofocus border="70,2,2,2">dialogs/options/buttons/shutdown-nf.png</texturenofocus>
                         <visible allowhiddenfocus="true">![Control.HasFocus(31) | Control.HasFocus(32)]</visible>
@@ -81,8 +81,8 @@
                         <onclick>AlarmClock(shutdowntimer,XBMC.Shutdown())</onclick>
                         <onleft>30</onleft>
                         <onright>32</onright>
-                        <onup>6</onup>
-                        <ondown>8</ondown>
+                        <onup>15</onup>
+                        <ondown>2</ondown>
                         <texturefocus border="70,2,2,2">dialogs/options/buttons/shutdown-fo.png</texturefocus>
                         <visible allowhiddenfocus="true">Control.HasFocus(31)</visible>
                     </control>
@@ -93,8 +93,8 @@
                         <onclick>CancelAlarm(shutdowntimer)</onclick>
                         <onleft>31</onleft>
                         <onright>30</onright>
-                        <onup>6</onup>
-                        <ondown>8</ondown>
+                        <onup>15</onup>
+                        <ondown>2</ondown>
                         <texturefocus border="70,2,2,2">dialogs/options/buttons/shutdown-fo.png</texturefocus>
                         <visible allowhiddenfocus="true">Control.HasFocus(32)</visible>
                         <enable>System.HasAlarm(shutdowntimer)</enable>
