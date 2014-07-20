@@ -6,19 +6,19 @@
     <onload condition="System.HasAddon(script.tvtunes) + Library.HasContent(TVShows) + !Player.HasMedia + Skin.HasSetting(TVTunes.Enabled)">RunScript(script.tvtunes,backend=True&amp;loop=False)</onload>
     <onload condition="System.HasAddon(script.tv.show.next.aired) + Library.HasContent(TVShows) + Skin.HasSetting(NextAired.Enabled)">RunScript(script.tv.show.next.aired,backend=True)</onload>
     <controls>
-        
+
         <control type="group">
-        
+
             <include>CommonItems</include>
             <include>VideoHeader</include>
             <include>VideoViews</include>
-            <include>Common-Info</include>       
-                 
+            <include>Common-Info</include>
+
             <control type="group" id="9000">
                 <posx>267</posx>
                 <posy>517</posy>
                 <include>OptionsAnimations</include>
-                <animation effect="slide" start="0" end="-204" time="0" condition="Skin.HasSetting(HideShutdownButton)">Conditional</animation>     
+                <animation effect="slide" start="0" end="-204" time="0" condition="Skin.HasSetting(HideShutdownButton)">Conditional</animation>
                 <control type="group">
                     <include>OptionsPanelAnimations</include>
                     <control type="image">
@@ -40,7 +40,7 @@
                         <aspectratio>stretch</aspectratio>
                     </control>
                 </control>
-                
+
                 <control type="grouplist" id="9111">
                     <posx>19</posx>
                     <posy>47</posy>
@@ -153,7 +153,7 @@
                         <textcolor>FF484848</textcolor>
                         <focusedcolor>DDFFFFFF</focusedcolor>
                         <textoffsetx>75</textoffsetx>
-                        <scroll>false</scroll>  
+                        <scroll>false</scroll>
                         <label>587</label>
                         <pulseonselect>false</pulseonselect>
                         <texturefocus border="62,2,62,2">dialogs/options/buttons/filter-fo.png</texturefocus>
@@ -194,16 +194,6 @@
                         <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
                         <radioposx>-19</radioposx>
                         <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(14)">Conditional</animation>
-                    </control>
-                    <control type="radiobutton" id="17">
-                        <description>Flatten</description>
-                        <include>optionsbuttonsdimensions</include>
-                        <label>20411</label>
-                        <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
-                        <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
-                        <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
-                        <radioposx>-19</radioposx>
-                        <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(17)">Conditional</animation>
                     </control>
                 </control>
                 <control type="grouplist" id="9222">
@@ -557,8 +547,8 @@
                         <radioposx>-19</radioposx>
                         <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                     </control>
-                </control>                      
-                
+                </control>
+
                 <control type="group">
                     <include>GeneralOptionsAnimations</include>
                     <control type="image">
@@ -579,7 +569,7 @@
                         <shadowcolor>22000000</shadowcolor>
                     </control>
                 </control>
-                
+
                 <control type="group">
                     <include>SpecificOptionsAnimations</include>
                     <control type="image">
@@ -600,7 +590,7 @@
                         <shadowcolor>22000000</shadowcolor>
                     </control>
                 </control>
-                
+
                 <control type="group">
                     <include>ViewOptionsAnimations</include>
                     <control type="image">
@@ -611,7 +601,7 @@
                         <texture>buttons/options_nofo.png</texture>
                     </control>
                     <control type="label">
-                        <posx>94</posx> 
+                        <posx>94</posx>
                         <posy>433</posy>
                         <width>300</width>
                         <height>100</height>
@@ -623,7 +613,7 @@
                 </control>
             </control>
         </control>
-        
+
         <!-- Scrollbar visibility controls -->
         <control type="image" id="9773">
             <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
