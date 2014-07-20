@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <variable name="HomeTileEditLabel">
@@ -26,7 +27,7 @@
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item23)">$INFO[Skin.String(HomeProgramTile7.Label)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item24)">$INFO[Skin.String(HomeProgramTile8.Label)]</value>
     </variable>
-    
+
     <variable name="HomeTileEditIcon">
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item1)">$INFO[Skin.String(HomeVideoTile1.Icon)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item2)">$INFO[Skin.String(HomeVideoTile2.Icon)]</value>
@@ -53,7 +54,7 @@
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item23)">$INFO[Skin.String(HomeProgramTile7.Icon)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item24)">$INFO[Skin.String(HomeProgramTile8.Icon)]</value>
     </variable>
-    
+
     <variable name="HomeTileEditTypeName">
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item1)">$INFO[Skin.String(HomeVideoTile1.TypeName)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item2)">$INFO[Skin.String(HomeVideoTile2.TypeName)]</value>
@@ -80,7 +81,7 @@
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item23)">$INFO[Skin.String(HomeProgramTile7.TypeName)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item24)">$INFO[Skin.String(HomeProgramTile8.TypeName)]</value>
     </variable>
-    
+
     <variable name="HomeTileEditPath">
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item1)">$INFO[Skin.String(HomeVideoTile1.Path)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item2)">$INFO[Skin.String(HomeVideoTile2.Path)]</value>
@@ -107,7 +108,7 @@
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item23)">$INFO[Skin.String(HomeProgramTile7.Path)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),item24)">$INFO[Skin.String(HomeProgramTile8.Path)]</value>
     </variable>
-    
+
     <include name="PanelDialogHomeTile">
         <control type="grouplist" id="4">
             <posx>0</posx>
@@ -153,7 +154,7 @@
                 <selected>!IsEmpty(Window.Property(HomeTileEdit.Animate))</selected>
             </control>
         </control>
-        
+
         <control type="group">
             <control type="image">
                 <posx>0</posx>
@@ -200,7 +201,7 @@
                 <visible>ControlGroup(2405).HasFocus</visible>
             </control>
         </control>
-        
+
         <control type="grouplist" id="2405">
             <description>button area</description>
             <posx>450</posx>
@@ -281,7 +282,7 @@
                 <onclick condition="stringcompare(Window.Property(HomeTileEdit.Type),0)">SetProperty(HomeTileEdit.Type,7)</onclick>
             </control>
         </control>
-        
+
         <control type="button" id="2406">
             <posx>0</posx>
             <posy>300</posy>
@@ -304,7 +305,7 @@
             <onclick condition="stringcompare(Window.Property(HomeTileEdit.Type),7)">Skin.SetString($INFO[Window.Property(HomeTileEdit)].Path)</onclick>
         </control>
     </include>
-    
+
     <include name="PanelDialogHome">
         <control type="group">
             <visible>!Window.IsVisible(yesnodialog)</visible>
@@ -318,7 +319,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml)</visible>
-                
+
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -329,7 +330,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>306</posy>
@@ -358,7 +359,7 @@
                 	<height>361</height>
                 	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
-                
+
                 <control type="group" id="9">
                     <control type="grouplist" id="3">
                         <posx>1104</posx>
@@ -853,7 +854,7 @@
                             <selected>Skin.HasSetting(HomeProgramTile4)</selected>
                         </control>
                     </control>
-                    
+
                     <control type="group">
                         <posx>558</posx>
                         <posy>360</posy>
@@ -861,7 +862,7 @@
                         <include>PanelDialogHomeTile</include>
                     </control>
                 </control>
-                
+
                 <control type="group">
                     <posx>546</posx>
                     <posy>716</posy>
@@ -888,11 +889,11 @@
                         <visible>Control.HasFocus(2142)</visible>
                         <include>visiblehidefadeinfo</include>
                     </control>
-                </control>              
+                </control>
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeSingle">
         <control type="group">
             <visible>!Window.IsVisible(yesnodialog)</visible>
@@ -910,7 +911,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml)</visible>
-                
+
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -921,7 +922,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>306</posy>
@@ -943,7 +944,7 @@
                 	<height>361</height>
                 	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
-                
+
                 <control type="group" id="9">
                     <posx>694</posx>
                     <posy>360</posy>
@@ -953,8 +954,8 @@
                     <include condition="StringCompare(Window.Property(SingleDialog),widget3)">PanelDialogHomeWidget3</include>
                     <include condition="StringCompare(Window.Property(SingleDialog),widget4)">PanelDialogHomeWidget4</include>
                     <include condition="StringCompare(Window.Property(SingleDialog),widget5)">PanelDialogHomeWidget5</include>
-                </control> 
-                
+                </control>
+
                 <control type="group">
                     <posx>682</posx>
                     <posy>716</posy>
@@ -1069,9 +1070,9 @@
                         <visible allowhiddenfocus="true">false</visible>
                     </control>
                 </control>
-                    
+
             </control>
         </control>
     </include>
-    
+
 </includes>

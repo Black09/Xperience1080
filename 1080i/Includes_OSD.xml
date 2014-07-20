@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <include name="OSDVisualisation">
@@ -9,7 +10,7 @@
             <height>1080</height>
         </control>
     </include>
-    
+
     <include name="OSDFwRwLabel">
         <posx>1742</posx>
         <posy>79</posy>
@@ -20,40 +21,40 @@
         <align>right</align>
         <scroll>false</scroll>
     </include>
-    
+
     <include name="OSDDefaultControlPlay">
         <defaultcontrol>3</defaultcontrol>
     </include>
-    
+
     <include name="OSDDefaultControlSubtitles">
         <defaultcontrol>7</defaultcontrol>
     </include>
-    
+
     <include name="OSDDefaultControlLiveTV">
         <defaultcontrol>1</defaultcontrol>
     </include>
-    
+
     <variable name="OSDPlot">
         <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextPlot]</value>
         <value>$INFO[VideoPlayer.Plot]</value>
     </variable>
-    
+
     <variable name="OSDTitle">
         <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextTitle]</value>
         <value>$INFO[VideoPlayer.Title]</value>
     </variable>
-    
+
     <variable name="OSDNextTitle">
         <value condition="!IsEmpty(Window(seekbar).Property(ShowNext))">$INFO[VideoPlayer.NextStartTime,$LOCALIZE[19080] ,]$INFO[VideoPlayer.NextEndTime, • $LOCALIZE[19081] ,]</value>
         <value>$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ,]$INFO[VideoPlayer.NextStartTime, (,)]</value>
     </variable>
-    
+
     <variable name="OSDMusicFanart">
         <value condition="!IsEmpty(Player.Art(fanart))">$INFO[Player.Art(fanart)]</value>
         <value condition="IsEmpty(Player.Art(fanart)) + !IsEmpty(Skin.String(GlobalBackdropSingle))">$INFO[Skin.String(GlobalBackdropSingle)]</value>
         <value>special://skin/extras/backgrounds/01.jpg</value>
     </variable>
-    
+
     <include name="OSDChapterInfo">
         <control type="group">
             <include>BannerListInfoAnimation</include>
@@ -83,7 +84,7 @@
             <include condition="!Window.IsActive(fullscreenvideo)">BannerListInfoAnimationMusicOSD</include>
             <visible>[Player.ShowInfo | Player.Seeking | Player.DisplayAfterSeek | Player.Paused | Player.Forwarding | Player.Rewinding | Window.IsActive(videoosd) | Window.IsActive(musicosd) | Window.IsActive(fullscreenvideo)] + !Player.ShowCodec + !Window.IsActive(script-XBMC_Lyrics-main.xml)</visible>
             <animation type="Conditional" condition="Window.IsActive(infodialog)">
-                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                 <effect type="zoom" start="100" end="50" center="1569,97" tween="sine" easing="inout" time="300" />
             </animation>
             <control type="image">

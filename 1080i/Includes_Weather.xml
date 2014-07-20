@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <include name="WeatherDefault">
         <include>OptionsShutdownAnimation</include>
@@ -703,7 +704,7 @@
             </control>
         </control>
     </include>
-    
+
     <variable name="WeatherMoonPhaseIcon">
         <value condition="StringCompare(Window(Weather).Property(Today.moonphase),Control.GetLabel(32501))">weather/moon/new.png</value>
         <value condition="StringCompare(Window(Weather).Property(Today.moonphase),Control.GetLabel(32502))">weather/moon/waxing-c.png</value>
@@ -714,7 +715,7 @@
         <value condition="StringCompare(Window(Weather).Property(Today.moonphase),Control.GetLabel(32507))">weather/moon/last-q.png</value>
         <value condition="StringCompare(Window(Weather).Property(Today.moonphase),Control.GetLabel(32508))">weather/moon/waning-c.png</value>
     </variable>
-    
+
     <!-- Direct compare to the $ADDON[...] strings doesn't work -->
     <include name="MoonPhaseDummyLabels">
         <control type="label" id="32501">
@@ -750,7 +751,7 @@
             <visible>false</visible>
         </control>
     </include>
-    
+
     <include name="WeatherWunderground">
         <control type="group">
             <posx>1745</posx>
@@ -758,7 +759,7 @@
             <include>BannerListInfoAnimation</include>
             <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
             <animation type="Conditional" condition="Window.IsActive(volumebar) | Window.IsActive(extendedprogressdialog) | Window.IsActive(infodialog) | Player.HasMedia">
-                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                 <effect type="zoom" start="100" end="50" center="1745,100" tween="sine" easing="inout" time="300" />
             </animation>
             <include>MoonPhaseDummyLabels</include>
@@ -1024,12 +1025,12 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" /> 
+                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" />
                 </animation>
                 <animation type="Visible">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" /> 
+                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" />
                 </animation>
                 <animation type="Hidden">
                     <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
@@ -1079,7 +1080,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>220</onleft>
                             <onright>212</onright>
@@ -1224,7 +1225,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>211</onleft>
                             <onright>213</onright>
@@ -1370,7 +1371,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>212</onleft>
                             <onright>214</onright>
@@ -1517,7 +1518,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>213</onleft>
                             <onright>215</onright>
@@ -1664,7 +1665,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>214</onleft>
                             <onright>216</onright>
@@ -1811,7 +1812,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>215</onleft>
                             <onright>217</onright>
@@ -1958,7 +1959,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>216</onleft>
                             <onright>218</onright>
@@ -2105,7 +2106,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>217</onleft>
                             <onright>219</onright>
@@ -2252,7 +2253,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>218</onleft>
                             <onright>220</onright>
@@ -2399,7 +2400,7 @@
                             <posy>256</posy>
                             <width>362</width>
                             <height>320</height>
-                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus> 
+                            <texturefocus border="7">windows/home/tile-grey.png</texturefocus>
                             <texturenofocus border="7">windows/home/tile-grey.png</texturenofocus>
                             <onleft>219</onleft>
                             <onright>211</onright>
@@ -2541,11 +2542,11 @@
                     <visible>ControlGroup(210).HasFocus | Control.HasFocus(230)</visible>
                     <animation type="Visible">
                         <effect type="fade" start="0" end="25" time="300" tween="sine" easing="inout" />
-                        <effect type="slide" start="0,-20" end="0,0" time="300" tween="cubic" easing="out" /> 
+                        <effect type="slide" start="0,-20" end="0,0" time="300" tween="cubic" easing="out" />
                     </animation>
                     <animation type="Hidden">
                         <effect type="fade" start="25" end="0" time="300" tween="sine" easing="inout" />
-                        <effect type="slide" start="0,0" end="0,-20" time="300" tween="cubic" easing="out" /> 
+                        <effect type="slide" start="0,0" end="0,-20" time="300" tween="cubic" easing="out" />
                     </animation>
                 </control>
                 <control type="scrollbar" id="230">
@@ -2562,11 +2563,11 @@
                     <showonepage>false</showonepage>
                     <animation type="Visible">
                         <effect type="fade" start="0" end="50" time="300" tween="sine" easing="inout" />
-                        <effect type="slide" start="0,-20" end="0,0" time="300" tween="cubic" easing="out" /> 
+                        <effect type="slide" start="0,-20" end="0,0" time="300" tween="cubic" easing="out" />
                     </animation>
                     <animation type="Hidden">
                         <effect type="fade" start="50" end="0" time="300" tween="sine" easing="inout" />
-                        <effect type="slide" start="0,0" end="0,-20" time="300" tween="cubic" easing="out" /> 
+                        <effect type="slide" start="0,0" end="0,-20" time="300" tween="cubic" easing="out" />
                     </animation>
                     <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(230)">Conditional</animation>
                     <visible>ControlGroup(210).HasFocus | Control.HasFocus(230)</visible>
@@ -2579,12 +2580,12 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
-                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" /> 
+                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" />
                 </animation>
                 <animation type="Visible">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
-                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" /> 
+                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" />
                 </animation>
                 <animation type="Hidden">
                     <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />

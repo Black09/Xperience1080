@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <include name="Common-Clock">
@@ -78,7 +79,7 @@
             </control>
         </control>
     </include>
-    
+
     <variable name="OptionsButtonTexture">
         <value condition="Window.IsActive(pvr)">buttons/options_nofo.png</value>
         <value condition="Window.IsActive(programs) + [Control.IsVisible(52) | Control.IsVisible(53) | Control.IsVisible(60) | Control.IsVisible(61) | [Control.IsVisible(50) + substring(Container.FolderPath,plugin://plugin.program.advanced.launcher/,left)]]">buttons/options-right.png</value>
@@ -88,7 +89,7 @@
         <value condition="Window.IsActive(script-NextAired-TVGuide.xml)">buttons/options-left.png</value>
         <value>buttons/options_nofo.png</value>
     </variable>
-    
+
     <!-- Options Button -->
     <include name="Common-Options">
         <control type="group">
@@ -168,14 +169,14 @@
         <value condition="Player.HasVideo + Pvr.IsPlayingTv">$INFO[VideoPlayer.ChannelName,,: ]$INFO[VideoPlayer.Title]</value>
         <value>$INFO[MusicPlayer.Title]</value>
     </variable>
-    
+
     <variable name="NowPlayingSubTitle">
         <value condition="Player.HasVideo + !Pvr.IsPlayingTv">$INFO[Player.FinishTime,$LOCALIZE[41371] ,]</value>
         <value condition="Player.HasVideo + Pvr.IsPlayingTv">$INFO[VideoPlayer.NextTitle,$LOCALIZE[19031]: ,]$INFO[VideoPlayer.NextStartTime, (,)]</value>
         <value condition="Player.HasAudio + !Pvr.IsPlayingRadio">$INFO[MusicPlayer.Artist]</value>
         <value condition="Player.HasAudio + Pvr.IsPlayingRadio">$INFO[MusicPlayer.ChannelName]</value>
     </variable>
-    
+
     <include name="Common-NowPlaying">
         <control type="group">
             <posx>1741</posx>
@@ -289,7 +290,7 @@
         <include>Common-NowPlaying</include>
         <include>FadeBackground</include>
     </include>
-    
+
     <include name="Common-Info">
         <include>Common-ShutdownLabel</include>
         <include condition="!Skin.HasSetting(KioskMode)">Common-Options</include>
@@ -297,7 +298,7 @@
         <include>Common-NowPlaying</include>
         <include>FadeBackground</include>
     </include>
-    
+
     <include name="Common-Info-NoOptions">
         <include>Common-ShutdownLabel</include>
         <include>Common-Clock</include>

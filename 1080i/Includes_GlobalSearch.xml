@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <variable name="GlobalSearchInfoVideoArt">
@@ -6,20 +7,20 @@
         <value condition="Control.IsVisible(120)">views/fallbacks/DefaultFolder.png/landscape.png</value>
         <value>views/fallbacks/DefaultVideo.png/landscape.png</value>
     </variable>
-    
+
     <variable name="GlobalSearchInfoVideoThumb">
         <value condition="!IsEmpty(Container(100).ListItem.Thumb)">$INFO[Container(100).ListItem.Thumb]</value>
         <value condition="Control.IsVisible(120)">views/fallbacks/DefaultFolder.png/large.png</value>
         <value>views/fallbacks/DefaultVideo.png/large.png</value>
     </variable>
-    
+
     <variable name="GlobalSearchInfoAudioArt">
         <value condition="!IsEmpty(Container(100).ListItem.Thumb)">$INFO[Container(100).ListItem.Thumb]</value>
         <value condition="Control.IsVisible(160)">views/fallbacks/DefaultArtist.png/square-large.png</value>
         <value condition="Control.IsVisible(170)">views/fallbacks/DefaultAlbumCover.png/square-large.png</value>
         <value>views/fallbacks/DefaultAudio.png/square-large.png</value>
     </variable>
-    
+
     <variable name="GlobalSearchInfoVideoOverlay">
         <value condition="!IntegerGreaterThan(Container(100).ListItem.property(playcount),0)">overlays/OverlayUnWatched.png/extended-w.png</value>
     </variable>
@@ -34,7 +35,7 @@
         <value condition="Control.HasFocus(171)">$INFO[Container(171).ListItem.SortLetter]</value>
         <value condition="Control.HasFocus(181)">$INFO[Container(181).ListItem.SortLetter]</value>
     </variable>
-    
+
     <variable name="GlobalSearchInfoTitleLabel">
         <value condition="!IsEmpty(Container(100).ListItem.Property(TagLine))">$INFO[Container(100).ListItem.Property(TagLine)]</value>
         <value>$INFO[Container(100).ListItem.Label]</value>
@@ -54,7 +55,7 @@
                 <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                 <effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
             </animation>
-            
+
             <!-- Title Label -->
             <control type="group">
                 <visible>!Player.HasMedia + !Window.IsActive(infodialog) + !Window.IsActive(extendedprogressdialog)</visible>
@@ -89,8 +90,8 @@
                         <scroll>false</scroll>
                     </control>
                 </control>
-                
-                <!-- Title Label -->            
+
+                <!-- Title Label -->
                 <control type="label">
                     <posx>118</posx>
                     <posy>51</posy>
@@ -103,8 +104,8 @@
                     <scroll>false</scroll>
                     <visible>!Control.IsVisible(140) + ![Control.IsVisible(120) + !IsEmpty(Container(100).ListItem.Property(MPAA))]</visible>
                 </control>
-    
-                <!-- Title Label -->            
+
+                <!-- Title Label -->
                 <control type="label">
                     <posx>118</posx>
                     <posy>51</posy>
@@ -118,7 +119,7 @@
                     <visible>Control.IsVisible(140)</visible>
                 </control>
             </control>
-            
+
             <!-- Title Label -->
             <control type="group">
                 <visible>Player.HasMedia | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)</visible>
@@ -153,8 +154,8 @@
                         <scroll>false</scroll>
                     </control>
                 </control>
-                
-                <!-- Title Label -->            
+
+                <!-- Title Label -->
                 <control type="label">
                     <posx>118</posx>
                     <posy>51</posy>
@@ -167,8 +168,8 @@
                     <scroll>false</scroll>
                     <visible>!Control.IsVisible(140) + ![Control.IsVisible(120) + !IsEmpty(Container(100).ListItem.Property(MPAA))]</visible>
                 </control>
-    
-                <!-- Title Label -->            
+
+                <!-- Title Label -->
                 <control type="label">
                     <posx>118</posx>
                     <posy>51</posy>
@@ -182,12 +183,12 @@
                     <visible>Control.IsVisible(140)</visible>
                 </control>
             </control>
-            
+
             <!-- Studio / Rating -->
             <control type="group">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
-                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                     <effect type="zoom" start="100" end="50" center="1665,101" tween="sine" easing="inout" time="300" />
                 </animation>
                 <control type="image" id="9340">
@@ -255,7 +256,7 @@
                     <animation effect="fade" start="100" end="50" time="200" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
                 </control>
             </control>
-            
+
             <!-- Info Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
@@ -264,8 +265,8 @@
                 <animation type="Conditional" condition="Control.HasFocus(1110)">
                     <effect type="slide" start="0" end="494" time="400" delay="0" tween="sine" easing="inout" />
                 </animation>
-                
-                <!-- Shadow -->                
+
+                <!-- Shadow -->
                 <control type="image">
                     <description>Shadow</description>
                     <posx>57</posx>
@@ -274,7 +275,7 @@
                     <height>125</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-                
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>98</posx>
@@ -283,7 +284,7 @@
                     <height>335</height>
                     <texture border="3">views/list/panel/panel.png</texture>
                 </control>
-                
+
                 <!-- Fanart / Thumb / Overlay -->
                 <control type="group">
                     <posx>100</posx>
@@ -304,7 +305,7 @@
                         <texture>$VAR[GlobalSearchInfoVideoOverlay]</texture>
                     </control>
                 </control>
-                
+
                 <control type="image">
                     <posx>100</posx>
                     <posy>576</posy>
@@ -321,7 +322,7 @@
                     <animation effect="slide" start="0,83" end="0,0" time="300" tween="back" easing="out" condition="!IsEmpty(Window.Property(Movement)) + ControlGroup(9333).HasFocus(193)" reversible="false">Conditional</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110) | Control.HasFocus(70)">Conditional</animation>
                 </control>
-                
+
                 <control type="group" id="9333">
                     <posx>100</posx>
                     <posy>576</posy>
@@ -401,7 +402,7 @@
                         <animation effect="slide" end="0,-83" time="0" condition="!Control.IsVisible(193)">Conditional</animation>
                     </control>
                 </control>
-                
+
                 <!-- Info -->
                 <control type="grouplist">
                     <description>Movie/Tv Show/Season/Episode Info</description>
@@ -580,7 +581,7 @@
                         </control>
                     </control>
                 </control>
-                                
+
                 <!-- Flags -->
                 <control type="grouplist">
                     <posx>760</posx>
@@ -623,7 +624,7 @@
                             <texture>$INFO[Container(100).ListItem.Property(VideoCodec),flags/video/,.png]</texture>
                             <visible>![substring(Container(100).ListItem.Property(VideoCodec),divx) | substring(Container(100).ListItem.Property(VideoCodec),div3) | substring(Container(100).ListItem.Property(VideoCodec),div4) | substring(Container(100).ListItem.Property(VideoCodec),div5) | substring(Container(100).ListItem.Property(VideoCodec),dx50)]</visible>
                             <include>visiblehidefadeflags</include>
-                        </control> 
+                        </control>
                         <control type="image">
                             <include>vCodecDimensionsSmall</include>
                             <texture>flags/video/divx.png</texture>
@@ -647,7 +648,7 @@
                         </control>
                     </control>
                 </control>
-                
+
                 <!-- Plot -->
                 <control type="group">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="300" easing="in">WindowOpen</animation>
@@ -687,7 +688,7 @@
                         <width>6</width>
                         <height>244</height>
                         <onup>70</onup>
-                        <ondown>70</ondown>                  
+                        <ondown>70</ondown>
                         <onleft>9333</onleft>
                         <onright condition="!Window.IsVisible(3009)">SetProperty(BounceRight,1,Home)</onright>
                         <texturesliderbar border="1">views/other/scrollbar-sq.png</texturesliderbar>
@@ -697,9 +698,9 @@
                         <animation effect="fade" start="80" end="35" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(70)">Conditional</animation>
                         <visible>!IsEmpty(Container(100).ListItem.Property(Plot))</visible>
                     </control>
-                </control>      
+                </control>
             </control>
-            
+
             <control type="group">
                 <visible>Control.HasFocus(1110)</visible>
                 <animation type="Visible">
@@ -738,10 +739,10 @@
                     <height>125</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-            </control>            
+            </control>
         </control>
     </include>
-    
+
     <include name="GlobalSearchInfoAudio">
         <control type="group">
             <posx>0</posx>
@@ -756,8 +757,8 @@
                 <effect type="fade" start="100" end="0" time="300" tween="sine" easing="out" />
                 <effect type="zoom" start="0,0,1920,1080" end="335,125,1440,810" time="300" tween="cubic" easing="out" />
             </animation>
-            
-            <!-- Artist Label -->           
+
+            <!-- Artist Label -->
             <control type="label">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
                 <posx>118</posx>
@@ -786,8 +787,8 @@
                 <visible>Control.IsVisible(160) + [Player.HasMedia | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
                 <include>visiblehidefadeinfo</include>
             </control>
-            
-            <!-- Album / Song Label -->            
+
+            <!-- Album / Song Label -->
             <control type="label">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
                 <posx>118</posx>
@@ -816,7 +817,7 @@
                 <visible>[Control.IsVisible(170) | Control.IsVisible(180)] + [Player.HasMedia | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)]</visible>
                 <include>visiblehidefadeinfo</include>
             </control>
-            
+
             <!-- Rating -->
             <control type="image">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
@@ -827,7 +828,7 @@
                 <texture>$INFO[Container(100).ListItem.Property(Album_Rating),dialogs/music-info/rating,.png]</texture>
                 <visible>Control.IsVisible(170)</visible>
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
-                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                     <effect type="zoom" start="100" end="50" center="1670,99" tween="sine" easing="inout" time="300" />
                 </animation>
             </control>
@@ -840,11 +841,11 @@
                 <texture>$INFO[Container(100).ListItem.Property(Rating),dialogs/music-info/rating,.png]</texture>
                 <visible>Control.IsVisible(180)</visible>
                 <animation type="Conditional" condition="Player.HasMedia | Window.IsActive(busydialog) | Window.IsActive(volumebar) | Window.IsActive(infodialog) | Window.IsActive(extendedprogressdialog)">
-                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                     <effect type="zoom" start="100" end="50" center="1670,99" tween="sine" easing="inout" time="300" />
                 </animation>
             </control>
-            
+
             <control type="grouplist">
                 <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
                 <posx>118</posx>
@@ -864,13 +865,13 @@
                     <scroll>false</scroll>
                 </control>
             </control>
-            
+
             <!-- Info Stuff -->
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <include>listEndAnimation</include>
-                
-                <!-- Shadow -->                
+
+                <!-- Shadow -->
                 <control type="image">
                     <description>Shadow</description>
                     <posx>57</posx>
@@ -879,7 +880,7 @@
                     <height>125</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-                
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>98</posx>
@@ -888,7 +889,7 @@
                     <height>250</height>
                     <texture border="3">views/list/panel/panel.png</texture>
                 </control>
-                
+
                 <!-- Artist/Album/Song Thumb -->
                 <control type="image">
                     <posx>100</posx>
@@ -898,7 +899,7 @@
                     <aspectratio>stretch</aspectratio>
                     <texture background="true">$VAR[GlobalSearchInfoAudioArt]</texture>
                 </control>
-                
+
                 <control type="image">
                     <posx>100</posx>
                     <posy>661</posy>
@@ -915,7 +916,7 @@
                     <animation effect="slide" start="0,82" end="0,0" time="300" tween="back" easing="out" condition="!IsEmpty(Window.Property(Movement)) + ControlGroup(9333).HasFocus(193)" reversible="false">Conditional</animation>
                     <animation effect="fade" start="100" end="0" time="300" tween="sine" easing="inout" condition="Control.HasFocus(1110)">Conditional</animation>
                 </control>
-                
+
                 <control type="group" id="9333">
                     <posx>100</posx>
                     <posy>661</posy>
@@ -992,7 +993,7 @@
                         <animation effect="slide" end="0,-83" time="0" condition="!Control.IsVisible(193)">Conditional</animation>
                     </control>
                 </control>
-                                
+
                 <!-- Info -->
                 <control type="group">
                     <animation effect="fade" start="0" end="100" time="300" tween="sine" delay="150" easing="in">WindowOpen</animation>
@@ -1474,7 +1475,7 @@
                             </control>
                         </control>
                     </control>
-                </control>  
+                </control>
             </control>
         </control>
     </include>

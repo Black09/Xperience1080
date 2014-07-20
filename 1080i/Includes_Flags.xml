@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <variable name="MovieMPAAVar">
@@ -6,7 +7,7 @@
         <value condition="StringCompare(Skin.String(MovieMPAALang),UK)">$VAR[MovieMPAAVar_UK]</value>
         <value>$VAR[MovieMPAAVar_US]</value>
     </variable>
-    
+
     <variable name="MovieMPAAVar_DE">
         <value condition="SubString(ListItem.MPAA,18) | SubString(Container(100).ListItem.Property(MPAA),18)">de/18</value>
         <value condition="SubString(ListItem.MPAA,16) | SubString(Container(100).ListItem.Property(MPAA),16)">de/16</value>
@@ -14,13 +15,13 @@
         <value condition="SubString(ListItem.MPAA,6) | SubString(Container(100).ListItem.Property(MPAA),6)">de/6</value>
         <value condition="SubString(ListItem.MPAA,0) | SubString(Container(100).ListItem.Property(MPAA),0)">de/0</value>
     </variable>
-    
+
     <variable name="MovieMPAAVar_IT">
         <value condition="SubString(ListItem.MPAA,T) | SubString(Container(100).ListItem.Property(MPAA),T)">it/t</value>
         <value condition="SubString(ListItem.MPAA,14) | SubString(Container(100).ListItem.Property(MPAA),14)">it/vm14</value>
         <value condition="SubString(ListItem.MPAA,18) | SubString(Container(100).ListItem.Property(MPAA),18)">it/vm18</value>
     </variable>
-    
+
     <variable name="MovieMPAAVar_UK">
         <value condition="SubString(ListItem.MPAA,PG) | SubString(Container(100).ListItem.Property(MPAA),PG)">uk/pg</value>
         <value condition="SubString(ListItem.MPAA,12A) | SubString(Container(100).ListItem.Property(MPAA),12A)">uk/12a</value>
@@ -31,7 +32,7 @@
         <value condition="SubString(ListItem.MPAA,UC) | SubString(Container(100).ListItem.Property(MPAA),UC)">uk/uc</value>
         <value condition="SubString(ListItem.MPAA,U) | SubString(Container(100).ListItem.Property(MPAA),U)">uk/u</value>
     </variable>
-    
+
     <variable name="MovieMPAAVar_US">
         <value condition="SubString(ListItem.MPAA,PG-13) | SubString(Container(100).ListItem.Property(MPAA),PG-13)">us/pg-13</value>
         <value condition="SubString(ListItem.MPAA,PG) | SubString(ListItem.MPAA,Approved) | SubString(Container(100).ListItem.Property(MPAA),PG) | SubString(Container(100).ListItem.Property(MPAA),Approved)">us/pg</value>
@@ -57,12 +58,12 @@
         <width>121</width>
         <height>56</height>
     </include>
-    
+
     <include name="MPAADimensionsSmall">
         <width>121</width>
         <height>56</height>
     </include>
-    
+
     <include name="InfoFlags">
         <control type="image">
             <posx>0</posx>
@@ -93,7 +94,7 @@
                 <texture>$INFO[ListItem.videocodec,flags/video/,.png]</texture>
                 <visible>![substring(ListItem.VideoCodec,divx) | substring(ListItem.VideoCodec,div3) | substring(ListItem.VideoCodec,div4) | substring(ListItem.VideoCodec,div5) | substring(ListItem.VideoCodec,dx50)]</visible>
                 <include>visiblehidefadeflags</include>
-            </control> 
+            </control>
             <control type="image">
                 <include>vCodecDimensionsSmall</include>
                 <texture>flags/video/divx.png</texture>
@@ -134,7 +135,7 @@
             <texture>$INFO[ListItem.MPAA,flags/mpaa/tv/medium/,.png]</texture>
         </control>
     </include>
-    
+
     <include name="TVRatingFlagsSmall">
         <control type="image">
             <include>MPAADimensionsSmall</include>

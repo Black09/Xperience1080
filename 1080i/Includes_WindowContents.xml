@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
-    
+
 <!-- ========== -->
 <!-- Dimensions -->
 <!-- ========== -->
@@ -14,7 +15,7 @@
 
 <!-- ================================================== -->
 <!-- Common Items: Shutdown, Options, Clock etc. -->
-<!-- ================================================== --> 
+<!-- ================================================== -->
 
     <include name="CommonOverlay">
         <control type="videowindow">
@@ -74,7 +75,7 @@
         </control>
         <include>CommonOverlay</include>
     </include>
-    
+
 <!-- ============== -->
 <!-- Home Backdrops -->
 <!-- ============== -->
@@ -86,7 +87,7 @@
             <fadetime>600</fadetime>
             <texture background="true" fallback=".">$INFO[Container(20).ListItem.property(single)]</texture>
             <visible>!IsEmpty(Container(20).ListItem.property(single)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling + !Window.IsActive(favourites)</visible>
-        </control> 
+        </control>
         <control type="multiimage">
             <include>FullscreenDimensions</include>
             <timeperimage>10000</timeperimage>
@@ -96,7 +97,7 @@
             <include>Animation_FanartFade</include>
             <imagepath background="true" fallback=".">$INFO[Container(20).ListItem.property(multi)]</imagepath>
             <visible>!IsEmpty(Container(20).ListItem.property(multi)) + ![Skin.HasSetting(BackgroundVideo) + Player.HasVideo] + !Container(20).Scrolling + !Window.IsActive(favourites)</visible>
-        </control> 
+        </control>
         <control type="image">
             <description>Search results fanart</description>
             <include>FullscreenDimensions</include>
@@ -110,7 +111,7 @@
 <!-- ============== -->
 <!-- Skin Backdrops -->
 <!-- ============== -->
-    
+
     <include name="CommonContent">
         <control type="group">
             <animation effect="slide" end="0" time="0" delay="400" condition="!IsEmpty(Window(home).property(NoAnimation))" reversible="false">WindowClose</animation>
@@ -134,7 +135,7 @@
             </control>
         </control>
     </include>
-    
+
 <!-- ====== -->
 <!-- Fanart -->
 <!-- ====== -->
@@ -188,7 +189,7 @@
             <animation effect="slide" start="-30,-30" end="30,30" time="6000" tween="sine" easing="inout" pulse="true" condition="Skin.HasSetting(ArtistSlideshow.Animate)">Conditional</animation>
         </control>
     </include>
-    
+
     <variable name="PlaylistEditorFanart">
         <value condition="Control.HasFocus(100)">$INFO[Container(100).ListItem.Art(fanart)]</value>
         <value>$INFO[Container(50).ListItem.Art(fanart)]</value>
@@ -231,7 +232,7 @@
             <include>OpenCloseAnimationThree</include>
         </control>
     </include>
-    
+
 <!-- ============== -->
 <!-- Sort letters -->
 <!-- ============== -->
@@ -269,12 +270,12 @@
             <visible>Container(450).Scrolling</visible>
         </control>
     </include>
-    
+
     <variable name="SortLetterSelectDialogLabel">
         <value condition="Control.IsVisible(6)">$INFO[Container(6).ListItem.SortLetter]</value>
         <value>$INFO[Container(3).ListItem.SortLetter]</value>
     </variable>
-    
+
     <include name="SortLetterSelectDialog">
         <control type="group">
             <posx>434</posx>
@@ -309,7 +310,7 @@
             <visible>Container(3).Scrolling | Container(6).Scrolling</visible>
         </control>
     </include>
-    
+
 <!-- ============= -->
 <!-- Various stuff -->
 <!-- ============= -->
@@ -326,9 +327,9 @@
         <disabledcolor>FF484848</disabledcolor>
         <textoffsetx>75</textoffsetx>
         <textwidth>300</textwidth>
-        <scroll>false</scroll>      
+        <scroll>false</scroll>
     </include>
-    
+
     <include name="PVRMenuButtonVars">
         <posx>0</posx>
         <width>458</width>
@@ -341,34 +342,34 @@
         <align>left</align>
         <animation effect="fade" start="64.435" end="100" time="300" tween="sine" easing="inout" reversible="false">Focus</animation>
     </include>
-    
+
     <include name="AddonDescHeight_1">
         <height>330</height>
     </include>
-    
+
     <include name="AddonDescHeight_2">
         <height>270</height>
     </include>
-    
+
     <include name="AddonDescHeight_3">
         <height>160</height>
     </include>
-    
+
     <variable name="MusicPlaylistEditorHeaderLabel">
         <value condition="Window.IsActive(songinformation)">$LOCALIZE[658]</value>
         <value>$LOCALIZE[1214]$INFO[Container.FolderName,: ,]</value>
     </variable>
-    
+
     <include name="ZOrder0">
         <zorder>0</zorder>
     </include>
-    
+
     <include name="ZOrder2">
         <zorder>2</zorder>
     </include>
-    
+
     <include name="ZOrder3">
         <zorder>3</zorder>
     </include>
-    
+
 </includes>

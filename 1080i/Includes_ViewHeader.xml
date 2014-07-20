@@ -1,6 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
-    <!-- Variables -->    
+    <!-- Variables -->
     <variable name="MusicHeaderIcon">
         <value condition="Window.IsVisible(musicplaylist)">DefaultMusicPlaylists.png</value>
         <value condition="substring(Container.FolderPath,musicdb://genres/,left)">DefaultMusicGenres.png</value>
@@ -15,7 +16,7 @@
         <value condition="stringcompare(Container.FolderPath,special://musicplaylists/) | substring(Container.FolderPath,special://profile/playlists/music/,left)">DefaultPlaylist.png</value>
         <value>DefaultAudio.png</value>
     </variable>
-    
+
     <variable name="MusicHeaderLabel">
         <value condition="Window.IsVisible(musicfiles)">$LOCALIZE[744]</value>
         <value condition="Window.IsVisible(musicplaylist)">$LOCALIZE[20011]</value>
@@ -34,12 +35,12 @@
         <value condition="stringcompare(Container.FolderPath,addons://sources/audio/) | substring(Container.FolderPath,plugin://plugin,left)">$LOCALIZE[1038]</value>
         <value>$LOCALIZE[2]</value>
     </variable>
-    
+
     <variable name="BannerCoverHeaderImageSongs">
         <value condition="Window.IsVisible(musicplaylist)">DefaultMusicPlaylists.png</value>
         <value>DefaultMusicSongs.png</value>
     </variable>
-    
+
     <variable name="VideoHeaderIcon">
         <value condition="substring(Container.FolderPath,library://video/movies/,left) | substring(Container.FolderPath,videodb://movies/,left)">DefaultMovies.png</value>
         <value condition="substring(Container.FolderPath,library://video/tvshows/,left) | substring(Container.FolderPath,videodb://tvshows/,left)">DefaultTVShows.png</value>
@@ -51,7 +52,7 @@
         <value condition="substring(Container.FolderPath,videodb://recentlyaddedmusicvideos/,left)">DefaultRecentlyAddedMusicVideos.png</value>
         <value>DefaultFolder.png</value>
     </variable>
-    
+
     <variable name="VideoHeaderLabel">
         <value condition="substring(Container.FolderPath,library://video/movies/,left) | substring(Container.FolderPath,videodb://movies/,left)">$LOCALIZE[342]</value>
         <value condition="substring(Container.FolderPath,library://video/tvshows/,left) | substring(Container.FolderPath,videodb://tvshows/,left)">$LOCALIZE[20343]</value>
@@ -63,7 +64,7 @@
         <value condition="!IsEmpty(Container.FolderPath)">$LOCALIZE[1214]</value>
         <value>$LOCALIZE[3]</value>
     </variable>
-    
+
     <variable name="AddonHeaderIcon">
         <value condition="substring(Container.FolderPath,albums,right)">DefaultAddonAlbumInfo.png</value>
         <value condition="substring(Container.FolderPath,artists,right)">DefaultAddonArtistInfo.png</value>
@@ -85,14 +86,14 @@
         <value condition="substring(Container.FolderPath,webinterface,right)">DefaultAddonWebSkin.png</value>
         <value>DefaultAddon.png</value>
     </variable>
-    
+
     <variable name="AddonHeaderLabel">
         <value condition="substring(Container.FolderPath,addons://disabled,left)">$LOCALIZE[24039]</value>
         <value condition="substring(Container.FolderPath,addons://enabled,left)">$LOCALIZE[24062]</value>
         <value condition="substring(Container.FolderPath,addons://repos,left)">$LOCALIZE[24033]</value>
         <value>$LOCALIZE[24001]</value>
     </variable>
-    
+
     <variable name="PVRHeaderIcon">
         <value condition="Control.IsVisible(12)">DefaultAddonLyrics.png</value>
         <value condition="Control.IsVisible(10) | Control.IsVisible(15) | Control.IsVisible(16)">DefaultEPG.png</value>
@@ -101,7 +102,7 @@
         <value condition="Control.IsVisible(17)">DefaultMusicSearch.png</value>
         <value>DefaultTVShows.png</value>
     </variable>
-    
+
     <variable name="SettingsIcon">
         <value condition="Window.IsActive(systeminfo)"></value>
         <value condition="Window.IsActive(weathersettings)">DefaultAddonWeather.png</value>
@@ -116,7 +117,7 @@
         <value condition="Window.IsActive(settings) | Window.IsActive(servicesettings)">DefaultAddonService.png</value>
         <value>DefaultAddonProgram.png</value>
     </variable>
-    
+
     <variable name="SettingsHeaderLabel">
         <value condition="Control.HasFocus(111) | Window.IsActive(systeminfo)">$LOCALIZE[130]</value>
         <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[8]</value>
@@ -131,7 +132,7 @@
         <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[14036]</value>
         <value>$LOCALIZE[480]</value>
     </variable>
-    
+
     <variable name="SettingsHeaderSubLabel">
         <value condition="Control.HasFocus(111) | Window.IsActive(systeminfo)">$LOCALIZE[154] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[705] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[157] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[13281]</value>
         <value condition="Control.HasFocus(110) | Window.IsActive(weathersettings)">$LOCALIZE[24029]</value>
@@ -146,12 +147,12 @@
         <value condition="Control.HasFocus(101) | Window.IsActive(servicesettings)">$LOCALIZE[20187] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[33101] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[790] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[1259] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[1273] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[1200]</value>
         <value>$LOCALIZE[166] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[14090] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[14081] [COLOR=44FFFFFF]/[/COLOR] $LOCALIZE[360]</value>
     </variable>
-    
+
     <variable name="FileManagerSortLetterLabel">
         <value condition="Control.HasFocus(21)">$INFO[Container(21).ListItem.SortLetter]</value>
         <value>$INFO[Container(20).ListItem.SortLetter]</value>
     </variable>
-    
+
     <include name="PVRSubLabel">
         <width min="0" max="400">auto</width>
         <height>120</height>
@@ -160,7 +161,7 @@
         <scroll>false</scroll>
         <align>left</align>
     </include>
-    
+
     <include name="ViewHeaderItemPageInfo">
         <control type="grouplist">
             <posx>110</posx>
@@ -199,7 +200,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="ViewHeaderSortLetter">
         <control type="group">
             <posx>17</posx>
@@ -233,7 +234,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="ViewHeaderIconVars">
         <posx>17</posx>
         <posy>32</posy>
@@ -241,15 +242,15 @@
         <height>85</height>
         <visible>!Container.Scrolling</visible>
         <animation type="Hidden">
-            <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+            <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
             <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
         </animation>
         <animation type="Visible">
-            <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" /> 
+            <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" />
             <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" delay="2000" />
         </animation>
     </include>
-    
+
     <include name="VideoHeader">
         <control type="group">
             <posx>75</posx>
@@ -351,7 +352,7 @@
             <include>ViewHeaderItemPageInfo</include>
         </control>
     </include>
-    
+
     <include name="ProgramHeader">
         <control type="group">
             <posx>75</posx>
@@ -393,7 +394,7 @@
             <include>ViewHeaderItemPageInfo</include>
         </control>
     </include>
-    
+
     <include name="PictureHeader">
         <control type="group">
             <posx>75</posx>
@@ -435,7 +436,7 @@
             <include>ViewHeaderItemPageInfo</include>
         </control>
     </include>
-    
+
     <include name="AddonHeader">
         <control type="group">
             <posx>75</posx>
@@ -477,7 +478,7 @@
             <include>ViewHeaderItemPageInfo</include>
         </control>
     </include>
-    
+
     <include name="FileManagerHeader">
         <control type="group">
             <posx>75</posx>
@@ -493,11 +494,11 @@
                     <texture>DefaultFile.png</texture>
                     <visible>!Container(20).Scrolling + !Container(21).Scrolling</visible>
                     <animation type="Hidden">
-                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                         <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
                     </animation>
                     <animation type="Visible">
-                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" /> 
+                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" />
                         <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" delay="2000" />
                     </animation>
                 </control>
@@ -546,7 +547,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PlaylistEditorHeader">
         <control type="group">
             <posx>75</posx>
@@ -575,7 +576,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="SettingsHeader">
         <control type="group">
             <posx>75</posx>
@@ -629,7 +630,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PVRHeader">
         <control type="group">
             <posx>75</posx>
@@ -679,7 +680,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="WeatherHeader">
         <control type="group">
             <posx>75</posx>
@@ -695,11 +696,11 @@
                     <texture>DefaultAddonWeather.png</texture>
                     <visible>Weather.IsFetched</visible>
                     <animation type="Hidden">
-                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                         <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
                     </animation>
                     <animation type="Visible">
-                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" /> 
+                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" />
                         <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" />
                     </animation>
                 </control>

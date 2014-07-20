@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <include name="PanelDialogHomeWidget1">
@@ -261,7 +262,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeWidget2">
         <control type="grouplist" id="4">
             <posx>0</posx>
@@ -517,7 +518,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeWidget3">
         <control type="grouplist" id="4">
             <posx>0</posx>
@@ -727,7 +728,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeWidget4">
         <control type="grouplist" id="4">
             <posx>0</posx>
@@ -921,7 +922,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeWidget5">
         <control type="grouplist" id="4">
             <posx>0</posx>
@@ -1115,7 +1116,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="PanelDialogHomeWidgets">
         <control type="group">
             <visible>!Window.IsVisible(yesnodialog)</visible>
@@ -1129,7 +1130,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(virtualkeyboard)</visible>
-                
+
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -1140,7 +1141,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>306</posy>
@@ -1169,7 +1170,7 @@
                 	<height>361</height>
                 	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
-                
+
                 <control type="list" id="3">
                     <posx>1104</posx>
                     <posy>360</posy>
@@ -1255,7 +1256,7 @@
                         </item>
                     </content>
                 </control>
-                
+
                 <control type="group">
                     <posx>558</posx>
                     <posy>360</posy>
@@ -1286,7 +1287,7 @@
                     <visible>Container(3).HasFocus(5)</visible>
                     <include>PanelDialogHomeWidget5</include>
                 </control>
-                               
+
                 <control type="group">
                     <posx>546</posx>
                     <posy>716</posy>
@@ -1377,9 +1378,9 @@
                         <onfocus>SetFocus(6)</onfocus>
                         <visible allowhiddenfocus="true">false</visible>
                     </control>
-                </control>              
+                </control>
             </control>
         </control>
     </include>
-    
+
 </includes>

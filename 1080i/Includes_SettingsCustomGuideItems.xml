@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <variable name="CustomHomePanelLabel">
@@ -6,14 +7,14 @@
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide3)">$INFO[Skin.String(CustomHomePanel3.Label)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide4)">$INFO[Skin.String(CustomHomePanel4.Label)]</value>
     </variable>
-    
+
     <variable name="CustomHomePanelTypeName">
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide1)">$INFO[Skin.String(CustomHomePanel1.TypeName)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide2)">$INFO[Skin.String(CustomHomePanel2.TypeName)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide3)">$INFO[Skin.String(CustomHomePanel3.TypeName)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide4)">$INFO[Skin.String(CustomHomePanel4.TypeName)]</value>
     </variable>
-    
+
     <variable name="CustomHomePanelPath">
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide1)">$INFO[Skin.String(CustomHomePanel1.Path)]</value>
         <value condition="stringcompare(Window(3003).Property(SingleDialog),guide2)">$INFO[Skin.String(CustomHomePanel2.Path)]</value>
@@ -41,7 +42,7 @@
                 <onclick>Skin.SetString($INFO[Window.Property(CustomHomePanelEdit)].Label)</onclick>
             </control>
         </control>
-        
+
         <control type="group">
             <control type="image">
                 <posx>0</posx>
@@ -87,7 +88,7 @@
                 <visible>ControlGroup(2405).HasFocus</visible>
             </control>
         </control>
-        
+
         <control type="grouplist" id="2405">
             <description>button area</description>
             <posx>450</posx>
@@ -167,7 +168,7 @@
                 <onclick condition="stringcompare(Window.Property(CustomHomePanelEdit.Type),0)">SetProperty(CustomHomePanelEdit.Type,7)</onclick>
             </control>
         </control>
-        
+
         <control type="button" id="2406">
             <posx>0</posx>
             <posy>120</posy>
@@ -189,7 +190,7 @@
             <onclick condition="stringcompare(Window.Property(CustomHomePanelEdit.Type),7)">Skin.SetString($INFO[Window.Property(CustomHomePanelEdit)].Path)</onclick>
         </control>
     </include>
-    
+
     <include name="PanelDialogGuide">
         <control type="group">
             <visible>!Window.IsVisible(yesnodialog)</visible>
@@ -206,7 +207,7 @@
             <control type="group">
                 <include>KeyboardAnimations</include>
                 <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog) + !Window.IsVisible(DialogSelect.xml)</visible>
-                
+
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -217,7 +218,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>306</posy>
@@ -246,7 +247,7 @@
                 	<height>361</height>
                 	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
-                
+
                 <control type="image">
                     <posx>1105</posx>
                     <posy>360</posy>
@@ -259,7 +260,7 @@
                     <animation effect="slide" end="0,120" time="0" condition="ControlGroup(3).HasFocus(2103)">Conditional</animation>
                     <animation effect="slide" end="0,180" time="0" condition="ControlGroup(3).HasFocus(2104)">Conditional</animation>
                 </control>
-                
+
                 <control type="grouplist" id="3">
                     <posx>1104</posx>
                     <posy>360</posy>
@@ -337,14 +338,14 @@
                         <selected>Skin.HasSetting(CustomHomePanel4)</selected>
                     </control>
                 </control>
-                
+
                 <control type="group">
                     <posx>558</posx>
                     <posy>360</posy>
                     <visible>!IsEmpty(Window.Property(CustomHomePanelEdit.Enabled))</visible>
                     <include>PanelDialogGuideItem</include>
                 </control>
-                
+
                 <control type="group">
                     <posx>546</posx>
                     <posy>716</posy>
@@ -375,5 +376,5 @@
             </control>
         </control>
     </include>
-    
+
 </includes>

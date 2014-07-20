@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <!-- Variables -->
@@ -10,7 +11,7 @@
       <value condition="ControlGroup(9001).HasFocus(205) | stringcompare(Window(home).Property(TVGuide.SaturdayList),1)">$INFO[Container(205).ListItem.Property(Fanart)]</value>
       <value condition="ControlGroup(9001).HasFocus(206) | stringcompare(Window(home).Property(TVGuide.SundayList),1)">$INFO[Container(206).ListItem.Property(Fanart)]</value>
     </variable>
-    
+
     <variable name="TVGuideNextTitle0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(NextNumber),, ]$INFO[Container(206).ListItem(0).Property(NextTitle)]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(NextNumber),, ]$INFO[Container(205).ListItem(0).Property(NextTitle)]</value>
@@ -20,7 +21,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(NextNumber),, ]$INFO[Container(201).ListItem(0).Property(NextTitle)]</value>
         <value>$INFO[Container(200).ListItem(0).Property(NextNumber),, ]$INFO[Container(200).ListItem(0).Property(NextTitle)]</value>
     </variable>
-    
+
     <variable name="TVGuideNextTitle1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(NextNumber),, ]$INFO[Container(206).ListItem(1).Property(NextTitle)]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(NextNumber),, ]$INFO[Container(205).ListItem(1).Property(NextTitle)]</value>
@@ -30,7 +31,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(NextNumber),, ]$INFO[Container(201).ListItem(1).Property(NextTitle)]</value>
         <value>$INFO[Container(200).ListItem(1).Property(NextNumber),, ]$INFO[Container(200).ListItem(1).Property(NextTitle)]</value>
     </variable>
-    
+
     <variable name="TVGuideNextTitle2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(NextNumber),, ]$INFO[Container(206).ListItem(2).Property(NextTitle)]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(NextNumber),, ]$INFO[Container(205).ListItem(2).Property(NextTitle)]</value>
@@ -50,7 +51,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Label]$INFO[Container(201).ListItem(0).Property(Premiered), (,)]</value>
         <value>$INFO[Container(200).ListItem(0).Label]$INFO[Container(200).ListItem(0).Property(Premiered), (,)]</value>
     </variable>
-    
+
     <variable name="TVGuideShowName1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Label]$INFO[Container(206).ListItem(1).Property(Premiered), (,)]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Label]$INFO[Container(205).ListItem(1).Property(Premiered), (,)]</value>
@@ -60,7 +61,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Label]$INFO[Container(201).ListItem(1).Property(Premiered), (,)]</value>
         <value>$INFO[Container(200).ListItem(1).Label]$INFO[Container(200).ListItem(1).Property(Premiered), (,)]</value>
     </variable>
-    
+
     <variable name="TVGuideShowName2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Label]$INFO[Container(206).ListItem(2).Property(Premiered), (,)]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Label]$INFO[Container(205).ListItem(2).Property(Premiered), (,)]</value>
@@ -70,7 +71,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Label]$INFO[Container(201).ListItem(2).Property(Premiered), (,)]</value>
         <value>$INFO[Container(200).ListItem(2).Label]$INFO[Container(200).ListItem(2).Property(Premiered), (,)]</value>
     </variable>
-    
+
     <variable name="TVGuideDateShort0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(ShortTime)]$INFO[Container(206).ListItem(0).Property(Network), $LOCALIZE[42162] ,]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(ShortTime)]$INFO[Container(205).ListItem(0).Property(Network), $LOCALIZE[42162] ,]</value>
@@ -80,7 +81,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(ShortTime)]$INFO[Container(201).ListItem(0).Property(Network), $LOCALIZE[42162] ,]</value>
         <value>$INFO[Container(200).ListItem(0).Property(ShortTime)]$INFO[Container(200).ListItem(0).Property(Network), $LOCALIZE[42162] ,]</value>
     </variable>
-    
+
     <variable name="TVGuideDateShort1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(ShortTime)]$INFO[Container(206).ListItem(1).Property(Network), $LOCALIZE[42162] ,]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(ShortTime)]$INFO[Container(205).ListItem(1).Property(Network), $LOCALIZE[42162] ,]</value>
@@ -90,7 +91,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(ShortTime)]$INFO[Container(201).ListItem(1).Property(Network), $LOCALIZE[42162] ,]</value>
         <value>$INFO[Container(200).ListItem(1).Property(ShortTime)]$INFO[Container(200).ListItem(1).Property(Network), $LOCALIZE[42162] ,]</value>
     </variable>
-    
+
     <variable name="TVGuideDateShort2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(ShortTime)]$INFO[Container(206).ListItem(2).Property(Network), $LOCALIZE[42162] ,]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(ShortTime)]$INFO[Container(205).ListItem(2).Property(Network), $LOCALIZE[42162] ,]</value>
@@ -100,7 +101,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(ShortTime)]$INFO[Container(201).ListItem(2).Property(Network), $LOCALIZE[42162] ,]</value>
         <value>$INFO[Container(200).ListItem(2).Property(ShortTime)]$INFO[Container(200).ListItem(2).Property(Network), $LOCALIZE[42162] ,]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbLandscape0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(Art(landscape))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(Art(landscape))]</value>
@@ -110,7 +111,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(Art(landscape))]</value>
         <value>$INFO[Container(200).ListItem(0).Property(Art(landscape))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbLandscape1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(Art(landscape))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(Art(landscape))]</value>
@@ -120,7 +121,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(Art(landscape))]</value>
         <value>$INFO[Container(200).ListItem(1).Property(Art(landscape))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbLandscape2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(Art(landscape))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(Art(landscape))]</value>
@@ -130,7 +131,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(Art(landscape))]</value>
         <value>$INFO[Container(200).ListItem(2).Property(Art(landscape))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearArt0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(Art(clearart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(Art(clearart))]</value>
@@ -140,7 +141,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(Art(clearart))]</value>
         <value>$INFO[Container(200).ListItem(0).Property(Art(clearart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearArt1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(Art(clearart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(Art(clearart))]</value>
@@ -150,7 +151,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(Art(clearart))]</value>
         <value>$INFO[Container(200).ListItem(1).Property(Art(clearart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearArt2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(Art(clearart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(Art(clearart))]</value>
@@ -160,7 +161,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(Art(clearart))]</value>
         <value>$INFO[Container(200).ListItem(2).Property(Art(clearart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbFanart0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(Art(fanart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(Art(fanart))]</value>
@@ -170,7 +171,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(Art(fanart))]</value>
         <value>$INFO[Container(200).ListItem(0).Property(Art(fanart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbFanart1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(Art(fanart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(Art(fanart))]</value>
@@ -180,7 +181,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(Art(fanart))]</value>
         <value>$INFO[Container(200).ListItem(1).Property(Art(fanart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbFanart2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(Art(fanart))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(Art(fanart))]</value>
@@ -190,7 +191,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(Art(fanart))]</value>
         <value>$INFO[Container(200).ListItem(2).Property(Art(fanart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearLogo0">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(0).Property(Art(clearlogo))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(0).Property(Art(clearlogo))]</value>
@@ -200,7 +201,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(0).Property(Art(clearlogo))]</value>
         <value>$INFO[Container(200).ListItem(0).Property(Art(clearlogo))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearLogo1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(Art(clearlogo))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(Art(clearlogo))]</value>
@@ -210,7 +211,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(Art(clearlogo))]</value>
         <value>$INFO[Container(200).ListItem(1).Property(Art(clearlogo))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbClearLogo2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(Art(clearlogo))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(Art(clearlogo))]</value>
@@ -220,7 +221,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(Art(clearlogo))]</value>
         <value>$INFO[Container(200).ListItem(2).Property(Art(clearlogo))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbLandscape1">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(1).Property(Art(clearlogo))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(1).Property(Art(clearlogo))]</value>
@@ -230,7 +231,7 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(1).Property(Art(clearlogo))]</value>
         <value>$INFO[Container(200).ListItem(1).Property(Art(clearlogo))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumbLandscape2">
         <value condition="ControlGroup(9001).HasFocus(206)">$INFO[Container(206).ListItem(2).Property(Art(clearlogo))]</value>
         <value condition="ControlGroup(9001).HasFocus(205)">$INFO[Container(205).ListItem(2).Property(Art(clearlogo))]</value>
@@ -240,84 +241,84 @@
         <value condition="ControlGroup(9001).HasFocus(201)">$INFO[Container(201).ListItem(2).Property(Art(clearlogo))]</value>
         <value>$INFO[Container(200).ListItem(2).Property(Art(clearlogo))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumb">
         <value condition="Skin.HasSetting(TVGuide.ClearLogo)">$INFO[ListItem.Property(Art(clearlogo))]</value>
         <value condition="Skin.HasSetting(TVGuide.ClearArt)">$INFO[ListItem.Property(Art(clearart))]</value>
         <value condition="Skin.HasSetting(TVGuide.Landscape)">$INFO[ListItem.Property(Art(landscape))]</value>
-        <value>$INFO[ListItem.Property(Art(fanart))]</value>    
+        <value>$INFO[ListItem.Property(Art(fanart))]</value>
     </variable>
-    
+
     <variable name="TVGuideThumb0">
         <value condition="Skin.HasSetting(TVGuide.ClearLogo)">$VAR[TVGuideThumbClearLogo0]</value>
         <value condition="Skin.HasSetting(TVGuide.ClearArt)">$VAR[TVGuideThumbClearArt0]</value>
         <value condition="Skin.HasSetting(TVGuide.Landscape)">$VAR[TVGuideThumbLandscape0]</value>
-        <value>$VAR[TVGuideThumbFanart0]</value>    
+        <value>$VAR[TVGuideThumbFanart0]</value>
     </variable>
-    
+
     <variable name="TVGuideThumb1">
         <value condition="Skin.HasSetting(TVGuide.ClearLogo)">$VAR[TVGuideThumbClearLogo1]</value>
         <value condition="Skin.HasSetting(TVGuide.ClearArt)">$VAR[TVGuideThumbClearArt1]</value>
         <value condition="Skin.HasSetting(TVGuide.Landscape)">$VAR[TVGuideThumbLandscape1]</value>
-        <value>$VAR[TVGuideThumbFanart1]</value>    
+        <value>$VAR[TVGuideThumbFanart1]</value>
     </variable>
-    
+
     <variable name="TVGuideThumb2">
         <value condition="Skin.HasSetting(TVGuide.ClearLogo)">$VAR[TVGuideThumbClearLogo2]</value>
         <value condition="Skin.HasSetting(TVGuide.ClearArt)">$VAR[TVGuideThumbClearArt2]</value>
         <value condition="Skin.HasSetting(TVGuide.Landscape)">$VAR[TVGuideThumbLandscape2]</value>
-        <value>$VAR[TVGuideThumbFanart2]</value>    
+        <value>$VAR[TVGuideThumbFanart2]</value>
     </variable>
-    
+
     <variable name="TVDayLabelMon">
         <value condition="IntegerGreaterThan(Container(200).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[41])">[COLOR=SelectedGreen]$LOCALIZE[11]$INFO[Container(200).NumItems, (,)][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(200).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[41])">$LOCALIZE[11]$INFO[Container(200).NumItems, (,)]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[41])">[COLOR=SelectedGreen]$LOCALIZE[11][/COLOR]</value>
         <value>$LOCALIZE[11]</value>
     </variable>
-    
+
     <variable name="TVDayLabelTue">
         <value condition="IntegerGreaterThan(Container(201).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[42])">[COLOR=SelectedGreen]$LOCALIZE[12]$INFO[Container(201).NumItems, (,)][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(201).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[42])">$LOCALIZE[12]$INFO[Container(200).NumItems, (,)]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[42])">[COLOR=SelectedGreen]$LOCALIZE[12][/COLOR]</value>
         <value>$LOCALIZE[12]</value>
     </variable>
-    
+
     <variable name="TVDayLabelWed">
         <value condition="IntegerGreaterThan(Container(202).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[43])">[COLOR=SelectedGreen]$LOCALIZE[13][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(202).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[43])">$LOCALIZE[13]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[43])">[COLOR=SelectedGreen]$LOCALIZE[13][/COLOR]</value>
         <value>$LOCALIZE[13]</value>
     </variable>
-    
+
     <variable name="TVDayLabelThu">
         <value condition="IntegerGreaterThan(Container(203).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[44])">[COLOR=SelectedGreen]$LOCALIZE[14][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(203).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[44])">$LOCALIZE[14]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[44])">[COLOR=SelectedGreen]$LOCALIZE[14][/COLOR]</value>
         <value>$LOCALIZE[14]</value>
     </variable>
-    
+
     <variable name="TVDayLabelFri">
         <value condition="IntegerGreaterThan(Container(204).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[45])">[COLOR=SelectedGreen]$LOCALIZE[15][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(204).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[45])">$LOCALIZE[15]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[45])">[COLOR=SelectedGreen]$LOCALIZE[15][/COLOR]</value>
         <value>$LOCALIZE[15]</value>
     </variable>
-    
+
     <variable name="TVDayLabelSat">
         <value condition="IntegerGreaterThan(Container(205).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[46])">[COLOR=SelectedGreen]$LOCALIZE[16][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(205).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[46])">$LOCALIZE[16]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[46])">[COLOR=SelectedGreen]$LOCALIZE[16][/COLOR]</value>
         <value>$LOCALIZE[16]</value>
     </variable>
-    
+
     <variable name="TVDayLabelSun">
         <value condition="IntegerGreaterThan(Container(206).NumItems,0) + stringcompare(System.Date(ddd),$LOCALIZE[47])">[COLOR=SelectedGreen]$LOCALIZE[17][/COLOR]</value>
         <value condition="IntegerGreaterThan(Container(206).NumItems,0) + !stringcompare(System.Date(ddd),$LOCALIZE[47])">$LOCALIZE[17]</value>
         <value condition="stringcompare(System.Date(ddd),$LOCALIZE[47])">[COLOR=SelectedGreen]$LOCALIZE[17][/COLOR]</value>
         <value>$LOCALIZE[17]</value>
     </variable>
-    
+
     <variable name="TVDayLabelMonColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[41])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
     <variable name="TVDayLabelTueColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[42])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
     <variable name="TVDayLabelWedColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[43])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
@@ -325,7 +326,7 @@
     <variable name="TVDayLabelFriColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[45])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
     <variable name="TVDayLabelSatColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[46])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
     <variable name="TVDayLabelSunColor"><value condition="stringcompare(System.Date(ddd),$LOCALIZE[47])">[COLOR=SelectedGreen]</value><value>[COLOR=99FFFFFF]</value></variable>
-    
+
     <!-- Includes -->
     <include name="TVGuideWeekdayButton">
         <posx>0</posx>
@@ -341,7 +342,7 @@
         <texturefocus border="90,3,90,3">views/list/other/separator.png</texturefocus>
         <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
     </include>
-    
+
     <include name="TVGuideItemLayout">
         <control type="group">
             <posx>12</posx>
@@ -426,7 +427,7 @@
             <texture>windows/common/black.png</texture>
         </control>
     </include>
-    
+
     <include name="TVGuideFocusedLayout">
         <control type="group">
             <posx>12</posx>
@@ -521,7 +522,7 @@
             <texture>windows/common/black.png</texture>
         </control>
     </include>
-    
+
     <!-- Next Aired info includes -->
     <include name="NextAiredInfo">
         <control type="group">
@@ -533,7 +534,7 @@
                 <include>BannerListInfoAnimation</include>
                 <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
                 <animation type="Conditional" condition="Window.IsActive(volumebar) | Window.IsActive(extendedprogressdialog) | Window.IsActive(infodialog) | [Player.HasMedia + IsEmpty(Window(videos).property(TvTunesIsAlive))]">
-                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                     <effect type="zoom" start="100" end="50" center="1745,100" tween="sine" easing="inout" time="300" />
                 </animation>
                 <control type="group">

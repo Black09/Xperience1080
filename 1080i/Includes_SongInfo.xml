@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <includes>
     <include name="SongInfoList">
         <control type="group">
@@ -7,7 +8,7 @@
             </animation>
             <include>GuideNoAnimation</include>
             <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" /> 
+                <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" />
                 <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
             </animation>
             <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="300" condition="Window.IsActive(filebrowser)">Conditional</animation>
@@ -129,7 +130,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="SongInfoInfoList">
         <control type="group">
             <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
@@ -139,7 +140,7 @@
             </animation>
             <include>GuideNoAnimation</include>
             <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                 <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
             </animation>
             <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="300" condition="Window.IsActive(filebrowser)">Conditional</animation>
@@ -243,7 +244,7 @@
                         <texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
                         <onclick>IncreaseRating</onclick>
                     </control>
-                </control>                
+                </control>
                 <control type="group">
                     <posx>20</posx>
                     <posy>241</posy>
@@ -315,7 +316,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="SongInfoCoverList">
         <control type="group">
             <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
@@ -324,7 +325,7 @@
             </animation>
             <include>GuideNoAnimation</include>
             <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" /> 
+                <effect type="zoom" start="100" end="115" center="auto" tween="sine" delay="0" easing="out" time="300" />
                 <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
             </animation>
             <visible>!Window.IsActive(musicinformation)</visible>
@@ -400,7 +401,7 @@
                         <ondown>DecreaseRating</ondown>
                         <animation effect="fade" start="100" end="75" time="0" condition="!Control.IsEnabled(13)">Conditional</animation>
                     </control>
-                </control>                
+                </control>
                 <control type="image">
                     <posx>0</posx>
                     <posy>0</posy>
@@ -500,7 +501,7 @@
             </control>
         </control>
     </include>
-    
+
     <include name="SongInfoMusicPlaylistEditor">
         <control type="group">
             <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
@@ -510,7 +511,7 @@
             </animation>
             <include>GuideNoAnimation</include>
             <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                 <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
             </animation>
             <animation effect="fade" start="100" end="25" tween="sine" easing="inout" time="300" condition="Window.IsActive(filebrowser)">Conditional</animation>
@@ -638,7 +639,7 @@
                         <texturenofocus>buttons/spinctrl/arrow-up-nf.png</texturenofocus>
                         <onclick>IncreaseRating</onclick>
                     </control>
-                </control>                
+                </control>
                 <control type="group">
                     <posx>20</posx>
                     <posy>360</posy>
@@ -713,7 +714,7 @@
             <animation type="WindowOpen">
                 <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="545" delay="105" />
                 <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="105" /> 
+                <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="105" />
             </animation>
             <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
                 <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="545" delay="405" />
@@ -727,7 +728,7 @@
             </animation>
             <include>GuideNoAnimation</include>
             <animation type="Hidden" reversible="false">
-                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                 <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
             </animation>
             <visible>!Window.IsActive(musicinformation)</visible>
@@ -745,5 +746,5 @@
             </control>
         </control>
     </include>
-    
+
 </includes>
