@@ -8,22 +8,22 @@
             <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(smartplaylistrule) + !Window.IsVisible(selectdialog)</visible>
             <control type="image">
                 <posx>920</posx>
-                <posy>158</posy>
+                <posy>121</posy>
                 <width>80</width>
                 <height>60</height>
                 <texture>dialogs/default/arrow.png</texture>
             </control>
             <control type="image">
                 <posx>445</posx>
-                <posy>178</posy>
+                <posy>141</posy>
                 <width>1030</width>
-                <height>724</height>
+                <height>796</height>
                 <texture border="39">dialogs/default/bg.png</texture>
             </control>
             <control type="label" id="2">
                 <description>Heading</description>
                 <posx>473</posx>
-                <posy>130</posy>
+                <posy>93</posy>
                 <width>974</width>
                 <font>Font-Condensed-S34</font>
                 <label>$LOCALIZE[21432]</label>
@@ -32,7 +32,7 @@
             </control>
             <control type="group">
                 <posx>479</posx>
-                <posy>212</posy>
+                <posy>175</posy>
                 <control type="image">
                 	<posx>0</posx>
                 	<posy>0</posy>
@@ -239,7 +239,7 @@
                             </control>
                         </focusedlayout>
                     </control>
-                    
+
                     <control type="image" id="61">
                         <animation effect="fade" start="0" end="100" time="0">Visible</animation>
                         <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
@@ -266,7 +266,7 @@
                         <orientation>vertical</orientation>
                         <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(61)">Conditional</animation>
                     </control>
-    
+
                     <control type="group" id="8002">
                         <posx>704</posx>
                         <control type="image">
@@ -290,7 +290,7 @@
                             <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
                             <width>258</width>
-                            <height>60</height> 
+                            <height>60</height>
                             <onup>12</onup>
                             <onleft>10</onleft>
                             <onright>10</onright>
@@ -311,7 +311,7 @@
                             <font>Font-Condensed-S32</font>
                             <textoffsetx>60</textoffsetx>
                             <width>257</width>
-                            <height>60</height> 
+                            <height>60</height>
                             <onup>13</onup>
                             <onleft>10</onleft>
                             <onright>10</onright>
@@ -440,7 +440,7 @@
                             <textoffsetx>20</textoffsetx>
                             <spinposx>16</spinposx>
                             <onup>17</onup>
-                            <ondown>8000</ondown>
+                            <ondown>23</ondown>
                             <onleft>19</onleft>
                             <onright>19</onright>
                             <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(18)" reversible="false">Conditional</animation>
@@ -456,7 +456,7 @@
                             <posx>705</posx>
                             <posy>0</posy>
                             <width>258</width>
-                            <height>60</height> 
+                            <height>60</height>
                             <texturefocus border="54,2,2,2">dialogs/mediasource/desc-fo.png</texturefocus>
                             <texturenofocus>dialogs/mediasource/desc-nf.png</texturenofocus>
                             <alttexturefocus border="54,2,2,2">dialogs/mediasource/asc-fo.png</alttexturefocus>
@@ -473,15 +473,79 @@
                             <onright>18</onright>
                             <onleft>18</onleft>
                             <onup>17</onup>
-                            <ondown>8000</ondown>
+                            <ondown>24</ondown>
                             <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(19)" reversible="false">Conditional</animation>
+                        </control>
+                    </control>
+
+
+                    <control type="group" id="8004">
+                        <posy>248</posy>
+                        <control type="image">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>690</width>
+                            <height>61</height>
+                            <texture border="5">dialogs/default/inner.png</texture>
+                        </control>
+                        <control type="spincontrolex" id="23">
+                            <posx>0</posx>
+                            <posy>0</posy>
+                            <width>690</width>
+                            <label>$LOCALIZE[21458]</label>
+                            <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
+                            <texturedown>buttons/spinctrl/arrow-light-down-nf.png</texturedown>
+                            <textureupfocus>buttons/spinctrl/arrow-light-up-fo.png</textureupfocus>
+                            <texturedownfocus>buttons/spinctrl/arrow-light-down-fo.png</texturedownfocus>
+                            <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
+                            <textcolor>FF585858</textcolor>
+                            <focusedcolor>eewhite</focusedcolor>
+                            <disabledcolor>FF585858</disabledcolor>
+                            <shadowcolor>20FFFFFF</shadowcolor>
+                            <textoffsetx>20</textoffsetx>
+                            <spinposx>16</spinposx>
+                            <onup>18</onup>
+                            <ondown>8000</ondown>
+                            <onleft>24</onleft>
+                            <onright>24</onright>
+                            <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(23)" reversible="false">Conditional</animation>
+                        </control>
+                        <control type="image">
+                            <posx>704</posx>
+                            <posy>0</posy>
+                            <width>258</width>
+                            <height>61</height>
+                            <texture border="5">dialogs/default/inner.png</texture>
+                        </control>
+                        <control type="radiobutton" id="24">
+                            <posx>705</posx>
+                            <posy>0</posy>
+                            <width>258</width>
+                            <height>60</height>
+                            <texturefocus border="2">dialogs/options/buttons/default-fo.png</texturefocus>
+                            <textureradioon>buttons/radio/options-radio-button-fo.png</textureradioon>
+                            <textureradiooff>buttons/radio/options-radio-button-nf.png</textureradiooff>
+                            <radioposx>-29</radioposx>
+                            <textcolor>FF585858</textcolor>
+                            <focusedcolor>eewhite</focusedcolor>
+                            <disabledcolor>FF585858</disabledcolor>
+                            <shadowcolor>20FFFFFF</shadowcolor>
+                            <align>left</align>
+                            <font>Font-Condensed-S32</font>
+                            <textoffsetx>60</textoffsetx>
+                            <label>$LOCALIZE[21459]</label>
+                            <onright>23</onright>
+                            <onleft>23</onleft>
+                            <onup>19</onup>
+                            <ondown>8000</ondown>
+                            <animation effect="fade" start="100" end="50" time="0" condition="!Control.IsEnabled(24)" reversible="false">Conditional</animation>
                         </control>
                     </control>
                 </control>
             </control>
             <control type="group" id="8000">
                 <posx>466</posx>
-                <posy>864</posy>
+                <posy>901</posy>
                 <control type="button" id="20">
                     <description>Select</description>
                     <label>$LOCALIZE[42000]</label>
