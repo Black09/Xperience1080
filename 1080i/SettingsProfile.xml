@@ -3,10 +3,10 @@
     <allowoverlay>no</allowoverlay>
     <backgroundcolor>0</backgroundcolor>
     <controls>
-        
+
         <include>CommonSettingsItems</include>
         <include>SettingsHeader</include>
-        
+
         <control type="group">
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
@@ -27,72 +27,86 @@
                 <height>150</height>
                 <texture>windows/home/item-shadow.png</texture>
             </control>
-            
-            <control type="image">
+
+<!--             <control type="image">
                 <description>List separator</description>
                 <posx>355</posx>
                 <posy>191</posy>
                 <width>1210</width>
                 <height>91</height>
                 <texture border="90,3,90,3">views/list/other/separator.png</texture>
-            </control>
-            
-            <!-- SpinCtrl Focus -->
-            <control type="image">
-                <posx>357</posx>
-                <posy>191</posy>
-                <width>1210</width>
-                <height>91</height>
-                <texture>windows/settings/images/category-focus.png</texture>
-                <animation effect="fade" start="100" end="50" tween="sine" easing="inout" time="2000" pulse="true" reversible="false" condition="true">Conditional</animation>
-                <animation effect="fade" end="100" tween="sine" easing="inout" time="200">Visible</animation>
-                <animation effect="fade" end="0" tween="sine" easing="inout" time="200">Hidden</animation>
-                <visible>Control.HasFocus(4)</visible>
-            </control>
-            
-            <control type="label">
-                <description>Category</description>
-                <posx>391</posx>
-                <posy>203</posy>
-                <height>60</height>
-                <width>400</width>
-                <align>left</align>
-                <font>Font-Condensed-S37-B</font>
-                <label>$LOCALIZE[20096]</label>
-                <textcolor>white</textcolor>
-                <animation effect="fade" start="100" end="60" tween="sine" easing="inout" time="200" condition="!Control.HasFocus(4)">Conditional</animation>
-            </control>
-    
+            </control> -->
+
             <control type="radiobutton" id="4">
                 <posx>356</posx>
-                <posy>205</posy>
-                <height>60</height>
+                <posy>190</posy>
+                <height>77</height>
                 <width>1210</width>
-                <label>-</label>
-                <align>left</align>
-                <aligny>top</aligny>
-                <textcolor>96FFFFFF</textcolor>
-                <focusedcolor>white</focusedcolor>
-                <disabledcolor>-</disabledcolor>
-                <texturefocus>-</texturefocus>
-                <texturenofocus>-</texturenofocus>
+                <height>77</height>
                 <radioposx>1087</radioposx>
-                <font>Font-Condensed-S37-B</font>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$LOCALIZE[20096]</label>
+                <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
+                <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
+                <textcolor>96FFFFFF</textcolor>
+                <focusedcolor>eewhite</focusedcolor>
+                <disabledcolor>40FFFFFF</disabledcolor>
+                <font>Font-Condensed-S30-B</font>
+                <textoffsetx>35</textoffsetx>
                 <onup>2</onup>
-                <ondown>2</ondown>
+                <ondown>5</ondown>
                 <textoffsetx>35</textoffsetx>
                 <textoffsety>4</textoffsety>
             </control>
-            
+
+            <control type="button" id="5">
+                <description>Auto login button</description>
+                <posx>356</posx>
+                <posy>266</posy>
+                <height>77</height>
+                <width>1210</width>
+                <height>77</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>$LOCALIZE[42260]</label>
+                <label2>$INFO[System.ProfileAutoLogin]</label2>
+                <texturefocus border="150,3,150,3">windows/settings/images/right-focus.png</texturefocus>
+                <texturenofocus border="90,3,90,3">views/list/other/separator.png</texturenofocus>
+                <textcolor>96FFFFFF</textcolor>
+                <focusedcolor>eewhite</focusedcolor>
+                <disabledcolor>40FFFFFF</disabledcolor>
+                <font>Font-Condensed-S30-B</font>
+                <textoffsetx>35</textoffsetx>
+                <onup>4</onup>
+                <ondown>2</ondown>
+                <enable>!Window.IsVisible(ProfileSettings) + !System.HasLoginScreen</enable>
+            </control>
+
+            <control type="label" id="6">
+                <description>Profiles label</description>
+                <posx>356</posx>
+                <posy>357</posy>
+                <height>77</height>
+                <width>1210</width>
+                <height>77</height>
+                <align>left</align>
+                <aligny>center</aligny>
+                <label>Profiles</label>
+                <textcolor>66FFFFFF</textcolor>
+                <font>Font-Condensed-S36</font>
+                <textoffsetx>35</textoffsetx>
+            </control>
+
             <control type="list" id="2">
                 <description>Control Area</description>
                 <posx>356</posx>
-                <posy>281</posy>
+                <posy>433</posy>
                 <width>1210</width>
-                <height>609</height>
+                <height>457</height>
                 <onleft>noop</onleft>
                 <onright>40</onright>
-                <onup>4</onup>
+                <onup>5</onup>
                 <ondown>4</ondown>
                 <pagecontrol>40</pagecontrol>
                 <orientation>vertical</orientation>
