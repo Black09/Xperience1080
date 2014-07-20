@@ -7,7 +7,7 @@
             <visible>!Window.IsVisible(addonsettings) + !Window.IsVisible(selectdialog)</visible>
             <control type="group">
                 <include>FullscreenDimensions</include>
-                <animation type="Conditional" condition="Control.HasFocus(150) | Window.IsVisible(addonsettings)">
+                <animation type="Conditional" condition="Control.HasFocus(150) | Control.HasFocus(160) | Window.IsVisible(addonsettings)">
                     <effect type="rotatey" start="0" end="-180" center="960,0" time="300" tween="sine" easing="inout" />
                     <effect type="zoom" start="0,0,1920,1080" end="576,0,768,1080" center="960,640" time="150" tween="sine" easing="inout" />
                     <effect type="fade" start="100" end="0" time="0" delay="150" />
@@ -23,14 +23,14 @@
                     <aspectratio>stretch</aspectratio>
                 </control>
                 <control type="group">
-                    <control type="label">
+                    <control type="label" id="100">
                         <description>Settings</description>
                         <posx>510</posx>
                         <posy>244</posy>
                         <width>900</width>
                         <height>38</height>
                         <align>center</align>
-                        <label>XBMC Subtitles ($INFO[Container(150).ListItem.Label])</label>
+                        <!-- <label>XBMC Subtitles ($INFO[Container(150).ListItem.Label])</label> -->
                         <font>Font-Condensed-S34-B</font>
                         <textcolor>bbwhite</textcolor>
                         <shadowcolor>66000000</shadowcolor>
@@ -70,7 +70,6 @@
                         <visible allowhiddenfocus="true">Control.HasFocus(127)</visible>
                     </control>
                 </control>
-                <!-- ** Required ** Do not change <id>or<type>-->
                 <control type="group">
                     <control type="list" id="120">
                         <posx>420</posx>
@@ -89,7 +88,7 @@
                                 <posy>17</posy>
                                 <width>62</width>
                                 <height>42</height>
-                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/,/flag.png]</texture>
+                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/flags/,.png]</texture>
                             </control>
                             <control type="image">
                                 <posx>93</posx>
@@ -221,7 +220,7 @@
                                 <posy>17</posy>
                                 <width>62</width>
                                 <height>42</height>
-                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/,/flag.png]</texture>
+                                <texture>$INFO[ListItem.Thumb,dialogs/xbmcsubtitles/flags/,.png]</texture>
                             </control>
                             <control type="image">
                                 <posx>93</posx>
@@ -374,13 +373,13 @@
                             <width>100</width>
                             <height>100</height>
                             <texture>dialogs/xbmcsubtitles/subtitles.png</texture>
-                            <visible>!IsEmpty(Control.GetLabel(100)) + !Control.IsVisible(4001) + !Control.IsVisible(4002) + !Control.IsVisible(4003) + !Control.IsVisible(4004)</visible>
+                            <visible>!IsEmpty(Control.GetLabel(100)) + !Control.IsVisible(4001) + !Control.IsVisible(4002)</visible>
                             <include>XBMCSubtitlesShowHide</include>
                             <animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
                         </control>
                     </control>
                     <!-- Status -->
-                    <control type="label" id="100">
+                    <control type="label" id="140">
                         <visible>false</visible>
                     </control>
                     <control type="label">
@@ -391,12 +390,12 @@
                         <description>notification</description>
                         <font>Font-Condensed-S30-B</font>
                         <textcolor>aawhite</textcolor>
-                        <label>$INFO[Control.GetLabel(100)]</label>
+                        <label>$INFO[Control.GetLabel(140)]</label>
                         <aligny>center</aligny>
                         <wrapmultiline>false</wrapmultiline>
                         <scroll>false</scroll>
                         <visible>!Control.IsVisible(111)</visible>
-                        <animation effect="slide" start="0" end="-83" time="250" tween="sine" easing="inout" condition="!IsEmpty(Control.GetLabel(100)) + !Control.IsVisible(4001) + !Control.IsVisible(4002) + !Control.IsVisible(4003) + !Control.IsVisible(4004)">Conditional</animation>
+                        <animation effect="slide" start="0" end="-83" time="250" tween="sine" easing="inout" condition="!IsEmpty(Control.GetLabel(100)) + !Control.IsVisible(4001) + !Control.IsVisible(4002)">Conditional</animation>
                     </control>
                     <control type="label">
                         <posx>538</posx>
@@ -406,7 +405,7 @@
                         <description>notification</description>
                         <font>Font-Condensed-S30-B</font>
                         <textcolor>aawhite</textcolor>
-                        <label>$INFO[Control.GetLabel(100)]</label>
+                        <label>$INFO[Control.GetLabel(140)]</label>
                         <aligny>center</aligny>
                         <wrapmultiline>false</wrapmultiline>
                         <scroll>false</scroll>
@@ -420,7 +419,7 @@
                         <texture>overlays/scan/busy.png</texture>
                         <animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
                         <include>XBMCSubtitlesShowHide</include>
-                        <visible>stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT642]) | stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT646])</visible>
+                        <visible>stringcompare(Control.GetLabel(100),$LOCALIZE[24107])</visible>
                     </control>
                     <control type="image" id="4002">
                         <posx>435</posx>
@@ -430,27 +429,7 @@
                         <texture>overlays/scan/download.png</texture>
                         <animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
                         <include>XBMCSubtitlesShowHide</include>
-                        <visible>stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT649]) | stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT763])</visible>
-                    </control>
-                    <control type="image" id="4003">
-                        <posx>435</posx>
-                        <posy>751</posy>
-                        <width>100</width>
-                        <height>100</height>
-                        <texture>dialogs/xbmcsubtitles/error.png</texture>
-                        <animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
-                        <include>XBMCSubtitlesShowHide</include>
-                        <visible>stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT654]) | stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT656]) | substring(Control.GetLabel(100),$LOCALIZE[SCRIPT653]) | substring(Control.GetLabel(100),Error)</visible>
-                    </control>
-                    <control type="image" id="4004">
-                        <posx>435</posx>
-                        <posy>751</posy>
-                        <width>100</width>
-                        <height>100</height>
-                        <texture>dialogs/xbmcsubtitles/finished.png</texture>
-                        <animation effect="fade" start="65" end="100" time="500" tween="sine" easing="in" pulse="true" condition="true">Conditional</animation>
-                        <include>XBMCSubtitlesShowHide</include>
-                        <visible>stringcompare(Control.GetLabel(100),$LOCALIZE[SCRIPT652])</visible>
+                        <visible>stringcompare(Control.GetLabel(140),$LOCALIZE[24110])</visible>
                     </control>
                     <control type="label">
                         <posx>1465</posx>
@@ -476,14 +455,14 @@
                 </control>
             </control>
             <control type="image" id="128">
-                <visible>Control.HasFocus(150) | Window.IsVisible(addonsettings)</visible>
+                <visible>Control.HasFocus(150) | Control.HasFocus(160) | Window.IsVisible(addonsettings)</visible>
                 <animation effect="fade" end="0" time="0" delay="400">Hidden</animation>
             </control>
             <control type="group">
                 <include>FullscreenDimensions</include>
                 <animation effect="slide" start="0,0" end="0,-1080" time="0" condition="!Control.IsVisible(128)" reversible="false">Conditional</animation>
                 <animation effect="slide" start="0,-1080" end="0,0" time="0" condition="Control.IsVisible(128)" reversible="false">Conditional</animation>
-                <animation type="Conditional" condition="Control.HasFocus(150) | Window.IsVisible(addonsettings)">
+                <animation type="Conditional" condition="Control.HasFocus(150) | Control.HasFocus(160) | Window.IsVisible(addonsettings)">
                     <effect type="rotatey" start="180" end="0" center="960,0" time="300" tween="sine" easing="inout" />
                     <effect type="fade" start="0" end="100" time="0" delay="150" />
                 </animation>
@@ -508,13 +487,13 @@
                     <posx>771</posx>
                     <posy>294</posy>
                     <width>378</width>
-                    <height>532</height>
+                    <height>456</height>
                     <onleft>120</onleft>
                     <onright>120</onright>
-                    <onup>150</onup>
-                    <ondown>150</ondown>
+                    <onup>160</onup>
+                    <ondown>160</ondown>
                     <scrolltime>0</scrolltime>
-                    <itemlayout width="378" height="76">                        
+                    <itemlayout width="378" height="76">
                         <control type="label">
                             <posx>35</posx>
                             <posy>0</posy>
@@ -578,6 +557,24 @@
                             <visible>ListItem.Property(man)</visible>
                         </control>
                     </focusedlayout>
+                </control>
+                <control type="button" id="160">
+                    <description>Manual search button</description>
+                    <posx>771</posx>
+                    <posy>750</posy>
+                    <width>378</width>
+                    <height>76</height>
+                    <onleft>120</onleft>
+                    <onright>120</onright>
+                    <onup>150</onup>
+                    <ondown>150</ondown>
+                    <align>left</align>
+                    <textoffsetx>35</textoffsetx>
+                    <label>$LOCALIZE[24120]</label>
+                    <font>Font-Condensed-S30-B</font>
+                    <textcolor>96FFFFFF</textcolor>
+                    <focusedcolor>white</focusedcolor>
+                    <texturefocus border="150,1,150,1">windows/settings/images/right-focus.png</texturefocus>
                 </control>
             </control>
         </control>
