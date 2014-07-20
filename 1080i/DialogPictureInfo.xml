@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">6</defaultcontrol>
     <controls>
@@ -11,11 +12,11 @@
             </control>
             <control type="group">
                 <include>KeyboardAnimations</include>
-                
+
                 <control type="button" id="6">
                     <onfocus>SetFocus(5)</onfocus>
                 </control>
-                
+
                 <control type="label">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -26,7 +27,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="group">
                     <animation type="WindowOpen" reversible="false">
                         <effect type="fade" start="0" end="85" time="400" tween="sine" easing="inout" delay="400" />
@@ -71,7 +72,7 @@
                         </animation>
                     </control>
                 </control>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>246</posy>
@@ -79,7 +80,7 @@
                     <height>60</height>
                     <texture>dialogs/default/arrow.png</texture>
                 </control>
-                
+
                 <control type="image">
                     <posx>604</posx>
                     <posy>266</posy>
@@ -137,7 +138,7 @@
                             <aligny>center</aligny>
                             <textcolor>FF787878</textcolor>
                             <scroll>false</scroll>
-                        </control>  
+                        </control>
                     </itemlayout>
                     <focusedlayout height="60">
                         <control type="group">
@@ -174,7 +175,7 @@
                                 <aligny>center</aligny>
                                 <textcolor>FF787878</textcolor>
                                 <scroll>false</scroll>
-                            </control>  
+                            </control>
                         </control>
                         <control type="group">
                             <visible>Control.HasFocus(5)</visible>
@@ -210,8 +211,8 @@
                             </control>
                         </control>
                     </focusedlayout>
-                </control>              
-                
+                </control>
+
                 <control type="image" id="63">
                     <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
                 </control>

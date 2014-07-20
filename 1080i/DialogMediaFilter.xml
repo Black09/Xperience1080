@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
 	<defaultcontrol always="true">5</defaultcontrol>
 	<controls>
@@ -9,7 +10,7 @@
                 <include>KeyboardAnimations</include>
                 <include>OptionsShutdownAnimation</include>
                 <visible>!Window.IsVisible(virtualkeyboard) + !Window.IsVisible(selectdialog)</visible>
-                
+
                 <control type="image">
                     <posx>920</posx>
                     <posy>247</posy>
@@ -31,7 +32,7 @@
                 	<height>481</height>
                 	<texture border="5">dialogs/default/inner.png</texture>
                 </control>
-                
+
                 <control type="label" id="2">
                     <description>Heading</description>
                     <posx>473</posx>
@@ -42,7 +43,7 @@
                     <textcolor>ddwhite</textcolor>
                     <align>center</align>
                 </control>
-                
+
                 <control type="grouplist" id="5">
                     <description>control area</description>
                     <posx>479</posx>
@@ -57,7 +58,7 @@
                     <ondown>8004</ondown>
                     <scrolltime tween="cubic" easing="out">500</scrolltime>
                 </control>
-                
+
                 <control type="button" id="7">
                     <description>default</description>
                     <height>60</height>
@@ -71,7 +72,7 @@
                     <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                     <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
-                
+
                 <control type="radiobutton" id="8">
                     <description>radioButton</description>
                     <height>60</height>
@@ -87,7 +88,7 @@
                     <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                     <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
-                
+
                 <control type="spincontrolex" id="9">
                     <description>Directory Content</description>
                     <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
@@ -103,7 +104,7 @@
                     <textoffsetx>20</textoffsetx>
                     <spinposx>16</spinposx>
                 </control>
-                
+
                 <control type="sliderex" id="10">
                     <description>Default Slider</description>
                     <posx>0</posx>
@@ -123,7 +124,7 @@
                     <textoffsetx>20</textoffsetx>
                     <pulseonselect>false</pulseonselect>
                 </control>
-                
+
                 <control type="edit" id="12">
                     <description>default</description>
                     <posx>0</posx>
@@ -139,7 +140,7 @@
                     <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                     <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
                 </control>
-                
+
                 <control type="image" id="31">
                     <animation effect="fade" start="0" end="100" time="0">Visible</animation>
                     <animation effect="fade" start="100" end="0" time="0">Hidden</animation>
@@ -161,7 +162,7 @@
                     <orientation>vertical</orientation>
                     <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(31)">Conditional</animation>
                 </control>
-                
+
                 <control type="group" id="8004">
                     <posx>466</posx>
                     <posy>778</posy>

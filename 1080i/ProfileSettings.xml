@@ -1,13 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol>5</defaultcontrol>
     <backgroundcolor>0</backgroundcolor>
     <controls>
-        
+
         <control type="group">
             <include>KeyboardAnimations</include>
             <include>OptionsShutdownAnimation</include>
-            <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(locksettings)</visible>  
-        
+            <visible>!Window.IsVisible(filebrowser) + !Window.IsVisible(virtualkeyboard) + !Window.IsVisible(locksettings)</visible>
+
             <control type="image">
                 <posx>920</posx>
                 <posy>306</posy>
@@ -37,10 +38,10 @@
                 <width>80</width>
                 <height>80</height>
                 <align>center</align>
-                <aspectratio>scale</aspectratio>                
+                <aspectratio>scale</aspectratio>
                 <texture diffuse="windows/logon/profile_mask.png" />
             </control>
-            
+
             <control type="label">
                 <posx>473</posx>
                 <posy>278</posy>
@@ -51,7 +52,7 @@
                 <label>$INFO[Control.GetLabel(1000)]</label>
                 <visible>IsEmpty(Control.GetLabel(2))</visible>
             </control>
-            
+
             <control type="grouplist" id="5">
                 <description>Control Area</description>
                 <posx>578</posx>
@@ -67,7 +68,7 @@
                 <ondown>1004</ondown>
                 <scrolltime tween="cubic" easing="out">500</scrolltime>
             </control>
-            
+
             <control type="label" id="1000">
                 <description>profile name</description>
                 <posx>1322</posx>
@@ -79,7 +80,7 @@
                 <textcolor>FF585858</textcolor>
                 <visible>!ControlGroup(5).HasFocus() | !ControlGroup(5).HasFocus(30)</visible>
             </control>
-            
+
             <control type="label">
                 <description>profile name</description>
                 <posx>1322</posx>
@@ -92,7 +93,7 @@
                 <textcolor>eewhite</textcolor>
                 <visible>ControlGroup(5).HasFocus() + ControlGroup(5).HasFocus(30)</visible>
             </control>
-            
+
             <control type="image">
                 <description>profile image</description>
                 <posx>1282</posx>
@@ -101,7 +102,7 @@
                 <height>40</height>
                 <texture>$INFO[Control.GetLabel(2)]</texture>
             </control>
-            
+
             <control type="label" id="1001">
                 <description>profile location</description>
                 <posx>1322</posx>
@@ -113,7 +114,7 @@
                 <textcolor>FF585858</textcolor>
                 <visible>[!ControlGroup(5).HasFocus() | !ControlGroup(5).HasFocus(32)] + !IsEmpty(Control.GetLabel(33))</visible>
             </control>
-            
+
             <control type="label">
                 <description>profile location</description>
                 <posx>1322</posx>
@@ -126,7 +127,7 @@
                 <textcolor>eewhite</textcolor>
                 <visible>ControlGroup(5).HasFocus() + ControlGroup(5).HasFocus(32) + !IsEmpty(Control.GetLabel(33))</visible>
             </control>
-            
+
             <control type="button" id="7">
                 <description>-</description>
                 <height>60</height>
@@ -141,7 +142,7 @@
                 <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                 <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
             </control>
-            
+
             <control type="radiobutton" id="8">
                 <description>-</description>
                 <height>60</height>
@@ -159,7 +160,7 @@
                 <texturefocus border="2">dialogs/default/highlight.png</texturefocus>
                 <texturenofocus>dialogs/default/separator-btn.png</texturenofocus>
             </control>
-            
+
             <control type="spincontrolex" id="9">
                 <description>-</description>
                 <textureup>buttons/spinctrl/arrow-light-up-nf.png</textureup>
@@ -177,7 +178,7 @@
                 <textoffsetx>20</textoffsetx>
                 <spinposx>16</spinposx>
             </control>
-            
+
             <control type="sliderex" id="10">
                 <description>Slider</description>
                 <textcolor>FF585858</textcolor>
@@ -193,7 +194,7 @@
                 <textureslidernib>buttons/OSD/orb_nofo.png</textureslidernib>
                 <textureslidernibfocus>buttons/OSD/orb_fo.png</textureslidernibfocus>
             </control>
-            
+
             <control type="group" id="1004">
                 <posx>565</posx>
                 <posy>716</posy>

@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">20</defaultcontrol>
     <allowoverlay>no</allowoverlay>
     <backgroundcolor>0</backgroundcolor>
     <controls>
-        
+
         <include>CommonSettingsItems</include>
         <include>SettingsHeader</include>
-        
+
         <control type="group">
             <include>OptionsShutdownAnimation</include>
             <animation type="WindowClose">
@@ -19,7 +20,7 @@
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
                     <effect type="zoom" start="88" end="100" center="576,560" tween="cubic" easing="out" time="400" />
                 </animation>
-                            
+
                 <control type="label">
                     <description>Category</description>
                     <posx>483</posx>
@@ -31,7 +32,7 @@
                     <label>[UPPERCASE]$LOCALIZE[42130][/UPPERCASE]</label>
                     <textcolor>aawhite</textcolor>
                 </control>
-                
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>178</posx>
@@ -40,7 +41,7 @@
                     <width>342</width>
                     <texture border="4">views/list/panel/panel.png</texture>
                 </control>
-                
+
                 <!-- Side Buttons -->
                 <control type="grouplist" id="20">
                     <description>Button Area</description>
@@ -154,13 +155,13 @@
                 </control>
             </control>
             <control type="group">
-                <posx>175</posx> 
+                <posx>175</posx>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="545" delay="75" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="75" />
-                    <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="75" /> 
+                    <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="75" />
                 </animation>
-                
+
                 <control type="label">
                     <description>Settings info</description>
                     <posx>390</posx>
@@ -172,7 +173,7 @@
                     <label>[UPPERCASE]$INFO[Window.Property(CurrentButtonLabel)][/UPPERCASE]</label>
                     <textcolor>aawhite</textcolor>
                 </control>
-                          
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>353</posx>
@@ -189,7 +190,7 @@
                     <height>150</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-                
+
                 <control type="grouplist">
                     <description>Info Area</description>
                     <posx>355</posx>
@@ -234,7 +235,7 @@
                         <include>SettingsSystemInfoLabel</include>
                     </control>-->
                 </control>
-                
+
                 <control type="image">
                     <posx>355</posx>
                     <posy>661</posy>
@@ -242,7 +243,7 @@
                     <height>77</height>
                     <texture border="90,3,90,3">views/list/other/separator.png</texture>
                 </control>
-                
+
                 <control type="image">
                     <posx>1220</posx>
                     <posy>767</posy>
@@ -250,7 +251,7 @@
                     <height>100</height>
                     <texture>windows/settings/xbmc-logo.png</texture>
                 </control>
-                
+
                 <control type="group">
                     <posx>355</posx>
                     <posy>769</posy>

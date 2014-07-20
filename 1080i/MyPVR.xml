@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window id="600">
 	<defaultcontrol>32</defaultcontrol>
 	<allowoverlay>no</allowoverlay>
 	<controls>
 	    <include>CommonPVRItems</include>
         <include>PVRHeader</include>
-        
+
         <control type="group">
             <posx>0</posx>
             <animation type="WindowClose">
@@ -174,7 +175,7 @@
                 </control>
             </control>
         </control>
-        
+
         <control type="label" id="29">
         	<description>Empty so we can pass the values up one level</description>
         	<visible>False</visible>
@@ -183,7 +184,7 @@
         	<description>Empty so we can pass the values up one level</description>
         	<visible>False</visible>
         </control>
-        
+
         <!-- Scrollbar visibility controls -->
         <control type="image" id="9773">
             <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
@@ -198,7 +199,7 @@
             <animation effect="fade" start="100" end="0" time="0" delay="1500">Hidden</animation>
             <visible>!Control.HasFocus(70) + [[Container(10).Scrolling | Container(10).OnScrollNext | Container(10).OnScrollPrevious] | [Container(11).Scrolling | Container(11).OnScrollNext | Container(11).OnScrollPrevious] | [Container(12).Scrolling | Container(12).OnScrollNext | Container(12).OnScrollPrevious] | [Container(13).Scrolling | Container(13).OnScrollNext | Container(13).OnScrollPrevious] | [Container(14).Scrolling | Container(14).OnScrollNext | Container(14).OnScrollPrevious] | [Container(15).Scrolling | Container(15).OnScrollNext | Container(15).OnScrollPrevious] | [Container(16).Scrolling | Container(16).OnScrollNext | Container(16).OnScrollPrevious] | [Container(17).Scrolling | Container(17).OnScrollNext | Container(17).OnScrollPrevious]]</visible>
         </control>
-        
+
         <include>Common-Info</include>
 	</controls>
 </window>

@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol>-</defaultcontrol>
     <zorder>10</zorder>
@@ -18,7 +19,7 @@
             <visible>!Window.IsActive(fullscreenvideo) + !Window.IsActive(visualisation) + !Window.IsVisible(startup)</visible>
             <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
             <animation type="Conditional" condition="Window.IsActive(volumebar)">
-                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                 <effect type="zoom" start="100" end="50" center="1745,100" tween="sine" easing="inout" time="300" />
             </animation>
             <control type="group">

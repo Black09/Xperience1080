@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window type="dialog" id="3002">
     <defaultcontrol always="true">3</defaultcontrol>
     <allowoverlay>no</allowoverlay>
@@ -5,7 +6,7 @@
         <control type="group">
             <include>KeyboardAnimations</include>
             <visible>!Window.IsVisible(filebrowser)</visible>
-            
+
             <control type="label">
                 <description>Heading</description>
                 <posx>473</posx>
@@ -17,7 +18,7 @@
                 <align>center</align>
                 <visible>IsEmpty(Window(skinsettings).property(CustomDialog))</visible>
             </control>
-            
+
             <control type="label">
                 <description>Heading</description>
                 <posx>473</posx>
@@ -29,7 +30,7 @@
                 <align>center</align>
                 <visible>!IsEmpty(Window(skinsettings).property(CustomDialog))</visible>
             </control>
-            
+
             <control type="image">
                 <posx>920</posx>
                 <posy>299</posy>
@@ -65,7 +66,7 @@
             	<height>61</height>
             	<texture border="5">dialogs/default/inner.png</texture>
             </control>
-            
+
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41251])">SettingsBackgroundDialogGlobal</include>
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[5])">SettingsBackgroundDialogSettings</include>
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[342])">SettingsBackgroundDialogMovies</include>
@@ -73,7 +74,7 @@
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[2])">SettingsBackgroundDialogMusic</include>
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[41504])">SettingsBackgroundDialogPrograms</include>
             <include condition="stringcompare(Window(skinsettings).property(Dialog),$LOCALIZE[12600])">SettingsBackgroundDialogWeather</include>
-            
+
             <control type="group">
                 <posx>547</posx>
                 <posy>723</posy>

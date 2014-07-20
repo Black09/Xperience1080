@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol>30</defaultcontrol>
     <allowoverlay>no</allowoverlay>
@@ -7,7 +8,7 @@
     <controls>
         <include>CommonSettingsItems</include>
         <include>SettingsHeader</include>
-        
+
         <control type="group">
             <include>OptionsShutdownAnimation</include>
             <animation type="WindowClose">
@@ -29,7 +30,7 @@
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" />
                     <effect type="zoom" start="88" end="100" center="576,560" tween="cubic" easing="out" time="400" />
                 </animation>
-                            
+
                 <control type="label">
                     <description>Category</description>
                     <posx>483</posx>
@@ -41,7 +42,7 @@
                     <label>[UPPERCASE]$LOCALIZE[42130][/UPPERCASE]</label>
                     <textcolor>aawhite</textcolor>
                 </control>
-                
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>178</posx>
@@ -50,7 +51,7 @@
                     <width>342</width>
                     <texture border="4">views/list/panel/panel.png</texture>
                 </control>
-                
+
                 <control type="list" id="30">
                     <posx>180</posx>
                     <posy>281</posy>
@@ -150,11 +151,11 @@
                 </control>
             </control>
             <control type="group">
-                <posx>175</posx> 
+                <posx>175</posx>
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="545" delay="75" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="75" />
-                    <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="75" /> 
+                    <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="75" />
                 </animation>
                 <control type="label">
                     <description>Category</description>
@@ -167,7 +168,7 @@
                     <label>[UPPERCASE]$LOCALIZE[5]:[/UPPERCASE]$INFO[Container(30).ListItem.Label, ,]</label>
                     <textcolor>aawhite</textcolor>
                 </control>
-                          
+
                 <!-- Panel -->
                 <control type="image">
                     <posx>353</posx>
@@ -184,7 +185,7 @@
                     <height>150</height>
                     <texture>windows/home/item-shadow.png</texture>
                 </control>
-                <!-- =============== -->    
+                <!-- =============== -->
                 <!-- General Settings -->
                 <!-- =============== -->
                 <control type="grouplist" id="5">
@@ -351,8 +352,8 @@
                         </control>
                     </control>
                 </control>
-            
-                <!-- ============= -->  
+
+                <!-- ============= -->
                 <!-- Home Settings -->
                 <!-- ============= -->
                 <control type="grouplist" id="5">
@@ -535,9 +536,9 @@
                             <visible>ControlGroup(2007).HasFocus</visible>
                         </control>
                     </control>
-                </control>              
-                
-                <!-- ============== --> 
+                </control>
+
+                <!-- ============== -->
                 <!-- View Settings  -->
                 <!-- ============== -->
                 <control type="grouplist" id="5">
@@ -580,8 +581,8 @@
                         <onclick>ActivateWindow(3006)</onclick>
                     </control>
                 </control>
-                
-                <!-- ============= --> 
+
+                <!-- ============= -->
                 <!-- OSD Settings  -->
                 <!-- ============= -->
                 <control type="grouplist" id="5">
@@ -639,7 +640,7 @@
                         <animation effect="fade" start="100" end="42" time="0" condition="!Control.IsEnabled(8007)">Conditional</animation>
                     </control>
                 </control>
-                
+
                 <!-- Background Settings -->
                 <control type="grouplist" id="5">
                     <onleft>30</onleft>
@@ -723,8 +724,8 @@
                         <onclick>ActivateWindow(3002)</onclick>
                     </control>
                 </control>
-                
-                <!-- =================== -->    
+
+                <!-- =================== -->
                 <!-- Guide menu Settings -->
                 <!-- =================== -->
                 <control type="grouplist" id="5">
@@ -826,8 +827,8 @@
                         <visible>Skin.HasSetting(Guide.Custom4)</visible>
                     </control>
                 </control>
-                
-                <!-- ================ -->    
+
+                <!-- ================ -->
                 <!-- Live tv Settings -->
                 <!-- ================ -->
                 <control type="grouplist" id="5">
@@ -842,8 +843,8 @@
                         <label>$LOCALIZE[41221]</label>
                     </control>
                 </control>
-                
-                <!-- =============== -->    
+
+                <!-- =============== -->
                 <!-- Add-on Settings -->
                 <!-- =============== -->
                 <control type="grouplist" id="5">
@@ -908,7 +909,7 @@
                         <visible>System.HasAddon(script.artwork.downloader)</visible>
                     </control>
                 </control>
-                
+
                 <control type="image" id="42">
                     <animation effect="fade" start="100" end="0" time="0" delay="1500">WindowOpen</animation>
                 </control>

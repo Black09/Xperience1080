@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <allowoverlay>no</allowoverlay>
     <backgroundcolor>0</backgroundcolor>
@@ -14,7 +15,7 @@
                 <visible>!Window.IsActive(movieinformation) + !Window.IsActive(musicinformation) + !Window.IsActive(addoninformation)</visible>
                 <animation effect="slide" end="-76" time="300" tween="sine" easing="inout" condition="Window.IsActive(busydialog)">Conditional</animation>
                 <animation type="Conditional" condition="Window.IsActive(infodialog) | Window.IsActive(volumebar)">
-                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                    <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                     <effect type="zoom" start="100" end="50" center="1745,100" tween="sine" easing="inout" time="300" />
                 </animation>
                 <control type="group">
@@ -95,11 +96,11 @@
                     <texture>DefaultMusicSearch.png</texture>
                     <visible>!Container(111).Scrolling + !Container(121).Scrolling + !Container(131).Scrolling + !Container(141).Scrolling + !Container(151).Scrolling + !Container(161).Scrolling + !Container(171).Scrolling + !Container(181).Scrolling</visible>
                     <animation type="Hidden">
-                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" /> 
+                        <effect type="fade" start="100" end="8" tween="sine" easing="out" time="300" />
                         <effect type="zoom" start="100" end="50" center="60,75" tween="sine" easing="inout" time="300" />
                     </animation>
                     <animation type="Visible">
-                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" /> 
+                        <effect type="fade" start="8" end="100" tween="sine" easing="out" time="300" delay="2000" />
                         <effect type="zoom" start="50" end="100" center="60,75" tween="sine" easing="inout" time="300" delay="2000" />
                     </animation>
                 </control>

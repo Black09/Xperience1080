@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol>20</defaultcontrol>
     <allowoverlay>no</allowoverlay>
@@ -226,7 +227,7 @@
                                 <height>60</height>
                                 <texture>$INFO[ListItem.Icon,windows/filemanager/icons/,/fo.png]</texture>
                                 <aspectratio>keep</aspectratio>
-                            </control> 
+                            </control>
                             <control type="label">
                                 <posx>70</posx>
                                 <posy>0</posy>
@@ -295,7 +296,7 @@
                         <animation effect="fade" start="75" end="0" time="300" tween="sine" easing="inout" condition="!Control.IsVisible(31)">Conditional</animation>
                     </control>
                 </control>
-                
+
                 <!-- Right -->
                 <control type="group">
                     <posx>968</posx>
@@ -303,7 +304,7 @@
                     <animation type="WindowOpen">
                         <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="545" delay="105" />
                         <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                        <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="105" /> 
+                        <effect type="zoom" start="76" end="100" center="1344,560" tween="cubic" easing="out" time="400" delay="105" />
                     </animation>
                     <control type="group" id="45">
                         <visible allowhiddenfocus="true">!stringcompare(Control.GetLabel(102),$LOCALIZE[20108])</visible>
