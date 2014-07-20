@@ -3,12 +3,12 @@
 <!-- List (50) -->
 <!-- ========= -->
     <include name="Viewtype-List">
-    
+
         <control type="group">
             <visible>Control.IsVisible(50) + !Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + !Window.IsActive(addoninformation) + !Window.IsActive(favourites)</visible>
             <include>CommonViewAnimations</include>
             <include>OptionsShutdownAnimation</include>
-        
+
             <control type="label">
             	<posx>430</posx>
             	<posy>152</posy>
@@ -23,7 +23,7 @@
             	<animation effect="slide" end="34" time="0" condition="Container.Content(Seasons)">Conditional</animation>
             	<animation effect="slide" end="182" time="0" condition="Container.Content(Episodes)">Conditional</animation>
             </control>
-        
+
             <control type="image">
                 <posx>248</posx>
                 <posy>187</posy>
@@ -39,7 +39,7 @@
                 <height>150</height>
                 <texture>windows/home/item-shadow.png</texture>
             </control>
-            
+
             <control type="list" id="50">
                 <posx>250</posx>
                 <posy>190</posy>
@@ -1036,7 +1036,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <control type="image">
@@ -1085,10 +1085,10 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
-                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" /> 
+                    <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="175" />
                 </animation>
                 <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
-                    <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="475" /> 
+                    <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="475" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="475" />
                     <effect type="zoom" start="70" end="100" center="1522,438" tween="cubic" easing="out" time="400" delay="475" />
                 </animation>
@@ -1098,7 +1098,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <control type="group">
@@ -1278,7 +1278,7 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" /> 
+                    <effect type="zoom" start="80" end="100" center="867,438" tween="cubic" easing="out" time="400" delay="105" />
                 </animation>
                 <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="405" />
@@ -1291,7 +1291,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <animation effect="slide" end="588" time="400" tween="cubic" easing="inout" condition="![Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)] + substring(Container.FolderPath,plugin,left) + Container.HasFiles">Conditional</animation>
@@ -1558,7 +1558,7 @@
                             <textcolor>77white</textcolor>
                             <shadowcolor>22000000</shadowcolor>
                             <scroll>false</scroll>
-                            <visible>!IsEmpty(ListItem.Property(NumEpisodes)</visible>
+                            <visible>!IsEmpty(ListItem.Property(NumEpisodes))</visible>
                         </control>
                         <control type="group">
                             <visible>IntegerGreaterThan(ListItem.Property(unWatchedEpisodes),0)</visible>
@@ -2039,7 +2039,7 @@
                     <posx>1804</posx>
                     <posy>357</posy>
                     <width>6</width>
-                    <height>370</height>                    
+                    <height>370</height>
                     <onleft>52</onleft>
                     <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                     <onright condition="Skin.HasSetting(KioskMode)">52</onright>
@@ -2055,7 +2055,7 @@
                     <posx>1804</posx>
                     <posy>602</posy>
                     <width>6</width>
-                    <height>203</height>                    
+                    <height>203</height>
                     <onleft>52</onleft>
                     <onright condition="!Skin.HasSetting(KioskMode)">9010</onright>
                     <onright condition="Skin.HasSetting(KioskMode)">52</onright>
@@ -2069,7 +2069,7 @@
             </control>
         </control>
     </include>
-    
+
 <!-- ========== -->
 <!-- Panel (53) -->
 <!-- ========== -->
@@ -2082,7 +2082,7 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="105" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="105" />
-                    <effect type="zoom" start="80" end="100" center="786,438" tween="cubic" easing="out" time="400" delay="105" /> 
+                    <effect type="zoom" start="80" end="100" center="786,438" tween="cubic" easing="out" time="400" delay="105" />
                 </animation>
                 <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="645" delay="405" />
@@ -2095,7 +2095,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
@@ -2227,7 +2227,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <animation effect="slide" end="210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
@@ -2260,10 +2260,10 @@
                 <animation type="WindowOpen">
                     <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="175" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="175" />
-                    <effect type="zoom" start="70" end="100" center="1441,438" tween="cubic" easing="out" time="400" delay="175" /> 
+                    <effect type="zoom" start="70" end="100" center="1441,438" tween="cubic" easing="out" time="400" delay="175" />
                 </animation>
                 <animation type="Visible" condition="IsEmpty(Window(home).property(NoAnimation)) + !Window.Next(visualisation)" reversible="false">
-                    <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="475" /> 
+                    <effect type="slide" start="200" end="0" tween="cubic" easing="out" time="575" delay="475" />
                     <effect type="fade" start="0" end="100" tween="sine" easing="inout" time="300" delay="475" />
                     <effect type="zoom" start="70" end="100" center="1441,438" tween="cubic" easing="out" time="400" delay="475" />
                 </animation>
@@ -2273,9 +2273,9 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
-                </animation>                
+                </animation>
                 <animation effect="slide" end="-210" time="400" tween="cubic" easing="inout" condition="[!IntegerGreaterThan(Container(53).NumItems,3) + !System.GetBool(filelists.showparentdiritems)] | [!IntegerGreaterThan(Container(53).NumItems,2) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 <animation effect="slide" end="-140" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,3) + !IntegerGreaterThan(Container(53).NumItems,6) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,2) + !IntegerGreaterThan(Container(53).NumItems,5) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
                 <animation effect="slide" end="-70" time="400" tween="cubic" easing="inout" condition="[IntegerGreaterThan(Container(53).NumItems,6) + !IntegerGreaterThan(Container(53).NumItems,9) + !System.GetBool(filelists.showparentdiritems)] | [IntegerGreaterThan(Container(53).NumItems,5) + !IntegerGreaterThan(Container(53).NumItems,8) + System.GetBool(filelists.showparentdiritems)]">Conditional</animation>
@@ -2393,7 +2393,7 @@
         <control type="group">
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
-            
+
             <control type="image" id="81">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="100" delay="700" time="0" />
@@ -2402,7 +2402,7 @@
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
             </control>
-            
+
             <control type="group">
                 <posx>100</posx>
                 <posy>260</posy>
@@ -2419,7 +2419,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -2549,7 +2549,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -2679,7 +2679,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -2809,7 +2809,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -2941,7 +2941,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3052,10 +3052,10 @@
                 </control>
             </control>
 
-            <control type="group">      
+            <control type="group">
                 <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(54) + !Window.IsActive(favourites)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>                           
+                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <control type="fixedlist" id="54">
                     <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                     <posx>-392</posx>
@@ -3369,7 +3369,7 @@
         <control type="group">
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
-            
+
             <control type="image" id="80">
                 <animation type="WindowOpen" reversible="false">
                     <effect type="fade" start="0" end="100" delay="700" time="0" />
@@ -3378,7 +3378,7 @@
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
                 <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
             </control>
-            
+
             <control type="group">
                 <posx>113</posx>
                 <posy>240</posy>
@@ -3398,7 +3398,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3460,7 +3460,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3515,7 +3515,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3577,7 +3577,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3639,7 +3639,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3701,7 +3701,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3762,7 +3762,7 @@
                     </animation>
                     <include>GuideNoAnimation</include>
                     <animation type="Hidden" reversible="false">
-                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" /> 
+                        <effect type="zoom" start="100" end="115" center="960,360" tween="sine" delay="0" easing="out" time="300" />
                         <effect type="fade" start="100" end="0" tween="cubic" easing="out" delay="0" time="300" />
                     </animation>
                     <animation type="WindowClose" reversible="false">
@@ -3828,11 +3828,11 @@
                     </control>
                 </control>
             </control>
-            
-            <control type="group">      
+
+            <control type="group">
                 <visible>!Window.IsActive(movieinformation) + !Window.IsActive(script-Actors-DialogInfo.xml) + !Window.IsActive(script-Actors-DialogVideoInfo.xml) + IsEmpty(Window(Home).Property(script.metadata.actors.hasparent)) + Control.IsVisible(55) + !Window.IsActive(favourites)</visible>
                 <animation effect="fade" start="100" end="0" time="0" reversible="false">Hidden</animation>
-                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>       
+                <animation effect="fade" start="0" end="100" time="0" delay="1000" reversible="false">Visible</animation>
                 <control type="fixedlist" id="55">
                     <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Actors) | Container.Content(Sets)</visible>
                     <posx>-259</posx>
@@ -4131,7 +4131,7 @@
                     <effect type="zoom" start="100" end="85" time="300" center="960,600" tween="sine" easing="out" />
                 </animation>
                 <animation type="Hidden" reversible="false">
-                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" /> 
+                    <effect type="zoom" start="100" end="125" center="960,600" tween="sine" easing="out" time="350" />
                     <effect type="fade" start="100" end="0" tween="cubic" easing="out" time="250" />
                 </animation>
                 <control type="image">
@@ -4488,7 +4488,7 @@
             </control>
         </control>
     </include>
-    
+
 <!-- ============================= -->
 <!-- Movie/TV Show Thumbnail (501) -->
 <!-- ============================= -->
@@ -4851,12 +4851,12 @@
 <!-- =========== -->
 <!-- Banner (60) -->
 <!-- =========== -->
-    <include name="Viewtype-Banner">        
+    <include name="Viewtype-Banner">
         <control type="group">
             <include>FullscreenDimensions</include>
             <include>OptionsShutdownAnimation</include>
             <include>BannerListAnimations</include>
-            <visible>Control.IsVisible(60)</visible>        
+            <visible>Control.IsVisible(60)</visible>
             <control type="fixedlist" id="60">
                 <visible>Container.Content(Movies) | Container.Content(TVShows) | Container.Content(Seasons) | Container.Content(Episodes) | Container.Content(Sets)</visible>
                 <posx>0</posx>
@@ -5267,7 +5267,7 @@
                     <control type="group">
                         <posx>580</posx>
                         <animation effect="slide" start="0,64" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(60).OnPrevious">Focus</animation>
-                        <animation effect="slide" start="0,-64" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(60).OnNext">Focus</animation>                      
+                        <animation effect="slide" start="0,-64" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(60).OnNext">Focus</animation>
                         <control type="image">
                             <posx>0</posx>
                             <posy>0</posy>
